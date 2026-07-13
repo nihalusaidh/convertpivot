@@ -3,21 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Content Manager — ConvertPivot</title>
-<script src="https://cdn.jsdelivr.net/npm/decap-cms@latest/dist/decap-cms.js"></script>
-<style>body{margin:0;font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#0f0f0f;color:#e0e0e0;display:flex;align-items:center;justify-content:center;min-height:100vh;text-align:center;padding:20px}.loader{display:inline-block;width:28px;height:28px;border:3px solid #333;border-top-color:#FF0000;border-radius:50%;animation:spin 1s linear infinite;margin-bottom:16px}@keyframes spin{to{transform:rotate(360deg)}}</style>
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,segoe ui,roboto,arial,sans-serif;background:#0f0f0f;color:#e0e0e0;display:flex;align-items:center;justify-content:center;min-height:100vh;text-align:center;padding:20px}
+.loader{display:inline-block;width:28px;height:28px;border:3px solid #333;border-top-color:#FF0000;border-radius:50%;animation:spin 1s linear infinite;margin-bottom:16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
 </head>
 <body>
 <div id="cmsStatus"><div class="loader"></div><div>Loading CMS...</div></div>
+<script src="https://cdn.jsdelivr.net/npm/decap-cms@latest/dist/decap-cms.js"></script>
 <script>
 (function(){
-  var statusEl = document.getElementById('cmsStatus');
+  var el = document.getElementById('cmsStatus');
   var tries = 0;
   var maxTries = 30;
-
-  function tryInit() {
+  function go() {
     if (typeof CMS !== 'undefined' && CMS.init) {
-      statusEl.style.display = 'none';
+      el.style.display = 'none';
       CMS.init({
         config: {
           backend: {
@@ -63,15 +67,11 @@
       });
     } else {
       tries++;
-      if (tries < maxTries) {
-        setTimeout(tryInit, 200);
-      } else {
-        statusEl.innerHTML = '<div style="color:#ef4444;font-size:1.1rem;margin-bottom:8px">CMS Failed to Load</div><p style="color:#888;font-size:0.85rem">Check your internet connection and <a href="javascript:location.reload()" style="color:#FF0000">refresh</a>.</p>';
-      }
+      if (tries < maxTries) { setTimeout(go, 200); }
+      else { el.innerHTML = '<div style="color:#ef4444;font-size:1.1rem;margin-bottom:8px">CMS Failed to Load</div><p style="color:#888;font-size:0.85rem">Refresh the page to try again.</p>'; }
     }
   }
-
-  tryInit();
+  go();
 })();
 </script>
 </body>

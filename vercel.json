@@ -1,6 +1,5 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false,
   "functions": {
     "api/analytics.js": {
       "memory": 256,
