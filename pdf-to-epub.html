@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF to EPUB — Convert PDF to E-book Online | ConvertPivot</title>
+  <meta name="description" content="Convert PDF documents to EPUB e-book format. Free online PDF to EPUB converter. 100% browser-based, no upload required.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/pdf-to-epub">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/pdf-to-epub">
+  <meta property="og:title" content="PDF to EPUB — Convert PDF to E-book Online | ConvertPivot">
+  <meta property="og:description" content="Convert PDF documents to EPUB e-book format. Free online PDF to EPUB converter. 100% browser-based, no upload required.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PDF to EPUB — Convert PDF to E-book Online | ConvertPivot">
+  <meta name="twitter:description" content="Convert PDF documents to EPUB e-book format. Free online PDF to EPUB converter. 100% browser-based, no upload required.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"PDF to EPUB Converter","url":"https://convertpivot.com/pdf-to-epub","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online PDF to EPUB converter. Convert PDF documents to EPUB e-book format. 100% browser-based, no upload."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I convert scanned PDFs to EPUB?","acceptedAnswer":{"@type":"Answer","text":"Scanned PDFs are image-based and do not have a selectable text layer. This tool extracts the existing text layer, so scanned documents will produce an EPUB with little or no content. OCR software would be needed first."}},{"@type":"Question","name":"Does the EPUB preserve images and formatting?","acceptedAnswer":{"@type":"Answer","text":"This converter extracts text content only. Original images, fonts, colors, tables, and complex layouts from the PDF are not preserved in the EPUB output. The result is a clean, reflowable e-book focused on readability."}},{"@type":"Question","name":"What EPUB version does this tool generate?","acceptedAnswer":{"@type":"Answer","text":"The tool generates EPUB 2 files, which offer broad compatibility across e-book readers including Kobo, iPad, Google Play Books, Adobe Digital Editions, and most reading apps. EPUB 2 also works with modified Kindle devices via conversion tools like Calibre."}},{"@type":"Question","name":"Are my PDFs uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All conversion happens entirely in your browser using PDF.js for text extraction and JSZip for EPUB packaging. Your files never leave your device."}},{"@type":"Question","name":"Is there a file size limit for conversion?","acceptedAnswer":{"@type":"Answer","text":"Since processing occurs in your browser, large PDFs may be limited by available memory. For best results, keep files under 50MB. Close unused browser tabs before converting large documents."}},{"@type":"Question","name":"Will the generated EPUB work on Amazon Kindle?","acceptedAnswer":{"@type":"Answer","text":"Kindle natively uses AZW3 and KFX formats, not EPUB directly. However, you can use Calibre or Amazon's Send to Kindle service to convert the EPUB for use on your Kindle device."}},{"@type":"Question","name":"Can I convert password-protected or encrypted PDFs?","acceptedAnswer":{"@type":"Answer","text":"This tool cannot open encrypted or password-protected PDFs. You must remove the password protection using a PDF unlocker before converting to EPUB. PDF.js does not support decryption."}},{"@type":"Question","name":"How does the tool determine reading order?","acceptedAnswer":{"@type":"Answer","text":"PDF.js extracts text items with their position coordinates. The converter reads text top-to-bottom, left-to-right based on these coordinates. Simple single-column PDFs produce the best results. Multi-column layouts may have reading order issues."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/">PDF Tools</a><span class="sep">›</span><span class="current">PDF to EPUB</span></nav>
+    <div class="tool-header">
+      <h1>📚 PDF to EPUB — Convert PDF to E-book Online</h1>
+      <p>Convert PDF documents to EPUB e-book format using PDF.js. Each PDF page becomes a reflowable XHTML page in a valid EPUB 2 package. Download your e-book in one click.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your files never leave your device.</span></div>
+    <div class="converter-widget" id="pdfToEpubWidget">
+      <div class="drop-zone" id="pdfToEpubDropZone">
+        <div class="drop-zone-icon">📄</div>
+        <div class="drop-zone-text">Drop <strong>PDF</strong> here, or click to browse</div>
+        <div class="drop-zone-hint">Supports PDF files — converts to EPUB e-book format</div>
+        <input type="file" accept=".pdf,application/pdf" aria-label="Choose PDF file">
+      </div>
+      <div class="file-list" id="pdfToEpubFileList"></div>
+      <div class="converter-controls">
+        <button class="btn btn-primary" id="pdfToEpubConvertBtn">Convert to EPUB</button>
+      </div>
+      <div class="progress-bar" id="pdfToEpubProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="pdfToEpubResult"><div class="converter-result-message"></div></div>
+      <div class="text-output-area" id="pdfToEpubOutput" style="display:none;">
+        <div class="text-output-header">
+          <span id="pdfToEpubStats"></span>
+          <div>
+            <button class="btn btn-success" id="pdfToEpubDownloadBtn">⬇ Download EPUB</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Convert PDF to EPUB</h2>
+      <p>Drop a PDF file onto the converter above. Click "Convert to EPUB" to begin processing. The tool uses PDF.js to extract all selectable text from each page of your PDF. It then packages the content into a valid EPUB 2 e-book structure: each PDF page becomes a separate XHTML file with clean formatting. A title page is automatically generated, and a table of contents is built from the page sequence. The EPUB file is zipped using JSZip and offered for download.</p>
+      <p>Digital-born PDFs (created from word processors or publishing software) produce the best results because they contain a full text layer. Scanned documents lack this layer and will produce minimal content. For the highest quality output, ensure your source PDF has selectable text throughout.</p>
+    </div>
+    <div class="content-section">
+      <h2>PDF to EPUB — Pros and Cons</h2>
+      <h3>EPUB vs PDF for Reading</h3>
+      <p><strong>Pros of EPUB:</strong> Reflowable text adapts to any screen size, adjustable font size and type, smaller file size compared to PDF, supports bookmarks and annotations, compatible with most e-readers (Kobo, iPad, Google Play Books), open standard format.</p>
+      <p><strong>Cons of EPUB:</strong> Loses original page layout and formatting, does not preserve images from the source PDF, tables and multi-column layouts may not reflow correctly, not natively supported on Kindle without conversion, complex page headers and footers may appear inline in the text.</p>
+      <h3>Text Extraction vs Full Conversion</h3>
+      <p><strong>Text extraction (this tool):</strong> Reads the selectable text layer from the PDF and arranges it into reflowable XHTML pages. Fast, private, and reliable for text-rich documents. Formatting, images, embedded fonts, and precise positioning are not preserved.</p>
+      <p><strong>Full layout conversion (server-based):</strong> Attempts to recreate the visual layout including images, tables, and positioning. Requires file uploads to a server and more processing time. Often produces larger files and may still have layout discrepancies.</p>
+      <h3>When to Convert PDF to EPUB</h3>
+      <p><strong>Ideal for:</strong> Novels, reports, academic papers, manuals, and any text-heavy document that you want to read on an e-reader or mobile device. EPUB's reflowable nature makes it perfect for documents where text readability matters more than exact layout.</p>
+      <p><strong>Not ideal for:</strong> Forms, certificates, brochures, magazines with complex layouts, image-heavy documents, or any file where preserving the exact visual design is critical.</p>
+    </div>
+    <div class="content-section">
+      <h2>Understanding the EPUB Format</h2>
+      <p>EPUB is an open e-book standard maintained by the International Digital Publishing Forum (IDPF). An EPUB file is essentially a ZIP archive containing XHTML content files, CSS stylesheets, metadata, and navigation files. The format is designed for reflowable content, meaning the text automatically wraps and adjusts to fit the screen size of whatever device you are reading on.</p>
+      <p>Key components of an EPUB file include the <code>mimetype</code> file (which must be stored uncompressed), the <code>META-INF/container.xml</code> that points to the package document, the <code>content.opf</code> file that lists all resources and defines the reading order, and the <code>toc.ncx</code> file that provides the table of contents navigation. This structure ensures compatibility across a wide range of e-book readers and software.</p>
+      <p>EPUB 2, which this tool generates, uses XHTML 1.1 for content markup and is supported by virtually all e-book reading devices and applications. The format supports CSS styling, embedded fonts, and metadata such as title, author, and language.</p>
+    </div>
+    <div class="content-section">
+      <h2>PDF to EPUB Conversion Quality</h2>
+      <p>The quality of the EPUB output depends heavily on the source PDF. Digital-born PDFs with a clean text layer and simple single-column layout produce excellent results. Complex multi-column layouts, headers and footers, and mixed text-and-image pages may have reading order issues. Below is a summary of expected quality based on PDF type.</p>
+      <table class="format-table"><thead><tr><th>PDF Type</th><th>EPUB Quality</th><th>Notes</th></tr></thead><tbody>
+        <tr><td>Digital-born (Word, Docs)</td><td>Excellent</td><td>Clean text layer, reliable extraction</td></tr>
+        <tr><td>Web-generated (HTML to PDF)</td><td>Good</td><td>Clean text, minor spacing adjustments</td></tr>
+        <tr><td>Scanned (image-based)</td><td>None</td><td>No extractable text — OCR required</td></tr>
+        <tr><td>Multi-column layout</td><td>Fair</td><td>Reading order may need manual fixing</td></tr>
+        <tr><td>Mixed text + images</td><td>Fair</td><td>Only text content is included</td></tr>
+      </tbody></table>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">Can I convert scanned PDFs to EPUB? <span class="arrow">▼</span></button><div class="faq-answer">Scanned PDFs are image-based and do not have a selectable text layer. This tool extracts the existing text layer, so scanned documents will produce an EPUB with little or no content. OCR software would be needed first.</div></div>
+        <div class="faq-item"><button class="faq-question">Does the EPUB preserve images and formatting? <span class="arrow">▼</span></button><div class="faq-answer">This converter extracts text content only. Original images, fonts, colors, tables, and complex layouts from the PDF are not preserved in the EPUB output. The result is a clean, reflowable e-book focused on readability.</div></div>
+        <div class="faq-item"><button class="faq-question">What EPUB version does this tool generate? <span class="arrow">▼</span></button><div class="faq-answer">The tool generates EPUB 2 files, which offer broad compatibility across e-book readers including Kobo, iPad, Google Play Books, Adobe Digital Editions, and most reading apps. EPUB 2 also works with modified Kindle devices via conversion tools like Calibre.</div></div>
+        <div class="faq-item"><button class="faq-question">Are my PDFs uploaded to a server? <span class="arrow">▼</span></button><div class="faq-answer">No. All conversion happens entirely in your browser using PDF.js for text extraction and JSZip for EPUB packaging. Your files never leave your device.</div></div>
+        <div class="faq-item"><button class="faq-question">Is there a file size limit for conversion? <span class="arrow">▼</span></button><div class="faq-answer">Since processing occurs in your browser, large PDFs may be limited by available memory. For best results, keep files under 50MB. Close unused browser tabs before converting large documents.</div></div>
+        <div class="faq-item"><button class="faq-question">Will the generated EPUB work on Amazon Kindle? <span class="arrow">▼</span></button><div class="faq-answer">Kindle natively uses AZW3 and KFX formats, not EPUB directly. However, you can use Calibre or Amazon's Send to Kindle service to convert the EPUB for use on your Kindle device.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I convert password-protected or encrypted PDFs? <span class="arrow">▼</span></button><div class="faq-answer">This tool cannot open encrypted or password-protected PDFs. You must remove the password protection using a PDF unlocker before converting to EPUB. PDF.js does not support decryption.</div></div>
+        <div class="faq-item"><button class="faq-question">How does the tool determine reading order? <span class="arrow">▼</span></button><div class="faq-answer">PDF.js extracts text items with their position coordinates. The converter reads text top-to-bottom, left-to-right based on these coordinates. Simple single-column PDFs produce the best results. Multi-column layouts may have reading order issues.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/epub-to-pdf" class="related-tool-card">EPUB to PDF <span class="desc">Convert EPUB back to PDF</span></a>
+        <a href="/epub-to-txt" class="related-tool-card">EPUB to TXT <span class="desc">Extract text from EPUB files</span></a>
+        <a href="/pdf-to-word" class="related-tool-card">PDF to Word <span class="desc">Convert PDF to DOCX</span></a>
+        <a href="/pdf-to-text" class="related-tool-card">PDF to Text <span class="desc">Extract text from PDF</span></a>
+        <a href="/jpg-to-pdf" class="related-tool-card">JPG to PDF <span class="desc">Convert images to PDF</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script>
+  (function() {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    var currentFile = null;
+    var epubBlob = null;
+    var epubStats = {};
+    var dropZone = document.getElementById('pdfToEpubDropZone');
+    var fileListEl = document.getElementById('pdfToEpubFileList');
+    var outputArea = document.getElementById('pdfToEpubOutput');
+    var statsEl = document.getElementById('pdfToEpubStats');
+
+    dropZone.querySelector('input[type="file"]').addEventListener('change', function() {
+      if (this.files && this.files.length > 0) {
+        handleFile(this.files[0]);
+        this.value = '';
+      }
+    });
+
+    dropZone.addEventListener('dragover', function(e) { e.preventDefault(); dropZone.classList.add('drag-over'); });
+    dropZone.addEventListener('dragleave', function() { dropZone.classList.remove('drag-over'); });
+    dropZone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        handleFile(e.dataTransfer.files[0]);
+      }
+    });
+
+    function handleFile(file) {
+      if (!file || file.type !== 'application/pdf') {
+        ConvertPivot.showResult('pdfToEpubResult', 'Please select a valid PDF file.', 'error');
+        return;
+      }
+      currentFile = file;
+      epubBlob = null;
+      outputArea.style.display = 'none';
+      ConvertPivot.hideResult('pdfToEpubResult');
+      renderFileList();
+      dropZone.style.display = 'none';
+    }
+
+    function renderFileList() {
+      if (!currentFile) {
+        fileListEl.innerHTML = '';
+        dropZone.style.display = '';
+        return;
+      }
+      var html = '<div class="file-list-header">Selected file</div>';
+      html += '<div class="file-list-item">';
+      html += '<span class="file-list-icon" style="font-size:1.5rem;margin-right:8px;">📄</span>';
+      html += '<span class="file-list-name">' + currentFile.name + '</span>';
+      html += '<span class="file-list-size">' + ConvertPivot.formatFileSize(currentFile.size) + '</span>';
+      html += '<button class="file-list-remove" id="pdfToEpubRemoveBtn">✕</button>';
+      html += '</div>';
+      fileListEl.innerHTML = html;
+      document.getElementById('pdfToEpubRemoveBtn').addEventListener('click', function() {
+        currentFile = null;
+        dropZone.style.display = '';
+        fileListEl.innerHTML = '';
+        outputArea.style.display = 'none';
+        epubBlob = null;
+        ConvertPivot.hideResult('pdfToEpubResult');
+      });
+    }
+
+    document.getElementById('pdfToEpubConvertBtn').addEventListener('click', async function() {
+      if (!currentFile) { ConvertPivot.showResult('pdfToEpubResult', 'Please select a PDF file first.', 'error'); return; }
+      ConvertPivot.hideResult('pdfToEpubResult');
+      outputArea.style.display = 'none';
+      epubBlob = null;
+      var progress = ConvertPivot.showProgress('pdfToEpubProgress');
+      try {
+        var arrayBuffer = await currentFile.arrayBuffer();
+        var pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer.slice(0) }).promise;
+        var numPages = pdfDoc.numPages;
+        var pages = [];
+
+        for (var i = 1; i <= numPages; i++) {
+          var page = await pdfDoc.getPage(i);
+          var content = await page.getTextContent();
+          var lastY = null;
+          var lines = [];
+          var currentLine = '';
+          for (var j = 0; j < content.items.length; j++) {
+            var item = content.items[j];
+            var y = Math.round(item.transform[5]);
+            if (lastY !== null && Math.abs(y - lastY) > 3) {
+              if (currentLine.trim()) lines.push(currentLine.trim());
+              currentLine = '';
+            } else if (lastY !== null && item.hasEOL) {
+              if (currentLine.trim()) lines.push(currentLine.trim());
+              currentLine = '';
+            }
+            currentLine += item.str;
+            lastY = y;
+          }
+          if (currentLine.trim()) lines.push(currentLine.trim());
+          pages.push(lines);
+          progress.set(Math.round((i / numPages) * 50));
+        }
+
+        // Build EPUB
+        var zip = new JSZip();
+        var baseName = currentFile.name.replace(/\.pdf$/i, '');
+        var totalChars = 0;
+
+        // mimetype (must be uncompressed)
+        zip.file('mimetype', 'application/epub+zip', { compress: false });
+
+        // META-INF/container.xml
+        zip.folder('META-INF').file('container.xml',
+          '<?xml version="1.0" encoding="UTF-8"?>\n' +
+          '<container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">\n' +
+          '  <rootfiles>\n' +
+          '    <rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/>\n' +
+          '  </rootfiles>\n' +
+          '</container>'
+        );
+
+        // EPUB CSS
+        var epubCss =
+          'body { font-family: Georgia, "Times New Roman", serif; line-height: 1.6; margin: 0; padding: 1em; color: #333; }\n' +
+          '.page { max-width: 30em; margin: 0 auto; }\n' +
+          'h1, h2, h3, h4, h5, h6 { font-family: Arial, Helvetica, sans-serif; font-weight: normal; line-height: 1.3; }\n' +
+          'h1 { font-size: 1.6em; margin: 1em 0 0.5em; }\n' +
+          'h2 { font-size: 1.3em; margin: 1em 0 0.5em; }\n' +
+          'h3 { font-size: 1.1em; margin: 0.8em 0 0.4em; }\n' +
+          'p { margin: 0 0 0.5em 0; text-indent: 0; orphans: 2; widows: 2; }\n' +
+          '.title-page { text-align: center; padding-top: 30%; }\n' +
+          '.title-page h1 { font-size: 2em; margin-bottom: 0.5em; }\n' +
+          '.title-page .subtitle { font-size: 1em; color: #666; }\n' +
+          '.page-break { page-break-before: always; }';
+
+        var oebps = zip.folder('OEBPS');
+        oebps.folder('Styles').file('epub.css', epubCss);
+
+        var manifest = [];
+        var spine = [];
+        var navPoints = [];
+        var playOrder = 0;
+
+        // Title page
+        playOrder++;
+        var titleId = 'title_page';
+        var titleXhtml =
+          '<?xml version="1.0" encoding="UTF-8"?>\n' +
+          '<!DOCTYPE html>\n' +
+          '<html xmlns="http://www.w3.org/1999/xhtml">\n' +
+          '<head><title>Title Page</title>\n' +
+          '<link rel="stylesheet" type="text/css" href="../Styles/epub.css"/>\n' +
+          '</head>\n' +
+          '<body>\n' +
+          '<div class="title-page page">\n' +
+          '<h1>' + escapeXml(baseName) + '</h1>\n' +
+          '<p class="subtitle">Converted from PDF to EPUB</p>\n' +
+          '<p class="subtitle">' + numPages + ' page(s)</p>\n' +
+          '</div>\n' +
+          '</body>\n' +
+          '</html>';
+        oebps.folder('Text').file(titleId + '.xhtml', titleXhtml);
+        manifest.push({ id: titleId, href: 'Text/' + titleId + '.xhtml', mediaType: 'application/xhtml+xml' });
+        spine.push({ idref: titleId });
+        navPoints.push({ id: titleId, label: 'Title Page', src: 'Text/' + titleId + '.xhtml', order: playOrder });
+
+        // Content pages
+        for (var p = 0; p < pages.length; p++) {
+          playOrder++;
+          var pageNum = p + 1;
+          var pageId = 'page_' + padZero(pageNum, 3);
+
+          var paraHtml = '';
+          var pageLines = pages[p];
+          totalChars += pageLines.join(' ').length;
+
+          for (var k = 0; k < pageLines.length; k++) {
+            var line = pageLines[k].trim();
+            if (!line) continue;
+            if (isHeadingLine(line)) {
+              if (line.length < 60) {
+                paraHtml += '<h3>' + escapeXml(line) + '</h3>\n';
+              } else {
+                paraHtml += '<h2>' + escapeXml(line) + '</h2>\n';
+              }
+            } else {
+              paraHtml += '<p>' + escapeXml(line) + '</p>\n';
+            }
+          }
+
+          var pageXhtml =
+            '<?xml version="1.0" encoding="UTF-8"?>\n' +
+            '<!DOCTYPE html>\n' +
+            '<html xmlns="http://www.w3.org/1999/xhtml">\n' +
+            '<head><title>Page ' + pageNum + '</title>\n' +
+            '<link rel="stylesheet" type="text/css" href="../Styles/epub.css"/>\n' +
+            '</head>\n' +
+            '<body>\n' +
+            '<div class="page page-break">\n' +
+            paraHtml +
+            '</div>\n' +
+            '</body>\n' +
+            '</html>';
+
+          oebps.folder('Text').file(pageId + '.xhtml', pageXhtml);
+          manifest.push({ id: pageId, href: 'Text/' + pageId + '.xhtml', mediaType: 'application/xhtml+xml' });
+          spine.push({ idref: pageId });
+          navPoints.push({ id: pageId, label: 'Page ' + pageNum, src: 'Text/' + pageId + '.xhtml', order: playOrder });
+
+          if (p % 5 === 0) {
+            progress.set(50 + Math.round((p / pages.length) * 40));
+          }
+        }
+
+        // Build NCX
+        var ncxXml = buildNcx(baseName, generateUuid(), navPoints);
+        manifest.push({ id: 'ncx', href: 'toc.ncx', mediaType: 'application/x-dtbncx+xml' });
+        oebps.file('toc.ncx', ncxXml);
+
+        // Build OPF
+        var opfXml = buildOpf(baseName, generateUuid(), manifest, spine);
+        oebps.file('content.opf', opfXml);
+
+        progress.set(95);
+
+        epubBlob = await zip.generateAsync({ type: 'blob' });
+        epubStats = { pages: numPages, chars: totalChars, size: epubBlob.size };
+
+        statsEl.textContent = numPages + ' page(s) | ' + totalChars.toLocaleString() + ' character(s) | ' + ConvertPivot.formatFileSize(epubBlob.size);
+        outputArea.style.display = 'block';
+        progress.done();
+        ConvertPivot.showResult('pdfToEpubResult', 'EPUB e-book generated successfully from ' + numPages + ' page(s). Click Download to save.', 'success');
+      } catch (err) {
+        progress.done();
+        ConvertPivot.showResult('pdfToEpubResult', 'Conversion failed: ' + err.message, 'error');
+      }
+    });
+
+    document.getElementById('pdfToEpubDownloadBtn').addEventListener('click', function() {
+      if (!epubBlob) { ConvertPivot.showResult('pdfToEpubResult', 'No EPUB to download. Convert a PDF first.', 'error'); return; }
+      var baseName = currentFile ? currentFile.name.replace(/\.pdf$/i, '') : 'document';
+      ConvertPivot.downloadFile(epubBlob, baseName + '.epub', 'application/epub+zip');
+    });
+
+    // Helper functions
+    function padZero(n, len) {
+      var s = String(n);
+      while (s.length < len) { s = '0' + s; }
+      return s;
+    }
+
+    function escapeXml(str) {
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+    }
+
+    function isHeadingLine(line) {
+      var t = line.trim();
+      if (!t) return false;
+      if (t.length > 120) return false;
+      if (/^[A-Z\s\.\,\;\:\-]{3,}$/.test(t) && t.length > 3) return true;
+      if (/^(Chapter|Section|Part|Appendix|Introduction|Preface|Foreword|Acknowledgments|Bibliography|Index|References)\b/i.test(t)) return true;
+      return false;
+    }
+
+    function generateUuid() {
+      if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+        return crypto.randomUUID();
+      }
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0;
+        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+      });
+    }
+
+    function buildNcx(title, uid, navPoints) {
+      var xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+      xml += '<!DOCTYPE ncx PUBLIC "-//NISO//DTD ncx 2005-1//EN" "http://www.dtd.org/NISO/2005/DTD/ncx.dtd">\n';
+      xml += '<ncx xmlns="http://www.dtd.org/NISO/2005/DTD/ncx" version="2005-1">\n';
+      xml += '  <head>\n';
+      xml += '    <meta name="dtb:uid" content="' + escapeXml(uid) + '"/>\n';
+      xml += '    <meta name="dtb:depth" content="1"/>\n';
+      xml += '    <meta name="dtb:totalPageCount" content="0"/>\n';
+      xml += '    <meta name="dtb:maxPageNumber" content="0"/>\n';
+      xml += '  </head>\n';
+      xml += '  <docTitle><text>' + escapeXml(title) + '</text></docTitle>\n';
+      xml += '  <navMap>\n';
+      for (var i = 0; i < navPoints.length; i++) {
+        var np = navPoints[i];
+        xml += '    <navPoint id="' + np.id + '" playOrder="' + np.order + '">\n';
+        xml += '      <navLabel><text>' + escapeXml(np.label) + '</text></navLabel>\n';
+        xml += '      <content src="' + np.src + '"/>\n';
+        xml += '    </navPoint>\n';
+      }
+      xml += '  </navMap>\n';
+      xml += '</ncx>\n';
+      return xml;
+    }
+
+    function buildOpf(title, uid, manifest, spine) {
+      var xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+      xml += '<package xmlns="http://www.idpf.org/2007/opf" version="2.0" unique-identifier="BookId">\n';
+      xml += '  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">\n';
+      xml += '    <dc:identifier id="BookId">' + escapeXml(uid) + '</dc:identifier>\n';
+      xml += '    <dc:title>' + escapeXml(title) + '</dc:title>\n';
+      xml += '    <dc:language>en</dc:language>\n';
+      xml += '    <dc:creator>ConvertPivot</dc:creator>\n';
+      xml += '    <dc:publisher>ConvertPivot</dc:publisher>\n';
+      xml += '    <dc:date>' + new Date().toISOString().split('T')[0] + '</dc:date>\n';
+      xml += '    <dc:description>Converted from PDF to EPUB using ConvertPivot</dc:description>\n';
+      xml += '  </metadata>\n';
+      xml += '  <manifest>\n';
+      for (var i = 0; i < manifest.length; i++) {
+        var item = manifest[i];
+        xml += '    <item id="' + item.id + '" href="' + item.href + '" media-type="' + item.mediaType + '"/>\n';
+      }
+      xml += '    <item id="css" href="Styles/epub.css" media-type="text/css"/>\n';
+      xml += '  </manifest>\n';
+      xml += '  <spine toc="ncx">\n';
+      for (var j = 0; j < spine.length; j++) {
+        xml += '    <itemref idref="' + spine[j].idref + '"/>\n';
+      }
+      xml += '  </spine>\n';
+      xml += '</package>\n';
+      return xml;
+    }
+  })();
+  </script>
+  <style>
+  .file-list { margin-top: 16px; }
+  .file-list-header { font-size: 0.85rem; font-weight: 600; color: var(--color-graphite); margin-bottom: 8px; }
+  .file-list-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--color-smoke); border: 1px solid var(--color-mist); border-radius: var(--radius-card); margin-bottom: 6px; }
+  .file-list-name { flex: 1; font-size: 0.85rem; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .file-list-size { font-size: 0.8rem; color: var(--color-graphite); flex-shrink: 0; }
+  .file-list-remove { background: none; border: none; cursor: pointer; color: var(--color-graphite); font-size: 1rem; padding: 4px; flex-shrink: 0; }
+  .file-list-remove:hover { color: var(--color-red); }
+  .text-output-area { margin-top: 20px; }
+  .text-output-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .text-output-header span { font-size: 0.85rem; color: var(--color-graphite); font-weight: 500; }
+  </style>
+</body>
+</html>

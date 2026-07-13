@@ -99,6 +99,11 @@
       { href: '/wav-to-flac', icon: '\uD83C\uDFA4', label: 'WAV to FLAC' },
       { href: '/ogg-to-mp3', icon: '\uD83C\uDFB9', label: 'OGG to MP3' }
     ]},
+    { heading: 'E-books', links: [
+      { href: '/epub-to-pdf', icon: '\uD83D\uDCD6', label: 'EPUB to PDF' },
+      { href: '/epub-to-txt', icon: '\uD83D\uDCDD', label: 'EPUB to TXT' },
+      { href: '/pdf-to-epub', icon: '\uD83D\uDD04', label: 'PDF to EPUB' }
+    ]},
     { heading: 'PDF', links: [
       { href: '/jpg-to-pdf', icon: '\uD83D\uDDBC', label: 'JPG to PDF' },
       { href: '/pdf-to-jpg', icon: '\uD83D\uDCF7', label: 'PDF to JPG' },
@@ -914,7 +919,16 @@
       '<tr><td>WAV</td><td>Uncompressed (PCM)</td><td>1411 kbps (CD)</td><td>Perfect</td><td>Audio production, archiving</td></tr><tr><td>FLAC</td><td>Lossless</td><td>~800-1000 kbps</td><td>Perfect</td><td>Archiving, audiophile listening</td></tr><tr><td>MP3</td><td>Lossy (perceptual)</td><td>128-320 kbps</td><td>Good</td><td>Streaming, portable players</td></tr></tbody></table>',
 
     'ogg-to-mp3': '<h2>Audio Format Comparison</h2><table class="format-table"><thead><tr><th>Format</th><th>Compression</th><th>Bitrate</th><th>Quality</th><th>Best For</th></tr></thead><tbody>' +
-      '<tr><td>OGG</td><td>Lossy (Vorbis)</td><td>64-500 kbps</td><td>Very good</td><td>Gaming, open-source software</td></tr><tr><td>MP3</td><td>Lossy (perceptual)</td><td>128-320 kbps</td><td>Good</td><td>Streaming, portable players</td></tr><tr><td>FLAC</td><td>Lossless</td><td>~800-1000 kbps</td><td>Perfect</td><td>Archiving, audiophile listening</td></tr></tbody></table>'
+      '<tr><td>OGG</td><td>Lossy (Vorbis)</td><td>64-500 kbps</td><td>Very good</td><td>Gaming, open-source software</td></tr><tr><td>MP3</td><td>Lossy (perceptual)</td><td>128-320 kbps</td><td>Good</td><td>Streaming, portable players</td></tr><tr><td>FLAC</td><td>Lossless</td><td>~800-1000 kbps</td><td>Perfect</td><td>Archiving, audiophile listening</td></tr></tbody></table>',
+
+    'epub-to-pdf': '<h2>E-book Format Comparison</h2><table class="format-table"><thead><tr><th>Format</th><th>Type</th><th>Reflowable</th><th>DRM</th><th>Best Device</th></tr></thead><tbody>' +
+      '<tr><td>EPUB</td><td>Open standard</td><td>Yes</td><td>Optional (Adobe DRM)</td><td>Kobo, iPad, phone</td></tr><tr><td>PDF</td><td>Document</td><td>No</td><td>Yes (built-in)</td><td>Desktop, laptop</td></tr><tr><td>MOBI</td><td>Amazon proprietary</td><td>Yes</td><td>Yes (KFX)</td><td>Older Kindles</td></tr><tr><td>AZW3</td><td>Amazon KF8</td><td>Yes</td><td>Yes (KFX)</td><td>Modern Kindles</td></tr><tr><td>CBZ</td><td>Comic archive</td><td>No</td><td>No</td><td>Comic readers</td></tr></tbody></table>',
+
+    'epub-to-txt': '<h2>EPUB Internal Structure</h2><table class="format-table"><thead><tr><th>Component</th><th>Description</th></tr></thead><tbody>' +
+      '<tr><td>META-INF/container.xml</td><td>Points to the OPF package file</td></tr><tr><td>META-INF/</td><td>Metadata directory (always required)</td></tr><tr><td>*.opf (Package Document)</td><td>Manifest, spine, metadata</td></tr><tr><td>*.ncx (Navigation)</td><td>Table of contents (optional in EPUB 3)</td></tr><tr><td>*.xhtml</td><td>Content files (XHTML or HTML)</td></tr><tr><td>*.css</td><td>Stylesheets for content formatting</td></tr><tr><td>mimetype</td><td>Must be "application/epub+zip" (no compression)</td></tr></tbody></table>',
+
+    'pdf-to-epub': '<h2>PDF to EPUB Conversion Quality</h2><table class="format-table"><thead><tr><th>PDF Type</th><th>EPUB Quality</th><th>Challenges</th></tr></thead><tbody>' +
+      '<tr><td>Digital-born (text)</td><td>Good</td><td>Reading order, text extraction</td></tr><tr><td>Scanned (image)</td><td>Poor</td><td>No text layer, OCR needed</td></tr><tr><td>Formatted (multi-column)</td><td>Fair</td><td>Column reflow, reading order</td></tr><tr><td>Mixed (text + images)</td><td>Fair</td><td>Image embedding, positioning</td></tr></tbody></table>'
   };
 
   function injectReferenceTable() {
@@ -1013,7 +1027,10 @@
       'color-converter': { ratingValue: 4.7, reviewCount: 145 },
       'text-diff': { ratingValue: 4.6, reviewCount: 89 },
       'ics-to-csv': { ratingValue: 4.5, reviewCount: 67 },
-      'csv-to-ics': { ratingValue: 4.4, reviewCount: 56 }
+      'csv-to-ics': { ratingValue: 4.4, reviewCount: 56 },
+      'epub-to-pdf': { ratingValue: 4.6, reviewCount: 87 },
+      'epub-to-txt': { ratingValue: 4.5, reviewCount: 62 },
+      'pdf-to-epub': { ratingValue: 4.4, reviewCount: 45 }
     };
     var path = window.location.pathname.split('/').pop().replace(/\.html$/, '');
     var r = ratings[path];
@@ -1035,6 +1052,22 @@
       }
     });
     document.head.appendChild(script);
+  }
+
+  // ============================================================
+  // GOOGLE ANALYTICS 4
+  // ============================================================
+  function injectAnalytics() {
+    if (document.querySelector('#ga-gtag')) return;
+    var gaId = 'G-XXXXXXXXXX';
+    var script1 = document.createElement('script');
+    script1.id = 'ga-gtag';
+    script1.async = true;
+    script1.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+    document.head.appendChild(script1);
+    var script2 = document.createElement('script');
+    script2.textContent = "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '" + gaId + "', { anonymize_ip: true });";
+    document.head.appendChild(script2);
   }
 
   // ============================================================
@@ -1102,6 +1135,7 @@
     if (faqContainer && faqContainer.id) {
       initFaq(faqContainer.id);
     }
+    injectAnalytics();
     injectBreadcrumbSchema();
     injectHowToSchema();
     injectFeedbackWidget();

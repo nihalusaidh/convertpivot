@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EPUB to TXT — Extract Text from EPUB Online | ConvertPivot</title>
+  <meta name="description" content="Free online EPUB to TXT text extractor. Extract text from EPUB e-book files in your browser. View chapters, copy extracted text, or download as .txt file. 100% browser-based.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/epub-to-txt">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/epub-to-txt">
+  <meta property="og:title" content="EPUB to TXT — Extract Text from EPUB Online | ConvertPivot">
+  <meta property="og:description" content="Free online EPUB to TXT text extractor. Extract text from EPUB e-book files in your browser. View chapters, copy extracted text, or download as .txt file.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EPUB to TXT — Extract Text from EPUB Online | ConvertPivot">
+  <meta name="twitter:description" content="Free online EPUB to TXT text extractor. Extract text from EPUB e-book files in your browser. View chapters, copy extracted text, or download as .txt file.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"EPUB to TXT Text Extractor","url":"https://convertpivot.com/epub-to-txt","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online EPUB to TXT text extractor. Extract text from EPUB e-books using JSZip and DOMParser. 100% browser-based, no upload."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does EPUB to TXT extraction work?","acceptedAnswer":{"@type":"Answer","text":"EPUB is a ZIP file containing XHTML content documents. The tool reads the ZIP structure using JSZip, locates the OPF manifest file via container.xml, identifies the spine order of chapters, parses each XHTML file, strips HTML tags using DOMParser, and concatenates the clean text into a single output."}},{"@type":"Question","name":"Can I extract text from DRM-protected EPUBs?","acceptedAnswer":{"@type":"Answer","text":"No. This tool cannot process DRM-protected (Digital Rights Management) EPUB files. You must remove DRM first using authorized tools, which may violate copyright laws. Only convert EPUB files that you own and are DRM-free."}},{"@type":"Question","name":"Are my EPUB files uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All text extraction happens entirely in your browser using JSZip and the native DOMParser API. EPUB files are read locally and never leave your device."}},{"@type":"Question","name":"Can I select which chapters to include?","acceptedAnswer":{"@type":"Answer","text":"Yes. After extraction, the tool displays a chapter list with checkboxes. You can uncheck chapters you want to exclude and click Update Output to regenerate the text with only selected chapters."}},{"@type":"Question","name":"What is the maximum file size for EPUB conversion?","acceptedAnswer":{"@type":"Answer","text":"Since all processing occurs in your browser, very large EPUB files may be limited by available memory. For best results, keep files under 50 MB. EPUB files with hundreds of chapters may take longer to parse."}},{"@type":"Question","name":"Can I copy the extracted text to clipboard?","acceptedAnswer":{"@type":"Answer","text":"Yes. After extraction, a Copy to Clipboard button lets you copy all extracted text with one click. You can also manually select text within the output textarea."}},{"@type":"Question","name":"What formatting is preserved in the text output?","acceptedAnswer":{"@type":"Answer","text":"The tool extracts plain text only. All HTML formatting, images, fonts, colors, CSS styling, and layout information are stripped. Chapter headings are preserved as text headers. The output is UTF-8 plain text compatible with any text editor."}},{"@type":"Question","name":"Does the tool handle EPUB 3.0 files?","acceptedAnswer":{"@type":"Answer","text":"Yes. The tool supports both EPUB 2.0 and EPUB 3.0 formats. Both use the same ZIP container structure with container.xml pointing to the OPF file. EPUB 3.0 files may include additional XHTML namespaces, but the text extraction process works identically."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/">E-book Tools</a><span class="sep">›</span><span class="current">EPUB to TXT</span></nav>
+    <div class="tool-header">
+      <h1>📄 EPUB to TXT — Extract Text from E-Books</h1>
+      <p>Extract readable text content from EPUB e-book files. JSZip parses the EPUB container, reads every chapter, strips HTML formatting, and presents clean plain text. View chapter-by-chapter output, select which chapters to include, copy to clipboard, or download as a .txt file.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your files never leave your device.</span></div>
+    <div class="converter-widget" id="epubToTxtWidget">
+      <div class="drop-zone" id="epubToTxtDropZone">
+        <div class="drop-zone-icon">📖</div>
+        <div class="drop-zone-text">Drop <strong>EPUB</strong> here, or click to browse</div>
+        <div class="drop-zone-hint">Supports EPUB files (.epub) — extracts all chapter text</div>
+        <input type="file" accept=".epub,application/epub+zip" aria-label="Choose EPUB file">
+      </div>
+      <div class="file-list" id="epubToTxtFileList"></div>
+      <div class="converter-controls">
+        <button class="btn btn-primary" id="epubToTxtConvertBtn">Extract Text</button>
+      </div>
+      <div class="progress-bar" id="epubToTxtProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="epubToTxtResult"><div class="converter-result-message"></div></div>
+      <div class="chapter-list" id="epubToTxtChapterList" style="display:none;">
+        <div class="text-output-header">
+          <span id="epubToTxtChapterStats"></span>
+          <button class="btn btn-secondary" id="epubToTxtUpdateBtn">Update Output</button>
+        </div>
+        <div id="epubToTxtChapterCheckboxes"></div>
+      </div>
+      <div class="text-output-area" id="epubToTxtOutput" style="display:none;">
+        <div class="text-output-header">
+          <span id="epubToTxtStats"></span>
+          <div>
+            <button class="btn btn-secondary" id="epubToTxtCopyBtn">📋 Copy to Clipboard</button>
+            <button class="btn btn-success" id="epubToTxtDownloadBtn">⬇ Download .txt</button>
+          </div>
+        </div>
+        <textarea id="epubToTxtContent" readonly style="width:100%;min-height:300px;padding:14px;border:1px solid var(--color-mist);border-radius:var(--radius-card);background:var(--color-smoke);color:var(--color-ink);font-size:0.85rem;font-family:monospace;line-height:1.6;resize:vertical;margin-top:12px;"></textarea>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Extract Text from EPUB</h2>
+      <p>Drop an EPUB e-book file onto the converter area above. Click "Extract Text" to begin processing. JSZip reads the EPUB container and parses its internal structure — navigating from <code>container.xml</code> to the OPF manifest file, then following the spine order to read each XHTML chapter. The DOMParser strips all HTML tags, leaving clean, readable text organized by chapter.</p>
+      <p>After extraction, the chapter list appears with checkboxes so you can select exactly which chapters to include in the final output. Click "Update Output" to regenerate the text with your chosen chapters included. The output textarea shows word and character counts for easy reference.</p>
+      <h3>What Text Can Be Extracted</h3>
+      <p>All text content within EPUB XHTML files is extracted: chapter headings, paragraphs, lists, table text, and captions. CSS-styled text, inline formatting (bold, italic), and special Unicode characters are all captured as plain text. Images, embedded fonts, audio, video, and interactive elements are ignored since they have no text equivalent.</p>
+    </div>
+    <div class="content-section">
+      <h2>EPUB Internal Structure Reference</h2>
+      <table class="format-table"><thead><tr><th>Component</th><th>File</th><th>Description</th></tr></thead><tbody>
+        <tr><td>Container</td><td>META-INF/container.xml</td><td>Root XML file pointing to the OPF package file</td></tr>
+        <tr><td>Package</td><td>*.opf</td><td>Manifest listing all resources; spine defining reading order</td></tr>
+        <tr><td>Content</td><td>*.xhtml / *.html</td><td>Chapter files containing the actual book text in XHTML</td></tr>
+        <tr><td>Navigation</td><td>nav.xhtml / toc.ncx</td><td>Table of contents for chapter navigation</td></tr>
+        <tr><td>Styles</td><td>*.css</td><td>Cascading Style Sheets defining visual presentation</td></tr>
+        <tr><td>Images</td><td>*.jpg / *.png / *.svg</td><td>Embedded images, cover art, and illustrations</td></tr>
+        <tr><td>Fonts</td><td>*.otf / *.ttf / *.woff</td><td>Embedded font files for typography</td></tr>
+        <tr><td>Metadata</td><td>container.xml + OPF</td><td>Title, author, language, ISBN, publisher, publication date</td></tr>
+      </tbody></table>
+      <p>The EPUB format is essentially a ZIP archive. Rename any .epub file to .zip and open it to explore the full directory structure. All text content lives inside the XHTML files, organized by the OPF manifest and ordered by the spine element.</p>
+    </div>
+    <div class="content-section">
+      <h2>Text Extraction Quality by EPUB Type</h2>
+      <table class="format-table"><thead><tr><th>EPUB Type</th><th>Text Quality</th><th>Notes</th></tr></thead><tbody>
+        <tr><td>Standard fiction (reflowable)</td><td>Excellent</td><td>Clean XHTML, easy tag stripping, well-structured</td></tr>
+        <tr><td>Fixed-layout EPUB</td><td>Good</td><td>Text may be split across many small containers</td></tr>
+        <tr><td>EPUB with embedded fonts</td><td>Excellent</td><td>Text unaffected by font embedding, clean extraction</td></tr>
+        <tr><td>Image-heavy (comics)</td><td>Poor</td><td>Minimal actual text; most content is in images</td></tr>
+        <tr><td>EPUB 3.0 with MathML</td><td>Good</td><td>Math notation may appear as raw XML in text output</td></tr>
+        <tr><td>DRM-encrypted EPUB</td><td>None</td><td>Cannot be opened — DRM must be removed first</td></tr>
+      </tbody></table>
+    </div>
+    <div class="content-section">
+      <h2>EPUB to TXT — Advantages and Limitations</h2>
+      <h3>Why Extract Text from EPUB</h3>
+      <p><strong>Plain text portability:</strong> Text files are the most universally supported format. They open in any text editor, terminal, code editor, or word processor. No specialized e-book software is required. Plain text files are searchable, indexable, and machine-readable for data processing pipelines.</p>
+      <p><strong>Small file size:</strong> An EPUB containing hundreds of pages might be a few megabytes due to embedded fonts and images. The extracted plain text is typically just a few kilobytes — perfect for archiving, email attachments, or transferring between devices with limited bandwidth.</p>
+      <p><strong>Accessibility:</strong> Plain text works with any screen reader, text-to-speech tool, or assistive technology. Users with visual impairments or reading difficulties can process extracted text with their preferred tools without compatibility issues.</p>
+      <h3>Limitations of Text Extraction</h3>
+      <p><strong>No formatting or layout:</strong> All HTML formatting, CSS styling, fonts, colors, images, tables, and layout information are completely stripped. The output is raw text with no visual hierarchy beyond chapter headings that are extracted from the content structure.</p>
+      <p><strong>No images or media:</strong> Illustrations, diagrams, photographs, charts, audio clips, and video content embedded in the EPUB are ignored. Only the alt-text attribute (if present) could be captured, but standard tag stripping removes img elements entirely.</p>
+      <p><strong>Table structure loss:</strong> Tabular data is extracted as linear text reading left-to-right, top-to-bottom. Column alignment, row grouping, and cell relationships are lost. For data-heavy EPUBs, a structured format like CSV or the original EPUB's table markup would preserve relationships better.</p>
+      <h3>When Text Extraction Is Most Useful</h3>
+      <p><strong>Ideal for:</strong> Quoting passages, building search indexes, converting e-books to audio via TTS, archiving book content in minimal space, preparing text for translation tools, extracting quotations for research, creating annotated plain-text versions, processing with natural language processing (NLP) tools, and feeding into large language model (LLM) training pipelines.</p>
+      <p><strong>Not ideal for:</strong> Preserving the author's intended layout, maintaining visual formatting, reproducing illustrated children's books, converting comic books or graphic novels, archiving cookbooks with formatted recipe layouts, or any use case where the visual presentation is part of the content.</p>
+    </div>
+    <div class="content-section">
+      <h2>Common EPUB Parsing Issues</h2>
+      <p><strong>Non-standard ZIP compression:</strong> Some EPUB creators use compression methods beyond the standard DEFLATE algorithm. JSZip supports the most common methods, but unusual EPUB files created with proprietary tools may fail to decompress. If this happens, try re-saving the EPUB using Calibre or Sigil to standardize the ZIP compression.</p>
+      <p><strong>Mixed XHTML namespaces:</strong> EPUB 3.0 files may use XHTML 5 syntax with multiple XML namespaces. The DOMParser handles standard HTML5 and XHTML namespaces correctly, but extremely non-standard markup (like inline SVG with custom namespaces) may produce unexpected text artifacts in the output.</p>
+      <p><strong>Missing or malformed container.xml:</strong> The extraction process begins by reading <code>META-INF/container.xml</code> to locate the OPF file. If this file is missing, corrupted, or uses non-standard paths, the tool cannot proceed. Most well-formed EPUB files comply with the standard container structure.</p>
+      <p><strong>Very large EPUB files:</strong> EPUB files exceeding 100 MB may approach browser memory limits. JSZip must decompress the entire ZIP into memory, then each chapter is parsed sequentially. For extremely large e-books (encyclopedias, technical manuals), consider extracting individual chapters via a ZIP utility instead of in-browser processing.</p>
+    </div>
+    <div class="content-section">
+      <h2>Tips for Best Results</h2>
+      <ul>
+        <li>Use DRM-free EPUB files. DRM-protected e-books cannot be opened without authorization. If you own the book, check your e-book retailer for DRM-free alternatives or use authorized decryption tools.</li>
+        <li>For EPUB files with complex nested layout (tables within lists within figures), the extracted text may read in an unexpected order. Preview the chapter list and exclude problematic chapters if needed.</li>
+        <li>Extracted text preserves paragraph breaks but may lose indentation and blockquote formatting. You can re-format with a word processor after downloading the .txt file if presentation matters.</li>
+        <li>EPUB files created directly from word processors (Word, Pages, Google Docs) typically produce the cleanest text output because the XHTML structure is simple and consistent.</li>
+        <li>If the extracted text contains garbled characters, the EPUB may use a non-UTF-8 character encoding. Most modern EPUBs use UTF-8, but older files may use ISO-8859-1 or Windows-1252 encoding.</li>
+        <li>Bookmark this page for quick access whenever you need to extract text from EPUB e-books.</li>
+      </ul>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">How does EPUB to TXT extraction work? <span class="arrow">▼</span></button><div class="faq-answer">EPUB is a ZIP file containing XHTML content documents. The tool reads the ZIP structure using JSZip, locates the OPF manifest file via container.xml, identifies the spine order of chapters, parses each XHTML file, strips HTML tags using DOMParser, and concatenates the clean text into a single output.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I extract text from DRM-protected EPUBs? <span class="arrow">▼</span></button><div class="faq-answer">No. This tool cannot process DRM-protected (Digital Rights Management) EPUB files. You must remove DRM first using authorized tools, which may violate copyright laws. Only convert EPUB files that you own and are DRM-free.</div></div>
+        <div class="faq-item"><button class="faq-question">Are my EPUB files uploaded to a server? <span class="arrow">▼</span></button><div class="faq-answer">No. All text extraction happens entirely in your browser using JSZip and the native DOMParser API. EPUB files are read locally and never leave your device.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I select which chapters to include? <span class="arrow">▼</span></button><div class="faq-answer">Yes. After extraction, the tool displays a chapter list with checkboxes. You can uncheck chapters you want to exclude and click Update Output to regenerate the text with only selected chapters.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the maximum file size for EPUB conversion? <span class="arrow">▼</span></button><div class="faq-answer">Since all processing occurs in your browser, very large EPUB files may be limited by available memory. For best results, keep files under 50 MB. EPUB files with hundreds of chapters may take longer to parse.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I copy the extracted text to clipboard? <span class="arrow">▼</span></button><div class="faq-answer">Yes. After extraction, a Copy to Clipboard button lets you copy all extracted text with one click. You can also manually select text within the output textarea.</div></div>
+        <div class="faq-item"><button class="faq-question">What formatting is preserved in the text output? <span class="arrow">▼</span></button><div class="faq-answer">The tool extracts plain text only. All HTML formatting, images, fonts, colors, CSS styling, and layout information are stripped. Chapter headings are preserved as text headers. The output is UTF-8 plain text compatible with any text editor.</div></div>
+        <div class="faq-item"><button class="faq-question">Does the tool handle EPUB 3.0 files? <span class="arrow">▼</span></button><div class="faq-answer">Yes. The tool supports both EPUB 2.0 and EPUB 3.0 formats. Both use the same ZIP container structure with container.xml pointing to the OPF file. EPUB 3.0 files may include additional XHTML namespaces, but the text extraction process works identically.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/epub-to-pdf" class="related-tool-card">EPUB to PDF <span class="desc">Convert e-books to PDF</span></a>
+        <a href="/pdf-to-epub" class="related-tool-card">PDF to EPUB <span class="desc">Convert PDF documents to EPUB</span></a>
+        <a href="/pdf-to-text" class="related-tool-card">PDF to Text <span class="desc">Extract text from PDF documents</span></a>
+        <a href="/ipynb-to-pdf" class="related-tool-card">IPYNB to PDF <span class="desc">Convert notebooks to PDF</span></a>
+        <a href="/heic-to-pdf" class="related-tool-card">HEIC to PDF <span class="desc">Convert images to PDF</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script>
+  (function() {
+    var currentFile = null;
+    var allChapters = [];
+    var fullText = '';
+    var chapterTexts = [];
+    var dropZone = document.getElementById('epubToTxtDropZone');
+    var fileListEl = document.getElementById('epubToTxtFileList');
+    var outputArea = document.getElementById('epubToTxtOutput');
+    var textContent = document.getElementById('epubToTxtContent');
+    var statsEl = document.getElementById('epubToTxtStats');
+    var chapterListEl = document.getElementById('epubToTxtChapterList');
+    var chapterCheckboxes = document.getElementById('epubToTxtChapterCheckboxes');
+    var chapterStats = document.getElementById('epubToTxtChapterStats');
+
+    function stripHtml(html) {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(html, 'text/html');
+      var body = doc.body;
+      function getText(node) {
+        var text = '';
+        for (var i = 0; i < node.childNodes.length; i++) {
+          var child = node.childNodes[i];
+          if (child.nodeType === 3) {
+            text += child.textContent;
+          } else if (child.nodeType === 1) {
+            var tag = child.tagName.toLowerCase();
+            if (tag === 'br') {
+              text += '\n';
+            } else if (tag === 'p' || tag === 'div' || tag === 'h1' || tag === 'h2' || tag === 'h3' || tag === 'h4' || tag === 'h5' || tag === 'h6' || tag === 'li' || tag === 'tr' || tag === 'blockquote') {
+              text += getText(child) + '\n';
+            } else if (tag === 'td' || tag === 'th') {
+              text += getText(child) + '\t';
+            } else if (tag === 'img') {
+              var alt = child.getAttribute('alt');
+              if (alt) text += alt + '\n';
+            } else {
+              text += getText(child);
+            }
+          }
+        }
+        return text;
+      }
+      var result = getText(body);
+      result = result.replace(/\n{3,}/g, '\n\n');
+      result = result.replace(/[ \t]+/g, ' ');
+      result = result.split('\n').map(function(l) { return l.trim(); }).join('\n');
+      result = result.replace(/\n{3,}/g, '\n\n');
+      return result.trim();
+    }
+
+    function getChapterTitle(html, index) {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(html, 'text/html');
+      var h1 = doc.querySelector('h1');
+      var h2 = doc.querySelector('h2');
+      var title = (h1 && h1.textContent.trim()) || (h2 && h2.textContent.trim()) || 'Chapter ' + (index + 1);
+      return title.length > 80 ? title.substring(0, 80) + '...' : title;
+    }
+
+    dropZone.querySelector('input[type="file"]').addEventListener('change', function() {
+      if (this.files && this.files.length > 0) {
+        handleFile(this.files[0]);
+        this.value = '';
+      }
+    });
+
+    dropZone.addEventListener('dragover', function(e) { e.preventDefault(); dropZone.classList.add('drag-over'); });
+    dropZone.addEventListener('dragleave', function() { dropZone.classList.remove('drag-over'); });
+    dropZone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        handleFile(e.dataTransfer.files[0]);
+      }
+    });
+
+    function handleFile(file) {
+      if (!file || !file.name.toLowerCase().endsWith('.epub')) {
+        ConvertPivot.showResult('epubToTxtResult', 'Please select a valid EPUB file.', 'error');
+        return;
+      }
+      currentFile = file;
+      outputArea.style.display = 'none';
+      chapterListEl.style.display = 'none';
+      ConvertPivot.hideResult('epubToTxtResult');
+      renderFileList();
+      dropZone.style.display = 'none';
+    }
+
+    function renderFileList() {
+      if (!currentFile) {
+        fileListEl.innerHTML = '';
+        dropZone.style.display = '';
+        return;
+      }
+      var html = '<div class="file-list-header">Selected file</div>';
+      html += '<div class="file-list-item">';
+      html += '<span class="file-list-icon" style="font-size:1.5rem;margin-right:8px;">📖</span>';
+      html += '<span class="file-list-name">' + currentFile.name + '</span>';
+      html += '<span class="file-list-size">' + ConvertPivot.formatFileSize(currentFile.size) + '</span>';
+      html += '<button class="file-list-remove" id="epubToTxtRemoveBtn">✕</button>';
+      html += '</div>';
+      fileListEl.innerHTML = html;
+      document.getElementById('epubToTxtRemoveBtn').addEventListener('click', function() {
+        currentFile = null;
+        dropZone.style.display = '';
+        fileListEl.innerHTML = '';
+        outputArea.style.display = 'none';
+        chapterListEl.style.display = 'none';
+        ConvertPivot.hideResult('epubToTxtResult');
+      });
+    }
+
+    document.getElementById('epubToTxtConvertBtn').addEventListener('click', async function() {
+      if (!currentFile) { ConvertPivot.showResult('epubToTxtResult', 'Please select an EPUB file first.', 'error'); return; }
+      ConvertPivot.hideResult('epubToTxtResult');
+      outputArea.style.display = 'none';
+      chapterListEl.style.display = 'none';
+      var progress = ConvertPivot.showProgress('epubToTxtProgress');
+      try {
+        var arrayBuffer = await currentFile.arrayBuffer();
+        var zip = await JSZip.loadAsync(arrayBuffer);
+        var containerXml = await zip.file('META-INF/container.xml').async('string');
+        var containerDoc = new DOMParser().parseFromString(containerXml, 'text/xml');
+        var rootfileEl = containerDoc.querySelector('rootfile');
+        if (!rootfileEl) throw new Error('Could not find rootfile in container.xml');
+        var opfPath = rootfileEl.getAttribute('full-path');
+        var opfDir = opfPath.substring(0, opfPath.lastIndexOf('/') + 1) || '';
+        var opfContent = await zip.file(opfPath).async('string');
+        var opfDoc = new DOMParser().parseFromString(opfContent, 'text/xml');
+        var manifestEl = opfDoc.querySelector('manifest');
+        var spineEl = opfDoc.querySelector('spine');
+        if (!manifestEl || !spineEl) throw new Error('Could not find manifest or spine in OPF file');
+        var idToHref = {};
+        var idToMedia = {};
+        var manifestItems = manifestEl.querySelectorAll('item');
+        for (var m = 0; m < manifestItems.length; m++) {
+          var item = manifestItems[m];
+          var id = item.getAttribute('id');
+          var href = item.getAttribute('href');
+          var media = item.getAttribute('media-type');
+          if (id && href) {
+            idToHref[id] = href;
+            idToMedia[id] = media || '';
+          }
+        }
+        var spineItems = spineEl.querySelectorAll('itemref');
+        var chapterFiles = [];
+        for (var s = 0; s < spineItems.length; s++) {
+          var idref = spineItems[s].getAttribute('idref');
+          if (idref && idToHref[idref]) {
+            var href = idToHref[idref];
+            var media = idToMedia[idref];
+            if (media === 'application/xhtml+xml' || media === 'text/html' || href.endsWith('.xhtml') || href.endsWith('.html') || href.endsWith('.htm')) {
+              chapterFiles.push(opfDir + href);
+            }
+          }
+        }
+        if (chapterFiles.length === 0) throw new Error('No XHTML content files found in EPUB spine');
+        allChapters = [];
+        chapterTexts = [];
+        var total = chapterFiles.length;
+        for (var i = 0; i < total; i++) {
+          var chapterZip = zip.file(chapterFiles[i]);
+          if (!chapterZip) continue;
+          var raw = await chapterZip.async('string');
+          var clean = stripHtml(raw);
+          var title = getChapterTitle(raw, i);
+          var heading = '\n\n=== ' + title + ' ===\n\n';
+          allChapters.push({ title: title, text: clean, heading: heading });
+          chapterTexts.push(heading + clean);
+          progress.set(Math.round(((i + 1) / total) * 100));
+        }
+        if (allChapters.length === 0) throw new Error('No readable chapters found in EPUB');
+        fullText = chapterTexts.join('\n\n');
+        var charCount = fullText.length;
+        var wordCount = fullText.split(/\s+/).filter(function(w) { return w.length > 0; }).length;
+        textContent.value = fullText;
+        statsEl.textContent = wordCount.toLocaleString() + ' words | ' + charCount.toLocaleString() + ' characters | ' + allChapters.length + ' chapter(s)';
+        outputArea.style.display = 'block';
+        renderChapterList();
+        chapterListEl.style.display = 'block';
+        progress.done();
+        ConvertPivot.showResult('epubToTxtResult', 'Text extracted successfully from ' + allChapters.length + ' chapter(s).', 'success');
+      } catch (err) {
+        progress.done();
+        ConvertPivot.showResult('epubToTxtResult', 'Extraction failed: ' + err.message, 'error');
+      }
+    });
+
+    function renderChapterList() {
+      var html = '';
+      for (var i = 0; i < allChapters.length; i++) {
+        var ch = allChapters[i];
+        html += '<label class="chapter-checkbox-item"><input type="checkbox" data-index="' + i + '" checked><span class="chapter-num">' + (i + 1) + '.</span><span class="chapter-title">' + ch.title + '</span><span class="chapter-size">' + ch.text.length.toLocaleString() + ' chars</span></label>';
+      }
+      chapterCheckboxes.innerHTML = html;
+      chapterStats.textContent = allChapters.length + ' chapter(s) — all selected';
+      chapterCheckboxes.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+        cb.addEventListener('change', updateChapterStats);
+      });
+    }
+
+    function updateChapterStats() {
+      var checkboxes = chapterCheckboxes.querySelectorAll('input[type="checkbox"]');
+      var checked = 0;
+      checkboxes.forEach(function(cb) { if (cb.checked) checked++; });
+      chapterStats.textContent = allChapters.length + ' chapter(s) — ' + checked + ' selected';
+    }
+
+    document.getElementById('epubToTxtUpdateBtn').addEventListener('click', function() {
+      var checkboxes = chapterCheckboxes.querySelectorAll('input[type="checkbox"]');
+      var selectedTexts = [];
+      for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+          var idx = parseInt(checkboxes[i].getAttribute('data-index'), 10);
+          selectedTexts.push(chapterTexts[idx]);
+        }
+      }
+      fullText = selectedTexts.join('\n\n');
+      var charCount = fullText.length;
+      var wordCount = fullText.split(/\s+/).filter(function(w) { return w.length > 0; }).length;
+      textContent.value = fullText;
+      statsEl.textContent = wordCount.toLocaleString() + ' words | ' + charCount.toLocaleString() + ' characters | ' + selectedTexts.length + ' chapter(s)';
+      ConvertPivot.showResult('epubToTxtResult', 'Output updated with ' + selectedTexts.length + ' chapter(s).', 'success');
+    });
+
+    document.getElementById('epubToTxtCopyBtn').addEventListener('click', function() {
+      if (!fullText) return;
+      navigator.clipboard.writeText(fullText).then(function() {
+        ConvertPivot.showResult('epubToTxtResult', 'Text copied to clipboard!', 'success');
+      }).catch(function() {
+        textContent.select();
+        document.execCommand('copy');
+        ConvertPivot.showResult('epubToTxtResult', 'Text copied to clipboard!', 'success');
+      });
+    });
+
+    document.getElementById('epubToTxtDownloadBtn').addEventListener('click', function() {
+      if (!fullText) return;
+      var baseName = currentFile ? currentFile.name.replace(/\.epub$/i, '') : 'extracted';
+      ConvertPivot.downloadFile(fullText, baseName + '.txt', 'text/plain');
+    });
+  })();
+  </script>
+  <style>
+  .file-list { margin-top: 16px; }
+  .file-list-header { font-size: 0.85rem; font-weight: 600; color: var(--color-graphite); margin-bottom: 8px; }
+  .file-list-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--color-smoke); border: 1px solid var(--color-mist); border-radius: var(--radius-card); margin-bottom: 6px; }
+  .file-list-name { flex: 1; font-size: 0.85rem; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .file-list-size { font-size: 0.8rem; color: var(--color-graphite); flex-shrink: 0; }
+  .file-list-remove { background: none; border: none; cursor: pointer; color: var(--color-graphite); font-size: 1rem; padding: 4px; flex-shrink: 0; }
+  .file-list-remove:hover { color: var(--color-red); }
+  .text-output-area { margin-top: 20px; }
+  .text-output-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .text-output-header span { font-size: 0.85rem; color: var(--color-graphite); font-weight: 500; }
+  .chapter-list { margin-top: 20px; padding: 16px; border: 1px solid var(--color-mist); border-radius: var(--radius-card); background: var(--color-smoke); }
+  .chapter-checkbox-item { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--color-mist); font-size: 0.85rem; }
+  .chapter-checkbox-item:last-child { border-bottom: none; }
+  .chapter-checkbox-item input[type="checkbox"] { cursor: pointer; flex-shrink: 0; }
+  .chapter-num { color: var(--color-graphite); font-weight: 600; min-width: 24px; flex-shrink: 0; }
+  .chapter-title { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .chapter-size { font-size: 0.78rem; color: var(--color-graphite); flex-shrink: 0; }
+  </style>
+</body>
+</html>
