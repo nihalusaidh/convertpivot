@@ -6,6 +6,8 @@ backend:
   name: github
   repo: nihalusaidh/convertpivot
   branch: main
+  base_url: https://convertpivot.com
+  auth_endpoint: /api/auth
 
 media_folder: images/uploads
 public_folder: /images/uploads
