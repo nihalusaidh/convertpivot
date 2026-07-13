@@ -25,23 +25,6 @@
   --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-canvas: #121212;
-    --color-ink: #E8E8E8;
-    --color-graphite: #A0A0A0;
-    --color-mist: #333;
-    --color-smoke: #1E1E1E;
-    --color-surface: #252525;
-    --color-sidebar: #1A1A1A;
-    --color-red: #FF3333;
-    --color-red-hover: #FF5555;
-    --color-red-light: #2A1515;
-    --color-success: #22C55E;
-    --color-error: #EF4444;
-  }
-}
-
 .dark-mode {
   --color-canvas: #121212;
   --color-ink: #E8E8E8;
