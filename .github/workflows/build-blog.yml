@@ -1,0 +1,35 @@
+# ConvertPivot Blog Builder
+# Converts Decap CMS markdown posts to static HTML
+# Runs on push to main branch when content/ changes
+
+name: Build Blog
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/blog/**'
+      - 'blog/template.html'
+      - 'scripts/build-blog.js'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      
+      - name: Build blog posts
+        run: node scripts/build-blog.js
+      
+      - name: Commit generated files
+        run: |
+          git config user.name "ConvertPivot Bot"
+          git config user.email "bot@convertpivot.com"
+          git add blog/*.html blog/posts.json
+          git diff --staged --quiet || git commit -m "Auto-build blog from CMS content"
+          git push

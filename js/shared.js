@@ -84,7 +84,16 @@
       { href: '/png-to-svg', icon: '\uD83D\uDCD0', label: 'PNG to SVG' },
       { href: '/qr-code-generator', icon: '\uD83D\uDCF1', label: 'QR Code Generator' }
     ]},
+    { heading: 'Blog', links: [
+      { href: '/blog', icon: '\uD83D\uDCF0', label: 'All Articles' },
+      { href: '/blog/epub-vs-mobi-vs-pdf', icon: '\uD83D\uDCDA', label: 'EPUB vs MOBI vs PDF' },
+      { href: '/blog/ofx-vs-qfx-vs-qbo', icon: '\uD83C\uDFE6', label: 'OFX vs QFX vs QBO' },
+      { href: '/blog/vcard-21-vs-30-vs-40', icon: '\uD83D\uDCD6', label: 'vCard 2.1 vs 3.0 vs 4.0' },
+      { href: '/blog/heic-vs-jpeg-vs-webp-vs-avif', icon: '\uD83D\uDDBC', label: 'HEIC vs JPEG vs WebP vs AVIF' },
+      { href: '/blog/mp3-vs-flac-vs-wav-vs-ogg', icon: '\uD83C\uDFA7', label: 'MP3 vs FLAC vs WAV vs OGG' }
+    ]},
     { heading: 'Guides', links: [
+      { href: '/guides', icon: '\uD83D\uDCD6', label: 'All Guides' },
       { href: '/guides/bank-statement-formats', icon: '\uD83D\uDCD8', label: 'Bank Statement Formats' },
       { href: '/guides/vcard-formats', icon: '\uD83D\uDCD6', label: 'vCard Formats' },
       { href: '/guides/gps-formats', icon: '\uD83D\uDDFA', label: 'GPS Formats' },

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Manager — ConvertPivot</title>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <style>body{margin:0}</style>
+</head>
+<body>
+  <script>
+    CMS.init({
+      config: {
+        backend: {
+          name: 'github',
+          repo: 'nihalusaidh/convertpivot',
+          branch: 'main',
+          base_url: 'https://github.com',
+          auth_endpoint: '/auth/github'
+        },
+        media_folder: 'images/uploads',
+        public_folder: '/images/uploads',
+        collections: [{
+          name: 'blog',
+          label: 'Blog Posts',
+          folder: 'content/blog',
+          create: true,
+          slug: '{{slug}}',
+          fields: [
+            { label: 'Title', name: 'title', widget: 'string' },
+            { label: 'Slug', name: 'slug', widget: 'string' },
+            { label: 'Description', name: 'description', widget: 'string' },
+            { label: 'Category', name: 'category', widget: 'string' },
+            { label: 'Date', name: 'date', widget: 'datetime' },
+            { label: 'Body', name: 'body', widget: 'markdown' }
+          ]
+        }]
+      }
+    });
+  </script>
+</body>
+</html>
