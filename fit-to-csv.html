@@ -24,7 +24,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What data is extracted from FIT files?","acceptedAnswer":{"@type":"Answer","text":"The CSV includes timestamp, latitude, longitude, altitude, heart rate, cadence, distance, and speed for each GPS record in the FIT file."}},{"@type":"Question","name":"Why convert FIT to CSV?","acceptedAnswer":{"@type":"Answer","text":"CSV allows detailed analysis of your fitness data in Excel — create charts of heart rate zones, pace over distance, elevation profiles, and more."}},{"@type":"Question","name":"Does it work with all Garmin devices?","acceptedAnswer":{"@type":"Answer","text":"Yes. FIT files from all Garmin watches and bike computers use the same underlying binary format. The converter handles the standard record types."}},{"@type":"Question","name":"Is my fitness data private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Everything runs in your browser. Your data never leaves your device."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
   <nav id="sidebar" class="sidebar">
     <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
       <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
@@ -64,7 +64,7 @@
       <a href="/fit-to-csv" class="sidebar-link active"><span class="icon">📊</span>FIT to CSV</a>
     </div>
   </nav>
-  <main class="main-content">
+  <main id="main-content" class="main-content">
     <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">FIT to CSV</span></nav>
     <div class="tool-header">
       <h1>FIT to CSV Converter — Garmin Fitness Data to Spreadsheet</h1>

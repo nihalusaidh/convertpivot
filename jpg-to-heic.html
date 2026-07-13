@@ -24,7 +24,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the benefits of HEIC over JPEG?","acceptedAnswer":{"@type":"Answer","text":"HEIC (High Efficiency Image Container) uses HEVC/H.265 compression to deliver roughly 50% smaller file sizes than JPEG at the same quality. It also supports image sequences, live photos, and transparency—features JPEG cannot offer."}},{"@type":"Question","name":"Are HEIC files compatible with iPhone?","acceptedAnswer":{"@type":"Answer","text":"Yes. HEIC is Apple's native photo format since iOS 11. iPhones, iPads, and Macs all support HEIC natively. Converting JPG to HEIC saves significant storage space on Apple devices."}},{"@type":"Question","name":"How much space can I save by converting to HEIC?","acceptedAnswer":{"@type":"Answer","text":"HEIC typically reduces file sizes by 40-50% compared to JPEG at equivalent quality. A 5 MB JPEG photo might shrink to 2-3 MB in HEIC format with no visible quality loss."}},{"@type":"Question","name":"Can I open HEIC files on Windows?","acceptedAnswer":{"@type":"Answer","text":"Windows 10 and 11 support HEIC through the HEIF Image Extensions plug-in from the Microsoft Store. Without this plug-in, you may need to convert HEIC back to JPEG for viewing on Windows."}},{"@type":"Question","name":"Does browser-based HEIC encoding work?","acceptedAnswer":{"@type":"Answer","text":"HEIC encoding directly in the browser is limited because the HEIC format requires specialized encoding libraries. This converter uses WebP as an intermediate format—also a modern compression standard—to achieve similar space savings while maintaining broad compatibility."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
   <nav id="sidebar" class="sidebar">
     <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
       <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
@@ -71,7 +71,7 @@
       <a href="/kml-to-gpx" class="sidebar-link"><span class="icon">📍</span>KML to GPX</a>
     </div>
   </nav>
-  <main class="main-content">
+  <main id="main-content" class="main-content">
     <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">JPG to HEIC</span></nav>
     <div class="tool-header">
       <h1>JPG to HEIC Converter — JPEG to High Efficiency Format</h1>

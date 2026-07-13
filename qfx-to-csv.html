@@ -24,7 +24,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a QFX file?","acceptedAnswer":{"@type":"Answer","text":"QFX (Quicken Financial Exchange) is Quicken's format for financial data. It uses the same OFX specification internally — the only difference from .ofx is the file extension."}},{"@type":"Question","name":"How do I convert QFX to CSV?","acceptedAnswer":{"@type":"Answer","text":"Drop your .qfx file onto the converter above, click Convert, and download the CSV. Every transaction date, amount, description, and memo is preserved."}},{"@type":"Question","name":"Is QFX different from OFX?","acceptedAnswer":{"@type":"Answer","text":"No. QFX files are identical to OFX files internally — they use the same SGML/XML structure. Our converter handles both formats identically."}},{"@type":"Question","name":"Is my financial data secure?","acceptedAnswer":{"@type":"Answer","text":"Yes. The conversion happens entirely in your browser. Your Quicken data never leaves your device."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
   <nav id="sidebar" class="sidebar">
     <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
       <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
@@ -64,7 +64,7 @@
       <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
     </div>
   </nav>
-  <main class="main-content">
+  <main id="main-content" class="main-content">
     <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">QFX to CSV</span></nav>
     <div class="tool-header">
       <h1>QFX to CSV Converter — Quicken to Spreadsheet</h1>

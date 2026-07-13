@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSV to JSON Converter — Convert CSV to JSON Online | ConvertPivot</title>
+  <meta name="description" content="Free online CSV to JSON converter. Convert comma-separated values to JSON arrays and objects. Supports headers and custom delimiters. Privacy-first.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/csv-to-json">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/csv-to-json">
+  <meta property="og:title" content="CSV to JSON Converter — Free Online Tool | ConvertPivot">
+  <meta property="og:description" content="Free online CSV to JSON converter. Convert comma-separated values to JSON arrays and objects. Supports headers and custom delimiters. Privacy-first.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CSV to JSON Converter — Free Online Tool | ConvertPivot">
+  <meta name="twitter:description" content="Free online CSV to JSON converter. Convert comma-separated values to JSON arrays and objects. Supports headers and custom delimiters. Privacy-first.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CSV to JSON Converter","url":"https://convertpivot.com/csv-to-json","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online CSV to JSON converter. Convert comma-separated values to JSON arrays and objects. Supports headers and custom delimiters. Privacy-first.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does this support CSV headers?","acceptedAnswer":{"@type":"Answer","text":"Yes. If your CSV has a header row, our converter will use those headers as JSON property names. You can toggle the header option on or off to switch between JSON array of objects and array of arrays."}},{"@type":"Question","name":"What delimiter is supported?","acceptedAnswer":{"@type":"Answer","text":"By default, commas are supported. You can also specify a custom delimiter such as tab, semicolon, or pipe in the options panel before converting."}},{"@type":"Question","name":"Can I convert back from JSON to CSV?","acceptedAnswer":{"@type":"Answer","text":"Not directly on this page, but we have a separate JSON to CSV tool that handles the reverse conversion. Check our related tools section below."}},{"@type":"Question","name":"Is my data uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. All CSV parsing and JSON generation happens entirely in your browser. Your data never leaves your device. Verify by checking the Network tab."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">CSV to JSON Converter</span></nav>
+    <div class="tool-header">
+      <h1>CSV to JSON Converter</h1>
+      <p>Convert comma-separated values to JSON format instantly. Supports headers, custom delimiters, and optional pretty-printing.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-container">
+        <div class="converter-options">
+          <label><input type="checkbox" id="hasHeaders" checked> First row is headers</label>
+          <label>Delimiter: <input type="text" id="delimiterInput" value="," class="delimiter-input"></label>
+          <label>Output: <select id="outputFormat"><option value="pretty">Pretty (formatted)</option><option value="compact">Compact (minified)</option></select></label>
+        </div>
+        <div class="converter-input">
+          <label for="csvInput">CSV Input</label>
+          <textarea id="csvInput" placeholder="name,age,city&#10;Alice,30,New York&#10;Bob,25,London&#10;Charlie,35,Paris" rows="10"></textarea>
+        </div>
+        <div class="converter-actions">
+          <button id="convertBtn" class="btn btn-primary">Convert to JSON</button>
+          <button id="clearBtn" class="btn btn-secondary">Clear</button>
+        </div>
+        <div class="converter-output">
+          <label for="jsonOutput">JSON Output</label>
+          <textarea id="jsonOutput" readonly rows="10" placeholder="Converted JSON will appear here."></textarea>
+          <button id="copyBtn" class="btn btn-secondary">Copy JSON</button>
+        </div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the CSV to JSON Converter</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Paste Your CSV</h3><p>Copy and paste your CSV data into the input field. The first row can be headers.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Configure Options</h3><p>Toggle headers on/off, change the delimiter, or select output format.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Get JSON</h3><p>Click Convert and your JSON output appears instantly. Use Copy to save it.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">Does this support CSV headers? <span class="arrow">▼</span></button><div class="faq-answer">Yes. If your CSV has a header row, our converter will use those headers as JSON property names. You can toggle the header option on or off to switch between JSON array of objects and array of arrays.</div></div>
+        <div class="faq-item"><button class="faq-question">What delimiter is supported? <span class="arrow">▼</span></button><div class="faq-answer">By default, commas are supported. You can also specify a custom delimiter such as tab, semicolon, or pipe in the options panel before converting.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I convert back from JSON to CSV? <span class="arrow">▼</span></button><div class="faq-answer">Not directly on this page, but we have a separate JSON to CSV tool that handles the reverse conversion. Check our related tools section below.</div></div>
+        <div class="faq-item"><button class="faq-question">Is my data uploaded? <span class="arrow">▼</span></button><div class="faq-answer">No. All CSV parsing and JSON generation happens entirely in your browser. Your data never leaves your device. Verify by checking the Network tab.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/json-to-csv" class="related-tool-card">JSON to CSV <span class="desc">Convert JSON back to CSV</span></a>
+        <a href="/json-formatter" class="related-tool-card">JSON Formatter <span class="desc">Beautify and validate JSON</span></a>
+        <a href="/xml-to-json" class="related-tool-card">XML to JSON <span class="desc">Convert XML documents to JSON</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      const csvInput = document.getElementById('csvInput');
+      const jsonOutput = document.getElementById('jsonOutput');
+      const convertBtn = document.getElementById('convertBtn');
+      const clearBtn = document.getElementById('clearBtn');
+      const copyBtn = document.getElementById('copyBtn');
+      const hasHeaders = document.getElementById('hasHeaders');
+      const delimiterInput = document.getElementById('delimiterInput');
+      const outputFormat = document.getElementById('outputFormat');
+
+      function parseCsv(text, delimiter, hasHeader) {
+        const lines = text.trim().split('\n');
+        if (lines.length === 0) return [];
+
+        const rows = lines.map(function(line) {
+          const result = [];
+          let current = '';
+          let inQuotes = false;
+          for (let i = 0; i < line.length; i++) {
+            const ch = line[i];
+            if (ch === '"') {
+              inQuotes = !inQuotes;
+            } else if (ch === delimiter && !inQuotes) {
+              result.push(current.trim());
+              current = '';
+            } else {
+              current += ch;
+            }
+          }
+          result.push(current.trim());
+          return result;
+        });
+
+        if (!hasHeader) {
+          return rows;
+        }
+
+        const headers = rows[0];
+        const data = [];
+        for (let i = 1; i < rows.length; i++) {
+          const obj = {};
+          for (let j = 0; j < headers.length; j++) {
+            obj[headers[j]] = rows[i][j] || '';
+          }
+          data.push(obj);
+        }
+        return data;
+      }
+
+      function convert() {
+        const text = csvInput.value;
+        if (!text.trim()) {
+          jsonOutput.value = 'Enter CSV data above and click Convert.';
+          return;
+        }
+        const delimiter = delimiterInput.value || ',';
+        const header = hasHeaders.checked;
+        const data = parseCsv(text, delimiter, header);
+        const space = outputFormat.value === 'pretty' ? 2 : undefined;
+        jsonOutput.value = JSON.stringify(data, null, space);
+      }
+
+      function clearAll() {
+        csvInput.value = '';
+        jsonOutput.value = '';
+      }
+
+      function copyJson() {
+        if (!jsonOutput.value) return;
+        navigator.clipboard.writeText(jsonOutput.value).catch(function() {
+          jsonOutput.select();
+          document.execCommand('copy');
+        });
+      }
+
+      convertBtn.addEventListener('click', convert);
+      clearBtn.addEventListener('click', clearAll);
+      copyBtn.addEventListener('click', copyJson);
+    })();
+  </script>
+</body>
+</html>

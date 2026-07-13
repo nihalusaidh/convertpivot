@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Word Counter — Count Words, Characters & Lines | ConvertPivot</title>
+  <title>Word Counter ï¿½ Count Words, Characters & Lines | ConvertPivot</title>
   <meta name="description" content="Free online word counter. Count words, characters, sentences, and paragraphs in any text. No upload, no limits, private.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/word-counter">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/word-counter">
-  <meta property="og:title" content="Word Counter — Count Words, Characters & Lines | ConvertPivot">
+  <meta property="og:title" content="Word Counter ï¿½ Count Words, Characters & Lines | ConvertPivot">
   <meta property="og:description" content="Free online word counter. Count words, characters, sentences, and paragraphs in any text. No upload, no limits, private.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Word Counter — Count Words, Characters & Lines | ConvertPivot">
+  <meta name="twitter:title" content="Word Counter ï¿½ Count Words, Characters & Lines | ConvertPivot">
   <meta name="twitter:description" content="Free online word counter. Count words, characters, sentences, and paragraphs in any text. No upload, no limits, private.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -24,7 +24,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is word count important?","acceptedAnswer":{"@type":"Answer","text":"Word count is critical for academic essays with length requirements, professional documents like resumes and cover letters, SEO content writing, social media posts with character limits, and publishing where articles must meet specific length targets."}},{"@type":"Question","name":"What counts as a word?","acceptedAnswer":{"@type":"Answer","text":"A word is defined as any sequence of characters separated by whitespace. Hyphenated terms like well-known count as one word. Numbers like 2026 count as one word. This follows the standard convention used by word processors like Microsoft Word and Google Docs."}},{"@type":"Question","name":"Do characters include spaces?","acceptedAnswer":{"@type":"Answer","text":"The character count shown includes all characters including spaces. If you need a count without spaces, subtract the space count from the character total."}},{"@type":"Question","name":"Is this word counter free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no limits, no signup, and no uploads. Everything runs in your browser in real time as you type or paste text."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">?</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">?</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
   <nav id="sidebar" class="sidebar">
     <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
       <a href="/binary-converter" class="sidebar-link"><span class="icon">?</span>Binary Converter</a>
@@ -72,10 +72,10 @@
       <a href="/fit-to-csv" class="sidebar-link"><span class="icon">??</span>FIT to CSV</a>
     </div>
   </nav>
-  <main class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Word Counter</span></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">ï¿½</span><span class="current">Word Counter</span></nav>
     <div class="tool-header">
-      <h1>Word Counter — Count Words, Characters & Sentences</h1>
+      <h1>Word Counter ï¿½ Count Words, Characters & Sentences</h1>
       <p>Count words, characters, sentences, paragraphs, and estimate reading time in any text. Real-time counting as you type or paste.</p>
     </div>
     <div class="privacy-banner"><span class="icon">??</span><span>100% browser-based. Your text never leaves your device. No upload, no server.</span></div>
@@ -85,24 +85,24 @@
         <textarea id="wcInput" rows="10" style="width:100%;padding:12px 14px;border:1px solid var(--color-mist);border-radius:8px;font-size:0.9rem;font-family:inherit;outline:none;resize:vertical;" placeholder="Type or paste your text here..." spellcheck="true"></textarea>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:16px;">
-        <div style="background:var(--color-cream);border-radius:8px;padding:12px;text-align:center;">
-          <div style="font-size:1.5rem;font-weight:700;color:var(--color-primary);" id="wcWords">0</div>
+        <div style="background:var(--color-smoke);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-size:1.5rem;font-weight:700;color:var(--color-red);" id="wcWords">0</div>
           <div style="font-size:0.8rem;color:#888;">Words</div>
         </div>
-        <div style="background:var(--color-cream);border-radius:8px;padding:12px;text-align:center;">
-          <div style="font-size:1.5rem;font-weight:700;color:var(--color-primary);" id="wcChars">0</div>
+        <div style="background:var(--color-smoke);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-size:1.5rem;font-weight:700;color:var(--color-red);" id="wcChars">0</div>
           <div style="font-size:0.8rem;color:#888;">Characters</div>
         </div>
-        <div style="background:var(--color-cream);border-radius:8px;padding:12px;text-align:center;">
-          <div style="font-size:1.5rem;font-weight:700;color:var(--color-primary);" id="wcSentences">0</div>
+        <div style="background:var(--color-smoke);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-size:1.5rem;font-weight:700;color:var(--color-red);" id="wcSentences">0</div>
           <div style="font-size:0.8rem;color:#888;">Sentences</div>
         </div>
-        <div style="background:var(--color-cream);border-radius:8px;padding:12px;text-align:center;">
-          <div style="font-size:1.5rem;font-weight:700;color:var(--color-primary);" id="wcParagraphs">0</div>
+        <div style="background:var(--color-smoke);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-size:1.5rem;font-weight:700;color:var(--color-red);" id="wcParagraphs">0</div>
           <div style="font-size:0.8rem;color:#888;">Paragraphs</div>
         </div>
-        <div style="background:var(--color-cream);border-radius:8px;padding:12px;text-align:center;">
-          <div style="font-size:1.5rem;font-weight:700;color:var(--color-primary);" id="wcReadingTime">0 min</div>
+        <div style="background:var(--color-smoke);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-size:1.5rem;font-weight:700;color:var(--color-red);" id="wcReadingTime">0 min</div>
           <div style="font-size:0.8rem;color:#888;">Reading Time</div>
         </div>
       </div>
@@ -113,7 +113,7 @@
         <div class="how-step">
           <div class="how-step-num">1</div>
           <h3>Type or Paste Text</h3>
-          <p>Simply type directly into the textarea or paste text from any source — documents, emails, web pages, or code. The counter updates in real time.</p>
+          <p>Simply type directly into the textarea or paste text from any source ï¿½ documents, emails, web pages, or code. The counter updates in real time.</p>
         </div>
         <div class="how-step">
           <div class="how-step-num">2</div>

@@ -24,7 +24,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does this work with all Bank of America account types?","acceptedAnswer":{"@type":"Answer","text":"Yes, it supports BofA checking, savings, credit card, home loan, and business account statement PDFs. The parser handles the standard BofA transaction table layout."}},{"@type":"Question","name":"How do I download a BofA statement as PDF?","acceptedAnswer":{"@type":"Answer","text":"Log in to Bank of America online banking, select your account, click Statements & Documents, choose the statement month, and select Download PDF. The text-based PDF works best for conversion."}},{"@type":"Question","name":"Can I convert multiple BofA statements at once?","acceptedAnswer":{"@type":"Answer","text":"Currently you convert one PDF at a time. However, if your BofA statement contains multiple pages or multiple accounts, all transactions from the entire PDF are extracted into a single CSV file."}},{"@type":"Question","name":"Is my Bank of America data secure?","acceptedAnswer":{"@type":"Answer","text":"Yes. The entire conversion runs client-side in your browser using PDF.js. Your BofA statement never leaves your device. No data is uploaded anywhere."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
   <nav id="sidebar" class="sidebar">
     <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
       <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
@@ -72,7 +72,7 @@
       <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
     </div>
   </nav>
-  <main class="main-content">
+  <main id="main-content" class="main-content">
     <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Bank of America Statement to CSV</span></nav>
     <div class="tool-header">
       <h1>Bank of America Statement to CSV Converter</h1>

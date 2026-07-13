@@ -24,7 +24,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why would I need to convert CSV to QBO?","acceptedAnswer":{"@type":"Answer","text":"When migrating between accounting software or uploading transactions from a spreadsheet, QBO format is required by QuickBooks. This converter lets you prepare your data in Excel, then convert to QBO for import."}},{"@type":"Question","name":"What columns are needed in the CSV?","acceptedAnswer":{"@type":"Answer","text":"The CSV should have columns: Date, Description, Amount, Type (DEBIT/CREDIT), and optionally Memo and CheckNumber. Amount can be positive (credit) or negative (debit)."}},{"@type":"Question","name":"Does the converter work with any bank?","acceptedAnswer":{"@type":"Answer","text":"The generated QBO file follows the standard OFX specification and works with any QuickBooks-compatible accounting system."}},{"@type":"Question","name":"Is the conversion secure?","acceptedAnswer":{"@type":"Answer","text":"Yes. Everything runs in your browser. Your data never leaves your device."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
   <nav id="sidebar" class="sidebar">
     <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
       <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
@@ -64,7 +64,7 @@
       <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
     </div>
   </nav>
-  <main class="main-content">
+  <main id="main-content" class="main-content">
     <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">CSV to QBO</span></nav>
     <div class="tool-header">
       <h1>CSV to QBO Converter — Spreadsheet to QuickBooks</h1>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markdown to HTML Converter — Convert MD to HTML Online | ConvertPivot</title>
+  <meta name="description" content="Free online Markdown to HTML converter. Convert Markdown files to clean HTML with syntax highlighting. 100% browser-based, no upload.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/markdown-to-html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/markdown-to-html">
+  <meta property="og:title" content="Markdown to HTML Converter — Free Online Tool | ConvertPivot">
+  <meta property="og:description" content="Free online Markdown to HTML converter. Convert Markdown files to clean HTML with syntax highlighting. 100% browser-based, no upload.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Markdown to HTML Converter — Free Online Tool | ConvertPivot">
+  <meta name="twitter:description" content="Free online Markdown to HTML converter. Convert Markdown files to clean HTML with syntax highlighting. 100% browser-based, no upload.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Markdown to HTML Converter","url":"https://convertpivot.com/markdown-to-html","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online Markdown to HTML converter. Convert Markdown files to clean HTML with syntax highlighting. 100% browser-based, no upload.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What Markdown syntax is supported?","acceptedAnswer":{"@type":"Answer","text":"Our converter supports headings (#), bold (**), italic (*), inline code, code blocks (triple backticks), ordered and unordered lists, links, and images. Most common Markdown flavors are covered."}},{"@type":"Question","name":"Can I convert the HTML output to a file?","acceptedAnswer":{"@type":"Answer","text":"Yes, after conversion you can copy the output HTML and paste it into any editor or save it as an .html file. We also provide a Copy button for convenience."}},{"@type":"Question","name":"Is my Markdown text uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. All processing happens entirely in your browser using JavaScript. Your Markdown text never leaves your device. You can verify this by checking the Network tab in your browser's developer tools."}},{"@type":"Question","name":"What happens to the converted HTML?","acceptedAnswer":{"@type":"Answer","text":"The converted HTML is displayed in the output area and stored temporarily in your browser's memory. Once you close or refresh the page, the data is cleared. Nothing is saved on our servers."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Markdown to HTML Converter</span></nav>
+    <div class="tool-header">
+      <h1>Markdown to HTML Converter</h1>
+      <p>Convert Markdown text to clean HTML instantly in your browser. No uploads, no servers — just pure client-side conversion.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-container">
+        <div class="converter-input">
+          <label for="mdInput">Markdown Input</label>
+          <textarea id="mdInput" placeholder="# Hello World&#10;&#10;This is **bold** and *italic* text.&#10;&#10;- List item 1&#10;- List item 2&#10;&#10;`inline code`&#10;&#10;```&#10;code block&#10;```" rows="12"></textarea>
+        </div>
+        <div class="converter-actions">
+          <button id="convertBtn" class="btn btn-primary">Convert to HTML</button>
+          <button id="clearBtn" class="btn btn-secondary">Clear</button>
+        </div>
+        <div class="converter-output">
+          <label for="htmlOutput">HTML Output</label>
+          <div id="htmlOutput" class="html-preview"></div>
+          <button id="copyBtn" class="btn btn-secondary">Copy HTML</button>
+        </div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the Markdown to HTML Converter</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Enter Your Markdown</h3><p>Type or paste your Markdown content into the input field above.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Click Convert</h3><p>Press the Convert to HTML button to instantly transform your Markdown.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Copy the HTML</h3><p>The rendered HTML appears in the output area. Use the Copy button to grab it.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What Markdown syntax is supported? <span class="arrow">▼</span></button><div class="faq-answer">Our converter supports headings (#), bold (**), italic (*), inline code, code blocks (triple backticks), ordered and unordered lists, links, and images. Most common Markdown flavors are covered.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I convert the HTML output to a file? <span class="arrow">▼</span></button><div class="faq-answer">Yes, after conversion you can copy the output HTML and paste it into any editor or save it as an .html file. We also provide a Copy button for convenience.</div></div>
+        <div class="faq-item"><button class="faq-question">Is my Markdown text uploaded? <span class="arrow">▼</span></button><div class="faq-answer">No. All processing happens entirely in your browser using JavaScript. Your Markdown text never leaves your device. You can verify this by checking the Network tab in your browser's developer tools.</div></div>
+        <div class="faq-item"><button class="faq-question">What happens to the converted HTML? <span class="arrow">▼</span></button><div class="faq-answer">The converted HTML is displayed in the output area and stored temporarily in your browser's memory. Once you close or refresh the page, the data is cleared. Nothing is saved on our servers.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/html-to-markdown" class="related-tool-card">HTML to Markdown <span class="desc">Convert HTML back to Markdown</span></a>
+        <a href="/json-formatter" class="related-tool-card">JSON Formatter <span class="desc">Beautify and validate JSON</span></a>
+        <a href="/case-converter" class="related-tool-card">Case Converter <span class="desc">Convert text case</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      const mdInput = document.getElementById('mdInput');
+      const htmlOutput = document.getElementById('htmlOutput');
+      const convertBtn = document.getElementById('convertBtn');
+      const clearBtn = document.getElementById('clearBtn');
+      const copyBtn = document.getElementById('copyBtn');
+
+      function escapeHtml(str) {
+        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+      }
+
+      function convertMarkdown(md) {
+        let html = md;
+
+        html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+
+        html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+
+        html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+        html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+        html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+
+        html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">');
+
+        html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+
+        html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+        html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+
+        const lines = html.split('\n');
+        let inList = false;
+        let result = [];
+        for (let i = 0; i < lines.length; i++) {
+          const line = lines[i];
+          const ulMatch = line.match(/^- (.+)/);
+          const olMatch = line.match(/^\d+\.\s+(.+)/);
+          if (ulMatch) {
+            if (!inList) { result.push('<ul>'); inList = 'ul'; }
+            result.push('<li>' + ulMatch[1] + '</li>');
+          } else if (olMatch) {
+            if (!inList) { result.push('<ol>'); inList = 'ol'; }
+            result.push('<li>' + olMatch[1] + '</li>');
+          } else {
+            if (inList) { result.push('</' + inList + '>'); inList = false; }
+            if (line.trim() === '') {
+              result.push('');
+            } else if (!line.match(/^<h[1-3]|<pre|<ul|<ol|<li|<img|<a/)) {
+              result.push('<p>' + line + '</p>');
+            } else {
+              result.push(line);
+            }
+          }
+        }
+        if (inList) result.push('</' + inList + '>');
+        return result.join('\n');
+      }
+
+      function convert() {
+        const md = mdInput.value;
+        if (!md.trim()) {
+          htmlOutput.innerHTML = '<p class="placeholder">Enter Markdown above and click Convert.</p>';
+          return;
+        }
+        const html = convertMarkdown(md);
+        htmlOutput.innerHTML = html;
+      }
+
+      function clearAll() {
+        mdInput.value = '';
+        htmlOutput.innerHTML = '<p class="placeholder">Converted HTML will appear here.</p>';
+      }
+
+      function copyHtml() {
+        const text = htmlOutput.innerHTML;
+        if (!text || text.includes('Converted HTML will appear here')) return;
+        navigator.clipboard.writeText(text).catch(function() {
+          const range = document.createRange();
+          range.selectNodeContents(htmlOutput);
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          document.execCommand('copy');
+          sel.removeAllRanges();
+        });
+      }
+
+      convertBtn.addEventListener('click', convert);
+      clearBtn.addEventListener('click', clearAll);
+      copyBtn.addEventListener('click', copyHtml);
+
+      htmlOutput.innerHTML = '<p class="placeholder">Converted HTML will appear here.</p>';
+    })();
+  </script>
+</body>
+</html>

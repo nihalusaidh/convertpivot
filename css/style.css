@@ -25,6 +25,38 @@
   --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-canvas: #121212;
+    --color-ink: #E8E8E8;
+    --color-graphite: #A0A0A0;
+    --color-mist: #333;
+    --color-smoke: #1E1E1E;
+    --color-surface: #252525;
+    --color-sidebar: #1A1A1A;
+    --color-red: #FF3333;
+    --color-red-hover: #FF5555;
+    --color-red-light: #2A1515;
+    --color-success: #22C55E;
+    --color-error: #EF4444;
+  }
+}
+
+.dark-mode {
+  --color-canvas: #121212;
+  --color-ink: #E8E8E8;
+  --color-graphite: #A0A0A0;
+  --color-mist: #333;
+  --color-smoke: #1E1E1E;
+  --color-surface: #252525;
+  --color-sidebar: #1A1A1A;
+  --color-red: #FF3333;
+  --color-red-hover: #FF5555;
+  --color-red-light: #2A1515;
+  --color-success: #22C55E;
+  --color-error: #EF4444;
+}
+
 html { font-size: 14px; }
 
 body {
@@ -35,10 +67,45 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  transition: background 0.2s, color 0.2s;
 }
 
 a { color: var(--color-ink); text-decoration: none; }
 a:hover { color: var(--color-red); }
+
+:focus-visible {
+  outline: 2px solid var(--color-red);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* === SKIP TO CONTENT === */
+.skip-to-content {
+  position: absolute;
+  top: -1000px;
+  left: 8px;
+  z-index: 1000;
+  padding: 10px 20px;
+  background: var(--color-red);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0 0 var(--radius-pill) var(--radius-pill);
+  font-size: 0.9rem;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
 
 /* === HEADER === */
 .site-header {
@@ -53,6 +120,7 @@ a:hover { color: var(--color-red); }
   align-items: center;
   padding: 0 16px;
   z-index: 100;
+  transition: background 0.2s, border-color 0.2s;
 }
 
 .site-logo {
@@ -90,6 +158,25 @@ a:hover { color: var(--color-red); }
   color: var(--color-ink);
 }
 
+/* === HEADER DARK MODE TOGGLE === */
+.dark-toggle {
+  background: none;
+  border: 1px solid var(--color-mist);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 6px 10px;
+  border-radius: var(--radius-pill);
+  margin-left: auto;
+  color: var(--color-graphite);
+  transition: background 0.15s, border-color 0.15s;
+  line-height: 1;
+}
+
+.dark-toggle:hover {
+  background: var(--color-smoke);
+  border-color: var(--color-red);
+}
+
 /* === SIDEBAR === */
 .sidebar {
   position: fixed;
@@ -102,6 +189,7 @@ a:hover { color: var(--color-red); }
   overflow-y: auto;
   z-index: 50;
   padding: 12px 0;
+  transition: background 0.2s, border-color 0.2s;
 }
 
 .sidebar::-webkit-scrollbar { width: 6px; }
@@ -125,7 +213,7 @@ a:hover { color: var(--color-red); }
   padding: 8px 20px;
   font-size: 0.9rem;
   color: var(--color-graphite);
-  transition: background 0.15s, color 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
   border-left: 3px solid transparent;
 }
 
@@ -269,6 +357,7 @@ a:hover { color: var(--color-red); }
   padding: 32px;
   margin-bottom: 32px;
   max-width: 600px;
+  transition: background 0.2s, border-color 0.2s;
 }
 
 .drop-zone {
@@ -277,7 +366,7 @@ a:hover { color: var(--color-red); }
   padding: 48px 24px;
   text-align: center;
   cursor: pointer;
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
   position: relative;
 }
 
@@ -287,9 +376,32 @@ a:hover { color: var(--color-red); }
   background: var(--color-red-light);
 }
 
+.drop-zone.drop-success {
+  border-color: var(--color-success);
+  background: #F0FDF4;
+  transform: scale(1.02);
+}
+
+.dark-mode .drop-zone.drop-success {
+  background: #0A2A10;
+}
+
 .drop-zone-icon {
   font-size: 2.5rem;
   margin-bottom: 12px;
+}
+
+.drop-zone-icon .success-check {
+  display: none;
+  color: var(--color-success);
+}
+
+.drop-zone.drop-success .drop-zone-icon .default-icon {
+  display: none;
+}
+
+.drop-zone.drop-success .drop-zone-icon .success-check {
+  display: inline;
 }
 
 .drop-zone-text {
@@ -375,6 +487,7 @@ a:hover { color: var(--color-red); }
   cursor: pointer;
   outline: none;
   min-width: 120px;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
 .converter-controls select:focus {
@@ -438,7 +551,9 @@ a:hover { color: var(--color-red); }
 .converter-result.show { display: block; }
 
 .converter-result.success { background: #F0FDF4; border-color: #BBF7D0; }
+.dark-mode .converter-result.success { background: #0A2A10; border-color: #166534; }
 .converter-result.error { background: #FEF2F2; border-color: #FECACA; }
+.dark-mode .converter-result.error { background: #2A1010; border-color: #7F1D1D; }
 
 .converter-result-message {
   font-size: 0.9rem;
@@ -466,6 +581,33 @@ a:hover { color: var(--color-red); }
   transition: width 0.3s;
   border-radius: 2px;
 }
+
+/* === TOAST NOTIFICATION === */
+.toast {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 10000;
+  padding: 12px 20px;
+  border-radius: var(--radius-card);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transform: translateX(120%);
+  transition: transform 0.3s ease;
+  max-width: 360px;
+  pointer-events: none;
+}
+
+.toast.toast-show {
+  transform: translateX(0);
+}
+
+.toast-success { background: var(--color-success); }
+.toast-error { background: var(--color-error); }
+.toast-info { background: #333; }
+.dark-mode .toast-info { background: #555; }
 
 /* === CONTENT SECTIONS (SEO) === */
 .content-section {
@@ -727,6 +869,7 @@ a:hover { color: var(--color-red); }
   background: var(--color-smoke);
   border-top: 1px solid var(--color-mist);
   padding: 32px 40px;
+  transition: background 0.2s, border-color 0.2s;
 }
 
 .footer-content {
@@ -760,7 +903,7 @@ a:hover { color: var(--color-red); }
 @media (max-width: 900px) {
   .sidebar {
     transform: translateX(-100%);
-    transition: transform 0.25s ease;
+    transition: transform 0.25s ease, background 0.2s;
   }
 
   .sidebar.open {

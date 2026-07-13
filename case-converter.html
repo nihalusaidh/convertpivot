@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Converter — Convert Text Case Online | ConvertPivot</title>
+  <meta name="description" content="Free online case converter. Convert text to uppercase, lowercase, title case, sentence case, camelCase, and more. No upload, private.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/case-converter">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/case-converter">
+  <meta property="og:title" content="Case Converter — Convert Text Case Online | ConvertPivot">
+  <meta property="og:description" content="Free online case converter. Convert text to uppercase, lowercase, title case, sentence case, camelCase, and more. No upload, private.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Case Converter — Convert Text Case Online | ConvertPivot">
+  <meta name="twitter:description" content="Free online case converter. Convert text to uppercase, lowercase, title case, sentence case, camelCase, and more. No upload, private.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Case Converter","url":"https://convertpivot.com/case-converter","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online case converter. Convert text to uppercase, lowercase, title case, sentence case, camelCase, and more. No upload, private.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What text case options are available?","acceptedAnswer":{"@type":"Answer","text":"This tool supports uppercase, lowercase, title case (capitalize each word), sentence case (capitalize first word), camelCase, PascalCase, kebab-case, and snake_case."}},{"@type":"Question","name":"Is the conversion instant?","acceptedAnswer":{"@type":"Answer","text":"Yes, conversion happens instantly as you type or click. There is no delay because all processing is done locally in your browser with no server communication."}},{"@type":"Question","name":"Is my text uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. All text processing happens entirely in your browser. Your text never leaves your device — there are no uploads, no storage, and no tracking."}},{"@type":"Question","name":"What is camelCase?","acceptedAnswer":{"@type":"Answer","text":"camelCase is a naming convention where the first word is lowercase and each subsequent word starts with an uppercase letter, all with no spaces. For example: 'helloWorldExample'. PascalCase is similar but the first word is also capitalized."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Case Converter</span></nav>
+    <div class="tool-header">
+      <h1>Case Converter</h1>
+      <p>Convert text between uppercase, lowercase, title case, camelCase, and more.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <label for="caseInput">Enter your text:</label>
+        <textarea id="caseInput" class="converter-textarea" rows="5" placeholder="Type or paste text here..."></textarea>
+        <div class="converter-options">
+          <label class="radio-label"><input type="radio" name="caseType" value="uppercase" checked> <code>UPPER CASE</code></label>
+          <label class="radio-label"><input type="radio" name="caseType" value="lowercase"> <code>lower case</code></label>
+          <label class="radio-label"><input type="radio" name="caseType" value="titlecase"> <code>Title Case</code></label>
+          <label class="radio-label"><input type="radio" name="caseType" value="sentencecase"> <code>Sentence case</code></label>
+          <label class="radio-label"><input type="radio" name="caseType" value="camelcase"> <code>camelCase</code></label>
+          <label class="radio-label"><input type="radio" name="caseType" value="pascalcase"> <code>PascalCase</code></label>
+          <label class="radio-label"><input type="radio" name="caseType" value="kebabcase"> <code>kebab-case</code></label>
+          <label class="radio-label"><input type="radio" name="caseType" value="snakecase"> <code>snake_case</code></label>
+        </div>
+        <div class="converter-actions">
+          <button id="convertCaseBtn" class="btn btn-primary">Convert</button>
+          <button id="clearCaseBtn" class="btn btn-ghost">Clear</button>
+          <button id="copyCaseBtn" class="btn btn-ghost">Copy</button>
+        </div>
+        <label for="caseOutput">Output:</label>
+        <textarea id="caseOutput" class="converter-textarea" rows="5" placeholder="Converted text will appear here..." readonly></textarea>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the Case Converter</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Enter Your Text</h3><p>Type or paste the text you want to convert into the input field above.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Select a Case</h3><p>Choose your desired case from the available options: UPPER, lower, Title, Sentence, camelCase, PascalCase, kebab-case, or snake_case.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Get Results Instantly</h3><p>Click <strong>Convert</strong> and your text appears transformed in the output area. Use <strong>Copy</strong> to copy the result to your clipboard.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What text case options are available? <span class="arrow">▼</span></button><div class="faq-answer">This tool supports uppercase, lowercase, title case (capitalize each word), sentence case (capitalize first word), camelCase, PascalCase, kebab-case, and snake_case.</div></div>
+        <div class="faq-item"><button class="faq-question">Is the conversion instant? <span class="arrow">▼</span></button><div class="faq-answer">Yes, conversion happens instantly as you type or click. There is no delay because all processing is done locally in your browser with no server communication.</div></div>
+        <div class="faq-item"><button class="faq-question">Is my text uploaded? <span class="arrow">▼</span></button><div class="faq-answer">No. All text processing happens entirely in your browser. Your text never leaves your device — there are no uploads, no storage, and no tracking.</div></div>
+        <div class="faq-item"><button class="faq-question">What is camelCase? <span class="arrow">▼</span></button><div class="faq-answer">camelCase is a naming convention where the first word is lowercase and each subsequent word starts with an uppercase letter, all with no spaces. For example: 'helloWorldExample'. PascalCase is similar but the first word is also capitalized.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/base64-encoder" class="related-tool-card">Base64 Encoder <span class="desc">Encode text to Base64</span></a>
+        <a href="/base64-decoder" class="related-tool-card">Base64 Decoder <span class="desc">Decode Base64 text</span></a>
+        <a href="/json-formatter" class="related-tool-card">JSON Formatter <span class="desc">Format and validate JSON</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var input = document.getElementById('caseInput');
+      var output = document.getElementById('caseOutput');
+
+      function toWords(str) {
+        return str.trim().split(/\s+/);
+      }
+
+      function convert(text, type) {
+        if (!text) return '';
+        switch (type) {
+          case 'uppercase':
+            return text.toUpperCase();
+          case 'lowercase':
+            return text.toLowerCase();
+          case 'titlecase':
+            return text.replace(/\w\S*/g, function(w) { return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase(); });
+          case 'sentencecase':
+            return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+          case 'camelcase': {
+            var words = toWords(text);
+            if (words.length === 0) return '';
+            var result = words[0].toLowerCase();
+            for (var i = 1; i < words.length; i++) {
+              result += words[i].charAt(0).toUpperCase() + words[i].slice(1).toLowerCase();
+            }
+            return result;
+          }
+          case 'pascalcase': {
+            var words = toWords(text);
+            if (words.length === 0) return '';
+            var result = '';
+            for (var i = 0; i < words.length; i++) {
+              result += words[i].charAt(0).toUpperCase() + words[i].slice(1).toLowerCase();
+            }
+            return result;
+          }
+          case 'kebabcase':
+            return toWords(text).map(function(w) { return w.toLowerCase(); }).join('-');
+          case 'snakecase':
+            return toWords(text).map(function(w) { return w.toLowerCase(); }).join('_');
+          default:
+            return text;
+        }
+      }
+
+      function getSelectedCase() {
+        var radios = document.getElementsByName('caseType');
+        for (var i = 0; i < radios.length; i++) {
+          if (radios[i].checked) return radios[i].value;
+        }
+        return 'uppercase';
+      }
+
+      document.getElementById('convertCaseBtn').addEventListener('click', function() {
+        try {
+          output.value = convert(input.value, getSelectedCase());
+        } catch(e) {
+          output.value = 'Error: ' + e.message;
+        }
+      });
+
+      document.getElementById('clearCaseBtn').addEventListener('click', function() {
+        input.value = '';
+        output.value = '';
+        input.focus();
+      });
+
+      document.getElementById('copyCaseBtn').addEventListener('click', function() {
+        output.select();
+        navigator.clipboard.writeText(output.value);
+      });
+    })();
+  </script>
+</body>
+</html>

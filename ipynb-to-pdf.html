@@ -24,7 +24,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an IPYNB file?","acceptedAnswer":{"@type":"Answer","text":"IPYNB (IPython Notebook) is the file format for Jupyter notebooks. It contains JSON with code cells, markdown documentation, and execution outputs including images and charts."}},{"@type":"Question","name":"How does IPYNB to PDF conversion work?","acceptedAnswer":{"@type":"Answer","text":"The notebook JSON is parsed, markdown cells are rendered to HTML, code cells get syntax highlighting, and outputs are embedded. The result opens in a new window for browser print-to-PDF."}},{"@type":"Question","name":"Can I convert notebooks without installing Python?","acceptedAnswer":{"@type":"Answer","text":"Yes. The conversion happens entirely in your browser. No Python, no Jupyter, no server-side processing needed."}},{"@type":"Question","name":"Is my notebook data private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Everything runs in your browser. Your code and data never leave your device."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
   <nav id="sidebar" class="sidebar">
     <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
       <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
@@ -64,7 +64,7 @@
       <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
     </div>
   </nav>
-  <main class="main-content">
+  <main id="main-content" class="main-content">
     <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">IPYNB to PDF</span></nav>
     <div class="tool-header">
       <h1>IPYNB to PDF Converter — Jupyter Notebook to Document</h1>

@@ -2,66 +2,101 @@
   'use strict';
 
   // ============================================================
+  // ERROR TRACKING
+  // ============================================================
+  window.onerror = function (msg, src, line, col, err) {
+    try {
+      var errors = JSON.parse(localStorage.getItem('cp_errors') || '[]');
+      errors.push({ msg: msg, src: src, line: line, time: Date.now() });
+      if (errors.length > 50) errors.shift();
+      localStorage.setItem('cp_errors', JSON.stringify(errors));
+    } catch (e) {}
+  };
+
+  window.onunhandledrejection = function (e) {
+    try {
+      var errors = JSON.parse(localStorage.getItem('cp_errors') || '[]');
+      errors.push({ msg: 'Unhandled: ' + (e.reason || ''), time: Date.now() });
+      if (errors.length > 50) errors.shift();
+      localStorage.setItem('cp_errors', JSON.stringify(errors));
+    } catch (e2) {}
+  };
+
+  // ============================================================
   // SIDEBAR DATA & BUILDER
   // ============================================================
   var sidebarSections = [
-    {heading: 'Developer Tools', links: [
-      {href: '/binary-converter', icon: '⬡', label: 'Binary Converter'},
-      {href: '/hex-to-rgb', icon: '🎨', label: 'Hex to RGB'},
-      {href: '/timestamp-converter', icon: '⏱', label: 'Timestamp Converter'},
-      {href: '/json-formatter', icon: '🔧', label: 'JSON Formatter'},
-      {href: '/base64-encoder', icon: '🔐', label: 'Base64 Encoder'},
-      {href: '/base64-decoder', icon: '🔓', label: 'Base64 Decoder'},
-      {href: '/password-generator', icon: '🔑', label: 'Password Generator'},
-      {href: '/word-counter', icon: '📝', label: 'Word Counter'}
+    { heading: 'Developer Tools', links: [
+      { href: '/binary-converter', icon: '\u2B21', label: 'Binary Converter' },
+      { href: '/hex-to-rgb', icon: '\uD83C\uDFA8', label: 'Hex to RGB' },
+      { href: '/timestamp-converter', icon: '\u23F1', label: 'Timestamp Converter' },
+      { href: '/json-formatter', icon: '\uD83D\uDD27', label: 'JSON Formatter' },
+      { href: '/base64-encoder', icon: '\uD83D\uDD10', label: 'Base64 Encoder' },
+      { href: '/base64-decoder', icon: '\uD83D\uDD13', label: 'Base64 Decoder' },
+      { href: '/password-generator', icon: '\uD83D\uDD11', label: 'Password Generator' },
+      { href: '/word-counter', icon: '\uD83D\uDCDD', label: 'Word Counter' },
+      { href: '/url-encoder-decoder', icon: '\uD83D\uDD17', label: 'URL Encoder/Decoder' },
+      { href: '/html-entity-encoder-decoder', icon: '\uD83D\uDD20', label: 'HTML Entity Encoder' },
+      { href: '/uuid-generator', icon: '\uD83D\uDD11', label: 'UUID Generator' },
+      { href: '/case-converter', icon: '\uD83D\uDD20', label: 'Case Converter' },
+      { href: '/markdown-to-html', icon: '\uD83D\uDCDD', label: 'Markdown to HTML' },
+      { href: '/html-to-markdown', icon: '\uD83D\uDCDD', label: 'HTML to Markdown' },
+      { href: '/json-to-yaml', icon: '\uD83D\uDD04', label: 'JSON to YAML' },
+      { href: '/xml-to-json', icon: '\uD83D\uDD04', label: 'XML to JSON' },
+      { href: '/csv-to-json', icon: '\uD83D\uDCCA', label: 'CSV to JSON' },
+      { href: '/image-to-base64', icon: '\uD83D\uDDBC', label: 'Image to Base64' },
+      { href: '/percentage-calculator', icon: '\uD83D\uDCC8', label: 'Percentage Calculator' },
+      { href: '/temperature-converter', icon: '\uD83C\uDF21', label: 'Temperature Converter' },
+      { href: '/all-unit-converters', icon: '\uD83D\uDCCF', label: 'All Unit Converters' }
     ]},
-    {heading: 'Contacts & CRM', links: [
-      {href: '/vcf-to-csv', icon: '📇', label: 'VCF to CSV'},
-      {href: '/csv-to-vcf', icon: '📋', label: 'CSV to VCF'},
-      {href: '/vcf-to-xlsx', icon: '📊', label: 'VCF to XLSX'}
+    { heading: 'Contacts & CRM', links: [
+      { href: '/vcf-to-csv', icon: '\uD83D\uDCC7', label: 'VCF to CSV' },
+      { href: '/csv-to-vcf', icon: '\uD83D\uDCCB', label: 'CSV to VCF' },
+      { href: '/vcf-to-xlsx', icon: '\uD83D\uDCCA', label: 'VCF to XLSX' }
     ]},
-    {heading: 'Financial', links: [
-      {href: '/ofx-to-csv', icon: '🏦', label: 'OFX to CSV'},
-      {href: '/qfx-to-csv', icon: '💰', label: 'QFX to CSV'},
-      {href: '/qbo-to-csv', icon: '📒', label: 'QBO to CSV'},
-      {href: '/csv-to-qbo', icon: '🔄', label: 'CSV to QBO'},
-      {href: '/csv-to-ofx', icon: '🏛', label: 'CSV to OFX'},
-      {href: '/csv-to-qfx', icon: '📑', label: 'CSV to QFX'},
-      {href: '/pdf-bank-statement-to-csv', icon: '📄', label: 'PDF Bank Stmt to CSV'},
-      {href: '/bank-statement-converter', icon: '🏛', label: 'Bank Stmt Converter'},
-      {href: '/chase-bank-statement-to-csv', icon: '🏦', label: 'Chase to CSV'},
-      {href: '/wells-fargo-statement-to-csv', icon: '💰', label: 'Wells Fargo to CSV'},
-      {href: '/bank-of-america-statement-to-csv', icon: '🏛', label: 'BofA to CSV'}
+    { heading: 'Financial', links: [
+      { href: '/ofx-to-csv', icon: '\uD83C\uDFE6', label: 'OFX to CSV' },
+      { href: '/qfx-to-csv', icon: '\uD83D\uDCB0', label: 'QFX to CSV' },
+      { href: '/qbo-to-csv', icon: '\uD83D\uDCD2', label: 'QBO to CSV' },
+      { href: '/csv-to-qbo', icon: '\uD83D\uDD04', label: 'CSV to QBO' },
+      { href: '/csv-to-ofx', icon: '\uD83C\uDFDB', label: 'CSV to OFX' },
+      { href: '/csv-to-qfx', icon: '\uD83D\uDCD1', label: 'CSV to QFX' },
+      { href: '/pdf-bank-statement-to-csv', icon: '\uD83D\uDCC4', label: 'PDF Bank Stmt to CSV' },
+      { href: '/bank-statement-converter', icon: '\uD83C\uDFDB', label: 'Bank Stmt Converter' },
+      { href: '/chase-bank-statement-to-csv', icon: '\uD83C\uDFE6', label: 'Chase to CSV' },
+      { href: '/wells-fargo-statement-to-csv', icon: '\uD83D\uDCB0', label: 'Wells Fargo to CSV' },
+      { href: '/bank-of-america-statement-to-csv', icon: '\uD83C\uDFDB', label: 'BofA to CSV' }
     ]},
-    {heading: 'Notebooks', links: [
-      {href: '/ipynb-to-pdf', icon: '📓', label: 'IPYNB to PDF'},
-      {href: '/ipynb-to-docx', icon: '📝', label: 'IPYNB to DOCX'},
-      {href: '/ipynb-to-html', icon: '🌐', label: 'IPYNB to HTML'},
-      {href: '/ipynb-to-py', icon: '🐍', label: 'IPYNB to PY'}
+    { heading: 'Notebooks', links: [
+      { href: '/ipynb-to-pdf', icon: '\uD83D\uDCD3', label: 'IPYNB to PDF' },
+      { href: '/ipynb-to-docx', icon: '\uD83D\uDCDD', label: 'IPYNB to DOCX' },
+      { href: '/ipynb-to-html', icon: '\uD83C\uDF10', label: 'IPYNB to HTML' },
+      { href: '/ipynb-to-py', icon: '\uD83D\uDC0D', label: 'IPYNB to PY' }
     ]},
-    {heading: 'Media', links: [
-      {href: '/heic-to-jpg', icon: '📸', label: 'HEIC to JPG'},
-      {href: '/heic-to-pdf', icon: '🖼', label: 'HEIC to PDF'},
-      {href: '/avif-to-jpg', icon: '✨', label: 'AVIF to JPG'},
-      {href: '/webp-to-jpg', icon: '🖼', label: 'WebP to JPG'},
-      {href: '/svg-to-png', icon: '📐', label: 'SVG to PNG'},
-      {href: '/jpg-to-heic', icon: '🔄', label: 'JPG to HEIC'},
-      {href: '/jpg-to-avif', icon: '🖼', label: 'JPG to AVIF'},
-      {href: '/png-to-svg', icon: '📐', label: 'PNG to SVG'}
+    { heading: 'Media', links: [
+      { href: '/heic-to-jpg', icon: '\uD83D\uDCF8', label: 'HEIC to JPG' },
+      { href: '/heic-to-pdf', icon: '\uD83D\uDDBC', label: 'HEIC to PDF' },
+      { href: '/avif-to-jpg', icon: '\u2728', label: 'AVIF to JPG' },
+      { href: '/webp-to-jpg', icon: '\uD83D\uDDBC', label: 'WebP to JPG' },
+      { href: '/svg-to-png', icon: '\uD83D\uDCD0', label: 'SVG to PNG' },
+      { href: '/jpg-to-heic', icon: '\uD83D\uDD04', label: 'JPG to HEIC' },
+      { href: '/jpg-to-avif', icon: '\uD83D\uDDBC', label: 'JPG to AVIF' },
+      { href: '/png-to-svg', icon: '\uD83D\uDCD0', label: 'PNG to SVG' },
+      { href: '/qr-code-generator', icon: '\uD83D\uDCF1', label: 'QR Code Generator' }
     ]},
-    {heading: 'Guides', links: [
-      {href: '/guides/bank-statement-formats', icon: '📘', label: 'Bank Statement Formats'},
-      {href: '/guides/vcard-formats', icon: '📖', label: 'vCard Formats'},
-      {href: '/guides/gps-formats', icon: '🗺', label: 'GPS Formats'},
-      {href: '/guides/image-formats', icon: '🖼', label: 'Image Formats'}
+    { heading: 'Guides', links: [
+      { href: '/guides/bank-statement-formats', icon: '\uD83D\uDCD8', label: 'Bank Statement Formats' },
+      { href: '/guides/vcard-formats', icon: '\uD83D\uDCD6', label: 'vCard Formats' },
+      { href: '/guides/gps-formats', icon: '\uD83D\uDDFA', label: 'GPS Formats' },
+      { href: '/guides/image-formats', icon: '\uD83D\uDDBC', label: 'Image Formats' }
     ]},
-    {heading: 'GPS & Fitness', links: [
-      {href: '/gpx-to-kml', icon: '🗺', label: 'GPX to KML'},
-      {href: '/gpx-to-csv', icon: '📈', label: 'GPX to CSV'},
-      {href: '/fit-to-gpx', icon: '🏃', label: 'FIT to GPX'},
-      {href: '/fit-to-csv', icon: '📊', label: 'FIT to CSV'},
-      {href: '/csv-to-gpx', icon: '🔄', label: 'CSV to GPX'},
-      {href: '/kml-to-gpx', icon: '🗺', label: 'KML to GPX'}
+    { heading: 'GPS & Fitness', links: [
+      { href: '/gpx-to-kml', icon: '\uD83D\uDDFA', label: 'GPX to KML' },
+      { href: '/gpx-to-csv', icon: '\uD83D\uDCC8', label: 'GPX to CSV' },
+      { href: '/fit-to-gpx', icon: '\uD83C\uDFC3', label: 'FIT to GPX' },
+      { href: '/fit-to-csv', icon: '\uD83D\uDCCA', label: 'FIT to CSV' },
+      { href: '/csv-to-gpx', icon: '\uD83D\uDD04', label: 'CSV to GPX' },
+      { href: '/kml-to-gpx', icon: '\uD83D\uDDFA', label: 'KML to GPX' }
     ]}
   ];
 
@@ -78,7 +113,6 @@
       });
       html += '</div>';
     });
-    // Preserve existing ad container if present
     var ad = el.querySelector('.ad-container-sidebar');
     el.innerHTML = html;
     if (ad) el.appendChild(ad);
@@ -90,7 +124,6 @@
     }
   }
 
-  // Single sidebar init: toggle events + build
   (function initSidebar() {
     var sidebar = document.getElementById('sidebar');
     var toggleBtn = document.getElementById('sidebarToggle');
@@ -105,6 +138,95 @@
         }
       });
     }
+  })();
+
+  // ============================================================
+  // DARK MODE
+  // ============================================================
+  function initDarkMode() {
+    var toggle = document.getElementById('darkModeToggle');
+    if (!toggle) return;
+
+    var isDark = localStorage.getItem('cp_dark_mode');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (isDark === 'true' || (isDark === null && prefersDark)) {
+      document.body.classList.add('dark-mode');
+      toggle.textContent = '\u2600\uFE0F';
+    }
+
+    toggle.addEventListener('click', function () {
+      document.body.classList.toggle('dark-mode');
+      var dark = document.body.classList.contains('dark-mode');
+      toggle.textContent = dark ? '\u2600\uFE0F' : '\uD83C\uDF19';
+
+      var themeMeta = document.querySelector('meta[name="theme-color"]');
+      if (themeMeta) {
+        themeMeta.content = dark ? '#121212' : '#FF0000';
+      }
+
+      try { localStorage.setItem('cp_dark_mode', dark); } catch (e) {}
+    });
+  }
+
+  // ============================================================
+  // TOAST NOTIFICATION
+  // ============================================================
+  function showToast(message, type) {
+    type = type || 'info';
+    var toast = document.getElementById('globalToast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'globalToast';
+      toast.className = 'toast';
+      document.body.appendChild(toast);
+    }
+    toast.className = 'toast toast-' + type;
+    toast.textContent = message;
+    toast.classList.remove('toast-show');
+    void toast.offsetWidth;
+    toast.classList.add('toast-show');
+    if (window._toastTimer) clearTimeout(window._toastTimer);
+    window._toastTimer = setTimeout(function () {
+      toast.classList.remove('toast-show');
+    }, 3000);
+  }
+
+  // ============================================================
+  // ESCAPE KEY HANDLER
+  // ============================================================
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      var sidebar = document.getElementById('sidebar');
+      if (sidebar && sidebar.classList.contains('open')) {
+        sidebar.classList.remove('open');
+      }
+    }
+  });
+
+  // ============================================================
+  // ARIA FIXES
+  // ============================================================
+  (function fixAria() {
+    var toggle = document.getElementById('sidebarToggle');
+    if (toggle && !toggle.getAttribute('aria-label')) {
+      toggle.setAttribute('aria-label', 'Toggle navigation');
+    }
+    var nav = document.getElementById('sidebar');
+    if (nav && !nav.getAttribute('aria-label')) {
+      nav.setAttribute('aria-label', 'Tool navigation');
+    }
+  })();
+
+  // ============================================================
+  // SKIP TO CONTENT
+  // ============================================================
+  (function injectSkipLink() {
+    var link = document.createElement('a');
+    link.href = '#main-content';
+    link.className = 'skip-to-content';
+    link.textContent = 'Skip to content';
+    document.body.insertBefore(link, document.body.firstChild);
   })();
 
   // ============================================================
@@ -127,11 +249,15 @@
       if (info) info.classList.add('show');
       if (infoName) infoName.textContent = file.name;
       if (infoSize) infoSize.textContent = formatFileSize(file.size);
+
+      // Drop success animation
+      zone.classList.add('drop-success');
+      setTimeout(function () { zone.classList.remove('drop-success'); }, 600);
+
       zone.style.display = 'none';
       if (typeof callback === 'function') callback(file);
     }
 
-    // Drag events
     zone.addEventListener('dragover', function (e) {
       e.preventDefault();
       zone.classList.add('drag-over');
@@ -148,7 +274,6 @@
       if (files && files.length > 0) handleFile(files[0]);
     });
 
-    // Click / file input
     if (fileInput) {
       fileInput.addEventListener('change', function () {
         if (fileInput.files && fileInput.files.length > 0) {
@@ -157,7 +282,6 @@
       });
     }
 
-    // Remove file
     if (removeBtn) {
       removeBtn.addEventListener('click', function () {
         currentFile = null;
@@ -231,6 +355,7 @@
     a.click();
     document.body.removeChild(a);
     setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    showToast('Download started: ' + filename, 'success');
   }
 
   function downloadFromUrl(url, filename) {
@@ -240,6 +365,7 @@
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
+    showToast('Download started', 'success');
   }
 
   // ============================================================
@@ -293,14 +419,12 @@
       btn.addEventListener('click', function () {
         var answer = this.nextElementSibling;
         var isOpen = answer.classList.contains('open');
-        // Close all others
         container.querySelectorAll('.faq-answer.open').forEach(function (a) {
           if (a !== answer) {
             a.classList.remove('open');
             a.previousElementSibling.classList.remove('open');
           }
         });
-        // Toggle this one
         answer.classList.toggle('open');
         this.classList.toggle('open');
       });
@@ -355,8 +479,8 @@
     widget.innerHTML =
       '<div class="feedback-question">Was this helpful?</div>' +
       '<div class="feedback-buttons">' +
-        '<button class="feedback-btn feedback-yes" data-vote="yes" aria-label="Yes">👍 Yes</button>' +
-        '<button class="feedback-btn feedback-no" data-vote="no" aria-label="No">👎 No</button>' +
+        '<button class="feedback-btn feedback-yes" data-vote="yes" aria-label="Yes">\uD83D\uDC4D Yes</button>' +
+        '<button class="feedback-btn feedback-no" data-vote="no" aria-label="No">\uD83D\uDC4E No</button>' +
       '</div>' +
       '<div class="feedback-thanks" style="display:none">Thanks for your feedback!</div>';
     container.after(widget);
@@ -366,9 +490,7 @@
         widget.querySelector('.feedback-question').style.display = 'none';
         widget.querySelector('.feedback-buttons').style.display = 'none';
         widget.querySelector('.feedback-thanks').style.display = 'block';
-        try {
-          localStorage.setItem('cp_feedback_' + window.location.pathname, vote);
-        } catch (e) {}
+        try { localStorage.setItem('cp_feedback_' + window.location.pathname, vote); } catch (e) {}
       });
     });
     try {
@@ -382,15 +504,14 @@
   }
 
   // ============================================================
-  // HOWTO JSON-LD (generic, based on page title)
+  // HOWTO JSON-LD
   // ============================================================
   function injectHowToSchema() {
     var h1 = document.querySelector('.tool-header h1');
     if (!h1) return;
     var name = h1.textContent.trim();
-    // Extract format names from the title (e.g. "OFX to CSV Converter — Bank Statements to Spreadsheets")
-    var parts = name.split('—')[0].trim().replace(/Converter/i, '').trim();
-    var formats = parts.split(/\s+(?:to|To|→)\s+/);
+    var parts = name.split('\u2014')[0].trim().replace(/Converter/i, '').trim();
+    var formats = parts.split(/\s+(?:to|To|\u2192)\s+/);
     var inputFormat = formats[0] || 'file';
     var outputFormat = formats[1] || 'converted';
     var script = document.createElement('script');
@@ -400,12 +521,109 @@
       '@type': 'HowTo',
       name: name,
       step: [
-        {'@type': 'HowToStep', position: 1, text: 'Drop your ' + inputFormat + ' file onto the converter above'},
-        {'@type': 'HowToStep', position: 2, text: 'Click Convert to process your file'},
-        {'@type': 'HowToStep', position: 3, text: 'Download your ' + outputFormat + ' file instantly'}
+        { '@type': 'HowToStep', position: 1, text: 'Drop your ' + inputFormat + ' file onto the converter above' },
+        { '@type': 'HowToStep', position: 2, text: 'Click Convert to process your file' },
+        { '@type': 'HowToStep', position: 3, text: 'Download your ' + outputFormat + ' file instantly' }
       ]
     });
     document.head.appendChild(script);
+  }
+
+  // ============================================================
+  // CONTENT DEPTH: WHY USE / COMMON ISSUES / TIPS
+  // ============================================================
+  function detectFormats() {
+    var h1 = document.querySelector('.tool-header h1');
+    if (!h1) return null;
+    var name = h1.textContent.trim();
+    var parts = name.split('\u2014')[0].trim().replace(/Converter/i, '').trim();
+    var formats = parts.split(/\s+(?:to|To|\u2192)\s+/);
+    if (formats.length >= 2) {
+      return { input: formats[0].trim(), output: formats[1].trim() };
+    }
+    return null;
+  }
+
+  function injectContentSections() {
+    var fmt = detectFormats();
+    if (!fmt) return;
+
+    var howSection = document.querySelector('.content-section');
+    if (!howSection) return;
+    var parent = howSection.parentNode;
+
+    var input = fmt.input.toLowerCase();
+    var output = fmt.output.toLowerCase();
+    var inputUpper = fmt.input;
+    var outputUpper = fmt.output;
+
+    // Common use cases by format
+    var useCases = {
+      'csv': 'spreadsheet applications like Excel and Google Sheets',
+      'ofx': 'accounting software such as Quicken and GnuCash',
+      'qfx': 'Quicken for financial management',
+      'qbo': 'QuickBooks for business accounting',
+      'pdf': 'document sharing and printing',
+      'vcf': 'phone contact books and CRM systems',
+      'json': 'web APIs and data interchange',
+      'yaml': 'configuration files and DevOps pipelines',
+      'xml': 'data exchange between enterprise systems',
+      'html': 'web pages and email templates',
+      'markdown': 'documentation and README files',
+      'gpx': 'GPS devices and mapping applications',
+      'kml': 'Google Earth and Google Maps',
+      'fit': 'Garmin fitness devices and sports tracking',
+      'heic': 'Apple iPhone and Mac photo storage',
+      'jpg': 'universal web images and photo sharing',
+      'avif': 'next-generation web images',
+      'webp': 'optimized web images',
+      'svg': 'scalable vector graphics for web and print',
+      'png': 'screenshots and images requiring transparency',
+      'base64': 'data URIs for embedding in HTML and CSS',
+      'binary': 'low-level computing and digital logic',
+      'hex': 'color codes in web design and memory addressing',
+      'rgb': 'digital displays and graphic design',
+      'yaml': 'configuration files in cloud-native applications'
+    };
+
+    var inputUse = useCases[input] || 'various applications';
+    var outputUse = useCases[output] || 'various applications';
+
+    // Why Convert section
+    var whyDiv = document.createElement('div');
+    whyDiv.className = 'content-section';
+    whyDiv.innerHTML = '<h2>Why Convert ' + inputUpper + ' to ' + outputUpper + '?</h2>' +
+      '<p>Converting <strong>' + inputUpper + '</strong> files to <strong>' + outputUpper + '</strong> format makes your data accessible in ' + outputUse + '. ' +
+      outputUpper + ' format is widely supported, easy to share, and compatible with modern software tools. ' +
+      'Whether you are migrating between platforms, preparing data for analysis, or ensuring long-term accessibility, converting your files gives you the flexibility to work with your data in the right environment.</p>' +
+      '<p>Unlike most online converters that require uploading your files to a server, ConvertPivot processes everything locally in your browser. Your <strong>' + inputUpper + '</strong> data never leaves your device, ensuring complete privacy throughout the conversion process. This is especially important when dealing with sensitive information like financial records, personal contacts, or proprietary data.</p>';
+
+    parent.insertBefore(whyDiv, howSection.nextSibling);
+
+    // Common Issues section
+    var issuesDiv = document.createElement('div');
+    issuesDiv.className = 'content-section';
+    issuesDiv.innerHTML = '<h2>Common Conversion Issues & Troubleshooting</h2>' +
+      '<p><strong>Invalid file format:</strong> Ensure your file is a valid <strong>' + inputUpper + '</strong> file. Corrupted or improperly formatted files may cause conversion errors. Try opening the file in its native application first to verify it is intact.</p>' +
+      '<p><strong>Large file sizes:</strong> Since all processing happens in your browser, very large files may take longer to convert or exceed available memory. For best results, close unnecessary browser tabs and ensure your device has sufficient RAM before converting large files.</p>' +
+      '<p><strong>Encoding issues:</strong> Files saved with non-UTF-8 character encodings may display incorrectly after conversion. Most modern applications use UTF-8 by default. If you encounter garbled text, try re-saving the source file with UTF-8 encoding.</p>' +
+      '<p><strong>Browser compatibility:</strong> For the best experience, use the latest version of Chrome, Firefox, Edge, or Safari. Older browsers may lack support for some Web APIs used in the conversion process.</p>';
+
+    parent.insertBefore(issuesDiv, whyDiv.nextSibling);
+
+    // Tips section
+    var tipsDiv = document.createElement('div');
+    tipsDiv.className = 'content-section';
+    tipsDiv.innerHTML = '<h2>Tips for Best Results</h2>' +
+      '<ul>' +
+        '<li>Ensure your ' + inputUpper + ' file follows the standard format specification before converting.</li>' +
+        '<li>Close unused browser tabs to free up memory for large file conversions.</li>' +
+        '<li>For batch conversions, process files one at a time to maintain stable performance.</li>' +
+        '<li>After conversion, verify the ' + outputUpper + ' output opens correctly in your target application.</li>' +
+        '<li>Bookmark this page for quick access whenever you need to convert between formats.</li>' +
+      '</ul>';
+
+    parent.insertBefore(tipsDiv, issuesDiv.nextSibling);
   }
 
   // ============================================================
@@ -413,13 +631,13 @@
   // ============================================================
   var formatSignatures = {
     '%PDF': 'pdf',
-    'PK': 'docx',         // also xlsx, zip
-    'Garmin': 'fit',      // FIT files often start with Garmin string
+    'PK': 'docx',
+    'Garmin': 'fit',
     '<?xml': 'xml',
     '<svg': 'svg',
     'BLENDER': 'blend',
     'Rar': 'rar',
-    'xar': 'xar',
+    'xar': 'xar'
   };
 
   function detectFormatFromHeader(text) {
@@ -474,7 +692,7 @@
   }
 
   // ============================================================
-  // REFERENCE TABLES (per-tool conversion reference data)
+  // REFERENCE TABLES
   // ============================================================
   var refTables = {
     'binary-converter': '<h2>Powers of 2 Reference Table</h2><table class="format-table"><thead><tr><th>Power</th><th>Decimal</th><th>Binary</th><th>Hex</th></tr></thead><tbody>' +
@@ -530,11 +748,11 @@
 
     'csv-to-ofx': '<h2>CSV to OFX Column Requirements</h2><table class="format-table"><thead><tr><th>Required Column</th><th>Description</th><th>Example</th></tr></thead><tbody>' +
       '<tr><td>Date</td><td>Transaction date (YYYY-MM-DD)</td><td>2026-01-15</td></tr><tr><td>Description</td><td>Transaction description</td><td>Amazon.com</td></tr>' +
-      '<tr><td>Amount</td><td>Transaction amount</td><td>-49.99</td></tr><tr><td>Type (optional)</td><td>DEBIT or CREDIT</td><td>DEBIT</td></tr></tbody></table>',
+      '<tr><td>Amount</td><td>Transaction amount</td><td>-49.99</td></tr></tbody></table>',
 
     'csv-to-qfx': '<h2>CSV to QFX Column Requirements</h2><table class="format-table"><thead><tr><th>Required Column</th><th>Description</th><th>Example</th></tr></thead><tbody>' +
       '<tr><td>Date</td><td>Transaction date (YYYY-MM-DD)</td><td>2026-01-15</td></tr><tr><td>Description</td><td>Transaction description</td><td>Amazon.com</td></tr>' +
-      '<tr><td>Amount</td><td>Transaction amount</td><td>-49.99</td></tr><tr><td>Type (optional)</td><td>DEBIT or CREDIT</td><td>DEBIT</td></tr></tbody></table>',
+      '<tr><td>Amount</td><td>Transaction amount</td><td>-49.99</td></tr></tbody></table>',
 
     'chase-bank-statement-to-csv': '<h2>Chase Statement Column Mapping</h2><table class="format-table"><thead><tr><th>Chase Statement Field</th><th>CSV Column</th><th>Example</th></tr></thead><tbody>' +
       '<tr><td>Transaction Date</td><td>Date</td><td>01/15/2026</td></tr><tr><td>Description</td><td>Description</td><td>AMAZON.COM</td></tr><tr><td>Amount</td><td>Amount</td><td>-49.99</td></tr><tr><td>Running Balance</td><td>Balance</td><td>1234.56</td></tr></tbody></table>',
@@ -543,7 +761,7 @@
       '<tr><td>Date</td><td>Date</td><td>01/15/2026</td></tr><tr><td>Description</td><td>Description</td><td>Amazon.com purchase</td></tr><tr><td>Withdrawals / Deposits</td><td>Amount</td><td>-49.99</td></tr></tbody></table>',
 
     'bank-of-america-statement-to-csv': '<h2>Bank of America Statement Column Mapping</h2><table class="format-table"><thead><tr><th>BofA Statement Field</th><th>CSV Column</th><th>Example</th></tr></thead><tbody>' +
-      '<tr><td>Date</td><td>Date</td><td>01/15/2026</td></tr><tr><td>Description</td><td>Description</td><td>AMAZON MKTPLACE PMTS</td></tr><tr><td>Amount</td><td>Amount</td><td>-49.99</td></tr><tr><td>Running Balance</td><td>Balance</td><td>1234.56</td></tr></tbody></table>',
+      '<tr><td>Date</td><td>Date</td><td>01/15/2026</td></tr><tr><td>Description</td><td>Description</td><td>AMAZON MKTPLACE PMTS</td></tr><tr><td>Amount</td><td>Amount</td><td>-49.99</td></tr></tbody></table>',
 
     'heic-to-jpg': '<h2>Image Format Comparison</h2><table class="format-table"><thead><tr><th>Format</th><th>Compression</th><th>File Size</th><th>Browser Support</th><th>Best For</th></tr></thead><tbody>' +
       '<tr><td>HEIC</td><td>HEVC (H.265)</td><td>Very small</td><td>Apple only</td><td>iPhone photos</td></tr><tr><td>JPEG</td><td>DCT</td><td>Medium</td><td>Universal</td><td>Web, sharing</td></tr><tr><td>AVIF</td><td>AV1</td><td>Very small</td><td>Chrome, Firefox</td><td>Next-gen web</td></tr><tr><td>WebP</td><td>VP8/VP9</td><td>Small</td><td>Chrome, Edge, Firefox</td><td>Web optimization</td></tr><tr><td>PNG</td><td>Deflate</td><td>Large</td><td>Universal</td><td>Screenshots, transparency</td></tr></tbody></table>',
@@ -576,16 +794,16 @@
       '<tr><td>Developed By</td><td>Google (Earth/Maps)</td><td>Topografix (GPS standard)</td></tr><tr><td>Format</td><td>XML (Keyhole Markup)</td><td>XML (GPS Exchange)</td></tr><tr><td>Waypoints</td><td>Yes (&lt;Placemark&gt;)</td><td>Yes (&lt;wpt&gt;)</td></tr><tr><td>Tracks</td><td>Yes (&lt;LineString&gt;)</td><td>Yes (&lt;trk&gt; / &lt;trkpt&gt;)</td></tr><tr><td>3D Data</td><td>Yes (altitude, tilt)</td><td>Elevation only</td></tr><tr><td>Best For</td><td>Google Earth, Maps</td><td>GPS devices, Garmin</td></tr></tbody></table>',
 
     'gpx-to-csv': '<h2>GPX to CSV Field Mapping</h2><table class="format-table"><thead><tr><th>GPX Element</th><th>CSV Column</th><th>Description</th></tr></thead><tbody>' +
-      '<tr><td>&lt;trkpt lat="" lon=""&gt;</td><td>Latitude, Longitude</td><td>GPS coordinates</td></tr><tr><td>&lt;ele&gt;</td><td>Elevation</td><td>Altitude in meters</td></tr><tr><td>&lt;time&gt;</td><td>Time</td><td>ISO 8601 timestamp</td></tr><tr><td>&lt;name&gt;</td><td>Name</td><td>Waypoint or segment name</td></tr><tr><td>&lt;trk&gt;</td><td>Track</td><td>Track identifier</td></tr></tbody></table>',
+      '<tr><td>&lt;trkpt lat="" lon=""&gt;</td><td>Latitude, Longitude</td><td>GPS coordinates</td></tr><tr><td>&lt;ele&gt;</td><td>Elevation</td><td>Altitude in meters</td></tr><tr><td>&lt;time&gt;</td><td>Time</td><td>ISO 8601 timestamp</td></tr><tr><td>&lt;name&gt;</td><td>Name</td><td>Waypoint or segment name</td></tr></tbody></table>',
 
     'csv-to-gpx': '<h2>CSV to GPX Column Requirements</h2><table class="format-table"><thead><tr><th>Column Header</th><th>GPX Field</th><th>Required</th></tr></thead><tbody>' +
-      '<tr><td>Latitude / Lat</td><td>&lt;trkpt lat=""&gt;</td><td>Yes</td></tr><tr><td>Longitude / Lon / Lng</td><td>&lt;trkpt lon=""&gt;</td><td>Yes</td></tr><tr><td>Elevation / Elev / Alt</td><td>&lt;ele&gt;</td><td>Optional</td></tr><tr><td>Time / Timestamp / Date</td><td>&lt;time&gt;</td><td>Optional</td></tr><tr><td>Name / Label</td><td>&lt;name&gt;</td><td>Optional</td></tr></tbody></table>',
+      '<tr><td>Latitude / Lat</td><td>&lt;trkpt lat=""&gt;</td><td>Yes</td></tr><tr><td>Longitude / Lon / Lng</td><td>&lt;trkpt lon=""&gt;</td><td>Yes</td></tr><tr><td>Elevation / Elev / Alt</td><td>&lt;ele&gt;</td><td>Optional</td></tr><tr><td>Time / Timestamp / Date</td><td>&lt;time&gt;</td><td>Optional</td></tr></tbody></table>',
 
     'fit-to-gpx': '<h2>FIT to GPX Data Mapping</h2><table class="format-table"><thead><tr><th>FIT Field</th><th>GPX Output</th><th>Description</th></tr></thead><tbody>' +
-      '<tr><td>position_lat / position_long</td><td>&lt;trkpt&gt; lat/lon</td><td>GPS position (semicircles converted to degrees)</td></tr><tr><td>altitude</td><td>&lt;ele&gt;</td><td>Altitude in meters</td></tr><tr><td>timestamp</td><td>&lt;time&gt;</td><td>GPS time (FIT uses Unix seconds)</td></tr><tr><td>heart_rate</td><td>&lt;extensions&gt;</td><td>Optional heart rate data</td></tr><tr><td>speed</td><td>&lt;extensions&gt;</td><td>Optional speed data (m/s)</td></tr></tbody></table>',
+      '<tr><td>position_lat / position_long</td><td>&lt;trkpt&gt; lat/lon</td><td>GPS position (semicircles converted to degrees)</td></tr><tr><td>altitude</td><td>&lt;ele&gt;</td><td>Altitude in meters</td></tr><tr><td>timestamp</td><td>&lt;time&gt;</td><td>GPS time (FIT uses Unix seconds)</td></tr><tr><td>heart_rate</td><td>&lt;extensions&gt;</td><td>Optional heart rate data</td></tr></tbody></table>',
 
     'fit-to-csv': '<h2>FIT to CSV Field Mapping</h2><table class="format-table"><thead><tr><th>FIT Message</th><th>CSV Column</th><th>Example</th></tr></thead><tbody>' +
-      '<tr><td>record (timestamp)</td><td>Time</td><td>2026-01-15T10:30:00Z</td></tr><tr><td>record (position)</td><td>Latitude, Longitude</td><td>37.7749, -122.4194</td></tr><tr><td>record (altitude)</td><td>Elevation</td><td>15.2</td></tr><tr><td>record (heart_rate)</td><td>Heart Rate</td><td>145</td></tr><tr><td>record (speed)</td><td>Speed</td><td>3.5</td></tr><tr><td>session (total_distance)</td><td>Distance (session)</td><td>10000</td></tr><tr><td>session (total_elapsed_time)</td><td>Duration (session)</td><td>3600</td></tr></tbody></table>',
+      '<tr><td>record (timestamp)</td><td>Time</td><td>2026-01-15T10:30:00Z</td></tr><tr><td>record (position)</td><td>Latitude, Longitude</td><td>37.7749, -122.4194</td></tr><tr><td>record (altitude)</td><td>Elevation</td><td>15.2</td></tr><tr><td>record (heart_rate)</td><td>Heart Rate</td><td>145</td></tr><tr><td>record (speed)</td><td>Speed</td><td>3.5</td></tr></tbody></table>',
 
     'ipynb-to-pdf': '<h2>Jupyter Notebook Format Overview</h2><table class="format-table"><thead><tr><th>Component</th><th>Description</th></tr></thead><tbody>' +
       '<tr><td>Cells</td><td>Code, Markdown, or Raw cells containing content</td></tr><tr><td>Metadata</td><td>Kernel info, language, environment settings</td></tr><tr><td>Outputs</td><td>Code execution results (text, images, plots)</td></tr><tr><td>Format</td><td>JSON-based (.ipynb extension)</td></tr></tbody></table>',
@@ -594,7 +812,7 @@
       '<tr><td>Markdown heading</td><td>Word heading style</td></tr><tr><td>Markdown paragraph</td><td>Word body text</td></tr><tr><td>Code cell</td><td>Code block with monospace font</td></tr><tr><td>Code output</td><td>Indented body text</td></tr><tr><td>Images (plots)</td><td>Embedded images</td></tr></tbody></table>',
 
     'ipynb-to-html': '<h2>Jupyter Notebook to HTML Export</h2><table class="format-table"><thead><tr><th>Notebook Element</th><th>HTML Output</th></tr></thead><tbody>' +
-      '<tr><td>Markdown cells</td><td>HTML with marked.js rendering</td></tr><tr><td>Code cells</td><td>&lt;pre&gt;&lt;code&gt; with syntax highlighting</td></tr><tr><td>Code outputs</td><td>&lt;pre&gt; or embedded images</td></tr><tr><td>LaTeX math</td><td>Rendered as HTML (via marked.js)</td></tr></tbody></table>',
+      '<tr><td>Markdown cells</td><td>HTML with marked.js rendering</td></tr><tr><td>Code cells</td><td>&lt;pre&gt;&lt;code&gt; with syntax highlighting</td></tr><tr><td>Code outputs</td><td>&lt;pre&gt; or embedded images</td></tr></tbody></table>',
 
     'ipynb-to-py': '<h2>IPYNB to PY Extraction</h2><table class="format-table"><thead><tr><th>Cell Type</th><th>PY Output</th></tr></thead><tbody>' +
       '<tr><td>Code cells</td><td>Included as Python code</td></tr><tr><td>Markdown cells</td><td>Included as comments (#)</td></tr><tr><td>Raw cells</td><td>Included as-is</td></tr><tr><td>Cell outputs</td><td>Excluded (cannot execute)</td></tr></tbody></table>',
@@ -603,7 +821,40 @@
       '<tr><td>PDF</td><td>Document</td><td>Scanned/printed statements with tables</td><td>Download from bank portal</td></tr><tr><td>OFX</td><td>Data (SGML)</td><td>Structured transactions with FITID</td><td>Quicken, GnuCash, accounting</td></tr><tr><td>QFX</td><td>Data (SGML)</td><td>OFX + Quicken extensions</td><td>Quicken import</td></tr><tr><td>QBO</td><td>Data (SGML)</td><td>OFX + QuickBooks extensions</td><td>QuickBooks import</td></tr><tr><td>CSV</td><td>Data (text)</td><td>Comma-separated transaction rows</td><td>Excel, Google Sheets, analysis</td></tr></tbody></table>',
 
     'pdf-bank-statement-to-csv': '<h2>PDF Statement to CSV Overview</h2><table class="format-table"><thead><tr><th>Step</th><th>Description</th></tr></thead><tbody>' +
-      '<tr><td>1. Load PDF</td><td>Parse the PDF file using PDF.js in your browser</td></tr><tr><td>2. Extract Text</td><td>Read text content from each page</td></tr><tr><td>3. Parse Transactions</td><td>Identify date/description/amount patterns</td></tr><tr><td>4. Generate CSV</td><td>Output structured rows to CSV format</td></tr></tbody></table>'
+      '<tr><td>1. Load PDF</td><td>Parse the PDF file using PDF.js in your browser</td></tr><tr><td>2. Extract Text</td><td>Read text content from each page</td></tr><tr><td>3. Parse Transactions</td><td>Identify date/description/amount patterns</td></tr><tr><td>4. Generate CSV</td><td>Output structured rows to CSV format</td></tr></tbody></table>',
+
+    'password-generator': '<h2>Password Strength Comparison</h2><table class="format-table"><thead><tr><th>Length</th><th>Numbers Only</th><th>Lowercase</th><th>Mixed Case</th><th>All Characters</th></tr></thead><tbody>' +
+      [8,12,16,20,24].map(function (l) {
+        var num = Math.pow(10, l);
+        var low = Math.pow(26, l);
+        var mixed = Math.pow(52, l);
+        var all = Math.pow(94, l);
+        return '<tr><td>' + l + '</td><td>1 in ' + (num >= 1e6 ? (num / 1e6).toFixed(1) + 'M' : num.toFixed(0)) + '</td><td>1 in ' + (low >= 1e6 ? (low / 1e6).toFixed(1) + 'M' : low.toFixed(0)) + '</td><td>1 in ' + (mixed >= 1e6 ? (mixed / 1e6).toFixed(1) + 'M' : mixed.toFixed(0)) + '</td><td>1 in ' + (all >= 1e12 ? (all / 1e12).toFixed(1) + 'T' : all >= 1e6 ? (all / 1e6).toFixed(1) + 'M' : all.toFixed(0)) + '</td></tr>';
+      }).join('') + '</tbody></table>',
+
+    'word-counter': '<h2>Text Statistics Reference</h2><table class="format-table"><thead><tr><th>Metric</th><th>Description</th><th>Common Use</th></tr></thead><tbody>' +
+      '<tr><td>Words</td><td>Sequences of characters separated by whitespace</td><td>Essay length, article word count</td></tr><tr><td>Characters</td><td>Total characters including spaces</td><td>SMS (160 limit), Twitter posts</td></tr><tr><td>Sentences</td><td>Groups of words ending in . ! or ?</td><td>Readability analysis</td></tr><tr><td>Paragraphs</td><td>Blocks of text separated by blank lines</td><td>Content structure evaluation</td></tr><tr><td>Reading Time</td><td>Estimated based on 200 words/minute</td><td>Blog post length planning</td></tr></tbody></table>',
+
+    'json-formatter': '<h2>JSON Data Types Reference</h2><table class="format-table"><thead><tr><th>Type</th><th>Example</th><th>Description</th></tr></thead><tbody>' +
+      '<tr><td>String</td><td><code>"hello"</code></td><td>Double-quoted Unicode text</td></tr><tr><td>Number</td><td><code>42</code> or <code>3.14</code></td><td>Integer or floating point</td></tr><tr><td>Boolean</td><td><code>true</code> or <code>false</code></td><td>Logical true/false</td></tr><tr><td>Array</td><td><code>[1, 2, 3]</code></td><td>Ordered list of values</td></tr><tr><td>Object</td><td><code>{"key": "value"}</code></td><td>Key-value collection</td></tr><tr><td>Null</td><td><code>null</code></td><td>Empty or undefined value</td></tr></tbody></table>',
+
+    'base64-encoder': '<h2>Base64 Encoding Reference</h2><table class="format-table"><thead><tr><th>Input Size</th><th>Base64 Size</th><th>Overhead</th></tr></thead><tbody>' +
+      '<tr><td>1 byte</td><td>4 characters</td><td>300%</td></tr><tr><td>3 bytes</td><td>4 characters</td><td>33%</td></tr><tr><td>1 KB</td><td>1,364 characters</td><td>~33%</td></tr><tr><td>1 MB</td><td>1,396,620 characters</td><td>~33%</td></tr><tr><td>10 MB</td><td>13,960,000 characters</td><td>~33%</td></tr></tbody></table>',
+
+    'base64-decoder': '<h2>Base64 Decoding Reference</h2><table class="format-table"><thead><tr><th>Base64 Length</th><th>Decoded Size</th><th>Valid Characters</th></tr></thead><tbody>' +
+      '<tr><td>4 chars</td><td>3 bytes</td><td>A-Z, a-z, 0-9, +, /</td></tr><tr><td>8 chars</td><td>6 bytes</td><td>Padding with =</td></tr><tr><td>100 chars</td><td>75 bytes</td><td>Always multiple of 4</td></tr><tr><td>1,000 chars</td><td>750 bytes</td><td>= or == for padding</td></tr></tbody></table>',
+
+    'url-encoder-decoder': '<h2>Common URL Character Encodings</h2><table class="format-table"><thead><tr><th>Character</th><th>Encoded</th><th>Name</th></tr></thead><tbody>' +
+      '<tr><td>Space</td><td>%20</td><td>Space</td></tr><tr><td>!</td><td>%21</td><td>Exclamation mark</td></tr><tr><td>#</td><td>%23</td><td>Hash / Pound</td></tr><tr><td>$</td><td>%24</td><td>Dollar sign</td></tr><tr><td>&</td><td>%26</td><td>Ampersand</td></tr><tr><td>+</td><td>%2B</td><td>Plus</td></tr><tr><td>,</td><td>%2C</td><td>Comma</td></tr><tr><td>/</td><td>%2F</td><td>Forward slash</td></tr><tr><td>:</td><td>%3A</td><td>Colon</td></tr><tr><td>;</td><td>%3B</td><td>Semicolon</td></tr><tr><td>=</td><td>%3D</td><td>Equals</td></tr><tr><td>?</td><td>%3F</td><td>Question mark</td></tr><tr><td>@</td><td>%40</td><td>At sign</td></tr></tbody></table>',
+
+    'temperature-converter': '<h2>Temperature Scale Reference</h2><table class="format-table"><thead><tr><th>Description</th><th>Celsius</th><th>Fahrenheit</th><th>Kelvin</th></tr></thead><tbody>' +
+      '<tr><td>Absolute zero</td><td>-273.15</td><td>-459.67</td><td>0</td></tr><tr><td>Water freezes</td><td>0</td><td>32</td><td>273.15</td></tr><tr><td>Room temp</td><td>20-22</td><td>68-72</td><td>293-295</td></tr><tr><td>Body temp</td><td>37</td><td>98.6</td><td>310.15</td></tr><tr><td>Water boils</td><td>100</td><td>212</td><td>373.15</td></tr></tbody></table>',
+
+    'percentage-calculator': '<h2>Common Percentage Reference</h2><table class="format-table"><thead><tr><th>Fraction</th><th>Percentage</th><th>Decimal</th></tr></thead><tbody>' +
+      '<tr><td>1/1</td><td>100%</td><td>1.0</td></tr><tr><td>1/2</td><td>50%</td><td>0.5</td></tr><tr><td>1/4</td><td>25%</td><td>0.25</td></tr><tr><td>1/5</td><td>20%</td><td>0.2</td></tr><tr><td>1/10</td><td>10%</td><td>0.1</td></tr><tr><td>1/3</td><td>33.33%</td><td>0.333</td></tr><tr><td>2/3</td><td>66.67%</td><td>0.667</td></tr><tr><td>3/4</td><td>75%</td><td>0.75</td></tr></tbody></table>',
+
+    'all-unit-converters': '<h2>SI Unit Prefixes Reference</h2><table class="format-table"><thead><tr><th>Prefix</th><th>Symbol</th><th>Factor</th><th>Example</th></tr></thead><tbody>' +
+      '<tr><td>Yotta</td><td>Y</td><td>10<sup>24</sup></td><td>1 YB = 1,000,000,000,000,000 GB</td></tr><tr><td>Zetta</td><td>Z</td><td>10<sup>21</sup></td><td>1 ZB = 1,000,000,000,000 GB</td></tr><tr><td>Exa</td><td>E</td><td>10<sup>18</sup></td><td>1 EB = 1,000,000,000 GB</td></tr><tr><td>Peta</td><td>P</td><td>10<sup>15</sup></td><td>1 PB = 1,000,000 GB</td></tr><tr><td>Tera</td><td>T</td><td>10<sup>12</sup></td><td>1 TB = 1,000 GB</td></tr><tr><td>Giga</td><td>G</td><td>10<sup>9</sup></td><td>1 GB = 1,000 MB</td></tr><tr><td>Mega</td><td>M</td><td>10<sup>6</sup></td><td>1 MB = 1,000 KB</td></tr><tr><td>Kilo</td><td>k</td><td>10<sup>3</sup></td><td>1 KB = 1,000 bytes</td></tr><tr><td>Milli</td><td>m</td><td>10<sup>-3</sup></td><td>1 mm = 0.001 m</td></tr><tr><td>Micro</td><td>\u00B5</td><td>10<sup>-6</sup></td><td>1 \u00B5m = 0.000001 m</td></tr></tbody></table>'
   };
 
   function injectReferenceTable() {
@@ -619,6 +870,45 @@
     div.innerHTML = html;
     section.parentNode.insertBefore(div, section.nextSibling);
   }
+
+  // ============================================================
+  // THEME COLOR META TAG
+  // ============================================================
+  (function injectThemeColor() {
+    var meta = document.createElement('meta');
+    meta.name = 'theme-color';
+    meta.content = document.body.classList.contains('dark-mode') ? '#121212' : '#FF0000';
+    document.head.appendChild(meta);
+  })();
+
+  // ============================================================
+  // APPLE TOUCH ICON
+  // ============================================================
+  (function injectAppleTouch() {
+    var link = document.createElement('link');
+    link.rel = 'apple-touch-icon';
+    link.href = '/og-image.png';
+    document.head.appendChild(link);
+  })();
+
+  // ============================================================
+  // MANIFEST LINK
+  // ============================================================
+  (function injectManifest() {
+    var link = document.createElement('link');
+    link.rel = 'manifest';
+    link.href = '/manifest.json';
+    document.head.appendChild(link);
+  })();
+
+  // ============================================================
+  // SERVICE WORKER
+  // ============================================================
+  (function registerSW() {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(function () {});
+    }
+  })();
 
   // ============================================================
   // EXPOSE GLOBALLY
@@ -639,12 +929,16 @@
     changeExtension: changeExtension,
     escapeHtml: escapeHtml,
     debounce: debounce,
-    detectFormatFromHeader: detectFormatFromHeader
+    detectFormatFromHeader: detectFormatFromHeader,
+    showToast: showToast
   };
 
-  // Auto-init sidebar, FAQ, schema, feedback on every page
+  // ============================================================
+  // AUTO-INIT
+  // ============================================================
   document.addEventListener('DOMContentLoaded', function () {
     buildSidebar();
+    initDarkMode();
     var faqContainer = document.querySelector('.faq-list');
     if (faqContainer && faqContainer.id) {
       initFaq(faqContainer.id);
@@ -653,6 +947,7 @@
     injectHowToSchema();
     injectFeedbackWidget();
     injectReferenceTable();
+    injectContentSections();
   });
 
 })();

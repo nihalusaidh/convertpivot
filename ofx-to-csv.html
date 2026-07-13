@@ -24,7 +24,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an OFX file?","acceptedAnswer":{"@type":"Answer","text":"OFX (Open Financial Exchange) is a standardized format for exchanging financial data between banks and accounting software. It is used by Quicken, QuickBooks, GnuCash, and most major banks."}},{"@type":"Question","name":"How do I convert OFX to CSV?","acceptedAnswer":{"@type":"Answer","text":"Drop your .ofx, .qfx, or .qbo file onto the converter above, click Convert and download the CSV. All transactions are extracted automatically."}},{"@type":"Question","name":"What is the difference between OFX, QFX, and QBO?","acceptedAnswer":{"@type":"Answer","text":"OFX is the general standard. QFX is the same format with a .qfx extension (used by Quicken). QBO is QuickBooks Web Connect format. All three use the same internal structure."}},{"@type":"Question","name":"Is my financial data private?","acceptedAnswer":{"@type":"Answer","text":"Yes. The conversion runs entirely in your browser. Your bank statements never leave your device. No upload, no server, no data collection."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
 
   <nav id="sidebar" class="sidebar">
     <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
@@ -66,7 +66,7 @@
     </div>
   </nav>
 
-  <main class="main-content">
+  <main id="main-content" class="main-content">
     <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">OFX to CSV</span></nav>
     <div class="tool-header">
       <h1>OFX to CSV Converter — Bank Statements to Spreadsheets</h1>

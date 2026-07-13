@@ -24,7 +24,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I merge multiple HEIC photos into one PDF?","acceptedAnswer":{"@type":"Answer","text":"Yes. Select multiple HEIC files and they will be combined into a single PDF document, one photo per page."}},{"@type":"Question","name":"Why convert HEIC to PDF instead of JPG?","acceptedAnswer":{"@type":"Answer","text":"PDF is better for sharing multiple photos as a single document, printing, or archiving. It preserves layout and is widely supported across platforms."}},{"@type":"Question","name":"Will the PDF be high quality?","acceptedAnswer":{"@type":"Answer","text":"Yes. Photos are converted to high-quality JPEG before being embedded in the PDF. The output retains the original resolution."}},{"@type":"Question","name":"Is my data secure?","acceptedAnswer":{"@type":"Answer","text":"Yes. Everything runs in your browser using client-side libraries. Your photos never leave your device."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
   <nav id="sidebar" class="sidebar">
     <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
       <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
@@ -64,7 +64,7 @@
       <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
     </div>
   </nav>
-  <main class="main-content">
+  <main id="main-content" class="main-content">
     <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">HEIC to PDF</span></nav>
     <div class="tool-header">
       <h1>HEIC to PDF Converter — iPhone Photos to Document</h1>

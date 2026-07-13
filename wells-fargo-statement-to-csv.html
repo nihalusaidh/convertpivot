@@ -24,7 +24,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does this work with Wells Fargo business statements?","acceptedAnswer":{"@type":"Answer","text":"Yes, it supports both personal and business Wells Fargo statement PDFs. Business statements with multiple account summaries are parsed page by page."}},{"@type":"Question","name":"How do I get my Wells Fargo statement as a PDF?","acceptedAnswer":{"@type":"Answer","text":"Log in to Wells Fargo online banking, go to Account Services, select eDocuments, choose your statement, and download the PDF version. The converter works best with text-based PDFs downloaded directly from Wells Fargo."}},{"@type":"Question","name":"What if my Wells Fargo statement has images instead of text?","acceptedAnswer":{"@type":"Answer","text":"The converter relies on text extraction. If your statement is a scanned image PDF, text extraction may be incomplete. For best results, download the digital PDF version from Wells Fargo online banking rather than printing and scanning."}},{"@type":"Question","name":"Is my Wells Fargo financial data secure?","acceptedAnswer":{"@type":"Answer","text":"Yes. The entire conversion runs in your browser. Your Wells Fargo statement PDF never leaves your computer. Nothing is uploaded to any server."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
   <nav id="sidebar" class="sidebar">
     <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
       <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
@@ -72,7 +72,7 @@
       <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
     </div>
   </nav>
-  <main class="main-content">
+  <main id="main-content" class="main-content">
     <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Wells Fargo Statement to CSV</span></nav>
     <div class="tool-header">
       <h1>Wells Fargo Statement to CSV Converter</h1>
