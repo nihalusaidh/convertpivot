@@ -2,7 +2,7 @@
  * ConvertPivot Blog Build Script
  * Converts markdown files from /content/blog/ into static HTML pages
  * Updates /blog/index.html with new article cards
- * 
+ *
  * Usage: node scripts/build-blog.js
  */
 
@@ -73,6 +73,14 @@ function mdToHtml(md) {
   return html;
 }
 
+function escapeHtml(str) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 function build() {
   const contentDir = path.join(__dirname, '..', 'content', 'blog');
   const blogDir = path.join(__dirname, '..', 'blog');
@@ -97,7 +105,10 @@ function build() {
     const date = data.date ? new Date(data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
     const description = data.description || '';
     const category = data.category || 'General';
-    const bodyHtml = mdToHtml(content);
+
+    // Smart body detection: if raw HTML, skip mdToHtml; otherwise convert
+    const isHtml = content.trim().startsWith('<');
+    const bodyHtml = isHtml ? content : mdToHtml(content);
 
     // Build FAQ JSON
     const faqItems = [];
@@ -143,6 +154,79 @@ function build() {
   // Generate posts.json for blog index
   fs.writeFileSync(path.join(blogDir, 'posts.json'), JSON.stringify(posts, null, 2));
   console.log('Generated: /blog/posts.json (' + posts.length + ' posts)');
+
+  // Generate blog/index.html from posts
+  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  const cardsHtml = posts.map(p => {
+    const formattedDate = new Date(p.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    const excerpt = escapeHtml(p.description);
+    return '      <article class="blog-card">\n' +
+           '        <span class="cat">' + escapeHtml(p.category) + '</span>\n' +
+           '        <h2><a href="/blog/' + p.slug + '">' + escapeHtml(p.title) + '</a></h2>\n' +
+           '        <div class="meta">' + formattedDate + '</div>\n' +
+           '        <p class="excerpt">' + excerpt + '</p>\n' +
+           '      </article>';
+  }).join('\n\n');
+
+  const indexHtml = '<!DOCTYPE html>\n' +
+'<html lang="en">\n' +
+'<head>\n' +
+'  <meta charset="UTF-8">\n' +
+'  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>\n' +
+'  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n' +
+'  <title>Blog \u2014 File Format Guides, Tutorials & Tips | ConvertPivot</title>\n' +
+'  <meta name="description" content="Learn about file formats, conversion best practices, and privacy tips. Expert guides on vCard, bank statements, images, GPS, e-books, audio, and more.">\n' +
+'  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">\n' +
+'  <meta name="robots" content="index, follow">\n' +
+'  <link rel="canonical" href="https://convertpivot.com/blog">\n' +
+'  <meta property="og:type" content="website">\n' +
+'  <meta property="og:url" content="https://convertpivot.com/blog">\n' +
+'  <meta property="og:title" content="Blog \u2014 File Format Guides & Tutorials | ConvertPivot">\n' +
+'  <meta property="og:description" content="Expert guides on file formats, conversion best practices, and privacy tips. Learn about vCard, bank statements, images, GPS, e-books, audio, and more.">\n' +
+'  <meta property="og:image" content="https://convertpivot.com/og-image.png">\n' +
+'  <meta name="twitter:card" content="summary_large_image">\n' +
+'  <meta name="twitter:title" content="ConvertPivot Blog">\n' +
+'  <meta name="twitter:description" content="File format guides, tutorials, and privacy tips.">\n' +
+'  <link rel="stylesheet" href="../css/style.css">\n' +
+'  <link rel="preconnect" href="https://cdnjs.cloudflare.com">\n' +
+'  <link rel="icon" href="/favicon.png" sizes="32x32">\n' +
+'  <link rel="icon" href="/favicon-16.png" sizes="16x16">\n' +
+'  <style>\n' +
+'    .blog-card { border:1px solid var(--color-mist); border-radius:8px; padding:24px; transition:border-color 0.15s; }\n' +
+'    .blog-card:hover { border-color:var(--color-red); }\n' +
+'    .blog-card .cat { display:inline-block; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; padding:2px 10px; border-radius:3px; background:var(--color-red); color:#fff; margin-bottom:8px; }\n' +
+'    .blog-card h2 { font-size:1.15rem; margin-bottom:8px; }\n' +
+'    .blog-card h2 a { color:var(--color-ink); }\n' +
+'    .blog-card .meta { font-size:0.8rem; color:var(--color-graphite); margin-bottom:8px; }\n' +
+'    .blog-card .excerpt { font-size:0.9rem; color:var(--color-graphite); line-height:1.6; }\n' +
+'  </style>\n' +
+'</head>\n' +
+'<body>\n' +
+'  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">\u2630</button><a href="../" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">\ud83c\udf19</button></header>\n' +
+'  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>\n' +
+'  <main id="main-content" class="main-content">\n' +
+'    <nav class="breadcrumb"><a href="../">Home</a><span class="sep">\u203a</span><span class="current">Blog</span></nav>\n' +
+'    <div class="tool-header">\n' +
+'      <h1>ConvertPivot Blog</h1>\n' +
+'      <p>I\'ve spent way too many hours wrestling with file formats that just won\'t cooperate \u2014 a photo that won\'t open, a bank statement I can\'t edit, a video that plays on everything except my TV. This blog is where I write down what I\'ve learned so you don\'t have to make the same mistakes. Pull up a chair.</p>\n' +
+'    </div>\n' +
+'\n' +
+'    <div id="blog-list" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin:32px 0;">\n' +
+cardsHtml + '\n' +
+'    </div>\n' +
+'\n' +
+'    <div class="ad-container">Ad</div>\n' +
+'  </main>\n' +
+'  <footer class="site-footer">\n' +
+'    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="../">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>\n' +
+'  </footer>\n' +
+'  <script src="../js/shared.js"></script>\n' +
+'</body>\n' +
+'</html>\n';
+
+  fs.writeFileSync(path.join(blogDir, 'index.html'), indexHtml);
+  console.log('Generated: /blog/index.html (' + posts.length + ' cards)');
 }
 
 build();

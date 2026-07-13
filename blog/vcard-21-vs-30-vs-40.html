@@ -11,141 +11,29 @@
   <link rel="canonical" href="https://convertpivot.com/blog/vcard-21-vs-30-vs-40">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://convertpivot.com/blog/vcard-21-vs-30-vs-40">
-  <meta property="og:title" content="vCard 2.1 vs 3.0 vs 4.0 — Which Version to Use">
+  <meta property="og:title" content="vCard 2.1 vs 3.0 vs 4.0 — Which Version to Use | ConvertPivot">
   <meta property="og:description" content="vCard version comparison: Compare vCard 2.1, 3.0, and 4.0 formats for contact management. Learn about encoding differences, device compatibility, and how to choose the right version.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" href="/favicon.png" sizes="32x32">
   <link rel="icon" href="/favicon-16.png" sizes="16x16">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"vCard 2.1 vs 3.0 vs 4.0 — Which Version to Use","description":"vCard version comparison: Compare vCard 2.1, 3.0, and 4.0 formats for contact management. Learn about encoding differences, device compatibility, and how to choose the right version.","datePublished":"2026-07-13","author":{"@type":"Person","name":"ConvertPivot"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a vCard file?","acceptedAnswer":{"@type":"Answer","text":"A vCard (VCF) file is a standard file format for storing electronic business cards and contact information. It can contain names, phone numbers, email addresses, postal addresses, photos, websites, social media profiles, and custom fields. vCards are widely used for contact exchange between devices, email clients, and CRM systems."}},{"@type":"Question","name":"Which vCard version does iPhone use?","acceptedAnswer":{"@type":"Answer","text":"Apple's iOS uses vCard 3.0 as the default export format. When you share a contact from the iPhone Contacts app, it generates a vCard 3.0 file with UTF-8 encoding. iPhone also supports importing vCard 2.1 files from other sources without issues."}},{"@type":"Question","name":"Can Outlook read vCard 4.0?","acceptedAnswer":{"@type":"Answer","text":"Microsoft Outlook has limited support for vCard 4.0. Outlook 2019 and Microsoft 365 can import vCard 4.0 files but may lose some advanced fields like social media URLs and custom date types. For maximum Outlook compatibility, use vCard 2.1 or 3.0."}},{"@type":"Question","name":"How do I convert between vCard versions?","acceptedAnswer":{"@type":"Answer","text":"You can convert between vCard versions using ConvertPivot's VCF to CSV tool followed by CSV to VCF with a different version setting. You can also use dedicated vCard conversion tools or contact management software like Apple Contacts or Google Contacts, which automatically handle version conversion on export."}},{"@type":"Question","name":"What is the difference between vCard 2.1 and 3.0?","acceptedAnswer":{"@type":"Answer","text":"vCard 2.1 uses quoted-printable encoding for non-ASCII characters and has limited UTF-8 support. vCard 3.0 adopted UTF-8 as the default encoding, added structured name components (given name, middle name, family name), improved datetime formatting, and introduced support for multiple email addresses and phone numbers per contact."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"vCard 2.1 vs 3.0 vs 4.0 — Which Version to Use","description":"vCard version comparison: Compare vCard 2.1, 3.0, and 4.0 formats for contact management. Learn about encoding differences, device compatibility, and how to choose the right version.","datePublished":"July 13, 2026","author":{"@type":"Person","name":"ConvertPivot"}}</script>
+  
   <style>.blog-content{max-width:720px;margin:32px 0;line-height:1.8;color:var(--color-graphite)}.blog-content h2{color:var(--color-ink);margin-top:36px}.blog-content table{width:100%;border-collapse:collapse;margin:16px 0}.blog-content th,.blog-content td{border:1px solid var(--color-mist);padding:10px 14px;text-align:left;font-size:0.9rem}.blog-content th{background:var(--color-red);color:#fff}.blog-content .related-tools{margin:32px 0;padding:20px;border:1px solid var(--color-mist);border-radius:8px}.blog-content .related-tools h3{margin-bottom:12px}</style>
 </head>
 <body>
   <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="../" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="../">Home</a><span class="sep">›</span><a href="/blog">Blog</a><span class="sep">›</span><span class="current">vCard 2.1 vs 3.0 vs 4.0</span></nav>
+    <nav class="breadcrumb"><a href="../">Home</a><span class="sep">›</span><a href="/blog">Blog</a><span class="sep">›</span><span class="current">vCard 2.1 vs 3.0 vs 4.0 — Which Version to Use</span></nav>
     <article class="blog-content">
       <span style="display:inline-block;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;padding:2px 10px;border-radius:3px;background:var(--color-red);color:#fff;margin-bottom:12px;">Contacts</span>
       <h1>vCard 2.1 vs 3.0 vs 4.0 — Which Version to Use</h1>
       <p style="font-size:0.85rem;color:var(--color-graphite);margin-bottom:24px;">July 13, 2026</p>
-
-      <p>vCard, also known as VCF (Virtual Contact File), is the universal standard for exchanging contact information. However, not all vCards are created equal. The format has evolved through three major versions: 2.1, 3.0, and 4.0. Choosing the right version determines whether your contacts import correctly with special characters, photos, and custom fields. This <strong>vcard version comparison</strong> explains exactly what changed and which version you should use.</p>
-
-      <p>If you have ever tried importing a contact file from an iPhone into Outlook and found garbled names or missing photos, version mismatch is likely the culprit. Understanding the differences between vCard 2.1, 3.0, and 4.0 saves you from data loss during contact migration.</p>
-
-      <h2>Format Comparison Table</h2>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Feature</th>
-            <th>vCard 2.1</th>
-            <th>vCard 3.0</th>
-            <th>vCard 4.0</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Character Encoding</td>
-            <td>Quoted-printable (7-bit ASCII)</td>
-            <td>UTF-8 (default)</td>
-            <td>UTF-8 (default)</td>
-          </tr>
-          <tr>
-            <td>UTF-8 Support</td>
-            <td>Limited</td>
-            <td>Full</td>
-            <td>Full</td>
-          </tr>
-          <tr>
-            <td>Max Field Length</td>
-            <td>76 chars per line</td>
-            <td>75 chars per line (folding)</td>
-            <td>75 chars per line (folding)</td>
-          </tr>
-          <tr>
-            <td>iPhone / iOS</td>
-            <td>Import only</td>
-            <td>Native export</td>
-            <td>Limited import</td>
-          </tr>
-          <tr>
-            <td>Android</td>
-            <td>Import only</td>
-            <td>Native export</td>
-            <td>Native export</td>
-          </tr>
-          <tr>
-            <td>Outlook</td>
-            <td>Full support</td>
-            <td>Full support</td>
-            <td>Partial support</td>
-          </tr>
-          <tr>
-            <td>Google Contacts</td>
-            <td>Import only</td>
-            <td>Full support</td>
-            <td>Full support</td>
-          </tr>
-          <tr>
-            <td>Photo Support</td>
-            <td>Inline (QP-encoded)</td>
-            <td>Inline (BASE64)</td>
-            <td>Inline + URI</td>
-          </tr>
-          <tr>
-            <td>Custom Fields</td>
-            <td>Not supported</td>
-            <td>Extended types</td>
-            <td>Full extensibility</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>vCard 2.1 — The Legacy Standard</h2>
-      <p>vCard 2.1 was published in 1996 by the Internet Mail Consortium (IMC) and became the baseline for digital business cards. It uses quoted-printable encoding for non-ASCII characters, which means accented letters, Chinese characters, and emoji must be encoded as escaped ASCII sequences. This encoding bloats file sizes and causes display issues in modern applications.</p>
-      <p>vCard 2.1 supports basic fields: name, phone, email, address, organization, and a single photo. It does not support structured name components (given name, middle name, family name are stored in a single NAME field). It also lacks support for multiple email addresses or phone numbers with distinct types (work, home, mobile).</p>
-      <p>Microsoft Outlook still uses vCard 2.1 as its primary exchange format, making it necessary for compatibility with legacy business systems and some CRM platforms.</p>
-
-      <h2>vCard 3.0 — The Modern Standard</h2>
-      <p>vCard 3.0, published in 2002 by the IETF as RFC 2426, was a major overhaul. It adopted UTF-8 as the default character encoding, eliminating the garbled text problem for non-English names. It introduced structured name properties (N, FN, GIVEN, MIDDLE, FAMILY), multiple phone and email entries with TYPE parameters, and support for inline BASE64-encoded photos.</p>
-      <p>vCard 3.0 is the most widely supported version today. Apple iPhone exports vCard 3.0 by default. Google Contacts uses vCard 3.0 for both import and export. Android devices generate vCard 3.0 files when sharing contacts. Most CRM systems including Salesforce, HubSpot, and Zoho support vCard 3.0 as the standard import format.</p>
-      <p>If you are unsure which version to use, choose vCard 3.0. It offers the best balance of feature support and compatibility across all major platforms.</p>
-
-      <h2>vCard 4.0 — The Future Standard</h2>
-      <p>vCard 4.0, published in 2011 as RFC 6350, is the most feature-rich version. It adds support for XML representations (xCard), JSON representations (jCard), KIND property for grouping contacts (individual, organization, group, location), and extended date/time formats including partial dates and durations.</p>
-      <p>vCard 4.0 also introduces PHOTO as a URI property, allowing photos to be referenced by URL rather than embedded as data. This dramatically reduces file sizes for contact lists with high-resolution images. Custom fields are fully supported through the extension mechanism, and social media profile links can be stored in a standardized way.</p>
-      <p>However, vCard 4.0 adoption lags behind vCard 3.0. Outlook has limited import support. Some CRM systems still reject vCard 4.0 files. For maximum compatibility today, stick with vCard 3.0 unless you specifically need vCard 4.0 features.</p>
-
-      <h2>Which Version Should You Use?</h2>
-      <p><strong>Use vCard 2.1 if:</strong> You need compatibility with Outlook 2003-2010, legacy CRM systems, or certain enterprise contact databases. Also use 2.1 if you are exchanging contacts with older BlackBerry or Symbian devices.</p>
-      <p><strong>Use vCard 3.0 if:</strong> You are migrating contacts between modern smartphones (iPhone, Android), importing into Google Contacts or iCloud, or exchanging contacts with contemporary CRM software. vCard 3.0 is the safe default for almost every scenario.</p>
-      <p><strong>Use vCard 4.0 if:</strong> You need advanced features like group contacts, XML/JSON representations, or URI-based photos. Use 4.0 for modern contact management systems that explicitly advertise vCard 4.0 support.</p>
-
-      <h2>Converting Between vCard Versions</h2>
-      <p>When you export contacts from one system and import into another, version conversion often happens automatically. However, if you need to explicitly convert between versions, ConvertPivot offers a complete set of tools:</p>
-      <p>To convert vCard to a spreadsheet, use the <a href="https://convertpivot.com/vcf-to-csv">VCF to CSV tool</a>. To create vCard files from spreadsheet data, use the <a href="https://convertpivot.com/csv-to-vcf">CSV to VCF tool</a>. For a detailed technical reference covering all vCard properties and versions, see our <a href="https://convertpivot.com/guides/vcard-formats">vCard Formats Guide</a>.</p>
-
-      <h2>Frequently Asked Questions</h2>
-      <ol class="faq-list">
-        <li><strong>What is a vCard file?</strong> A vCard (VCF) file is a standard format for electronic business cards, containing contact information like name, phone, email, address, photo, and custom fields for exchange between devices and applications.</li>
-        <li><strong>Which vCard version does iPhone use?</strong> Apple's iOS uses vCard 3.0 as the default export format. iPhones also import vCard 2.1 and can read many vCard 4.0 files.</li>
-        <li><strong>Can Outlook read vCard 4.0?</strong> Outlook has limited vCard 4.0 support. For best compatibility with Outlook, use vCard 2.1 or 3.0.</li>
-        <li><strong>How do I convert between vCard versions?</strong> Use a converter tool like <a href="https://convertpivot.com/vcf-to-csv">VCF to CSV</a> followed by <a href="https://convertpivot.com/csv-to-vcf">CSV to VCF</a> to re-export in a different version. Google Contacts also converts versions automatically on export.</li>
-        <li><strong>What is the difference between vCard 2.1 and 3.0?</strong> vCard 3.0 uses UTF-8 instead of quoted-printable encoding, supports structured name components, multiple phone/email entries per contact, and inline BASE64 photos. vCard 2.1 is limited to basic single-instance fields.</li>
-      </ol>
-
-      <div class="related-tools">
-        <h3>Related Tools &amp; Guides</h3>
-        <ul>
-          <li><a href="https://convertpivot.com/vcf-to-csv">VCF to CSV Converter</a> — Convert vCard contacts to CSV for Excel</li>
-          <li><a href="https://convertpivot.com/csv-to-vcf">CSV to VCF Converter</a> — Create vCard files from spreadsheets</li>
-          <li><a href="https://convertpivot.com/guides/vcard-formats">vCard Formats Guide</a> — Complete technical reference for vCard 2.1, 3.0, and 4.0</li>
-        </ul>
-      </div>
+      <p>vCard, also known as VCF (Virtual Contact File), is the universal standard for exchanging contact information. However, not all vCards are created equal. The format has evolved through three major versions: 2.1, 3.0, and 4.0. Choosing the right version determines whether your contacts import correctly with special characters, photos, and custom fields. This <strong>vcard version comparison</strong> explains exactly what changed and which version you should use.</p><p>If you have ever tried importing a contact file from an iPhone into Outlook and found garbled names or missing photos, version mismatch is likely the culprit. Understanding the differences between vCard 2.1, 3.0, and 4.0 saves you from data loss during contact migration.</p><p> What is a vCard file? ▼A vCard (VCF) file is a standard format for electronic business cards, containing contact information like name, phone, email, address, photo, and custom fields for exchange between devices and applications.Which vCard version does iPhone use? ▼Apple's iOS uses vCard 3.0 as the default export format. iPhones also import vCard 2.1 and can read many vCard 4.0 files.Can Outlook read vCard 4.0? ▼Outlook has limited vCard 4.0 support. For best compatibility with Outlook, use vCard 2.1 or 3.0.How do I convert between vCard versions? ▼Use a converter tool like VCF to CSV followed by CSV to VCF to re-export in a different version. Google Contacts also converts versions automatically on export.What is the difference between vCard 2.1 and 3.0? ▼vCard 3.0 uses UTF-8 instead of quoted-printable encoding, supports structured name components, multiple phone/email entries per contact, and inline BASE64 photos. vCard 2.1 is limited to basic single-instance fields.</p>
+      
+      <div class="related-tools"><h3>Related Tools</h3><ul><li><a href="https://convertpivot.com/vcf-to-csv">vcf to csv</a></li><li><a href="https://convertpivot.com/csv-to-vcf">csv to vcf</a></li><li><a href="https://convertpivot.com/guides/vcard-formats">vcard formats</a></li></ul></div>
     </article>
     <div class="ad-container">Ad</div>
   </main>

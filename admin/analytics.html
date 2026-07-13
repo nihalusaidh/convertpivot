@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics — ConvertPivot</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .chart-container canvas { width: auto !important; height: auto !important; max-height: none; }
+    .chart-wrapper { position: relative; }
+    .chart-tooltip { position: absolute; display: none; background: #1a1a1a; border: 1px solid #333; border-radius: 6px; padding: 8px 12px; font-size: 0.8rem; pointer-events: none; z-index: 10; white-space: nowrap; box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+    .chart-tooltip .tt-date { color: #888; }
+    .chart-tooltip .tt-value { color: #fff; font-weight: 600; }
+    .admin-footer { text-align: center; padding: 32px 0 16px; color: #555; font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 32px; }
+    .error-state { text-align: center; padding: 60px 20px; }
+    .error-state .icon { font-size: 3rem; margin-bottom: 16px; }
+    .error-state h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; }
+    .error-state p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; }
+    .empty-table { text-align: center; padding: 30px; color: var(--text-muted); font-size: 0.85rem; }
+    @media (max-width: 768px) {
+      .chart-tooltip { font-size: 0.7rem; padding: 6px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="admin-header">
+    <div class="admin-logo"><span>ConvertPivot</span> Admin</div>
+    <nav class="admin-nav">
+      <a href="/admin/">Blog</a>
+      <a href="/admin/analytics.html" class="active">Analytics</a>
+      <a href="/admin/settings.html">Settings</a>
+    </nav>
+  </header>
+  <main class="admin-content">
+    <div class="page-title">Analytics <small id="lastUpdated">Last updated: —</small></div>
+
+    <div id="loading" class="loading">
+      <div class="spinner"></div>
+      <p>Loading analytics data…</p>
+    </div>
+
+    <div id="error" class="error-state" style="display:none;">
+      <div class="icon">⚠️</div>
+      <h3>Failed to load analytics</h3>
+      <p class="error-message"></p>
+      <button class="btn btn-primary" onclick="fetchData()">Retry</button>
+    </div>
+
+    <div id="content" style="display:none;">
+      <div class="period-selector">
+        <button class="period-btn" data-period="7">7d</button>
+        <button class="period-btn active" data-period="30">30d</button>
+        <button class="period-btn" data-period="90">90d</button>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">👁</div>
+          <div class="stat-value" id="stat-pageviews">0</div>
+          <div class="stat-label">Pageviews</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">👤</div>
+          <div class="stat-value" id="stat-users">0</div>
+          <div class="stat-label">Active Users</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📊</div>
+          <div class="stat-value" id="stat-bounce">0%</div>
+          <div class="stat-label">Bounce Rate</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⏱</div>
+          <div class="stat-value" id="stat-duration">0s</div>
+          <div class="stat-label">Avg Session Duration</div>
+        </div>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-container">
+          <h3>Daily Pageviews</h3>
+          <div class="chart-wrapper">
+            <canvas id="lineChart"></canvas>
+            <div class="chart-tooltip" id="lineTooltip"></div>
+          </div>
+        </div>
+        <div class="chart-container">
+          <h3>Top Pages</h3>
+          <div class="chart-wrapper">
+            <canvas id="barChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="tables-grid">
+        <div class="table-container">
+          <h3>Traffic Sources</h3>
+          <table class="data-table">
+            <thead><tr><th>Source</th><th>Sessions</th><th>% of Total</th></tr></thead>
+            <tbody id="sourcesBody"></tbody>
+          </table>
+          <div id="sourcesEmpty" class="empty-table" style="display:none;">No traffic source data</div>
+        </div>
+        <div class="table-container">
+          <h3>Top Countries</h3>
+          <table class="data-table">
+            <thead><tr><th>Country</th><th>Sessions</th><th>% of Total</th></tr></thead>
+            <tbody id="countriesBody"></tbody>
+          </table>
+          <div id="countriesEmpty" class="empty-table" style="display:none;">No country data</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-footer">ConvertPivot Admin v1.0</div>
+  </main>
+
+  <script>
+    var analyticsData = null;
+    var currentPeriod = 30;
+    var resizeTimer = null;
+
+    var lineCanvas = document.getElementById('lineChart');
+    var barCanvas = document.getElementById('barChart');
+    var tooltip = document.getElementById('lineTooltip');
+
+    document.querySelectorAll('.period-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.period-btn').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        currentPeriod = parseInt(btn.dataset.period);
+        fetchData();
+      });
+    });
+
+    function fetchData() {
+      showLoading();
+      fetch('/api/analytics?period=' + currentPeriod)
+        .then(function(r) {
+          if (!r.ok) throw new Error('Server returned ' + r.status);
+          return r.json();
+        })
+        .then(function(d) {
+          analyticsData = d;
+          document.getElementById('lastUpdated').textContent = 'Last updated: ' + new Date().toLocaleString();
+          render();
+        })
+        .catch(function(err) {
+          showError(err.message);
+        });
+    }
+
+    function showLoading() {
+      document.getElementById('loading').style.display = 'block';
+      document.getElementById('content').style.display = 'none';
+      document.getElementById('error').style.display = 'none';
+    }
+
+    function showError(msg) {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('content').style.display = 'none';
+      document.getElementById('error').style.display = 'block';
+      document.getElementById('error').querySelector('.error-message').textContent = msg;
+    }
+
+    function render() {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+      document.getElementById('error').style.display = 'none';
+
+      var d = analyticsData;
+      if (!d || !d.totals) return;
+
+      animateNumber(document.getElementById('stat-pageviews'), d.totals.pageviews || 0, '', 0);
+      animateNumber(document.getElementById('stat-users'), d.totals.activeUsers || 0, '', 0);
+      animateNumber(document.getElementById('stat-bounce'), (d.totals.bounceRate || 0), '%', 1);
+
+      var secs = d.totals.avgSessionDuration || 0;
+      document.getElementById('stat-duration').textContent = formatDuration(secs);
+
+      drawLineChart(lineCanvas, d.daily || []);
+      drawBarChart(barCanvas, d.topPages || []);
+
+      populateTable('sourcesBody', 'sourcesEmpty', d.sources || [], 'source', d.totals.sessions || 0);
+      populateTable('countriesBody', 'countriesEmpty', d.countries || [], 'country', d.totals.sessions || 0);
+
+      scheduleResize();
+    }
+
+    function animateNumber(el, target, suffix, decimals) {
+      var duration = 900;
+      var startTime = performance.now();
+      var isFloat = decimals > 0;
+
+      function step(now) {
+        var elapsed = now - startTime;
+        var progress = Math.min(elapsed / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = eased * target;
+
+        if (isFloat) {
+          el.textContent = current.toFixed(decimals) + suffix;
+        } else {
+          el.textContent = Math.floor(current).toLocaleString() + suffix;
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          if (isFloat) {
+            el.textContent = target.toFixed(decimals) + suffix;
+          } else {
+            el.textContent = target.toLocaleString() + suffix;
+          }
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    function formatDuration(secs) {
+      var m = Math.floor(secs / 60);
+      var s = Math.round(secs % 60);
+      if (m > 0) return m + 'm ' + s + 's';
+      return s + 's';
+    }
+
+    function populateTable(bodyId, emptyId, rows, nameKey, total) {
+      var tbody = document.getElementById(bodyId);
+      var empty = document.getElementById(emptyId);
+
+      tbody.innerHTML = '';
+
+      if (!rows || rows.length === 0) {
+        tbody.style.display = 'none';
+        empty.style.display = 'block';
+        return;
+      }
+
+      tbody.style.display = '';
+      empty.style.display = 'none';
+
+      rows.forEach(function(r) {
+        var tr = document.createElement('tr');
+        var pct = total > 0 ? ((r.sessions / total) * 100).toFixed(1) : '0.0';
+        var name = r[nameKey] || 'unknown';
+        name = name.charAt(0).toUpperCase() + name.slice(1);
+        tr.innerHTML = '<td>' + escapeHtml(name) + '</td><td>' + (r.sessions || 0).toLocaleString() + '</td><td>' + pct + '%</td>';
+        tbody.appendChild(tr);
+      });
+    }
+
+    function escapeHtml(s) {
+      var div = document.createElement('div');
+      div.appendChild(document.createTextNode(s));
+      return div.innerHTML;
+    }
+
+    function niceMax(val) {
+      if (val <= 0) return 10;
+      var mag = Math.pow(10, Math.floor(Math.log10(val)));
+      var res = val / mag;
+      var nice;
+      if (res <= 1.5) nice = 1.5;
+      else if (res <= 3) nice = 3;
+      else if (res <= 5) nice = 5;
+      else if (res <= 7) nice = 7;
+      else nice = 10;
+      return nice * mag;
+    }
+
+    function drawLineChart(canvas, data) {
+      var ctx = canvas.getContext('2d');
+      var parent = canvas.parentElement;
+      var dpr = window.devicePixelRatio || 1;
+      var containerW = parent.clientWidth;
+      var height = 250;
+      var width = containerW;
+
+      if (width <= 0) width = 600;
+
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      ctx.scale(dpr, dpr);
+
+      ctx.clearRect(0, 0, width, height);
+
+      if (!data || data.length < 2) {
+        ctx.fillStyle = '#888';
+        ctx.font = '14px -apple-system, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('Not enough data points', width / 2, height / 2);
+        canvas._chartPoints = [];
+        canvas._chartData = [];
+        return;
+      }
+
+      var pad = { top: 20, right: 20, bottom: 40, left: 55 };
+      var chartW = width - pad.left - pad.right;
+      var chartH = height - pad.top - pad.bottom;
+
+      var values = data.map(function(d) { return d.pageviews; });
+      var maxVal = niceMax(Math.max.apply(null, values));
+
+      // Y axis grid + labels
+      var ySteps = 5;
+      ctx.strokeStyle = '#2a2a2a';
+      ctx.lineWidth = 1;
+      ctx.fillStyle = '#888';
+      ctx.font = '11px -apple-system, sans-serif';
+      ctx.textAlign = 'right';
+      ctx.textBaseline = 'middle';
+
+      for (var i = 0; i <= ySteps; i++) {
+        var y = pad.top + (chartH / ySteps) * i;
+        var val = maxVal - (maxVal / ySteps) * i;
+        ctx.beginPath();
+        ctx.moveTo(pad.left, Math.round(y) + 0.5);
+        ctx.lineTo(width - pad.right, Math.round(y) + 0.5);
+        ctx.stroke();
+        ctx.fillText(Math.round(val).toLocaleString(), pad.left - 8, y);
+      }
+
+      // X labels
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+      ctx.fillStyle = '#888';
+      var labelStep = Math.max(1, Math.floor(data.length / 6));
+
+      for (var i = 0; i < data.length; i++) {
+        if (i % labelStep === 0 || i === data.length - 1) {
+          var x = pad.left + (chartW / (data.length - 1)) * i;
+          ctx.fillText((data[i].date || '').slice(5), x, height - pad.bottom + 8);
+        }
+      }
+
+      // Build points
+      var points = data.map(function(d, i) {
+        return {
+          x: pad.left + (chartW / (data.length - 1)) * i,
+          y: pad.top + chartH - ((d.pageviews - 0) / (maxVal - 0)) * chartH
+        };
+      });
+
+      // Fill area
+      ctx.beginPath();
+      ctx.moveTo(points[0].x, pad.top + chartH);
+      points.forEach(function(p) { ctx.lineTo(p.x, p.y); });
+      ctx.lineTo(points[points.length - 1].x, pad.top + chartH);
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(255, 0, 0, 0.08)';
+      ctx.fill();
+
+      // Line
+      ctx.beginPath();
+      points.forEach(function(p, idx) {
+        if (idx === 0) ctx.moveTo(p.x, p.y);
+        else ctx.lineTo(p.x, p.y);
+      });
+      ctx.strokeStyle = '#FF0000';
+      ctx.lineWidth = 2;
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'round';
+      ctx.stroke();
+
+      // Dots
+      ctx.fillStyle = '#FF0000';
+      points.forEach(function(p) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // Store for hover
+      canvas._chartPoints = points;
+      canvas._chartData = data;
+    }
+
+    function drawBarChart(canvas, data) {
+      var ctx = canvas.getContext('2d');
+      var parent = canvas.parentElement;
+      var dpr = window.devicePixelRatio || 1;
+      var containerW = parent.clientWidth;
+      var height = 300;
+      var width = containerW;
+
+      if (width <= 0) width = 600;
+
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      ctx.scale(dpr, dpr);
+
+      ctx.clearRect(0, 0, width, height);
+
+      if (!data || data.length === 0) {
+        ctx.fillStyle = '#888';
+        ctx.font = '14px -apple-system, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('No page data available', width / 2, height / 2);
+        return;
+      }
+
+      var pad = { top: 10, right: 70, bottom: 10, left: 130 };
+      var chartW = width - pad.left - pad.right;
+      var chartH = height - pad.top - pad.bottom;
+
+      var maxVal = Math.max.apply(null, data.map(function(d) { return d.pageviews; })) * 1.1;
+      var barCount = data.length;
+      var barH = Math.min(28, (chartH - (barCount - 1) * 4) / barCount);
+
+      ctx.font = '11px -apple-system, sans-serif';
+      ctx.textBaseline = 'middle';
+
+      data.forEach(function(d, i) {
+        var y = pad.top + (chartH / barCount) * i + (chartH / barCount - barH) / 2;
+        var barW = (d.pageviews / maxVal) * chartW;
+
+        // Gradient bar (top to bottom)
+        var grad = ctx.createLinearGradient(0, y, 0, y + barH);
+        grad.addColorStop(0, '#FF0000');
+        grad.addColorStop(1, '#FF4444');
+        ctx.fillStyle = grad;
+
+        var rX = pad.left;
+        var rY = y;
+        var rW = Math.max(barW, 0);
+        var rH = barH;
+        var radius = 3;
+        ctx.beginPath();
+        ctx.moveTo(rX + radius, rY);
+        ctx.lineTo(rX + rW - radius, rY);
+        ctx.quadraticCurveTo(rX + rW, rY, rX + rW, rY + radius);
+        ctx.lineTo(rX + rW, rY + rH - radius);
+        ctx.quadraticCurveTo(rX + rW, rY + rH, rX + rW - radius, rY + rH);
+        ctx.lineTo(rX + radius, rY + rH);
+        ctx.quadraticCurveTo(rX, rY + rH, rX, rY + rH - radius);
+        ctx.lineTo(rX, rY + radius);
+        ctx.quadraticCurveTo(rX, rY, rX + radius, rY);
+        ctx.closePath();
+        ctx.fill();
+
+        // Label
+        var label = d.path;
+        if (label.length > 25) label = label.slice(0, 22) + '...';
+        ctx.fillStyle = '#e0e0e0';
+        ctx.textAlign = 'right';
+        ctx.fillText(label, pad.left - 8, y + barH / 2);
+
+        // Value
+        ctx.fillStyle = '#e0e0e0';
+        ctx.textAlign = 'left';
+        ctx.fillText(d.pageviews.toLocaleString(), pad.left + barW + 6, y + barH / 2);
+      });
+    }
+
+    // Line chart hover tooltip
+    lineCanvas.addEventListener('mousemove', function(e) {
+      var rect = lineCanvas.getBoundingClientRect();
+      var dpr = window.devicePixelRatio || 1;
+      var scaleX = lineCanvas.width / dpr / rect.width;
+      var mouseX = (e.clientX - rect.left) * scaleX;
+
+      var points = lineCanvas._chartPoints || [];
+      var data = lineCanvas._chartData || [];
+
+      if (points.length === 0) {
+        tooltip.style.display = 'none';
+        return;
+      }
+
+      var closest = null;
+      var minDist = Infinity;
+      var threshold = (lineCanvas.width / dpr) / (points.length || 1) * 0.6;
+
+      points.forEach(function(p, i) {
+        var dist = Math.abs(p.x - mouseX);
+        if (dist < minDist) {
+          minDist = dist;
+          closest = i;
+        }
+      });
+
+      if (closest !== null && minDist < threshold) {
+        var p = points[closest];
+        var d = data[closest];
+        var wrapperRect = lineCanvas.parentElement.getBoundingClientRect();
+        var tooltipX = p.x + rect.left - wrapperRect.left + 12;
+        var tooltipY = p.y + rect.top - wrapperRect.top - 20;
+
+        if (tooltipX + 150 > wrapperRect.width) tooltipX = p.x + rect.left - wrapperRect.left - 130;
+        if (tooltipY < 0) tooltipY = p.y + rect.top - wrapperRect.top + 20;
+
+        tooltip.innerHTML = '<div class="tt-date">' + (d.date || '') + '</div><div class="tt-value">' + (d.pageviews || 0).toLocaleString() + ' pageviews</div>';
+        tooltip.style.left = tooltipX + 'px';
+        tooltip.style.top = tooltipY + 'px';
+        tooltip.style.display = 'block';
+      } else {
+        tooltip.style.display = 'none';
+      }
+    });
+
+    lineCanvas.addEventListener('mouseleave', function() {
+      tooltip.style.display = 'none';
+    });
+
+    // Responsive resize
+    function scheduleResize() {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+        if (analyticsData) {
+          drawLineChart(lineCanvas, analyticsData.daily || []);
+          drawBarChart(barCanvas, analyticsData.topPages || []);
+        }
+      }, 200);
+    }
+
+    var ro = new ResizeObserver(function() {
+      scheduleResize();
+    });
+
+    document.querySelectorAll('.chart-wrapper').forEach(function(w) {
+      ro.observe(w);
+    });
+
+    // Initial fetch
+    document.addEventListener('DOMContentLoaded', fetchData);
+  </script>
+</body>
+</html>

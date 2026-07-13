@@ -11,153 +11,29 @@
   <link rel="canonical" href="https://convertpivot.com/blog/png-vs-jpeg-vs-gif-vs-bmp">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://convertpivot.com/blog/png-vs-jpeg-vs-gif-vs-bmp">
-  <meta property="og:title" content="PNG vs JPEG vs GIF vs BMP — Image Format Basics">
+  <meta property="og:title" content="PNG vs JPEG vs GIF vs BMP — Image Format Basics | ConvertPivot">
   <meta property="og:description" content="Image format basics: PNG vs JPEG vs GIF vs BMP across lossless compression, transparency, animation, color depth, and file size. Learn which format works best for web, print, and design.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" href="/favicon.png" sizes="32x32">
   <link rel="icon" href="/favicon-16.png" sizes="16x16">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"PNG vs JPEG vs GIF vs BMP — Image Format Basics","description":"Image format basics: PNG vs JPEG vs GIF vs BMP across lossless compression, transparency, animation, color depth, and file size. Learn which format works best for web, print, and design.","datePublished":"2026-07-13","author":{"@type":"Person","name":"ConvertPivot"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When should I use PNG vs JPEG?","acceptedAnswer":{"@type":"Answer","text":"Use PNG for graphics with text, logos, screenshots, and anything needing transparency. Use JPEG for photos where small file size matters more than perfect quality. PNG is lossless, JPEG is lossy � pick based on what you are sharing."}},{"@type":"Question","name":"Is GIF still worth using?","acceptedAnswer":{"@type":"Answer","text":"Only for simple animations or memes that need universal compatibility. GIF is limited to 256 colors and produces huge files for complex animations. For most cases, short MP4 videos or animated WebP give better quality at smaller sizes."}},{"@type":"Question","name":"Why is BMP so bad?","acceptedAnswer":{"@type":"Answer","text":"BMP is uncompressed � a single photo can be 50 MB. It offers no quality benefit over PNG, no transparency, and no web support. The only reason to use BMP is legacy compatibility with old Windows software."}},{"@type":"Question","name":"Can I recover quality by converting JPEG to PNG?","acceptedAnswer":{"@type":"Answer","text":"No. JPEG artifacts are permanent. Converting JPEG to PNG just wraps those artifacts in a lossless container. Always keep the original source file if you plan to edit."}},{"@type":"Question","name":"What is the best format for my website?","acceptedAnswer":{"@type":"Answer","text":"JPEG for photos, PNG for graphics with transparency, and consider WebP or AVIF for next-gen compression. GIF only for simple animations. For icons and logos, SVG is even better than PNG."}},{"@type":"Question","name":"What is the difference between lossy and lossless?","acceptedAnswer":{"@type":"Answer","text":"Lossless (PNG, BMP) preserves every pixel exactly. Lossy (JPEG) discards detail you probably will not notice to save space. Lossy is fine for photos, bad for text, logos, or anything where sharp edges matter."}},{"@type":"Question","name":"Does PNG support animation?","acceptedAnswer":{"@type":"Answer","text":"Standard PNG does not. APNG (Animated PNG) adds animation support but is not as widely supported as GIF. For animated graphics on the web, consider animated WebP or a short video clip instead."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"PNG vs JPEG vs GIF vs BMP — Image Format Basics","description":"Image format basics: PNG vs JPEG vs GIF vs BMP across lossless compression, transparency, animation, color depth, and file size. Learn which format works best for web, print, and design.","datePublished":"July 13, 2026","author":{"@type":"Person","name":"ConvertPivot"}}</script>
+  
   <style>.blog-content{max-width:720px;margin:32px 0;line-height:1.8;color:var(--color-graphite)}.blog-content h2{color:var(--color-ink);margin-top:36px}.blog-content table{width:100%;border-collapse:collapse;margin:16px 0}.blog-content th,.blog-content td{border:1px solid var(--color-mist);padding:10px 14px;text-align:left;font-size:0.9rem}.blog-content th{background:var(--color-red);color:#fff}.blog-content .related-tools{margin:32px 0;padding:20px;border:1px solid var(--color-mist);border-radius:8px}.blog-content .related-tools h3{margin-bottom:12px}</style>
 </head>
 <body>
   <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="../" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="../">Home</a><span class="sep">›</span><a href="/blog">Blog</a><span class="sep">›</span><span class="current">PNG vs JPEG vs GIF vs BMP</span></nav>
+    <nav class="breadcrumb"><a href="../">Home</a><span class="sep">›</span><a href="/blog">Blog</a><span class="sep">›</span><span class="current">PNG vs JPEG vs GIF vs BMP — Image Format Basics</span></nav>
     <article class="blog-content">
       <span style="display:inline-block;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;padding:2px 10px;border-radius:3px;background:var(--color-red);color:#fff;margin-bottom:12px;">Images</span>
       <h1>PNG vs JPEG vs GIF vs BMP — Image Format Basics</h1>
       <p style="font-size:0.85rem;color:var(--color-graphite);margin-bottom:24px;">July 13, 2026</p>
-
-      <p>Image files are everywhere. Every website, document, social media post, and presentation uses images to communicate visually. Yet most people do not think about the format their images use until something goes wrong — a photo that takes too long to load, a logo with a white background where there should be transparency, or a file that is too large to email.</p>
-
-      <p>Understanding the basics of PNG, JPEG, GIF, and BMP helps you make smarter decisions about your images. Each format was designed for specific use cases, and choosing the wrong one can cost you quality, file size, or both. This <strong>image format basics</strong> guide compares the four most common formats across the dimensions that matter most.</p>
-
-      <h2>Format Comparison Table</h2>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Feature</th>
-            <th>PNG</th>
-            <th>JPEG</th>
-            <th>GIF</th>
-            <th>BMP</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Developer</td>
-            <td>PNG Development Group</td>
-            <td>Joint Photographic Experts Group</td>
-            <td>CompuServe</td>
-            <td>Microsoft</td>
-          </tr>
-          <tr>
-            <td>Year Introduced</td>
-            <td>1996</td>
-            <td>1992</td>
-            <td>1987</td>
-            <td>1990</td>
-          </tr>
-          <tr>
-            <td>Compression</td>
-            <td>Lossless</td>
-            <td>Lossy</td>
-            <td>Lossless (LZW)</td>
-            <td>None (uncompressed)</td>
-          </tr>
-          <tr>
-            <td>Max Colors</td>
-            <td>16.7 million (24-bit)</td>
-            <td>16.7 million (24-bit)</td>
-            <td>256 (8-bit)</td>
-            <td>16.7 million (24-bit)</td>
-          </tr>
-          <tr>
-            <td>Transparency</td>
-            <td>Yes (alpha channel)</td>
-            <td>No</td>
-            <td>Yes (1-bit)</td>
-            <td>No</td>
-          </tr>
-          <tr>
-            <td>Animation</td>
-            <td>No (APNG supported in some apps)</td>
-            <td>No</td>
-            <td>Yes</td>
-            <td>No</td>
-          </tr>
-          <tr>
-            <td>File Size (typical)</td>
-            <td>Medium</td>
-            <td>Small</td>
-            <td>Very small</td>
-            <td>Very large</td>
-          </tr>
-          <tr>
-            <td>Best For</td>
-            <td>Graphics, logos, screenshots</td>
-            <td>Photographs</td>
-            <td>Simple animations</td>
-            <td>Legacy applications</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>PNG — Lossless Quality with Transparency</h2>
-      <p>PNG (Portable Network Graphics) was created in the mid-1990s as a free, open-source replacement for GIF. It uses lossless compression via the DEFLATE algorithm, which means every pixel in the original image is preserved exactly. PNG supports full alpha channel transparency, allowing smooth gradients and soft edges when layered over backgrounds.</p>
-      <p>PNG excels at images with sharp edges, text, solid colors, and fine detail. Screenshots, logos, icons, and infographics all benefit from PNG's lossless preservation. The format supports up to 24-bit color (16.7 million colors) plus an 8-bit alpha channel, giving it excellent color fidelity for digital design work.</p>
-      <p>The trade-off is file size. PNG files are typically 2-5 times larger than equivalent JPEG images for photographs. For complex photographic images where exact pixel preservation is not critical, JPEG is usually a better choice. PNG also does not support animation natively, though the extended APNG format adds this capability in some browsers and applications.</p>
-
-      <h2>JPEG — Efficient Compression for Photos</h2>
-      <p>JPEG (Joint Photographic Experts Group) is the most widely used image format in the world. Its popularity comes from its ability to compress photographic images to small file sizes while maintaining acceptable visual quality. JPEG uses lossy compression based on the discrete cosine transform, which discards high-frequency color information that the human eye is less sensitive to.</p>
-      <p>The compression level in JPEG is adjustable. A quality setting of 90-95% produces visually lossless results with moderate file size reduction. Settings of 60-80% offer good quality with dramatic file size savings (60-80% smaller than uncompressed). Settings below 50% introduce visible artifacts — blockiness, banding, and blurring.</p>
-      <p>JPEG's key limitation is its lack of transparency support. Every JPEG image has a solid background (usually white). JPEG also recompresses every time it is saved, causing generational quality loss. Always keep original files in a lossless format like PNG or TIFF if you plan to edit them, and export to JPEG only as the final delivery format.</p>
-
-      <h2>GIF — Simple Animations for the Web</h2>
-      <p>GIF (Graphics Interchange Format) was developed by CompuServe in 1987 and remains one of the most recognizable image formats on the internet. Its defining feature is support for simple animations through a sequence of frames. GIF uses LZW lossless compression but is limited to 256 colors (8-bit), which makes it unsuitable for photographic images.</p>
-      <p>GIF animations have become a cultural phenomenon on social media, messaging apps, and forums. The format's simplicity means it works everywhere without additional plugins or codecs. However, GIF files for complex animations can become very large — a few seconds of animation can easily exceed 5-10 MB.</p>
-      <p>For most modern web uses, animated WebP and MP4 video offer superior alternatives to GIF with smaller file sizes, higher color depth, and smoother playback. Tools exist to convert GIF to video formats, dramatically reducing file sizes while maintaining the visual content.</p>
-
-      <h2>BMP — The Uncompressed Original</h2>
-      <p>BMP (Bitmap) is Microsoft's native image format for the Windows operating system. It stores pixel data without any compression, resulting in very large file sizes. A single full-color photograph saved as BMP can be 20-50 MB, compared to 2-5 MB as JPEG or 8-15 MB as PNG.</p>
-      <p>BMP offers no advantages over modern formats for general use. It does not support transparency, has no compression options, and produces files that are impractically large for web use or email attachment. The format persists primarily for legacy compatibility with old Windows applications and scientific imaging where uncompressed data is required.</p>
-      <p>If you encounter BMP files, converting them to PNG (for lossless preservation) or JPEG (for smaller size) is strongly recommended. The conversion is perfectly lossless from BMP to PNG since both can represent the same pixel data without degradation.</p>
-
-      <h2>Which Image Format Should You Use?</h2>
-      <p><strong>Choose PNG for:</strong> Logos, icons, screenshots, images with text, graphics with transparency, and any image where preserving every pixel is important. PNG is the standard format for web design assets and UI elements.</p>
-      <p><strong>Choose JPEG for:</strong> Photographs, complex images with smooth gradients, and any scenario where small file size matters more than perfect pixel accuracy. JPEG is the best format for photo sharing on social media and email.</p>
-      <p><strong>Choose GIF for:</strong> Simple animations with limited colors, memes, and short looping video clips where universal compatibility is required. For better quality and smaller files, consider animated WebP or short MP4 videos.</p>
-      <p><strong>Choose BMP for:</strong> Legacy compatibility only. Convert to PNG or JPEG as soon as possible for storage efficiency and broader compatibility.</p>
-
-      <h2>Converting Between Image Formats</h2>
-      <p>ConvertPivot offers a full suite of browser-based image converters. All processing happens locally on your device — nothing is uploaded to any server. Convert PNG to JPG to reduce photo file sizes, use the <a href="../heic-to-jpg">HEIC to JPG</a> tool for iPhone photos, or convert <a href="../webp-to-jpg">WebP to JPG</a>. For upscaling images, try our Image Upscaler. Read our <a href="../guides/image-formats">Image Formats Guide</a> for a deeper technical dive into all major image formats.</p>
-
-      <h2>Frequently Asked Questions</h2>
-      <ol class="faq-list">
-        <li><strong>When should I use PNG vs JPEG?</strong> Use PNG for graphics with text, logos, screenshots, and anything needing transparency. Use JPEG for photos where small file size matters more than perfect quality. PNG is lossless, JPEG is lossy — pick based on what you are sharing.</li>
-        <li><strong>Is GIF still worth using?</strong> Only for simple animations or memes that need universal compatibility. GIF is limited to 256 colors and produces huge files for complex animations. For most cases, short MP4 videos or animated WebP give better quality at smaller sizes.</li>
-        <li><strong>Why is BMP so bad?</strong> BMP is uncompressed — a single photo can be 50 MB. It offers no quality benefit over PNG, no transparency, and no web support. The only reason to use BMP is legacy compatibility with old Windows software.</li>
-        <li><strong>Can I recover quality by converting JPEG to PNG?</strong> No. JPEG artifacts are permanent. Converting JPEG to PNG just wraps those artifacts in a lossless container. Always keep the original source file if you plan to edit.</li>
-        <li><strong>What is the best format for my website?</strong> JPEG for photos, PNG for graphics with transparency, and consider WebP or AVIF for next-gen compression. GIF only for simple animations. For icons and logos, SVG is even better than PNG.</li>
-        <li><strong>What is the difference between lossy and lossless?</strong> Lossless (PNG, BMP) preserves every pixel exactly. Lossy (JPEG) discards detail you probably will not notice to save space. Lossy is fine for photos, bad for text, logos, or anything where sharp edges matter.</li>
-        <li><strong>Does PNG support animation?</strong> Standard PNG does not. APNG (Animated PNG) adds animation support but is not as widely supported as GIF. For animated graphics on the web, consider animated WebP or a short video clip instead.</li>
-      </ol>
-
-      <div class="related-tools">
-        <h3>Related Tools &amp; Guides</h3>
-        <ul>
-          <li>PNG to JPG Converter — Convert PNG images to JPEG format</li>
-          <li><a href="../heic-to-jpg">HEIC to JPG Converter</a> — Convert iPhone HEIC photos to JPEG</li>
-          <li><a href="../webp-to-jpg">WebP to JPG Converter</a> — Convert WebP images to JPEG</li>
-          <li>Image Upscaler — Enhance and upscale images</li>
-          <li><a href="../guides/image-formats">Image Formats Guide</a> — Detailed technical reference for image formats</li>
-        </ul>
-      </div>
+      <p>Image files are everywhere. Every website, document, social media post, and presentation uses images to communicate visually. Yet most people do not think about the format their images use until something goes wrong — a photo that takes too long to load, a logo with a white background where there should be transparency, or a file that is too large to email.</p><p>Understanding the basics of PNG, JPEG, GIF, and BMP helps you make smarter decisions about your images. Each format was designed for specific use cases, and choosing the wrong one can cost you quality, file size, or both. This <strong>image format basics</strong> guide compares the four most common formats across the dimensions that matter most.</p><p> When should I use PNG vs JPEG? ▼Use PNG for graphics with text, logos, screenshots, and anything needing transparency. Use JPEG for photos where small file size matters more than perfect quality. PNG is lossless, JPEG is lossy — pick based on what you are sharing.Is GIF still worth using? ▼Only for simple animations or memes that need universal compatibility. GIF is limited to 256 colors and produces huge files for complex animations. For most cases, short MP4 videos or animated WebP give better quality at smaller sizes.Why is BMP so bad? ▼BMP is uncompressed — a single photo can be 50 MB. It offers no quality benefit over PNG, no transparency, and no web support. The only reason to use BMP is legacy compatibility with old Windows software.Can I recover quality by converting JPEG to PNG? ▼No. JPEG artifacts are permanent. Converting JPEG to PNG just wraps those artifacts in a lossless container. Always keep the original source file if you plan to edit.What is the best format for my website? ▼JPEG for photos, PNG for graphics with transparency, and consider WebP or AVIF for next-gen compression. GIF only for simple animations. For icons and logos, SVG is even better than PNG.</p>
+      
+      <div class="related-tools"><h3>Related Tools</h3><ul><li><a href="../heic-to-jpg">heic to jpg</a></li><li><a href="../webp-to-jpg">webp to jpg</a></li><li><a href="../guides/image-formats">image formats</a></li></ul></div>
     </article>
     <div class="ad-container">Ad</div>
   </main>

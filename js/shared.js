@@ -1100,6 +1100,36 @@
   })();
 
   // ============================================================
+  // PAGEVIEW TRACKING
+  // ============================================================
+  function trackPageview() {
+    try {
+      var today = new Date().toISOString().split('T')[0];
+      var path = window.location.pathname;
+      var key = 'cp_pv_' + today;
+      var data = JSON.parse(localStorage.getItem(key) || '{}');
+      data[path] = (data[path] || 0) + 1;
+      data['_total'] = (data['_total'] || 0) + 1;
+      localStorage.setItem(key, JSON.stringify(data));
+
+      var total = parseInt(localStorage.getItem('cp_pv_total') || '0', 10);
+      localStorage.setItem('cp_pv_total', (total + 1).toString());
+
+      var allKeys = Object.keys(localStorage);
+      var cutoff = new Date();
+      cutoff.setDate(cutoff.getDate() - 90);
+      allKeys.forEach(function(k) {
+        if (k.startsWith('cp_pv_')) {
+          var dateStr = k.replace('cp_pv_', '');
+          if (dateStr.length === 10 && new Date(dateStr) < cutoff) {
+            localStorage.removeItem(k);
+          }
+        }
+      });
+    } catch (e) {}
+  }
+
+  // ============================================================
   // EXPOSE GLOBALLY
   // ============================================================
   window.ConvertPivot = {
@@ -1126,6 +1156,7 @@
   // AUTO-INIT
   // ============================================================
   document.addEventListener('DOMContentLoaded', function () {
+    trackPageview();
     buildSidebar();
     initDarkMode();
     injectThemeColor();
