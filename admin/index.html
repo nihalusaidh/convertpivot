@@ -3,55 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/admin/">
   <title>Content Manager — ConvertPivot</title>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/decap-cms@3.3.4/dist/decap-cms.js"></script>
   <style>body{margin:0}</style>
 </head>
 <body>
   <script>
-    CMS.init({
-      config: {
-        backend: {
-          name: 'github',
-          repo: 'nihalusaidh/convertpivot',
-          branch: 'main',
-          base_url: 'https://convertpivot.com',
-          auth_endpoint: '/api/auth'
-        },
-        media_folder: 'images/uploads',
-        public_folder: '/images/uploads',
-        collections: [{
-          name: 'blog',
-          label: 'Blog Posts',
-          folder: 'content/blog',
-          create: true,
-          slug: '{{slug}}',
-          fields: [
-            { label: 'Title', name: 'title', widget: 'string' },
-            { label: 'Slug', name: 'slug', widget: 'string' },
-            { label: 'Meta Description', name: 'description', widget: 'string' },
-            { label: 'Category', name: 'category', widget: 'string' },
-            { label: 'Publish Date', name: 'date', widget: 'datetime' },
-            { label: 'Featured Image', name: 'image', widget: 'image', required: false },
-            { label: 'Body', name: 'body', widget: 'markdown' },
-            { label: 'FAQ Q1', name: 'faq1_q', widget: 'string', required: false },
-            { label: 'FAQ A1', name: 'faq1_a', widget: 'text', required: false },
-            { label: 'FAQ Q2', name: 'faq2_q', widget: 'string', required: false },
-            { label: 'FAQ A2', name: 'faq2_a', widget: 'text', required: false },
-            { label: 'FAQ Q3', name: 'faq3_q', widget: 'string', required: false },
-            { label: 'FAQ A3', name: 'faq3_a', widget: 'text', required: false },
-            { label: 'FAQ Q4', name: 'faq4_q', widget: 'string', required: false },
-            { label: 'FAQ A4', name: 'faq4_a', widget: 'text', required: false },
-            { label: 'FAQ Q5', name: 'faq5_q', widget: 'string', required: false },
-            { label: 'FAQ A5', name: 'faq5_a', widget: 'text', required: false },
-            { label: 'Related Tool 1', name: 'tool1', widget: 'string', required: false },
-            { label: 'Related Tool 2', name: 'tool2', widget: 'string', required: false },
-            { label: 'Related Tool 3', name: 'tool3', widget: 'string', required: false },
-            { label: 'Related Tool 4', name: 'tool4', widget: 'string', required: false }
-          ]
-        }]
+    (function() {
+      var maxTries = 20;
+      function tryInit(n) {
+        if (typeof CMS !== 'undefined') {
+          CMS.init({
+            config: {
+              backend: {
+                name: 'github',
+                repo: 'nihalusaidh/convertpivot',
+                branch: 'main',
+                base_url: 'https://convertpivot.com',
+                auth_endpoint: '/api/auth'
+              },
+              media_folder: 'images/uploads',
+              public_folder: '/images/uploads',
+              collections: [{
+                name: 'blog',
+                label: 'Blog Posts',
+                folder: 'content/blog',
+                create: true,
+                slug: '{{slug}}',
+                fields: [
+                  { label: 'Title', name: 'title', widget: 'string' },
+                  { label: 'Slug', name: 'slug', widget: 'string' },
+                  { label: 'Meta Description', name: 'description', widget: 'string' },
+                  { label: 'Category', name: 'category', widget: 'string' },
+                  { label: 'Publish Date', name: 'date', widget: 'datetime' },
+                  { label: 'Featured Image', name: 'image', widget: 'image', required: false },
+                  { label: 'Body', name: 'body', widget: 'markdown' },
+                  { label: 'FAQ Q1', name: 'faq1_q', widget: 'string', required: false },
+                  { label: 'FAQ A1', name: 'faq1_a', widget: 'text', required: false },
+                  { label: 'FAQ Q2', name: 'faq2_q', widget: 'string', required: false },
+                  { label: 'FAQ A2', name: 'faq2_a', widget: 'text', required: false },
+                  { label: 'FAQ Q3', name: 'faq3_q', widget: 'string', required: false },
+                  { label: 'FAQ A3', name: 'faq3_a', widget: 'text', required: false },
+                  { label: 'FAQ Q4', name: 'faq4_q', widget: 'string', required: false },
+                  { label: 'FAQ A4', name: 'faq4_a', widget: 'text', required: false },
+                  { label: 'FAQ Q5', name: 'faq5_q', widget: 'string', required: false },
+                  { label: 'FAQ A5', name: 'faq5_a', widget: 'text', required: false },
+                  { label: 'Related Tool 1', name: 'tool1', widget: 'string', required: false },
+                  { label: 'Related Tool 2', name: 'tool2', widget: 'string', required: false },
+                  { label: 'Related Tool 3', name: 'tool3', widget: 'string', required: false },
+                  { label: 'Related Tool 4', name: 'tool4', widget: 'string', required: false }
+                ]
+              }]
+            }
+          });
+        } else if (n < maxTries) {
+          setTimeout(function() { tryInit(n + 1); }, 200);
+        } else {
+          document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;background:#0f0f0f;color:#e0e0e0;text-align:center;padding:20px"><div><h2 style="color:#FF0000">CMS Failed to Load</h2><p>Could not load Decap CMS. Check your internet connection and try refreshing.</p></div></div>';
+        }
       }
-    });
+      tryInit(0);
+    })();
   </script>
 </body>
 </html>
