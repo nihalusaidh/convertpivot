@@ -49,6 +49,9 @@
       {href: '/jpg-to-avif', icon: '🖼', label: 'JPG to AVIF'},
       {href: '/png-to-svg', icon: '📐', label: 'PNG to SVG'}
     ]},
+    {heading: 'About', links: [
+      {href: '/compare', icon: '📊', label: 'vs Competitors'}
+    ]},
     {heading: 'Guides', links: [
       {href: '/guides/bank-statement-formats', icon: '📘', label: 'Bank Statement Formats'},
       {href: '/guides/vcard-formats', icon: '📖', label: 'vCard Formats'},
