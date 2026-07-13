@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vCard Format Guide — vCard 2.1 vs 3.0 vs 4.0 Explained | ConvertPivot</title>
+  <meta name="description" content="Complete guide to vCard formats. Learn the differences between vCard 2.1, 3.0, and 4.0 for contact file conversion between iPhone, Android, Outlook, and CRM.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/guides/vcard-formats">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/guides/vcard-formats">
+  <meta property="og:title" content="vCard Format Guide — vCard 2.1 vs 3.0 vs 4.0 Explained | ConvertPivot">
+  <meta property="og:description" content="Complete guide to vCard formats. Learn the differences between vCard 2.1, 3.0, and 4.0 for contact file conversion between iPhone, Android, Outlook, and CRM.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">`n  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"vCard Format Guide","url":"https://convertpivot.com/guides/vcard-formats","applicationCategory":"BusinessApplication","operatingSystem":"All","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between vCard 2.1 and 3.0?","acceptedAnswer":{"@type":"Answer","text":"vCard 2.1 uses quoted-printable encoding for non-ASCII characters and has limited support for UTF-8. vCard 3.0 adopted UTF-8 as the default encoding, added structured name components, and introduced improved datetime formatting. Most modern applications support vCard 3.0 as the baseline."}},{"@type":"Question","name":"Can I convert vCard (VCF) to Excel (XLSX)?","acceptedAnswer":{"@type":"Answer","text":"Yes, you can convert VCF to XLSX using ConvertPivot's VCF to XLSX tool. The converter extracts all contact fields (name, phone, email, address, organization, etc.) and writes them to a structured Excel spreadsheet with each contact in a separate row."}},{"@type":"Question","name":"Which vCard version should I use for my CRM import?","acceptedAnswer":{"@type":"Answer","text":"Most modern CRMs accept vCard 3.0, which offers the best balance of compatibility and feature support. vCard 4.0 is the most feature-rich but has limited support in older CRM systems. Use vCard 2.1 only if you need compatibility with legacy systems like older versions of Microsoft Outlook."}},{"@type":"Question","name":"Does vCard support contact photos?","acceptedAnswer":{"@type":"Answer","text":"Yes, vCard supports contact photos in all versions. vCard 2.1 embeds photos using quoted-printable encoding of a standard image format. vCard 3.0 and 4.0 include the PHOTO property with more flexible encoding options, including inline base64-encoded images and external URI references."}},{"@type":"Question","name":"How do I transfer contacts from iPhone to Android using vCard?","acceptedAnswer":{"@type":"Answer","text":"Export your contacts from iPhone as vCard (VCF), then transfer the file to your Android device via email, cloud storage, or USB. Open the VCF file on Android and import it to your contacts app. ConvertPivot's CSV to VCF tool can help if you need to clean up contact data before transfer."}}]}</script>
+</head>
+<body>
+  <header class="site-header">
+    <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
+    <a href="../" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a>
+  </header>
+
+  <nav id="sidebar" class="sidebar"></nav>
+
+  <main class="main-content">
+    <nav class="breadcrumb">
+      <a href="../">Home</a><span class="sep">›</span>
+      <a href="../guides">Guides</a><span class="sep">›</span>
+      <span class="current">vCard Formats</span>
+    </nav>
+
+    <div class="tool-header">
+      <h1>vCard Format Guide — vCard 2.1 vs 3.0 vs 4.0 Explained</h1>
+      <p>A complete reference to the vCard standard for electronic contact interchange, covering all major versions and practical conversion advice.</p>
+    </div>
+
+    <div class="privacy-banner">
+      <span class="icon">🔒</span>
+      <span>100% browser-based guides and tools. No data leaves your device.</span>
+    </div>
+
+    <div class="content-section">
+      <h2>Introduction to the vCard Format</h2>
+      <p>vCard, also known as VCF (Virtual Contact File), is a file format standard for electronic business cards and contact information exchange. Developed by the Internet Mail Consortium (IMC) and later standardized by the IETF as RFC 2426 and RFC 6350, vCard is supported by virtually every email client, smartphone operating system, contact management application, and CRM platform. Understanding the differences between vCard versions is crucial for successfully transferring contacts between different systems without data loss.</p>
+      <p>The vCard format has gone through three major versions: 2.1, 3.0, and 4.0. Each version introduced improvements in encoding, structure, and feature support. Version 2.1 was the first widely adopted standard. Version 3.0 brought UTF-8 support and cleaner structure. Version 4.0 added XML representations, extended datetime handling, and improved internationalization. Choosing the right version for your use case depends on the target application and the complexity of your contact data.</p>
+
+      <h2>History of the vCard Format</h2>
+      <p>The vCard specification originated in 1995 as a proposal by Versit Consortium (founded by Apple, AT&T, IBM, and Siemens) to create a universal format for electronic business cards. The first widely deployed version was vCard 2.1, which became the default contact format for early email clients and personal digital assistants. In 1998, the IETF published RFC 2426, standardizing vCard 3.0 with significant improvements. The latest version, vCard 4.0, was published as RFC 6350 in 2011, adding support for XML, improved date/time handling, and better internationalization. Despite version 4.0 being the most recent standard, vCard 3.0 remains the most widely supported version across devices and applications.</p>
+
+      <h2>vCard 2.1</h2>
+      <p>vCard 2.1 was the first widely adopted version of the standard. It uses quoted-printable encoding for non-ASCII characters, which means special characters in names, addresses, and notes are encoded as equals signs followed by hexadecimal values. This encoding was designed for compatibility with email systems in the 1990s. vCard 2.1 has limited type support: phone numbers can have types like HOME, WORK, FAX, and CELL, but addressing is less structured than later versions. Many legacy devices, including older mobile phones and early versions of Microsoft Outlook, export contacts exclusively in vCard 2.1 format.</p>
+      <h3>Quoted-Printable Encoding</h3>
+      <p>One of the defining features of vCard 2.1 is quoted-printable (QP) encoding. In QP, any character outside the ASCII range is encoded as an equals sign followed by its two-digit hexadecimal code. For example, the character "é" becomes "=E9". Lines can be split with equals signs at the end of continuation lines. This encoding makes vCard 2.1 files less human-readable than later versions, and it complicates parsing, especially when contact data includes accented characters or non-Latin scripts.</p>
+
+      <h2>vCard 3.0</h2>
+      <p>vCard 3.0, standardized as RFC 2426, was a major improvement over version 2.1. The most significant change was the adoption of UTF-8 as the default character encoding, eliminating the need for quoted-printable encoding. vCard 3.0 introduced structured name components: the N property now has family name, given name, middle name, prefix, and suffix fields. The ADR property was similarly structured with street, locality, region, postal code, and country fields. vCard 3.0 also added support for multiple email addresses per contact, improved date formatting, and the ORG property for company and department information.</p>
+      <h3>Why vCard 3.0 Became the Baseline</h3>
+      <p>vCard 3.0 struck the right balance between feature completeness and compatibility. It supported everything most users needed: multiple phone numbers and emails, structured names and addresses, contact photos, birthdays, and notes. It was adopted by Apple's Address Book, Android's Contacts app, Google Contacts, and most CRM platforms. Today, vCard 3.0 is the safest choice for contact interchange because virtually every modern application can import and export it correctly.</p>
+
+      <h2>vCard 4.0</h2>
+      <p>vCard 4.0, standardized as RFC 6350, is the most recent version of the format. It introduced an XML representation called xCard, defined in RFC 6351. vCard 4.0 added support for extended datetime values using ISO 8601 format, including partial dates and date ranges. It also introduced the KIND property to distinguish between individual contacts, organizations, groups, and locations. The LANG property allows specifying the language of contact data. vCard 4.0 also improved support for social media profiles and instant messaging handles through the IMPP property. Despite these improvements, vCard 4.0 adoption has been slow, and many applications still default to vCard 3.0 for export.</p>
+
+      <h2>How Contacts Are Stored in vCard Files</h2>
+      <p>A vCard file can contain one or more contacts, each delimited by BEGIN:VCARD and END:VCARD markers. Each contact has a VERSION property indicating the vCard version used. The FN property specifies the formatted name (display name). The N property holds the structured name components. TEL properties store phone numbers with TYPE parameters for HOME, WORK, CELL, FAX, and other categories. EMAIL properties hold email addresses. ADR properties contain mailing addresses. PHOTO embeds or references a contact photo. BDAY stores the birthday. NOTE allows arbitrary text notes. Additional properties like URL, ORG, TITLE, ROLE, and IMPP provide further contact details.</p>
+
+      <h2>Comparison Table</h2>
+      <table class="format-table">
+        <thead><tr><th>Feature</th><th>vCard 2.1</th><th>vCard 3.0</th><th>vCard 4.0</th></tr></thead>
+        <tbody>
+          <tr><td>Character encoding</td><td>Quoted-printable (ASCII)</td><td>UTF-8</td><td>UTF-8</td></tr>
+          <tr><td>Structured names</td><td>Limited</td><td>Full (family, given, middle, prefix, suffix)</td><td>Full + KIND (individual, org, group, location)</td></tr>
+          <tr><td>Multiple emails</td><td>No</td><td>Yes</td><td>Yes</td></tr>
+          <tr><td>Contact photo</td><td>QP-encoded image</td><td>Inline base64 or URI</td><td>Inline base64 or URI</td></tr>
+          <tr><td>Date/time format</td><td>ISO 8601 (limited)</td><td>ISO 8601</td><td>Extended ISO 8601, partial dates</td></tr>
+          <tr><td>XML representation</td><td>No</td><td>No</td><td>Yes (xCard)</td></tr>
+          <tr><td>Social/IM handles</td><td>No</td><td>No</td><td>Yes (IMPP)</td></tr>
+          <tr><td>Application support</td><td>Legacy systems, Outlook</td><td>All modern apps</td><td>Limited, growing</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Converting Between VCF and CSV/XLSX for CRM Import</h2>
+      <p>CRM systems often require contact data in CSV or XLSX format rather than vCard. Converting VCF to CSV extracts each contact's properties into columns, making the data editable in a spreadsheet before import. The ConvertPivot VCF to CSV tool handles all three vCard versions, normalizing the output to consistent column headers. For Excel users, the VCF to XLSX tool produces a properly formatted spreadsheet. The reverse direction, CSV to VCF, is useful when you have contact data in a spreadsheet and need to import it into a phone or email client. The CSV to VCF tool maps spreadsheet columns to vCard properties, allowing customization of which fields to include.</p>
+
+      <h2>Common vCard Compatibility Issues</h2>
+      <p>Several issues commonly arise when transferring vCard files between different applications. Character encoding problems occur when a vCard 2.1 file with quoted-printable encoding is opened in an application that expects UTF-8. Photo embedding can cause compatibility issues: some applications expect inline photos while others prefer external references. Multiple vCard contacts in a single file (a vCard bundle) may not be recognized by all applications. Phone number formatting varies by region, and some applications strip or modify formatting during import. Using a dedicated converter tool can resolve these issues by normalizing the vCard data before import.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item">
+          <button class="faq-question">What is the difference between vCard 2.1 and 3.0? <span class="arrow">▼</span></button>
+          <div class="faq-answer">vCard 2.1 uses quoted-printable encoding for non-ASCII characters and has limited support for UTF-8. vCard 3.0 adopted UTF-8 as the default encoding, added structured name components, and introduced improved datetime formatting. Most modern applications support vCard 3.0 as the baseline.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Can I convert vCard (VCF) to Excel (XLSX)? <span class="arrow">▼</span></button>
+          <div class="faq-answer">Yes, you can convert VCF to XLSX using ConvertPivot's VCF to XLSX tool. The converter extracts all contact fields (name, phone, email, address, organization, etc.) and writes them to a structured Excel spreadsheet with each contact in a separate row.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Which vCard version should I use for my CRM import? <span class="arrow">▼</span></button>
+          <div class="faq-answer">Most modern CRMs accept vCard 3.0, which offers the best balance of compatibility and feature support. vCard 4.0 is the most feature-rich but has limited support in older CRM systems. Use vCard 2.1 only if you need compatibility with legacy systems like older versions of Microsoft Outlook.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Does vCard support contact photos? <span class="arrow">▼</span></button>
+          <div class="faq-answer">Yes, vCard supports contact photos in all versions. vCard 2.1 embeds photos using quoted-printable encoding of a standard image format. vCard 3.0 and 4.0 include the PHOTO property with more flexible encoding options, including inline base64-encoded images and external URI references.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How do I transfer contacts from iPhone to Android using vCard? <span class="arrow">▼</span></button>
+          <div class="faq-answer">Export your contacts from iPhone as vCard (VCF), then transfer the file to your Android device via email, cloud storage, or USB. Open the VCF file on Android and import it to your contacts app. ConvertPivot's CSV to VCF tool can help if you need to clean up contact data before transfer.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="../vcf-to-csv" class="related-tool-card">VCF to CSV <span class="desc">Convert vCard contacts to CSV</span></a>
+        <a href="../csv-to-vcf" class="related-tool-card">CSV to VCF <span class="desc">Convert CSV to vCard format</span></a>
+        <a href="../vcf-to-xlsx" class="related-tool-card">VCF to XLSX <span class="desc">Convert vCard contacts to Excel</span></a>
+      </div>
+    </div>
+
+    <div class="ad-container">Ad</div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div>
+      <div class="footer-links">
+        <a href="../">Home</a>
+        <a href="../privacy">Privacy</a>
+        <a href="../terms">Terms</a>
+        <a href="../contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/shared.js"></script>
+</body>
+</html>

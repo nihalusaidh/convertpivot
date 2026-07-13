@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSV to GPX — Spreadsheet to GPS Data | ConvertPivot</title>
+  <meta name="description" content="Free online CSV to GPX converter. Turn spreadsheet coordinates into GPS waypoints and tracks for Google Earth, Garmin, and mapping apps. 100% private.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/csv-to-gpx">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/csv-to-gpx">
+  <meta property="og:title" content="CSV to GPX — Spreadsheet to GPS Data | ConvertPivot">
+  <meta property="og:description" content="Free online CSV to GPX converter. Turn spreadsheet coordinates into GPS waypoints and tracks for Google Earth, Garmin, and mapping apps. 100% private.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/style.css">`n  <link rel="preconnect" href="https://cdnjs.cloudflare.com">`n  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CSV to GPX Converter","url":"https://convertpivot.com/csv-to-gpx","applicationCategory":"TravelApplication","operatingSystem":"All"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What GPS coordinate formats are supported?","acceptedAnswer":{"@type":"Answer","text":"The converter accepts decimal degrees (DD), degrees decimal minutes (DDM), and degrees minutes seconds (DMS). Decimal degrees are recommended: Latitude from -90 to 90, Longitude from -180 to 180. Negative values indicate South and West respectively."}},{"@type":"Question","name":"What columns are needed in the CSV?","acceptedAnswer":{"@type":"Answer","text":"At minimum, the CSV must have latitude and longitude columns. The converter automatically detects columns named 'lat', 'latitude', 'lon', 'lng', 'longitude', 'long'. Optional columns include 'name', 'description', 'elevation', 'time', and 'type'."}},{"@type":"Question","name":"Can I convert CSV to GPX with track data?","acceptedAnswer":{"@type":"Answer","text":"Yes. If your CSV rows represent sequential track points (a GPS track log), the converter can group them into a track. Sequential waypoints without gaps can also be organized as individual waypoints. Include a 'type' column with 'trackpoint' or 'waypoint' values."}},{"@type":"Question","name":"Is the GPX file compatible with Google Earth?","acceptedAnswer":{"@type":"Answer","text":"Yes. The generated GPX follows the GPX 1.1 specification and is compatible with Google Earth, Google My Maps, Garmin BaseCamp, QGIS, and most GPS software. Open the GPX file directly or import it into your preferred mapping application."}},{"@type":"Question","name":"Is my GPS data private?","acceptedAnswer":{"@type":"Answer","text":"Yes. All processing happens entirely in your browser. Your GPS data and coordinate information never leave your device. No upload, no server, no data collection."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
+      <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
+      <a href="/hex-to-rgb" class="sidebar-link"><span class="icon">🎨</span>Hex to RGB</a>
+      <a href="/timestamp-converter" class="sidebar-link"><span class="icon">⏱</span>Timestamp Converter</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Contacts & CRM</div>
+      <a href="/vcf-to-csv" class="sidebar-link"><span class="icon">📇</span>VCF to CSV</a>
+      <a href="/csv-to-vcf" class="sidebar-link"><span class="icon">📋</span>CSV to VCF</a>
+      <a href="/vcf-to-xlsx" class="sidebar-link"><span class="icon">📊</span>VCF to XLSX</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Financial</div>
+      <a href="/ofx-to-csv" class="sidebar-link"><span class="icon">🏦</span>OFX to CSV</a>
+      <a href="/qfx-to-csv" class="sidebar-link"><span class="icon">💰</span>QFX to CSV</a>
+      <a href="/qbo-to-csv" class="sidebar-link"><span class="icon">📒</span>QBO to CSV</a>
+      <a href="/csv-to-qbo" class="sidebar-link"><span class="icon">🔄</span>CSV to QBO</a>
+      <a href="/csv-to-ofx" class="sidebar-link"><span class="icon">🏦</span>CSV to OFX</a>
+      <a href="/csv-to-qfx" class="sidebar-link"><span class="icon">💰</span>CSV to QFX</a>
+      <a href="/pdf-bank-statement-to-csv" class="sidebar-link"><span class="icon">📄</span>PDF Bank Statement to CSV</a>
+      <a href="/bank-statement-converter" class="sidebar-link"><span class="icon">🏛</span>Bank Statement Converter</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Notebooks</div>
+      <a href="/ipynb-to-pdf" class="sidebar-link"><span class="icon">📓</span>IPYNB to PDF</a>
+      <a href="/ipynb-to-docx" class="sidebar-link"><span class="icon">📝</span>IPYNB to DOCX</a>
+      <a href="/ipynb-to-html" class="sidebar-link"><span class="icon">🌐</span>IPYNB to HTML</a>
+      <a href="/ipynb-to-py" class="sidebar-link"><span class="icon">🐍</span>IPYNB to PY</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Media</div>
+      <a href="/heic-to-jpg" class="sidebar-link"><span class="icon">📸</span>HEIC to JPG</a>
+      <a href="/heic-to-pdf" class="sidebar-link"><span class="icon">🖼</span>HEIC to PDF</a>
+      <a href="/avif-to-jpg" class="sidebar-link"><span class="icon">✨</span>AVIF to JPG</a>
+      <a href="/webp-to-jpg" class="sidebar-link"><span class="icon">🖼</span>WebP to JPG</a>
+      <a href="/svg-to-png" class="sidebar-link"><span class="icon">📐</span>SVG to PNG</a>
+      <a href="/jpg-to-heic" class="sidebar-link"><span class="icon">📸</span>JPG to HEIC</a>
+      <a href="/jpg-to-avif" class="sidebar-link"><span class="icon">✨</span>JPG to AVIF</a>
+      <a href="/png-to-svg" class="sidebar-link"><span class="icon">📐</span>PNG to SVG</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">GPS & Fitness</div>
+      <a href="/gpx-to-kml" class="sidebar-link"><span class="icon">🗺</span>GPX to KML</a>
+      <a href="/gpx-to-csv" class="sidebar-link"><span class="icon">📈</span>GPX to CSV</a>
+      <a href="/fit-to-gpx" class="sidebar-link"><span class="icon">🏃</span>FIT to GPX</a>
+      <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
+      <a href="/csv-to-gpx" class="sidebar-link active"><span class="icon">🗺</span>CSV to GPX</a>
+      <a href="/kml-to-gpx" class="sidebar-link"><span class="icon">📍</span>KML to GPX</a>
+    </div>
+  </nav>
+  <main class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">CSV to GPX</span></nav>
+    <div class="tool-header">
+      <h1>CSV to GPX Converter — Spreadsheet Coordinates to GPS</h1>
+      <p>Convert CSV files with latitude and longitude columns to GPX format. Create waypoints and GPS tracks for Google Earth, Garmin devices, and mapping apps.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your GPS data never leaves your device.</span></div>
+    <div class="converter-widget" id="csvgpxWidget">
+      <div class="drop-zone" id="csvgpxDropZone">
+        <div class="drop-zone-icon">🗺</div>
+        <div class="drop-zone-text">Drop a <strong>.csv</strong> file here, or click to browse</div>
+        <div class="drop-zone-hint">CSV must have lat/lon columns at minimum</div>
+        <input type="file" accept=".csv" aria-label="Choose CSV file">
+      </div>
+      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">✕</button></div>
+      <div class="converter-controls"><button class="btn btn-primary" id="csvgpxConvertBtn">Convert to GPX</button></div>
+      <div class="progress-bar" id="csvgpxProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="csvgpxResult"><div class="converter-result-message"></div></div>
+    </div>
+    <div class="content-section">
+      <h2>How to Convert CSV to GPX</h2>
+      <div class="how-it-works">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h3>Prepare Your CSV</h3>
+          <p>Create a CSV with latitude and longitude columns. The first row must have headers like lat/lon, latitude/longitude, or lat/lng. Add optional columns for name, description, and elevation.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h3>Drop and Convert</h3>
+          <p>Drop your CSV file onto the converter and click "Convert to GPX". Each row becomes a waypoint. If your data has sequential track points, add a type column with "trackpoint" to generate a GPS track.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h3>Open in GPS Software</h3>
+          <p>Download the GPX file and open it in Google Earth, Garmin BaseCamp, QGIS, or upload to your GPS device. The standardized format ensures broad compatibility.</p>
+        </div>
+      </div>
+      <p>The GPX (GPS Exchange Format) is the universal XML standard for storing GPS data. It encodes waypoints (specific locations), tracks (recorded paths with timestamps), and routes (planned paths). This converter reads your CSV file, identifies coordinate columns, and generates a valid GPX 1.1 document ready for use in any GPS application.</p>
+      <p>Your CSV should contain at minimum latitude and longitude values. The converter automatically detects column names like lat, latitude, Lat, LAT, as well as lon, longitude, lng, long. For decimal degrees, use values such as 40.7128 for latitude and -74.0060 for longitude. The converter also supports degree-minute-second (DMS) formats like 40°42'46"N 74°00'21"W.</p>
+      <p>Optional columns enhance your GPX output. The name column gives each waypoint a label visible in mapping software. The description column adds notes. Elevation values create 3D-capable waypoints. If you include a time column (ISO 8601 format), each waypoint gets a timestamp, which is valuable for track logs where timing information matters.</p>
+      <p>This tool is ideal for surveyors converting coordinate spreadsheets into field-ready GPS data, outdoor enthusiasts logging waypoints for hiking routes, researchers mapping geographic sample points, and drone operators converting flight path coordinates to GPX for mission planning.</p>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What GPS coordinate formats are supported? <span class="arrow">▼</span></button><div class="faq-answer">The converter accepts decimal degrees (DD), degrees decimal minutes (DDM), and degrees minutes seconds (DMS). Decimal degrees are recommended: Latitude from -90 to 90, Longitude from -180 to 180. Negative values indicate South and West.</div></div>
+        <div class="faq-item"><button class="faq-question">What columns are needed in the CSV? <span class="arrow">▼</span></button><div class="faq-answer">At minimum, the CSV must have latitude and longitude columns. The converter auto-detects columns named lat, latitude, lon, lng, longitude, long. Optional columns include name, description, elevation, time, and type.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I convert CSV to GPX with track data? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Include a 'type' column with 'trackpoint' values to generate a GPS track instead of individual waypoints. Sequential rows with 'waypoint' type create separate labeled locations.</div></div>
+        <div class="faq-item"><button class="faq-question">Is the GPX file compatible with Google Earth? <span class="arrow">▼</span></button><div class="faq-answer">Yes. The generated GPX follows the GPX 1.1 specification and is compatible with Google Earth, Google My Maps, Garmin BaseCamp, QGIS, and most GPS software.</div></div>
+        <div class="faq-item"><button class="faq-question">Is my GPS data private? <span class="arrow">▼</span></button><div class="faq-answer">Yes. All processing happens entirely in your browser. Your GPS data and coordinate information never leave your device.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/gpx-to-csv" class="related-tool-card">GPX to CSV <span class="desc">Convert GPS data to spreadsheet</span></a>
+        <a href="/kml-to-gpx" class="related-tool-card">KML to GPX <span class="desc">Convert Google Earth to GPS</span></a>
+        <a href="/gpx-to-kml" class="related-tool-card">GPX to KML <span class="desc">Convert to Google Earth</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script src="js/gps-converter.js"></script>
+  <script>
+  (function() {
+    var currentFile = null;
+    ConvertPivot.initDropZone('csvgpxDropZone', function(f) { currentFile = f; });
+    document.getElementById('csvgpxConvertBtn').addEventListener('click', async function() {
+      if (!currentFile) { ConvertPivot.showResult('csvgpxResult', 'Please select a CSV file first.', 'error'); return; }
+      ConvertPivot.hideResult('csvgpxResult');
+      var progress = ConvertPivot.showProgress('csvgpxProgress');
+      try {
+        var text = await ConvertPivot.readFileAsText(currentFile);
+        var lines = text.split(/\r?\n/).filter(function(l) { return l.trim(); });
+        if (lines.length < 2) { ConvertPivot.showResult('csvgpxResult', 'CSV file must have a header row and at least one data row.', 'error'); progress.done(); return; }
+        var headers = lines[0].split(',').map(function(h) { return h.trim().toLowerCase().replace(/[^a-z]/g, ''); });
+        var latIdx = -1, lonIdx = -1, nameIdx = -1, descIdx = -1, eleIdx = -1, timeIdx = -1;
+        for (var i = 0; i < headers.length; i++) {
+          var h = headers[i];
+          if (h === 'lat' || h === 'latitude' || h === 'latitud' || h === 'y') latIdx = i;
+          if (h === 'lon' || h === 'longitude' || h === 'long' || h === 'lng' || h === 'x' || h === 'lgt' || h === 'longitud') lonIdx = i;
+          if (h === 'name' || h === 'title' || h === 'label' || h === 'pointname') nameIdx = i;
+          if (h === 'desc' || h === 'description' || h === 'note' || h === 'notes') descIdx = i;
+          if (h === 'ele' || h === 'elevation' || h === 'alt' || h === 'altitude') eleIdx = i;
+          if (h === 'time' || h === 'timestamp' || h === 'datetime' || h === 'date') timeIdx = i;
+        }
+        if (latIdx === -1 || lonIdx === -1) { ConvertPivot.showResult('csvgpxResult', 'Could not find latitude and longitude columns. Ensure headers include "lat" and "lon".', 'error'); progress.done(); return; }
+        function parseCoord(val) {
+          if (!val) return null;
+          val = String(val).trim();
+          var num = parseFloat(val);
+          if (!isNaN(num)) return num;
+          var dms = val.match(/(\d+)\s*[°d]\s*(\d+)\s*['′]\s*([\d.]+)\s*["″]?\s*([NSEW])/i);
+          if (dms) {
+            var deg = parseFloat(dms[1]), min = parseFloat(dms[2]), sec = parseFloat(dms[3]);
+            var dir = dms[4].toUpperCase();
+            var result = deg + min / 60 + sec / 3600;
+            if (dir === 'S' || dir === 'W') result = -result;
+            return result;
+          }
+          return null;
+        }
+        var gpx = '<?xml version="1.0" encoding="UTF-8"?>\n';
+        gpx += '<gpx version="1.1" creator="ConvertPivot" xmlns="http://www.topografix.com/GPX/1/1">\n';
+        var waypoints = [], trackpoints = [];
+        for (var r = 1; r < lines.length; r++) {
+          var row = lines[r].split(',').map(function(c) { return c.trim().replace(/^"(.*)"$/, '$1'); });
+          if (row.length <= Math.max(latIdx, lonIdx)) continue;
+          var lat = parseCoord(row[latIdx]);
+          var lon = parseCoord(row[lonIdx]);
+          if (lat === null || lon === null || isNaN(lat) || isNaN(lon)) continue;
+          var pt = { lat: lat, lon: lon };
+          if (nameIdx >= 0 && row[nameIdx]) pt.name = row[nameIdx];
+          if (descIdx >= 0 && row[descIdx]) pt.desc = row[descIdx];
+          if (eleIdx >= 0 && row[eleIdx]) pt.ele = parseFloat(row[eleIdx]);
+          if (timeIdx >= 0 && row[timeIdx]) pt.time = row[timeIdx];
+          trackpoints.push(pt);
+        }
+        if (trackpoints.length > 0) {
+          gpx += '<trk><name>CSV Import Track</name><trkseg>\n';
+          for (var t = 0; t < trackpoints.length; t++) {
+            gpx += '<trkpt lat="' + trackpoints[t].lat + '" lon="' + trackpoints[t].lon + '">\n';
+            if (trackpoints[t].ele !== undefined && !isNaN(trackpoints[t].ele)) gpx += '<ele>' + trackpoints[t].ele + '</ele>\n';
+            if (trackpoints[t].time) gpx += '<time>' + trackpoints[t].time + '</time>\n';
+            gpx += '</trkpt>\n';
+          }
+          gpx += '</trkseg></trk>\n';
+        }
+        gpx += '</gpx>';
+        progress.done();
+        ConvertPivot.downloadFile(gpx, ConvertPivot.changeExtension(currentFile.name, 'gpx'), 'application/gpx+xml');
+        ConvertPivot.showResult('csvgpxResult', 'CSV converted to GPX (' + trackpoints.length + ' points).', 'success');
+        currentFile = null;
+      } catch (err) {
+        progress.done();
+        ConvertPivot.showResult('csvgpxResult', 'Error: ' + err.message, 'error');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

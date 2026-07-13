@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Statement Converter — OFX, QFX, QBO & More | ConvertPivot</title>
+  <meta name="description" content="Free online bank statement converter. Convert between OFX, QFX, QBO, CSV, and PDF formats. All-in-one financial converter, no upload.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/bank-statement-converter">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/bank-statement-converter">
+  <meta property="og:title" content="Bank Statement Converter — OFX, QFX, QBO & More | ConvertPivot">
+  <meta property="og:description" content="Free online bank statement converter. Convert between OFX, QFX, QBO, CSV, and PDF formats. All-in-one financial converter.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/style.css">`n  <link rel="preconnect" href="https://cdnjs.cloudflare.com">`n  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Bank Statement Converter","url":"https://convertpivot.com/bank-statement-converter","applicationCategory":"FinanceApplication","operatingSystem":"All"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What formats does the bank statement converter support?","acceptedAnswer":{"@type":"Answer","text":"Our converter handles OFX, QFX, QBO, CSV, and PDF bank statements. Convert any format to any other format."}},{"@type":"Question","name":"Which format should I use?","acceptedAnswer":{"@type":"Answer","text":"OFX/QFX are best for accounting software. CSV is best for Excel and spreadsheets. QBO is best for QuickBooks import."}},{"@type":"Question","name":"Is my financial data secure?","acceptedAnswer":{"@type":"Answer","text":"Yes. All conversions run in your browser. Your data never leaves your device."}},{"@type":"Question","name":"Do you support all banks?","acceptedAnswer":{"@type":"Answer","text":"OFX/QFX/QBO files from all banks work identically since they follow the standard OFX specification. PDF bank statements vary by bank; standard tabular formats work best."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
+      <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
+      <a href="/hex-to-rgb" class="sidebar-link"><span class="icon">🎨</span>Hex to RGB</a>
+      <a href="/timestamp-converter" class="sidebar-link"><span class="icon">⏱</span>Timestamp Converter</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Contacts & CRM</div>
+      <a href="/vcf-to-csv" class="sidebar-link"><span class="icon">📇</span>VCF to CSV</a>
+      <a href="/csv-to-vcf" class="sidebar-link"><span class="icon">📋</span>CSV to VCF</a>
+      <a href="/vcf-to-xlsx" class="sidebar-link"><span class="icon">📊</span>VCF to XLSX</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Financial</div>
+      <a href="/ofx-to-csv" class="sidebar-link"><span class="icon">🏦</span>OFX to CSV</a>
+      <a href="/qfx-to-csv" class="sidebar-link"><span class="icon">💰</span>QFX to CSV</a>
+      <a href="/qbo-to-csv" class="sidebar-link"><span class="icon">📒</span>QBO to CSV</a>
+      <a href="/csv-to-qbo" class="sidebar-link"><span class="icon">🔄</span>CSV to QBO</a>
+      <a href="/pdf-bank-statement-to-csv" class="sidebar-link"><span class="icon">📄</span>PDF Bank Statement to CSV</a>
+      <a href="/bank-statement-converter" class="sidebar-link active"><span class="icon">🏛</span>Bank Statement Converter</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Notebooks</div>
+      <a href="/ipynb-to-pdf" class="sidebar-link"><span class="icon">📓</span>IPYNB to PDF</a>
+      <a href="/ipynb-to-docx" class="sidebar-link"><span class="icon">📝</span>IPYNB to DOCX</a>
+      <a href="/ipynb-to-html" class="sidebar-link"><span class="icon">🌐</span>IPYNB to HTML</a>
+      <a href="/ipynb-to-py" class="sidebar-link"><span class="icon">🐍</span>IPYNB to PY</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Media</div>
+      <a href="/heic-to-jpg" class="sidebar-link"><span class="icon">📸</span>HEIC to JPG</a>
+      <a href="/heic-to-pdf" class="sidebar-link"><span class="icon">🖼</span>HEIC to PDF</a>
+      <a href="/avif-to-jpg" class="sidebar-link"><span class="icon">✨</span>AVIF to JPG</a>
+      <a href="/webp-to-jpg" class="sidebar-link"><span class="icon">🖼</span>WebP to JPG</a>
+      <a href="/svg-to-png" class="sidebar-link"><span class="icon">📐</span>SVG to PNG</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">GPS & Fitness</div>
+      <a href="/gpx-to-kml" class="sidebar-link"><span class="icon">🗺</span>GPX to KML</a>
+      <a href="/gpx-to-csv" class="sidebar-link"><span class="icon">📈</span>GPX to CSV</a>
+      <a href="/fit-to-gpx" class="sidebar-link"><span class="icon">🏃</span>FIT to GPX</a>
+      <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
+    </div>
+  </nav>
+  <main class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Bank Statement Converter</span></nav>
+    <div class="tool-header">
+      <h1>Bank Statement Converter — All Financial Formats</h1>
+      <p>Convert between OFX, QFX, QBO, CSV, and PDF bank statement formats. The all-in-one tool for financial data conversion.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your financial data never leaves your device.</span></div>
+
+    <div class="converter-widget" id="bankStatementWidget">
+      <div class="converter-controls" style="flex-direction:column;align-items:stretch;gap:12px;padding:24px 0;">
+        <label style="font-size:14px;font-weight:600;color:#333;">Select a conversion:</label>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <a href="/ofx-to-csv" class="btn btn-primary" style="text-align:center;text-decoration:none;">OFX → CSV</a>
+          <a href="/qfx-to-csv" class="btn btn-primary" style="text-align:center;text-decoration:none;">QFX → CSV</a>
+          <a href="/qbo-to-csv" class="btn btn-primary" style="text-align:center;text-decoration:none;">QBO → CSV</a>
+          <a href="/csv-to-qbo" class="btn btn-primary" style="text-align:center;text-decoration:none;">CSV → QBO</a>
+          <a href="/pdf-bank-statement-to-csv" class="btn btn-primary" style="text-align:center;text-decoration:none;">PDF Bank Statement → CSV</a>
+          <a href="/ofx-to-csv" class="btn" style="text-align:center;text-decoration:none;">OFX → QBO</a>
+        </div>
+        <div class="drop-zone" id="bankStatementDropZone" style="margin-top:12px;">
+          <div class="drop-zone-icon">🏛</div>
+          <div class="drop-zone-text">Drop a <strong>.ofx</strong>, <strong>.qfx</strong>, <strong>.qbo</strong>, <strong>.csv</strong>, or <strong>.pdf</strong> file here</div>
+          <div class="drop-zone-hint">Auto-detects format — select a conversion type below</div>
+          <input type="file" accept=".ofx,.qfx,.qbo,.csv,.pdf" aria-label="Choose a file">
+        </div>
+      </div>
+      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">✕</button></div>
+      <div class="converter-controls">
+        <label style="font-size:14px;font-weight:600;color:#333;">Convert to:</label>
+        <select id="bankStatementTargetFormat" style="padding:8px 12px;border:1px solid #ccc;border-radius:6px;font-size:14px;">
+          <option value="csv">CSV (Excel/Spreadsheet)</option>
+          <option value="qbo">QBO (QuickBooks)</option>
+        </select>
+        <button class="btn btn-primary" id="bankStatementConvertBtn">Convert</button>
+      </div>
+      <div class="progress-bar" id="bankStatementProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="bankStatementResult"><div class="converter-result-message"></div></div>
+    </div>
+
+    <div class="content-section">
+      <h2>All-in-One Financial File Converter</h2>
+      <p>This hub page lets you convert between all major bank statement formats. Whether you have OFX files from your bank, QFX from Quicken, QBO from QuickBooks, CSV exports, or PDF statements, you can convert to your target format. Each dedicated converter tool below provides a focused experience with detailed instructions and examples.</p>
+      <div class="related-tools" style="margin-top:20px;">
+        <a href="/ofx-to-csv" class="related-tool-card">OFX to CSV <span class="desc">Open Financial Exchange</span></a>
+        <a href="/qfx-to-csv" class="related-tool-card">QFX to CSV <span class="desc">Quicken Financial Exchange</span></a>
+        <a href="/qbo-to-csv" class="related-tool-card">QBO to CSV <span class="desc">QuickBooks Web Connect</span></a>
+        <a href="/csv-to-qbo" class="related-tool-card">CSV to QBO <span class="desc">Spreadsheet to QuickBooks</span></a>
+        <a href="/pdf-bank-statement-to-csv" class="related-tool-card">PDF Bank Statement to CSV <span class="desc">Extract transactions</span></a>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What formats does the bank statement converter support? <span class="arrow">▼</span></button><div class="faq-answer">Our converter handles OFX, QFX, QBO, CSV, and PDF bank statements. Convert any format to any other format.</div></div>
+        <div class="faq-item"><button class="faq-question">Which format should I use? <span class="arrow">▼</span></button><div class="faq-answer">OFX/QFX are best for accounting software. CSV is best for Excel and spreadsheets. QBO is best for QuickBooks import.</div></div>
+        <div class="faq-item"><button class="faq-question">Is my financial data secure? <span class="arrow">▼</span></button><div class="faq-answer">Yes. All conversions run in your browser. Your data never leaves your device.</div></div>
+        <div class="faq-item"><button class="faq-question">Do you support all banks? <span class="arrow">▼</span></button><div class="faq-answer">OFX/QFX/QBO files from all banks work identically since they follow the standard OFX specification. PDF bank statements vary by bank; standard tabular formats work best.</div></div>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/financial-converter.js"></script>
+  <script>
+  (function() {
+    var currentFile = null;
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+    ConvertPivot.initDropZone('bankStatementDropZone', function(f) { currentFile = f; });
+    document.getElementById('bankStatementConvertBtn').addEventListener('click', async function() {
+      if (!currentFile) { ConvertPivot.showResult('bankStatementResult', 'Please select a file first.', 'error'); return; }
+      ConvertPivot.hideResult('bankStatementResult');
+      var progress = ConvertPivot.showProgress('bankStatementProgress');
+      var target = document.getElementById('bankStatementTargetFormat').value;
+      try {
+        var ext = currentFile.name.split('.').pop().toLowerCase();
+        var result, outputName, mime;
+        if (ext === 'pdf') {
+          var data = await ConvertPivot.readFileAsArrayBuffer(currentFile);
+          result = await FinancialConverter.parsePDFStatement(data);
+          outputName = 'bank-statement.csv';
+          mime = 'text/csv;charset=utf-8';
+        } else if (['ofx', 'qfx', 'qbo'].indexOf(ext) !== -1) {
+          var text = await ConvertPivot.readFileAsText(currentFile);
+          if (target === 'csv') {
+            var ofx = FinancialConverter.parseOFX(text);
+            if (ofx.transactions.length === 0) { ConvertPivot.showResult('bankStatementResult', 'No transactions found.', 'error'); progress.done(); return; }
+            result = FinancialConverter.ofxToCSV(ofx);
+            outputName = ConvertPivot.changeExtension(currentFile.name, 'csv');
+            mime = 'text/csv;charset=utf-8';
+          } else {
+            result = FinancialConverter.csvToQBO(text);
+            outputName = ConvertPivot.changeExtension(currentFile.name, 'qbo');
+            mime = 'application/x-quicken';
+          }
+        } else if (ext === 'csv') {
+          var text2 = await ConvertPivot.readFileAsText(currentFile);
+          result = FinancialConverter.csvToQBO(text2);
+          outputName = ConvertPivot.changeExtension(currentFile.name, 'qbo');
+          mime = 'application/x-quicken';
+        } else {
+          ConvertPivot.showResult('bankStatementResult', 'Unsupported file format.', 'error'); progress.done(); return;
+        }
+        setTimeout(function() {
+          progress.done();
+          ConvertPivot.showResult('bankStatementResult', 'Conversion complete!', 'success');
+          ConvertPivot.downloadFile(result, outputName, mime);
+        }, 300);
+      } catch (err) { progress.done(); ConvertPivot.showResult('bankStatementResult', 'Error: ' + err.message, 'error'); }
+    });
+  })();
+  </script>
+</body>
+</html>

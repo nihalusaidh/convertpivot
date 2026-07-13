@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unix Timestamp Converter — Epoch to Human Date | ConvertPivot</title>
+  <meta name="description" content="Free online Unix timestamp converter. Convert between epoch seconds/milliseconds and human-readable dates instantly. No upload.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/timestamp-converter">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/timestamp-converter">
+  <meta property="og:title" content="Unix Timestamp Converter — Epoch to Human Date | ConvertPivot">
+  <meta property="og:description" content="Free online Unix timestamp converter. Convert between epoch seconds/milliseconds and human-readable dates instantly.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/style.css">`n  <link rel="preconnect" href="https://cdnjs.cloudflare.com">`n  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Timestamp Converter","url":"https://convertpivot.com/timestamp-converter","applicationCategory":"DeveloperApplication","operatingSystem":"All"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a Unix timestamp?","acceptedAnswer":{"@type":"Answer","text":"A Unix timestamp (or epoch time) is the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT), not counting leap seconds. It is widely used in programming and databases to represent points in time."}},{"@type":"Question","name":"How do you convert a timestamp to a date?","acceptedAnswer":{"@type":"Answer","text":"To convert a Unix timestamp to a date, multiply the timestamp by 1000 (to convert seconds to milliseconds) and pass it to JavaScript's Date() constructor. Our tool does this instantly as you type."}},{"@type":"Question","name":"What is the year 2038 problem?","acceptedAnswer":{"@type":"Answer","text":"The Year 2038 problem is that many systems store timestamps as a signed 32-bit integer, which can only represent dates up to January 19, 2038. After that, timestamps will overflow and wrap around to negative numbers, causing date calculation errors."}},{"@type":"Question","name":"Is this converter free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no limits, no signup, and no uploads. Everything runs in your browser."}}]}</script>
+</head>
+<body>
+  <header class="site-header">
+    <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
+    <a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a>
+  </header>
+
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation">
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Developer Tools</div>
+      <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
+      <a href="/hex-to-rgb" class="sidebar-link"><span class="icon">🎨</span>Hex to RGB</a>
+      <a href="/timestamp-converter" class="sidebar-link active"><span class="icon">⏱</span>Timestamp Converter</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Contacts & CRM</div>
+      <a href="/vcf-to-csv" class="sidebar-link"><span class="icon">📇</span>VCF to CSV</a>
+      <a href="/csv-to-vcf" class="sidebar-link"><span class="icon">📋</span>CSV to VCF</a>
+      <a href="/vcf-to-xlsx" class="sidebar-link"><span class="icon">📊</span>VCF to XLSX</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Financial</div>
+      <a href="/ofx-to-csv" class="sidebar-link"><span class="icon">🏦</span>OFX to CSV</a>
+      <a href="/qfx-to-csv" class="sidebar-link"><span class="icon">💰</span>QFX to CSV</a>
+      <a href="/qbo-to-csv" class="sidebar-link"><span class="icon">📒</span>QBO to CSV</a>
+      <a href="/csv-to-qbo" class="sidebar-link"><span class="icon">🔄</span>CSV to QBO</a>
+      <a href="/pdf-bank-statement-to-csv" class="sidebar-link"><span class="icon">📄</span>PDF Bank Statement to CSV</a>
+      <a href="/bank-statement-converter" class="sidebar-link"><span class="icon">🏛</span>Bank Statement Converter</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Notebooks</div>
+      <a href="/ipynb-to-pdf" class="sidebar-link"><span class="icon">📓</span>IPYNB to PDF</a>
+      <a href="/ipynb-to-docx" class="sidebar-link"><span class="icon">📝</span>IPYNB to DOCX</a>
+      <a href="/ipynb-to-html" class="sidebar-link"><span class="icon">🌐</span>IPYNB to HTML</a>
+      <a href="/ipynb-to-py" class="sidebar-link"><span class="icon">🐍</span>IPYNB to PY</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Media</div>
+      <a href="/heic-to-jpg" class="sidebar-link"><span class="icon">📸</span>HEIC to JPG</a>
+      <a href="/heic-to-pdf" class="sidebar-link"><span class="icon">🖼</span>HEIC to PDF</a>
+      <a href="/avif-to-jpg" class="sidebar-link"><span class="icon">✨</span>AVIF to JPG</a>
+      <a href="/webp-to-jpg" class="sidebar-link"><span class="icon">🖼</span>WebP to JPG</a>
+      <a href="/svg-to-png" class="sidebar-link"><span class="icon">📐</span>SVG to PNG</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">GPS & Fitness</div>
+      <a href="/gpx-to-kml" class="sidebar-link"><span class="icon">🗺</span>GPX to KML</a>
+      <a href="/gpx-to-csv" class="sidebar-link"><span class="icon">📈</span>GPX to CSV</a>
+      <a href="/fit-to-gpx" class="sidebar-link"><span class="icon">🏃</span>FIT to GPX</a>
+      <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
+    </div>
+    <div class="ad-container-sidebar">Ad</div>
+  </nav>
+
+  <main class="main-content">
+    <nav class="breadcrumb">
+      <a href="/">Home</a><span class="sep">›</span>
+      <span class="current">Timestamp Converter</span>
+    </nav>
+
+    <div class="tool-header">
+      <h1>Unix Timestamp Converter — Epoch to Human Date</h1>
+      <p>Convert between Unix epoch timestamps and human-readable dates. Supports both seconds and milliseconds. Type in either field and the other updates instantly.</p>
+    </div>
+
+    <div class="privacy-banner">
+      <span class="icon">🔒</span>
+      <span>100% browser-based. Your data never leaves your device. No server, no upload.</span>
+    </div>
+
+    <div class="converter-widget">
+      <div style="margin-bottom:20px;">
+        <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">Unix Timestamp (seconds)</label>
+        <input type="text" id="tsSeconds" value="1818086400" style="width:100%;padding:12px 14px;border:1px solid var(--color-mist);border-radius:8px;font-size:1rem;font-family:monospace;outline:none;" oninput="ConvertPivotTS.updateFromSeconds(this.value)">
+      </div>
+      <div style="margin-bottom:20px;">
+        <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">Milliseconds</label>
+        <input type="text" id="tsMs" value="1818086400000" style="width:100%;padding:12px 14px;border:1px solid var(--color-mist);border-radius:8px;font-size:1rem;font-family:monospace;outline:none;" oninput="ConvertPivotTS.updateFromMs(this.value)">
+      </div>
+      <div style="margin-bottom:20px;">
+        <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">Human Date (YYYY-MM-DD HH:MM:SS)</label>
+        <input type="text" id="tsDate" value="2027-08-12 00:00:00" style="width:100%;padding:12px 14px;border:1px solid var(--color-mist);border-radius:8px;font-size:1rem;font-family:monospace;outline:none;" oninput="ConvertPivotTS.updateFromDate(this.value)">
+      </div>
+      <div style="padding:14px;background:var(--color-smoke);border-radius:8px;">
+        <div style="font-size:0.85rem;color:var(--color-graphite);margin-bottom:4px;">ISO 8601</div>
+        <div id="tsIso" style="font-family:monospace;font-size:0.95rem;">2027-08-12T00:00:00.000Z</div>
+        <div style="font-size:0.85rem;color:var(--color-graphite);margin:10px 0 4px;">Local Date</div>
+        <div id="tsLocal" style="font-family:monospace;font-size:0.95rem;">8/12/2027, 12:00:00 AM</div>
+        <div style="font-size:0.85rem;color:var(--color-graphite);margin:10px 0 4px;">UTC Date</div>
+        <div id="tsUtc" style="font-family:monospace;font-size:0.95rem;">Thu, 12 Aug 2027 00:00:00 GMT</div>
+      </div>
+      <div style="margin-top:16px;">
+        <button class="btn btn-secondary" onclick="ConvertPivotTS.now()">📌 Now</button>
+        <button class="btn btn-secondary" onclick="ConvertPivotTS.today()">🌅 Today at Midnight</button>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>How to Use the Timestamp Converter</h2>
+      <p>Type a Unix timestamp (in seconds or milliseconds) into either field, or type a human-readable date into the date field. All values update instantly. Use the "Now" button to capture the current time, or "Today at Midnight" for the start of today.</p>
+      <p>This tool is essential for developers working with databases, APIs, log files, and any system that uses Unix epoch time. It supports both seconds (standard Unix) and milliseconds (JavaScript Date).</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item">
+          <button class="faq-question">What is a Unix timestamp? <span class="arrow">▼</span></button>
+          <div class="faq-answer">A Unix timestamp (or epoch time) is the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT), not counting leap seconds. It is widely used in programming and databases.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How do you convert a timestamp to a date? <span class="arrow">▼</span></button>
+          <div class="faq-answer">To convert a Unix timestamp to a date, multiply the timestamp by 1000 (to convert seconds to milliseconds) and pass it to JavaScript's Date() constructor. Our tool does this instantly as you type.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What is the year 2038 problem? <span class="arrow">▼</span></button>
+          <div class="faq-answer">The Year 2038 problem is that many systems store timestamps as a signed 32-bit integer, which can only represent dates up to January 19, 2038. After that, timestamps will overflow and wrap around to negative numbers.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What is the difference between seconds and milliseconds? <span class="arrow">▼</span></button>
+          <div class="faq-answer">Unix timestamps are typically measured in seconds since epoch. JavaScript uses milliseconds (1000x seconds). Our converter handles both — just paste your value and it auto-detects. A millisecond timestamp has 13 digits vs 10 digits for seconds.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/binary-converter" class="related-tool-card">Binary Converter <span class="desc">Decimal to binary, octal, hex</span></a>
+        <a href="/hex-to-rgb" class="related-tool-card">Hex to RGB <span class="desc">Convert color codes</span></a>
+        <a href="/vcf-to-csv" class="related-tool-card">VCF to CSV <span class="desc">Convert contacts</span></a>
+      </div>
+    </div>
+
+    <div class="ad-container">Ad</div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/shared.js"></script>
+  <script>
+  var ConvertPivotTS = {
+    _updating: false,
+    updateDisplay: function(d) {
+      if (this._updating) return;
+      this._updating = true;
+      var secs = Math.floor(d.getTime() / 1000);
+      var ms = d.getTime();
+      var pad = function(n) { return ('0' + n).slice(-2); };
+      var dateStr = d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate()) + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+      document.getElementById('tsSeconds').value = secs;
+      document.getElementById('tsMs').value = ms;
+      document.getElementById('tsDate').value = dateStr;
+      document.getElementById('tsIso').textContent = d.toISOString();
+      document.getElementById('tsLocal').textContent = d.toLocaleString();
+      document.getElementById('tsUtc').textContent = d.toUTCString();
+      this._updating = false;
+    },
+    updateFromSeconds: function(val) {
+      if (this._updating) return;
+      var n = parseInt(val.trim());
+      if (!isNaN(n)) this.updateDisplay(new Date(n * 1000));
+    },
+    updateFromMs: function(val) {
+      if (this._updating) return;
+      var n = parseInt(val.trim());
+      if (!isNaN(n)) this.updateDisplay(new Date(n));
+    },
+    updateFromDate: function(val) {
+      if (this._updating) return;
+      var d = new Date(val.trim());
+      if (!isNaN(d.getTime())) this.updateDisplay(d);
+    },
+    now: function() {
+      this.updateDisplay(new Date());
+    },
+    today: function() {
+      var d = new Date();
+      d.setHours(0, 0, 0, 0);
+      this.updateDisplay(d);
+    }
+  };
+  </script>
+</body>
+</html>

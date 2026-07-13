@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIT to GPX — Garmin Activity to GPS | ConvertPivot</title>
+  <meta name="description" content="Free online FIT to GPX converter. Convert Garmin FIT fitness files to standard GPS format for mapping. No upload, private.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/fit-to-gpx">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/fit-to-gpx">
+  <meta property="og:title" content="FIT to GPX — Garmin Activity to GPS | ConvertPivot">
+  <meta property="og:description" content="Free online FIT to GPX converter. Convert Garmin FIT fitness files to standard GPS format for mapping and analysis.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/style.css">`n  <link rel="preconnect" href="https://cdnjs.cloudflare.com">`n  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"FIT to GPX Converter","url":"https://convertpivot.com/fit-to-gpx","applicationCategory":"SportsApplication","operatingSystem":"All"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a FIT file?","acceptedAnswer":{"@type":"Answer","text":"FIT (Flexible and Interoperable Data Transfer) is Garmin's binary format for fitness data. It stores GPS tracks, heart rate, cadence, power, and other performance metrics from sports watches and bike computers."}},{"@type":"Question","name":"Why convert FIT to GPX?","acceptedAnswer":{"@type":"Answer","text":"GPX is a universal XML format supported by all GPS software, mapping tools, and web platforms. Converting from FIT makes your fitness data compatible with Google Earth, Strava uploads, and GIS tools."}},{"@type":"Question","name":"What data is preserved in the conversion?","acceptedAnswer":{"@type":"Answer","text":"GPS coordinates (lat/lon), elevation, and timestamps are converted. Heart rate data is included as GPX extensions where available."}},{"@type":"Question","name":"Is my fitness data private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Everything runs in your browser. Your data never leaves your device."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
+      <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
+      <a href="/hex-to-rgb" class="sidebar-link"><span class="icon">🎨</span>Hex to RGB</a>
+      <a href="/timestamp-converter" class="sidebar-link"><span class="icon">⏱</span>Timestamp Converter</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Contacts & CRM</div>
+      <a href="/vcf-to-csv" class="sidebar-link"><span class="icon">📇</span>VCF to CSV</a>
+      <a href="/csv-to-vcf" class="sidebar-link"><span class="icon">📋</span>CSV to VCF</a>
+      <a href="/vcf-to-xlsx" class="sidebar-link"><span class="icon">📊</span>VCF to XLSX</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Financial</div>
+      <a href="/ofx-to-csv" class="sidebar-link"><span class="icon">🏦</span>OFX to CSV</a>
+      <a href="/qfx-to-csv" class="sidebar-link"><span class="icon">💰</span>QFX to CSV</a>
+      <a href="/qbo-to-csv" class="sidebar-link"><span class="icon">📒</span>QBO to CSV</a>
+      <a href="/csv-to-qbo" class="sidebar-link"><span class="icon">🔄</span>CSV to QBO</a>
+      <a href="/pdf-bank-statement-to-csv" class="sidebar-link"><span class="icon">📄</span>PDF Bank Statement to CSV</a>
+      <a href="/bank-statement-converter" class="sidebar-link"><span class="icon">🏛</span>Bank Statement Converter</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Notebooks</div>
+      <a href="/ipynb-to-pdf" class="sidebar-link"><span class="icon">📓</span>IPYNB to PDF</a>
+      <a href="/ipynb-to-docx" class="sidebar-link"><span class="icon">📝</span>IPYNB to DOCX</a>
+      <a href="/ipynb-to-html" class="sidebar-link"><span class="icon">🌐</span>IPYNB to HTML</a>
+      <a href="/ipynb-to-py" class="sidebar-link"><span class="icon">🐍</span>IPYNB to PY</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Media</div>
+      <a href="/heic-to-jpg" class="sidebar-link"><span class="icon">📸</span>HEIC to JPG</a>
+      <a href="/heic-to-pdf" class="sidebar-link"><span class="icon">🖼</span>HEIC to PDF</a>
+      <a href="/avif-to-jpg" class="sidebar-link"><span class="icon">✨</span>AVIF to JPG</a>
+      <a href="/webp-to-jpg" class="sidebar-link"><span class="icon">🖼</span>WebP to JPG</a>
+      <a href="/svg-to-png" class="sidebar-link"><span class="icon">📐</span>SVG to PNG</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">GPS & Fitness</div>
+      <a href="/gpx-to-kml" class="sidebar-link"><span class="icon">🗺</span>GPX to KML</a>
+      <a href="/gpx-to-csv" class="sidebar-link"><span class="icon">📈</span>GPX to CSV</a>
+      <a href="/fit-to-gpx" class="sidebar-link active"><span class="icon">🏃</span>FIT to GPX</a>
+      <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
+    </div>
+  </nav>
+  <main class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">FIT to GPX</span></nav>
+    <div class="tool-header">
+      <h1>FIT to GPX Converter — Garmin Fitness Data to GPS</h1>
+      <p>Convert FIT files from Garmin watches and bike computers to standard GPX format. View your runs, rides, and workouts on any map.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your fitness data never leaves your device.</span></div>
+    <div class="converter-widget" id="fitToGpxWidget">
+      <div class="drop-zone" id="fitToGpxDropZone">
+        <div class="drop-zone-icon">🏃</div>
+        <div class="drop-zone-text">Drop a <strong>.fit</strong> file here, or click to browse</div>
+        <div class="drop-zone-hint">Supports Garmin FIT files with GPS track data</div>
+        <input type="file" accept=".fit" aria-label="Choose FIT file">
+      </div>
+      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">✕</button></div>
+      <div class="converter-controls"><button class="btn btn-primary" id="fitToGpxConvertBtn">Convert to GPX</button></div>
+      <div class="progress-bar" id="fitToGpxProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="fitToGpxResult"><div class="converter-result-message"></div></div>
+    </div>
+    <div class="content-section">
+      <h2>How to Convert FIT to GPX</h2>
+      <p>FIT files are the native binary format used by Garmin sports watches (Forerunner, Fenix, Vivoactive) and bike computers (Edge series). They contain precise GPS track data along with performance metrics like heart rate, cadence, and power output.</p>
+      <p>Our converter parses the binary FIT structure and extracts GPS records — converting them to the standard GPX XML format. The output preserves latitude, longitude, elevation, and timestamps, with heart rate data included as GPX extensions.</p>
+      <p>The resulting GPX file can be opened in Google Earth, uploaded to Strava, imported into mapping software, or further converted to KML or CSV using our other tools.</p>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What is a FIT file? <span class="arrow">▼</span></button><div class="faq-answer">FIT is Garmin's binary format for fitness data. It stores GPS tracks, heart rate, cadence, power, and other metrics from sports watches and bike computers.</div></div>
+        <div class="faq-item"><button class="faq-question">Why convert FIT to GPX? <span class="arrow">▼</span></button><div class="faq-answer">GPX is a universal format supported by all GPS software, mapping tools, and web platforms. Converting from FIT makes your fitness data compatible anywhere.</div></div>
+        <div class="faq-item"><button class="faq-question">What data is preserved in the conversion? <span class="arrow">▼</span></button><div class="faq-answer">GPS coordinates, elevation, and timestamps are converted. Heart rate data is included as GPX extensions where available.</div></div>
+        <div class="faq-item"><button class="faq-question">Is my fitness data private? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Everything runs in your browser. Your data never leaves your device.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/fit-to-csv" class="related-tool-card">FIT to CSV <span class="desc">FIT data to spreadsheet</span></a>
+        <a href="/gpx-to-kml" class="related-tool-card">GPX to KML <span class="desc">Convert to Google Earth</span></a>
+        <a href="/gpx-to-csv" class="related-tool-card">GPX to CSV <span class="desc">GPS data to spreadsheet</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script src="js/gps-converter.js"></script>
+  <script>
+  (function() {
+    var currentFile = null;
+    ConvertPivot.initDropZone('fitToGpxDropZone', function(f) { currentFile = f; });
+    document.getElementById('fitToGpxConvertBtn').addEventListener('click', async function() {
+      if (!currentFile) { ConvertPivot.showResult('fitToGpxResult', 'Please select a FIT file first.', 'error'); return; }
+      ConvertPivot.hideResult('fitToGpxResult');
+      var progress = ConvertPivot.showProgress('fitToGpxProgress');
+      try {
+        var buf = await ConvertPivot.readFileAsArrayBuffer(currentFile);
+        var fitData = GPSConverter.parseFIT(buf);
+        var gpx = GPSConverter.fitToGPX(fitData);
+        progress.done();
+        ConvertPivot.downloadFile(gpx, currentFile.name.replace(/\.fit$/i, '.gpx'), 'application/gpx+xml');
+        ConvertPivot.showResult('fitToGpxResult', 'FIT converted to GPX (' + fitData.records.length + ' records).', 'success');
+        currentFile = null;
+      } catch (err) {
+        progress.done();
+        ConvertPivot.showResult('fitToGpxResult', 'Error: ' + err.message, 'error');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Counter — Count Words, Characters & Lines | ConvertPivot</title>
+  <meta name="description" content="Free online word counter. Count words, characters, sentences, and paragraphs in any text. No upload, no limits, private.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/word-counter">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/word-counter">
+  <meta property="og:title" content="Word Counter — Count Words, Characters & Lines | ConvertPivot">
+  <meta property="og:description" content="Free online word counter. Count words, characters, sentences, and paragraphs in any text. No upload, no limits, private.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/style.css">`n  <link rel="preconnect" href="https://cdnjs.cloudflare.com">`n  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Word Counter","url":"https://convertpivot.com/word-counter","applicationCategory":"DeveloperApplication","operatingSystem":"All","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is word count important?","acceptedAnswer":{"@type":"Answer","text":"Word count is critical for academic essays with length requirements, professional documents like resumes and cover letters, SEO content writing, social media posts with character limits, and publishing where articles must meet specific length targets."}},{"@type":"Question","name":"What counts as a word?","acceptedAnswer":{"@type":"Answer","text":"A word is defined as any sequence of characters separated by whitespace. Hyphenated terms like well-known count as one word. Numbers like 2026 count as one word. This follows the standard convention used by word processors like Microsoft Word and Google Docs."}},{"@type":"Question","name":"Do characters include spaces?","acceptedAnswer":{"@type":"Answer","text":"The character count shown includes all characters including spaces. If you need a count without spaces, subtract the space count from the character total."}},{"@type":"Question","name":"Is this word counter free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no limits, no signup, and no uploads. Everything runs in your browser in real time as you type or paste text."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">?</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
+      <a href="/binary-converter" class="sidebar-link"><span class="icon">?</span>Binary Converter</a>
+      <a href="/hex-to-rgb" class="sidebar-link"><span class="icon">??</span>Hex to RGB</a>
+      <a href="/timestamp-converter" class="sidebar-link"><span class="icon">?</span>Timestamp Converter</a>
+      <a href="/json-formatter" class="sidebar-link"><span class="icon">??</span>JSON Formatter</a>
+      <a href="/base64-encoder" class="sidebar-link"><span class="icon">??</span>Base64 Encoder</a>
+      <a href="/base64-decoder" class="sidebar-link"><span class="icon">??</span>Base64 Decoder</a>
+      <a href="/password-generator" class="sidebar-link"><span class="icon">??</span>Password Generator</a>
+      <a href="/word-counter" class="sidebar-link active"><span class="icon">??</span>Word Counter</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Contacts & CRM</div>
+      <a href="/vcf-to-csv" class="sidebar-link"><span class="icon">??</span>VCF to CSV</a>
+      <a href="/csv-to-vcf" class="sidebar-link"><span class="icon">??</span>CSV to VCF</a>
+      <a href="/vcf-to-xlsx" class="sidebar-link"><span class="icon">??</span>VCF to XLSX</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Financial</div>
+      <a href="/ofx-to-csv" class="sidebar-link"><span class="icon">??</span>OFX to CSV</a>
+      <a href="/qfx-to-csv" class="sidebar-link"><span class="icon">??</span>QFX to CSV</a>
+      <a href="/qbo-to-csv" class="sidebar-link"><span class="icon">??</span>QBO to CSV</a>
+      <a href="/csv-to-qbo" class="sidebar-link"><span class="icon">??</span>CSV to QBO</a>
+      <a href="/pdf-bank-statement-to-csv" class="sidebar-link"><span class="icon">??</span>PDF Bank Statement to CSV</a>
+      <a href="/bank-statement-converter" class="sidebar-link"><span class="icon">??</span>Bank Statement Converter</a>
+      <a href="/chase-bank-statement-to-csv" class="sidebar-link"><span class="icon">??</span>Chase to CSV</a>
+      <a href="/wells-fargo-statement-to-csv" class="sidebar-link"><span class="icon">??</span>Wells Fargo to CSV</a>
+      <a href="/bank-of-america-statement-to-csv" class="sidebar-link"><span class="icon">??</span>BofA to CSV</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Notebooks</div>
+      <a href="/ipynb-to-pdf" class="sidebar-link"><span class="icon">??</span>IPYNB to PDF</a>
+      <a href="/ipynb-to-docx" class="sidebar-link"><span class="icon">??</span>IPYNB to DOCX</a>
+      <a href="/ipynb-to-html" class="sidebar-link"><span class="icon">??</span>IPYNB to HTML</a>
+      <a href="/ipynb-to-py" class="sidebar-link"><span class="icon">??</span>IPYNB to PY</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Media</div>
+      <a href="/heic-to-jpg" class="sidebar-link"><span class="icon">??</span>HEIC to JPG</a>
+      <a href="/heic-to-pdf" class="sidebar-link"><span class="icon">??</span>HEIC to PDF</a>
+      <a href="/avif-to-jpg" class="sidebar-link"><span class="icon">?</span>AVIF to JPG</a>
+      <a href="/webp-to-jpg" class="sidebar-link"><span class="icon">??</span>WebP to JPG</a>
+      <a href="/svg-to-png" class="sidebar-link"><span class="icon">??</span>SVG to PNG</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">GPS & Fitness</div>
+      <a href="/gpx-to-kml" class="sidebar-link"><span class="icon">??</span>GPX to KML</a>
+      <a href="/gpx-to-csv" class="sidebar-link"><span class="icon">??</span>GPX to CSV</a>
+      <a href="/fit-to-gpx" class="sidebar-link"><span class="icon">??</span>FIT to GPX</a>
+      <a href="/fit-to-csv" class="sidebar-link"><span class="icon">??</span>FIT to CSV</a>
+    </div>
+  </nav>
+  <main class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Word Counter</span></nav>
+    <div class="tool-header">
+      <h1>Word Counter — Count Words, Characters & Sentences</h1>
+      <p>Count words, characters, sentences, paragraphs, and estimate reading time in any text. Real-time counting as you type or paste.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">??</span><span>100% browser-based. Your text never leaves your device. No upload, no server.</span></div>
+    <div class="converter-widget" id="wcWidget">
+      <div style="margin-bottom:16px;">
+        <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">Enter your text</label>
+        <textarea id="wcInput" rows="10" style="width:100%;padding:12px 14px;border:1px solid var(--color-mist);border-radius:8px;font-size:0.9rem;font-family:inherit;outline:none;resize:vertical;" placeholder="Type or paste your text here..." spellcheck="true"></textarea>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:16px;">
+        <div style="background:var(--color-cream);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-size:1.5rem;font-weight:700;color:var(--color-primary);" id="wcWords">0</div>
+          <div style="font-size:0.8rem;color:#888;">Words</div>
+        </div>
+        <div style="background:var(--color-cream);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-size:1.5rem;font-weight:700;color:var(--color-primary);" id="wcChars">0</div>
+          <div style="font-size:0.8rem;color:#888;">Characters</div>
+        </div>
+        <div style="background:var(--color-cream);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-size:1.5rem;font-weight:700;color:var(--color-primary);" id="wcSentences">0</div>
+          <div style="font-size:0.8rem;color:#888;">Sentences</div>
+        </div>
+        <div style="background:var(--color-cream);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-size:1.5rem;font-weight:700;color:var(--color-primary);" id="wcParagraphs">0</div>
+          <div style="font-size:0.8rem;color:#888;">Paragraphs</div>
+        </div>
+        <div style="background:var(--color-cream);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-size:1.5rem;font-weight:700;color:var(--color-primary);" id="wcReadingTime">0 min</div>
+          <div style="font-size:0.8rem;color:#888;">Reading Time</div>
+        </div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the Word Counter</h2>
+      <div class="how-it-works">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h3>Type or Paste Text</h3>
+          <p>Simply type directly into the textarea or paste text from any source — documents, emails, web pages, or code. The counter updates in real time.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h3>Review Statistics</h3>
+          <p>The dashboard displays word count, character count, number of sentences, paragraphs, and estimated reading time. All stats update instantly.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h3>Refine Your Writing</h3>
+          <p>Use the real-time feedback to adjust your text to meet length requirements, improve readability, or optimize for specific platforms.</p>
+        </div>
+      </div>
+      <h3>Understanding Text Statistics</h3>
+      <p>A word counter is an essential tool for writers, students, content creators, SEO professionals, and developers. Word count matters across many contexts: academic papers must meet minimum or maximum length requirements, blog posts need to be long enough for SEO without being bloated, social media platforms enforce strict character limits, and professional documents like resumes are often judged by their conciseness. Reading time estimation uses the average adult reading speed of 200-250 words per minute. Character count is especially important for SMS messages (160 character limit), Twitter posts, meta descriptions, and title tags. Sentence count helps evaluate sentence variety and readability. Paragraph count reveals how content is structured; short paragraphs improve readability on screens while longer paragraphs are more common in academic writing. This tool's real-time counting gives instant feedback as you type without clicking any buttons.</p>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">Why is word count important? <span class="arrow">?</span></button><div class="faq-answer">Word count is critical for academic essays with length requirements, professional documents like resumes and cover letters, SEO content writing, social media posts with character limits, and publishing where articles must meet specific length targets.</div></div>
+        <div class="faq-item"><button class="faq-question">What counts as a word? <span class="arrow">?</span></button><div class="faq-answer">A word is defined as any sequence of characters separated by whitespace. Hyphenated terms like well-known count as one word. Numbers like 2026 count as one word. This follows the standard convention used by word processors like Microsoft Word and Google Docs.</div></div>
+        <div class="faq-item"><button class="faq-question">Do characters include spaces? <span class="arrow">?</span></button><div class="faq-answer">The character count shown includes all characters including spaces. If you need a count without spaces, subtract the space count from the character total.</div></div>
+        <div class="faq-item"><button class="faq-question">Is this word counter free? <span class="arrow">?</span></button><div class="faq-answer">Yes, completely free with no limits, no signup, and no uploads. Everything runs in your browser in real time as you type or paste text.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/password-generator" class="related-tool-card">Password Generator <span class="desc">Create secure passwords</span></a>
+        <a href="/json-formatter" class="related-tool-card">JSON Formatter <span class="desc">Beautify and validate JSON</span></a>
+        <a href="/base64-encoder" class="related-tool-card">Base64 Encoder <span class="desc">Encode data to Base64</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+  (function() {
+    function updateStats() {
+      var text = document.getElementById('wcInput').value;
+      var words = text.trim() ? text.trim().split(/\s+/).length : 0;
+      var chars = text.length;
+      var sentences = text.trim() ? text.split(/[.!?]+/).filter(function(s) { return s.trim().length > 0; }).length : 0;
+      var paragraphs = text.trim() ? text.split(/\n\s*\n/).filter(function(p) { return p.trim().length > 0; }).length : 0;
+      if (text.trim() && paragraphs === 0) paragraphs = 1;
+      var readingTime = Math.max(1, Math.ceil(words / 200));
+      document.getElementById('wcWords').textContent = words;
+      document.getElementById('wcChars').textContent = chars;
+      document.getElementById('wcSentences').textContent = sentences;
+      document.getElementById('wcParagraphs').textContent = paragraphs;
+      document.getElementById('wcReadingTime').textContent = readingTime + ' min';
+    }
+    document.getElementById('wcInput').addEventListener('input', updateStats);
+    updateStats();
+  })();
+  </script>
+</body>
+</html>

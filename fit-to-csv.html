@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIT to CSV — Garmin Data to Excel | ConvertPivot</title>
+  <meta name="description" content="Free online FIT to CSV converter. Extract Garmin FIT data including GPS, heart rate, and cadence to Excel format. No upload.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/fit-to-csv">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/fit-to-csv">
+  <meta property="og:title" content="FIT to CSV — Garmin Data to Excel | ConvertPivot">
+  <meta property="og:description" content="Free online FIT to CSV converter. Extract Garmin FIT data including GPS, heart rate, and cadence to Excel format.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/style.css">`n  <link rel="preconnect" href="https://cdnjs.cloudflare.com">`n  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"FIT to CSV Converter","url":"https://convertpivot.com/fit-to-csv","applicationCategory":"SportsApplication","operatingSystem":"All"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What data is extracted from FIT files?","acceptedAnswer":{"@type":"Answer","text":"The CSV includes timestamp, latitude, longitude, altitude, heart rate, cadence, distance, and speed for each GPS record in the FIT file."}},{"@type":"Question","name":"Why convert FIT to CSV?","acceptedAnswer":{"@type":"Answer","text":"CSV allows detailed analysis of your fitness data in Excel — create charts of heart rate zones, pace over distance, elevation profiles, and more."}},{"@type":"Question","name":"Does it work with all Garmin devices?","acceptedAnswer":{"@type":"Answer","text":"Yes. FIT files from all Garmin watches and bike computers use the same underlying binary format. The converter handles the standard record types."}},{"@type":"Question","name":"Is my fitness data private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Everything runs in your browser. Your data never leaves your device."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
+      <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
+      <a href="/hex-to-rgb" class="sidebar-link"><span class="icon">🎨</span>Hex to RGB</a>
+      <a href="/timestamp-converter" class="sidebar-link"><span class="icon">⏱</span>Timestamp Converter</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Contacts & CRM</div>
+      <a href="/vcf-to-csv" class="sidebar-link"><span class="icon">📇</span>VCF to CSV</a>
+      <a href="/csv-to-vcf" class="sidebar-link"><span class="icon">📋</span>CSV to VCF</a>
+      <a href="/vcf-to-xlsx" class="sidebar-link"><span class="icon">📊</span>VCF to XLSX</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Financial</div>
+      <a href="/ofx-to-csv" class="sidebar-link"><span class="icon">🏦</span>OFX to CSV</a>
+      <a href="/qfx-to-csv" class="sidebar-link"><span class="icon">💰</span>QFX to CSV</a>
+      <a href="/qbo-to-csv" class="sidebar-link"><span class="icon">📒</span>QBO to CSV</a>
+      <a href="/csv-to-qbo" class="sidebar-link"><span class="icon">🔄</span>CSV to QBO</a>
+      <a href="/pdf-bank-statement-to-csv" class="sidebar-link"><span class="icon">📄</span>PDF Bank Statement to CSV</a>
+      <a href="/bank-statement-converter" class="sidebar-link"><span class="icon">🏛</span>Bank Statement Converter</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Notebooks</div>
+      <a href="/ipynb-to-pdf" class="sidebar-link"><span class="icon">📓</span>IPYNB to PDF</a>
+      <a href="/ipynb-to-docx" class="sidebar-link"><span class="icon">📝</span>IPYNB to DOCX</a>
+      <a href="/ipynb-to-html" class="sidebar-link"><span class="icon">🌐</span>IPYNB to HTML</a>
+      <a href="/ipynb-to-py" class="sidebar-link"><span class="icon">🐍</span>IPYNB to PY</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Media</div>
+      <a href="/heic-to-jpg" class="sidebar-link"><span class="icon">📸</span>HEIC to JPG</a>
+      <a href="/heic-to-pdf" class="sidebar-link"><span class="icon">🖼</span>HEIC to PDF</a>
+      <a href="/avif-to-jpg" class="sidebar-link"><span class="icon">✨</span>AVIF to JPG</a>
+      <a href="/webp-to-jpg" class="sidebar-link"><span class="icon">🖼</span>WebP to JPG</a>
+      <a href="/svg-to-png" class="sidebar-link"><span class="icon">📐</span>SVG to PNG</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">GPS & Fitness</div>
+      <a href="/gpx-to-kml" class="sidebar-link"><span class="icon">🗺</span>GPX to KML</a>
+      <a href="/gpx-to-csv" class="sidebar-link"><span class="icon">📈</span>GPX to CSV</a>
+      <a href="/fit-to-gpx" class="sidebar-link"><span class="icon">🏃</span>FIT to GPX</a>
+      <a href="/fit-to-csv" class="sidebar-link active"><span class="icon">📊</span>FIT to CSV</a>
+    </div>
+  </nav>
+  <main class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">FIT to CSV</span></nav>
+    <div class="tool-header">
+      <h1>FIT to CSV Converter — Garmin Fitness Data to Spreadsheet</h1>
+      <p>Extract Garmin FIT data to CSV for deep analysis in Excel. Track heart rate, pace, elevation, and more from your workouts.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your fitness data never leaves your device.</span></div>
+    <div class="converter-widget" id="fitToCsvWidget">
+      <div class="drop-zone" id="fitToCsvDropZone">
+        <div class="drop-zone-icon">📊</div>
+        <div class="drop-zone-text">Drop a <strong>.fit</strong> file here, or click to browse</div>
+        <div class="drop-zone-hint">Extracts timestamp, GPS, heart rate, cadence, and more</div>
+        <input type="file" accept=".fit" aria-label="Choose FIT file">
+      </div>
+      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">✕</button></div>
+      <div class="converter-controls"><button class="btn btn-primary" id="fitToCsvConvertBtn">Convert to CSV</button></div>
+      <div class="progress-bar" id="fitToCsvProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="fitToCsvResult"><div class="converter-result-message"></div></div>
+    </div>
+    <div class="content-section">
+      <h2>How to Convert FIT to CSV</h2>
+      <p>Garmin FIT files contain detailed workout data including GPS coordinates, heart rate, cadence, speed, and power. Our converter extracts all GPS records and outputs them as a structured CSV with columns for every metric.</p>
+      <p>Use the CSV data in Excel to create heart rate zone charts, analyze pacing over distance, generate elevation profiles, or calculate training load metrics. The tabular format makes it easy to filter, sort, and visualize your performance data.</p>
+      <p>FIT files come from Garmin Forerunner, Fenix, Vivoactive, and Edge devices. You can export them from Garmin Connect or download directly from your device.</p>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What data is extracted from FIT files? <span class="arrow">▼</span></button><div class="faq-answer">The CSV includes timestamp, latitude, longitude, altitude, heart rate, cadence, distance, and speed for each GPS record.</div></div>
+        <div class="faq-item"><button class="faq-question">Why convert FIT to CSV? <span class="arrow">▼</span></button><div class="faq-answer">CSV allows detailed analysis in Excel — create charts of heart rate zones, pace over distance, elevation profiles, and more.</div></div>
+        <div class="faq-item"><button class="faq-question">Does it work with all Garmin devices? <span class="arrow">▼</span></button><div class="faq-answer">Yes. FIT files from all Garmin watches and bike computers use the same underlying binary format.</div></div>
+        <div class="faq-item"><button class="faq-question">Is my fitness data private? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Everything runs in your browser. Your data never leaves your device.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/fit-to-gpx" class="related-tool-card">FIT to GPX <span class="desc">Convert to GPS format</span></a>
+        <a href="/gpx-to-csv" class="related-tool-card">GPX to CSV <span class="desc">GPS data to spreadsheet</span></a>
+        <a href="/gpx-to-kml" class="related-tool-card">GPX to KML <span class="desc">Convert to Google Earth</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script src="js/gps-converter.js"></script>
+  <script>
+  (function() {
+    var currentFile = null;
+    ConvertPivot.initDropZone('fitToCsvDropZone', function(f) { currentFile = f; });
+    document.getElementById('fitToCsvConvertBtn').addEventListener('click', async function() {
+      if (!currentFile) { ConvertPivot.showResult('fitToCsvResult', 'Please select a FIT file first.', 'error'); return; }
+      ConvertPivot.hideResult('fitToCsvResult');
+      var progress = ConvertPivot.showProgress('fitToCsvProgress');
+      try {
+        var buf = await ConvertPivot.readFileAsArrayBuffer(currentFile);
+        var fitData = GPSConverter.parseFIT(buf);
+        var csv = GPSConverter.fitToCSV(fitData);
+        progress.done();
+        ConvertPivot.downloadFile(csv, currentFile.name.replace(/\.fit$/i, '.csv'), 'text/csv;charset=utf-8');
+        ConvertPivot.showResult('fitToCsvResult', 'FIT data extracted to CSV (' + fitData.records.length + ' records).', 'success');
+        currentFile = null;
+      } catch (err) {
+        progress.done();
+        ConvertPivot.showResult('fitToCsvResult', 'Error: ' + err.message, 'error');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

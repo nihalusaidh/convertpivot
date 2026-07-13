@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base64 Encoder — Encode Text to Base64 Online | ConvertPivot</title>
+  <meta name="description" content="Free online Base64 encoder. Encode text and strings to Base64 format instantly. Browser-based, no upload, private.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/base64-encoder">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/base64-encoder">
+  <meta property="og:title" content="Base64 Encoder — Encode Text to Base64 Online | ConvertPivot">
+  <meta property="og:description" content="Free online Base64 encoder. Encode text and strings to Base64 format instantly. Browser-based, no upload, private.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/style.css">`n  <link rel="preconnect" href="https://cdnjs.cloudflare.com">`n  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Base64 Encoder","url":"https://convertpivot.com/base64-encoder","applicationCategory":"DeveloperApplication","operatingSystem":"All","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Base64 encoding?","acceptedAnswer":{"@type":"Answer","text":"Base64 is a binary-to-text encoding scheme that represents binary data in an ASCII string format. It is commonly used for transmitting data over media that only support text, such as email attachments and data URLs."}},{"@type":"Question","name":"When should I use Base64 encoding?","acceptedAnswer":{"@type":"Answer","text":"Base64 is used for embedding binary data in text formats like JSON or XML, sending email attachments via MIME, storing binary data in databases, and creating data URIs for web pages. It is also used in basic HTTP authentication."}},{"@type":"Question","name":"Does Base64 make data secure?","acceptedAnswer":{"@type":"Answer","text":"No, Base64 is not encryption. It is an encoding scheme that makes binary data text-safe. Base64 can be decoded instantly without any key. Never use Base64 to protect sensitive data — it is purely for data format conversion."}},{"@type":"Question","name":"Is this encoder free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no limits, no signup, and no uploads. Everything runs in your browser."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
+      <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
+      <a href="/hex-to-rgb" class="sidebar-link"><span class="icon">🎨</span>Hex to RGB</a>
+      <a href="/timestamp-converter" class="sidebar-link"><span class="icon">⏱</span>Timestamp Converter</a>
+      <a href="/json-formatter" class="sidebar-link"><span class="icon">🔧</span>JSON Formatter</a>
+      <a href="/base64-encoder" class="sidebar-link active"><span class="icon">🔐</span>Base64 Encoder</a>
+      <a href="/base64-decoder" class="sidebar-link"><span class="icon">🔓</span>Base64 Decoder</a>
+      <a href="/password-generator" class="sidebar-link"><span class="icon">🔑</span>Password Generator</a>
+      <a href="/word-counter" class="sidebar-link"><span class="icon">📝</span>Word Counter</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Contacts & CRM</div>
+      <a href="/vcf-to-csv" class="sidebar-link"><span class="icon">📇</span>VCF to CSV</a>
+      <a href="/csv-to-vcf" class="sidebar-link"><span class="icon">📋</span>CSV to VCF</a>
+      <a href="/vcf-to-xlsx" class="sidebar-link"><span class="icon">📊</span>VCF to XLSX</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Financial</div>
+      <a href="/ofx-to-csv" class="sidebar-link"><span class="icon">🏦</span>OFX to CSV</a>
+      <a href="/qfx-to-csv" class="sidebar-link"><span class="icon">💰</span>QFX to CSV</a>
+      <a href="/qbo-to-csv" class="sidebar-link"><span class="icon">📒</span>QBO to CSV</a>
+      <a href="/csv-to-qbo" class="sidebar-link"><span class="icon">🔄</span>CSV to QBO</a>
+      <a href="/pdf-bank-statement-to-csv" class="sidebar-link"><span class="icon">📄</span>PDF Bank Statement to CSV</a>
+      <a href="/bank-statement-converter" class="sidebar-link"><span class="icon">🏛</span>Bank Statement Converter</a>
+      <a href="/chase-bank-statement-to-csv" class="sidebar-link"><span class="icon">🏦</span>Chase to CSV</a>
+      <a href="/wells-fargo-statement-to-csv" class="sidebar-link"><span class="icon">💰</span>Wells Fargo to CSV</a>
+      <a href="/bank-of-america-statement-to-csv" class="sidebar-link"><span class="icon">🏛</span>BofA to CSV</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Notebooks</div>
+      <a href="/ipynb-to-pdf" class="sidebar-link"><span class="icon">📓</span>IPYNB to PDF</a>
+      <a href="/ipynb-to-docx" class="sidebar-link"><span class="icon">📝</span>IPYNB to DOCX</a>
+      <a href="/ipynb-to-html" class="sidebar-link"><span class="icon">🌐</span>IPYNB to HTML</a>
+      <a href="/ipynb-to-py" class="sidebar-link"><span class="icon">🐍</span>IPYNB to PY</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Media</div>
+      <a href="/heic-to-jpg" class="sidebar-link"><span class="icon">📸</span>HEIC to JPG</a>
+      <a href="/heic-to-pdf" class="sidebar-link"><span class="icon">🖼</span>HEIC to PDF</a>
+      <a href="/avif-to-jpg" class="sidebar-link"><span class="icon">✨</span>AVIF to JPG</a>
+      <a href="/webp-to-jpg" class="sidebar-link"><span class="icon">🖼</span>WebP to JPG</a>
+      <a href="/svg-to-png" class="sidebar-link"><span class="icon">📐</span>SVG to PNG</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">GPS & Fitness</div>
+      <a href="/gpx-to-kml" class="sidebar-link"><span class="icon">🗺</span>GPX to KML</a>
+      <a href="/gpx-to-csv" class="sidebar-link"><span class="icon">📈</span>GPX to CSV</a>
+      <a href="/fit-to-gpx" class="sidebar-link"><span class="icon">🏃</span>FIT to GPX</a>
+      <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
+    </div>
+  </nav>
+  <main class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Base64 Encoder</span></nav>
+    <div class="tool-header">
+      <h1>Base64 Encoder — Encode Text to Base64</h1>
+      <p>Convert any text string to Base64 encoding instantly. Perfect for data URIs, API authentication, and embedding binary data in text formats.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your text never leaves your device. No upload, no server.</span></div>
+    <div class="converter-widget" id="b64encWidget">
+      <div style="margin-bottom:12px;">
+        <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">Input Text</label>
+        <textarea id="b64encInput" rows="6" style="width:100%;padding:12px 14px;border:1px solid var(--color-mist);border-radius:8px;font-size:0.9rem;font-family:monospace;outline:none;resize:vertical;" placeholder="Enter text to encode..." spellcheck="false"></textarea>
+      </div>
+      <div class="converter-controls">
+        <button class="btn btn-primary" id="b64encEncodeBtn">Encode to Base64</button>
+      </div>
+      <div style="margin-top:12px;">
+        <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">Base64 Output</label>
+        <textarea id="b64encOutput" rows="4" style="width:100%;padding:12px 14px;border:1px solid var(--color-mist);border-radius:8px;font-size:0.9rem;font-family:monospace;outline:none;resize:vertical;background:var(--color-cream);" readonly spellcheck="false"></textarea>
+      </div>
+      <div class="progress-bar" id="b64encProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="b64encResult"><div class="converter-result-message"></div></div>
+    </div>
+    <div class="content-section">
+      <h2>How to Encode Text to Base64</h2>
+      <div class="how-it-works">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h3>Enter Your Text</h3>
+          <p>Type or paste the text string you want to encode into the input field. This can be any text: passwords, tokens, JSON, or plain text.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h3>Click Encode</h3>
+          <p>Press the Encode to Base64 button. The text is converted using the standard btoa() method that maps binary data to the Base64 character set.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h3>Copy the Result</h3>
+          <p>The Base64-encoded string appears in the output field. Copy it for use in data URLs, HTTP headers, or configuration files.</p>
+        </div>
+      </div>
+      <h3>Understanding Base64 Encoding</h3>
+      <p>Base64 encoding takes binary data and converts it into a text representation using 64 printable characters: A-Z, a-z, 0-9, +, and /. The encoding process groups 3 bytes of input into 4 Base64 characters, padding with = signs when the input length is not divisible by 3. This results in approximately a 33% size increase, which is the trade-off for making binary data safe to transmit over text-only protocols. Common use cases include embedding images as data URIs in HTML and CSS, encoding credentials in HTTP Basic Authentication headers, storing binary data in JSON or XML documents, and encoding email attachments via MIME. While Base64 is not encryption and offers no security, it is an essential tool for developers working with mixed binary and text data. This encoder handles Unicode characters correctly by converting them through UTF-8 encoding before applying Base64, ensuring international text is preserved accurately.</p>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What is Base64 encoding? <span class="arrow">▼</span></button><div class="faq-answer">Base64 is a binary-to-text encoding scheme that represents binary data in an ASCII string format. It is commonly used for transmitting data over media that only support text, such as email attachments and data URLs.</div></div>
+        <div class="faq-item"><button class="faq-question">When should I use Base64 encoding? <span class="arrow">▼</span></button><div class="faq-answer">Base64 is used for embedding binary data in text formats like JSON or XML, sending email attachments via MIME, storing binary data in databases, and creating data URIs for web pages. It is also used in basic HTTP authentication.</div></div>
+        <div class="faq-item"><button class="faq-question">Does Base64 make data secure? <span class="arrow">▼</span></button><div class="faq-answer">No, Base64 is not encryption. It is an encoding scheme that makes binary data text-safe. Base64 can be decoded instantly without any key. Never use Base64 to protect sensitive data — it is purely for data format conversion.</div></div>
+        <div class="faq-item"><button class="faq-question">Is this encoder free? <span class="arrow">▼</span></button><div class="faq-answer">Yes, completely free with no limits, no signup, and no uploads. Everything runs in your browser.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/base64-decoder" class="related-tool-card">Base64 Decoder <span class="desc">Decode Base64 back to text</span></a>
+        <a href="/json-formatter" class="related-tool-card">JSON Formatter <span class="desc">Beautify and validate JSON</span></a>
+        <a href="/password-generator" class="related-tool-card">Password Generator <span class="desc">Create secure passwords</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+  (function() {
+    document.getElementById('b64encEncodeBtn').addEventListener('click', function() {
+      var input = document.getElementById('b64encInput').value;
+      var output = document.getElementById('b64encOutput');
+      var result = document.getElementById('b64encResult');
+      ConvertPivot.hideResult('b64encResult');
+      if (!input) { ConvertPivot.showResult('b64encResult', 'Please enter text to encode.', 'error'); return; }
+      try {
+        output.value = btoa(unescape(encodeURIComponent(input)));
+        ConvertPivot.showResult('b64encResult', 'Text encoded to Base64 successfully.', 'success');
+      } catch (e) {
+        ConvertPivot.showResult('b64encResult', 'Encoding error: ' + e.message, 'error');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

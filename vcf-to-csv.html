@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VCF to CSV — vCard to Excel Converter | ConvertPivot</title>
+  <meta name="description" content="Free online VCF to CSV converter. Convert vCard contacts to CSV for Excel and CRM. Supports vCard 2.1, 3.0, 4.0. No upload, private.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/vcf-to-csv">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/vcf-to-csv">
+  <meta property="og:title" content="VCF to CSV — vCard to Excel Converter | ConvertPivot">
+  <meta property="og:description" content="Free online VCF to CSV converter. Convert vCard contacts to CSV for Excel and CRM. Supports vCard 2.1, 3.0, 4.0.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/style.css">`n  <link rel="preconnect" href="https://cdnjs.cloudflare.com">`n  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"VCF to CSV Converter","url":"https://convertpivot.com/vcf-to-csv","applicationCategory":"Multimedia","operatingSystem":"All"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I convert VCF to CSV?","acceptedAnswer":{"@type":"Answer","text":"Drop your .vcf file onto the converter above, click Convert, and download the CSV. All processing happens in your browser — your contacts never leave your device."}},{"@type":"Question","name":"What vCard versions are supported?","acceptedAnswer":{"@type":"Answer","text":"Our converter supports vCard 2.1, 3.0, and 4.0, including quoted-printable encoding commonly found in legacy exports from Samsung, Outlook, and Huawei devices."}},{"@type":"Question","name":"Can I convert multiple contacts at once?","acceptedAnswer":{"@type":"Answer","text":"Yes. A single .vcf file can contain thousands of contacts. Our parser extracts every vCard block and creates one row per contact in the CSV output."}},{"@type":"Question","name":"Will my data be kept private?","acceptedAnswer":{"@type":"Answer","text":"Yes. The conversion runs entirely in your browser. Your contacts never leave your device. No upload, no server, no data collection."}},{"@type":"Question","name":"Is VCF to CSV conversion free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no limits, no watermarks, and no signup required."}}]}</script>
+</head>
+<body>
+  <header class="site-header">
+    <button id="sidebarToggle" class="sidebar-toggle">☰</button>
+    <a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a>
+  </header>
+
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Developer Tools</div>
+      <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
+      <a href="/hex-to-rgb" class="sidebar-link"><span class="icon">🎨</span>Hex to RGB</a>
+      <a href="/timestamp-converter" class="sidebar-link"><span class="icon">⏱</span>Timestamp Converter</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Contacts & CRM</div>
+      <a href="/vcf-to-csv" class="sidebar-link active"><span class="icon">📇</span>VCF to CSV</a>
+      <a href="/csv-to-vcf" class="sidebar-link"><span class="icon">📋</span>CSV to VCF</a>
+      <a href="/vcf-to-xlsx" class="sidebar-link"><span class="icon">📊</span>VCF to XLSX</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Financial</div>
+      <a href="/ofx-to-csv" class="sidebar-link"><span class="icon">🏦</span>OFX to CSV</a>
+      <a href="/qfx-to-csv" class="sidebar-link"><span class="icon">💰</span>QFX to CSV</a>
+      <a href="/qbo-to-csv" class="sidebar-link"><span class="icon">📒</span>QBO to CSV</a>
+      <a href="/csv-to-qbo" class="sidebar-link"><span class="icon">🔄</span>CSV to QBO</a>
+      <a href="/pdf-bank-statement-to-csv" class="sidebar-link"><span class="icon">📄</span>PDF Bank Statement to CSV</a>
+      <a href="/bank-statement-converter" class="sidebar-link"><span class="icon">🏛</span>Bank Statement Converter</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Notebooks</div>
+      <a href="/ipynb-to-pdf" class="sidebar-link"><span class="icon">📓</span>IPYNB to PDF</a>
+      <a href="/ipynb-to-docx" class="sidebar-link"><span class="icon">📝</span>IPYNB to DOCX</a>
+      <a href="/ipynb-to-html" class="sidebar-link"><span class="icon">🌐</span>IPYNB to HTML</a>
+      <a href="/ipynb-to-py" class="sidebar-link"><span class="icon">🐍</span>IPYNB to PY</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Media</div>
+      <a href="/heic-to-jpg" class="sidebar-link"><span class="icon">📸</span>HEIC to JPG</a>
+      <a href="/heic-to-pdf" class="sidebar-link"><span class="icon">🖼</span>HEIC to PDF</a>
+      <a href="/avif-to-jpg" class="sidebar-link"><span class="icon">✨</span>AVIF to JPG</a>
+      <a href="/webp-to-jpg" class="sidebar-link"><span class="icon">🖼</span>WebP to JPG</a>
+      <a href="/svg-to-png" class="sidebar-link"><span class="icon">📐</span>SVG to PNG</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">GPS & Fitness</div>
+      <a href="/gpx-to-kml" class="sidebar-link"><span class="icon">🗺</span>GPX to KML</a>
+      <a href="/gpx-to-csv" class="sidebar-link"><span class="icon">📈</span>GPX to CSV</a>
+      <a href="/fit-to-gpx" class="sidebar-link"><span class="icon">🏃</span>FIT to GPX</a>
+      <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <nav class="breadcrumb">
+      <a href="/">Home</a><span class="sep">›</span><span class="current">VCF to CSV</span>
+    </nav>
+
+    <div class="tool-header">
+      <h1>VCF to CSV Converter — Convert vCard Contacts to Spreadsheets</h1>
+      <p>Convert vCard (.vcf) contact files to CSV for Excel, Google Sheets, and CRM import. Supports vCard 2.1, 3.0, and 4.0. All processing happens in your browser — your data stays private.</p>
+    </div>
+
+    <div class="privacy-banner">
+      <span class="icon">🔒</span>
+      <span>100% browser-based. Your contacts never leave your device. No upload, no server.</span>
+    </div>
+
+    <div class="converter-widget" id="vcfWidget">
+      <div class="drop-zone" id="vcfDropZone">
+        <div class="drop-zone-icon">📇</div>
+        <div class="drop-zone-text">Drop a <strong>.vcf</strong> or <strong>.vcard</strong> file here, or click to browse</div>
+        <div class="drop-zone-hint">Supports vCard 2.1, 3.0, 4.0 — single or multiple contacts</div>
+        <input type="file" accept=".vcf,.vcard" aria-label="Choose VCF file">
+      </div>
+      <div class="file-info">
+        <span class="file-info-name"></span>
+        <span class="file-info-size"></span>
+        <button class="file-info-remove" aria-label="Remove file">✕</button>
+      </div>
+      <div class="converter-controls">
+        <button class="btn btn-primary" id="vcfConvertBtn">Convert to CSV</button>
+      </div>
+      <div class="progress-bar" id="vcfProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="vcfResult">
+        <div class="converter-result-message"></div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>How to Convert VCF to CSV</h2>
+      <div class="how-it-works">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h3>Drop Your VCF</h3>
+          <p>Drag and drop your .vcf or .vcard file onto the converter. Single or bulk contacts supported.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h3>Click Convert</h3>
+          <p>Your file is parsed locally in your browser. Every vCard field is extracted into separate CSV columns.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h3>Download CSV</h3>
+          <p>Get a clean, structured CSV file ready for Excel, Google Sheets, or any CRM system.</p>
+        </div>
+      </div>
+
+      <h3>Why Convert VCF to CSV?</h3>
+      <p>VCF (vCard) files are designed for transferring contacts between devices, but they are difficult to edit, sort, or analyze. Converting to CSV gives you full spreadsheet power: you can sort by company, filter duplicates, add columns, and clean up your contact list. Once edited, you can convert the CSV back to VCF for reimport to your phone or CRM.</p>
+
+      <h3>Supported vCard Versions</h3>
+      <table class="format-table">
+        <thead><tr><th>Version</th><th>Devices / Apps</th><th>Encoding</th></tr></thead>
+        <tbody>
+          <tr><td>vCard 2.1</td><td>Samsung, Huawei, older Outlook</td><td>Quoted-printable, charset declarations</td></tr>
+          <tr><td>vCard 3.0</td><td>iPhone, Google Contacts, macOS</td><td>UTF-8, standardized fields</td></tr>
+          <tr><td>vCard 4.0</td><td>Modern apps, XML support</td><td>UTF-8, extended properties</td></tr>
+        </tbody>
+      </table>
+
+      <h3>CSV Column Mapping</h3>
+      <p>The generated CSV includes these columns: Full Name, First Name, Last Name, Email, Phone, Company, Job Title, Address, Website, Birthday, and Notes. Multiple phone numbers and emails appear in the same cell, separated by semicolons.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item">
+          <button class="faq-question">How do I convert VCF to CSV? <span class="arrow">▼</span></button>
+          <div class="faq-answer">Drop your .vcf file onto the converter above, click Convert, and download the CSV. All processing happens in your browser — your contacts never leave your device.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What vCard versions are supported? <span class="arrow">▼</span></button>
+          <div class="faq-answer">Our converter supports vCard 2.1, 3.0, and 4.0, including quoted-printable encoding commonly found in legacy exports from Samsung, Outlook, and Huawei devices.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Can I convert multiple contacts at once? <span class="arrow">▼</span></button>
+          <div class="faq-answer">Yes. A single .vcf file can contain thousands of contacts. Our parser extracts every vCard block and creates one row per contact in the CSV output.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Will my data be kept private? <span class="arrow">▼</span></button>
+          <div class="faq-answer">Yes. The conversion runs entirely in your browser. Your contacts never leave your device. No upload, no server, no data collection.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Is VCF to CSV conversion free? <span class="arrow">▼</span></button>
+          <div class="faq-answer">Yes, completely free with no limits, no watermarks, and no signup required.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/csv-to-vcf" class="related-tool-card">CSV to VCF <span class="desc">Convert spreadsheets back to vCard</span></a>
+        <a href="/vcf-to-xlsx" class="related-tool-card">VCF to XLSX <span class="desc">Export contacts to Excel</span></a>
+        <a href="/ofx-to-csv" class="related-tool-card">OFX to CSV <span class="desc">Convert bank statements</span></a>
+      </div>
+    </div>
+
+    <div class="ad-container">Ad</div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/shared.js"></script>
+  <script src="js/vcf-converter.js"></script>
+  <script>
+  (function() {
+    var currentFile = null;
+
+    var dropZone = ConvertPivot.initDropZone('vcfDropZone', function(file) {
+      currentFile = file;
+    });
+
+    document.getElementById('vcfConvertBtn').addEventListener('click', async function() {
+      if (!currentFile) {
+        ConvertPivot.showResult('vcfResult', 'Please select a .vcf file first.', 'error');
+        return;
+      }
+
+      ConvertPivot.hideResult('vcfResult');
+      var progress = ConvertPivot.showProgress('vcfProgress');
+
+      try {
+        var text = await ConvertPivot.readFileAsText(currentFile);
+        var contacts = VCFConverter.parseVCF(text);
+
+        if (contacts.length === 0) {
+          ConvertPivot.showResult('vcfResult', 'No contacts found in the file. Make sure the file contains valid vCard entries.', 'error');
+          progress.done();
+          return;
+        }
+
+        var csv = VCFConverter.contactsToCSV(contacts);
+
+        // Use a small delay so the progress bar shows
+        setTimeout(function() {
+          progress.done();
+          ConvertPivot.showResult('vcfResult', '<strong>' + contacts.length + '</strong> contact(s) converted successfully.', 'success');
+          var filename = ConvertPivot.changeExtension(currentFile.name, 'csv');
+          ConvertPivot.downloadFile(csv, filename, 'text/csv;charset=utf-8');
+        }, 300);
+
+      } catch (err) {
+        progress.done();
+        ConvertPivot.showResult('vcfResult', 'Error parsing VCF file: ' + err.message, 'error');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

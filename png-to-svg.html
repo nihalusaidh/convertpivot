@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PNG to SVG — Raster to Vector | ConvertPivot</title>
+  <meta name="description" content="Free online PNG to SVG converter. Convert PNG raster images to SVG vector format with embedded base64 data. Private browser-based tool.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/png-to-svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/png-to-svg">
+  <meta property="og:title" content="PNG to SVG — Raster to Vector | ConvertPivot">
+  <meta property="og:description" content="Free online PNG to SVG converter. Convert PNG raster images to SVG vector format with embedded base64 data. Private browser-based tool.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/style.css">`n  <link rel="preconnect" href="https://cdnjs.cloudflare.com">`n  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"PNG to SVG Converter","url":"https://convertpivot.com/png-to-svg","applicationCategory":"Multimedia","operatingSystem":"All"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between raster and vector images?","acceptedAnswer":{"@type":"Answer","text":"Raster images (like PNG and JPEG) are made of pixels and lose quality when scaled up. Vector images (like SVG) are defined by mathematical paths and can be scaled infinitely without quality loss. Vector graphics are ideal for logos, icons, and illustrations."}},{"@type":"Question","name":"Does this converter trace the image into real vectors?","acceptedAnswer":{"@type":"Answer","text":"This converter embeds the PNG image as a base64-encoded data URI inside an SVG container. This preserves the original raster data within an SVG wrapper. It does not perform vector tracing. For true raster-to-vector conversion, use a dedicated vectorization tool like Adobe Illustrator's Image Trace or Inkscape's Trace Bitmap."}},{"@type":"Question","name":"When would I use an embedded PNG in SVG?","acceptedAnswer":{"@type":"Answer","text":"Embedding a PNG inside SVG is useful when you need to combine raster images with vector elements in a single file, apply SVG filters or transformations to a raster image, or work with tools that prefer SVG input but need to include photographic content."}},{"@type":"Question","name":"Will an embedded PNG SVG be smaller than the original PNG?","acceptedAnswer":{"@type":"Answer","text":"The SVG file will be slightly larger than the original PNG because base64 encoding adds approximately 33% overhead. However, the SVG wrapper provides additional utility when you need to combine raster and vector elements, add responsive scaling, or apply CSS styling."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
+      <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
+      <a href="/hex-to-rgb" class="sidebar-link"><span class="icon">🎨</span>Hex to RGB</a>
+      <a href="/timestamp-converter" class="sidebar-link"><span class="icon">⏱</span>Timestamp Converter</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Contacts & CRM</div>
+      <a href="/vcf-to-csv" class="sidebar-link"><span class="icon">📇</span>VCF to CSV</a>
+      <a href="/csv-to-vcf" class="sidebar-link"><span class="icon">📋</span>CSV to VCF</a>
+      <a href="/vcf-to-xlsx" class="sidebar-link"><span class="icon">📊</span>VCF to XLSX</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Financial</div>
+      <a href="/ofx-to-csv" class="sidebar-link"><span class="icon">🏦</span>OFX to CSV</a>
+      <a href="/qfx-to-csv" class="sidebar-link"><span class="icon">💰</span>QFX to CSV</a>
+      <a href="/qbo-to-csv" class="sidebar-link"><span class="icon">📒</span>QBO to CSV</a>
+      <a href="/csv-to-qbo" class="sidebar-link"><span class="icon">🔄</span>CSV to QBO</a>
+      <a href="/csv-to-ofx" class="sidebar-link"><span class="icon">🏦</span>CSV to OFX</a>
+      <a href="/csv-to-qfx" class="sidebar-link"><span class="icon">💰</span>CSV to QFX</a>
+      <a href="/pdf-bank-statement-to-csv" class="sidebar-link"><span class="icon">📄</span>PDF Bank Statement to CSV</a>
+      <a href="/bank-statement-converter" class="sidebar-link"><span class="icon">🏛</span>Bank Statement Converter</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Notebooks</div>
+      <a href="/ipynb-to-pdf" class="sidebar-link"><span class="icon">📓</span>IPYNB to PDF</a>
+      <a href="/ipynb-to-docx" class="sidebar-link"><span class="icon">📝</span>IPYNB to DOCX</a>
+      <a href="/ipynb-to-html" class="sidebar-link"><span class="icon">🌐</span>IPYNB to HTML</a>
+      <a href="/ipynb-to-py" class="sidebar-link"><span class="icon">🐍</span>IPYNB to PY</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Media</div>
+      <a href="/heic-to-jpg" class="sidebar-link"><span class="icon">📸</span>HEIC to JPG</a>
+      <a href="/heic-to-pdf" class="sidebar-link"><span class="icon">🖼</span>HEIC to PDF</a>
+      <a href="/avif-to-jpg" class="sidebar-link"><span class="icon">✨</span>AVIF to JPG</a>
+      <a href="/webp-to-jpg" class="sidebar-link"><span class="icon">🖼</span>WebP to JPG</a>
+      <a href="/svg-to-png" class="sidebar-link"><span class="icon">📐</span>SVG to PNG</a>
+      <a href="/jpg-to-heic" class="sidebar-link"><span class="icon">📸</span>JPG to HEIC</a>
+      <a href="/jpg-to-avif" class="sidebar-link"><span class="icon">✨</span>JPG to AVIF</a>
+      <a href="/png-to-svg" class="sidebar-link active"><span class="icon">📐</span>PNG to SVG</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">GPS & Fitness</div>
+      <a href="/gpx-to-kml" class="sidebar-link"><span class="icon">🗺</span>GPX to KML</a>
+      <a href="/gpx-to-csv" class="sidebar-link"><span class="icon">📈</span>GPX to CSV</a>
+      <a href="/fit-to-gpx" class="sidebar-link"><span class="icon">🏃</span>FIT to GPX</a>
+      <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
+      <a href="/csv-to-gpx" class="sidebar-link"><span class="icon">🗺</span>CSV to GPX</a>
+      <a href="/kml-to-gpx" class="sidebar-link"><span class="icon">📍</span>KML to GPX</a>
+    </div>
+  </nav>
+  <main class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">PNG to SVG</span></nav>
+    <div class="tool-header">
+      <h1>PNG to SVG Converter — Raster to Vector Wrapper</h1>
+      <p>Convert PNG raster images to SVG vector format. Embeds your PNG as base64 data inside a scalable SVG container for design and development use.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your images never leave your device.</span></div>
+    <div class="converter-widget" id="pngsvgWidget">
+      <div class="drop-zone" id="pngsvgDropZone">
+        <div class="drop-zone-icon">📐</div>
+        <div class="drop-zone-text">Drop a <strong>.png</strong> file here, or click to browse</div>
+        <div class="drop-zone-hint">PNG images of any size are supported</div>
+        <input type="file" accept=".png" aria-label="Choose PNG file">
+      </div>
+      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">✕</button></div>
+      <div class="converter-controls"><button class="btn btn-primary" id="pngsvgConvertBtn">Convert to SVG</button></div>
+      <div class="progress-bar" id="pngsvgProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="pngsvgResult"><div class="converter-result-message"></div></div>
+    </div>
+    <div class="content-section">
+      <h2>How to Convert PNG to SVG</h2>
+      <div class="how-it-works">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h3>Select Your PNG</h3>
+          <p>Drag and drop a PNG image onto the converter or click to browse. The image is read and decoded in your browser.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h3>Generate SVG</h3>
+          <p>Click "Convert to SVG" to embed the PNG image as a base64-encoded data URI inside an SVG element. The SVG automatically sizes to match your PNG's dimensions.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h3>Download and Use</h3>
+          <p>Download the SVG file. Use it in design tools, web projects, or anywhere SVG is accepted. The embedded image retains its original resolution and quality.</p>
+        </div>
+      </div>
+      <p>This converter takes a PNG raster image and wraps it inside an SVG (Scalable Vector Graphics) container by encoding the PNG as a base64 data URI. The resulting file is a valid SVG document that displays the original PNG when rendered, while gaining the benefits of SVG compatibility—responsive scaling, CSS styling, and the ability to combine with other vector elements in a single file.</p>
+      <p>This approach is particularly useful in several scenarios. Web developers may need to serve raster images through SVG-enabled pipelines. Designers working in tools like Figma, Sketch, or Adobe XD might need to import raster assets into SVG-based workflows. When you need to apply SVG filters, masks, or transformations to a raster image, embedding it in SVG is the most practical approach.</p>
+      <p>It is important to understand that this is not vector tracing. The output SVG contains the original pixel data encoded as base64 text rather than actual vector paths. For true raster-to-vector conversion that creates scalable paths, you need dedicated vectorization software. However, embedding in SVG offers a lightweight way to gain SVG compatibility without losing any image quality.</p>
+      <p>The SVG file includes viewBox and width/height attributes matching your original PNG dimensions, making it responsive by default. The base64 encoding adds approximately 33% overhead to the file size compared to the original PNG.</p>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What is the difference between raster and vector images? <span class="arrow">▼</span></button><div class="faq-answer">Raster images (like PNG and JPEG) are made of pixels and lose quality when scaled up. Vector images (like SVG) are defined by mathematical paths and can be scaled infinitely without quality loss. Vector graphics are ideal for logos, icons, and illustrations.</div></div>
+        <div class="faq-item"><button class="faq-question">Does this converter trace the image into real vectors? <span class="arrow">▼</span></button><div class="faq-answer">This converter embeds the PNG as a base64 data URI inside an SVG container. It does not perform vector tracing. For true raster-to-vector conversion, use a dedicated vectorization tool like Adobe Illustrator's Image Trace or Inkscape's Trace Bitmap.</div></div>
+        <div class="faq-item"><button class="faq-question">When would I use an embedded PNG in SVG? <span class="arrow">▼</span></button><div class="faq-answer">Embedding a PNG inside SVG is useful when you need to combine raster images with vector elements in a single file, apply SVG filters or transformations to a raster image, or work with tools that prefer SVG input.</div></div>
+        <div class="faq-item"><button class="faq-question">Will an embedded PNG SVG be smaller than the original PNG? <span class="arrow">▼</span></button><div class="faq-answer">The SVG file will be slightly larger than the original PNG because base64 encoding adds approximately 33% overhead. However, the SVG wrapper provides additional utility when you need to combine raster and vector elements.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/svg-to-png" class="related-tool-card">SVG to PNG <span class="desc">Convert vector to raster</span></a>
+        <a href="/jpg-to-heic" class="related-tool-card">JPG to HEIC <span class="desc">Convert to iPhone format</span></a>
+        <a href="/jpg-to-avif" class="related-tool-card">JPG to AVIF <span class="desc">Convert to next-gen format</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script src="js/media-converter.js"></script>
+  <script>
+  (function() {
+    var currentFile = null;
+    ConvertPivot.initDropZone('pngsvgDropZone', function(f) { currentFile = f; });
+    document.getElementById('pngsvgConvertBtn').addEventListener('click', async function() {
+      if (!currentFile) { ConvertPivot.showResult('pngsvgResult', 'Please select a PNG file first.', 'error'); return; }
+      ConvertPivot.hideResult('pngsvgResult');
+      var progress = ConvertPivot.showProgress('pngsvgProgress');
+      try {
+        var dataUrl = await ConvertPivot.readFileAsDataURL(currentFile);
+        var img = new Image();
+        img.src = dataUrl;
+        await new Promise(function(resolve, reject) {
+          img.onload = resolve;
+          img.onerror = reject;
+        });
+        var svg =
+          '<?xml version="1.0" encoding="UTF-8"?>\n' +
+          '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ' +
+          'width="' + img.naturalWidth + '" height="' + img.naturalHeight + '" ' +
+          'viewBox="0 0 ' + img.naturalWidth + ' ' + img.naturalHeight + '">\n' +
+          '  <image width="' + img.naturalWidth + '" height="' + img.naturalHeight + '" xlink:href="' + dataUrl + '"/>\n' +
+          '</svg>';
+        progress.done();
+        var filename = currentFile.name.replace(/\.png$/i, '.svg');
+        ConvertPivot.downloadFile(svg, filename, 'image/svg+xml');
+        ConvertPivot.showResult('pngsvgResult', 'PNG embedded in SVG (' + img.naturalWidth + 'x' + img.naturalHeight + ').', 'success');
+        currentFile = null;
+      } catch (err) {
+        progress.done();
+        ConvertPivot.showResult('pngsvgResult', 'Error: ' + err.message, 'error');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

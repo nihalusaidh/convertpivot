@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPX to CSV — GPS Data to Spreadsheet | ConvertPivot</title>
+  <meta name="description" content="Free online GPX to CSV converter. Convert GPS waypoints, tracks, and routes to Excel CSV with lat/lon/elevation. No upload.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/gpx-to-csv">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/gpx-to-csv">
+  <meta property="og:title" content="GPX to CSV — GPS Data to Spreadsheet | ConvertPivot">
+  <meta property="og:description" content="Free online GPX to CSV converter. Convert GPS waypoints, tracks, and routes to Excel CSV with lat/lon/elevation.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/style.css">`n  <link rel="preconnect" href="https://cdnjs.cloudflare.com">`n  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"GPX to CSV Converter","url":"https://convertpivot.com/gpx-to-csv","applicationCategory":"TravelApplication","operatingSystem":"All"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What data is exported to CSV?","acceptedAnswer":{"@type":"Answer","text":"The CSV includes latitude, longitude, elevation, timestamp, name, description, and point type (waypoint/trackpoint/routepoint) for every GPS point."}},{"@type":"Question","name":"Why convert GPX to CSV?","acceptedAnswer":{"@type":"Answer","text":"CSV lets you analyze GPS data in Excel, create charts, perform statistical analysis, and import into GIS software or databases."}},{"@type":"Question","name":"Does it handle large GPX files?","acceptedAnswer":{"@type":"Answer","text":"Yes. The converter runs entirely in your browser and handles GPX files with thousands of track points efficiently."}},{"@type":"Question","name":"Is my GPS data private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Everything runs in your browser. Your GPS data never leaves your device."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
+      <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
+      <a href="/hex-to-rgb" class="sidebar-link"><span class="icon">🎨</span>Hex to RGB</a>
+      <a href="/timestamp-converter" class="sidebar-link"><span class="icon">⏱</span>Timestamp Converter</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Contacts & CRM</div>
+      <a href="/vcf-to-csv" class="sidebar-link"><span class="icon">📇</span>VCF to CSV</a>
+      <a href="/csv-to-vcf" class="sidebar-link"><span class="icon">📋</span>CSV to VCF</a>
+      <a href="/vcf-to-xlsx" class="sidebar-link"><span class="icon">📊</span>VCF to XLSX</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Financial</div>
+      <a href="/ofx-to-csv" class="sidebar-link"><span class="icon">🏦</span>OFX to CSV</a>
+      <a href="/qfx-to-csv" class="sidebar-link"><span class="icon">💰</span>QFX to CSV</a>
+      <a href="/qbo-to-csv" class="sidebar-link"><span class="icon">📒</span>QBO to CSV</a>
+      <a href="/csv-to-qbo" class="sidebar-link"><span class="icon">🔄</span>CSV to QBO</a>
+      <a href="/pdf-bank-statement-to-csv" class="sidebar-link"><span class="icon">📄</span>PDF Bank Statement to CSV</a>
+      <a href="/bank-statement-converter" class="sidebar-link"><span class="icon">🏛</span>Bank Statement Converter</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Notebooks</div>
+      <a href="/ipynb-to-pdf" class="sidebar-link"><span class="icon">📓</span>IPYNB to PDF</a>
+      <a href="/ipynb-to-docx" class="sidebar-link"><span class="icon">📝</span>IPYNB to DOCX</a>
+      <a href="/ipynb-to-html" class="sidebar-link"><span class="icon">🌐</span>IPYNB to HTML</a>
+      <a href="/ipynb-to-py" class="sidebar-link"><span class="icon">🐍</span>IPYNB to PY</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Media</div>
+      <a href="/heic-to-jpg" class="sidebar-link"><span class="icon">📸</span>HEIC to JPG</a>
+      <a href="/heic-to-pdf" class="sidebar-link"><span class="icon">🖼</span>HEIC to PDF</a>
+      <a href="/avif-to-jpg" class="sidebar-link"><span class="icon">✨</span>AVIF to JPG</a>
+      <a href="/webp-to-jpg" class="sidebar-link"><span class="icon">🖼</span>WebP to JPG</a>
+      <a href="/svg-to-png" class="sidebar-link"><span class="icon">📐</span>SVG to PNG</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">GPS & Fitness</div>
+      <a href="/gpx-to-kml" class="sidebar-link"><span class="icon">🗺</span>GPX to KML</a>
+      <a href="/gpx-to-csv" class="sidebar-link active"><span class="icon">📈</span>GPX to CSV</a>
+      <a href="/fit-to-gpx" class="sidebar-link"><span class="icon">🏃</span>FIT to GPX</a>
+      <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
+    </div>
+  </nav>
+  <main class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">GPX to CSV</span></nav>
+    <div class="tool-header">
+      <h1>GPX to CSV Converter — GPS Data to Spreadsheet</h1>
+      <p>Convert GPX files to CSV for analysis in Excel. Extract latitude, longitude, elevation, and timestamps from any GPS device.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your GPS data never leaves your device.</span></div>
+    <div class="converter-widget" id="gpxToCsvWidget">
+      <div class="drop-zone" id="gpxToCsvDropZone">
+        <div class="drop-zone-icon">📈</div>
+        <div class="drop-zone-text">Drop a <strong>.gpx</strong> file here, or click to browse</div>
+        <div class="drop-zone-hint">All waypoints, track points, and route points are extracted</div>
+        <input type="file" accept=".gpx" aria-label="Choose GPX file">
+      </div>
+      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">✕</button></div>
+      <div class="converter-controls"><button class="btn btn-primary" id="gpxToCsvConvertBtn">Convert to CSV</button></div>
+      <div class="progress-bar" id="gpxToCsvProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="gpxToCsvResult"><div class="converter-result-message"></div></div>
+    </div>
+    <div class="content-section">
+      <h2>How to Convert GPX to CSV</h2>
+      <p>GPX files from GPS devices, running watches, and smartphone tracking apps contain rich geographic data. Our parser extracts every point from waypoints, track segments, and routes — including latitude, longitude, elevation, timestamp, name, and description.</p>
+      <p>The CSV output includes a "type" column that identifies each point as a waypoint, trackpoint, or routepoint so you can filter and sort your data in Excel. Use the data for elevation profile charts, distance calculations, speed analysis, or import into any database.</p>
+      <p>This is particularly useful for athletes analyzing training routes, researchers working with GPS fieldwork data, and outdoor enthusiasts cataloging their adventures.</p>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What data is exported to CSV? <span class="arrow">▼</span></button><div class="faq-answer">The CSV includes latitude, longitude, elevation, timestamp, name, description, and point type for every GPS point in your file.</div></div>
+        <div class="faq-item"><button class="faq-question">Why convert GPX to CSV? <span class="arrow">▼</span></button><div class="faq-answer">CSV lets you analyze GPS data in Excel, create charts, perform statistical analysis, and import into GIS software.</div></div>
+        <div class="faq-item"><button class="faq-question">Does it handle large GPX files? <span class="arrow">▼</span></button><div class="faq-answer">Yes. The converter runs entirely in your browser and handles GPX files with thousands of track points efficiently.</div></div>
+        <div class="faq-item"><button class="faq-question">Is my GPS data private? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Everything runs in your browser. Your GPS data never leaves your device.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/gpx-to-kml" class="related-tool-card">GPX to KML <span class="desc">Convert to Google Earth</span></a>
+        <a href="/fit-to-gpx" class="related-tool-card">FIT to GPX <span class="desc">Convert fitness data</span></a>
+        <a href="/fit-to-csv" class="related-tool-card">FIT to CSV <span class="desc">FIT data to spreadsheet</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script src="js/gps-converter.js"></script>
+  <script>
+  (function() {
+    var currentFile = null;
+    ConvertPivot.initDropZone('gpxToCsvDropZone', function(f) { currentFile = f; });
+    document.getElementById('gpxToCsvConvertBtn').addEventListener('click', async function() {
+      if (!currentFile) { ConvertPivot.showResult('gpxToCsvResult', 'Please select a GPX file first.', 'error'); return; }
+      ConvertPivot.hideResult('gpxToCsvResult');
+      var progress = ConvertPivot.showProgress('gpxToCsvProgress');
+      try {
+        var text = await ConvertPivot.readFileAsText(currentFile);
+        var gpx = GPSConverter.parseGPX(text);
+        var csv = GPSConverter.gpxToCSV(gpx);
+        var totalPoints = gpx.waypoints.length;
+        gpx.tracks.forEach(function(t) { t.segments.forEach(function(s) { totalPoints += s.length; }); });
+        gpx.routes.forEach(function(r) { totalPoints += r.points.length; });
+        progress.done();
+        ConvertPivot.downloadFile(csv, currentFile.name.replace(/\.gpx$/i, '.csv'), 'text/csv;charset=utf-8');
+        ConvertPivot.showResult('gpxToCsvResult', totalPoints + ' points extracted to CSV.', 'success');
+        currentFile = null;
+      } catch (err) {
+        progress.done();
+        ConvertPivot.showResult('gpxToCsvResult', 'Error: ' + err.message, 'error');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

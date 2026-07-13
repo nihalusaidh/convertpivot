@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VCF to XLSX — vCard to Excel Converter | ConvertPivot</title>
+  <meta name="description" content="Free online VCF to Excel converter. Export vCard contacts to XLSX for Microsoft Excel and Google Sheets. 100% browser-based, no upload.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/vcf-to-xlsx">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/vcf-to-xlsx">
+  <meta property="og:title" content="VCF to XLSX — vCard to Excel Converter | ConvertPivot">
+  <meta property="og:description" content="Free online VCF to Excel converter. Export vCard contacts to XLSX for Microsoft Excel and Google Sheets.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/style.css">`n  <link rel="preconnect" href="https://cdnjs.cloudflare.com">`n  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"VCF to XLSX Converter","url":"https://convertpivot.com/vcf-to-xlsx","applicationCategory":"Multimedia","operatingSystem":"All"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I convert VCF to Excel?","acceptedAnswer":{"@type":"Answer","text":"Drop your .vcf file onto the converter, click Convert, and download the XLSX file. Your contacts will be organized in columns ready for sorting and analysis in Excel."}},{"@type":"Question","name":"What fields are preserved in the Excel export?","acceptedAnswer":{"@type":"Answer","text":"The XLSX output includes: Full Name, First Name, Last Name, Email, Phone, Company, Job Title, Address, Website, Birthday, and Notes. Multiple phone numbers and emails are included."}},{"@type":"Question","name":"Can I convert multiple VCF files at once?","acceptedAnswer":{"@type":"Answer","text":"Yes. If your .vcf file contains multiple vCard entries, each contact becomes a separate row in the Excel spreadsheet."}},{"@type":"Question","name":"Is my data private?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. All conversion happens locally in your browser. Your contacts never leave your device."}}]}</script>
+</head>
+<body>
+  <header class="site-header">
+    <button id="sidebarToggle" class="sidebar-toggle">☰</button>
+    <a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a>
+  </header>
+
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Developer Tools</div>
+      <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
+      <a href="/hex-to-rgb" class="sidebar-link"><span class="icon">🎨</span>Hex to RGB</a>
+      <a href="/timestamp-converter" class="sidebar-link"><span class="icon">⏱</span>Timestamp Converter</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Contacts & CRM</div>
+      <a href="/vcf-to-csv" class="sidebar-link"><span class="icon">📇</span>VCF to CSV</a>
+      <a href="/csv-to-vcf" class="sidebar-link"><span class="icon">📋</span>CSV to VCF</a>
+      <a href="/vcf-to-xlsx" class="sidebar-link active"><span class="icon">📊</span>VCF to XLSX</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Financial</div>
+      <a href="/ofx-to-csv" class="sidebar-link"><span class="icon">🏦</span>OFX to CSV</a>
+      <a href="/qfx-to-csv" class="sidebar-link"><span class="icon">💰</span>QFX to CSV</a>
+      <a href="/qbo-to-csv" class="sidebar-link"><span class="icon">📒</span>QBO to CSV</a>
+      <a href="/csv-to-qbo" class="sidebar-link"><span class="icon">🔄</span>CSV to QBO</a>
+      <a href="/pdf-bank-statement-to-csv" class="sidebar-link"><span class="icon">📄</span>PDF Bank Statement to CSV</a>
+      <a href="/bank-statement-converter" class="sidebar-link"><span class="icon">🏛</span>Bank Statement Converter</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Notebooks</div>
+      <a href="/ipynb-to-pdf" class="sidebar-link"><span class="icon">📓</span>IPYNB to PDF</a>
+      <a href="/ipynb-to-docx" class="sidebar-link"><span class="icon">📝</span>IPYNB to DOCX</a>
+      <a href="/ipynb-to-html" class="sidebar-link"><span class="icon">🌐</span>IPYNB to HTML</a>
+      <a href="/ipynb-to-py" class="sidebar-link"><span class="icon">🐍</span>IPYNB to PY</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Media</div>
+      <a href="/heic-to-jpg" class="sidebar-link"><span class="icon">📸</span>HEIC to JPG</a>
+      <a href="/heic-to-pdf" class="sidebar-link"><span class="icon">🖼</span>HEIC to PDF</a>
+      <a href="/avif-to-jpg" class="sidebar-link"><span class="icon">✨</span>AVIF to JPG</a>
+      <a href="/webp-to-jpg" class="sidebar-link"><span class="icon">🖼</span>WebP to JPG</a>
+      <a href="/svg-to-png" class="sidebar-link"><span class="icon">📐</span>SVG to PNG</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">GPS & Fitness</div>
+      <a href="/gpx-to-kml" class="sidebar-link"><span class="icon">🗺</span>GPX to KML</a>
+      <a href="/gpx-to-csv" class="sidebar-link"><span class="icon">📈</span>GPX to CSV</a>
+      <a href="/fit-to-gpx" class="sidebar-link"><span class="icon">🏃</span>FIT to GPX</a>
+      <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <nav class="breadcrumb">
+      <a href="/">Home</a><span class="sep">›</span><span class="current">VCF to XLSX</span>
+    </nav>
+
+    <div class="tool-header">
+      <h1>VCF to XLSX Converter — Export vCard Contacts to Excel</h1>
+      <p>Convert vCard contact files to Excel XLSX format. Open and edit your contacts in Microsoft Excel, Google Sheets, or any spreadsheet application.</p>
+    </div>
+
+    <div class="privacy-banner">
+      <span class="icon">🔒</span>
+      <span>100% browser-based. Your contacts never leave your device. No upload, no server.</span>
+    </div>
+
+    <div class="converter-widget" id="xlsxWidget">
+      <div class="drop-zone" id="xlsxDropZone">
+        <div class="drop-zone-icon">📊</div>
+        <div class="drop-zone-text">Drop a <strong>.vcf</strong> or <strong>.vcard</strong> file here, or click to browse</div>
+        <div class="drop-zone-hint">One contact per row — all fields preserved</div>
+        <input type="file" accept=".vcf,.vcard" aria-label="Choose VCF file">
+      </div>
+      <div class="file-info">
+        <span class="file-info-name"></span>
+        <span class="file-info-size"></span>
+        <button class="file-info-remove" aria-label="Remove file">✕</button>
+      </div>
+      <div class="converter-controls">
+        <button class="btn btn-primary" id="xlsxConvertBtn">Convert to XLSX</button>
+      </div>
+      <div class="progress-bar" id="xlsxProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="xlsxResult">
+        <div class="converter-result-message"></div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>How to Convert VCF to XLSX</h2>
+      <div class="how-it-works">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h3>Drop VCF File</h3>
+          <p>Upload your .vcf or .vcard file. Supports single or multiple contacts in one file.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h3>Click Convert</h3>
+          <p>Your contacts are parsed and organized into spreadsheet rows and columns.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h3>Open in Excel</h3>
+          <p>Download the XLSX file and open it in Excel, Google Sheets, or LibreOffice Calc.</p>
+        </div>
+      </div>
+
+      <h3>Why Export Contacts to Excel?</h3>
+      <p>Excel gives you powerful tools to manage your contacts: sort by company, filter by city, remove duplicates, add custom fields, and prepare data for CRM import. Whether you are migrating from an old phone, cleaning up your address book, or preparing a mailing list, the XLSX format gives you full control over your data.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item">
+          <button class="faq-question">How do I convert VCF to Excel? <span class="arrow">▼</span></button>
+          <div class="faq-answer">Drop your .vcf file onto the converter, click Convert, and download the XLSX file. Your contacts will be organized in columns ready for sorting and analysis in Excel.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What fields are preserved in the Excel export? <span class="arrow">▼</span></button>
+          <div class="faq-answer">The XLSX output includes: Full Name, First Name, Last Name, Email, Phone, Company, Job Title, Address, Website, Birthday, and Notes. Multiple phone numbers and emails are included.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Can I convert multiple VCF files at once? <span class="arrow">▼</span></button>
+          <div class="faq-answer">Yes. If your .vcf file contains multiple vCard entries, each contact becomes a separate row in the Excel spreadsheet.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Is my data private? <span class="arrow">▼</span></button>
+          <div class="faq-answer">Absolutely. All conversion happens locally in your browser. Your contacts never leave your device.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/vcf-to-csv" class="related-tool-card">VCF to CSV <span class="desc">Convert vCard to CSV</span></a>
+        <a href="/csv-to-vcf" class="related-tool-card">CSV to VCF <span class="desc">Convert spreadsheets to vCard</span></a>
+        <a href="/bank-statement-converter" class="related-tool-card">Bank Statement Converter <span class="desc">Convert financial files</span></a>
+      </div>
+    </div>
+
+    <div class="ad-container">Ad</div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/shared.js"></script>
+  <script src="js/vcf-converter.js"></script>
+  <script>
+  (function() {
+    var currentFile = null;
+
+    var dropZone = ConvertPivot.initDropZone('xlsxDropZone', function(file) {
+      currentFile = file;
+    });
+
+    function contactsToXLSX(contacts) {
+      var headers = ['Full Name', 'First Name', 'Last Name', 'Email', 'Phone', 'Company', 'Job Title', 'Address', 'Website', 'Birthday', 'Notes'];
+      var rows = [headers];
+      for (var i = 0; i < contacts.length; i++) {
+        var c = contacts[i];
+        var email = c.emails.map(function(e) { return e.value; }).join('; ');
+        var phone = c.phones.map(function(p) { return p.value; }).join('; ');
+        rows.push([c.fullName, c.firstName, c.lastName, email, phone, c.company, c.title, c.address, c.website, c.birthday, c.notes]);
+      }
+
+      var html = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="UTF-8"><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>Contacts</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>';
+      for (var r = 0; r < rows.length; r++) {
+        html += '<tr>';
+        for (var c2 = 0; c2 < rows[r].length; c2++) {
+          var tag = r === 0 ? 'th' : 'td';
+          html += '<' + tag + '>' + ConvertPivot.escapeHtml(String(rows[r][c2] || '')) + '</' + tag + '>';
+        }
+        html += '</tr>';
+      }
+      html += '</table></body></html>';
+      return html;
+    }
+
+    document.getElementById('xlsxConvertBtn').addEventListener('click', async function() {
+      if (!currentFile) {
+        ConvertPivot.showResult('xlsxResult', 'Please select a .vcf file first.', 'error');
+        return;
+      }
+
+      ConvertPivot.hideResult('xlsxResult');
+      var progress = ConvertPivot.showProgress('xlsxProgress');
+
+      try {
+        var text = await ConvertPivot.readFileAsText(currentFile);
+        var contacts = VCFConverter.parseVCF(text);
+
+        if (contacts.length === 0) {
+          ConvertPivot.showResult('xlsxResult', 'No contacts found in the file.', 'error');
+          progress.done();
+          return;
+        }
+
+        var xlsxHtml = contactsToXLSX(contacts);
+
+        setTimeout(function() {
+          progress.done();
+          ConvertPivot.showResult('xlsxResult', '<strong>' + contacts.length + '</strong> contact(s) exported to Excel format.', 'success');
+          var filename = ConvertPivot.changeExtension(currentFile.name, 'xlsx');
+          ConvertPivot.downloadFile(xlsxHtml, filename, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        }, 300);
+
+      } catch (err) {
+        progress.done();
+        ConvertPivot.showResult('xlsxResult', 'Error: ' + err.message, 'error');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

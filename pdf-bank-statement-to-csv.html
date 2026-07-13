@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Bank Statement to CSV — Free Converter | ConvertPivot</title>
+  <meta name="description" content="Free PDF bank statement to CSV converter. Extract transactions from bank statement PDFs into Excel-ready CSV. No upload, private.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/pdf-bank-statement-to-csv">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/pdf-bank-statement-to-csv">
+  <meta property="og:title" content="PDF Bank Statement to CSV — Free Converter | ConvertPivot">
+  <meta property="og:description" content="Free PDF bank statement to CSV converter. Extract transactions from bank statement PDFs into Excel-ready CSV.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/style.css">`n  <link rel="preconnect" href="https://cdnjs.cloudflare.com">`n  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"PDF Bank Statement to CSV Converter","url":"https://convertpivot.com/pdf-bank-statement-to-csv","applicationCategory":"FinanceApplication","operatingSystem":"All"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does PDF bank statement conversion work?","acceptedAnswer":{"@type":"Answer","text":"The converter uses PDF.js to extract text from each page. It then parses the text to find transaction patterns: dates, descriptions, and amounts."}},{"@type":"Question","name":"Will it work with any bank statement?","acceptedAnswer":{"@type":"Answer","text":"It works best with standard tabular bank statements. Non-standard layouts or scanned images may need manual adjustment. The parser looks for common patterns like date columns and dollar amounts."}},{"@type":"Question","name":"Is my bank statement data secure?","acceptedAnswer":{"@type":"Answer","text":"Yes. Everything runs in your browser using PDF.js. Your bank statements never leave your device. No upload to any server."}},{"@type":"Question","name":"Is this tool free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free. No limits, no account needed, no watermarks on the output."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
+      <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
+      <a href="/hex-to-rgb" class="sidebar-link"><span class="icon">🎨</span>Hex to RGB</a>
+      <a href="/timestamp-converter" class="sidebar-link"><span class="icon">⏱</span>Timestamp Converter</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Contacts & CRM</div>
+      <a href="/vcf-to-csv" class="sidebar-link"><span class="icon">📇</span>VCF to CSV</a>
+      <a href="/csv-to-vcf" class="sidebar-link"><span class="icon">📋</span>CSV to VCF</a>
+      <a href="/vcf-to-xlsx" class="sidebar-link"><span class="icon">📊</span>VCF to XLSX</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Financial</div>
+      <a href="/ofx-to-csv" class="sidebar-link"><span class="icon">🏦</span>OFX to CSV</a>
+      <a href="/qfx-to-csv" class="sidebar-link"><span class="icon">💰</span>QFX to CSV</a>
+      <a href="/qbo-to-csv" class="sidebar-link"><span class="icon">📒</span>QBO to CSV</a>
+      <a href="/csv-to-qbo" class="sidebar-link"><span class="icon">🔄</span>CSV to QBO</a>
+      <a href="/pdf-bank-statement-to-csv" class="sidebar-link active"><span class="icon">📄</span>PDF Bank Statement to CSV</a>
+      <a href="/bank-statement-converter" class="sidebar-link"><span class="icon">🏛</span>Bank Statement Converter</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Notebooks</div>
+      <a href="/ipynb-to-pdf" class="sidebar-link"><span class="icon">📓</span>IPYNB to PDF</a>
+      <a href="/ipynb-to-docx" class="sidebar-link"><span class="icon">📝</span>IPYNB to DOCX</a>
+      <a href="/ipynb-to-html" class="sidebar-link"><span class="icon">🌐</span>IPYNB to HTML</a>
+      <a href="/ipynb-to-py" class="sidebar-link"><span class="icon">🐍</span>IPYNB to PY</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Media</div>
+      <a href="/heic-to-jpg" class="sidebar-link"><span class="icon">📸</span>HEIC to JPG</a>
+      <a href="/heic-to-pdf" class="sidebar-link"><span class="icon">🖼</span>HEIC to PDF</a>
+      <a href="/avif-to-jpg" class="sidebar-link"><span class="icon">✨</span>AVIF to JPG</a>
+      <a href="/webp-to-jpg" class="sidebar-link"><span class="icon">🖼</span>WebP to JPG</a>
+      <a href="/svg-to-png" class="sidebar-link"><span class="icon">📐</span>SVG to PNG</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">GPS & Fitness</div>
+      <a href="/gpx-to-kml" class="sidebar-link"><span class="icon">🗺</span>GPX to KML</a>
+      <a href="/gpx-to-csv" class="sidebar-link"><span class="icon">📈</span>GPX to CSV</a>
+      <a href="/fit-to-gpx" class="sidebar-link"><span class="icon">🏃</span>FIT to GPX</a>
+      <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
+    </div>
+  </nav>
+  <main class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">PDF Bank Statement to CSV</span></nav>
+    <div class="tool-header">
+      <h1>PDF Bank Statement to CSV Converter</h1>
+      <p>Extract transactions from bank statement PDFs and convert to CSV for Excel. Works with most major banks. 100% private.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your bank statements never leave your device.</span></div>
+    <div class="converter-widget" id="pdfStatementWidget">
+      <div class="drop-zone" id="pdfStatementDropZone">
+        <div class="drop-zone-icon">📄</div>
+        <div class="drop-zone-text">Drop a <strong>bank statement PDF</strong> here, or click to browse</div>
+        <div class="drop-zone-hint">Works with standard tabular bank statements</div>
+        <input type="file" accept=".pdf" aria-label="Choose PDF file">
+      </div>
+      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">✕</button></div>
+      <div class="converter-controls"><button class="btn btn-primary" id="pdfStatementConvertBtn">Extract & Convert to CSV</button></div>
+      <div class="progress-bar" id="pdfStatementProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="pdfStatementResult"><div class="converter-result-message"></div></div>
+    </div>
+    <div class="content-section">
+      <h2>How to Extract Transactions from Bank Statement PDFs</h2>
+      <p>Upload your bank statement PDF (downloaded from your online banking portal). The converter extracts text from every page and parses transactions using pattern matching for dates, descriptions, and amounts. The result is a clean CSV ready for Excel, Google Sheets, or import into accounting software.</p>
+      <p><strong>Note:</strong> This tool works best with text-based PDFs (the standard format from online banking). Scanned image PDFs may produce less reliable results. For the most accurate data, download OFX or QFX files directly from your bank when available.</p>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">How does PDF bank statement conversion work? <span class="arrow">▼</span></button><div class="faq-answer">The converter uses PDF.js to extract text from each page. It then parses the text to find transaction patterns: dates, descriptions, and amounts.</div></div>
+        <div class="faq-item"><button class="faq-question">Will it work with any bank statement? <span class="arrow">▼</span></button><div class="faq-answer">It works best with standard tabular bank statements. Non-standard layouts or scanned images may need manual adjustment. The parser looks for common patterns like date columns and dollar amounts.</div></div>
+        <div class="faq-item"><button class="faq-question">Is my bank statement data secure? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Everything runs in your browser using PDF.js. Your bank statements never leave your device. No upload to any server.</div></div>
+        <div class="faq-item"><button class="faq-question">Is this tool free? <span class="arrow">▼</span></button><div class="faq-answer">Yes, completely free. No limits, no account needed, no watermarks on the output.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/ofx-to-csv" class="related-tool-card">OFX to CSV <span class="desc">Convert bank files</span></a>
+        <a href="/bank-statement-converter" class="related-tool-card">Bank Statement Converter <span class="desc">Multi-format converter</span></a>
+        <a href="/csv-to-qbo" class="related-tool-card">CSV to QBO <span class="desc">Import to QuickBooks</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/financial-converter.js"></script>
+  <script>
+  (function() {
+    var currentFile = null;
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+    ConvertPivot.initDropZone('pdfStatementDropZone', function(f) { currentFile = f; });
+    document.getElementById('pdfStatementConvertBtn').addEventListener('click', async function() {
+      if (!currentFile) { ConvertPivot.showResult('pdfStatementResult', 'Please select a PDF file first.', 'error'); return; }
+      ConvertPivot.hideResult('pdfStatementResult');
+      var progress = ConvertPivot.showProgress('pdfStatementProgress');
+      try {
+        var data = await ConvertPivot.readFileAsArrayBuffer(currentFile);
+        var csv = await FinancialConverter.parsePDFStatement(data);
+        progress.done();
+        if (csv && csv.length > 100) {
+          ConvertPivot.showResult('pdfStatementResult', 'Transactions extracted successfully. <a href="#" onclick="document.getElementById(\'pdfPreview\').style.display=\'block\';return false">Show preview</a>', 'success');
+          ConvertPivot.downloadFile(csv, 'bank-statement.csv', 'text/csv;charset=utf-8');
+        } else {
+          ConvertPivot.showResult('pdfStatementResult', 'Limited data extracted. The PDF format may not be fully supported. Try using OFX/QFX format instead.', 'warning');
+        }
+      } catch (err) { progress.done(); ConvertPivot.showResult('pdfStatementResult', 'Error: ' + err.message, 'error'); }
+    });
+  })();
+  </script>
+</body>
+</html>

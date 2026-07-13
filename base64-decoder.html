@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base64 Decoder — Decode Base64 to Text Online | ConvertPivot</title>
+  <meta name="description" content="Free online Base64 decoder. Decode Base64-encoded text back to readable strings instantly. Browser-based, no upload.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/base64-decoder">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/base64-decoder">
+  <meta property="og:title" content="Base64 Decoder — Decode Base64 to Text Online | ConvertPivot">
+  <meta property="og:description" content="Free online Base64 decoder. Decode Base64-encoded text back to readable strings instantly. Browser-based, no upload.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/style.css">`n  <link rel="preconnect" href="https://cdnjs.cloudflare.com">`n  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Base64 Decoder","url":"https://convertpivot.com/base64-decoder","applicationCategory":"DeveloperApplication","operatingSystem":"All","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does Base64 decoding work?","acceptedAnswer":{"@type":"Answer","text":"Base64 decoding reverses the encoding process. It takes a Base64 string, maps each character back to its 6-bit value, recombines them into 8-bit bytes, and outputs the original binary or text data. Our tool uses the atob() method built into all modern browsers."}},{"@type":"Question","name":"What can I decode with Base64?","acceptedAnswer":{"@type":"Answer","text":"You can decode any Base64-encoded string, including data URIs (e.g., data:image/png;base64,...), authentication tokens, encoded JSON strings, email attachments encoded with MIME Base64, and encoded configuration values."}},{"@type":"Question","name":"Can Base64 be reversed?","acceptedAnswer":{"@type":"Answer","text":"Yes, Base64 is entirely reversible. Unlike encryption, there is no key involved. Any Base64 string can be decoded back to its original form by anyone who has the encoded data. For security, Base64 should not be used as protection."}},{"@type":"Question","name":"Is this decoder free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no limits, no signup, and no uploads. Everything runs in your browser."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
+      <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
+      <a href="/hex-to-rgb" class="sidebar-link"><span class="icon">🎨</span>Hex to RGB</a>
+      <a href="/timestamp-converter" class="sidebar-link"><span class="icon">⏱</span>Timestamp Converter</a>
+      <a href="/json-formatter" class="sidebar-link"><span class="icon">🔧</span>JSON Formatter</a>
+      <a href="/base64-encoder" class="sidebar-link"><span class="icon">🔐</span>Base64 Encoder</a>
+      <a href="/base64-decoder" class="sidebar-link active"><span class="icon">🔓</span>Base64 Decoder</a>
+      <a href="/password-generator" class="sidebar-link"><span class="icon">🔑</span>Password Generator</a>
+      <a href="/word-counter" class="sidebar-link"><span class="icon">📝</span>Word Counter</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Contacts & CRM</div>
+      <a href="/vcf-to-csv" class="sidebar-link"><span class="icon">📇</span>VCF to CSV</a>
+      <a href="/csv-to-vcf" class="sidebar-link"><span class="icon">📋</span>CSV to VCF</a>
+      <a href="/vcf-to-xlsx" class="sidebar-link"><span class="icon">📊</span>VCF to XLSX</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Financial</div>
+      <a href="/ofx-to-csv" class="sidebar-link"><span class="icon">🏦</span>OFX to CSV</a>
+      <a href="/qfx-to-csv" class="sidebar-link"><span class="icon">💰</span>QFX to CSV</a>
+      <a href="/qbo-to-csv" class="sidebar-link"><span class="icon">📒</span>QBO to CSV</a>
+      <a href="/csv-to-qbo" class="sidebar-link"><span class="icon">🔄</span>CSV to QBO</a>
+      <a href="/pdf-bank-statement-to-csv" class="sidebar-link"><span class="icon">📄</span>PDF Bank Statement to CSV</a>
+      <a href="/bank-statement-converter" class="sidebar-link"><span class="icon">🏛</span>Bank Statement Converter</a>
+      <a href="/chase-bank-statement-to-csv" class="sidebar-link"><span class="icon">🏦</span>Chase to CSV</a>
+      <a href="/wells-fargo-statement-to-csv" class="sidebar-link"><span class="icon">💰</span>Wells Fargo to CSV</a>
+      <a href="/bank-of-america-statement-to-csv" class="sidebar-link"><span class="icon">🏛</span>BofA to CSV</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Notebooks</div>
+      <a href="/ipynb-to-pdf" class="sidebar-link"><span class="icon">📓</span>IPYNB to PDF</a>
+      <a href="/ipynb-to-docx" class="sidebar-link"><span class="icon">📝</span>IPYNB to DOCX</a>
+      <a href="/ipynb-to-html" class="sidebar-link"><span class="icon">🌐</span>IPYNB to HTML</a>
+      <a href="/ipynb-to-py" class="sidebar-link"><span class="icon">🐍</span>IPYNB to PY</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">Media</div>
+      <a href="/heic-to-jpg" class="sidebar-link"><span class="icon">📸</span>HEIC to JPG</a>
+      <a href="/heic-to-pdf" class="sidebar-link"><span class="icon">🖼</span>HEIC to PDF</a>
+      <a href="/avif-to-jpg" class="sidebar-link"><span class="icon">✨</span>AVIF to JPG</a>
+      <a href="/webp-to-jpg" class="sidebar-link"><span class="icon">🖼</span>WebP to JPG</a>
+      <a href="/svg-to-png" class="sidebar-link"><span class="icon">📐</span>SVG to PNG</a>
+    </div>
+    <div class="sidebar-section"><div class="sidebar-heading">GPS & Fitness</div>
+      <a href="/gpx-to-kml" class="sidebar-link"><span class="icon">🗺</span>GPX to KML</a>
+      <a href="/gpx-to-csv" class="sidebar-link"><span class="icon">📈</span>GPX to CSV</a>
+      <a href="/fit-to-gpx" class="sidebar-link"><span class="icon">🏃</span>FIT to GPX</a>
+      <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
+    </div>
+  </nav>
+  <main class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Base64 Decoder</span></nav>
+    <div class="tool-header">
+      <h1>Base64 Decoder — Decode Base64 to Readable Text</h1>
+      <p>Convert Base64-encoded strings back to readable text instantly. Decode data URIs, authentication tokens, and encoded configuration values.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your data never leaves your device. No upload, no server.</span></div>
+    <div class="converter-widget" id="b64decWidget">
+      <div style="margin-bottom:12px;">
+        <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">Base64 Input</label>
+        <textarea id="b64decInput" rows="6" style="width:100%;padding:12px 14px;border:1px solid var(--color-mist);border-radius:8px;font-size:0.9rem;font-family:monospace;outline:none;resize:vertical;" placeholder="Paste Base64 string to decode..." spellcheck="false"></textarea>
+      </div>
+      <div class="converter-controls">
+        <button class="btn btn-primary" id="b64decDecodeBtn">Decode from Base64</button>
+      </div>
+      <div style="margin-top:12px;">
+        <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">Decoded Text</label>
+        <textarea id="b64decOutput" rows="4" style="width:100%;padding:12px 14px;border:1px solid var(--color-mist);border-radius:8px;font-size:0.9rem;font-family:monospace;outline:none;resize:vertical;background:var(--color-cream);" readonly spellcheck="false"></textarea>
+      </div>
+      <div class="progress-bar" id="b64decProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="b64decResult"><div class="converter-result-message"></div></div>
+    </div>
+    <div class="content-section">
+      <h2>How to Decode Base64</h2>
+      <div class="how-it-works">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h3>Paste Base64 String</h3>
+          <p>Copy a Base64-encoded string and paste it into the input field. Common sources include data URIs, API tokens, and encoded configuration values.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h3>Click Decode</h3>
+          <p>Press the Decode from Base64 button. The browser's built-in atob() function converts the Base64 string back to its original text form.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h3>Read the Result</h3>
+          <p>The decoded text appears in the output field. Copy it for further use. If the Base64 contained binary data like images, the output may show garbled characters.</p>
+        </div>
+      </div>
+      <h3>About Base64 Decoding</h3>
+      <p>Base64 decoding is the reverse of Base64 encoding. The decoder takes a Base64 string, validates it against the 64-character alphabet (A-Z, a-z, 0-9, +, /), strips any padding = characters, and reconstructs the original data. Every three Base64 characters represent two bytes of original data. Modern browsers provide native atob() support, making decoding fast and reliable. This tool is especially useful for developers debugging API responses that include Base64-encoded payloads, inspecting data URIs embedded in HTML and CSS, and converting authentication tokens to their actual contents for troubleshooting. The decoder also handles common Base64 variants, including URL-safe Base64 where + and / are replaced with - and _. When decoding, the tool first attempts UTF-8 decoding for text output, which handles international characters, emojis, and special symbols correctly. If the decoded data is not valid UTF-8 text (such as encoded images or binary files), the raw byte representation is shown. For inspecting binary data, we recommend using hex dump tools alongside this decoder.</p>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">How does Base64 decoding work? <span class="arrow">▼</span></button><div class="faq-answer">Base64 decoding reverses the encoding process. It takes a Base64 string, maps each character back to its 6-bit value, recombines them into 8-bit bytes, and outputs the original binary or text data. Our tool uses the atob() method built into all modern browsers.</div></div>
+        <div class="faq-item"><button class="faq-question">What can I decode with Base64? <span class="arrow">▼</span></button><div class="faq-answer">You can decode any Base64-encoded string, including data URIs (e.g., data:image/png;base64,...), authentication tokens, encoded JSON strings, email attachments encoded with MIME Base64, and encoded configuration values.</div></div>
+        <div class="faq-item"><button class="faq-question">Can Base64 be reversed? <span class="arrow">▼</span></button><div class="faq-answer">Yes, Base64 is entirely reversible. Unlike encryption, there is no key involved. Any Base64 string can be decoded back to its original form by anyone who has the encoded data. For security, Base64 should not be used as protection.</div></div>
+        <div class="faq-item"><button class="faq-question">Is this decoder free? <span class="arrow">▼</span></button><div class="faq-answer">Yes, completely free with no limits, no signup, and no uploads. Everything runs in your browser.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/base64-encoder" class="related-tool-card">Base64 Encoder <span class="desc">Encode text to Base64</span></a>
+        <a href="/json-formatter" class="related-tool-card">JSON Formatter <span class="desc">Beautify and validate JSON</span></a>
+        <a href="/password-generator" class="related-tool-card">Password Generator <span class="desc">Create secure passwords</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+  (function() {
+    document.getElementById('b64decDecodeBtn').addEventListener('click', function() {
+      var input = document.getElementById('b64decInput').value.trim();
+      var output = document.getElementById('b64decOutput');
+      var result = document.getElementById('b64decResult');
+      ConvertPivot.hideResult('b64decResult');
+      if (!input) { ConvertPivot.showResult('b64decResult', 'Please enter Base64 input to decode.', 'error'); return; }
+      try {
+        var decoded = atob(input);
+        output.value = decodeURIComponent(escape(decoded));
+        ConvertPivot.showResult('b64decResult', 'Base64 decoded successfully.', 'success');
+      } catch (e) {
+        output.value = '';
+        ConvertPivot.showResult('b64decResult', 'Invalid Base64 input: ' + e.message, 'error');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

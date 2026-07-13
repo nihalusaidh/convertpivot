@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Online Converter Tools — 100% Browser-Based | ConvertPivot</title>
+  <meta name="description" content="25+ free online converter tools. Convert binary, VCF contacts, bank statements, GPX, IPYNB, HEIC, and more. Zero uploads — your files never leave your device.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/">
+  <meta property="og:title" content="Free Online Converter Tools — 100% Browser-Based">
+  <meta property="og:description" content="40+ free online converter tools. Zero uploads — your files never leave your device.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Online Converter Tools — 100% Browser-Based">
+  <meta name="twitter:description" content="40+ free online converter tools. Zero uploads — your files never leave your device.">
+  <link rel="stylesheet" href="css/style.css">`n  <link rel="preconnect" href="https://cdnjs.cloudflare.com">`n  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "ConvertPivot",
+    "url": "https://convertpivot.com",
+    "applicationCategory": "Multimedia",
+    "operatingSystem": "All",
+    "browserRequirements": "JavaScript",
+    "description": "25+ free online converter tools that run entirely in your browser. Convert files privately — no upload, no signup."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are ConvertPivot tools really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, all tools are completely free with no usage limits, no watermarks, and no signup required. We use display ads to keep the service running."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you upload my files to a server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Every conversion runs locally in your browser using WebAssembly and JavaScript. Your files are never uploaded to any server. You can verify this by opening your browser's Network tab during a conversion — zero file data is transmitted."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What file formats are supported?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ConvertPivot supports 40+ conversion types across financial files (OFX, QFX, QBO), contacts (VCF, CSV, XLSX), notebooks (IPYNB), GPS data (GPX, KML, FIT), images (HEIC, AVIF, WebP, SVG), and developer tools (binary, hex, timestamp)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a file size limit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Your practical limit is your browser's available memory, typically 1-4 GB. Since files never leave your device, there are no server-imposed caps."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use ConvertPivot on my phone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All tools work on mobile browsers including Chrome, Safari, and Firefox on both Android and iOS. Tap the drop zone to select files from your device."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to create an account?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No account, email, or signup is required. Just open any tool, drop your file, and convert. No tracking, no data collection."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is this different from other online converters?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most online converters upload your files to a server for processing. ConvertPivot runs every conversion locally in your browser using WebAssembly. Your files never leave your device, ensuring complete privacy. There are also no daily limits, no queues, and no upgrade gates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens to my files after conversion?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Files are processed entirely in your browser's memory. Once you close the tab or download the result, everything is discarded. No copy exists on any server because your data never left your device."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
+    <a href="/" class="site-logo">
+      <span class="logo-mark">P</span>
+      <span>ConvertPivot</span>
+    </a>
+  </header>
+
+  <!-- SIDEBAR -->
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation">
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Developer Tools</div>
+      <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
+      <a href="/hex-to-rgb" class="sidebar-link"><span class="icon">🎨</span>Hex to RGB</a>
+      <a href="/timestamp-converter" class="sidebar-link"><span class="icon">⏱</span>Timestamp Converter</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Contacts & CRM</div>
+      <a href="/vcf-to-csv" class="sidebar-link"><span class="icon">📇</span>VCF to CSV</a>
+      <a href="/csv-to-vcf" class="sidebar-link"><span class="icon">📋</span>CSV to VCF</a>
+      <a href="/vcf-to-xlsx" class="sidebar-link"><span class="icon">📊</span>VCF to XLSX</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Financial</div>
+      <a href="/ofx-to-csv" class="sidebar-link"><span class="icon">🏦</span>OFX to CSV</a>
+      <a href="/qfx-to-csv" class="sidebar-link"><span class="icon">💰</span>QFX to CSV</a>
+      <a href="/qbo-to-csv" class="sidebar-link"><span class="icon">📒</span>QBO to CSV</a>
+      <a href="/csv-to-qbo" class="sidebar-link"><span class="icon">🔄</span>CSV to QBO</a>
+      <a href="/pdf-bank-statement-to-csv" class="sidebar-link"><span class="icon">📄</span>PDF Bank Statement to CSV</a>
+      <a href="/bank-statement-converter" class="sidebar-link"><span class="icon">🏛</span>Bank Statement Converter</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Notebooks</div>
+      <a href="/ipynb-to-pdf" class="sidebar-link"><span class="icon">📓</span>IPYNB to PDF</a>
+      <a href="/ipynb-to-docx" class="sidebar-link"><span class="icon">📝</span>IPYNB to DOCX</a>
+      <a href="/ipynb-to-html" class="sidebar-link"><span class="icon">🌐</span>IPYNB to HTML</a>
+      <a href="/ipynb-to-py" class="sidebar-link"><span class="icon">🐍</span>IPYNB to PY</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Media</div>
+      <a href="/heic-to-jpg" class="sidebar-link"><span class="icon">📸</span>HEIC to JPG</a>
+      <a href="/heic-to-pdf" class="sidebar-link"><span class="icon">🖼</span>HEIC to PDF</a>
+      <a href="/avif-to-jpg" class="sidebar-link"><span class="icon">✨</span>AVIF to JPG</a>
+      <a href="/webp-to-jpg" class="sidebar-link"><span class="icon">🖼</span>WebP to JPG</a>
+      <a href="/svg-to-png" class="sidebar-link"><span class="icon">📐</span>SVG to PNG</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">GPS & Fitness</div>
+      <a href="/gpx-to-kml" class="sidebar-link"><span class="icon">🗺</span>GPX to KML</a>
+      <a href="/gpx-to-csv" class="sidebar-link"><span class="icon">📈</span>GPX to CSV</a>
+      <a href="/fit-to-gpx" class="sidebar-link"><span class="icon">🏃</span>FIT to GPX</a>
+      <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
+    </div>
+    <div class="ad-container-sidebar">Ad</div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Free Online Converter Tools.<br><span class="highlight">100% Browser-Based. Zero Uploads.</span></h1>
+      <p>Convert files, data, and formats privately — right in your browser. No signup, no server uploads, no limits. 40+ tools for financial data, contacts, notebooks, GPS, images, and developer formats.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-value">40+</div>
+          <div class="hero-stat-label">Converter Tools</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">100%</div>
+          <div class="hero-stat-label">Browser-Based</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">0</div>
+          <div class="hero-stat-label">Uploads</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVACY BANNER -->
+    <div class="privacy-banner" style="max-width:720px;margin:0 auto 28px;">
+      <span class="icon">🔒</span>
+      <span><strong>Privacy first:</strong> Every conversion runs locally in your browser. Your files never touch a server. You can verify this in your browser's Network tab.</span>
+    </div>
+
+    <!-- ALL TOOLS BY CATEGORY -->
+    <section>
+      <h2 class="section-heading">Developer Tools</h2>
+      <div class="tool-grid">
+        <a href="/binary-converter" class="tool-card">
+          <div class="tool-card-icon">⬡</div>
+          <div class="tool-card-title">Binary Converter</div>
+          <div class="tool-card-desc">Convert between decimal, binary, octal, and hexadecimal number systems.</div>
+        </a>
+        <a href="/hex-to-rgb" class="tool-card">
+          <div class="tool-card-icon">🎨</div>
+          <div class="tool-card-title">Hex to RGB Converter</div>
+          <div class="tool-card-desc">Convert hex color codes to RGB, HSL, and color name values.</div>
+        </a>
+        <a href="/timestamp-converter" class="tool-card">
+          <div class="tool-card-icon">⏱</div>
+          <div class="tool-card-title">Timestamp Converter</div>
+          <div class="tool-card-desc">Convert Unix epoch timestamps to human-readable dates and vice versa.</div>
+        </a>
+        <a href="/json-formatter" class="tool-card">
+          <div class="tool-card-icon">🔧</div>
+          <div class="tool-card-title">JSON Formatter</div>
+          <div class="tool-card-desc">Beautify, validate, and minify JSON data instantly.</div>
+        </a>
+        <a href="/base64-encoder" class="tool-card">
+          <div class="tool-card-icon">🔐</div>
+          <div class="tool-card-title">Base64 Encoder</div>
+          <div class="tool-card-desc">Encode text and strings to Base64 format instantly.</div>
+        </a>
+        <a href="/base64-decoder" class="tool-card">
+          <div class="tool-card-icon">🔓</div>
+          <div class="tool-card-title">Base64 Decoder</div>
+          <div class="tool-card-desc">Decode Base64-encoded text back to readable strings.</div>
+        </a>
+        <a href="/password-generator" class="tool-card">
+          <div class="tool-card-icon">🔑</div>
+          <div class="tool-card-title">Password Generator</div>
+          <div class="tool-card-desc">Generate strong, random passwords with custom options.</div>
+        </a>
+        <a href="/word-counter" class="tool-card">
+          <div class="tool-card-icon">📝</div>
+          <div class="tool-card-title">Word Counter</div>
+          <div class="tool-card-desc">Count words, characters, sentences, and paragraphs in any text.</div>
+        </a>
+      </div>
+
+      <h2 class="section-heading">Contacts & CRM</h2>
+      <div class="tool-grid">
+        <a href="/vcf-to-csv" class="tool-card">
+          <div class="tool-card-icon">📇</div>
+          <div class="tool-card-title">VCF to CSV</div>
+          <div class="tool-card-desc">Convert vCard contact files to CSV for Excel, Google Sheets, and CRM import.</div>
+        </a>
+        <a href="/csv-to-vcf" class="tool-card">
+          <div class="tool-card-icon">📋</div>
+          <div class="tool-card-title">CSV to VCF</div>
+          <div class="tool-card-desc">Convert CSV spreadsheets back to vCard format for phone import.</div>
+        </a>
+        <a href="/vcf-to-xlsx" class="tool-card">
+          <div class="tool-card-icon">📊</div>
+          <div class="tool-card-title">VCF to XLSX</div>
+          <div class="tool-card-desc">Export vCard contacts directly to Excel XLSX format.</div>
+        </a>
+      </div>
+
+      <h2 class="section-heading">Financial Tools</h2>
+      <div class="tool-grid">
+        <a href="/ofx-to-csv" class="tool-card">
+          <div class="tool-card-icon">🏦</div>
+          <div class="tool-card-title">OFX to CSV</div>
+          <div class="tool-card-desc">Convert Open Financial Exchange bank statements to CSV spreadsheets.</div>
+        </a>
+        <a href="/qfx-to-csv" class="tool-card">
+          <div class="tool-card-icon">💰</div>
+          <div class="tool-card-title">QFX to CSV</div>
+          <div class="tool-card-desc">Convert Quicken QFX files to CSV for accounting and analysis.</div>
+        </a>
+        <a href="/qbo-to-csv" class="tool-card">
+          <div class="tool-card-icon">📒</div>
+          <div class="tool-card-title">QBO to CSV</div>
+          <div class="tool-card-desc">Convert QuickBooks Web Connect files to CSV format.</div>
+        </a>
+        <a href="/csv-to-qbo" class="tool-card">
+          <div class="tool-card-icon">🔄</div>
+          <div class="tool-card-title">CSV to QBO</div>
+          <div class="tool-card-desc">Convert CSV bank exports to QuickBooks QBO format.</div>
+        </a>
+        <a href="/csv-to-ofx" class="tool-card">
+          <div class="tool-card-icon">🏛</div>
+          <div class="tool-card-title">CSV to OFX</div>
+          <div class="tool-card-desc">Convert CSV bank data to Open Financial Exchange format.</div>
+        </a>
+        <a href="/csv-to-qfx" class="tool-card">
+          <div class="tool-card-icon">📑</div>
+          <div class="tool-card-title">CSV to QFX</div>
+          <div class="tool-card-desc">Convert CSV exports to Quicken QFX format.</div>
+        </a>
+        <a href="/pdf-bank-statement-to-csv" class="tool-card">
+          <div class="tool-card-icon">📄</div>
+          <div class="tool-card-title">PDF Bank Statement to CSV</div>
+          <div class="tool-card-desc">Extract transactions from PDF bank statements into structured CSV.</div>
+        </a>
+        <a href="/bank-statement-converter" class="tool-card">
+          <div class="tool-card-icon">🏛</div>
+          <div class="tool-card-title">Bank Statement Converter</div>
+          <div class="tool-card-desc">Multi-format converter for PDF, OFX, QFX, QBO, and CSV bank files.</div>
+        </a>
+        <a href="/chase-bank-statement-to-csv" class="tool-card">
+          <div class="tool-card-icon">🏦</div>
+          <div class="tool-card-title">Chase to CSV</div>
+          <div class="tool-card-desc">Convert Chase bank statement PDFs to CSV for accounting.</div>
+        </a>
+        <a href="/wells-fargo-statement-to-csv" class="tool-card">
+          <div class="tool-card-icon">💰</div>
+          <div class="tool-card-title">Wells Fargo to CSV</div>
+          <div class="tool-card-desc">Convert Wells Fargo statement PDFs to CSV spreadsheets.</div>
+        </a>
+        <a href="/bank-of-america-statement-to-csv" class="tool-card">
+          <div class="tool-card-icon">🏛</div>
+          <div class="tool-card-title">BofA to CSV</div>
+          <div class="tool-card-desc">Convert Bank of America statement PDFs to CSV format.</div>
+        </a>
+      </div>
+
+      <h2 class="section-heading">Jupyter Notebook Tools</h2>
+      <div class="tool-grid">
+        <a href="/ipynb-to-pdf" class="tool-card">
+          <div class="tool-card-icon">📓</div>
+          <div class="tool-card-title">IPYNB to PDF</div>
+          <div class="tool-card-desc">Convert Jupyter notebooks to clean, print-ready PDFs with syntax highlighting.</div>
+        </a>
+        <a href="/ipynb-to-docx" class="tool-card">
+          <div class="tool-card-icon">📝</div>
+          <div class="tool-card-title">IPYNB to DOCX</div>
+          <div class="tool-card-desc">Convert notebooks to editable Word documents.</div>
+        </a>
+        <a href="/ipynb-to-html" class="tool-card">
+          <div class="tool-card-icon">🌐</div>
+          <div class="tool-card-title">IPYNB to HTML</div>
+          <div class="tool-card-desc">Export notebooks to standalone HTML pages.</div>
+        </a>
+        <a href="/ipynb-to-py" class="tool-card">
+          <div class="tool-card-icon">🐍</div>
+          <div class="tool-card-title">IPYNB to PY</div>
+          <div class="tool-card-desc">Extract Python code from Jupyter notebook files.</div>
+        </a>
+      </div>
+
+      <h2 class="section-heading">Image Converters</h2>
+      <div class="tool-grid">
+        <a href="/heic-to-jpg" class="tool-card">
+          <div class="tool-card-icon">📸</div>
+          <div class="tool-card-title">HEIC to JPG</div>
+          <div class="tool-card-desc">Convert iPhone HEIC photos to universally compatible JPG format.</div>
+        </a>
+        <a href="/heic-to-pdf" class="tool-card">
+          <div class="tool-card-icon">🖼</div>
+          <div class="tool-card-title">HEIC to PDF</div>
+          <div class="tool-card-desc">Convert HEIC images to PDF documents.</div>
+        </a>
+        <a href="/avif-to-jpg" class="tool-card">
+          <div class="tool-card-icon">✨</div>
+          <div class="tool-card-title">AVIF to JPG</div>
+          <div class="tool-card-desc">Convert next-gen AVIF images to widely supported JPG.</div>
+        </a>
+        <a href="/webp-to-jpg" class="tool-card">
+          <div class="tool-card-icon">🖼</div>
+          <div class="tool-card-title">WebP to JPG</div>
+          <div class="tool-card-desc">Convert WebP images to JPG for universal compatibility.</div>
+        </a>
+        <a href="/svg-to-png" class="tool-card">
+          <div class="tool-card-icon">📐</div>
+          <div class="tool-card-title">SVG to PNG</div>
+          <div class="tool-card-desc">Convert SVG vector graphics to PNG raster images.</div>
+        </a>
+        <a href="/jpg-to-heic" class="tool-card">
+          <div class="tool-card-icon">🔄</div>
+          <div class="tool-card-title">JPG to HEIC</div>
+          <div class="tool-card-desc">Convert JPG images to HEIC format for iPhone storage.</div>
+        </a>
+        <a href="/jpg-to-avif" class="tool-card">
+          <div class="tool-card-icon">🖼</div>
+          <div class="tool-card-title">JPG to AVIF</div>
+          <div class="tool-card-desc">Convert JPG images to next-gen AVIF image format.</div>
+        </a>
+        <a href="/png-to-svg" class="tool-card">
+          <div class="tool-card-icon">📐</div>
+          <div class="tool-card-title">PNG to SVG</div>
+          <div class="tool-card-desc">Convert PNG images to SVG vector format.</div>
+        </a>
+      </div>
+
+      <h2 class="section-heading">GPS & Fitness Data</h2>
+      <div class="tool-grid">
+        <a href="/gpx-to-kml" class="tool-card">
+          <div class="tool-card-icon">🗺</div>
+          <div class="tool-card-title">GPX to KML</div>
+          <div class="tool-card-desc">Convert GPS tracks to Google Earth KML format.</div>
+        </a>
+        <a href="/gpx-to-csv" class="tool-card">
+          <div class="tool-card-icon">📈</div>
+          <div class="tool-card-title">GPX to CSV</div>
+          <div class="tool-card-desc">Extract GPS waypoint data to CSV spreadsheets.</div>
+        </a>
+        <a href="/fit-to-gpx" class="tool-card">
+          <div class="tool-card-icon">🏃</div>
+          <div class="tool-card-title">FIT to GPX</div>
+          <div class="tool-card-desc">Convert Garmin FIT activity files to universal GPX format.</div>
+        </a>
+        <a href="/fit-to-csv" class="tool-card">
+          <div class="tool-card-icon">📊</div>
+          <div class="tool-card-title">FIT to CSV</div>
+          <div class="tool-card-desc">Extract FIT workout data to CSV for detailed analysis.</div>
+        </a>
+        <a href="/csv-to-gpx" class="tool-card">
+          <div class="tool-card-icon">🔄</div>
+          <div class="tool-card-title">CSV to GPX</div>
+          <div class="tool-card-desc">Create GPX GPS tracks from CSV waypoint data.</div>
+        </a>
+        <a href="/kml-to-gpx" class="tool-card">
+          <div class="tool-card-icon">🗺</div>
+          <div class="tool-card-title">KML to GPX</div>
+          <div class="tool-card-desc">Convert Google Earth KML files to GPX for GPS devices.</div>
+        </a>
+      </div>
+
+      <h2 class="section-heading">Guides & References</h2>
+      <div class="tool-grid">
+        <a href="/guides/bank-statement-formats" class="tool-card">
+          <div class="tool-card-icon">📘</div>
+          <div class="tool-card-title">Bank Statement Formats</div>
+          <div class="tool-card-desc">Complete guide to OFX, QFX, QBO, CSV, and PDF bank statement formats.</div>
+        </a>
+        <a href="/guides/vcard-formats" class="tool-card">
+          <div class="tool-card-icon">📖</div>
+          <div class="tool-card-title">vCard Formats</div>
+          <div class="tool-card-desc">vCard 2.1 vs 3.0 vs 4.0 — differences, compatibility, and conversion.</div>
+        </a>
+        <a href="/guides/gps-formats" class="tool-card">
+          <div class="tool-card-icon">🗺</div>
+          <div class="tool-card-title">GPS Formats</div>
+          <div class="tool-card-desc">GPX vs KML vs FIT — choosing the right GPS file format.</div>
+        </a>
+        <a href="/guides/image-formats" class="tool-card">
+          <div class="tool-card-icon">🖼</div>
+          <div class="tool-card-title">Image Formats</div>
+          <div class="tool-card-desc">HEIC vs AVIF vs WebP vs JPEG vs PNG — web image format guide.</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- WHY CONVERTPIVOT -->
+    <section class="content-section" style="margin:48px auto 0;">
+      <h2>Why ConvertPivot?</h2>
+      <p>Most online file converters work the same way: you upload your file to their server, they convert it, you download the result. The trade-off most users don't think about: your file lives on their server, even if briefly.</p>
+      <p>ConvertPivot takes a fundamentally different approach. Every conversion runs locally in your browser using WebAssembly — the same technology that gives desktop-class performance on the web. Your files never leave your device. There is no server, no cloud storage, no account, and no data collection.</p>
+      <p>This architecture is verifiable: open your browser's Developer Tools → Network tab during any conversion and confirm that zero file data is transmitted. Your sensitive bank statements, contact databases, and private notebooks stay private.</p>
+
+      <h3>Complete Privacy</h3>
+      <p>Because everything runs client-side, your files never cross a network boundary. Financial documents, medical records, and legal files stay on your machine — through every step, until you download the result. No third party ever sees your data.</p>
+
+      <h3>No Limits, No Gates</h3>
+      <p>There are no daily conversion caps, no file size limits, no watermarks, and no "upgrade to unlock" dialogs. The free tier handles files as large as your browser memory permits. Premium tiers exist only to support optional cloud restore features — never to degrade the free experience.</p>
+
+      <h3>Works Everywhere</h3>
+      <p>All 25+ tools work on desktop and mobile browsers. You can convert files on a Chromebook, a locked-down work laptop, an iPad, or an Android phone — no installation required.</p>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="content-section" style="margin:48px auto 0;">
+      <h2>How It Works</h2>
+      <div class="how-it-works">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <h3>Drop Your File</h3>
+          <p>Drag and drop any supported file onto the converter widget, or click to browse.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <h3>Choose Output Format</h3>
+          <p>Select your target format and click Convert. Processing happens instantly on your device.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <h3>Download Result</h3>
+          <p>Your converted file downloads directly. No server, no queue, no signup.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="content-section" style="margin:48px auto 0;">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqLanding">
+        <div class="faq-item">
+          <button class="faq-question">Are ConvertPivot tools really free? <span class="arrow">▼</span></button>
+          <div class="faq-answer">Yes, all tools are completely free with no usage limits, no watermarks, and no signup required. We use display ads to keep the service running.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Do you upload my files to a server? <span class="arrow">▼</span></button>
+          <div class="faq-answer">No. Every conversion runs locally in your browser using WebAssembly and JavaScript. Your files are never uploaded to any server. You can verify this by opening your browser's Network tab during a conversion — zero file data is transmitted.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What file formats are supported? <span class="arrow">▼</span></button>
+          <div class="faq-answer">ConvertPivot supports 40+ conversion types across financial files (OFX, QFX, QBO), contacts (VCF, CSV, XLSX), notebooks (IPYNB), GPS data (GPX, KML, FIT), images (HEIC, AVIF, WebP, SVG), and developer tools (binary, hex, timestamp).</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Is there a file size limit? <span class="arrow">▼</span></button>
+          <div class="faq-answer">Your practical limit is your browser's available memory, typically 1-4 GB. Since files never leave your device, there are no server-imposed caps.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Can I use ConvertPivot on my phone? <span class="arrow">▼</span></button>
+          <div class="faq-answer">Yes. All tools work on mobile browsers including Chrome, Safari, and Firefox on both Android and iOS. Tap the drop zone to select files from your device.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Do I need to create an account? <span class="arrow">▼</span></button>
+          <div class="faq-answer">No account, email, or signup is required. Just open any tool, drop your file, and convert. No tracking, no data collection.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How is this different from other online converters? <span class="arrow">▼</span></button>
+          <div class="faq-answer">Most online converters upload your files to a server for processing. ConvertPivot runs every conversion locally in your browser using WebAssembly. Your files never leave your device, ensuring complete privacy. There are also no daily limits, no queues, and no upgrade gates.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What happens to my files after conversion? <span class="arrow">▼</span></button>
+          <div class="faq-answer">Files are processed entirely in your browser's memory. Once you close the tab or download the result, everything is discarded. No copy exists on any server because your data never left your device.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AD PLACEHOLDER -->
+    <div class="ad-container" style="max-width:720px;margin:36px auto 0;">Ad</div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/shared.js"></script>
+</body>
+</html>
