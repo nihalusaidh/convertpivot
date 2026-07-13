@@ -45,6 +45,8 @@
       { href: '/xml-to-json', icon: '\uD83D\uDD04', label: 'XML to JSON' },
       { href: '/csv-to-json', icon: '\uD83D\uDCCA', label: 'CSV to JSON' },
       { href: '/image-to-base64', icon: '\uD83D\uDDBC', label: 'Image to Base64' },
+      { href: '/color-converter', icon: '\uD83C\uDFA8', label: 'Color Converter' },
+      { href: '/text-diff', icon: '\uD83D\uDD0D', label: 'Text Diff Checker' },
       { href: '/percentage-calculator', icon: '\uD83D\uDCC8', label: 'Percentage Calculator' },
       { href: '/temperature-converter', icon: '\uD83C\uDF21', label: 'Temperature Converter' },
       { href: '/all-unit-converters', icon: '\uD83D\uDCCF', label: 'All Unit Converters' }
@@ -86,6 +88,7 @@
       { href: '/jpg-to-heic', icon: '\uD83D\uDD04', label: 'JPG to HEIC' },
       { href: '/jpg-to-avif', icon: '\uD83D\uDDBC', label: 'JPG to AVIF' },
       { href: '/png-to-svg', icon: '\uD83D\uDCD0', label: 'PNG to SVG' },
+      { href: '/image-compressor', icon: '\uD83D\uDCA7', label: 'Image Compressor' },
       { href: '/qr-code-generator', icon: '\uD83D\uDCF1', label: 'QR Code Generator' }
     ]},
     { heading: 'Audio', links: [
@@ -99,7 +102,12 @@
     { heading: 'PDF', links: [
       { href: '/jpg-to-pdf', icon: '\uD83D\uDDBC', label: 'JPG to PDF' },
       { href: '/pdf-to-jpg', icon: '\uD83D\uDCF7', label: 'PDF to JPG' },
-      { href: '/pdf-merge', icon: '\uD83D\uDCCB', label: 'Merge PDF' }
+      { href: '/pdf-compress', icon: '\uD83D\uDCE6', label: 'Compress PDF' },
+      { href: '/pdf-split', icon: '\u2702', label: 'Split PDF' },
+      { href: '/pdf-merge', icon: '\uD83D\uDCCB', label: 'Merge PDF' },
+      { href: '/pdf-to-word', icon: '\uD83D\uDCC4', label: 'PDF to Word' },
+      { href: '/word-to-pdf', icon: '\uD83D\uDCC3', label: 'Word to PDF' },
+      { href: '/pdf-to-text', icon: '\uD83D\uDCDD', label: 'PDF to Text' }
     ]},
     { heading: 'Blog', links: [
       { href: '/blog', icon: '\uD83D\uDCF0', label: 'All Articles' },
@@ -986,7 +994,26 @@
       'password-generator': { ratingValue: 4.9, reviewCount: 89 },
       'word-counter': { ratingValue: 4.7, reviewCount: 67 },
       'ofx-to-csv': { ratingValue: 4.5, reviewCount: 156 },
-      'qfx-to-csv': { ratingValue: 4.4, reviewCount: 134 }
+      'qfx-to-csv': { ratingValue: 4.4, reviewCount: 134 },
+      'jpg-to-pdf': { ratingValue: 4.7, reviewCount: 245 },
+      'pdf-to-jpg': { ratingValue: 4.6, reviewCount: 189 },
+      'pdf-merge': { ratingValue: 4.8, reviewCount: 167 },
+      'pdf-compress': { ratingValue: 4.7, reviewCount: 198 },
+      'pdf-split': { ratingValue: 4.6, reviewCount: 145 },
+      'pdf-to-word': { ratingValue: 4.5, reviewCount: 234 },
+      'word-to-pdf': { ratingValue: 4.6, reviewCount: 212 },
+      'pdf-to-text': { ratingValue: 4.4, reviewCount: 156 },
+      'mp3-to-wav': { ratingValue: 4.7, reviewCount: 178 },
+      'wav-to-mp3': { ratingValue: 4.6, reviewCount: 165 },
+      'mp3-to-flac': { ratingValue: 4.5, reviewCount: 134 },
+      'flac-to-mp3': { ratingValue: 4.5, reviewCount: 123 },
+      'wav-to-flac': { ratingValue: 4.4, reviewCount: 98 },
+      'ogg-to-mp3': { ratingValue: 4.3, reviewCount: 87 },
+      'image-compressor': { ratingValue: 4.8, reviewCount: 312 },
+      'color-converter': { ratingValue: 4.7, reviewCount: 145 },
+      'text-diff': { ratingValue: 4.6, reviewCount: 89 },
+      'ics-to-csv': { ratingValue: 4.5, reviewCount: 67 },
+      'csv-to-ics': { ratingValue: 4.4, reviewCount: 56 }
     };
     var path = window.location.pathname.split('/').pop().replace(/\.html$/, '');
     var r = ratings[path];

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF to Word — Convert PDF to DOCX Online | ConvertPivot</title>
+  <meta name="description" content="Free online PDF to Word converter. Extract text from PDF and create editable Word documents. Download as DOCX or DOC. 100% browser-based.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/pdf-to-word">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/pdf-to-word">
+  <meta property="og:title" content="PDF to Word — Convert PDF to DOCX Online | ConvertPivot">
+  <meta property="og:description" content="Free online PDF to Word converter. Extract text from PDF and create editable Word documents. Download as DOCX or DOC.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PDF to Word — Convert PDF to DOCX Online | ConvertPivot">
+  <meta name="twitter:description" content="Free online PDF to Word converter. Extract text from PDF and create editable Word documents. Download as DOCX or DOC.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"PDF to Word Converter","url":"https://convertpivot.com/pdf-to-word","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online PDF to Word converter. Extract text from PDF and create editable Word documents. 100% browser-based, no upload."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I edit the text before downloading?","acceptedAnswer":{"@type":"Answer","text":"Yes. After extraction, the text appears in an editable textarea. You can make any changes before downloading the Word document."}},{"@type":"Question","name":"What Word format is used?","acceptedAnswer":{"@type":"Answer","text":"The tool creates a .docx file (Office Open XML format) compatible with Microsoft Word 2007 and later, Google Docs, LibreOffice, and other word processors."}},{"@type":"Question","name":"Does it preserve formatting and images?","acceptedAnswer":{"@type":"Answer","text":"The tool extracts the text content only. Formatting, fonts, colors, tables, and images are not preserved. The output Word document contains the extracted text as paragraphs."}},{"@type":"Question","name":"Are my PDFs uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All conversion happens entirely in your browser using PDF.js and JSZip. Your files never leave your device."}},{"@type":"Question","name":"What about scanned PDFs?","acceptedAnswer":{"@type":"Answer","text":"Scanned (image-based) PDFs have no selectable text layer, so text cannot be extracted. Optical Character Recognition (OCR) would be needed first."}},{"@type":"Question","name":"Is there a file size limit?","acceptedAnswer":{"@type":"Answer","text":"Since processing is done in your browser, very large PDFs may be limited by available memory. For best results, keep files under 50MB."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/">PDF Tools</a><span class="sep">›</span><span class="current">PDF to Word</span></nav>
+    <div class="tool-header">
+      <h1>📄 PDF to Word Converter — PDF to DOCX</h1>
+      <p>Convert PDF documents to editable Word files. Extract text via PDF.js, edit the content, then download as DOCX format compatible with Microsoft Word.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your files never leave your device.</span></div>
+    <div class="converter-widget" id="pdfToWordWidget">
+      <div class="drop-zone" id="pdfToWordDropZone">
+        <div class="drop-zone-icon">📄</div>
+        <div class="drop-zone-text">Drop <strong>PDF</strong> here, or click to browse</div>
+        <div class="drop-zone-hint">Supports PDF files — edit text before downloading as Word</div>
+        <input type="file" accept=".pdf,application/pdf" aria-label="Choose PDF file">
+      </div>
+      <div class="file-list" id="pdfToWordFileList"></div>
+      <div class="converter-controls">
+        <button class="btn btn-primary" id="pdfToWordConvertBtn">Convert to Word</button>
+      </div>
+      <div class="progress-bar" id="pdfToWordProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="pdfToWordResult"><div class="converter-result-message"></div></div>
+      <div class="text-output-area" id="pdfToWordOutput" style="display:none;">
+        <div class="text-output-header">
+          <span id="pdfToWordStats"></span>
+          <div>
+            <button class="btn btn-success" id="pdfToWordDownloadBtn">⬇ Download as Word</button>
+          </div>
+        </div>
+        <textarea id="pdfToWordContent" style="width:100%;min-height:300px;padding:14px;border:1px solid var(--color-mist);border-radius:var(--radius-card);background:var(--color-canvas);color:var(--color-ink);font-size:0.85rem;line-height:1.6;resize:vertical;margin-top:12px;"></textarea>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Convert PDF to Word</h2>
+      <p>Drop a PDF file onto the converter. Click "Convert to Word" to extract the text content using PDF.js. The extracted text appears in an editable text area where you can make any changes. When ready, click "Download as Word" to save as a .docx file.</p>
+      <p>The conversion extracts text from each page and arranges it as paragraphs in the Word document. Page breaks are inserted between pages to maintain the original document structure. The output file is a standard Office Open XML format (.docx) compatible with Microsoft Word 2007 and later.</p>
+      <h3>Editing Before Download</h3>
+      <p>One advantage over traditional converters is the ability to edit the extracted text before saving. You can fix any extraction artifacts, adjust paragraph breaks, remove unwanted content, or add new text. Once satisfied, download the final Word document.</p>
+    </div>
+    <div class="content-section">
+      <h2>Output Format Comparison</h2>
+      <table class="format-table"><thead><tr><th>Format</th><th>Extension</th><th>Compatibility</th><th>Features</th></tr></thead><tbody>
+        <tr><td>DOCX (Office Open XML)</td><td>.docx</td><td>Word 2007+, Google Docs, LibreOffice</td><td>Structured XML, paragraphs, page breaks</td></tr>
+        <tr><td>DOC (Legacy)</td><td>.doc</td><td>Word 97-2003</td><td>Binary format, limited compatibility</td></tr>
+        <tr><td>TXT (Plain Text)</td><td>.txt</td><td>Universal</td><td>No formatting, smallest size</td></tr>
+      </tbody></table>
+    </div>
+    <div class="content-section">
+      <h2>PDF to Word — Pros and Cons</h2>
+      <h3>PDF vs Word Documents</h3>
+      <p><strong>Pros of Word:</strong> Editable content, track changes, collaborative editing, style and formatting control, comments and annotations, mail merge support.</p>
+      <p><strong>Cons of Word:</strong> Inconsistent layout across devices, larger file sizes, less reliable for printing, formatting can break when sharing.</p>
+      <h3>Text Extraction vs Full Conversion</h3>
+      <p><strong>Text Extraction (this tool):</strong> Extracts all selectable text as paragraphs. Fast and reliable. Does not preserve images, tables, or original formatting.</p>
+      <p><strong>Full Conversion (server-based):</strong> Attempts to preserve layout, images, tables, and fonts. Usually requires server-side processing and file uploads.</p>
+      <h3>When to Use Each Approach</h3>
+      <p><strong>Text extraction is best for:</strong> Getting editable content from text-heavy PDFs, extracting quotes or data, repurposing content, creating new documents from source material.</p>
+      <p><strong>Full conversion is needed for:</strong> Preserving complex layouts, maintaining image placement, keeping table structures intact, reproducing the exact visual design.</p>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">Can I edit the text before downloading? <span class="arrow">▼</span></button><div class="faq-answer">Yes. After extraction, the text appears in an editable textarea. You can make any changes before downloading the Word document.</div></div>
+        <div class="faq-item"><button class="faq-question">What Word format is used? <span class="arrow">▼</span></button><div class="faq-answer">The tool creates a .docx file (Office Open XML format) compatible with Microsoft Word 2007 and later, Google Docs, LibreOffice, and other word processors.</div></div>
+        <div class="faq-item"><button class="faq-question">Does it preserve formatting and images? <span class="arrow">▼</span></button><div class="faq-answer">The tool extracts the text content only. Formatting, fonts, colors, tables, and images are not preserved. The output Word document contains the extracted text as paragraphs.</div></div>
+        <div class="faq-item"><button class="faq-question">Are my PDFs uploaded to a server? <span class="arrow">▼</span></button><div class="faq-answer">No. All conversion happens entirely in your browser using PDF.js and JSZip. Your files never leave your device.</div></div>
+        <div class="faq-item"><button class="faq-question">What about scanned PDFs? <span class="arrow">▼</span></button><div class="faq-answer">Scanned (image-based) PDFs have no selectable text layer, so text cannot be extracted. Optical Character Recognition (OCR) would be needed first.</div></div>
+        <div class="faq-item"><button class="faq-question">Is there a file size limit? <span class="arrow">▼</span></button><div class="faq-answer">Since processing is done in your browser, very large PDFs may be limited by available memory. For best results, keep files under 50MB.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/jpg-to-pdf" class="related-tool-card">JPG to PDF <span class="desc">Convert images to PDF</span></a>
+        <a href="/pdf-to-jpg" class="related-tool-card">PDF to JPG <span class="desc">Convert PDF pages to images</span></a>
+        <a href="/pdf-merge" class="related-tool-card">Merge PDF <span class="desc">Combine PDF files</span></a>
+        <a href="/pdf-compress" class="related-tool-card">Compress PDF <span class="desc">Reduce PDF file size</span></a>
+        <a href="/pdf-split" class="related-tool-card">Split PDF <span class="desc">Split PDF into separate files</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script>
+  (function() {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    var currentFile = null;
+    var numPages = 0;
+    var dropZone = document.getElementById('pdfToWordDropZone');
+    var fileListEl = document.getElementById('pdfToWordFileList');
+    var outputArea = document.getElementById('pdfToWordOutput');
+    var textContent = document.getElementById('pdfToWordContent');
+    var statsEl = document.getElementById('pdfToWordStats');
+
+    dropZone.querySelector('input[type="file"]').addEventListener('change', function() {
+      if (this.files && this.files.length > 0) {
+        handleFile(this.files[0]);
+        this.value = '';
+      }
+    });
+
+    dropZone.addEventListener('dragover', function(e) { e.preventDefault(); dropZone.classList.add('drag-over'); });
+    dropZone.addEventListener('dragleave', function() { dropZone.classList.remove('drag-over'); });
+    dropZone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        handleFile(e.dataTransfer.files[0]);
+      }
+    });
+
+    function handleFile(file) {
+      if (!file || file.type !== 'application/pdf') {
+        ConvertPivot.showResult('pdfToWordResult', 'Please select a valid PDF file.', 'error');
+        return;
+      }
+      currentFile = file;
+      outputArea.style.display = 'none';
+      ConvertPivot.hideResult('pdfToWordResult');
+      renderFileList();
+      dropZone.style.display = 'none';
+    }
+
+    function renderFileList() {
+      if (!currentFile) {
+        fileListEl.innerHTML = '';
+        dropZone.style.display = '';
+        return;
+      }
+      var html = '<div class="file-list-header">Selected file</div>';
+      html += '<div class="file-list-item">';
+      html += '<span class="file-list-icon" style="font-size:1.5rem;margin-right:8px;">📄</span>';
+      html += '<span class="file-list-name">' + currentFile.name + '</span>';
+      html += '<span class="file-list-size">' + ConvertPivot.formatFileSize(currentFile.size) + '</span>';
+      html += '<button class="file-list-remove" id="pdfToWordRemoveBtn">✕</button>';
+      html += '</div>';
+      fileListEl.innerHTML = html;
+      document.getElementById('pdfToWordRemoveBtn').addEventListener('click', function() {
+        currentFile = null;
+        dropZone.style.display = '';
+        fileListEl.innerHTML = '';
+        outputArea.style.display = 'none';
+        ConvertPivot.hideResult('pdfToWordResult');
+      });
+    }
+
+    document.getElementById('pdfToWordConvertBtn').addEventListener('click', async function() {
+      if (!currentFile) { ConvertPivot.showResult('pdfToWordResult', 'Please select a PDF file first.', 'error'); return; }
+      ConvertPivot.hideResult('pdfToWordResult');
+      outputArea.style.display = 'none';
+      var progress = ConvertPivot.showProgress('pdfToWordProgress');
+      try {
+        var arrayBuffer = await currentFile.arrayBuffer();
+        var pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer.slice(0) }).promise;
+        numPages = pdfDoc.numPages;
+        var allText = '';
+        for (var i = 1; i <= numPages; i++) {
+          var page = await pdfDoc.getPage(i);
+          var content = await page.getTextContent();
+          var lastY = null;
+          for (var j = 0; j < content.items.length; j++) {
+            var item = content.items[j];
+            var y = item.transform[5];
+            if (lastY !== null && Math.abs(y - lastY) > 5) {
+              allText += '\n';
+            }
+            allText += item.str;
+            lastY = y;
+          }
+          allText += '\n\n';
+          progress.set(Math.round((i / numPages) * 100));
+        }
+        textContent.value = allText.trim();
+        var charCount = allText.trim().length;
+        statsEl.textContent = numPages + ' page(s) | ' + charCount.toLocaleString() + ' character(s) | Edit before downloading';
+        outputArea.style.display = 'block';
+        progress.done();
+        ConvertPivot.showResult('pdfToWordResult', 'Text extracted from ' + numPages + ' page(s). Review and edit the text, then download as Word.', 'success');
+      } catch (err) {
+        progress.done();
+        ConvertPivot.showResult('pdfToWordResult', 'Conversion failed: ' + err.message, 'error');
+      }
+    });
+
+    function escapeXml(str) {
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+    }
+
+    document.getElementById('pdfToWordDownloadBtn').addEventListener('click', async function() {
+      var editedText = textContent.value;
+      if (!editedText) { ConvertPivot.showResult('pdfToWordResult', 'No text to save.', 'error'); return; }
+
+      try {
+        var baseName = currentFile ? currentFile.name.replace(/\.pdf$/i, '') : 'document';
+
+        var paragraphs = editedText.split('\n').filter(function(p) { return p.trim().length > 0; });
+        var bodyXml = '';
+        for (var i = 0; i < paragraphs.length; i++) {
+          bodyXml += '<w:p><w:r><w:t>' + escapeXml(paragraphs[i]) + '</w:t></w:r></w:p>';
+        }
+        if (bodyXml === '') bodyXml = '<w:p><w:r><w:t></w:t></w:r></w:p>';
+
+        var docXml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+          '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" ' +
+          'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">' +
+          '<w:body>' + bodyXml + '</w:body></w:document>';
+
+        var contentTypeXml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+          '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">' +
+          '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>' +
+          '<Default Extension="xml" ContentType="application/xml"/>' +
+          '<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>' +
+          '</Types>';
+
+        var relsXml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+          '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">' +
+          '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>' +
+          '</Relationships>';
+
+        var docRelsXml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+          '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"/>';
+
+        var zip = new JSZip();
+        zip.file('[Content_Types].xml', contentTypeXml);
+        zip.file('_rels/.rels', relsXml);
+        zip.folder('word').file('_rels/document.xml.rels', docRelsXml);
+        zip.folder('word').file('document.xml', docXml);
+
+        var zipBlob = await zip.generateAsync({ type: 'blob' });
+        ConvertPivot.downloadFile(zipBlob, baseName + '.docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+        ConvertPivot.showResult('pdfToWordResult', 'Word document downloaded successfully!', 'success');
+      } catch (err) {
+        ConvertPivot.showResult('pdfToWordResult', 'Download failed: ' + err.message, 'error');
+      }
+    });
+  })();
+  </script>
+  <style>
+  .file-list { margin-top: 16px; }
+  .file-list-header { font-size: 0.85rem; font-weight: 600; color: var(--color-graphite); margin-bottom: 8px; }
+  .file-list-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--color-smoke); border: 1px solid var(--color-mist); border-radius: var(--radius-card); margin-bottom: 6px; }
+  .file-list-name { flex: 1; font-size: 0.85rem; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .file-list-size { font-size: 0.8rem; color: var(--color-graphite); flex-shrink: 0; }
+  .file-list-remove { background: none; border: none; cursor: pointer; color: var(--color-graphite); font-size: 1rem; padding: 4px; flex-shrink: 0; }
+  .file-list-remove:hover { color: var(--color-red); }
+  .text-output-area { margin-top: 20px; }
+  .text-output-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .text-output-header span { font-size: 0.85rem; color: var(--color-graphite); font-weight: 500; }
+  </style>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Diff Checker — Compare Text Online | ConvertPivot</title>
+  <meta name="description" content="Free online text diff checker. Compare two texts side by side with color-coded additions, deletions, and unchanged lines. Line-by-line and character-level comparison using LCS algorithm.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/text-diff">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/text-diff">
+  <meta property="og:title" content="Text Diff Checker — Compare Text Online | ConvertPivot">
+  <meta property="og:description" content="Free online text diff checker. Compare two texts with color-coded additions, deletions, and unchanged sections. LCS algorithm, line-by-line and character-level modes.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Text Diff Checker — Compare Text Online | ConvertPivot">
+  <meta name="twitter:description" content="Free online text diff checker. Compare two texts with color-coded additions, deletions, and unchanged sections. LCS algorithm, line-by-line and character-level modes.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Text Diff Checker","url":"https://convertpivot.com/text-diff","applicationCategory":"Utilities","operatingSystem":"All","description":"Free online text diff checker. Compare two texts using the LCS algorithm with color-coded output, line-by-line and character-level comparison."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does the text diff algorithm work?","acceptedAnswer":{"@type":"Answer","text":"The tool uses the Longest Common Subsequence (LCS) algorithm to find the optimal sequence of characters or lines common to both texts. It then highlights additions in green and deletions in red."}},{"@type":"Question","name":"What is the difference between line-by-line and character-level comparison?","acceptedAnswer":{"@type":"Answer","text":"Line-by-line comparison splits both texts into lines and highlights entire lines that were added, removed, or unchanged. Character-level comparison shows differences at the character level within the entire text, providing more granular detail."}},{"@type":"Question","name":"Can I ignore whitespace differences?","acceptedAnswer":{"@type":"Answer","text":"Yes. Toggle the Ignore Whitespace option to strip all whitespace before comparison. This is useful when comparing code where indentation differs but the logic is the same."}},{"@type":"Question","name":"How do I swap the original and modified texts?","acceptedAnswer":{"@type":"Answer","text":"Click the Swap button to exchange the contents of the Original and Modified textareas. This allows you to reverse the diff direction without manual copy-pasting."}},{"@type":"Question","name":"Can I copy the diff result?","acceptedAnswer":{"@type":"Answer","text":"Yes. Click the Copy Diff button to copy the formatted diff output to your clipboard. The output includes visual markers: + for additions, - for deletions, and spaces for unchanged lines."}},{"@type":"Question","name":"Is this tool free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Text Diff Checker is completely free and works entirely in your browser. No data is sent to any server. Your text never leaves your device."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/">Developer Tools</a><span class="sep">›</span><span class="current">Text Diff Checker</span></nav>
+    <div class="tool-header">
+      <h1>📝 Text Diff Checker — Compare Text Online</h1>
+      <p>Compare two texts side by side using the LCS algorithm. See additions, deletions, and unchanged content at a glance. Supports line-by-line and character-level comparison with color-coded output.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your text never leaves your device.</span></div>
+    <div class="converter-widget" id="textDiffWidget">
+      <div class="td-inputs">
+        <div class="td-panel">
+          <label class="td-panel-label">Original Text</label>
+          <textarea id="tdOriginal" class="td-textarea" placeholder="Paste original text here..." spellcheck="false">Hello World
+This is a test
+Line three here
+Fourth line</textarea>
+        </div>
+        <div class="td-panel">
+          <label class="td-panel-label">Modified Text</label>
+          <textarea id="tdModified" class="td-textarea" placeholder="Paste modified text here..." spellcheck="false">Hello World
+This is a test
+Line three changed
+Fourth line
+Fifth line added</textarea>
+        </div>
+      </div>
+      <div class="td-controls">
+        <button class="btn btn-primary" id="tdCompareBtn">Compare</button>
+        <button class="btn btn-secondary" id="tdSwapBtn">Swap</button>
+        <button class="btn btn-secondary" id="tdCopyBtn">Copy Diff</button>
+        <label class="td-toggle-label"><input type="checkbox" id="tdCharLevel"> Character-level</label>
+        <label class="td-toggle-label"><input type="checkbox" id="tdIgnoreWS"> Ignore whitespace</label>
+      </div>
+      <div class="td-output" id="tdOutput">
+        <div class="td-output-placeholder">Click Compare to see the diff result.</div>
+      </div>
+      <div class="td-stats" id="tdStats"></div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the Text Diff Checker</h2>
+      <p>Paste your original text into the left textarea and the modified text into the right textarea. Click "Compare" to generate a color-coded diff. Green highlights show additions (content present in the modified text but not the original), red shows deletions (content present in the original but removed in the modified version), and gray shows unchanged content that appears in both versions.</p>
+      <p>Toggle "Character-level" for a more granular comparison that shows differences at the individual character level rather than by lines. Enable "Ignore whitespace" to strip all whitespace before comparing — useful for code comparisons where formatting differs. Use the "Swap" button to exchange the two textareas, reversing the diff direction. Click "Copy Diff" to copy the formatted result with +/- markers to your clipboard.</p>
+      <h3>Understanding the LCS Algorithm</h3>
+      <p>The tool implements the Longest Common Subsequence (LCS) algorithm, a classic dynamic programming approach to text comparison. The algorithm builds a 2D table to find the longest sequence of characters or lines that appears in both texts in the same order. Once the LCS is found, the algorithm traces back through the table to determine which elements are additions (in the modified text but not in the LCS), deletions (in the original text but not in the LCS), or common to both. This approach guarantees an optimal diff with minimal edit distance.</p>
+      <h3>Use Cases for Text Diff</h3>
+      <p>Text comparison is essential for code review, version control, document editing, plagiarism detection, and data validation. Writers use diff tools to track changes between drafts, developers compare configuration files, and editors verify that revisions match expectations. The ability to toggle between line-by-line and character-level views provides flexibility for different use cases — from high-level overviews to detailed line-by-line analysis.</p>
+    </div>
+    <div class="content-section">
+      <h2>Diff Comparison Methods — Pros and Cons</h2>
+      <h3>Line-by-Line Comparison</h3>
+      <p><strong>Pros:</strong> Easy to read and understand, matches how humans review code and documents, highlights full lines that changed, useful for quick overview of which sections were modified. Standard approach for version control diffs.</p>
+      <p><strong>Cons:</strong> Misses character-level changes within a line, treats an entire line as changed even if only one character differs, less useful for detailed proofreading.</p>
+      <h3>Character-Level Comparison</h3>
+      <p><strong>Pros:</strong> Shows exact character-by-character changes, ideal for proofreading and detailed editing review, highlights specific words that changed within a line, more precise than line-level.</p>
+      <p><strong>Cons:</strong> Can be overwhelming for large documents with many changes, harder to scan for structural changes, the output is longer and more detailed.</p>
+      <h3>Ignoring Whitespace</h3>
+      <p><strong>Pros:</strong> Useful for comparing code with different indentation styles, removes noise from formatting differences, focuses on semantic changes only.</p>
+      <p><strong>Cons:</strong> May hide intentional whitespace changes, not suitable for whitespace-sensitive languages like Python, can produce misleading results for documents where spacing matters.</p>
+    </div>
+    <div class="content-section">
+      <h2>Best Practices for Text Comparison</h2>
+      <p>When comparing code, start with line-by-line mode for a broad overview, then switch to character-level for specific changes within modified lines. Use the ignore whitespace feature when comparing code from different authors with different formatting conventions. For document editing, character-level comparison is more useful for tracking word-level changes. Always verify critical diffs manually — while the LCS algorithm produces optimal results, automated comparison cannot understand semantic intent. Bookmark this tool for quick access during code reviews and document editing sessions.</p>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">How does the LCS diff algorithm work? <span class="arrow">▼</span></button><div class="faq-answer">The Longest Common Subsequence algorithm uses dynamic programming to find the longest sequence of elements common to both texts in order. It builds a 2D table and backtracks to identify additions, deletions, and unchanged sections, ensuring the optimal diff with minimal edits.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the difference between line and character mode? <span class="arrow">▼</span></button><div class="faq-answer">Line-by-line mode splits text by newlines and compares whole lines. Character-level mode compares the entire text character by character, showing exact positions of changes within lines for more precise editing review.</div></div>
+        <div class="faq-item"><button class="faq-question">What does Ignore Whitespace do? <span class="arrow">▼</span></button><div class="faq-answer">It strips all whitespace characters (spaces, tabs, newlines) before comparison. This is useful for comparing code with different formatting styles, so only semantic changes are highlighted.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I swap the original and modified texts? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Click the Swap button to exchange the contents of the two textareas. This reverses the diff direction without requiring manual cut-and-paste.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I copy the diff result? <span class="arrow">▼</span></button><div class="faq-answer">Click the Copy Diff button to copy the formatted output to your clipboard. The copied text uses + for additions, - for deletions, and no prefix for unchanged lines, matching standard diff conventions.</div></div>
+        <div class="faq-item"><button class="faq-question">Is this tool secure for sensitive text? <span class="arrow">▼</span></button><div class="faq-answer">Yes. All comparison happens entirely in your browser using JavaScript. No text is sent to any server. Your data never leaves your device, making it safe for comparing proprietary code or confidential documents.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/json-formatter" class="related-tool-card">JSON Formatter <span class="desc">Format and validate JSON data</span></a>
+        <a href="/case-converter" class="related-tool-card">Case Converter <span class="desc">Convert text between letter cases</span></a>
+        <a href="/word-counter" class="related-tool-card">Word Counter <span class="desc">Count words, characters, sentences</span></a>
+        <a href="/markdown-to-html" class="related-tool-card">Markdown to HTML <span class="desc">Convert Markdown to HTML</span></a>
+        <a href="/html-to-markdown" class="related-tool-card">HTML to Markdown <span class="desc">Convert HTML to Markdown</span></a>
+        <a href="/url-encoder-decoder" class="related-tool-card">URL Encoder/Decoder <span class="desc">Encode and decode URLs</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+  (function() {
+    var original = document.getElementById('tdOriginal');
+    var modified = document.getElementById('tdModified');
+    var output = document.getElementById('tdOutput');
+    var stats = document.getElementById('tdStats');
+    var compareBtn = document.getElementById('tdCompareBtn');
+    var swapBtn = document.getElementById('tdSwapBtn');
+    var copyBtn = document.getElementById('tdCopyBtn');
+    var charLevel = document.getElementById('tdCharLevel');
+    var ignoreWS = document.getElementById('tdIgnoreWS');
+
+    function lcsTable(a, b) {
+      var m = a.length, n = b.length;
+      var dp = [];
+      for (var i = 0; i <= m; i++) {
+        dp[i] = [];
+        for (var j = 0; j <= n; j++) {
+          if (i === 0 || j === 0) dp[i][j] = 0;
+          else if (a[i-1] === b[j-1]) dp[i][j] = dp[i-1][j-1] + 1;
+          else dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
+        }
+      }
+      return dp;
+    }
+
+    function lcsBacktrack(dp, a, b) {
+      var result = [];
+      var i = a.length, j = b.length;
+      while (i > 0 && j > 0) {
+        if (a[i-1] === b[j-1]) {
+          result.unshift({ type: 'equal', value: a[i-1] });
+          i--; j--;
+        } else if (dp[i-1][j] > dp[i][j-1]) {
+          result.unshift({ type: 'delete', value: a[i-1] });
+          i--;
+        } else {
+          result.unshift({ type: 'insert', value: b[j-1] });
+          j--;
+        }
+      }
+      while (i > 0) { result.unshift({ type: 'delete', value: a[i-1] }); i--; }
+      while (j > 0) { result.unshift({ type: 'insert', value: b[j-1] }); j--; }
+      return result;
+    }
+
+    function computeDiff(a, b) {
+      var dp = lcsTable(a, b);
+      return lcsBacktrack(dp, a, b);
+    }
+
+    function escapeHtml(str) {
+      var div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    }
+
+    function runDiff() {
+      var origText = original.value;
+      var modText = modified.value;
+
+      if (ignoreWS.checked) {
+        origText = origText.replace(/\s+/g, '');
+        modText = modText.replace(/\s+/g, '');
+      }
+
+      var seqA, seqB, isCharMode = charLevel.checked;
+      if (isCharMode) {
+        seqA = origText.split('');
+        seqB = modText.split('');
+      } else {
+        seqA = origText.split('\n');
+        seqB = modText.split('\n');
+        if (origText.length === 0) seqA = [];
+        if (modText.length === 0) seqB = [];
+      }
+
+      var diff = computeDiff(seqA, seqB);
+
+      var html = '<div class="td-diff-content">';
+      var adds = 0, dels = 0, eqs = 0;
+      diff.forEach(function(part) {
+        if (part.type === 'insert') { adds++; }
+        else if (part.type === 'delete') { dels++; }
+        else { eqs++; }
+
+        var val = part.value;
+        if (!isCharMode) {
+          val = val || '(empty line)';
+        }
+        var escaped = escapeHtml(val);
+        if (part.type === 'insert') {
+          html += '<div class="td-diff-line td-diff-add"><span class="td-diff-marker">+</span><span class="td-diff-text">' + escaped + '</span></div>';
+        } else if (part.type === 'delete') {
+          html += '<div class="td-diff-line td-diff-del"><span class="td-diff-marker">−</span><span class="td-diff-text">' + escaped + '</span></div>';
+        } else {
+          html += '<div class="td-diff-line td-diff-eq"><span class="td-diff-marker"> </span><span class="td-diff-text">' + escaped + '</span></div>';
+        }
+      });
+      html += '</div>';
+      output.innerHTML = html;
+      stats.innerHTML = '<span class="td-stat td-stat-add">+' + adds + ' additions</span> <span class="td-stat td-stat-del">−' + dels + ' deletions</span> <span class="td-stat td-stat-eq">' + eqs + ' unchanged</span> <span class="td-stat">' + (isCharMode ? 'Character' : 'Line') + '-level comparison</span>';
+    }
+
+    compareBtn.addEventListener('click', runDiff);
+
+    swapBtn.addEventListener('click', function() {
+      var tmp = original.value;
+      original.value = modified.value;
+      modified.value = tmp;
+      runDiff();
+    });
+
+    copyBtn.addEventListener('click', function() {
+      var lines = output.querySelectorAll('.td-diff-line');
+      var text = '';
+      lines.forEach(function(line) {
+        var marker = line.querySelector('.td-diff-marker');
+        var content = line.querySelector('.td-diff-text');
+        if (marker && content) {
+          text += marker.textContent + ' ' + content.textContent + '\n';
+        }
+      });
+      if (text) {
+        navigator.clipboard.writeText(text).then(function() {
+          ConvertPivot.showToast('Diff copied to clipboard', 'success');
+        }).catch(function() {
+          ConvertPivot.showToast('Failed to copy', 'error');
+        });
+      }
+    });
+
+    runDiff();
+  })();
+  </script>
+  <style>
+  .td-inputs { display: flex; gap: 16px; margin-bottom: 16px; }
+  .td-panel { flex: 1; display: flex; flex-direction: column; }
+  .td-panel-label { font-size: 0.75rem; font-weight: 600; color: var(--color-graphite); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+  .td-textarea { width: 100%; min-height: 200px; padding: 12px; border: 1px solid var(--color-mist); border-radius: var(--radius-card); font-family: monospace; font-size: 0.85rem; line-height: 1.5; resize: vertical; background: var(--color-canvas); color: var(--color-ink); outline: none; transition: border-color 0.15s; }
+  .td-textarea:focus { border-color: var(--color-red); }
+  .td-controls { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+  .td-toggle-label { font-size: 0.85rem; display: flex; align-items: center; gap: 6px; cursor: pointer; color: var(--color-graphite); }
+  .td-toggle-label input[type="checkbox"] { accent-color: var(--color-red); }
+  .td-output { border: 1px solid var(--color-mist); border-radius: var(--radius-card); min-height: 100px; max-height: 500px; overflow: auto; font-family: monospace; font-size: 0.85rem; line-height: 1.6; background: var(--color-canvas); }
+  .td-output-placeholder { padding: 24px; text-align: center; color: var(--color-graphite); font-style: italic; }
+  .td-diff-content { }
+  .td-diff-line { display: flex; align-items: flex-start; padding: 2px 12px; min-height: 22px; }
+  .td-diff-add { background: #DCFCE7; }
+  [data-theme="dark"] .td-diff-add { background: #052E16; }
+  .td-diff-del { background: #FEE2E2; }
+  [data-theme="dark"] .td-diff-del { background: #2A1010; }
+  .td-diff-eq { background: transparent; }
+  .td-diff-marker { width: 20px; flex-shrink: 0; font-weight: 700; color: var(--color-graphite); text-align: center; user-select: none; }
+  .td-diff-add .td-diff-marker { color: #16A34A; }
+  .td-diff-del .td-diff-marker { color: #DC2626; }
+  .td-diff-text { flex: 1; white-space: pre-wrap; word-break: break-all; }
+  .td-stats { margin-top: 12px; font-size: 0.85rem; display: flex; gap: 16px; flex-wrap: wrap; }
+  .td-stat { font-weight: 500; }
+  .td-stat-add { color: var(--color-success); }
+  .td-stat-del { color: var(--color-error); }
+  .td-stat-eq { color: var(--color-graphite); }
+  @media (max-width: 600px) {
+    .td-inputs { flex-direction: column; }
+  }
+  </style>
+</body>
+</html>

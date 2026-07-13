@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Converter — Hex, RGB, HSL, HSV, CMYK Converter | ConvertPivot</title>
+  <meta name="description" content="Free online color converter. Convert between Hex, RGB, HSL, HSV, and CMYK color formats. Real-time preview, color name lookup, and WCAG contrast ratio checker.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/color-converter">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/color-converter">
+  <meta property="og:title" content="Color Converter — Hex, RGB, HSL, HSV, CMYK Converter | ConvertPivot">
+  <meta property="og:description" content="Free online color converter. Convert between Hex, RGB, HSL, HSV, and CMYK color formats. Real-time preview, color name lookup, and WCAG contrast ratio checker.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Color Converter — Hex, RGB, HSL, HSV, CMYK Converter | ConvertPivot">
+  <meta name="twitter:description" content="Free online color converter. Convert between Hex, RGB, HSL, HSV, and CMYK color formats. Real-time preview, color name lookup, and WCAG contrast ratio checker.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Color Converter","url":"https://convertpivot.com/color-converter","applicationCategory":"Design","operatingSystem":"All","description":"Free online color converter supporting Hex, RGB, HSL, HSV, and CMYK formats with real-time preview, color names, and WCAG contrast ratios."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What color formats are supported?","acceptedAnswer":{"@type":"Answer","text":"The converter supports Hex (#RRGGBB), RGB (red, green, blue), HSL (hue, saturation, lightness), HSV (hue, saturation, value), and CMYK (cyan, magenta, yellow, black)."}},{"@type":"Question","name":"How do I convert Hex to RGB?","acceptedAnswer":{"@type":"Answer","text":"Enter a hex color code like #FF0000 in the Hex field. All other fields update automatically in real-time. The RGB values for #FF0000 are 255, 0, 0."}},{"@type":"Question","name":"What is the WCAG contrast ratio?","acceptedAnswer":{"@type":"Answer","text":"The WCAG contrast ratio measures the difference between two colors. A ratio of 4.5:1 is required for normal text (WCAG AA), and 7:1 for enhanced contrast (WCAG AAA). The tool shows the ratio of your color against white and black backgrounds."}},{"@type":"Question","name":"How does the color name lookup work?","acceptedAnswer":{"@type":"Answer","text":"The tool includes a built-in lookup table with 140+ named colors. When you enter a color, it finds the closest matching named color and displays its common name."}},{"@type":"Question","name":"Can I copy color values?","acceptedAnswer":{"@type":"Answer","text":"Yes. Each color format has a copy button that copies the current value to your clipboard. A toast notification confirms the copy action."}},{"@type":"Question","name":"What is the difference between HSL and HSV?","acceptedAnswer":{"@type":"Answer","text":"HSL (Hue, Saturation, Lightness) and HSV (Hue, Saturation, Value) are both cylindrical color models. HSL ranges lightness from black to white, while HSV ranges value from black to the full color. HSL is more intuitive for artists, while HSV matches how computer graphics hardware works."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/">Developer Tools</a><span class="sep">›</span><span class="current">Color Converter</span></nav>
+    <div class="tool-header">
+      <h1>🎨 Color Converter — Hex, RGB, HSL, HSV, CMYK</h1>
+      <p>Convert colors between Hex, RGB, HSL, HSV, and CMYK formats in real-time. View a live color swatch, find the closest named color, and check WCAG contrast ratios against white and black backgrounds.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. All conversion happens locally on your device.</span></div>
+    <div class="converter-widget" id="colorConverterWidget">
+      <div class="cc-preview" id="ccPreview">
+        <div class="cc-swatch" id="ccSwatch" style="background:#FF0000"></div>
+        <div class="cc-color-name" id="ccColorName">Red</div>
+      </div>
+      <div class="cc-inputs">
+        <div class="cc-group">
+          <label class="cc-label">Hex</label>
+          <div class="cc-row">
+            <input type="text" id="ccHex" value="#FF0000" class="cc-input cc-input-hex" maxlength="7">
+            <button class="cc-copy" data-copy="ccHex" aria-label="Copy Hex">📋</button>
+          </div>
+        </div>
+        <div class="cc-group">
+          <label class="cc-label">RGB</label>
+          <div class="cc-row">
+            <input type="number" id="ccR" min="0" max="255" value="255" class="cc-input cc-input-num"> <input type="number" id="ccG" min="0" max="255" value="0" class="cc-input cc-input-num"> <input type="number" id="ccB" min="0" max="255" value="0" class="cc-input cc-input-num">
+            <button class="cc-copy" data-copy="ccRgb" aria-label="Copy RGB">📋</button>
+          </div>
+        </div>
+        <div class="cc-group">
+          <label class="cc-label">HSL</label>
+          <div class="cc-row">
+            <input type="number" id="ccH" min="0" max="360" value="0" class="cc-input cc-input-num"> <input type="number" id="ccS" min="0" max="100" value="100" class="cc-input cc-input-num"> <input type="number" id="ccL" min="0" max="100" value="50" class="cc-input cc-input-num">
+            <button class="cc-copy" data-copy="ccHsl" aria-label="Copy HSL">📋</button>
+          </div>
+        </div>
+        <div class="cc-group">
+          <label class="cc-label">HSV</label>
+          <div class="cc-row">
+            <input type="number" id="ccHsvH" min="0" max="360" value="0" class="cc-input cc-input-num"> <input type="number" id="ccHsvS" min="0" max="100" value="100" class="cc-input cc-input-num"> <input type="number" id="ccV" min="0" max="100" value="100" class="cc-input cc-input-num">
+            <button class="cc-copy" data-copy="ccHsv" aria-label="Copy HSV">📋</button>
+          </div>
+        </div>
+        <div class="cc-group">
+          <label class="cc-label">CMYK</label>
+          <div class="cc-row">
+            <input type="number" id="ccC" min="0" max="100" value="0" class="cc-input cc-input-num"> <input type="number" id="ccM" min="0" max="100" value="100" class="cc-input cc-input-num"> <input type="number" id="ccY" min="0" max="100" value="100" class="cc-input cc-input-num"> <input type="number" id="ccK" min="0" max="100" value="0" class="cc-input cc-input-num">
+            <button class="cc-copy" data-copy="ccCmyk" aria-label="Copy CMYK">📋</button>
+          </div>
+        </div>
+      </div>
+      <div class="cc-contrast">
+        <div class="cc-contrast-title">WCAG Contrast Ratio</div>
+        <div class="cc-contrast-row">
+          <div class="cc-contrast-box"><span class="cc-contrast-bg" style="background:#FFFFFF;color:#000000" id="ccContrastWhite">White: 1.00:1</span></div>
+          <div class="cc-contrast-box"><span class="cc-contrast-bg" style="background:#000000;color:#FFFFFF" id="ccContrastBlack">Black: 21.00:1</span></div>
+        </div>
+        <div class="cc-contrast-detail" id="ccContrastDetail"></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the Color Converter</h2>
+      <p>Enter a color value in any of the supported formats — Hex, RGB, HSL, HSV, or CMYK. All other fields update automatically and in real-time as you type. A color swatch at the top previews the current color, and the closest named color from the built-in lookup table is displayed below it. Copy any format's value to your clipboard with the copy button next to each input group.</p>
+      <p>The WCAG contrast ratio section shows how your color performs against white and black backgrounds. A ratio of 4.5:1 or higher meets WCAG AA standards for normal text, while 7:1 or higher meets WCAG AAA standards. This is essential for ensuring your color choices are accessible to users with visual impairments.</p>
+      <h3>Understanding Color Models</h3>
+      <p><strong>Hex (#RRGGBB):</strong> A hexadecimal representation of RGB values. Each pair of characters represents red, green, and blue intensity from 00 to FF (0 to 255). Widely used in web design and CSS.</p>
+      <p><strong>RGB (Red, Green, Blue):</strong> An additive color model where values range from 0 to 255. Used by computer monitors, cameras, and digital displays. All colors are created by combining different intensities of red, green, and blue light.</p>
+      <p><strong>HSL (Hue, Saturation, Lightness):</strong> A cylindrical model where hue is the angle on the color wheel (0-360), saturation is the intensity (0-100%), and lightness is the brightness (0-100%). More intuitive for humans to understand and adjust.</p>
+      <p><strong>HSV (Hue, Saturation, Value):</strong> Similar to HSL but value represents the maximum intensity of the color rather than lightness. Commonly used in graphics software and color pickers.</p>
+      <p><strong>CMYK (Cyan, Magenta, Yellow, Key/Black):</strong> A subtractive color model used in printing. Values range from 0 to 100%. Colors are created by subtracting light using cyan, magenta, and yellow inks, with black added for depth.</p>
+    </div>
+    <div class="content-section">
+      <h2>Color Conversion Methods — Pros and Cons</h2>
+      <h3>Hex vs RGB</h3>
+      <p><strong>Pros of Hex:</strong> Compact 6-character notation, standard in CSS, easy to copy from design tools, widely used in web development. <strong>Cons:</strong> No alpha channel in 6-digit form, less intuitive than RGB, hard to adjust mentally.</p>
+      <h3>HSL vs HSV</h3>
+      <p><strong>Pros of HSL:</strong> Lightness is more intuitive for creating lighter and darker variants, excellent for design systems and theming, easy to create monochromatic palettes. <strong>Pros of HSV:</strong> Better for color picking in graphics software, matches how screens display color, preferred for image processing algorithms.</p>
+      <h3>RGB vs CMYK</h3>
+      <p><strong>Pros of RGB:</strong> Native to all digital displays, wider gamut than CMYK, no conversion needed for web and screen use. <strong>Pros of CMYK:</strong> Standard for print production, accurate color matching for physical output, used by all commercial printers.</p>
+    </div>
+    <div class="content-section">
+      <h2>Accessibility and Color Contrast</h2>
+      <p>Color accessibility is crucial for inclusive design. The WCAG (Web Content Accessibility Guidelines) define contrast ratio requirements to ensure text is readable by users with low vision or color blindness. The minimum contrast ratio for normal text is 4.5:1 (AA), and for large text it is 3:1 (AA). Enhanced requirements are 7:1 (AAA) for normal text and 4.5:1 (AAA) for large text. Use the contrast checker in this tool to verify your color combinations meet these standards before publishing.</p>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What color formats are supported? <span class="arrow">▼</span></button><div class="faq-answer">The converter supports Hex (#RRGGBB), RGB (0-255), HSL (0-360, 0-100%, 0-100%), HSV (0-360, 0-100%, 0-100%), and CMYK (0-100%). All fields update in real-time as you type.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I convert Hex to RGB? <span class="arrow">▼</span></button><div class="faq-answer">Enter a hex color code like #FF0000 in the Hex field. The RGB fields update automatically. For #FF0000, the RGB values are 255, 0, 0. You can also click the copy button next to RGB to copy the formatted value.</div></div>
+        <div class="faq-item"><button class="faq-question">What is WCAG contrast ratio and why is it important? <span class="arrow">▼</span></button><div class="faq-answer">The WCAG contrast ratio measures the luminance difference between two colors for accessibility. A 4.5:1 ratio is required for normal text (AA standard), and 7:1 for enhanced contrast (AAA). It ensures content is readable by people with visual impairments.</div></div>
+        <div class="faq-item"><button class="faq-question">How does the color name lookup work? <span class="arrow">▼</span></button><div class="faq-answer">The tool contains a database of over 140 named colors. When you enter a color, it finds the closest match by comparing RGB values using Euclidean distance and displays the color name below the swatch.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I copy a color value? <span class="arrow">▼</span></button><div class="faq-answer">Each color format has a clipboard button (📋) next to it. Click the button to copy the formatted value to your clipboard. A toast notification confirms the copy was successful.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the difference between HSL and HSV? <span class="arrow">▼</span></button><div class="faq-answer">HSL (Lightness) runs from black (0%) through the pure color (50%) to white (100%). HSV (Value) runs from black (0%) to the pure color at full intensity (100%). HSL is better for creating color variations, while HSV is better for color picking.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/hex-to-rgb" class="related-tool-card">Hex to RGB <span class="desc">Convert hex color codes to RGB values</span></a>
+        <a href="/image-to-base64" class="related-tool-card">Image to Base64 <span class="desc">Convert images to Base64 data URIs</span></a>
+        <a href="/binary-converter" class="related-tool-card">Binary Converter <span class="desc">Convert between number systems</span></a>
+        <a href="/temperature-converter" class="related-tool-card">Temperature Converter <span class="desc">Convert temperature scales</span></a>
+        <a href="/percentage-calculator" class="related-tool-card">Percentage Calculator <span class="desc">Calculate percentages easily</span></a>
+        <a href="/case-converter" class="related-tool-card">Case Converter <span class="desc">Convert text between cases</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+  (function() {
+    var colorNames = {
+      "#000000":"Black","#000080":"Navy","#00008B":"DarkBlue","#0000CD":"MediumBlue","#0000FF":"Blue","#006400":"DarkGreen","#008000":"Green","#008080":"Teal","#008B8B":"DarkCyan","#00BFFF":"DeepSkyBlue","#00CED1":"DarkTurquoise","#00FA9A":"MediumSpringGreen","#00FF00":"Lime","#00FF7F":"SpringGreen","#00FFFF":"Cyan","#191970":"MidnightBlue","#1E90FF":"DodgerBlue","#20B2AA":"LightSeaGreen","#228B22":"ForestGreen","#2E8B57":"SeaGreen","#2F4F4F":"DarkSlateGray","#32CD32":"LimeGreen","#3CB371":"MediumSeaGreen","#40E0D0":"Turquoise","#4169E1":"RoyalBlue","#4682B4":"SteelBlue","#483D8B":"DarkSlateBlue","#48D1CC":"MediumTurquoise","#4B0082":"Indigo","#556B2F":"DarkOliveGreen","#5B9BD5":"CornflowerBlue","#6495ED":"CornflowerBlue","#66CDAA":"MediumAquamarine","#696969":"DimGray","#6A5ACD":"SlateBlue","#6B8E23":"OliveDrab","#708090":"SlateGray","#778899":"LightSlateGray","#7B68EE":"MediumSlateBlue","#7CFC00":"LawnGreen","#7FFF00":"Chartreuse","#7FFFD4":"Aquamarine","#800000":"Maroon","#800080":"Purple","#808000":"Olive","#808080":"Gray","#87CEEB":"SkyBlue","#87CEFA":"LightSkyBlue","#8A2BE2":"BlueViolet","#8B0000":"DarkRed","#8B008B":"DarkMagenta","#8B4513":"SaddleBrown","#8FBC8F":"DarkSeaGreen","#90EE90":"LightGreen","#9370DB":"MediumPurple","#9400D3":"DarkViolet","#98FB98":"PaleGreen","#9932CC":"DarkOrchid","#9ACD32":"YellowGreen","#A0522D":"Sienna","#A52A2A":"Brown","#A9A9A9":"DarkGray","#ADD8E6":"LightBlue","#ADFF2F":"GreenYellow","#AFEEEE":"PaleTurquoise","#B0C4DE":"LightSteelBlue","#B0E0E6":"PowderBlue","#B22222":"FireBrick","#B8860B":"DarkGoldenrod","#BA55D3":"MediumOrchid","#BC8F8F":"RosyBrown","#BDB76B":"DarkKhaki","#C0C0C0":"Silver","#C71585":"MediumVioletRed","#CD5C5C":"IndianRed","#CD853F":"Peru","#D2691E":"Chocolate","#D2B48C":"Tan","#D3D3D3":"LightGray","#D8BFD8":"Thistle","#DA70D6":"Orchid","#DAA520":"Goldenrod","#DB7093":"PaleVioletRed","#DC143C":"Crimson","#DCDCDC":"Gainsboro","#DDA0DD":"Plum","#DEB887":"BurlyWood","#E0FFFF":"LightCyan","#E6E6FA":"Lavender","#E9967A":"DarkSalmon","#EE82EE":"Violet","#EEE8AA":"PaleGoldenrod","#F08080":"LightCoral","#F0E68C":"Khaki","#F0F8FF":"AliceBlue","#F0FFF0":"HoneyDew","#F0FFFF":"Azure","#F4A460":"SandyBrown","#F5DEB3":"Wheat","#F5F5DC":"Beige","#F5F5F5":"WhiteSmoke","#F5FFFA":"MintCream","#F8F8FF":"GhostWhite","#FA8072":"Salmon","#FAEBD7":"AntiqueWhite","#FAF0E6":"Linen","#FAFAD2":"LightGoldenrodYellow","#FDF5E6":"OldLace","#FF0000":"Red","#FF00FF":"Magenta","#FF1493":"DeepPink","#FF4500":"OrangeRed","#FF6347":"Tomato","#FF69B4":"HotPink","#FF7F50":"Coral","#FF8C00":"DarkOrange","#FFA07A":"LightSalmon","#FFA500":"Orange","#FFB6C1":"LightPink","#FFC0CB":"Pink","#FFD700":"Gold","#FFDAB9":"PeachPuff","#FFDEAD":"NavajoWhite","#FFE4B5":"Moccasin","#FFE4C4":"Bisque","#FFE4E1":"MistyRose","#FFEBCD":"BlanchedAlmond","#FFEFD5":"PapayaWhip","#FFF0F5":"LavenderBlush","#FFF5EE":"SeaShell","#FFF8DC":"Cornsilk","#FFFACD":"LemonChiffon","#FFFAF0":"FloralWhite","#FFFAFA":"Snow","#FFFF00":"Yellow","#FFFFE0":"LightYellow","#FFFFF0":"Ivory","#FFFFFF":"White"
+    };
+
+    function hexToRgb(hex) {
+      hex = hex.replace('#','');
+      if (hex.length === 3) hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+      var num = parseInt(hex, 16);
+      if (isNaN(num)) return null;
+      return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+    }
+
+    function rgbToHex(r, g, b) {
+      return '#' + [r,g,b].map(function(v) {
+        return ('0' + Math.round(v).toString(16)).slice(-2);
+      }).join('').toUpperCase();
+    }
+
+    function rgbToHsl(r, g, b) {
+      r /= 255; g /= 255; b /= 255;
+      var max = Math.max(r,g,b), min = Math.min(r,g,b);
+      var h, s, l = (max + min) / 2;
+      if (max === min) { h = 0; s = 0; }
+      else {
+        var d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        if (max === r) h = (g - b) / d + (g < b ? 6 : 0);
+        else if (max === g) h = (b - r) / d + 2;
+        else h = (r - g) / d + 4;
+        h /= 6;
+      }
+      return { h: Math.round(h * 360), s: Math.round(s * 100), l: Math.round(l * 100) };
+    }
+
+    function hslToRgb(h, s, l) {
+      h /= 360; s /= 100; l /= 100;
+      if (s === 0) { var v = Math.round(l * 255); return { r: v, g: v, b: v }; }
+      var hue2rgb = function(p,q,t) {
+        if (t < 0) t += 1;
+        if (t > 1) t -= 1;
+        if (t < 1/6) return p + (q - p) * 6 * t;
+        if (t < 1/2) return q;
+        if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+        return p;
+      };
+      var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+      var p = 2 * l - q;
+      return {
+        r: Math.round(hue2rgb(p, q, h + 1/3) * 255),
+        g: Math.round(hue2rgb(p, q, h) * 255),
+        b: Math.round(hue2rgb(p, q, h - 1/3) * 255)
+      };
+    }
+
+    function rgbToHsv(r, g, b) {
+      r /= 255; g /= 255; b /= 255;
+      var max = Math.max(r,g,b), min = Math.min(r,g,b);
+      var h, s = (max === 0) ? 0 : (1 - min / max), v = max;
+      if (max === min) { h = 0; }
+      else {
+        var d = max - min;
+        if (max === r) h = (g - b) / d + (g < b ? 6 : 0);
+        else if (max === g) h = (b - r) / d + 2;
+        else h = (r - g) / d + 4;
+        h /= 6;
+      }
+      return { h: Math.round(h * 360), s: Math.round(s * 100), v: Math.round(v * 100) };
+    }
+
+    function hsvToRgb(h, s, v) {
+      h /= 360; s /= 100; v /= 100;
+      var i = Math.floor(h * 6);
+      var f = h * 6 - i;
+      var p = v * (1 - s);
+      var q = v * (1 - f * s);
+      var t = v * (1 - (1 - f) * s);
+      var r, g, b;
+      switch (i % 6) {
+        case 0: r=v;g=t;b=p;break;
+        case 1: r=q;g=v;b=p;break;
+        case 2: r=p;g=v;b=t;break;
+        case 3: r=p;g=q;b=v;break;
+        case 4: r=t;g=p;b=v;break;
+        case 5: r=v;g=p;b=q;break;
+      }
+      return { r: Math.round(r*255), g: Math.round(g*255), b: Math.round(b*255) };
+    }
+
+    function rgbToCmyk(r, g, b) {
+      var c = 1 - (r / 255), m = 1 - (g / 255), y = 1 - (b / 255), k = Math.min(c, m, y);
+      if (k === 1) return { c: 0, m: 0, y: 0, k: 100 };
+      return {
+        c: Math.round((c - k) / (1 - k) * 100),
+        m: Math.round((m - k) / (1 - k) * 100),
+        y: Math.round((y - k) / (1 - k) * 100),
+        k: Math.round(k * 100)
+      };
+    }
+
+    function cmykToRgb(c, m, y, k) {
+      c /= 100; m /= 100; y /= 100; k /= 100;
+      return {
+        r: Math.round(255 * (1 - c) * (1 - k)),
+        g: Math.round(255 * (1 - m) * (1 - k)),
+        b: Math.round(255 * (1 - y) * (1 - k))
+      };
+    }
+
+    function relativeLuminance(r, g, b) {
+      var rs = r / 255, gs = g / 255, bs = b / 255;
+      rs = rs <= 0.03928 ? rs / 12.92 : Math.pow((rs + 0.055) / 1.055, 2.4);
+      gs = gs <= 0.03928 ? gs / 12.92 : Math.pow((gs + 0.055) / 1.055, 2.4);
+      bs = bs <= 0.03928 ? bs / 12.92 : Math.pow((bs + 0.055) / 1.055, 2.4);
+      return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs;
+    }
+
+    function contrastRatio(l1, l2) {
+      var lighter = Math.max(l1, l2), darker = Math.min(l1, l2);
+      return (lighter + 0.05) / (darker + 0.05);
+    }
+
+    function findColorName(hex) {
+      var key = hex.toUpperCase();
+      if (colorNames[key]) return colorNames[key];
+      var rgb = hexToRgb(hex);
+      if (!rgb) return 'Unknown';
+      var closest = null, minDist = Infinity;
+      for (var k in colorNames) {
+        var c = hexToRgb(k);
+        if (!c) continue;
+        var d = Math.pow(rgb.r-c.r,2)+Math.pow(rgb.g-c.g,2)+Math.pow(rgb.b-c.b,2);
+        if (d < minDist) { minDist = d; closest = colorNames[k]; }
+      }
+      return closest || 'Unknown';
+    }
+
+    var el = {
+      hex: document.getElementById('ccHex'),
+      r: document.getElementById('ccR'),
+      g: document.getElementById('ccG'),
+      b: document.getElementById('ccB'),
+      h: document.getElementById('ccH'),
+      s: document.getElementById('ccS'),
+      l: document.getElementById('ccL'),
+      hsvH: document.getElementById('ccHsvH'),
+      hsvS: document.getElementById('ccHsvS'),
+      v: document.getElementById('ccV'),
+      c: document.getElementById('ccC'),
+      m: document.getElementById('ccM'),
+      y: document.getElementById('ccY'),
+      k: document.getElementById('ccK'),
+      swatch: document.getElementById('ccSwatch'),
+      name: document.getElementById('ccColorName'),
+      cw: document.getElementById('ccContrastWhite'),
+      cb: document.getElementById('ccContrastBlack'),
+      cd: document.getElementById('ccContrastDetail')
+    };
+
+    var updating = false;
+
+    function updateFromRgb(r, g, b) {
+      if (updating) return;
+      updating = true;
+      r = Math.max(0, Math.min(255, Math.round(r)));
+      g = Math.max(0, Math.min(255, Math.round(g)));
+      b = Math.max(0, Math.min(255, Math.round(b)));
+      var hex = rgbToHex(r, g, b);
+      var hsl = rgbToHsl(r, g, b);
+      var hsv = rgbToHsv(r, g, b);
+      var cmyk = rgbToCmyk(r, g, b);
+      el.hex.value = hex;
+      el.r.value = r;
+      el.g.value = g;
+      el.b.value = b;
+      el.h.value = hsl.h;
+      el.s.value = hsl.s;
+      el.l.value = hsl.l;
+      el.hsvH.value = hsv.h;
+      el.hsvS.value = hsv.s;
+      el.v.value = hsv.v;
+      el.c.value = cmyk.c;
+      el.m.value = cmyk.m;
+      el.y.value = cmyk.y;
+      el.k.value = cmyk.k;
+      el.swatch.style.background = hex;
+      el.name.textContent = findColorName(hex);
+      var lum = relativeLuminance(r, g, b);
+      var cwR = contrastRatio(lum, relativeLuminance(255, 255, 255));
+      var cbR = contrastRatio(lum, relativeLuminance(0, 0, 0));
+      el.cw.textContent = 'White: ' + cwR.toFixed(2) + ':1';
+      el.cw.className = 'cc-contrast-bg' + (cwR >= 7 ? ' cc-aaa' : cwR >= 4.5 ? ' cc-aa' : cwR >= 3 ? ' cc-aalarge' : ' cc-fail');
+      el.cb.textContent = 'Black: ' + cbR.toFixed(2) + ':1';
+      el.cb.className = 'cc-contrast-bg' + (cbR >= 7 ? ' cc-aaa' : cbR >= 4.5 ? ' cc-aa' : cbR >= 3 ? ' cc-aalarge' : ' cc-fail');
+      var detail = '';
+      if (cwR >= 4.5) detail += '✓ Passes WCAG AA on white. ';
+      else detail += '✗ Fails WCAG AA on white. ';
+      if (cwR >= 7) detail += '✓ Passes WCAG AAA on white. ';
+      if (cbR >= 4.5) detail += '✓ Passes WCAG AA on black. ';
+      else detail += '✗ Fails WCAG AA on black. ';
+      if (cbR >= 7) detail += '✓ Passes WCAG AAA on black. ';
+      el.cd.textContent = detail;
+      updating = false;
+    }
+
+    el.hex.addEventListener('input', function() {
+      var v = this.value.trim();
+      if (v.length < 4) return;
+      if (v[0] !== '#') v = '#' + v;
+      var rgb = hexToRgb(v);
+      if (rgb) updateFromRgb(rgb.r, rgb.g, rgb.b);
+    });
+
+    function setupNumInput(elId, fn) {
+      document.getElementById(elId).addEventListener('input', function() {
+        if (updating) return;
+        fn();
+      });
+    }
+
+    setupNumInput('ccR', function() { updateFromRgb(el.r.value, el.g.value, el.b.value); });
+    setupNumInput('ccG', function() { updateFromRgb(el.r.value, el.g.value, el.b.value); });
+    setupNumInput('ccB', function() { updateFromRgb(el.r.value, el.g.value, el.b.value); });
+
+    setupNumInput('ccH', function() {
+      var hsl = { h: parseInt(el.h.value) || 0, s: parseInt(el.s.value) || 0, l: parseInt(el.l.value) || 0 };
+      var rgb = hslToRgb(hsl.h, hsl.s, hsl.l);
+      updateFromRgb(rgb.r, rgb.g, rgb.b);
+    });
+    setupNumInput('ccS', function() {
+      var hsl = { h: parseInt(el.h.value) || 0, s: parseInt(el.s.value) || 0, l: parseInt(el.l.value) || 0 };
+      var rgb = hslToRgb(hsl.h, hsl.s, hsl.l);
+      updateFromRgb(rgb.r, rgb.g, rgb.b);
+    });
+    setupNumInput('ccL', function() {
+      var hsl = { h: parseInt(el.h.value) || 0, s: parseInt(el.s.value) || 0, l: parseInt(el.l.value) || 0 };
+      var rgb = hslToRgb(hsl.h, hsl.s, hsl.l);
+      updateFromRgb(rgb.r, rgb.g, rgb.b);
+    });
+
+    setupNumInput('ccHsvH', function() {
+      var hsv = { h: parseInt(el.hsvH.value) || 0, s: parseInt(el.hsvS.value) || 0, v: parseInt(el.v.value) || 0 };
+      var rgb = hsvToRgb(hsv.h, hsv.s, hsv.v);
+      updateFromRgb(rgb.r, rgb.g, rgb.b);
+    });
+    setupNumInput('ccHsvS', function() {
+      var hsv = { h: parseInt(el.hsvH.value) || 0, s: parseInt(el.hsvS.value) || 0, v: parseInt(el.v.value) || 0 };
+      var rgb = hsvToRgb(hsv.h, hsv.s, hsv.v);
+      updateFromRgb(rgb.r, rgb.g, rgb.b);
+    });
+    setupNumInput('ccV', function() {
+      var hsv = { h: parseInt(el.hsvH.value) || 0, s: parseInt(el.hsvS.value) || 0, v: parseInt(el.v.value) || 0 };
+      var rgb = hsvToRgb(hsv.h, hsv.s, hsv.v);
+      updateFromRgb(rgb.r, rgb.g, rgb.b);
+    });
+
+    setupNumInput('ccC', function() {
+      var cmyk = { c: parseInt(el.c.value) || 0, m: parseInt(el.m.value) || 0, y: parseInt(el.y.value) || 0, k: parseInt(el.k.value) || 0 };
+      var rgb = cmykToRgb(cmyk.c, cmyk.m, cmyk.y, cmyk.k);
+      updateFromRgb(rgb.r, rgb.g, rgb.b);
+    });
+    setupNumInput('ccM', function() {
+      var cmyk = { c: parseInt(el.c.value) || 0, m: parseInt(el.m.value) || 0, y: parseInt(el.y.value) || 0, k: parseInt(el.k.value) || 0 };
+      var rgb = cmykToRgb(cmyk.c, cmyk.m, cmyk.y, cmyk.k);
+      updateFromRgb(rgb.r, rgb.g, rgb.b);
+    });
+    setupNumInput('ccY', function() {
+      var cmyk = { c: parseInt(el.c.value) || 0, m: parseInt(el.m.value) || 0, y: parseInt(el.y.value) || 0, k: parseInt(el.k.value) || 0 };
+      var rgb = cmykToRgb(cmyk.c, cmyk.m, cmyk.y, cmyk.k);
+      updateFromRgb(rgb.r, rgb.g, rgb.b);
+    });
+    setupNumInput('ccK', function() {
+      var cmyk = { c: parseInt(el.c.value) || 0, m: parseInt(el.m.value) || 0, y: parseInt(el.y.value) || 0, k: parseInt(el.k.value) || 0 };
+      var rgb = cmykToRgb(cmyk.c, cmyk.m, cmyk.y, cmyk.k);
+      updateFromRgb(rgb.r, rgb.g, rgb.b);
+    });
+
+    document.querySelectorAll('.cc-copy').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var target = this.getAttribute('data-copy');
+        var val = '';
+        switch (target) {
+          case 'ccHex': val = el.hex.value; break;
+          case 'ccRgb': val = el.r.value + ', ' + el.g.value + ', ' + el.b.value; break;
+          case 'ccHsl': val = el.h.value + ', ' + el.s.value + '%, ' + el.l.value + '%'; break;
+          case 'ccHsv': val = el.hsvH.value + ', ' + el.hsvS.value + '%, ' + el.v.value + '%'; break;
+          case 'ccCmyk': val = el.c.value + '%, ' + el.m.value + '%, ' + el.y.value + '%, ' + el.k.value + '%'; break;
+        }
+        if (val) {
+          navigator.clipboard.writeText(val).then(function() {
+            ConvertPivot.showToast('Copied: ' + val, 'success');
+          }).catch(function() {
+            ConvertPivot.showToast('Failed to copy', 'error');
+          });
+        }
+      });
+    });
+
+    updateFromRgb(255, 0, 0);
+  })();
+  </script>
+  <style>
+  .cc-preview { text-align: center; margin-bottom: 24px; }
+  .cc-swatch { width: 100%; height: 80px; border-radius: var(--radius-card); border: 2px solid var(--color-mist); margin-bottom: 8px; transition: background 0.1s; }
+  .cc-color-name { font-size: 1rem; font-weight: 700; color: var(--color-ink); }
+  .cc-inputs { display: flex; flex-direction: column; gap: 14px; }
+  .cc-group { }
+  .cc-label { font-size: 0.75rem; font-weight: 600; color: var(--color-graphite); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; display: block; }
+  .cc-row { display: flex; align-items: center; gap: 6px; }
+  .cc-input { padding: 8px 10px; border: 1px solid var(--color-mist); border-radius: var(--radius-pill); font-size: 0.85rem; background: var(--color-canvas); color: var(--color-ink); outline: none; font-family: monospace; transition: border-color 0.15s; }
+  .cc-input:focus { border-color: var(--color-red); }
+  .cc-input-hex { width: 100px; }
+  .cc-input-num { width: 70px; text-align: center; }
+  .cc-copy { background: var(--color-smoke); border: 1px solid var(--color-mist); border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 0.9rem; flex-shrink: 0; transition: background 0.15s, border-color 0.15s; }
+  .cc-copy:hover { background: var(--color-surface); border-color: var(--color-red); }
+  .cc-contrast { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--color-mist); }
+  .cc-contrast-title { font-size: 0.85rem; font-weight: 600; margin-bottom: 10px; }
+  .cc-contrast-row { display: flex; gap: 12px; margin-bottom: 8px; }
+  .cc-contrast-box { flex: 1; }
+  .cc-contrast-bg { display: block; padding: 10px 14px; border-radius: var(--radius-card); font-size: 0.85rem; font-weight: 600; text-align: center; }
+  .cc-aaa { background: #16A34A !important; color: #fff !important; }
+  .cc-aa { background: #65A30D !important; color: #fff !important; }
+  .cc-aalarge { background: #EAB308 !important; color: #000 !important; }
+  .cc-fail { background: #DC2626 !important; color: #fff !important; }
+  .cc-contrast-detail { font-size: 0.8rem; color: var(--color-graphite); line-height: 1.6; }
+  </style>
+</body>
+</html>

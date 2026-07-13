@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word to PDF — Convert DOCX to PDF Online | ConvertPivot</title>
+  <meta name="description" content="Free online Word to PDF converter. Convert DOCX files to PDF documents using mammoth.js and pdf-lib. Preview extracted content before downloading. 100% browser-based.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/word-to-pdf">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/word-to-pdf">
+  <meta property="og:title" content="Word to PDF — Convert DOCX to PDF Online | ConvertPivot">
+  <meta property="og:description" content="Free online Word to PDF converter. Convert DOCX files to PDF documents using mammoth.js and pdf-lib. 100% browser-based, no upload.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Word to PDF — Convert DOCX to PDF Online | ConvertPivot">
+  <meta name="twitter:description" content="Free online Word to PDF converter. Convert DOCX files to PDF documents using mammoth.js and pdf-lib. 100% browser-based, no upload.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Word to PDF Converter","url":"https://convertpivot.com/word-to-pdf","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online Word to PDF converter. Convert DOCX files to PDF using mammoth.js and pdf-lib. 100% browser-based, no upload."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I convert .doc files (not .docx)?","acceptedAnswer":{"@type":"Answer","text":"This tool supports .docx files (Office Open XML format). Older .doc files (binary format) are not supported directly. You can open the .doc file in Word or Google Docs and save as .docx first."}},{"@type":"Question","name":"Does the conversion preserve formatting?","acceptedAnswer":{"@type":"Answer","text":"The tool extracts the text content and basic structure (headings, paragraphs, lists) via mammoth.js and recreates it in the PDF. Complex formatting, tables, and images may not be preserved perfectly."}},{"@type":"Question","name":"Are my documents uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All conversion happens entirely in your browser using mammoth.js and pdf-lib. Your files never leave your device."}},{"@type":"Question","name":"What Word features are supported?","acceptedAnswer":{"@type":"Answer","text":"Mammoth.js supports paragraphs, headings (H1-H6), bold, italic, underline, lists (bulleted and numbered), and line breaks. Images are not embedded in the PDF output."}},{"@type":"Question","name":"Is there a file size limit?","acceptedAnswer":{"@type":"Answer","text":"Since processing happens in your browser, very large DOCX files may be limited by available memory. For best results, keep files under 50MB."}},{"@type":"Question","name":"Can I preview the content before converting?","acceptedAnswer":{"@type":"Answer","text":"Yes. After uploading, the extracted HTML content is displayed as a preview. You can review the document structure before clicking Convert to PDF."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/">PDF Tools</a><span class="sep">›</span><span class="current">Word to PDF</span></nav>
+    <div class="tool-header">
+      <h1>📄 Word to PDF Converter — DOCX to PDF</h1>
+      <p>Convert Word documents (.docx) to PDF format. Extract content via mammoth.js, preview the result, then generate a downloadable PDF using pdf-lib.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your files never leave your device.</span></div>
+    <div class="converter-widget" id="wordToPdfWidget">
+      <div class="drop-zone" id="wordToPdfDropZone">
+        <div class="drop-zone-icon">📄</div>
+        <div class="drop-zone-text">Drop <strong>Word document</strong> here, or click to browse</div>
+        <div class="drop-zone-hint">Supports .docx files — preview then convert to PDF</div>
+        <input type="file" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" aria-label="Choose Word file">
+      </div>
+      <div class="file-list" id="wordToPdfFileList"></div>
+      <div class="preview-area" id="wordToPdfPreview" style="display:none;">
+        <div class="file-list-header">Document preview</div>
+        <div class="preview-content" id="wordToPdfPreviewContent" style="padding:20px;border:1px solid var(--color-mist);border-radius:var(--radius-card);background:var(--color-smoke);margin-top:8px;max-height:400px;overflow-y:auto;font-size:0.9rem;line-height:1.7;"></div>
+      </div>
+      <div class="converter-controls">
+        <button class="btn btn-primary" id="wordToPdfConvertBtn">Convert to PDF</button>
+      </div>
+      <div class="progress-bar" id="wordToPdfProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="wordToPdfResult"><div class="converter-result-message"></div></div>
+    </div>
+    <div class="content-section">
+      <h2>How to Convert Word to PDF</h2>
+      <p>Drop a .docx file onto the converter. The document is read using mammoth.js which extracts the content as HTML. A preview shows the extracted text and basic structure. Click "Convert to PDF" to generate a PDF document from the extracted content using pdf-lib.</p>
+      <p>The conversion process reads paragraphs, headings, lists, and basic formatting from the Word document. Each paragraph becomes a line in the PDF. Headings are rendered with larger font sizes. Lists are converted to bullet-point format. The output PDF is a clean, text-based document.</p>
+      <h3>Supported Word Features</h3>
+      <p>Mammoth.js supports many common Word features including headings (H1 through H6), bold, italic, underline, bulleted and numbered lists, and line breaks. The extracted HTML preserves the document hierarchy, which is then used to structure the PDF output.</p>
+    </div>
+    <div class="content-section">
+      <h2>Word to PDF Feature Comparison</h2>
+      <table class="format-table"><thead><tr><th>Feature</th><th>Supported</th><th>Notes</th></tr></thead><tbody>
+        <tr><td>Paragraphs</td><td>Yes</td><td>Each paragraph becomes a text line in PDF</td></tr>
+        <tr><td>Headings (H1-H6)</td><td>Yes</td><td>Rendered with larger font sizes</td></tr>
+        <tr><td>Bold / Italic</td><td>Yes</td><td>Text emphasis preserved</td></tr>
+        <tr><td>Lists (bulleted/numbered)</td><td>Yes</td><td>Converted to bullet format</td></tr>
+        <tr><td>Images</td><td>No</td><td>Not embedded in PDF output</td></tr>
+        <tr><td>Tables</td><td>Partial</td><td>Table text extracted row by row</td></tr>
+      </tbody></table>
+    </div>
+    <div class="content-section">
+      <h2>Word to PDF — Pros and Cons</h2>
+      <h3>Word vs PDF for Document Sharing</h3>
+      <p><strong>Pros of PDF:</strong> Consistent layout across all devices and platforms, reliable printing, smaller file size for text documents, cannot be easily edited, universal compatibility with all PDF readers.</p>
+      <p><strong>Cons of PDF:</strong> Difficult to edit without specialized software, no track changes, no collaborative editing features, accessibility for screen readers varies.</p>
+      <h3>Mammoth.js vs Direct Conversion</h3>
+      <p><strong>Mammoth.js Approach:</strong> Browser-native, no server uploads required. Extracts clean semantic HTML from DOCX. Best for text-heavy documents where perfect layout fidelity is not critical.</p>
+      <p><strong>Server-based Conversion:</strong> Can preserve full layout including images, tables, headers, footers, and exact positioning. Requires uploading files to a third-party server with potential privacy concerns.</p>
+      <h3>When to Convert Word to PDF</h3>
+      <p><strong>Ideal for:</strong> Distributing documents that should not be edited, submitting forms and applications, archiving text content, sharing documents across different operating systems, creating e-book content.</p>
+      <p><strong>Not ideal for:</strong> Documents requiring strict visual fidelity with images and complex tables, documents with embedded charts or SmartArt, files needing password protection.</p>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">Can I convert .doc files (not .docx)? <span class="arrow">▼</span></button><div class="faq-answer">This tool supports .docx files (Office Open XML format). Older .doc files (binary format) are not supported directly. You can open the .doc file in Word or Google Docs and save as .docx first.</div></div>
+        <div class="faq-item"><button class="faq-question">Does the conversion preserve formatting? <span class="arrow">▼</span></button><div class="faq-answer">The tool extracts the text content and basic structure (headings, paragraphs, lists) via mammoth.js and recreates it in the PDF. Complex formatting, tables, and images may not be preserved perfectly.</div></div>
+        <div class="faq-item"><button class="faq-question">Are my documents uploaded to a server? <span class="arrow">▼</span></button><div class="faq-answer">No. All conversion happens entirely in your browser using mammoth.js and pdf-lib. Your files never leave your device.</div></div>
+        <div class="faq-item"><button class="faq-question">What Word features are supported? <span class="arrow">▼</span></button><div class="faq-answer">Mammoth.js supports paragraphs, headings (H1-H6), bold, italic, underline, lists (bulleted and numbered), and line breaks. Images are not embedded in the PDF output.</div></div>
+        <div class="faq-item"><button class="faq-question">Is there a file size limit? <span class="arrow">▼</span></button><div class="faq-answer">Since processing happens in your browser, very large DOCX files may be limited by available memory. For best results, keep files under 50MB.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I preview the content before converting? <span class="arrow">▼</span></button><div class="faq-answer">Yes. After uploading, the extracted HTML content is displayed as a preview. You can review the document structure before clicking Convert to PDF.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/jpg-to-pdf" class="related-tool-card">JPG to PDF <span class="desc">Convert images to PDF</span></a>
+        <a href="/pdf-to-jpg" class="related-tool-card">PDF to JPG <span class="desc">Convert PDF pages to images</span></a>
+        <a href="/pdf-merge" class="related-tool-card">Merge PDF <span class="desc">Combine PDF files</span></a>
+        <a href="/pdf-compress" class="related-tool-card">Compress PDF <span class="desc">Reduce PDF file size</span></a>
+        <a href="/pdf-split" class="related-tool-card">Split PDF <span class="desc">Split PDF into separate files</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth.js/1.6.0/mammoth.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script>
+  (function() {
+    var currentFile = null;
+    var extractedHtml = '';
+    var extractedText = '';
+    var dropZone = document.getElementById('wordToPdfDropZone');
+    var fileListEl = document.getElementById('wordToPdfFileList');
+    var previewArea = document.getElementById('wordToPdfPreview');
+    var previewContent = document.getElementById('wordToPdfPreviewContent');
+
+    dropZone.querySelector('input[type="file"]').addEventListener('change', function() {
+      if (this.files && this.files.length > 0) {
+        handleFile(this.files[0]);
+        this.value = '';
+      }
+    });
+
+    dropZone.addEventListener('dragover', function(e) { e.preventDefault(); dropZone.classList.add('drag-over'); });
+    dropZone.addEventListener('dragleave', function() { dropZone.classList.remove('drag-over'); });
+    dropZone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        handleFile(e.dataTransfer.files[0]);
+      }
+    });
+
+    function handleFile(file) {
+      if (!file || !file.name.match(/\.docx$/i)) {
+        ConvertPivot.showResult('wordToPdfResult', 'Please select a valid .docx file.', 'error');
+        return;
+      }
+      currentFile = file;
+      previewArea.style.display = 'none';
+      ConvertPivot.hideResult('wordToPdfResult');
+      renderFileList();
+      dropZone.style.display = 'none';
+      loadPreview();
+    }
+
+    function renderFileList() {
+      if (!currentFile) {
+        fileListEl.innerHTML = '';
+        dropZone.style.display = '';
+        return;
+      }
+      var html = '<div class="file-list-header">Selected file</div>';
+      html += '<div class="file-list-item">';
+      html += '<span class="file-list-icon" style="font-size:1.5rem;margin-right:8px;">📄</span>';
+      html += '<span class="file-list-name">' + currentFile.name + '</span>';
+      html += '<span class="file-list-size">' + ConvertPivot.formatFileSize(currentFile.size) + '</span>';
+      html += '<button class="file-list-remove" id="wordToPdfRemoveBtn">✕</button>';
+      html += '</div>';
+      fileListEl.innerHTML = html;
+      document.getElementById('wordToPdfRemoveBtn').addEventListener('click', function() {
+        currentFile = null;
+        dropZone.style.display = '';
+        fileListEl.innerHTML = '';
+        previewArea.style.display = 'none';
+        extractedHtml = '';
+        extractedText = '';
+        ConvertPivot.hideResult('wordToPdfResult');
+      });
+    }
+
+    async function loadPreview() {
+      try {
+        var arrayBuffer = await currentFile.arrayBuffer();
+        var result = await mammoth.convertToHtml({ arrayBuffer: arrayBuffer.slice(0) });
+        extractedHtml = result.value;
+        var tempDiv = document.createElement('div');
+        tempDiv.innerHTML = extractedHtml;
+        extractedText = tempDiv.textContent || tempDiv.innerText || '';
+        previewContent.innerHTML = extractedHtml;
+        previewArea.style.display = 'block';
+      } catch (err) {
+        ConvertPivot.showResult('wordToPdfResult', 'Failed to read document: ' + err.message, 'error');
+      }
+    }
+
+    function escapePdfText(str) {
+      return str.replace(/\\/g, '\\\\').replace(/\(/g, '\\(').replace(/\)/g, '\\)');
+    }
+
+    document.getElementById('wordToPdfConvertBtn').addEventListener('click', async function() {
+      if (!currentFile) { ConvertPivot.showResult('wordToPdfResult', 'Please select a .docx file first.', 'error'); return; }
+      ConvertPivot.hideResult('wordToPdfResult');
+      var progress = ConvertPivot.showProgress('wordToPdfProgress');
+      try {
+        if (!extractedText) {
+          var ab = await currentFile.arrayBuffer();
+          var res = await mammoth.convertToHtml({ arrayBuffer: ab.slice(0) });
+          extractedHtml = res.value;
+          var d = document.createElement('div');
+          d.innerHTML = extractedHtml;
+          extractedText = d.textContent || d.innerText || '';
+        }
+
+        var pdfDoc = await PDFLib.PDFDocument.create();
+        var font = await pdfDoc.embedFont(PDFLib.StandardFonts.Helvetica);
+        var boldFont = await pdfDoc.embedFont(PDFLib.StandardFonts.HelveticaBold);
+
+        var pageWidth = 515;
+        var pageHeight = 752;
+        var margin = 50;
+        var maxWidth = pageWidth - margin * 2;
+        var lineHeight = 14;
+        var fontSize = 11;
+        var yPos = pageHeight - margin;
+
+        function addNewPage() {
+          var page = pdfDoc.addPage([pageWidth, pageHeight]);
+          yPos = pageHeight - margin;
+          return page;
+        }
+
+        var currentPage = addNewPage();
+        var lines = extractedText.split('\n');
+
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i].trim();
+          if (line.length === 0) {
+            yPos -= lineHeight * 0.6;
+            continue;
+          }
+
+          var words = line.split(' ');
+          var currentLine = '';
+
+          for (var w = 0; w < words.length; w++) {
+            var testLine = currentLine + (currentLine ? ' ' : '') + words[w];
+            var textWidth = font.widthOfTextAtSize(testLine, fontSize);
+            if (textWidth > maxWidth && currentLine) {
+              if (yPos < margin) currentPage = addNewPage();
+              currentPage.drawText(currentLine, { x: margin, y: yPos, size: fontSize, font: font });
+              yPos -= lineHeight;
+              currentLine = words[w];
+            } else {
+              currentLine = testLine;
+            }
+          }
+
+          if (currentLine) {
+            if (yPos < margin) currentPage = addNewPage();
+            currentPage.drawText(currentLine, { x: margin, y: yPos, size: fontSize, font: font });
+            yPos -= lineHeight;
+          }
+
+          progress.set(Math.round(((i + 1) / lines.length) * 100));
+        }
+
+        var pdfBytes = await pdfDoc.save();
+        progress.done();
+
+        var blob = new Blob([pdfBytes], { type: 'application/pdf' });
+        var url = URL.createObjectURL(blob);
+        var baseName = currentFile.name.replace(/\.docx$/i, '');
+        var resultHtml = 'PDF created successfully!<br>' + lines.length + ' lines converted.<br>';
+        resultHtml += '<a href="' + url + '" class="btn btn-success" download="' + baseName + '.pdf">Download PDF</a>';
+        ConvertPivot.showResult('wordToPdfResult', resultHtml, 'success', true);
+      } catch (err) {
+        progress.done();
+        ConvertPivot.showResult('wordToPdfResult', 'Conversion failed: ' + err.message, 'error');
+      }
+    });
+  })();
+  </script>
+  <style>
+  .file-list { margin-top: 16px; }
+  .file-list-header { font-size: 0.85rem; font-weight: 600; color: var(--color-graphite); margin-bottom: 8px; }
+  .file-list-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--color-smoke); border: 1px solid var(--color-mist); border-radius: var(--radius-card); margin-bottom: 6px; }
+  .file-list-name { flex: 1; font-size: 0.85rem; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .file-list-size { font-size: 0.8rem; color: var(--color-graphite); flex-shrink: 0; }
+  .file-list-remove { background: none; border: none; cursor: pointer; color: var(--color-graphite); font-size: 1rem; padding: 4px; flex-shrink: 0; }
+  .file-list-remove:hover { color: var(--color-red); }
+  .preview-area { margin-top: 16px; }
+  .preview-content h1 { font-size: 1.3rem; font-weight: 700; margin: 12px 0 6px; }
+  .preview-content h2 { font-size: 1.1rem; font-weight: 700; margin: 10px 0 5px; }
+  .preview-content h3 { font-size: 1rem; font-weight: 600; margin: 8px 0 4px; }
+  .preview-content p { margin-bottom: 8px; }
+  .preview-content ul, .preview-content ol { padding-left: 20px; margin-bottom: 8px; }
+  .preview-content li { margin-bottom: 4px; }
+  </style>
+</body>
+</html>

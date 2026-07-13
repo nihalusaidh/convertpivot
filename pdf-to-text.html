@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF to Text — Extract Text from PDF Online | ConvertPivot</title>
+  <meta name="description" content="Free online PDF to text extractor. Extract and copy text from PDF documents using PDF.js. Download extracted text as .txt file. 100% browser-based.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/pdf-to-text">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/pdf-to-text">
+  <meta property="og:title" content="PDF to Text — Extract Text from PDF Online | ConvertPivot">
+  <meta property="og:description" content="Free online PDF to text extractor. Extract and copy text from PDF documents using PDF.js. Download extracted text as .txt file.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PDF to Text — Extract Text from PDF Online | ConvertPivot">
+  <meta name="twitter:description" content="Free online PDF to text extractor. Extract and copy text from PDF documents using PDF.js. Download extracted text as .txt file.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"PDF to Text Extractor","url":"https://convertpivot.com/pdf-to-text","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online PDF to text extractor. Extract text from PDF documents using PDF.js. 100% browser-based, no upload."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How accurate is the text extraction?","acceptedAnswer":{"@type":"Answer","text":"PDF.js provides excellent text extraction for text-based PDFs. Scanned documents (image-based PDFs) may produce limited results since they contain no selectable text layer."}},{"@type":"Question","name":"Can I extract text from scanned PDFs?","acceptedAnswer":{"@type":"Answer","text":"This tool extracts the existing text layer from PDFs. Scanned documents are essentially images and do not contain selectable text. For scanned PDFs, you would need OCR software first."}},{"@type":"Question","name":"What is the maximum file size?","acceptedAnswer":{"@type":"Answer","text":"Since processing happens in your browser, very large PDFs may be limited by available memory. For best results, keep files under 50MB."}},{"@type":"Question","name":"Are my PDFs uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All text extraction happens entirely in your browser using PDF.js. Your files never leave your device."}},{"@type":"Question","name":"Can I copy the extracted text to clipboard?","acceptedAnswer":{"@type":"Answer","text":"Yes. After extraction, a Copy to Clipboard button lets you copy all extracted text with one click. You can also manually select text in the output area."}},{"@type":"Question","name":"What text encoding is used in the output?","acceptedAnswer":{"@type":"Answer","text":"The extracted text is output as UTF-8 plain text (.txt file). This ensures compatibility with all text editors and platforms."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/">PDF Tools</a><span class="sep">›</span><span class="current">PDF to Text</span></nav>
+    <div class="tool-header">
+      <h1>📝 PDF to Text Extractor — Extract Text from PDF</h1>
+      <p>Extract all text content from PDF documents using PDF.js. View extracted text, copy to clipboard, or download as a plain text file.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your files never leave your device.</span></div>
+    <div class="converter-widget" id="pdfToTextWidget">
+      <div class="drop-zone" id="pdfToTextDropZone">
+        <div class="drop-zone-icon">📄</div>
+        <div class="drop-zone-text">Drop <strong>PDF</strong> here, or click to browse</div>
+        <div class="drop-zone-hint">Supports PDF files — extracts all text content</div>
+        <input type="file" accept=".pdf,application/pdf" aria-label="Choose PDF file">
+      </div>
+      <div class="file-list" id="pdfToTextFileList"></div>
+      <div class="converter-controls">
+        <button class="btn btn-primary" id="pdfToTextConvertBtn">Extract Text</button>
+      </div>
+      <div class="progress-bar" id="pdfToTextProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="pdfToTextResult"><div class="converter-result-message"></div></div>
+      <div class="text-output-area" id="pdfToTextOutput" style="display:none;">
+        <div class="text-output-header">
+          <span id="pdfToTextStats"></span>
+          <div>
+            <button class="btn btn-secondary" id="pdfToTextCopyBtn">📋 Copy to Clipboard</button>
+            <button class="btn btn-success" id="pdfToTextDownloadBtn">⬇ Download .txt</button>
+          </div>
+        </div>
+        <textarea id="pdfToTextContent" readonly style="width:100%;min-height:300px;padding:14px;border:1px solid var(--color-mist);border-radius:var(--radius-card);background:var(--color-smoke);color:var(--color-ink);font-size:0.85rem;font-family:monospace;line-height:1.6;resize:vertical;margin-top:12px;"></textarea>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Extract Text from PDF</h2>
+      <p>Drop a PDF file onto the converter. Click "Extract Text" to process the document. PDF.js reads each page and extracts the selectable text content. The extracted text appears in a text area where you can review, copy, or download it as a .txt file.</p>
+      <p>Text extraction works best on digital-born PDFs that have a selectable text layer. Scanned documents (image-based PDFs) may produce limited or no results because they lack underlying text data. For scanned documents, OCR preprocessing is required.</p>
+      <h3>What Text Can Be Extracted</h3>
+      <p>PDF.js extracts all text items positioned on each page, including headings, paragraphs, table content, and list items. The text is ordered by position on the page (top-to-bottom, left-to-right). Formatting, fonts, colors, and images are not preserved in the text output.</p>
+    </div>
+    <div class="content-section">
+      <h2>Text Extraction Quality Comparison</h2>
+      <table class="format-table"><thead><tr><th>PDF Type</th><th>Text Quality</th><th>Notes</th></tr></thead><tbody>
+        <tr><td>Digital-born (Word, Google Docs)</td><td>Excellent</td><td>Full text layer, perfect extraction</td></tr>
+        <tr><td>Web-generated (HTML to PDF)</td><td>Good</td><td>Clean text, minor spacing issues</td></tr>
+        <tr><td>Scanned (image-based)</td><td>None</td><td>No text layer — OCR needed first</td></tr>
+        <tr><td>Mixed (text + images)</td><td>Good</td><td>Text parts extract, images ignored</td></tr>
+      </tbody></table>
+    </div>
+    <div class="content-section">
+      <h2>PDF to Text — Pros and Cons</h2>
+      <h3>Extracted Text vs Original PDF</h3>
+      <p><strong>Pros of Text Extraction:</strong> Editable plain text format, searchable content, small file size, can be used in any text editor or word processor, compatible with data processing tools.</p>
+      <p><strong>Cons of Text Extraction:</strong> Loses all formatting, fonts, colors, images, and layout. Table structure is not preserved. Page numbers and headers may appear in unexpected positions.</p>
+      <h3>Plain Text vs Other Output Formats</h3>
+      <p><strong>Plain Text (.txt):</strong> Universal format, opens in any application, smallest file size. No formatting or structure preserved.</p>
+      <p><strong>Rich Formats (DOCX, HTML):</strong> Preserve some formatting and structure but require more complex processing. Use our PDF to Word tool for DOCX output.</p>
+      <h3>When to Use Text Extraction</h3>
+      <p><strong>Ideal for:</strong> Copying quotes, extracting data from forms, processing PDF content in scripts, archiving readable content, searching through document text.</p>
+      <p><strong>Not ideal for:</strong> Preserving original document layout, maintaining visual hierarchy, extracting images or graphics, reproducing tables with columns.</p>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">How accurate is the text extraction? <span class="arrow">▼</span></button><div class="faq-answer">PDF.js provides excellent text extraction for text-based PDFs. Scanned documents (image-based PDFs) may produce limited results since they contain no selectable text layer.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I extract text from scanned PDFs? <span class="arrow">▼</span></button><div class="faq-answer">This tool extracts the existing text layer from PDFs. Scanned documents are essentially images and do not contain selectable text. For scanned PDFs, you would need OCR software first.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the maximum file size? <span class="arrow">▼</span></button><div class="faq-answer">Since processing happens in your browser, very large PDFs may be limited by available memory. For best results, keep files under 50MB.</div></div>
+        <div class="faq-item"><button class="faq-question">Are my PDFs uploaded to a server? <span class="arrow">▼</span></button><div class="faq-answer">No. All text extraction happens entirely in your browser using PDF.js. Your files never leave your device.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I copy the extracted text to clipboard? <span class="arrow">▼</span></button><div class="faq-answer">Yes. After extraction, a Copy to Clipboard button lets you copy all extracted text with one click. You can also manually select text in the output area.</div></div>
+        <div class="faq-item"><button class="faq-question">What text encoding is used in the output? <span class="arrow">▼</span></button><div class="faq-answer">The extracted text is output as UTF-8 plain text (.txt file). This ensures compatibility with all text editors and platforms.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/jpg-to-pdf" class="related-tool-card">JPG to PDF <span class="desc">Convert images to PDF</span></a>
+        <a href="/pdf-to-jpg" class="related-tool-card">PDF to JPG <span class="desc">Convert PDF pages to images</span></a>
+        <a href="/pdf-merge" class="related-tool-card">Merge PDF <span class="desc">Combine PDF files</span></a>
+        <a href="/pdf-compress" class="related-tool-card">Compress PDF <span class="desc">Reduce PDF file size</span></a>
+        <a href="/pdf-split" class="related-tool-card">Split PDF <span class="desc">Split PDF into separate files</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+  (function() {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    var currentFile = null;
+    var extractedText = '';
+    var dropZone = document.getElementById('pdfToTextDropZone');
+    var fileListEl = document.getElementById('pdfToTextFileList');
+    var outputArea = document.getElementById('pdfToTextOutput');
+    var textContent = document.getElementById('pdfToTextContent');
+    var statsEl = document.getElementById('pdfToTextStats');
+
+    dropZone.querySelector('input[type="file"]').addEventListener('change', function() {
+      if (this.files && this.files.length > 0) {
+        handleFile(this.files[0]);
+        this.value = '';
+      }
+    });
+
+    dropZone.addEventListener('dragover', function(e) { e.preventDefault(); dropZone.classList.add('drag-over'); });
+    dropZone.addEventListener('dragleave', function() { dropZone.classList.remove('drag-over'); });
+    dropZone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        handleFile(e.dataTransfer.files[0]);
+      }
+    });
+
+    function handleFile(file) {
+      if (!file || file.type !== 'application/pdf') {
+        ConvertPivot.showResult('pdfToTextResult', 'Please select a valid PDF file.', 'error');
+        return;
+      }
+      currentFile = file;
+      outputArea.style.display = 'none';
+      ConvertPivot.hideResult('pdfToTextResult');
+      renderFileList();
+      dropZone.style.display = 'none';
+    }
+
+    function renderFileList() {
+      if (!currentFile) {
+        fileListEl.innerHTML = '';
+        dropZone.style.display = '';
+        return;
+      }
+      var html = '<div class="file-list-header">Selected file</div>';
+      html += '<div class="file-list-item">';
+      html += '<span class="file-list-icon" style="font-size:1.5rem;margin-right:8px;">📄</span>';
+      html += '<span class="file-list-name">' + currentFile.name + '</span>';
+      html += '<span class="file-list-size">' + ConvertPivot.formatFileSize(currentFile.size) + '</span>';
+      html += '<button class="file-list-remove" id="pdfToTextRemoveBtn">✕</button>';
+      html += '</div>';
+      fileListEl.innerHTML = html;
+      document.getElementById('pdfToTextRemoveBtn').addEventListener('click', function() {
+        currentFile = null;
+        dropZone.style.display = '';
+        fileListEl.innerHTML = '';
+        outputArea.style.display = 'none';
+        ConvertPivot.hideResult('pdfToTextResult');
+      });
+    }
+
+    document.getElementById('pdfToTextConvertBtn').addEventListener('click', async function() {
+      if (!currentFile) { ConvertPivot.showResult('pdfToTextResult', 'Please select a PDF file first.', 'error'); return; }
+      ConvertPivot.hideResult('pdfToTextResult');
+      outputArea.style.display = 'none';
+      var progress = ConvertPivot.showProgress('pdfToTextProgress');
+      try {
+        var arrayBuffer = await currentFile.arrayBuffer();
+        var pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer.slice(0) }).promise;
+        var numPages = pdfDoc.numPages;
+        var allText = '';
+        for (var i = 1; i <= numPages; i++) {
+          var page = await pdfDoc.getPage(i);
+          var content = await page.getTextContent();
+          var lastY = null;
+          for (var j = 0; j < content.items.length; j++) {
+            var item = content.items[j];
+            var y = item.transform[5];
+            if (lastY !== null && Math.abs(y - lastY) > 5) {
+              allText += '\n';
+            } else if (lastY !== null && item.hasEOL) {
+              allText += '\n';
+            }
+            allText += item.str;
+            lastY = y;
+          }
+          allText += '\n\n--- Page ' + i + ' ---\n\n';
+          progress.set(Math.round((i / numPages) * 100));
+        }
+        extractedText = allText.trim();
+        var charCount = extractedText.length;
+        textContent.value = extractedText;
+        statsEl.textContent = numPages + ' page(s) | ' + charCount.toLocaleString() + ' character(s)';
+        outputArea.style.display = 'block';
+        progress.done();
+        ConvertPivot.showResult('pdfToTextResult', 'Text extracted successfully from ' + numPages + ' page(s).', 'success');
+      } catch (err) {
+        progress.done();
+        ConvertPivot.showResult('pdfToTextResult', 'Extraction failed: ' + err.message, 'error');
+      }
+    });
+
+    document.getElementById('pdfToTextCopyBtn').addEventListener('click', function() {
+      if (!extractedText) return;
+      navigator.clipboard.writeText(extractedText).then(function() {
+        ConvertPivot.showResult('pdfToTextResult', 'Text copied to clipboard!', 'success');
+      }).catch(function() {
+        textContent.select();
+        document.execCommand('copy');
+        ConvertPivot.showResult('pdfToTextResult', 'Text copied to clipboard!', 'success');
+      });
+    });
+
+    document.getElementById('pdfToTextDownloadBtn').addEventListener('click', function() {
+      if (!extractedText) return;
+      var baseName = currentFile ? currentFile.name.replace(/\.pdf$/i, '') : 'extracted';
+      ConvertPivot.downloadFile(extractedText, baseName + '.txt', 'text/plain');
+    });
+  })();
+  </script>
+  <style>
+  .file-list { margin-top: 16px; }
+  .file-list-header { font-size: 0.85rem; font-weight: 600; color: var(--color-graphite); margin-bottom: 8px; }
+  .file-list-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--color-smoke); border: 1px solid var(--color-mist); border-radius: var(--radius-card); margin-bottom: 6px; }
+  .file-list-name { flex: 1; font-size: 0.85rem; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .file-list-size { font-size: 0.8rem; color: var(--color-graphite); flex-shrink: 0; }
+  .file-list-remove { background: none; border: none; cursor: pointer; color: var(--color-graphite); font-size: 1rem; padding: 4px; flex-shrink: 0; }
+  .file-list-remove:hover { color: var(--color-red); }
+  .text-output-area { margin-top: 20px; }
+  .text-output-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .text-output-header span { font-size: 0.85rem; color: var(--color-graphite); font-weight: 500; }
+  </style>
+</body>
+</html>

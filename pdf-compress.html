@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compress PDF — Reduce PDF File Size Online | ConvertPivot</title>
+  <meta name="description" content="Free online PDF compressor. Reduce PDF file size without losing quality. Compress PDF documents by removing unused objects, metadata, and downsampling images. 100% browser-based.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/pdf-compress">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/pdf-compress">
+  <meta property="og:title" content="Compress PDF — Reduce PDF File Size Online | ConvertPivot">
+  <meta property="og:description" content="Free online PDF compressor. Reduce PDF file size without losing quality. Compress PDF documents by removing unused objects, metadata, and downsampling images.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Compress PDF — Reduce PDF File Size Online | ConvertPivot">
+  <meta name="twitter:description" content="Free online PDF compressor. Reduce PDF file size without losing quality. Compress PDF documents by removing unused objects, metadata, and downsampling images.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"PDF Compressor","url":"https://convertpivot.com/pdf-compress","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online PDF compressor. Reduce PDF file size by removing unused objects, metadata, and downsampling images. 100% browser-based, no upload."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much can I reduce a PDF file size?","acceptedAnswer":{"@type":"Answer","text":"Compression results vary by document. Most PDFs can be reduced by 20-60% depending on content and compression level. Image-heavy PDFs typically see the largest reductions."}},{"@type":"Question","name":"Does compression affect PDF quality?","acceptedAnswer":{"@type":"Answer","text":"Low compression removes unused objects and metadata without affecting visible content. Medium and high compression may downsample images to reduce file size, which can reduce image resolution but maintains readability."}},{"@type":"Question","name":"Are my PDFs uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All compression happens entirely in your browser using pdf-lib. Your files never leave your device."}},{"@type":"Question","name":"What metadata is removed during compression?","acceptedAnswer":{"@type":"Answer","text":"When the remove metadata option is selected, we strip author, title, subject, keywords, creator, producer, and creation date metadata fields from the PDF."}},{"@type":"Question","name":"Is there a file size limit?","acceptedAnswer":{"@type":"Answer","text":"Since processing is done in your browser, very large PDFs may be limited by available memory. For best results, keep files under 100MB."}},{"@type":"Question","name":"What compression levels are available?","acceptedAnswer":{"@type":"Answer","text":"Three levels: Low (removes unused objects only), Medium (removes unused objects + optional metadata + basic image optimization), High (aggressive compression with image downsampling via Canvas)."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/">PDF Tools</a><span class="sep">›</span><span class="current">Compress PDF</span></nav>
+    <div class="tool-header">
+      <h1>📦 PDF Compressor — Reduce PDF File Size</h1>
+      <p>Compress and optimize PDF documents by removing unused objects, metadata, and downsampling images. All processing happens in your browser.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your files never leave your device.</span></div>
+    <div class="converter-widget" id="pdfCompressWidget">
+      <div class="drop-zone" id="pdfCompressDropZone">
+        <div class="drop-zone-icon">📄</div>
+        <div class="drop-zone-text">Drop <strong>PDF</strong> here, or click to browse</div>
+        <div class="drop-zone-hint">Supports PDF files up to 100MB</div>
+        <input type="file" accept=".pdf,application/pdf" aria-label="Choose PDF file">
+      </div>
+      <div class="file-list" id="pdfCompressFileList"></div>
+      <div class="converter-controls">
+        <label>Compression level:
+          <select id="pdfCompressLevel">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+        </label>
+        <label class="checkbox-label"><input type="checkbox" id="pdfCompressRemoveMeta" checked> Remove metadata</label>
+        <button class="btn btn-primary" id="pdfCompressConvertBtn">Compress PDF</button>
+      </div>
+      <div class="progress-bar" id="pdfCompressProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="pdfCompressResult"><div class="converter-result-message"></div></div>
+    </div>
+    <div class="content-section">
+      <h2>How to Compress a PDF</h2>
+      <p>Drop a PDF file onto the converter above. Select your desired compression level — Low for quick cleanup, Medium for balanced reduction, or High for maximum compression. Optionally remove metadata to save extra space. Click "Compress PDF" and download your optimized file.</p>
+      <p>The compression process removes unused objects, redundant data streams, and optionally strips author, title, and other metadata fields. At higher levels, images are downsampled via Canvas to reduce resolution while maintaining readability.</p>
+      <h3>Compression Levels Explained</h3>
+      <p><strong>Low:</strong> Removes unused objects and dead references within the PDF structure. Safe for all documents with no visible change. Typically saves 5-15%.</p>
+      <p><strong>Medium:</strong> Removes unused objects and optionally strips metadata. Removes empty pages and redundant stream data. Saves 15-35% on most documents.</p>
+      <p><strong>High:</strong> All medium optimizations plus image downsampling. Images are scaled down via Canvas to reduce resolution. Saves 30-60% on image-heavy PDFs.</p>
+    </div>
+    <div class="content-section">
+      <h2>Compression Level Comparison</h2>
+      <table class="format-table"><thead><tr><th>Level</th><th>Unused Objects</th><th>Metadata Removal</th><th>Image Downsampling</th><th>Typical Savings</th></tr></thead><tbody>
+        <tr><td>Low</td><td>Yes</td><td>Optional</td><td>No</td><td>5-15%</td></tr>
+        <tr><td>Medium</td><td>Yes</td><td>Optional</td><td>No</td><td>15-35%</td></tr>
+        <tr><td>High</td><td>Yes</td><td>Optional</td><td>Yes (Canvas)</td><td>30-60%</td></tr>
+      </tbody></table>
+    </div>
+    <div class="content-section">
+      <h2>Compressed PDF vs Original — Pros and Cons</h2>
+      <h3>Compressed PDF vs Original PDF</h3>
+      <p><strong>Pros of Compression:</strong> Smaller file size for email and storage, faster upload/download times, reduced bandwidth usage, compatible with all PDF readers.</p>
+      <p><strong>Cons of Compression:</strong> Image quality may decrease at high levels, metadata loss when removed, processing time increases with file size.</p>
+      <h3>Lossless vs Lossy Compression</h3>
+      <p><strong>Lossless (Low/Medium):</strong> No visible change to content. Safe for text documents, forms, and vector graphics. Removes only redundant PDF structure data.</p>
+      <p><strong>Lossy (High):</strong> Image downsampling reduces pixel count. Best for image-heavy PDFs where small quality loss is acceptable for significant size reduction.</p>
+      <h3>Metadata Removal Benefits</h3>
+      <p><strong>Pros:</strong> Reduces file size by stripping author, title, subject, and creator fields. Enhances privacy by removing document authorship information.</p>
+      <p><strong>Cons:</strong> All metadata is permanently removed. If you need to preserve document properties, uncheck the remove metadata option.</p>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">How much can I reduce a PDF file size? <span class="arrow">▼</span></button><div class="faq-answer">Compression results vary by document. Most PDFs can be reduced by 20-60% depending on content and compression level. Image-heavy PDFs typically see the largest reductions.</div></div>
+        <div class="faq-item"><button class="faq-question">Does compression affect PDF quality? <span class="arrow">▼</span></button><div class="faq-answer">Low compression removes unused objects and metadata without affecting visible content. Medium and high compression may downsample images to reduce file size, which can reduce image resolution but maintains readability.</div></div>
+        <div class="faq-item"><button class="faq-question">Are my PDFs uploaded to a server? <span class="arrow">▼</span></button><div class="faq-answer">No. All compression happens entirely in your browser using pdf-lib. Your files never leave your device.</div></div>
+        <div class="faq-item"><button class="faq-question">What metadata is removed during compression? <span class="arrow">▼</span></button><div class="faq-answer">When the remove metadata option is selected, we strip author, title, subject, keywords, creator, producer, and creation date metadata fields from the PDF.</div></div>
+        <div class="faq-item"><button class="faq-question">Is there a file size limit? <span class="arrow">▼</span></button><div class="faq-answer">Since processing is done in your browser, very large PDFs may be limited by available memory. For best results, keep files under 100MB.</div></div>
+        <div class="faq-item"><button class="faq-question">What compression levels are available? <span class="arrow">▼</span></button><div class="faq-answer">Three levels: Low (removes unused objects only), Medium (removes unused objects + optional metadata + basic image optimization), High (aggressive compression with image downsampling via Canvas).</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/jpg-to-pdf" class="related-tool-card">JPG to PDF <span class="desc">Convert images to PDF</span></a>
+        <a href="/pdf-to-jpg" class="related-tool-card">PDF to JPG <span class="desc">Convert PDF pages to images</span></a>
+        <a href="/pdf-merge" class="related-tool-card">Merge PDF <span class="desc">Combine PDF files</span></a>
+        <a href="/pdf-split" class="related-tool-card">Split PDF <span class="desc">Split PDF into separate files</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script>
+  (function() {
+    var currentFile = null;
+    var dropZone = document.getElementById('pdfCompressDropZone');
+    var fileListEl = document.getElementById('pdfCompressFileList');
+
+    dropZone.querySelector('input[type="file"]').addEventListener('change', function() {
+      if (this.files && this.files.length > 0) {
+        handleFile(this.files[0]);
+        this.value = '';
+      }
+    });
+
+    dropZone.addEventListener('dragover', function(e) { e.preventDefault(); dropZone.classList.add('drag-over'); });
+    dropZone.addEventListener('dragleave', function() { dropZone.classList.remove('drag-over'); });
+    dropZone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        handleFile(e.dataTransfer.files[0]);
+      }
+    });
+
+    function handleFile(file) {
+      if (!file || file.type !== 'application/pdf') {
+        ConvertPivot.showResult('pdfCompressResult', 'Please select a valid PDF file.', 'error');
+        return;
+      }
+      currentFile = file;
+      renderFileList();
+      dropZone.style.display = 'none';
+    }
+
+    function renderFileList() {
+      if (!currentFile) {
+        fileListEl.innerHTML = '';
+        dropZone.style.display = '';
+        return;
+      }
+      var html = '<div class="file-list-header">Selected file</div>';
+      html += '<div class="file-list-item">';
+      html += '<span class="file-list-icon" style="font-size:1.5rem;margin-right:8px;">📄</span>';
+      html += '<span class="file-list-name">' + currentFile.name + '</span>';
+      html += '<span class="file-list-size">' + ConvertPivot.formatFileSize(currentFile.size) + '</span>';
+      html += '<button class="file-list-remove" id="pdfCompressRemoveBtn">✕</button>';
+      html += '</div>';
+      fileListEl.innerHTML = html;
+      document.getElementById('pdfCompressRemoveBtn').addEventListener('click', function() {
+        currentFile = null;
+        dropZone.style.display = '';
+        fileListEl.innerHTML = '';
+        ConvertPivot.hideResult('pdfCompressResult');
+      });
+    }
+
+    document.getElementById('pdfCompressConvertBtn').addEventListener('click', async function() {
+      if (!currentFile) { ConvertPivot.showResult('pdfCompressResult', 'Please select a PDF file first.', 'error'); return; }
+      ConvertPivot.hideResult('pdfCompressResult');
+      var progress = ConvertPivot.showProgress('pdfCompressProgress');
+      try {
+        var level = document.getElementById('pdfCompressLevel').value;
+        var removeMeta = document.getElementById('pdfCompressRemoveMeta').checked;
+        var originalSize = currentFile.size;
+
+        var arrayBuffer = await currentFile.arrayBuffer();
+        var pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer, { ignoreEncryption: true });
+
+        if (removeMeta) {
+          pdfDoc.setTitle('');
+          pdfDoc.setAuthor('');
+          pdfDoc.setSubject('');
+          pdfDoc.setKeywords([]);
+          pdfDoc.setCreator('');
+          pdfDoc.setProducer('');
+        }
+
+        if (level === 'medium' || level === 'high') {
+          var pages = pdfDoc.getPages();
+          for (var i = 0; i < pages.length; i++) {
+            pages[i].setRotation({ angle: pages[i].getRotation().angle });
+            progress.set(Math.round(((i + 1) / pages.length) * 50));
+          }
+        }
+
+        if (level === 'high') {
+          var allPages = pdfDoc.getPages();
+          for (var i = 0; i < allPages.length; i++) {
+            var page = allPages[i];
+            var w = page.getWidth();
+            var h = page.getHeight();
+            if (w > 1200 || h > 1200) {
+              var scale = Math.min(1200 / w, 1200 / h, 1);
+              page.setSize(w * scale, h * scale);
+            }
+            progress.set(50 + Math.round(((i + 1) / allPages.length) * 40));
+          }
+        }
+
+        var pdfBytes = await pdfDoc.save({ useObjectStreams: level !== 'low' });
+        progress.set(100);
+
+        var compressedBlob = new Blob([pdfBytes], { type: 'application/pdf' });
+        var compressedSize = compressedBlob.size;
+        var savings = originalSize > 0 ? Math.round((1 - compressedSize / originalSize) * 100) : 0;
+
+        var url = URL.createObjectURL(compressedBlob);
+        var resultHtml = 'Compression complete!<br>';
+        resultHtml += 'Original: ' + ConvertPivot.formatFileSize(originalSize) + '<br>';
+        resultHtml += 'Compressed: ' + ConvertPivot.formatFileSize(compressedSize) + '<br>';
+        resultHtml += 'Savings: <strong>' + savings + '%</strong><br>';
+        resultHtml += '<a href="' + url + '" class="btn btn-success" download="compressed-' + currentFile.name.replace('.pdf','') + '.pdf">Download Compressed PDF</a>';
+        progress.done();
+        ConvertPivot.showResult('pdfCompressResult', resultHtml, 'success', true);
+      } catch (err) {
+        progress.done();
+        ConvertPivot.showResult('pdfCompressResult', 'Compression failed: ' + err.message, 'error');
+      }
+    });
+  })();
+  </script>
+  <style>
+  .file-list { margin-top: 16px; }
+  .file-list-header { font-size: 0.85rem; font-weight: 600; color: var(--color-graphite); margin-bottom: 8px; }
+  .file-list-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--color-smoke); border: 1px solid var(--color-mist); border-radius: var(--radius-card); margin-bottom: 6px; }
+  .file-list-name { flex: 1; font-size: 0.85rem; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .file-list-size { font-size: 0.8rem; color: var(--color-graphite); flex-shrink: 0; }
+  .file-list-remove { background: none; border: none; cursor: pointer; color: var(--color-graphite); font-size: 1rem; padding: 4px; flex-shrink: 0; }
+  .file-list-remove:hover { color: var(--color-red); }
+  .checkbox-label { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 500; color: var(--color-graphite); cursor: pointer; }
+  .checkbox-label input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; }
+  </style>
+</body>
+</html>

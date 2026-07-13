@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Compressor — Compress JPG, PNG, WebP Online | ConvertPivot</title>
+  <meta name="description" content="Free online image compressor. Compress JPG, PNG, and WebP images with quality control, resize options, and batch ZIP download. 100% browser-based Canvas API.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/image-compressor">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/image-compressor">
+  <meta property="og:title" content="Image Compressor — Compress JPG, PNG, WebP Online | ConvertPivot">
+  <meta property="og:description" content="Free online image compressor. Compress JPG, PNG, and WebP images with quality control, resize options, and batch ZIP download. 100% browser-based.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Image Compressor — Compress JPG, PNG, WebP Online | ConvertPivot">
+  <meta name="twitter:description" content="Free online image compressor. Compress JPG, PNG, and WebP images with quality control, resize options, and batch ZIP download. 100% browser-based.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Image Compressor","url":"https://convertpivot.com/image-compressor","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online image compressor using the Canvas API. Compress JPG, PNG, and WebP with quality control, resize, and batch ZIP download."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What image formats can I compress?","acceptedAnswer":{"@type":"Answer","text":"You can compress JPG/JPEG, PNG, and WebP images. The tool uses the browser Canvas API to process all formats."}},{"@type":"Question","name":"How much can I reduce file size?","acceptedAnswer":{"@type":"Answer","text":"JPEG images typically achieve 40-80% size reduction at quality 60-80%. PNG lossless compression saves 10-30%. WebP offers 25-35% better compression than JPEG at similar quality."}},{"@type":"Question","name":"Can I resize images during compression?","acceptedAnswer":{"@type":"Answer","text":"Yes. Set a maximum width and height to resize images proportionally. Leave both at 0 to keep original dimensions."}},{"@type":"Question","name":"Are my images uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All compression happens entirely in your browser using the Canvas API. Your images never leave your device."}},{"@type":"Question","name":"Can I compress multiple images at once?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upload multiple images, set your compression options, and compress all at once. You can download individual images or all images as a ZIP file."}},{"@type":"Question","name":"What is the best quality setting for web use?","acceptedAnswer":{"@type":"Answer","text":"For web images, quality 70-80% offers an excellent balance of file size and visual quality. Use 50-60% for thumbnails and 85-95% for high-quality photos."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/">Media Tools</a><span class="sep">›</span><span class="current">Image Compressor</span></nav>
+    <div class="tool-header">
+      <h1>🖼 Image Compressor — Reduce Image File Size</h1>
+      <p>Compress JPG, PNG, and WebP images with full control over quality, dimensions, and output format. Batch process multiple images and download as ZIP — all in your browser.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your images never leave your device.</span></div>
+    <div class="converter-widget" id="imageCompressorWidget">
+      <div class="drop-zone" id="icDropZone">
+        <div class="drop-zone-icon">🖼</div>
+        <div class="drop-zone-text">Drop <strong>images</strong> here, or click to browse</div>
+        <div class="drop-zone-hint">Supports JPG, PNG, WebP — multiple files allowed</div>
+        <input type="file" accept="image/jpeg,image/png,image/webp" multiple aria-label="Choose image files">
+      </div>
+      <div class="file-list" id="icFileList"></div>
+      <div class="converter-controls">
+        <label>Quality:
+          <input type="range" id="icQuality" min="10" max="100" value="80" class="ic-slider">
+          <span id="icQualityLabel">80%</span>
+        </label>
+        <label>Max Width:
+          <input type="number" id="icMaxWidth" min="0" max="10000" value="0" class="ic-num-input" title="0 = no limit">
+        </label>
+        <label>Max Height:
+          <input type="number" id="icMaxHeight" min="0" max="10000" value="0" class="ic-num-input" title="0 = no limit">
+        </label>
+        <label>Output:
+          <select id="icFormat">
+            <option value="image/jpeg">JPEG</option>
+            <option value="image/png">PNG</option>
+            <option value="image/webp">WebP</option>
+          </select>
+        </label>
+        <button class="btn btn-primary" id="icCompressBtn">Compress All</button>
+        <button class="btn btn-secondary" id="icZipBtn" disabled>Download All as ZIP</button>
+      </div>
+      <div class="progress-bar" id="icProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="icResult"><div class="converter-result-message"></div></div>
+    </div>
+    <div class="content-section">
+      <h2>How to Compress Images Online</h2>
+      <p>Upload one or more images using the drop zone above. You can drag and drop JPG, PNG, and WebP files directly from your computer, or click to select them. Adjust the quality slider to control the compression level — lower values produce smaller files but reduce image quality. Set maximum width and height to resize images during compression, or leave them at 0 to keep original dimensions.</p>
+      <p>Choose your desired output format from the dropdown. JPEG is best for photos, PNG for graphics with text or transparency, and WebP for modern web optimization. Click "Compress All" to process all images. Once compression is complete, you can download individual images or use "Download All as ZIP" to get a single archive.</p>
+      <h3>Quality Settings Explained</h3>
+      <p>The quality slider ranges from 10% to 100%. For JPEG and WebP formats, lower quality values apply more aggressive compression, resulting in smaller files but potential visual artifacts. A quality setting of 70-80% typically offers an excellent balance between file size and visual quality for web use. PNG compression is lossless, so the quality slider has a minimal effect — PNG files are compressed as much as possible regardless of the quality setting.</p>
+      <h3>Resizing During Compression</h3>
+      <p>Setting a maximum width and height allows you to downscale large images before compression. This is extremely effective for reducing file size because fewer pixels means less data to encode. The tool maintains the original aspect ratio automatically. For example, setting max width to 1920 pixels will shrink a 4000px-wide photo to 1920px wide, with height scaled proportionally.</p>
+    </div>
+    <div class="content-section">
+      <h2>JPEG vs PNG vs WebP — Compression Comparison</h2>
+      <h3>JPEG Compression</h3>
+      <p><strong>Pros:</strong> Universal browser support, excellent compression for photographs, adjustable quality, small file sizes at medium quality. Most widely supported image format on the web.</p>
+      <p><strong>Cons:</strong> Lossy compression introduces artifacts at low quality, no transparency support, no animation support, generational quality loss on re-saving.</p>
+      <h3>PNG Compression</h3>
+      <p><strong>Pros:</strong> Lossless compression preserves every detail, supports full alpha transparency, no artifacts regardless of re-saving, ideal for screenshots and graphics with text.</p>
+      <p><strong>Cons:</strong> Larger file sizes than JPEG for photographs, no animation support, older browser issues with large PNGs, no native EXIF support.</p>
+      <h3>WebP Compression</h3>
+      <p><strong>Pros:</strong> 25-35% smaller than JPEG at same quality, supports both lossy and lossless compression, full alpha transparency, animation support, modern web standard.</p>
+      <p><strong>Cons:</strong> Not supported in older browsers (pre-2020), slightly slower encoding, limited support in some editing software, larger than AVIF in some comparisons.</p>
+    </div>
+    <div class="content-section">
+      <h2>Image Compression Best Practices</h2>
+      <p>For web images, always resize to the display dimensions before uploading — serving a 4000px image in a 300px thumbnail wastes bandwidth. Use JPEG for photographic content with quality 70-85%, and PNG for screenshots, logos, and graphics needing transparency. Consider WebP for modern websites as it offers superior compression. Always preview compressed images at full size to verify quality is acceptable before publishing. Batch compression with ZIP download is ideal for preparing multiple images for a website gallery or email attachment.</p>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What image formats can I compress? <span class="arrow">▼</span></button><div class="faq-answer">You can compress JPG, JPEG, PNG, and WebP images. The tool uses the Canvas API to decode and re-encode images in your browser.</div></div>
+        <div class="faq-item"><button class="faq-question">How much can I reduce file size? <span class="arrow">▼</span></button><div class="faq-answer">JPEG images typically achieve 40-80% size reduction at quality 60-80% with minimal visible quality loss. PNG lossless compression saves 10-30%. WebP offers 25-35% better compression than JPEG at similar quality levels.</div></div>
+        <div class="faq-item"><button class="faq-question">Is PNG compression lossy or lossless? <span class="arrow">▼</span></button><div class="faq-answer">PNG compression is fully lossless — no image data is discarded. The quality slider does not affect PNG output quality. For PNG, compression simply optimizes the encoding without reducing visual fidelity.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I resize images during compression? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Set a maximum width and height to proportionally resize images. Leave both at 0 to keep original dimensions. Resizing before compression significantly reduces final file size.</div></div>
+        <div class="faq-item"><button class="faq-question">Are my images uploaded to a server? <span class="arrow">▼</span></button><div class="faq-answer">No. All processing happens entirely in your browser using the Canvas API. Your files never leave your device, ensuring complete privacy.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I download all compressed images at once? <span class="arrow">▼</span></button><div class="faq-answer">Yes. After compression, click "Download All as ZIP" to download a single ZIP archive containing all compressed images. Individual download buttons are also available for each image.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/jpg-to-pdf" class="related-tool-card">JPG to PDF <span class="desc">Convert images to PDF documents</span></a>
+        <a href="/webp-to-jpg" class="related-tool-card">WebP to JPG <span class="desc">Convert WebP images to JPEG</span></a>
+        <a href="/avif-to-jpg" class="related-tool-card">AVIF to JPG <span class="desc">Convert AVIF images to JPEG</span></a>
+        <a href="/svg-to-png" class="related-tool-card">SVG to PNG <span class="desc">Convert SVG vector to PNG raster</span></a>
+        <a href="/heic-to-jpg" class="related-tool-card">HEIC to JPG <span class="desc">Convert iPhone photos to JPEG</span></a>
+        <a href="/image-to-base64" class="related-tool-card">Image to Base64 <span class="desc">Convert images to Base64 data URIs</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script>
+  (function() {
+    var items = [];
+    var fileListEl = document.getElementById('icFileList');
+    var dropZone = document.getElementById('icDropZone');
+    var qualitySlider = document.getElementById('icQuality');
+    var qualityLabel = document.getElementById('icQualityLabel');
+    var compressBtn = document.getElementById('icCompressBtn');
+    var zipBtn = document.getElementById('icZipBtn');
+
+    qualitySlider.addEventListener('input', function() {
+      qualityLabel.textContent = this.value + '%';
+    });
+
+    function renderFileList() {
+      if (items.length === 0) {
+        fileListEl.innerHTML = '';
+        dropZone.style.display = '';
+        return;
+      }
+      dropZone.style.display = 'none';
+      var html = '<div class="file-list-header">' + items.length + ' image(s)</div>';
+      items.forEach(function(item, idx) {
+        var savings = item.origSize > 0 ? Math.round((1 - item.compSize / item.origSize) * 100) : 0;
+        var compLabel = item.compSize > 0 ? ConvertPivot.formatFileSize(item.compSize) : '—';
+        var savingsClass = savings > 0 ? 'ic-savings-positive' : (savings < 0 ? 'ic-savings-negative' : 'ic-savings-neutral');
+        html += '<div class="ic-item" data-index="' + idx + '">';
+        html += '<div class="ic-item-preview"><img src="' + item.dataUrl + '" class="ic-thumb"></div>';
+        html += '<div class="ic-item-info">';
+        html += '<div class="ic-item-name">' + item.file.name + '</div>';
+        html += '<div class="ic-item-sizes">Original: ' + ConvertPivot.formatFileSize(item.origSize) + ' &rarr; Compressed: ' + compLabel + '</div>';
+        html += '<div class="ic-item-savings ' + savingsClass + '">' + (item.compSize > 0 ? (savings >= 0 ? 'Saved ' + savings + '%' : 'Increased ' + Math.abs(savings) + '%') : 'Not compressed') + '</div>';
+        html += '</div>';
+        html += '<div class="ic-item-actions">';
+        html += '<button class="btn btn-success ic-download-btn" data-index="' + idx + '" ' + (item.compBlob ? '' : 'disabled') + '>Download</button>';
+        html += '<button class="ic-item-remove" data-index="' + idx + '">✕</button>';
+        html += '</div></div>';
+      });
+      fileListEl.innerHTML = html;
+      fileListEl.querySelectorAll('.ic-download-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var idx = parseInt(this.getAttribute('data-index'));
+          var item = items[idx];
+          if (item.compBlob) {
+            var ext = document.getElementById('icFormat').value.split('/')[1];
+            ConvertPivot.downloadFile(item.compBlob, item.file.name.replace(/\.[^.]+$/, '') + '.' + ext, item.compBlob.type);
+          }
+        });
+      });
+      fileListEl.querySelectorAll('.ic-item-remove').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var idx = parseInt(this.getAttribute('data-index'));
+          items.splice(idx, 1);
+          renderFileList();
+          zipBtn.disabled = true;
+        });
+      });
+      updateZipButton();
+    }
+
+    function updateZipButton() {
+      var hasCompressed = items.some(function(i) { return i.compBlob !== null; });
+      zipBtn.disabled = !hasCompressed || items.length === 0;
+    }
+
+    dropZone.querySelector('input[type="file"]').addEventListener('change', function() {
+      if (this.files && this.files.length > 0) {
+        addFiles(this.files);
+        this.value = '';
+      }
+    });
+
+    dropZone.addEventListener('dragover', function(e) { e.preventDefault(); dropZone.classList.add('drag-over'); });
+    dropZone.addEventListener('dragleave', function() { dropZone.classList.remove('drag-over'); });
+    dropZone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        addFiles(e.dataTransfer.files);
+      }
+    });
+
+    function addFiles(fileList) {
+      var pending = Array.from(fileList);
+      pending.forEach(function(file) {
+        if (!file.type.match(/^image\/(jpeg|png|webp)$/)) return;
+        var reader = new FileReader();
+        reader.onload = function() {
+          var img = new Image();
+          img.onload = function() {
+            items.push({
+              file: file,
+              dataUrl: reader.result,
+              img: img,
+              origSize: file.size,
+              compBlob: null,
+              compSize: 0
+            });
+            renderFileList();
+          };
+          img.src = reader.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    compressBtn.addEventListener('click', async function() {
+      if (items.length === 0) { ConvertPivot.showResult('icResult', 'Please add images first.', 'error'); return; }
+      ConvertPivot.hideResult('icResult');
+      var progress = ConvertPivot.showProgress('icProgress');
+      var quality = parseInt(qualitySlider.value) / 100;
+      var maxW = parseInt(document.getElementById('icMaxWidth').value) || 0;
+      var maxH = parseInt(document.getElementById('icMaxHeight').value) || 0;
+      var format = document.getElementById('icFormat').value;
+      var ext = format.split('/')[1];
+
+      try {
+        for (var i = 0; i < items.length; i++) {
+          var item = items[i];
+          var canvas = document.createElement('canvas');
+          var ctx = canvas.getContext('2d');
+          var img = item.img;
+          var w = img.naturalWidth;
+          var h = img.naturalHeight;
+          if (maxW > 0 && w > maxW) { h = Math.round(h * maxW / w); w = maxW; }
+          if (maxH > 0 && h > maxH) { w = Math.round(w * maxH / h); h = maxH; }
+          canvas.width = w;
+          canvas.height = h;
+          ctx.drawImage(img, 0, 0, w, h);
+          var blob = await new Promise(function(resolve) {
+            canvas.toBlob(function(b) { resolve(b); }, format, quality);
+          });
+          item.compBlob = blob;
+          item.compSize = blob.size;
+          progress.set(Math.round(((i + 1) / items.length) * 100));
+        }
+        progress.done();
+        renderFileList();
+        updateZipButton();
+        ConvertPivot.showResult('icResult', items.length + ' image(s) compressed successfully.', 'success');
+      } catch (err) {
+        progress.done();
+        ConvertPivot.showResult('icResult', 'Compression failed: ' + err.message, 'error');
+      }
+    });
+
+    zipBtn.addEventListener('click', function() {
+      if (typeof JSZip === 'undefined') { ConvertPivot.showResult('icResult', 'JSZip library not loaded.', 'error'); return; }
+      var zip = new JSZip();
+      var format = document.getElementById('icFormat').value;
+      var ext = format.split('/')[1];
+      var added = 0;
+      items.forEach(function(item) {
+        if (item.compBlob) {
+          zip.file(item.file.name.replace(/\.[^.]+$/, '') + '.' + ext, item.compBlob);
+          added++;
+        }
+      });
+      if (added === 0) { ConvertPivot.showResult('icResult', 'No compressed images to download.', 'error'); return; }
+      zip.generateAsync({ type: 'blob' }).then(function(blob) {
+        ConvertPivot.downloadFile(blob, 'compressed-images.zip', 'application/zip');
+      });
+    });
+  })();
+  </script>
+  <style>
+  .ic-slider { width: 120px; vertical-align: middle; margin-right: 8px; }
+  .ic-slider + span { font-size: 0.85rem; font-weight: 600; min-width: 32px; display: inline-block; }
+  .ic-num-input { width: 90px; padding: 6px 10px; border: 1px solid var(--color-mist); border-radius: var(--radius-pill); font-size: 0.85rem; background: var(--color-canvas); color: var(--color-ink); outline: none; }
+  .ic-num-input:focus { border-color: var(--color-red); }
+  .converter-controls label { display: flex; align-items: center; gap: 8px; }
+  .ic-item { display: flex; align-items: center; gap: 14px; padding: 12px 16px; background: var(--color-smoke); border: 1px solid var(--color-mist); border-radius: var(--radius-card); margin-bottom: 8px; transition: background 0.15s; }
+  .ic-item:hover { background: var(--color-surface); }
+  .ic-item-preview { flex-shrink: 0; }
+  .ic-thumb { width: 56px; height: 56px; object-fit: cover; border-radius: 6px; background: var(--color-mist); border: 1px solid var(--color-mist); }
+  .ic-item-info { flex: 1; min-width: 0; }
+  .ic-item-name { font-size: 0.85rem; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .ic-item-sizes { font-size: 0.8rem; color: var(--color-graphite); margin-top: 2px; }
+  .ic-item-savings { font-size: 0.8rem; font-weight: 600; margin-top: 2px; }
+  .ic-savings-positive { color: var(--color-success); }
+  .ic-savings-negative { color: var(--color-error); }
+  .ic-savings-neutral { color: var(--color-graphite); }
+  .ic-item-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+  .ic-item-remove { background: none; border: none; cursor: pointer; color: var(--color-graphite); font-size: 1rem; padding: 4px; }
+  .ic-item-remove:hover { color: var(--color-red); }
+  .ic-download-btn { padding: 6px 16px; font-size: 0.8rem; }
+  .ic-download-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  </style>
+</body>
+</html>
