@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JPG to PDF — Convert Images to PDF Online | ConvertPivot</title>
+  <meta name="description" content="Free online JPG to PDF converter. Convert JPG, PNG, and other images to PDF documents instantly. Multiple images, drag to reorder, choose page size and orientation. 100% browser-based.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/jpg-to-pdf">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/jpg-to-pdf">
+  <meta property="og:title" content="JPG to PDF — Convert Images to PDF Online | ConvertPivot">
+  <meta property="og:description" content="Free online JPG to PDF converter. Convert JPG, PNG, and other images to PDF documents instantly. Multiple images, drag to reorder, choose page size and orientation.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JPG to PDF — Convert Images to PDF Online | ConvertPivot">
+  <meta name="twitter:description" content="Free online JPG to PDF converter. Convert JPG, PNG, and other images to PDF documents instantly. Multiple images, drag to reorder, choose page size and orientation.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"JPG to PDF Converter","url":"https://convertpivot.com/jpg-to-pdf","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online JPG to PDF converter. Convert JPG, PNG, and other images to PDF documents instantly. 100% browser-based, no upload."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What image formats can I convert to PDF?","acceptedAnswer":{"@type":"Answer","text":"You can convert JPG, JPEG, PNG, GIF, BMP, and WebP images to PDF. All major image formats are supported."}},{"@type":"Question","name":"Can I convert multiple images to a single PDF?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upload multiple images and they will be combined into a single multi-page PDF document. You can drag to reorder images before converting."}},{"@type":"Question","name":"What page sizes are available?","acceptedAnswer":{"@type":"Answer","text":"You can choose from A4 (210x297mm), Letter (8.5x11in), or Legal (8.5x14in) page sizes with either portrait or landscape orientation."}},{"@type":"Question","name":"Are my images uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All conversion happens entirely in your browser using the Canvas API and jsPDF. Your images never leave your device."}},{"@type":"Question","name":"Is there a limit on image file size?","acceptedAnswer":{"@type":"Answer","text":"Since processing happens in your browser, very large images may be limited by available memory. For best results, keep individual images under 50MB."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/">PDF Tools</a><span class="sep">›</span><span class="current">JPG to PDF</span></nav>
+    <div class="tool-header">
+      <h1>🖼 JPG to PDF Converter — Images to PDF</h1>
+      <p>Convert JPG, PNG, and other image formats to PDF documents. Combine multiple images, reorder them, and choose page layout options — all in your browser.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your images never leave your device.</span></div>
+    <div class="converter-widget" id="jpgToPdfWidget">
+      <div class="drop-zone" id="jpgToPdfDropZone">
+        <div class="drop-zone-icon">🖼</div>
+        <div class="drop-zone-text">Drop <strong>images</strong> here, or click to browse</div>
+        <div class="drop-zone-hint">Supports JPG, PNG, GIF, BMP, WebP — multiple files allowed</div>
+        <input type="file" accept="image/*" multiple aria-label="Choose image files">
+      </div>
+      <div class="file-list" id="jpgToPdfFileList"></div>
+      <div class="converter-controls">
+        <label>Page size:
+          <select id="jpgToPdfPageSize">
+            <option value="a4">A4 (210x297mm)</option>
+            <option value="letter" selected>Letter (8.5x11in)</option>
+            <option value="legal">Legal (8.5x14in)</option>
+          </select>
+        </label>
+        <label>Orientation:
+          <select id="jpgToPdfOrientation">
+            <option value="portrait" selected>Portrait</option>
+            <option value="landscape">Landscape</option>
+          </select>
+        </label>
+        <label>Margin:
+          <select id="jpgToPdfMargin">
+            <option value="0">None</option>
+            <option value="10" selected>10mm</option>
+            <option value="20">20mm</option>
+          </select>
+        </label>
+        <button class="btn btn-primary" id="jpgToPdfConvertBtn">Convert to PDF</button>
+      </div>
+      <div class="progress-bar" id="jpgToPdfProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="jpgToPdfResult"><div class="converter-result-message"></div></div>
+    </div>
+    <div class="content-section">
+      <h2>How to Convert JPG to PDF</h2>
+      <p>Drop one or more images onto the converter above. You can upload JPG, JPEG, PNG, GIF, BMP, and WebP files. Each image becomes a page in the final PDF document. Use drag and drop to reorder the images before converting.</p>
+      <p>Select your preferred page size from A4, Letter, or Legal. Choose between portrait and landscape orientation, and set the margin width. When you are ready, click "Convert to PDF" to generate and download your document.</p>
+      <h3>Working with Multiple Images</h3>
+      <p>Hold Ctrl (Cmd on Mac) while selecting multiple files. After uploading, you can drag any thumbnail to a new position. The PDF preserves the order of images as they appear in the list. Each image is placed on its own page and scaled to fit within the chosen margins.</p>
+      <h3>Page Size Options</h3>
+      <p>A4 is the international standard (210x297mm), used worldwide for documents. Letter (8.5x11in) is the standard in North America. Legal (8.5x14in) provides extra length for contracts and legal documents. Choose the size that matches your needs.</p>
+    </div>
+    <div class="content-section">
+      <h2>Image Format Comparison for PDF Conversion</h2>
+      <table class="format-table"><thead><tr><th>Format</th><th>Compression</th><th>Best For</th><th>PDF Result</th></tr></thead><tbody>
+        <tr><td>JPG / JPEG</td><td>Lossy DCT</td><td>Photos, web images</td><td>Small file size</td></tr>
+        <tr><td>PNG</td><td>Lossless Deflate</td><td>Screenshots, graphics with text</td><td>Larger but crisp</td></tr>
+        <tr><td>GIF</td><td>Lossless LZW</td><td>Simple animations, icons</td><td>256-color limit</td></tr>
+        <tr><td>BMP</td><td>Uncompressed</td><td>Legacy Windows images</td><td>Very large PDF</td></tr>
+        <tr><td>WebP</td><td>VP8 / VP9</td><td>Optimized web graphics</td><td>Good balance</td></tr>
+      </tbody></table>
+    </div>
+    <div class="content-section">
+      <h2>JPG vs PNG vs PDF — Pros and Cons</h2>
+      <h3>JPG vs PDF for Document Sharing</h3>
+      <p><strong>Pros of PDF:</strong> Multi-page support, consistent layout across devices, printable with exact formatting, searchable text layer, smaller combined size for multi-image documents.</p>
+      <p><strong>Cons of PDF:</strong> Requires a PDF reader to view, slightly larger overhead for single images, editing requires specialized software.</p>
+      <h3>PNG vs PDF for Archival</h3>
+      <p><strong>Pros of PDF:</strong> Self-contained document with all pages, standard for official documents, password protection support, embedded metadata.</p>
+      <p><strong>Cons of PDF:</strong> Lossy compression path from PNG, no transparency support in image-only PDFs, harder to extract individual images.</p>
+      <h3>WebP vs PDF for Web Publishing</h3>
+      <p><strong>Pros of PDF:</strong> Universal document format, preserves layout across platforms, printable, suitable for download rather than inline display.</p>
+      <p><strong>Cons of PDF:</strong> Not designed for web display, larger than WebP, inline viewing in browser varies.</p>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What image formats can I convert to PDF? <span class="arrow">▼</span></button><div class="faq-answer">You can convert JPG, JPEG, PNG, GIF, BMP, and WebP images. The converter uses the browser Canvas API to read any supported image format.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I combine multiple images into one PDF? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Upload multiple images and they will be combined into a single multi-page PDF. Each image becomes one page in the order shown.</div></div>
+        <div class="faq-item"><button class="faq-question">What page sizes are available? <span class="arrow">▼</span></button><div class="faq-answer">A4 (210x297mm), Letter (8.5x11in), and Legal (8.5x14in). You can also switch between portrait and landscape orientation.</div></div>
+        <div class="faq-item"><button class="faq-question">Is there an image size limit? <span class="arrow">▼</span></button><div class="faq-answer">Since processing is done in your browser, very large images may be limited by available RAM. For best results, keep images under 50MB each.</div></div>
+        <div class="faq-item"><button class="faq-question">Are my images uploaded to a server? <span class="arrow">▼</span></button><div class="faq-answer">No. All conversion happens entirely in your browser using the Canvas API and jsPDF. Your files never leave your device.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I adjust margins? <span class="arrow">▼</span></button><div class="faq-answer">Yes. You can choose from 0mm (no margin), 10mm, or 20mm margins. The image is scaled to fit within the selected margins.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/heic-to-pdf" class="related-tool-card">HEIC to PDF <span class="desc">Convert HEIC photos to PDF</span></a>
+        <a href="/pdf-to-jpg" class="related-tool-card">PDF to JPG <span class="desc">Convert PDF pages to images</span></a>
+        <a href="/pdf-merge" class="related-tool-card">Merge PDF <span class="desc">Combine PDF files</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+  (function() {
+    var images = [];
+    var fileListEl = document.getElementById('jpgToPdfFileList');
+    var dropZone = document.getElementById('jpgToPdfDropZone');
+
+    function renderFileList() {
+      if (images.length === 0) {
+        fileListEl.innerHTML = '';
+        dropZone.style.display = '';
+        return;
+      }
+      dropZone.style.display = 'none';
+      var html = '<div class="file-list-header">' + images.length + ' image(s) — drag to reorder</div>';
+      images.forEach(function(img, idx) {
+        html += '<div class="file-list-item" data-index="' + idx + '" draggable="true">';
+        html += '<img src="' + img.dataUrl + '" class="file-list-thumb">';
+        html += '<span class="file-list-name">' + img.file.name + '</span>';
+        html += '<span class="file-list-size">' + ConvertPivot.formatFileSize(img.file.size) + '</span>';
+        html += '<button class="file-list-remove" data-index="' + idx + '">✕</button>';
+        html += '</div>';
+      });
+      fileListEl.innerHTML = html;
+      fileListEl.querySelectorAll('.file-list-item').forEach(function(item) {
+        item.addEventListener('dragstart', function(e) {
+          e.dataTransfer.setData('text/plain', this.getAttribute('data-index'));
+          this.classList.add('dragging');
+        });
+        item.addEventListener('dragend', function() {
+          this.classList.remove('dragging');
+        });
+        item.addEventListener('dragover', function(e) {
+          e.preventDefault();
+          this.classList.add('drag-over');
+        });
+        item.addEventListener('dragleave', function() {
+          this.classList.remove('drag-over');
+        });
+        item.addEventListener('drop', function(e) {
+          e.preventDefault();
+          this.classList.remove('drag-over');
+          var fromIdx = parseInt(e.dataTransfer.getData('text/plain'));
+          var toIdx = parseInt(this.getAttribute('data-index'));
+          if (fromIdx !== toIdx) {
+            var item = images.splice(fromIdx, 1)[0];
+            images.splice(toIdx, 0, item);
+            renderFileList();
+          }
+        });
+      });
+      fileListEl.querySelectorAll('.file-list-remove').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var idx = parseInt(this.getAttribute('data-index'));
+          images.splice(idx, 1);
+          renderFileList();
+        });
+      });
+    }
+
+    dropZone.querySelector('input[type="file"]').addEventListener('change', function() {
+      if (this.files && this.files.length > 0) {
+        addFiles(this.files);
+        this.value = '';
+      }
+    });
+
+    dropZone.addEventListener('dragover', function(e) { e.preventDefault(); dropZone.classList.add('drag-over'); });
+    dropZone.addEventListener('dragleave', function() { dropZone.classList.remove('drag-over'); });
+    dropZone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        addFiles(e.dataTransfer.files);
+      }
+    });
+
+    function addFiles(fileList) {
+      var pending = Array.from(fileList);
+      pending.forEach(function(file) {
+        if (!file.type.startsWith('image/')) return;
+        var reader = new FileReader();
+        reader.onload = function() {
+          images.push({ file: file, dataUrl: reader.result });
+          if (images.length === 1 || pending.every(function() { return true; })) {
+            renderFileList();
+          }
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    document.getElementById('jpgToPdfConvertBtn').addEventListener('click', async function() {
+      if (images.length === 0) { ConvertPivot.showResult('jpgToPdfResult', 'Please add images first.', 'error'); return; }
+      ConvertPivot.hideResult('jpgToPdfResult');
+      var progress = ConvertPivot.showProgress('jpgToPdfProgress');
+      try {
+        var { jsPDF } = window.jspdf;
+        var pageSize = document.getElementById('jpgToPdfPageSize').value;
+        var orientation = document.getElementById('jpgToPdfOrientation').value;
+        var marginMm = parseInt(document.getElementById('jpgToPdfMargin').value);
+
+        var sizes = { a4: [210, 297], letter: [215.9, 279.4], legal: [215.9, 355.6] };
+        var dim = sizes[pageSize] || sizes.letter;
+        var pdfW = orientation === 'landscape' ? dim[1] : dim[0];
+        var pdfH = orientation === 'landscape' ? dim[0] : dim[1];
+
+        var doc = new jsPDF({ orientation: orientation, unit: 'mm', format: pageSize });
+        var maxW = pdfW - marginMm * 2;
+        var maxH = pdfH - marginMm * 2;
+
+        for (var i = 0; i < images.length; i++) {
+          if (i > 0) doc.addPage();
+          var img = new Image();
+          img.src = images[i].dataUrl;
+          await new Promise(function(resolve) { img.onload = resolve; });
+          var imgW = img.naturalWidth;
+          var imgH = img.naturalHeight;
+          var scale = Math.min(maxW / imgW, maxH / imgH);
+          var drawW = imgW * scale;
+          var drawH = imgH * scale;
+          var x = (pdfW - drawW) / 2;
+          var y = (pdfH - drawH) / 2;
+          doc.addImage(img, 'JPEG', x, y, drawW, drawH);
+          progress.set(Math.round(((i + 1) / images.length) * 100));
+        }
+        doc.save('converted-images.pdf');
+        progress.done();
+        ConvertPivot.showResult('jpgToPdfResult', images.length + ' image(s) converted to PDF successfully.', 'success');
+      } catch (err) {
+        progress.done();
+        ConvertPivot.showResult('jpgToPdfResult', 'Conversion failed: ' + err.message, 'error');
+      }
+    });
+  })();
+  </script>
+  <style>
+  .file-list { margin-top: 16px; }
+  .file-list-header { font-size: 0.85rem; font-weight: 600; color: var(--color-graphite); margin-bottom: 8px; }
+  .file-list-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--color-smoke); border: 1px solid var(--color-mist); border-radius: var(--radius-card); margin-bottom: 6px; cursor: grab; transition: background 0.15s, border-color 0.15s, opacity 0.15s; }
+  .file-list-item:hover { background: var(--color-surface); }
+  .file-list-item.dragging { opacity: 0.4; }
+  .file-list-item.drag-over { border-color: var(--color-red); background: var(--color-red-light); }
+  .file-list-thumb { width: 40px; height: 40px; object-fit: cover; border-radius: 4px; flex-shrink: 0; background: var(--color-mist); }
+  .file-list-name { flex: 1; font-size: 0.85rem; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .file-list-size { font-size: 0.8rem; color: var(--color-graphite); flex-shrink: 0; }
+  .file-list-remove { background: none; border: none; cursor: pointer; color: var(--color-graphite); font-size: 1rem; padding: 4px; flex-shrink: 0; }
+  .file-list-remove:hover { color: var(--color-red); }
+  </style>
+</body>
+</html>

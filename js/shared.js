@@ -67,6 +67,10 @@
       { href: '/wells-fargo-statement-to-csv', icon: '\uD83D\uDCB0', label: 'Wells Fargo to CSV' },
       { href: '/bank-of-america-statement-to-csv', icon: '\uD83C\uDFDB', label: 'BofA to CSV' }
     ]},
+    { heading: 'Calendar', links: [
+      { href: '/ics-to-csv', icon: '\uD83D\uDCC5', label: 'ICS to CSV' },
+      { href: '/csv-to-ics', icon: '\uD83D\uDCCA', label: 'CSV to ICS' }
+    ]},
     { heading: 'Notebooks', links: [
       { href: '/ipynb-to-pdf', icon: '\uD83D\uDCD3', label: 'IPYNB to PDF' },
       { href: '/ipynb-to-docx', icon: '\uD83D\uDCDD', label: 'IPYNB to DOCX' },
@@ -84,13 +88,27 @@
       { href: '/png-to-svg', icon: '\uD83D\uDCD0', label: 'PNG to SVG' },
       { href: '/qr-code-generator', icon: '\uD83D\uDCF1', label: 'QR Code Generator' }
     ]},
+    { heading: 'Audio', links: [
+      { href: '/mp3-to-wav', icon: '\uD83C\uDFA7', label: 'MP3 to WAV' },
+      { href: '/wav-to-mp3', icon: '\uD83C\uDFB5', label: 'WAV to MP3' },
+      { href: '/mp3-to-flac', icon: '\uD83D\uDD0A', label: 'MP3 to FLAC' },
+      { href: '/flac-to-mp3', icon: '\uD83C\uDFB6', label: 'FLAC to MP3' },
+      { href: '/wav-to-flac', icon: '\uD83C\uDFA4', label: 'WAV to FLAC' },
+      { href: '/ogg-to-mp3', icon: '\uD83C\uDFB9', label: 'OGG to MP3' }
+    ]},
+    { heading: 'PDF', links: [
+      { href: '/jpg-to-pdf', icon: '\uD83D\uDDBC', label: 'JPG to PDF' },
+      { href: '/pdf-to-jpg', icon: '\uD83D\uDCF7', label: 'PDF to JPG' },
+      { href: '/pdf-merge', icon: '\uD83D\uDCCB', label: 'Merge PDF' }
+    ]},
     { heading: 'Blog', links: [
       { href: '/blog', icon: '\uD83D\uDCF0', label: 'All Articles' },
-      { href: '/blog/epub-vs-mobi-vs-pdf', icon: '\uD83D\uDCDA', label: 'EPUB vs MOBI vs PDF' },
-      { href: '/blog/ofx-vs-qfx-vs-qbo', icon: '\uD83C\uDFE6', label: 'OFX vs QFX vs QBO' },
-      { href: '/blog/vcard-21-vs-30-vs-40', icon: '\uD83D\uDCD6', label: 'vCard 2.1 vs 3.0 vs 4.0' },
-      { href: '/blog/heic-vs-jpeg-vs-webp-vs-avif', icon: '\uD83D\uDDBC', label: 'HEIC vs JPEG vs WebP vs AVIF' },
-      { href: '/blog/mp3-vs-flac-vs-wav-vs-ogg', icon: '\uD83C\uDFA7', label: 'MP3 vs FLAC vs WAV vs OGG' }
+      { href: '/blog/how-to-convert-pdf-to-excel', icon: '\uD83D\uDCC4', label: 'PDF to Excel Tutorial' },
+      { href: '/blog/how-to-convert-mp4-to-mp3', icon: '\uD83C\uDFA7', label: 'MP4 to MP3 Tutorial' },
+      { href: '/blog/how-to-convert-vcf-to-excel', icon: '\uD83D\uDCD6', label: 'VCF to Excel Tutorial' },
+      { href: '/blog/ultimate-guide-image-optimization', icon: '\uD83D\uDDBC', label: 'Image Optimization Guide' },
+      { href: '/blog/top-10-free-online-file-converters', icon: '\u2B50', label: 'Top 10 Converters 2026' },
+      { href: '/blog/mp4-vs-mkv-vs-avi-vs-mov', icon: '\uD83C\uDFAC', label: 'MP4 vs MKV vs AVI vs MOV' }
     ]},
     { heading: 'Guides', links: [
       { href: '/guides', icon: '\uD83D\uDCD6', label: 'All Guides' },
@@ -870,7 +888,25 @@
       '<tr><td>1/1</td><td>100%</td><td>1.0</td></tr><tr><td>1/2</td><td>50%</td><td>0.5</td></tr><tr><td>1/4</td><td>25%</td><td>0.25</td></tr><tr><td>1/5</td><td>20%</td><td>0.2</td></tr><tr><td>1/10</td><td>10%</td><td>0.1</td></tr><tr><td>1/3</td><td>33.33%</td><td>0.333</td></tr><tr><td>2/3</td><td>66.67%</td><td>0.667</td></tr><tr><td>3/4</td><td>75%</td><td>0.75</td></tr></tbody></table>',
 
     'all-unit-converters': '<h2>SI Unit Prefixes Reference</h2><table class="format-table"><thead><tr><th>Prefix</th><th>Symbol</th><th>Factor</th><th>Example</th></tr></thead><tbody>' +
-      '<tr><td>Yotta</td><td>Y</td><td>10<sup>24</sup></td><td>1 YB = 1,000,000,000,000,000 GB</td></tr><tr><td>Zetta</td><td>Z</td><td>10<sup>21</sup></td><td>1 ZB = 1,000,000,000,000 GB</td></tr><tr><td>Exa</td><td>E</td><td>10<sup>18</sup></td><td>1 EB = 1,000,000,000 GB</td></tr><tr><td>Peta</td><td>P</td><td>10<sup>15</sup></td><td>1 PB = 1,000,000 GB</td></tr><tr><td>Tera</td><td>T</td><td>10<sup>12</sup></td><td>1 TB = 1,000 GB</td></tr><tr><td>Giga</td><td>G</td><td>10<sup>9</sup></td><td>1 GB = 1,000 MB</td></tr><tr><td>Mega</td><td>M</td><td>10<sup>6</sup></td><td>1 MB = 1,000 KB</td></tr><tr><td>Kilo</td><td>k</td><td>10<sup>3</sup></td><td>1 KB = 1,000 bytes</td></tr><tr><td>Milli</td><td>m</td><td>10<sup>-3</sup></td><td>1 mm = 0.001 m</td></tr><tr><td>Micro</td><td>\u00B5</td><td>10<sup>-6</sup></td><td>1 \u00B5m = 0.000001 m</td></tr></tbody></table>'
+      '<tr><td>Yotta</td><td>Y</td><td>10<sup>24</sup></td><td>1 YB = 1,000,000,000,000,000 GB</td></tr><tr><td>Zetta</td><td>Z</td><td>10<sup>21</sup></td><td>1 ZB = 1,000,000,000,000 GB</td></tr><tr><td>Exa</td><td>E</td><td>10<sup>18</sup></td><td>1 EB = 1,000,000,000 GB</td></tr><tr><td>Peta</td><td>P</td><td>10<sup>15</sup></td><td>1 PB = 1,000,000 GB</td></tr><tr><td>Tera</td><td>T</td><td>10<sup>12</sup></td><td>1 TB = 1,000 GB</td></tr><tr><td>Giga</td><td>G</td><td>10<sup>9</sup></td><td>1 GB = 1,000 MB</td></tr><tr><td>Mega</td><td>M</td><td>10<sup>6</sup></td><td>1 MB = 1,000 KB</td></tr><tr><td>Kilo</td><td>k</td><td>10<sup>3</sup></td><td>1 KB = 1,000 bytes</td></tr><tr><td>Milli</td><td>m</td><td>10<sup>-3</sup></td><td>1 mm = 0.001 m</td></tr><tr><td>Micro</td><td>\u00B5</td><td>10<sup>-6</sup></td><td>1 \u00B5m = 0.000001 m</td></tr></tbody></table>',
+
+    'mp3-to-wav': '<h2>Audio Format Comparison</h2><table class="format-table"><thead><tr><th>Format</th><th>Compression</th><th>Bitrate</th><th>Quality</th><th>Best For</th></tr></thead><tbody>' +
+      '<tr><td>MP3</td><td>Lossy (perceptual)</td><td>128-320 kbps</td><td>Good</td><td>Streaming, portable players</td></tr><tr><td>WAV</td><td>Uncompressed (PCM)</td><td>1411 kbps (CD)</td><td>Perfect</td><td>Audio production, archiving</td></tr><tr><td>FLAC</td><td>Lossless</td><td>~800-1000 kbps</td><td>Perfect</td><td>Archiving, audiophile listening</td></tr><tr><td>OGG</td><td>Lossy (Vorbis)</td><td>64-500 kbps</td><td>Very good</td><td>Gaming, open-source software</td></tr></tbody></table>',
+
+    'wav-to-mp3': '<h2>Audio Format Comparison</h2><table class="format-table"><thead><tr><th>Format</th><th>Compression</th><th>Bitrate</th><th>Quality</th><th>Best For</th></tr></thead><tbody>' +
+      '<tr><td>WAV</td><td>Uncompressed (PCM)</td><td>1411 kbps (CD)</td><td>Perfect</td><td>Audio production, archiving</td></tr><tr><td>MP3</td><td>Lossy (perceptual)</td><td>128-320 kbps</td><td>Good</td><td>Streaming, portable players</td></tr><tr><td>FLAC</td><td>Lossless</td><td>~800-1000 kbps</td><td>Perfect</td><td>Archiving, audiophile listening</td></tr></tbody></table>',
+
+    'mp3-to-flac': '<h2>Audio Format Comparison</h2><table class="format-table"><thead><tr><th>Format</th><th>Compression</th><th>Bitrate</th><th>Quality</th><th>Best For</th></tr></thead><tbody>' +
+      '<tr><td>MP3</td><td>Lossy (perceptual)</td><td>128-320 kbps</td><td>Good</td><td>Streaming, portable players</td></tr><tr><td>FLAC</td><td>Lossless</td><td>~800-1000 kbps</td><td>Perfect</td><td>Archiving, audiophile listening</td></tr><tr><td>WAV</td><td>Uncompressed (PCM)</td><td>1411 kbps (CD)</td><td>Perfect</td><td>Audio production, archiving</td></tr></tbody></table>',
+
+    'flac-to-mp3': '<h2>Audio Format Comparison</h2><table class="format-table"><thead><tr><th>Format</th><th>Compression</th><th>Bitrate</th><th>Quality</th><th>Best For</th></tr></thead><tbody>' +
+      '<tr><td>FLAC</td><td>Lossless</td><td>~800-1000 kbps</td><td>Perfect</td><td>Archiving, audiophile listening</td></tr><tr><td>MP3</td><td>Lossy (perceptual)</td><td>128-320 kbps</td><td>Good</td><td>Streaming, portable players</td></tr><tr><td>WAV</td><td>Uncompressed (PCM)</td><td>1411 kbps (CD)</td><td>Perfect</td><td>Audio production, archiving</td></tr></tbody></table>',
+
+    'wav-to-flac': '<h2>Audio Format Comparison</h2><table class="format-table"><thead><tr><th>Format</th><th>Compression</th><th>Bitrate</th><th>Quality</th><th>Best For</th></tr></thead><tbody>' +
+      '<tr><td>WAV</td><td>Uncompressed (PCM)</td><td>1411 kbps (CD)</td><td>Perfect</td><td>Audio production, archiving</td></tr><tr><td>FLAC</td><td>Lossless</td><td>~800-1000 kbps</td><td>Perfect</td><td>Archiving, audiophile listening</td></tr><tr><td>MP3</td><td>Lossy (perceptual)</td><td>128-320 kbps</td><td>Good</td><td>Streaming, portable players</td></tr></tbody></table>',
+
+    'ogg-to-mp3': '<h2>Audio Format Comparison</h2><table class="format-table"><thead><tr><th>Format</th><th>Compression</th><th>Bitrate</th><th>Quality</th><th>Best For</th></tr></thead><tbody>' +
+      '<tr><td>OGG</td><td>Lossy (Vorbis)</td><td>64-500 kbps</td><td>Very good</td><td>Gaming, open-source software</td></tr><tr><td>MP3</td><td>Lossy (perceptual)</td><td>128-320 kbps</td><td>Good</td><td>Streaming, portable players</td></tr><tr><td>FLAC</td><td>Lossless</td><td>~800-1000 kbps</td><td>Perfect</td><td>Archiving, audiophile listening</td></tr></tbody></table>'
   };
 
   function injectReferenceTable() {

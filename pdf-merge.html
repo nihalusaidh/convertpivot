@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merge PDF — Combine PDF Files Online Free | ConvertPivot</title>
+  <meta name="description" content="Free online PDF merger. Combine multiple PDF files into a single PDF document. Drag to reorder pages, merge in your browser. No upload, 100% private.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/pdf-merge">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/pdf-merge">
+  <meta property="og:title" content="Merge PDF — Combine PDF Files Online Free | ConvertPivot">
+  <meta property="og:description" content="Free online PDF merger. Combine multiple PDF files into a single PDF document. Drag to reorder pages, merge in your browser. No upload.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Merge PDF — Combine PDF Files Online Free | ConvertPivot">
+  <meta name="twitter:description" content="Free online PDF merger. Combine multiple PDF files into a single PDF document. Drag to reorder pages, merge in your browser. No upload.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"PDF Merger","url":"https://convertpivot.com/pdf-merge","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online PDF merger. Combine multiple PDF files into a single PDF document. 100% browser-based, no upload."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many PDFs can I merge at once?","acceptedAnswer":{"@type":"Answer","text":"You can upload and merge as many PDF files as you need. Each file becomes part of the merged document in the order you arrange them."}},{"@type":"Question","name":"Can I reorder PDFs before merging?","acceptedAnswer":{"@type":"Answer","text":"Yes. After uploading PDFs, you can drag and drop them to reorder. The final merged PDF follows the order shown in the list."}},{"@type":"Question","name":"Is the merged PDF quality reduced?","acceptedAnswer":{"@type":"Answer","text":"No. The merger copies pages from each source PDF without re-encoding. The quality and content of the original PDFs are preserved exactly."}},{"@type":"Question","name":"Are my PDFs uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All merging happens entirely in your browser using pdf-lib. Your documents never leave your device."}},{"@type":"Question","name":"What happens to bookmarks and form fields?","acceptedAnswer":{"@type":"Answer","text":"The merger copies page content only. Bookmarks, annotations, and form fields from the original PDFs may not be preserved in the merged document."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/">PDF Tools</a><span class="sep">›</span><span class="current">Merge PDF</span></nav>
+    <div class="tool-header">
+      <h1>📋 Merge PDF — Combine PDF Files</h1>
+      <p>Combine multiple PDF files into a single document. Upload PDFs, reorder them by dragging, and merge them instantly. All processing happens in your browser.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your documents never leave your device.</span></div>
+    <div class="converter-widget" id="pdfMergeWidget">
+      <div class="drop-zone" id="pdfMergeDropZone">
+        <div class="drop-zone-icon">📄</div>
+        <div class="drop-zone-text">Drop <strong>PDF files</strong> here, or click to browse</div>
+        <div class="drop-zone-hint">Upload multiple PDFs to merge into one</div>
+        <input type="file" accept=".pdf,application/pdf" multiple aria-label="Choose PDF files">
+      </div>
+      <div class="file-list" id="pdfMergeFileList"></div>
+      <div class="converter-controls">
+        <button class="btn btn-primary" id="pdfMergeBtn">Merge PDFs</button>
+      </div>
+      <div class="progress-bar" id="pdfMergeProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="pdfMergeResult"><div class="converter-result-message"></div></div>
+    </div>
+    <div class="content-section">
+      <h2>How to Merge PDF Files</h2>
+      <p>Drop two or more PDF files onto the merger above. Each file appears as an entry in the list showing its filename and page count. You can drag to reorder the PDFs — the final merged document follows the order you set.</p>
+      <p>When you click "Merge PDFs", the pdf-lib library processes all uploaded PDFs in your browser. Each page from each source PDF is copied into a new combined PDF document. The result is downloaded automatically as a single merged PDF file.</p>
+      <h3>Best Practices for Merging</h3>
+      <p>Ensure all PDFs are valid and not password-protected before merging. Large PDFs with many pages may take a few seconds to process. For the best experience, close other browser tabs to free up memory when merging large files.</p>
+    </div>
+    <div class="content-section">
+      <h2>PDF Features Overview</h2>
+      <table class="format-table"><thead><tr><th>Feature</th><th>Description</th><th>Preserved in Merge</th></tr></thead><tbody>
+        <tr><td>Page Content</td><td>Text, images, and vector graphics on each page</td><td>Yes</td></tr>
+        <tr><td>Fonts</td><td>Embedded and subset fonts</td><td>Yes</td></tr>
+        <tr><td>Page Size</td><td>Individual page dimensions</td><td>Yes</td></tr>
+        <tr><td>Bookmarks</td><td>Navigation outline structure</td><td>No</td></tr>
+        <tr><td>Annotations</td><td>Comments, highlights, links</td><td>No</td></tr>
+        <tr><td>Form Fields</td><td>Interactive form elements</td><td>No</td></tr>
+      </tbody></table>
+    </div>
+    <div class="content-section">
+      <h2>Merging vs Combining — Pros and Cons</h2>
+      <h3>Merging PDFs vs Keeping Separate</h3>
+      <p><strong>Pros of Merging:</strong> Single file for easy sharing and distribution, consistent page numbering, simpler printing, one file to manage instead of many.</p>
+      <p><strong>Cons of Merging:</strong> Larger single file size, harder to extract individual sections later, all recipients must download the entire document.</p>
+      <h3>Online Merger vs Desktop Software</h3>
+      <p><strong>Pros of Browser-Based:</strong> No installation required, works on any OS, completely free with no subscriptions, privacy-focused (no upload).</p>
+      <p><strong>Cons of Browser-Based:</strong> Limited by browser memory for very large files, fewer advanced options than desktop software, slower for extremely large documents.</p>
+      <h3>Merging with pdf-lib vs Server Solutions</h3>
+      <p><strong>Pros of Client-Side:</strong> Absolute privacy (no server upload), instant processing (no network latency), works offline after initial load.</p>
+      <p><strong>Cons of Client-Side:</strong> Dependent on device performance, may not handle encrypted or damaged PDFs, limited to what the browser can process.</p>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">How many PDFs can I merge at once? <span class="arrow">▼</span></button><div class="faq-answer">You can upload as many PDFs as you need. The limit depends on your device memory. Most users can merge dozens of files without issue.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I reorder PDFs before merging? <span class="arrow">▼</span></button><div class="faq-answer">Yes. After uploading, drag the file cards to reorder them. The merged PDF follows the order you set.</div></div>
+        <div class="faq-item"><button class="faq-question">Is the merged PDF quality reduced? <span class="arrow">▼</span></button><div class="faq-answer">No. pdf-lib copies pages without re-encoding. The quality and content of original PDFs are preserved exactly.</div></div>
+        <div class="faq-item"><button class="faq-question">What is not preserved when merging? <span class="arrow">▼</span></button><div class="faq-answer">Bookmarks, annotations, comments, form fields, and interactive elements are not preserved. Only the page content is copied.</div></div>
+        <div class="faq-item"><button class="faq-question">Are my PDFs uploaded to a server? <span class="arrow">▼</span></button><div class="faq-answer">No. All processing happens in your browser using pdf-lib. Your documents never leave your device.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I merge password-protected PDFs? <span class="arrow">▼</span></button><div class="faq-answer">Currently the merger does not support password-protected or encrypted PDFs. Please remove protection before merging.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/jpg-to-pdf" class="related-tool-card">JPG to PDF <span class="desc">Convert images to PDF</span></a>
+        <a href="/pdf-to-jpg" class="related-tool-card">PDF to JPG <span class="desc">Convert PDF pages to images</span></a>
+        <a href="/heic-to-pdf" class="related-tool-card">HEIC to PDF <span class="desc">Convert HEIC photos to PDF</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script>
+  (function() {
+    var pdfFiles = [];
+    var fileListEl = document.getElementById('pdfMergeFileList');
+    var dropZone = document.getElementById('pdfMergeDropZone');
+
+    function renderFileList() {
+      if (pdfFiles.length === 0) {
+        fileListEl.innerHTML = '';
+        dropZone.style.display = '';
+        return;
+      }
+      dropZone.style.display = 'none';
+      var html = '<div class="file-list-header">' + pdfFiles.length + ' PDF(s) — drag to reorder</div>';
+      pdfFiles.forEach(function(pdf, idx) {
+        html += '<div class="file-list-item" data-index="' + idx + '" draggable="true">';
+        html += '<span class="file-list-icon">📄</span>';
+        html += '<span class="file-list-name">' + pdf.file.name + '</span>';
+        html += '<span class="file-list-size">' + ConvertPivot.formatFileSize(pdf.file.size) + '</span>';
+        html += '<span class="file-list-pages">' + pdf.pageCount + ' page(s)</span>';
+        html += '<button class="file-list-remove" data-index="' + idx + '">✕</button>';
+        html += '</div>';
+      });
+      fileListEl.innerHTML = html;
+      fileListEl.querySelectorAll('.file-list-item').forEach(function(item) {
+        item.addEventListener('dragstart', function(e) {
+          e.dataTransfer.setData('text/plain', this.getAttribute('data-index'));
+          this.classList.add('dragging');
+        });
+        item.addEventListener('dragend', function() { this.classList.remove('dragging'); });
+        item.addEventListener('dragover', function(e) { e.preventDefault(); this.classList.add('drag-over'); });
+        item.addEventListener('dragleave', function() { this.classList.remove('drag-over'); });
+        item.addEventListener('drop', function(e) {
+          e.preventDefault();
+          this.classList.remove('drag-over');
+          var fromIdx = parseInt(e.dataTransfer.getData('text/plain'));
+          var toIdx = parseInt(this.getAttribute('data-index'));
+          if (fromIdx !== toIdx) {
+            var item = pdfFiles.splice(fromIdx, 1)[0];
+            pdfFiles.splice(toIdx, 0, item);
+            renderFileList();
+          }
+        });
+      });
+      fileListEl.querySelectorAll('.file-list-remove').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var idx = parseInt(this.getAttribute('data-index'));
+          pdfFiles.splice(idx, 1);
+          renderFileList();
+        });
+      });
+    }
+
+    dropZone.querySelector('input[type="file"]').addEventListener('change', function() {
+      if (this.files && this.files.length > 0) {
+        addPdfFiles(this.files);
+        this.value = '';
+      }
+    });
+
+    dropZone.addEventListener('dragover', function(e) { e.preventDefault(); dropZone.classList.add('drag-over'); });
+    dropZone.addEventListener('dragleave', function() { dropZone.classList.remove('drag-over'); });
+    dropZone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        addPdfFiles(e.dataTransfer.files);
+      }
+    });
+
+    function addPdfFiles(fileList) {
+      var pending = Array.from(fileList).filter(function(f) { return f.type === 'application/pdf' || f.name.match(/\.pdf$/i); });
+      if (pending.length === 0) { ConvertPivot.showToast('Please select PDF files only.', 'error'); return; }
+      pending.forEach(function(file) {
+        var reader = new FileReader();
+        reader.onload = async function() {
+          try {
+            var pdfDoc = await PDFLib.PDFDocument.load(reader.result);
+            pdfFiles.push({ file: file, data: reader.result, pageCount: pdfDoc.getPageCount() });
+            renderFileList();
+          } catch (e) {
+            ConvertPivot.showToast('Could not read: ' + file.name, 'error');
+          }
+        };
+        reader.readAsArrayBuffer(file);
+      });
+    }
+
+    document.getElementById('pdfMergeBtn').addEventListener('click', async function() {
+      if (pdfFiles.length < 2) { ConvertPivot.showResult('pdfMergeResult', 'Please upload at least 2 PDF files.', 'error'); return; }
+      ConvertPivot.hideResult('pdfMergeResult');
+      var progress = ConvertPivot.showProgress('pdfMergeProgress');
+      try {
+        var mergedPdf = await PDFLib.PDFDocument.create();
+        for (var i = 0; i < pdfFiles.length; i++) {
+          var srcPdf = await PDFLib.PDFDocument.load(pdfFiles[i].data);
+          var indices = srcPdf.getPageIndices();
+          var copiedPages = await mergedPdf.copyPages(srcPdf, indices);
+          copiedPages.forEach(function(page) { mergedPdf.addPage(page); });
+          progress.set(Math.round(((i + 1) / pdfFiles.length) * 100));
+        }
+        var mergedBytes = await mergedPdf.save();
+        ConvertPivot.downloadFile(mergedBytes, 'merged-document.pdf', 'application/pdf');
+        progress.done();
+        ConvertPivot.showResult('pdfMergeResult', pdfFiles.length + ' PDFs merged successfully (' + mergedPdf.getPageCount() + ' pages total).', 'success');
+      } catch (err) {
+        progress.done();
+        ConvertPivot.showResult('pdfMergeResult', 'Merge failed: ' + err.message, 'error');
+      }
+    });
+  })();
+  </script>
+  <style>
+  .file-list { margin-top: 16px; }
+  .file-list-header { font-size: 0.85rem; font-weight: 600; color: var(--color-graphite); margin-bottom: 8px; }
+  .file-list-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--color-smoke); border: 1px solid var(--color-mist); border-radius: var(--radius-card); margin-bottom: 6px; cursor: grab; transition: background 0.15s, border-color 0.15s, opacity 0.15s; }
+  .file-list-item:hover { background: var(--color-surface); }
+  .file-list-item.dragging { opacity: 0.4; }
+  .file-list-item.drag-over { border-color: var(--color-red); background: var(--color-red-light); }
+  .file-list-icon { font-size: 1.3rem; flex-shrink: 0; }
+  .file-list-name { flex: 1; font-size: 0.85rem; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .file-list-size { font-size: 0.8rem; color: var(--color-graphite); flex-shrink: 0; }
+  .file-list-pages { font-size: 0.8rem; color: var(--color-graphite); flex-shrink: 0; }
+  .file-list-remove { background: none; border: none; cursor: pointer; color: var(--color-graphite); font-size: 1rem; padding: 4px; flex-shrink: 0; }
+  .file-list-remove:hover { color: var(--color-red); }
+  </style>
+</body>
+</html>

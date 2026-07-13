@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF to JPG — Convert PDF Pages to Images | ConvertPivot</title>
+  <meta name="description" content="Free online PDF to JPG converter. Convert each page of a PDF document to high-quality JPG images. Adjustable quality, batch download as ZIP. 100% browser-based.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/pdf-to-jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/pdf-to-jpg">
+  <meta property="og:title" content="PDF to JPG — Convert PDF Pages to Images | ConvertPivot">
+  <meta property="og:description" content="Free online PDF to JPG converter. Convert each page of a PDF document to high-quality JPG images. Adjustable quality, batch download as ZIP.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PDF to JPG — Convert PDF Pages to Images | ConvertPivot">
+  <meta name="twitter:description" content="Free online PDF to JPG converter. Convert each page of a PDF document to high-quality JPG images. Adjustable quality, batch download as ZIP.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"PDF to JPG Converter","url":"https://convertpivot.com/pdf-to-jpg","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online PDF to JPG converter. Convert PDF pages to JPG images. 100% browser-based, no upload."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does PDF to JPG conversion work?","acceptedAnswer":{"@type":"Answer","text":"We use PDF.js to render each page of your PDF onto a canvas, then export it as a JPG image. All processing happens in your browser."}},{"@type":"Question","name":"Can I adjust the image quality?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can choose from Low, Medium, High, and Very High quality presets. Higher quality produces larger file sizes."}},{"@type":"Question","name":"How do I download all pages at once?","acceptedAnswer":{"@type":"Answer","text":"After conversion, click the Download All as ZIP button. This creates a ZIP archive containing all pages as individual JPG files."}},{"@type":"Question","name":"Is there a limit on PDF file size?","acceptedAnswer":{"@type":"Answer","text":"Since processing happens in your browser, very large PDFs may be limited by available memory. For best results, keep PDFs under 100 pages."}},{"@type":"Question","name":"Are my PDF files uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All conversion happens entirely in your browser using PDF.js. Your documents never leave your device."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/">PDF Tools</a><span class="sep">›</span><span class="current">PDF to JPG</span></nav>
+    <div class="tool-header">
+      <h1>📷 PDF to JPG Converter — PDF Pages to Images</h1>
+      <p>Convert each page of your PDF document into a high-quality JPG image. Choose quality settings and download pages individually or as a ZIP archive.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your documents never leave your device.</span></div>
+    <div class="converter-widget" id="pdfToJpgWidget">
+      <div class="drop-zone" id="pdfToJpgDropZone">
+        <div class="drop-zone-icon">📄</div>
+        <div class="drop-zone-text">Drop a <strong>PDF file</strong> here, or click to browse</div>
+        <div class="drop-zone-hint">Single PDF file, any size</div>
+        <input type="file" accept=".pdf,application/pdf" aria-label="Choose PDF file">
+      </div>
+      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">✕</button></div>
+      <div class="converter-controls">
+        <label>Quality:
+          <select id="pdfToJpgQuality">
+            <option value="0.3">Low</option>
+            <option value="0.6" selected>Medium</option>
+            <option value="0.85">High</option>
+            <option value="1">Very High</option>
+          </select>
+        </label>
+        <button class="btn btn-primary" id="pdfToJpgConvertBtn">Convert to JPG</button>
+      </div>
+      <div class="progress-bar" id="pdfToJpgProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="pdfToJpgResult"><div class="converter-result-message"></div></div>
+    </div>
+    <div class="content-section">
+      <h2>How to Convert PDF to JPG</h2>
+      <p>Upload a PDF document using the drop zone above. The PDF is parsed using PDF.js in your browser. Each page is rendered at high resolution onto a canvas, then exported as a JPG image. You can choose from four quality presets to balance image clarity against file size.</p>
+      <p>After conversion, each page appears as a thumbnail. Click a thumbnail to download that page individually, or use the "Download All as ZIP" button to get all pages in a single archive. The ZIP file is created using JSZip in your browser.</p>
+      <h3>Quality Settings Explained</h3>
+      <p>Low quality (0.3) produces smaller files suitable for thumbnails or previews. Medium quality (0.6) offers a good balance of file size and visual fidelity. High quality (0.85) is recommended for most use cases. Very High quality (1.0) produces the largest files with minimal compression artifacts.</p>
+    </div>
+    <div class="content-section">
+      <h2>PDF to JPG Quality Comparison</h2>
+      <table class="format-table"><thead><tr><th>Quality Setting</th><th>Compression Factor</th><th>Typical File Size</th><th>Best For</th></tr></thead><tbody>
+        <tr><td>Low</td><td>0.3</td><td>~50-100 KB per page</td><td>Thumbnails, preview grids</td></tr>
+        <tr><td>Medium</td><td>0.6</td><td>~150-300 KB per page</td><td>Email attachments, quick sharing</td></tr>
+        <tr><td>High</td><td>0.85</td><td>~300-600 KB per page</td><td>Documentation, presentations</td></tr>
+        <tr><td>Very High</td><td>1.0</td><td>~500 KB-1 MB per page</td><td>Archival, printing</td></tr>
+      </tbody></table>
+    </div>
+    <div class="content-section">
+      <h2>PDF vs JPG — Pros and Cons</h2>
+      <h3>PDF vs JPG for Document Sharing</h3>
+      <p><strong>Pros of JPG:</strong> Universal image format viewable everywhere, smaller individual file sizes, easy to embed in web pages and documents, no special reader needed.</p>
+      <p><strong>Cons of JPG:</strong> Each page is a separate file, no text layer (images only), lossy compression reduces text sharpness, multi-page documents are harder to manage.</p>
+      <h3>PDF vs JPG for Archiving</h3>
+      <p><strong>Pros of JPG:</strong> Smaller storage footprint for scanned documents, direct embedding into photo albums, compatible with all image editing software.</p>
+      <p><strong>Cons of JPG:</strong> Lossy format degrades over re-saves, no vector graphics support, text becomes non-selectable, no searchable content.</p>
+      <h3>PDF vs JPG for Presentations</h3>
+      <p><strong>Pros of JPG:</strong> Easily inserted into slides, cropped and edited in image tools, lightweight for quick transfers.</p>
+      <p><strong>Cons of JPG:</strong> No animations or transitions, lower visual quality for text-heavy slides, each slide is a separate file requiring manual organization.</p>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">How does PDF to JPG conversion work? <span class="arrow">▼</span></button><div class="faq-answer">PDF.js renders each page onto an HTML canvas at the chosen resolution, then the canvas is exported as a JPG data URL using toDataURL().</div></div>
+        <div class="faq-item"><button class="faq-question">Can I download all pages at once? <span class="arrow">▼</span></button><div class="faq-answer">Yes. After conversion, use the "Download All as ZIP" button to download a ZIP archive containing all pages as individual JPG files.</div></div>
+        <div class="faq-item"><button class="faq-question">What quality setting should I use? <span class="arrow">▼</span></button><div class="faq-answer">High (0.85) is recommended for most use cases. Use Very High for archival and printing. Use Medium or Low for email and previews.</div></div>
+        <div class="faq-item"><button class="faq-question">Is there a page limit? <span class="arrow">▼</span></button><div class="faq-answer">Since processing happens in your browser, memory may limit very large PDFs. Generally PDFs under 100 pages work well on modern devices.</div></div>
+        <div class="faq-item"><button class="faq-question">Are my PDF files uploaded? <span class="arrow">▼</span></button><div class="faq-answer">No. All processing happens locally in your browser using PDF.js. Your documents never leave your device.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I convert just specific pages? <span class="arrow">▼</span></button><div class="faq-answer">Currently the tool converts all pages. You can delete individual page images after conversion or choose to download only the pages you need.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/jpg-to-pdf" class="related-tool-card">JPG to PDF <span class="desc">Convert images to PDF</span></a>
+        <a href="/pdf-merge" class="related-tool-card">Merge PDF <span class="desc">Combine multiple PDFs</span></a>
+        <a href="/heic-to-jpg" class="related-tool-card">HEIC to JPG <span class="desc">Convert HEIC photos to JPEG</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script>
+  (function() {
+    var currentFile = null;
+    var pageImages = [];
+
+    ConvertPivot.initDropZone('pdfToJpgDropZone', function(file) { currentFile = file; });
+
+    document.getElementById('pdfToJpgConvertBtn').addEventListener('click', async function() {
+      if (!currentFile) { ConvertPivot.showResult('pdfToJpgResult', 'Please select a PDF file first.', 'error'); return; }
+      ConvertPivot.hideResult('pdfToJpgResult');
+      var progress = ConvertPivot.showProgress('pdfToJpgProgress');
+      pageImages = [];
+      try {
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        var arrayBuffer = await ConvertPivot.readFileAsArrayBuffer(currentFile);
+        var pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+        var quality = parseFloat(document.getElementById('pdfToJpgQuality').value);
+        var scale = quality * 2;
+
+        for (var i = 1; i <= pdf.numPages; i++) {
+          var page = await pdf.getPage(i);
+          var viewport = page.getViewport({ scale: scale });
+          var canvas = document.createElement('canvas');
+          var ctx = canvas.getContext('2d');
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+          var dataUrl = canvas.toDataURL('image/jpeg', quality);
+          pageImages.push({ dataUrl: dataUrl, page: i, name: 'page-' + i + '.jpg' });
+          progress.set(Math.round((i / pdf.numPages) * 70));
+        }
+
+        var resultHtml = '';
+        for (var j = 0; j < pageImages.length; j++) {
+          resultHtml += '<div class="pdf-thumb-wrapper">';
+          resultHtml += '<img src="' + pageImages[j].dataUrl + '" class="pdf-thumb" alt="Page ' + pageImages[j].page + '">';
+          resultHtml += '<div class="pdf-thumb-label">Page ' + pageImages[j].page + '</div>';
+          resultHtml += '<button class="btn btn-secondary pdf-download-single" data-index="' + j + '">Download</button>';
+          resultHtml += '</div>';
+        }
+        resultHtml += '<div class="pdf-batch-actions"><button class="btn btn-success" id="pdfDownloadAllBtn">Download All as ZIP</button></div>';
+
+        ConvertPivot.showResult('pdfToJpgResult', resultHtml, 'success', true);
+        progress.set(80);
+
+        document.querySelectorAll('.pdf-download-single').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var idx = parseInt(this.getAttribute('data-index'));
+            var img = pageImages[idx];
+            ConvertPivot.downloadFromUrl(img.dataUrl, img.name);
+          });
+        });
+
+        document.getElementById('pdfDownloadAllBtn').addEventListener('click', async function() {
+          progress.set(85);
+          var zip = new JSZip();
+          for (var k = 0; k < pageImages.length; k++) {
+            var blob = await (await fetch(pageImages[k].dataUrl)).blob();
+            zip.file(pageImages[k].name, blob);
+            progress.set(85 + Math.round(((k + 1) / pageImages.length) * 15));
+          }
+          var zipBlob = await zip.generateAsync({ type: 'blob' });
+          ConvertPivot.downloadFile(zipBlob, currentFile.name.replace(/\.pdf$/i, '') + '-pages.zip', 'application/zip');
+          progress.done();
+        });
+
+        progress.done();
+        progress.set(100);
+      } catch (err) {
+        progress.done();
+        ConvertPivot.showResult('pdfToJpgResult', 'Conversion failed: ' + err.message, 'error');
+      }
+    });
+  })();
+  </script>
+  <style>
+  .pdf-thumb-wrapper { display: inline-block; margin: 8px; text-align: center; vertical-align: top; }
+  .pdf-thumb { max-width: 180px; max-height: 240px; border: 1px solid var(--color-mist); border-radius: var(--radius-card); display: block; margin-bottom: 6px; }
+  .pdf-thumb-label { font-size: 0.8rem; color: var(--color-graphite); margin-bottom: 6px; }
+  .pdf-download-single { font-size: 0.8rem; padding: 6px 16px; }
+  .pdf-batch-actions { margin-top: 16px; text-align: center; }
+  </style>
+</body>
+</html>

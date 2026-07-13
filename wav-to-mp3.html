@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WAV to MP3 Converter — Free Online Audio Compressor | ConvertPivot</title>
+  <meta name="description" content="Free online WAV to MP3 converter. Compress WAV audio files to MP3 format. Choose your bitrate: 128k, 192k, 256k, or 320k. 100% browser-based.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/wav-to-mp3">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/wav-to-mp3">
+  <meta property="og:title" content="WAV to MP3 Converter — Free Online Audio Compressor | ConvertPivot">
+  <meta property="og:description" content="Free online WAV to MP3 converter. Compress WAV audio files to MP3 format. Choose your bitrate: 128k, 192k, 256k, or 320k. 100% browser-based.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WAV to MP3 Converter — Free Online Audio Compressor | ConvertPivot">
+  <meta name="twitter:description" content="Free online WAV to MP3 converter. Compress WAV audio files to MP3 format. Choose your bitrate. 100% browser-based.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"WAV to MP3 Converter","url":"https://convertpivot.com/wav-to-mp3","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online WAV to MP3 converter. Compress WAV audio files to MP3 with selectable bitrate. 100% browser-based, no upload."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What bitrate should I choose for MP3?","acceptedAnswer":{"@type":"Answer","text":"128 kbps is good for speech and podcasts (small file). 192 kbps balances quality and size for music. 256 kbps offers near-CD quality. 320 kbps is the highest MP3 bitrate for maximum fidelity with compatible players."}},{"@type":"Question","name":"Is WAV to MP3 conversion lossy?","acceptedAnswer":{"@type":"Answer","text":"Yes, MP3 is a lossy format. Converting WAV to MP3 permanently removes some audio data to reduce file size. Higher bitrates preserve more detail. Always keep your original WAV files for archival."}},{"@type":"Question","name":"How much smaller will the MP3 file be?","acceptedAnswer":{"@type":"Answer","text":"A CD-quality WAV file runs about 10 MB per minute. At 192 kbps MP3, the same audio is roughly 1.5 MB per minute — a 85% size reduction. At 320 kbps, expect about 2.5 MB per minute."}},{"@type":"Question","name":"Is my data private?","acceptedAnswer":{"@type":"Answer","text":"Yes. All conversion happens entirely in your browser using FFmpeg.wasm. Your files never leave your device."}},{"@type":"Question","name":"Can I convert MP3 back to WAV?","acceptedAnswer":{"@type":"Answer","text":"Yes, use our MP3 to WAV converter. Note that converting lossy MP3 back to WAV does not restore lost quality — the file will be larger but sound identical to the MP3 source."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span>Audio Converters</span><span class="sep">›</span><span class="current">WAV to MP3</span></nav>
+    <div class="tool-header">
+      <h1>🎵 WAV to MP3 Converter — Uncompressed to Compressed Audio</h1>
+      <p>Compress WAV audio files into space-saving MP3 format with selectable bitrate. 100% private, runs entirely in your browser.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your files never leave your device.</span></div>
+    <div class="seo-content">
+      <h2>How to Convert WAV to MP3</h2>
+      <p>Upload a WAV file, select your desired MP3 bitrate (128 kbps for small files, 320 kbps for maximum quality), and click convert. FFmpeg.wasm encodes your audio to MP3 right in your browser. Preview and download the result — nothing is uploaded to any server.</p>
+      <h3>Understanding WAV and MP3 Audio Formats</h3>
+      <p>WAV (Waveform Audio File Format) stores uncompressed PCM audio data, preserving every sample of the original recording with perfect fidelity. A standard CD-quality WAV has a bitrate of 1411 kbps (44.1 kHz, 16-bit stereo), consuming approximately 10 MB per minute of audio. WAV is the gold standard for professional audio production, archiving, and any workflow that demands absolute accuracy.</p>
+      <p>MP3 (MPEG-1 Audio Layer 3) revolutionized digital audio by using perceptual coding to dramatically reduce file sizes while maintaining acceptable sound quality. By exploiting psychoacoustic principles — removing frequencies most humans cannot hear and applying masking effects — MP3 achieves compression ratios of 10:1 or more. At 192 kbps, MP3 preserves most audible detail while consuming only 1.5 MB per minute. This efficiency made MP3 the dominant format for portable music players, streaming services, and digital music distribution.</p>
+      <p>Converting WAV to MP3 is a lossy process — the output file will be permanently reduced in quality relative to the original WAV. However, at higher bitrates (256-320 kbps), the difference is nearly imperceptible to most listeners on typical playback equipment. The trade-off is dramatic: a 10 MB WAV per minute becomes a 2 MB MP3, enabling storage of thousands of songs on portable devices.</p>
+      <h3>Pro vs Con: WAV</h3>
+      <p><strong>Pros:</strong> Perfect lossless audio fidelity. Universal support in professional audio software. No generation loss when editing or processing. Ideal for archival and mastering workflows.</p>
+      <p><strong>Cons:</strong> Extremely large file sizes (~10 MB/min). Impractical for portable devices or streaming. No native metadata support. Requires significantly more bandwidth and storage.</p>
+      <h3>Pro vs Con: MP3</h3>
+      <p><strong>Pros:</strong> Very small file sizes (85-90% smaller than WAV). Universal compatibility across all devices and platforms. Rich metadata support (ID3 tags, album art). Optimized for streaming and portable playback.</p>
+      <p><strong>Cons:</strong> Lossy compression permanently removes audio data. Lower bitrates introduce audible artifacts. Multiple encode/decode cycles compound quality loss. Not suitable for professional editing workflows.</p>
+      <h3>Bitrate Recommendations by Use Case</h3>
+      <p><strong>128 kbps:</strong> Suitable for speech, podcasts, and background audio where file size is the primary concern. Audible compression artifacts on complex music. <strong>192 kbps:</strong> The sweet spot for most users. Near-transparent quality for most music genres with good file efficiency. <strong>256 kbps:</strong> Excellent quality that approaches transparency for critical listening. Recommended for music archives. <strong>320 kbps:</strong> The maximum MP3 bitrate. Virtually indistinguishable from the source WAV for most listeners. Best for high-fidelity portable setups and archival copies.</p>
+      <h3>Common Use Cases for WAV to MP3 Conversion</h3>
+      <p>Musicians and producers export final mixes from their DAW as WAV, then convert to MP3 for sharing with clients, uploading to streaming platforms, or distributing to fans. Podcasters record in WAV for editing flexibility and export MP3 for distribution to platforms like Apple Podcasts and Spotify. Sound designers create effects libraries in WAV but deliver MP3 samples for game development where storage budgets are constrained.</p>
+      <h3>WAV vs MP3 vs FLAC vs OGG Reference</h3>
+      <table class="format-table"><thead><tr><th>Format</th><th>Compression</th><th>Typical Bitrate</th><th>File Size (per min)</th><th>Best For</th></tr></thead><tbody>
+        <tr><td>WAV</td><td>Uncompressed</td><td>1411 kbps</td><td>~10 MB</td><td>Professional audio production</td></tr>
+        <tr><td>MP3</td><td>Lossy</td><td>128-320 kbps</td><td>1-2.5 MB</td><td>Streaming, portable playback</td></tr>
+        <tr><td>FLAC</td><td>Lossless</td><td>~800-1000 kbps</td><td>~5-7 MB</td><td>Archiving, audiophile listening</td></tr>
+        <tr><td>OGG Vorbis</td><td>Lossy</td><td>64-500 kbps</td><td>0.5-4 MB</td><td>Gaming, open-source software</td></tr>
+      </tbody></table>
+    </div>
+    <div class="converter-widget" id="wavToMp3Widget">
+      <div class="drop-zone" id="wavToMp3DropZone">
+        <div class="drop-zone-icon">🎵</div>
+        <div class="drop-zone-text">Drop <strong>WAV file</strong> here, or click to browse</div>
+        <div class="drop-zone-hint">Supports .wav files up to 500 MB</div>
+        <input type="file" accept=".wav" aria-label="Choose WAV file">
+      </div>
+      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">✕</button></div>
+      <div class="converter-controls">
+        <label for="bitrateSelect">Bitrate:</label>
+        <select id="bitrateSelect">
+          <option value="128k">128 kbps (Smaller)</option>
+          <option value="192k" selected>192 kbps (Balanced)</option>
+          <option value="256k">256 kbps (High)</option>
+          <option value="320k">320 kbps (Maximum)</option>
+        </select>
+        <button class="btn btn-primary" id="convertBtn">Convert to MP3</button>
+      </div>
+      <div class="progress-bar" id="progressBar"><div class="progress-bar-fill"></div></div>
+      <div class="output-area" id="outputArea" style="display:none;margin-top:20px;">
+        <audio controls id="audioPreview" style="width:100%;margin-bottom:12px;"></audio>
+        <button class="btn btn-success" id="downloadBtn">Download MP3</button>
+      </div>
+      <div class="converter-result" id="result"><div class="converter-result-message"></div></div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What bitrate should I choose for MP3? <span class="arrow">▼</span></button><div class="faq-answer">128 kbps for speech and podcasts, 192 kbps for general music listening, 256 kbps for higher quality, and 320 kbps for maximum fidelity. Higher bitrates preserve more detail at the cost of larger files.</div></div>
+        <div class="faq-item"><button class="faq-question">Is WAV to MP3 conversion lossy? <span class="arrow">▼</span></button><div class="faq-answer">Yes, MP3 uses lossy compression. Audio data is permanently removed during encoding. Always keep your original WAV files if you need to edit or re-encode later.</div></div>
+        <div class="faq-item"><button class="faq-question">How much space will I save? <span class="arrow">▼</span></button><div class="faq-answer">At 192 kbps, MP3 is about 85% smaller than WAV. A 50 MB WAV becomes roughly 7.5 MB MP3. At 320 kbps, expect about 75% size reduction.</div></div>
+        <div class="faq-item"><button class="faq-question">Is my data private? <span class="arrow">▼</span></button><div class="faq-answer">Yes. All conversion runs entirely in your browser using FFmpeg.wasm. Nothing is uploaded to any server.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I convert MP3 back to WAV? <span class="arrow">▼</span></button><div class="faq-answer">Yes, use our MP3 to WAV converter. The WAV will be larger but will not regain data lost during MP3 encoding — it will sound identical to the original MP3.</div></div>
+        <div class="faq-item"><button class="faq-question">Does MP3 support surround sound? <span class="arrow">▼</span></button><div class="faq-answer">MP3 supports up to 5.1 surround sound channels, but most encoders default to stereo. For multichannel audio, consider formats like AC3 or AAC.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/mp3-to-wav" class="related-tool-card">MP3 to WAV <span class="desc">Convert MP3 back to WAV</span></a>
+        <a href="/wav-to-flac" class="related-tool-card">WAV to FLAC <span class="desc">Compress WAV to lossless FLAC</span></a>
+        <a href="/flac-to-mp3" class="related-tool-card">FLAC to MP3 <span class="desc">Convert FLAC to MP3</span></a>
+        <a href="/ogg-to-mp3" class="related-tool-card">OGG to MP3 <span class="desc">Convert OGG Vorbis to MP3</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script type="module">
+    import { FFmpeg } from 'https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.10/dist/esm/ffmpeg.js';
+    import { toBlobURL, fetchFile } from 'https://cdn.jsdelivr.net/npm/@ffmpeg/util@0.12.1/dist/esm/util.js';
+    var ffmpeg = new FFmpeg();
+    var loaded = false;
+    var outputBlob = null;
+    var currentFile = null;
+    async function loadFFmpeg() {
+      if (loaded) return;
+      var msg = document.querySelector('#result .converter-result-message');
+      if (msg) msg.textContent = 'Loading FFmpeg (first time only)...';
+      ffmpeg.on('progress', function(p) {
+        var prog = document.getElementById('progressBar');
+        if (prog) { prog.classList.add('show'); var fill = prog.querySelector('.progress-bar-fill'); if (fill) fill.style.width = Math.round(p.progress * 100) + '%'; }
+      });
+      await ffmpeg.load({ coreURL: await toBlobURL('https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.6/dist/esm/ffmpeg-core.js', 'text/javascript') });
+      loaded = true;
+      if (msg) msg.textContent = '';
+    }
+    var zone = ConvertPivot.initDropZone('wavToMp3DropZone', function(file) { currentFile = file; });
+    document.getElementById('convertBtn').addEventListener('click', async function() {
+      var file = currentFile || (zone ? zone.getFile() : null);
+      if (!file) { ConvertPivot.showResult('result', 'Please select a WAV file first.', 'error'); return; }
+      ConvertPivot.hideResult('result');
+      var btn = document.getElementById('convertBtn');
+      btn.disabled = true;
+      btn.textContent = 'Converting...';
+      var outputArea = document.getElementById('outputArea');
+      outputArea.style.display = 'none';
+      try {
+        await loadFFmpeg();
+        var bitrate = document.getElementById('bitrateSelect').value;
+        var inputName = 'input.wav';
+        var outputName = 'output.mp3';
+        ffmpeg.writeFile(inputName, await fetchFile(file));
+        await ffmpeg.exec(['-i', inputName, '-codec:a', 'libmp3lame', '-b:a', bitrate, outputName]);
+        var data = await ffmpeg.readFile(outputName);
+        outputBlob = new Blob([data], { type: 'audio/mpeg' });
+        var url = URL.createObjectURL(outputBlob);
+        document.getElementById('audioPreview').src = url;
+        document.getElementById('downloadBtn').onclick = function() {
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = file.name.replace(/\.wav$/i, '.mp3');
+          a.click();
+        };
+        outputArea.style.display = 'block';
+        ConvertPivot.showResult('result', 'Conversion complete! Preview or download your MP3 file.', 'success');
+      } catch (err) {
+        ConvertPivot.showResult('result', 'Conversion failed: ' + err.message, 'error');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Convert to MP3';
+        var prog = document.getElementById('progressBar');
+        if (prog) { prog.classList.remove('show'); var fill = prog.querySelector('.progress-bar-fill'); if (fill) fill.style.width = '0%'; }
+      }
+    });
+  </script>
+</body>
+</html>

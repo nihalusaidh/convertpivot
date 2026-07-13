@@ -34,6 +34,9 @@
   <url><loc>https://convertpivot.com/svg-to-png</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
   <url><loc>https://convertpivot.com/jpg-to-heic</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
   <url><loc>https://convertpivot.com/jpg-to-avif</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/jpg-to-pdf</loc><priority>0.6</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/pdf-to-jpg</loc><priority>0.6</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/pdf-merge</loc><priority>0.6</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
   <url><loc>https://convertpivot.com/png-to-svg</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
   <url><loc>https://convertpivot.com/gpx-to-kml</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
   <url><loc>https://convertpivot.com/gpx-to-csv</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
@@ -58,6 +61,8 @@
   <url><loc>https://convertpivot.com/privacy</loc><priority>0.3</priority><changefreq>yearly</changefreq><lastmod>2026-07-13</lastmod></url>
   <url><loc>https://convertpivot.com/terms</loc><priority>0.3</priority><changefreq>yearly</changefreq><lastmod>2026-07-13</lastmod></url>
   <url><loc>https://convertpivot.com/contact</loc><priority>0.3</priority><changefreq>yearly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/ics-to-csv</loc><priority>0.6</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/csv-to-ics</loc><priority>0.6</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
   <url><loc>https://convertpivot.com/guides</loc><priority>0.7</priority><changefreq>weekly</changefreq><lastmod>2026-07-13</lastmod></url>
   <url><loc>https://convertpivot.com/guides/bank-statement-formats</loc><priority>0.6</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
   <url><loc>https://convertpivot.com/guides/vcard-formats</loc><priority>0.6</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
@@ -76,4 +81,25 @@
   <url><loc>https://convertpivot.com/blog/open-vcf-files-in-excel</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
   <url><loc>https://convertpivot.com/blog/convert-bank-statement-pdf-to-excel</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
   <url><loc>https://convertpivot.com/404</loc><priority>0.1</priority><changefreq>yearly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/mp3-to-wav</loc><priority>0.6</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/wav-to-mp3</loc><priority>0.6</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/mp3-to-flac</loc><priority>0.6</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/flac-to-mp3</loc><priority>0.6</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/wav-to-flac</loc><priority>0.6</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/ogg-to-mp3</loc><priority>0.6</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/blog/mp4-vs-mkv-vs-avi-vs-mov</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/blog/png-vs-jpeg-vs-gif-vs-bmp</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/blog/json-vs-xml-vs-yaml-vs-toml</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/blog/pdf-vs-word-vs-excel</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/blog/ai-vs-svg-vs-eps</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/blog/how-to-convert-pdf-to-excel</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/blog/how-to-convert-mp4-to-mp3</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/blog/how-to-convert-vcf-to-excel</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/blog/how-to-convert-jpg-to-pdf</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/blog/how-to-convert-epub-to-pdf</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/blog/best-audio-formats-music-production</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/blog/top-10-free-online-file-converters</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/blog/how-to-reduce-pdf-file-size</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/blog/complete-guide-bank-statement-conversion</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/blog/ultimate-guide-image-optimization</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
 </urlset>
