@@ -5,7 +5,7 @@
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Free Online Converter Tools — 100% Browser-Based | ConvertPivot</title>
-  <meta name="description" content="88+ free online converter tools. Convert binary, VCF contacts, bank statements, GPX, IPYNB, HEIC, and more. Zero uploads — your files never leave your device.">
+  <meta name="description" content="90+ free online converter tools. Convert colors, CSS properties, binary, VCF contacts, bank statements, GPX, IPYNB, HEIC, and more. Zero uploads — your files never leave your device.">
     <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/">
@@ -31,7 +31,7 @@
     "applicationCategory": "Multimedia",
     "operatingSystem": "All",
     "browserRequirements": "JavaScript",
-    "description": "88+ free online converter tools that run entirely in your browser. Convert files privately — no upload, no signup."
+    "description": "90+ free online converter tools that run entirely in your browser. Convert files privately — no upload, no signup."
   }
   </script>
   <script type="application/ld+json">
@@ -60,7 +60,7 @@
         "name": "What file formats are supported?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "ConvertPivot supports 40+ conversion types across financial files (OFX, QFX, QBO), contacts (VCF, CSV, XLSX), notebooks (IPYNB), GPS data (GPX, KML, FIT), images (HEIC, AVIF, WebP, SVG), and developer tools (binary, hex, timestamp)."
+          "text": "ConvertPivot supports 90+ conversion types across financial files (OFX, QFX, QBO), contacts (VCF, CSV, XLSX), notebooks (IPYNB), GPS data (GPX, KML, FIT), images (HEIC, AVIF, WebP, SVG), CSS tools (color spaces, logical properties, view transitions), and developer tools (binary, hex, timestamp)."
         }
       },
       {
@@ -149,6 +149,15 @@
       <a href="/jwt-decoder" class="sidebar-link"><span class="icon">🔐</span>JWT Decoder</a>
     </div>
     <div class="sidebar-section">
+      <div class="sidebar-heading">CSS Tools</div>
+      <a href="/color-space-converter" class="sidebar-link"><span class="icon">🎨</span>Color Space Converter</a>
+      <a href="/css-logical-properties" class="sidebar-link"><span class="icon">📐</span>Logical Properties</a>
+      <a href="/css-property-generator" class="sidebar-link"><span class="icon">📋</span>@property Generator</a>
+      <a href="/css-text-wrap-visualizer" class="sidebar-link"><span class="icon">↔️</span>Text Wrap Visualizer</a>
+      <a href="/css-view-transitions-generator" class="sidebar-link"><span class="icon">✨</span>View Transitions</a>
+      <a href="/css-anchor-positioning-generator" class="sidebar-link"><span class="icon">⚓</span>Anchor Positioning</a>
+    </div>
+    <div class="sidebar-section">
       <div class="sidebar-heading">Text &amp; Utilities</div>
       <a href="/slug-generator" class="sidebar-link"><span class="icon">🔗</span>Slug Generator</a>
       <a href="/lorem-ipsum-generator" class="sidebar-link"><span class="icon">📝</span>Lorem Ipsum Generator</a>
@@ -210,14 +219,14 @@
     <!-- HERO -->
     <section class="hero">
       <h1>Free Online Converter Tools.<br><span class="highlight">100% Browser-Based. Zero Uploads.</span></h1>
-      <p>Convert files, data, and formats privately — right in your browser. No signup, no server uploads, no limits. 40+ tools for financial data, contacts, notebooks, GPS, images, and developer formats.</p>
+      <p>Convert files, data, colors, and CSS privately — right in your browser. No signup, no server uploads, no limits. 90+ tools for financial data, contacts, notebooks, GPS, images, CSS, and developer formats.</p>
       <div class="hero-stats">
         <div class="hero-stat">
           <div class="hero-stat-value" id="conversionCounter">149,287</div>
           <div class="hero-stat-label">Conversions Today</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-value">88+</div>
+          <div class="hero-stat-value">90+</div>
           <div class="hero-stat-label">Converter Tools</div>
         </div>
         <div class="hero-stat">
@@ -500,6 +509,40 @@
           <div class="tool-card-icon">🔐</div>
           <div class="tool-card-title">JWT Decoder</div>
           <div class="tool-card-desc">Decode JSON Web Tokens in your browser. No server upload needed.</div>
+        </a>
+      </div>
+
+      <h2 class="section-heading">CSS Tools</h2>
+      <div class="tool-grid">
+        <a href="/color-space-converter" class="tool-card">
+          <div class="tool-card-icon">🎨</div>
+          <div class="tool-card-title">Color Space Converter</div>
+          <div class="tool-card-desc">Convert between HEX, sRGB, HSL, OKLCH, OKLAB, LCH, LAB, and Display P3 with gamut warnings.</div>
+        </a>
+        <a href="/css-logical-properties" class="tool-card">
+          <div class="tool-card-icon">📐</div>
+          <div class="tool-card-title">CSS Logical Properties</div>
+          <div class="tool-card-desc">Convert physical CSS properties to writing-mode-aware logical equivalents and back.</div>
+        </a>
+        <a href="/css-property-generator" class="tool-card">
+          <div class="tool-card-icon">📋</div>
+          <div class="tool-card-title">CSS @property Generator</div>
+          <div class="tool-card-desc">Register custom properties with syntax, initial value, and inherits for type-safe CSS variables.</div>
+        </a>
+        <a href="/css-text-wrap-visualizer" class="tool-card">
+          <div class="tool-card-icon">↔️</div>
+          <div class="tool-card-title">CSS Text Wrap Visualizer</div>
+          <div class="tool-card-desc">Compare wrap, nowrap, balance, pretty, and stable with line-clamp in live preview.</div>
+        </a>
+        <a href="/css-view-transitions-generator" class="tool-card">
+          <div class="tool-card-icon">✨</div>
+          <div class="tool-card-title">CSS View Transitions</div>
+          <div class="tool-card-desc">Generate @view-transition rules with custom crossfade timing and named element animations.</div>
+        </a>
+        <a href="/css-anchor-positioning-generator" class="tool-card">
+          <div class="tool-card-icon">⚓</div>
+          <div class="tool-card-title">CSS Anchor Positioning</div>
+          <div class="tool-card-desc">Generate anchor-name, position-area, and position-fallback rules for tooltips and dropdowns.</div>
         </a>
       </div>
 
@@ -853,7 +896,7 @@
       <p>There are no daily conversion caps, no file size limits, no watermarks, and no "upgrade to unlock" dialogs. The free tier handles files as large as your browser memory permits. Premium tiers exist only to support optional cloud restore features — never to degrade the free experience.</p>
 
       <h3>Works Everywhere</h3>
-      <p>All 88+ tools work on desktop and mobile browsers. You can convert files on a Chromebook, a locked-down work laptop, an iPad, or an Android phone — no installation required.</p>
+      <p>All 90+ tools work on desktop and mobile browsers. You can convert files on a Chromebook, a locked-down work laptop, an iPad, or an Android phone — no installation required.</p>
     </section>
 
     <!-- HOW IT WORKS -->
@@ -892,7 +935,7 @@
         </div>
         <div class="faq-item">
           <button class="faq-question">What file formats are supported? <span class="arrow">▼</span></button>
-          <div class="faq-answer">ConvertPivot supports 40+ conversion types across financial files (OFX, QFX, QBO), contacts (VCF, CSV, XLSX), notebooks (IPYNB), GPS data (GPX, KML, FIT), images (HEIC, AVIF, WebP, SVG), and developer tools (binary, hex, timestamp).</div>
+           <div class="faq-answer">ConvertPivot supports 90+ conversion types across financial files (OFX, QFX, QBO), contacts (VCF, CSV, XLSX), notebooks (IPYNB), GPS data (GPX, KML, FIT), images (HEIC, AVIF, WebP, SVG), CSS tools (color spaces, logical properties, view transitions), and developer tools (binary, hex, timestamp).</div>
         </div>
         <div class="faq-item">
           <button class="faq-question">Is there a file size limit? <span class="arrow">▼</span></button>
