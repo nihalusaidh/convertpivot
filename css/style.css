@@ -516,8 +516,9 @@ a:hover { color: var(--color-red); }
 .converter-controls {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-top: 20px;
+  gap: 16px;
+  margin-top: 24px;
+  margin-bottom: 16px;
   flex-wrap: wrap;
 }
 
@@ -570,6 +571,60 @@ a:hover { color: var(--color-red); }
 textarea.converter-input,
 pre.converter-input {
   border-radius: var(--radius-card);
+}
+
+/* === CONVERTER TEXTAREA === */
+.converter-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--color-mist);
+  border-radius: var(--radius-card);
+  font-size: 0.9rem;
+  font-family: inherit;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.converter-textarea:focus {
+  border-color: var(--color-red);
+}
+
+.converter-textarea[readonly] {
+  background: var(--color-smoke);
+}
+
+[data-theme="dark"] .converter-textarea[readonly] {
+  background: var(--color-surface);
+}
+
+/* === CONVERTER LABEL === */
+.converter-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+  color: var(--color-graphite);
+}
+
+/* === CONVERTER ACTIONS (button row, like converter-controls) === */
+.converter-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+/* === CONVERTER OPTIONS (radio/checkbox groups) === */
+.converter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 12px 0;
 }
 
 .btn {

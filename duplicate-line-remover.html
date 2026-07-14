@@ -25,12 +25,6 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Duplicate Line Remover","url":"https://convertpivot.com/duplicate-line-remover","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online duplicate line remover. Remove duplicate lines, sort unique lines, count line frequency. Perfect for cleaning lists, data files, and contact lists.","browserRequirements":"JavaScript"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does this remove exact or case-insensitive duplicates?","acceptedAnswer":{"@type":"Answer","text":"Both options are available. Case-sensitive mode treats 'Hello' and 'hello' as different lines. Case-insensitive mode treats them as the same and keeps the first occurrence."}},{"@type":"Question","name":"Can I see how many times each line appears?","acceptedAnswer":{"@type":"Answer","text":"Yes. Enable 'Show frequency' mode to see each unique line with its occurrence count, sorted by frequency (highest first)."}},{"@type":"Question","name":"Will this work with CSV data?","acceptedAnswer":{"@type":"Answer","text":"For simple CSV cleanup, yes. For complex CSV with quoted fields containing newlines, a dedicated CSV tool is better. This tool works line-by-line."}},{"@type":"Question","name":"What happens to empty lines?","acceptedAnswer":{"@type":"Answer","text":"You can choose to ignore or keep empty lines using the 'Ignore empty lines' toggle. Empty lines are defined as lines with only whitespace."}}]}</script>
   <style>
-    .converter-textarea {
-      width:100%;padding:12px 14px;border:1px solid var(--color-mist);border-radius:var(--radius-card);font-size:0.9rem;font-family:inherit;background:var(--color-canvas);color:var(--color-ink);resize:vertical;outline:none;transition:border-color 0.15s,background 0.15s,color 0.15s;
-    }
-    .converter-textarea:focus { border-color:var(--color-red); }
-    .converter-textarea[readonly] { background:var(--color-smoke); }
-    [data-theme="dark"] .converter-textarea[readonly] { background:var(--color-surface); }
     .radio-label { display:inline-flex;align-items:center;gap:6px;font-size:0.9rem;cursor:pointer;padding:6px 12px;border:1px solid var(--color-mist);border-radius:var(--radius-pill);transition:border-color 0.15s,background 0.15s; }
     .radio-label:hover { border-color:var(--color-red); }
     .radio-label input[type="radio"] { accent-color:var(--color-red); }
