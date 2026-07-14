@@ -39,7 +39,7 @@ module.exports = async function handler(req, res) {
 
     return res.setHeader('Content-Type', 'text/html').end(
       '<!DOCTYPE html><html><body><script>window.opener.postMessage("authorization:github:success:' +
-      JSON.stringify({ token: tokenData.access_token }).replace(/"/g, '&quot;') +
+      JSON.stringify({ token: tokenData.access_token }).replace(/"/g, '\\"') +
       '","*");window.close();</script></body></html>'
     );
   } catch (err) {
