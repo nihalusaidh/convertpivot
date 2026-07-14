@@ -38,17 +38,17 @@
     <div class="converter-widget" id="toolWidget">
       <div class="converter-form">
         <div style="display:flex;flex-direction:column;gap:12px;">
-          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-            <label for="wrapValue" style="font-size:0.9rem;font-weight:600;">text-wrap:</label>
-            <select id="wrapValue" style="padding:6px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;">
+          <div class="converter-controls">
+            <label for="wrapValue" style="font-weight:600;">text-wrap:</label>
+            <select id="wrapValue">
               <option value="wrap">wrap (default)</option>
               <option value="nowrap">nowrap</option>
               <option value="balance">balance</option>
               <option value="pretty">pretty</option>
               <option value="stable">stable</option>
             </select>
-            <label for="clampValue" style="font-size:0.9rem;font-weight:600;margin-left:12px;">line-clamp:</label>
-            <select id="clampValue" style="padding:6px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;">
+            <label for="clampValue" style="font-weight:600;">line-clamp:</label>
+            <select id="clampValue">
               <option value="0">None</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -62,15 +62,15 @@
               <option value="10">10</option>
             </select>
           </div>
-          <label for="wrapText" style="font-size:0.9rem;font-weight:600;">Sample Text:</label>
-          <textarea id="wrapText" rows="4" style="width:100%;padding:8px 12px;border-radius:8px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;">CSS text-wrap properties give you fine-grained control over how text breaks across lines. The balance value creates evenly distributed lines for headings, while pretty avoids orphans and widows in paragraphs. Line-clamp truncates text after a set number of lines.</textarea>
+          <label for="wrapText" style="font-weight:600;">Sample Text:</label>
+          <textarea id="wrapText" class="converter-input" rows="4" style="width:100%;">CSS text-wrap properties give you fine-grained control over how text breaks across lines. The balance value creates evenly distributed lines for headings, while pretty avoids orphans and widows in paragraphs. Line-clamp truncates text after a set number of lines.</textarea>
           <div id="wrapPreview" style="border:1px solid var(--color-mist);border-radius:8px;padding:16px;min-height:80px;background:var(--color-canvas);font-size:1rem;line-height:1.5;max-width:500px;margin:8px 0;"></div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <button id="copyCssBtn" class="btn btn-primary" style="padding:6px 20px;font-size:0.85rem;">Copy CSS</button>
-            <button class="btn btn-secondary" style="padding:6px 20px;font-size:0.85rem;" onclick="document.getElementById('wrapText').value='CSS text-wrap properties give you fine-grained control over how text breaks across lines. The balance value creates evenly distributed lines for headings, while pretty avoids orphans and widows in paragraphs. Line-clamp truncates text after a set number of lines.';updatePreview();">Reset Text</button>
+          <div class="converter-controls">
+            <button id="copyCssBtn" class="btn btn-primary">Copy CSS</button>
+            <button class="btn btn-secondary" onclick="document.getElementById('wrapText').value='CSS text-wrap properties give you fine-grained control over how text breaks across lines. The balance value creates evenly distributed lines for headings, while pretty avoids orphans and widows in paragraphs. Line-clamp truncates text after a set number of lines.';updatePreview();">Reset Text</button>
           </div>
           <div id="cssOutputWrap" style="margin-top:4px;">
-            <pre id="cssOutputCode" style="background:var(--color-smoke);border:1px solid var(--color-mist);border-radius:8px;padding:12px;font-family:Consolas,monospace;font-size:0.85rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all;margin-top:4px;"></pre>
+            <pre id="cssOutputCode" class="converter-input" style="font-family:Consolas,monospace;font-size:0.85rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all;margin-top:4px;border-radius:8px;"></pre>
           </div>
         </div>
       </div>

@@ -39,12 +39,12 @@
       <div class="converter-form">
         <div style="display:flex;flex-direction:column;gap:14px;">
           <div style="display:flex;flex-direction:column;gap:4px;">
-            <label for="propName" style="font-size:0.9rem;font-weight:600;">Property Name</label>
-            <input id="propName" type="text" value="--my-custom-color" placeholder="--property-name" style="width:100%;padding:8px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-family:Consolas,monospace;font-size:0.9rem;">
+            <label for="propName" style="font-weight:600;">Property Name</label>
+            <input id="propName" type="text" class="converter-input" value="--my-custom-color" placeholder="--property-name" style="width:100%;font-family:Consolas,monospace;">
           </div>
           <div style="display:flex;flex-direction:column;gap:4px;">
-            <label for="propSyntax" style="font-size:0.9rem;font-weight:600;">Syntax</label>
-            <select id="propSyntax" style="width:100%;padding:8px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-family:Consolas,monospace;font-size:0.9rem;">
+            <label for="propSyntax" style="font-weight:600;">Syntax</label>
+            <select id="propSyntax" class="converter-input" style="width:100%;font-family:Consolas,monospace;">
               <option value="<color>">&lt;color&gt;</option>
               <option value="<length>">&lt;length&gt;</option>
               <option value="<number>">&lt;number&gt;</option>
@@ -63,25 +63,25 @@
             </select>
           </div>
           <div style="display:flex;flex-direction:column;gap:4px;">
-            <label for="propInitial" style="font-size:0.9rem;font-weight:600;">Initial Value</label>
-            <input id="propInitial" type="text" value="#ff6600" placeholder="e.g. #ff6600, 0px, 1" style="width:100%;padding:8px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-family:Consolas,monospace;font-size:0.9rem;">
+            <label for="propInitial" style="font-weight:600;">Initial Value</label>
+            <input id="propInitial" type="text" class="converter-input" value="#ff6600" placeholder="e.g. #ff6600, 0px, 1" style="width:100%;font-family:Consolas,monospace;">
           </div>
           <div style="display:flex;align-items:center;gap:10px;">
             <input id="propInherits" type="checkbox" style="width:18px;height:18px;accent-color:#ff6600;">
-            <label for="propInherits" style="font-size:0.9rem;font-weight:600;">Inherits</label>
+            <label for="propInherits" style="font-weight:600;">Inherits</label>
           </div>
-          <div style="display:flex;gap:8px;">
-            <button id="generateBtn" class="btn btn-primary" style="padding:8px 24px;">Generate @property</button>
+          <div class="converter-controls">
+            <button id="generateBtn" class="btn btn-primary">Generate @property</button>
           </div>
         </div>
         <div id="resultArea" style="margin-top:16px;display:none;">
-          <label style="font-size:0.9rem;font-weight:600;">Generated CSS:</label>
-          <pre id="cssOutput" style="background:var(--color-smoke);border:1px solid var(--color-mist);border-radius:8px;padding:12px;font-family:Consolas,monospace;font-size:0.85rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all;margin-top:6px;"></pre>
-          <div style="display:flex;gap:8px;margin-top:6px;">
-            <button id="copyOutputBtn" class="btn btn-primary" style="padding:6px 20px;font-size:0.85rem;">Copy CSS</button>
-            <button id="copyOutputBtnJs" class="btn btn-secondary" style="padding:6px 20px;font-size:0.85rem;">Copy JS (CSS.registerProperty)</button>
+          <label style="font-weight:600;">Generated CSS:</label>
+          <pre id="cssOutput" class="converter-input" style="font-family:Consolas,monospace;font-size:0.85rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all;margin-top:6px;border-radius:8px;"></pre>
+          <div class="converter-controls">
+            <button id="copyOutputBtn" class="btn btn-primary">Copy CSS</button>
+            <button id="copyOutputBtnJs" class="btn btn-secondary">Copy JS (CSS.registerProperty)</button>
           </div>
-          <pre id="jsOutput" style="background:var(--color-smoke);border:1px solid var(--color-mist);border-radius:8px;padding:12px;font-family:Consolas,monospace;font-size:0.85rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all;margin-top:6px;display:none;"></pre>
+          <pre id="jsOutput" class="converter-input" style="font-family:Consolas,monospace;font-size:0.85rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all;margin-top:6px;display:none;border-radius:8px;"></pre>
         </div>
       </div>
     </div>

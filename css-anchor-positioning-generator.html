@@ -40,18 +40,18 @@
         <div style="display:flex;flex-direction:column;gap:14px;">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
             <div style="display:flex;flex-direction:column;gap:4px;">
-              <label for="anchorName" style="font-size:0.9rem;font-weight:600;">Anchor Name</label>
-              <input id="anchorName" type="text" value="--my-anchor" placeholder="--anchor-name" style="width:100%;padding:8px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-family:Consolas,monospace;font-size:0.85rem;">
+              <label for="anchorName" style="font-weight:600;">Anchor Name</label>
+              <input id="anchorName" type="text" class="converter-input" value="--my-anchor" placeholder="--anchor-name" style="width:100%;font-family:Consolas,monospace;">
             </div>
             <div style="display:flex;flex-direction:column;gap:4px;">
-              <label for="positionedSelector" style="font-size:0.9rem;font-weight:600;">Target Element Class</label>
-              <input id="positionedSelector" type="text" value=".tooltip" placeholder=".my-element" style="width:100%;padding:8px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-family:Consolas,monospace;font-size:0.85rem;">
+              <label for="positionedSelector" style="font-weight:600;">Target Element Class</label>
+              <input id="positionedSelector" type="text" class="converter-input" value=".tooltip" placeholder=".my-element" style="width:100%;font-family:Consolas,monospace;">
             </div>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
             <div style="display:flex;flex-direction:column;gap:4px;">
-              <label for="posBlock" style="font-size:0.9rem;font-weight:600;">Block Direction</label>
-              <select id="posBlock" style="width:100%;padding:8px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;">
+              <label for="posBlock" style="font-weight:600;">Block Direction</label>
+              <select id="posBlock" class="converter-input" style="width:100%;">
                 <option value="top">top</option>
                 <option value="bottom">bottom</option>
                 <option value="center">center</option>
@@ -62,8 +62,8 @@
               </select>
             </div>
             <div style="display:flex;flex-direction:column;gap:4px;">
-              <label for="posInline" style="font-size:0.9rem;font-weight:600;">Inline Direction</label>
-              <select id="posInline" style="width:100%;padding:8px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;">
+              <label for="posInline" style="font-weight:600;">Inline Direction</label>
+              <select id="posInline" class="converter-input" style="width:100%;">
                 <option value="center" selected>center</option>
                 <option value="left">left</option>
                 <option value="right">right</option>
@@ -74,22 +74,22 @@
               </select>
             </div>
           </div>
-          <div style="display:flex;align-items:center;gap:8px;">
+          <div class="converter-controls">
             <input id="optFallback" type="checkbox" style="width:18px;height:18px;accent-color:#ff6600;">
-            <label for="optFallback" style="font-size:0.9rem;">Generate position-fallback alternatives</label>
+            <label for="optFallback">Generate position-fallback alternatives</label>
           </div>
           <div id="fallbackArea" style="display:none;flex-direction:column;gap:8px;padding:12px;border:1px solid var(--color-mist);border-radius:8px;">
             <div style="font-size:0.9rem;font-weight:600;">Fallback Positions (tried in order):</div>
             <div id="fallbackContainer">
               <div style="display:flex;gap:6px;margin-bottom:4px;">
-                <select class="fbBlock" style="flex:1;padding:6px 10px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;">
+                <select class="fbBlock converter-input" style="flex:1;">
                   <option value="bottom">bottom</option>
                   <option value="top">top</option>
                   <option value="center">center</option>
                   <option value="start">start</option>
                   <option value="end">end</option>
                 </select>
-                <select class="fbInline" style="flex:1;padding:6px 10px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;">
+                <select class="fbInline converter-input" style="flex:1;">
                   <option value="center" selected>center</option>
                   <option value="left">left</option>
                   <option value="right">right</option>
@@ -99,14 +99,14 @@
                 <button class="removeFb" style="background:none;border:none;cursor:pointer;color:#999;font-size:1.1rem;">✕</button>
               </div>
               <div style="display:flex;gap:6px;margin-bottom:4px;">
-                <select class="fbBlock" style="flex:1;padding:6px 10px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;">
+                <select class="fbBlock converter-input" style="flex:1;">
                   <option value="top">top</option>
                   <option value="bottom">bottom</option>
                   <option value="center">center</option>
                   <option value="start">start</option>
                   <option value="end">end</option>
                 </select>
-                <select class="fbInline" style="flex:1;padding:6px 10px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;">
+                <select class="fbInline converter-input" style="flex:1;">
                   <option value="left">left</option>
                   <option value="right">right</option>
                   <option value="center" selected>center</option>
@@ -118,16 +118,16 @@
             </div>
             <button id="addFbBtn" style="background:none;border:1px dashed var(--color-mist);border-radius:18px;padding:6px 16px;cursor:pointer;font-size:0.85rem;color:var(--text-secondary);">+ Add Fallback</button>
           </div>
-          <div style="display:flex;align-items:center;gap:8px;">
+          <div class="converter-controls">
             <input id="optAnchorSize" type="checkbox" style="width:18px;height:18px;accent-color:#ff6600;">
-            <label for="optAnchorSize" style="font-size:0.9rem;">Use anchor-size() for width/height</label>
+            <label for="optAnchorSize">Use anchor-size() for width/height</label>
           </div>
-          <button id="generateAncBtn" class="btn btn-primary" style="padding:8px 24px;">Generate CSS</button>
+          <button id="generateAncBtn" class="btn btn-primary">Generate CSS</button>
         </div>
         <div id="resultArea" style="margin-top:16px;display:none;">
-          <label style="font-size:0.9rem;font-weight:600;">Generated CSS:</label>
-          <pre id="cssOutput" style="background:var(--color-smoke);border:1px solid var(--color-mist);border-radius:8px;padding:12px;font-family:Consolas,monospace;font-size:0.85rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all;margin-top:6px;"></pre>
-          <button id="copyOutputBtn" class="btn btn-primary" style="padding:6px 20px;font-size:0.85rem;margin-top:6px;">Copy CSS</button>
+          <label style="font-weight:600;">Generated CSS:</label>
+          <pre id="cssOutput" class="converter-input" style="font-family:Consolas,monospace;font-size:0.85rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all;margin-top:6px;border-radius:8px;"></pre>
+          <button id="copyOutputBtn" class="btn btn-primary" style="margin-top:6px;">Copy CSS</button>
         </div>
       </div>
     </div>
@@ -280,7 +280,7 @@
         div.style.display = 'flex';
         div.style.gap = '6px';
         div.style.marginBottom = '4px';
-        div.innerHTML = '<select class="fbBlock" style="flex:1;padding:6px 10px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;"><option value="top">top</option><option value="bottom">bottom</option><option value="center">center</option><option value="start">start</option><option value="end">end</option></select><select class="fbInline" style="flex:1;padding:6px 10px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;"><option value="center">center</option><option value="left">left</option><option value="right">right</option><option value="start">start</option><option value="end">end</option></select><button class="removeFb" style="background:none;border:none;cursor:pointer;color:#999;font-size:1.1rem;">✕</button>';
+        div.innerHTML = '<select class="fbBlock converter-input" style="flex:1;"><option value="top">top</option><option value="bottom">bottom</option><option value="center">center</option><option value="start">start</option><option value="end">end</option></select><select class="fbInline converter-input" style="flex:1;"><option value="center">center</option><option value="left">left</option><option value="right">right</option><option value="start">start</option><option value="end">end</option></select><button class="removeFb" style="background:none;border:none;cursor:pointer;color:#999;font-size:1.1rem;">✕</button>';
         fbContainer.appendChild(div);
         div.querySelector('.removeFb').addEventListener('click', function() { div.remove(); if (optFallback.checked) generate(); });
         div.querySelector('.fbBlock').addEventListener('change', function() { if (optFallback.checked) generate(); });

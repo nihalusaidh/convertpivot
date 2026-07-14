@@ -40,12 +40,12 @@
         <div style="display:flex;flex-direction:column;gap:14px;">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
             <div style="display:flex;flex-direction:column;gap:4px;">
-              <label for="transitionDuration" style="font-size:0.9rem;font-weight:600;">Crossfade Duration</label>
-              <input id="transitionDuration" type="text" value="0.6s" placeholder="e.g. 0.6s, 500ms" style="width:100%;padding:8px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-family:Consolas,monospace;font-size:0.85rem;">
+              <label for="transitionDuration" style="font-weight:600;">Crossfade Duration</label>
+              <input id="transitionDuration" type="text" class="converter-input" value="0.6s" placeholder="e.g. 0.6s, 500ms" style="width:100%;font-family:Consolas,monospace;">
             </div>
             <div style="display:flex;flex-direction:column;gap:4px;">
-              <label for="transitionTiming" style="font-size:0.9rem;font-weight:600;">Timing Function</label>
-              <select id="transitionTiming" style="width:100%;padding:8px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;">
+              <label for="transitionTiming" style="font-weight:600;">Timing Function</label>
+              <select id="transitionTiming" class="converter-input" style="width:100%;">
                 <option value="ease">ease</option>
                 <option value="ease-in-out">ease-in-out</option>
                 <option value="ease-in">ease-in</option>
@@ -55,36 +55,35 @@
               </select>
             </div>
           </div>
-          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+          <div class="converter-controls">
             <div style="display:flex;align-items:center;gap:6px;">
               <input id="optCustomElements" type="checkbox" style="width:18px;height:18px;accent-color:#ff6600;">
-              <label for="optCustomElements" style="font-size:0.9rem;">Enable named element transitions</label>
+              <label for="optCustomElements">Enable named element transitions</label>
             </div>
             <div style="display:flex;align-items:center;gap:6px;">
               <input id="optCrossDoc" type="checkbox" style="width:18px;height:18px;accent-color:#ff6600;">
-              <label for="optCrossDoc" style="font-size:0.9rem;">Cross-document (MPA) navigation</label>
+              <label for="optCrossDoc">Cross-document (MPA) navigation</label>
             </div>
           </div>
           <div id="elementList" style="display:none;flex-direction:column;gap:8px;padding:12px;border:1px solid var(--color-mist);border-radius:8px;">
             <div style="font-size:0.9rem;font-weight:600;">Transition Elements</div>
             <div id="elementsContainer" style="display:flex;flex-direction:column;gap:6px;">
               <div style="display:flex;gap:8px;">
-                <input class="elemName" type="text" value="page-header" placeholder="element-name" style="flex:1;padding:6px 10px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-family:Consolas,monospace;font-size:0.85rem;">
+                <input class="elemName converter-input" type="text" value="page-header" placeholder="element-name" style="flex:1;font-family:Consolas,monospace;">
                 <button class="removeElem" style="background:none;border:none;cursor:pointer;color:#999;font-size:1.1rem;">✕</button>
               </div>
               <div style="display:flex;gap:8px;">
-                <input class="elemName" type="text" value="main-content" placeholder="element-name" style="flex:1;padding:6px 10px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-family:Consolas,monospace;font-size:0.85rem;">
+                <input class="elemName converter-input" type="text" value="main-content" placeholder="element-name" style="flex:1;font-family:Consolas,monospace;">
                 <button class="removeElem" style="background:none;border:none;cursor:pointer;color:#999;font-size:1.1rem;">✕</button>
               </div>
             </div>
             <button id="addElemBtn" style="background:none;border:1px dashed var(--color-mist);border-radius:18px;padding:6px 16px;cursor:pointer;font-size:0.85rem;color:var(--text-secondary);">+ Add Element</button>
-          </div>
-          <button id="generateVtBtn" class="btn btn-primary" style="padding:8px 24px;">Generate CSS</button>
+            <button id="generateVtBtn" class="btn btn-primary">Generate CSS</button>
         </div>
         <div id="resultArea" style="margin-top:16px;display:none;">
-          <label style="font-size:0.9rem;font-weight:600;">Generated CSS:</label>
-          <pre id="cssOutput" style="background:var(--color-smoke);border:1px solid var(--color-mist);border-radius:8px;padding:12px;font-family:Consolas,monospace;font-size:0.85rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all;margin-top:6px;"></pre>
-          <button id="copyOutputBtn" class="btn btn-primary" style="padding:6px 20px;font-size:0.85rem;margin-top:6px;">Copy CSS</button>
+          <label style="font-weight:600;">Generated CSS:</label>
+          <pre id="cssOutput" class="converter-input" style="font-family:Consolas,monospace;font-size:0.85rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all;margin-top:6px;border-radius:8px;"></pre>
+          <button id="copyOutputBtn" class="btn btn-primary" style="margin-top:6px;">Copy CSS</button>
         </div>
       </div>
     </div>
@@ -231,7 +230,7 @@
         var div = document.createElement('div');
         div.style.display = 'flex';
         div.style.gap = '8px';
-        div.innerHTML = '<input class="elemName" type="text" placeholder="element-name" style="flex:1;padding:6px 10px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-family:Consolas,monospace;font-size:0.85rem;"><button class="removeElem" style="background:none;border:none;cursor:pointer;color:#999;font-size:1.1rem;">✕</button>';
+        div.innerHTML = '<input class="elemName converter-input" type="text" placeholder="element-name" style="flex:1;font-family:Consolas,monospace;"><button class="removeElem" style="background:none;border:none;cursor:pointer;color:#999;font-size:1.1rem;">✕</button>';
         elementsContainer.appendChild(div);
         div.querySelector('.removeElem').addEventListener('click', function() {
           div.remove();

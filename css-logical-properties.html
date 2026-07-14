@@ -37,18 +37,18 @@
     <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All conversion happens in your browser. No data is sent anywhere.</span></div>
     <div class="converter-widget" id="toolWidget">
       <div class="converter-form">
-        <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;align-items:center;">
-          <span style="font-size:0.9rem;font-weight:600;">Direction:</span>
-          <button id="dirToLogical" class="btn btn-primary" style="padding:6px 16px;font-size:0.85rem;">Physical → Logical</button>
-          <button id="dirToPhysical" class="btn btn-secondary" style="padding:6px 16px;font-size:0.85rem;">Logical → Physical</button>
-          <span style="font-size:0.9rem;font-weight:600;margin-left:12px;">Writing Mode:</span>
-          <select id="writingMode" style="padding:6px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;">
+        <div class="converter-controls" style="margin-bottom:12px;">
+          <span style="font-weight:600;">Direction:</span>
+          <button id="dirToLogical" class="btn btn-primary">Physical → Logical</button>
+          <button id="dirToPhysical" class="btn btn-secondary">Logical → Physical</button>
+          <span style="font-weight:600;">Writing Mode:</span>
+          <select id="writingMode">
             <option value="ltr">LTR (inline-start = left)</option>
             <option value="rtl">RTL (inline-start = right)</option>
           </select>
         </div>
-        <label for="cssInput" style="font-size:0.9rem;font-weight:600;">Paste CSS here:</label>
-        <textarea id="cssInput" class="converter-input" rows="8" style="width:100%;font-family:Consolas,monospace;font-size:0.85rem;resize:vertical;padding:12px;">.sidebar {
+        <label for="cssInput" style="font-weight:600;">Paste CSS here:</label>
+        <textarea id="cssInput" class="converter-input" rows="8" style="width:100%;font-family:Consolas,monospace;font-size:0.85rem;resize:vertical;">.sidebar {
   margin-left: 24px;
   padding-right: 16px;
   border-left: 2px solid blue;
@@ -57,14 +57,14 @@
   top: 10px;
   overflow-x: auto;
 }</textarea>
-        <div style="display:flex;gap:8px;margin-top:8px;">
-          <button id="convertBtn" class="btn btn-primary" style="padding:8px 24px;">Convert</button>
-          <button class="btn btn-secondary" style="padding:8px 24px;" onclick="document.getElementById('cssInput').value='.sidebar {\n  margin-left: 24px;\n  padding-right: 16px;\n  border-left: 2px solid blue;\n  width: 300px;\n  float: left;\n  top: 10px;\n  overflow-x: auto;\n}';document.getElementById('convertBtn').click();">Reset</button>
+        <div class="converter-controls" style="margin-top:8px;">
+          <button id="convertBtn" class="btn btn-primary">Convert</button>
+          <button class="btn btn-secondary" onclick="document.getElementById('cssInput').value='.sidebar {\n  margin-left: 24px;\n  padding-right: 16px;\n  border-left: 2px solid blue;\n  width: 300px;\n  float: left;\n  top: 10px;\n  overflow-x: auto;\n}';document.getElementById('convertBtn').click();">Reset</button>
         </div>
         <div id="resultArea" style="margin-top:12px;display:none;">
-          <label style="font-size:0.9rem;font-weight:600;">Converted CSS:</label>
-          <pre id="cssOutput" style="background:var(--color-smoke);border:1px solid var(--color-mist);border-radius:8px;padding:12px;font-family:Consolas,monospace;font-size:0.85rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all;margin-top:6px;"></pre>
-          <button id="copyOutputBtn" class="btn btn-primary" style="padding:6px 20px;font-size:0.85rem;margin-top:6px;">Copy CSS</button>
+          <label style="font-weight:600;">Converted CSS:</label>
+          <pre id="cssOutput" class="converter-input" style="font-family:Consolas,monospace;font-size:0.85rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all;margin-top:6px;border-radius:8px;"></pre>
+          <button id="copyOutputBtn" class="btn btn-primary" style="margin-top:6px;">Copy CSS</button>
           <div id="conversionNote" style="margin-top:8px;padding:8px 12px;border-radius:6px;font-size:0.85rem;"></div>
         </div>
       </div>
