@@ -119,56 +119,87 @@
 
   <!-- SIDEBAR -->
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation">
+    <div class="sidebar-search"><span class="search-icon">🔍</span><input type="text" id="sidebarSearchInput" placeholder="Search tools..." oninput="filterSidebar(this.value)"></div>
+    <div id="sidebarSections">
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Converter Categories</div>
+      <a href="/convert/pdf" class="sidebar-link"><span class="icon">📄</span>PDF Converters</a>
+      <a href="/convert/audio" class="sidebar-link"><span class="icon">🎧</span>Audio Converters</a>
+      <a href="/convert/image" class="sidebar-link"><span class="icon">🖼</span>Image Converters</a>
+      <a href="/convert/finance" class="sidebar-link"><span class="icon">🏦</span>Finance Converters</a>
+      <a href="/convert/ebook" class="sidebar-link"><span class="icon">📖</span>E-book Converters</a>
+    </div>
     <div class="sidebar-section">
       <div class="sidebar-heading">Developer Tools</div>
       <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
       <a href="/hex-to-rgb" class="sidebar-link"><span class="icon">🎨</span>Hex to RGB</a>
       <a href="/timestamp-converter" class="sidebar-link"><span class="icon">⏱</span>Timestamp Converter</a>
-      <a href="/number-system-converter" class="sidebar-link"><span class="icon">🔢</span>Number System Converter</a>
+      <a href="/json-formatter" class="sidebar-link"><span class="icon">🔧</span>JSON Formatter</a>
+      <a href="/base64-encoder" class="sidebar-link"><span class="icon">🔐</span>Base64 Encoder</a>
+      <a href="/base64-decoder" class="sidebar-link"><span class="icon">🔓</span>Base64 Decoder</a>
+      <a href="/password-generator" class="sidebar-link"><span class="icon">🔑</span>Password Generator</a>
+      <a href="/word-counter" class="sidebar-link"><span class="icon">📝</span>Word Counter</a>
+      <a href="/url-encoder-decoder" class="sidebar-link"><span class="icon">🔗</span>URL Encoder/Decoder</a>
+      <a href="/html-entity-encoder-decoder" class="sidebar-link"><span class="icon">🔠</span>HTML Entity Encoder</a>
+      <a href="/uuid-generator" class="sidebar-link"><span class="icon">🔑</span>UUID Generator</a>
+      <a href="/case-converter" class="sidebar-link"><span class="icon">🔠</span>Case Converter</a>
+      <a href="/markdown-to-html" class="sidebar-link"><span class="icon">📝</span>Markdown to HTML</a>
+      <a href="/html-to-markdown" class="sidebar-link"><span class="icon">📝</span>HTML to Markdown</a>
+      <a href="/json-to-yaml" class="sidebar-link"><span class="icon">🔄</span>JSON to YAML</a>
+      <a href="/xml-to-json" class="sidebar-link"><span class="icon">🔄</span>XML to JSON</a>
+      <a href="/csv-to-json" class="sidebar-link"><span class="icon">📊</span>CSV to JSON</a>
+      <a href="/image-to-base64" class="sidebar-link"><span class="icon">🖼</span>Image to Base64</a>
+      <a href="/color-converter" class="sidebar-link"><span class="icon">🎨</span>Color Converter</a>
+      <a href="/text-diff" class="sidebar-link"><span class="icon">🔍</span>Text Diff Checker</a>
+      <a href="/percentage-calculator" class="sidebar-link"><span class="icon">📈</span>Percentage Calculator</a>
+      <a href="/temperature-converter" class="sidebar-link"><span class="icon">🌡</span>Temperature Converter</a>
+      <a href="/all-unit-converters" class="sidebar-link"><span class="icon">📏</span>All Unit Converters</a>
       <a href="/hash-generator" class="sidebar-link"><span class="icon">🔒</span>Hash Generator</a>
+      <a href="/slug-generator" class="sidebar-link"><span class="icon">🔗</span>Slug Generator</a>
+      <a href="/lorem-ipsum-generator" class="sidebar-link"><span class="icon">📝</span>Lorem Ipsum Generator</a>
+      <a href="/morse-code-translator" class="sidebar-link"><span class="icon">🔄</span>Morse Code Translator</a>
       <a href="/roman-numeral-converter" class="sidebar-link"><span class="icon">🏛</span>Roman Numeral Converter</a>
+      <a href="/palindrome-checker" class="sidebar-link"><span class="icon">🔍</span>Palindrome Checker</a>
       <a href="/prime-number-checker" class="sidebar-link"><span class="icon">🔢</span>Prime Number Checker</a>
+      <a href="/reading-time-calculator" class="sidebar-link"><span class="icon">⏱</span>Reading Time Calculator</a>
+      <a href="/number-system-converter" class="sidebar-link"><span class="icon">🔢</span>Number System Converter</a>
+      <a href="/nato-phonetic-alphabet" class="sidebar-link"><span class="icon">🔤</span>NATO Phonetic Alphabet</a>
       <a href="/cron-expression-generator" class="sidebar-link"><span class="icon">⏰</span>Cron Expression Generator</a>
       <a href="/anagram-solver" class="sidebar-link"><span class="icon">🔤</span>Anagram Solver</a>
+      <a href="/regex-tester" class="sidebar-link"><span class="icon">🔍</span>Regex Tester</a>
+      <a href="/duplicate-line-remover" class="sidebar-link"><span class="icon">🗑</span>Duplicate Line Remover</a>
+      <a href="/reverse-text-generator" class="sidebar-link"><span class="icon">🔄</span>Reverse Text Generator</a>
       <a href="/data-storage-converter" class="sidebar-link"><span class="icon">💾</span>Data Storage Converter</a>
       <a href="/color-palette-generator" class="sidebar-link"><span class="icon">🎨</span>Color Palette Generator</a>
       <a href="/password-strength-checker" class="sidebar-link"><span class="icon">🔒</span>Password Strength Checker</a>
       <a href="/timezone-converter" class="sidebar-link"><span class="icon">🌍</span>Timezone Converter</a>
       <a href="/random-number-generator" class="sidebar-link"><span class="icon">🎲</span>Random Number Generator</a>
       <a href="/number-to-words-converter" class="sidebar-link"><span class="icon">🔢</span>Number to Words Converter</a>
+      <a href="/text-repeater" class="sidebar-link"><span class="icon">🔁</span>Text Repeater</a>
       <a href="/css-minifier" class="sidebar-link"><span class="icon">📐</span>CSS Minifier</a>
-      <a href="/regex-tester" class="sidebar-link"><span class="icon">🔍</span>Regex Tester</a>
-      <a href="/duplicate-line-remover" class="sidebar-link"><span class="icon">🗑</span>Duplicate Line Remover</a>
       <a href="/list-randomizer" class="sidebar-link"><span class="icon">🎲</span>List Randomizer</a>
       <a href="/css-gradient-generator" class="sidebar-link"><span class="icon">🎨</span>CSS Gradient Generator</a>
       <a href="/readability-checker" class="sidebar-link"><span class="icon">📖</span>Readability Checker</a>
       <a href="/age-calculator" class="sidebar-link"><span class="icon">🏃</span>Age Calculator</a>
       <a href="/html-previewer" class="sidebar-link"><span class="icon">🖼</span>HTML Previewer</a>
       <a href="/contrast-checker" class="sidebar-link"><span class="icon">🔍</span>Contrast Checker</a>
+      <a href="/text-cleaner" class="sidebar-link"><span class="icon">🧹</span>Text Cleaner</a>
       <a href="/scientific-notation-converter" class="sidebar-link"><span class="icon">🔢</span>Scientific Notation Converter</a>
+      <a href="/username-generator" class="sidebar-link"><span class="icon">👤</span>Username Generator</a>
       <a href="/jwt-decoder" class="sidebar-link"><span class="icon">🔐</span>JWT Decoder</a>
+      <a href="/yaml-to-json" class="sidebar-link"><span class="icon">🔄</span>YAML to JSON</a>
+      <a href="/json-to-csv" class="sidebar-link"><span class="icon">📊</span>JSON to CSV</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-heading">CSS Tools</div>
       <a href="/color-space-converter" class="sidebar-link"><span class="icon">🎨</span>Color Space Converter</a>
-      <a href="/css-logical-properties" class="sidebar-link"><span class="icon">📐</span>Logical Properties</a>
-      <a href="/css-property-generator" class="sidebar-link"><span class="icon">📋</span>@property Generator</a>
-      <a href="/css-text-wrap-visualizer" class="sidebar-link"><span class="icon">↔️</span>Text Wrap Visualizer</a>
-      <a href="/css-view-transitions-generator" class="sidebar-link"><span class="icon">✨</span>View Transitions</a>
-      <a href="/css-anchor-positioning-generator" class="sidebar-link"><span class="icon">⚓</span>Anchor Positioning</a>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-heading">Text &amp; Utilities</div>
-      <a href="/slug-generator" class="sidebar-link"><span class="icon">🔗</span>Slug Generator</a>
-      <a href="/lorem-ipsum-generator" class="sidebar-link"><span class="icon">📝</span>Lorem Ipsum Generator</a>
-      <a href="/morse-code-translator" class="sidebar-link"><span class="icon">📡</span>Morse Code Translator</a>
-      <a href="/palindrome-checker" class="sidebar-link"><span class="icon">🔄</span>Palindrome Checker</a>
-      <a href="/reading-time-calculator" class="sidebar-link"><span class="icon">⏱</span>Reading Time Calculator</a>
-      <a href="/nato-phonetic-alphabet" class="sidebar-link"><span class="icon">🔤</span>NATO Phonetic Alphabet</a>
-      <a href="/text-repeater" class="sidebar-link"><span class="icon">🔁</span>Text Repeater</a>
-      <a href="/text-cleaner" class="sidebar-link"><span class="icon">🧹</span>Text Cleaner</a>
-      <a href="/reverse-text-generator" class="sidebar-link"><span class="icon">🔄</span>Reverse Text Generator</a>
-      <a href="/username-generator" class="sidebar-link"><span class="icon">👤</span>Username Generator</a>
+      <a href="/css-logical-properties" class="sidebar-link"><span class="icon">📐</span>CSS Logical Properties Converter</a>
+      <a href="/css-property-generator" class="sidebar-link"><span class="icon">📋</span>CSS @property Generator</a>
+      <a href="/css-text-wrap-visualizer" class="sidebar-link"><span class="icon">↔️</span>CSS Text Wrap Visualizer</a>
+      <a href="/css-view-transitions-generator" class="sidebar-link"><span class="icon">✨</span>CSS View Transitions Generator</a>
+      <a href="/css-box-shadow-generator" class="sidebar-link"><span class="icon">🎨</span>CSS Box Shadow Generator</a>
+      <a href="/css-animation-generator" class="sidebar-link"><span class="icon">✨</span>CSS Animation Generator</a>
+      <a href="/css-anchor-positioning-generator" class="sidebar-link"><span class="icon">⚓</span>CSS Anchor Positioning Generator</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-heading">Contacts & CRM</div>
@@ -182,8 +213,18 @@
       <a href="/qfx-to-csv" class="sidebar-link"><span class="icon">💰</span>QFX to CSV</a>
       <a href="/qbo-to-csv" class="sidebar-link"><span class="icon">📒</span>QBO to CSV</a>
       <a href="/csv-to-qbo" class="sidebar-link"><span class="icon">🔄</span>CSV to QBO</a>
-      <a href="/pdf-bank-statement-to-csv" class="sidebar-link"><span class="icon">📄</span>PDF Bank Statement to CSV</a>
-      <a href="/bank-statement-converter" class="sidebar-link"><span class="icon">🏛</span>Bank Statement Converter</a>
+      <a href="/csv-to-ofx" class="sidebar-link"><span class="icon">🏛</span>CSV to OFX</a>
+      <a href="/csv-to-qfx" class="sidebar-link"><span class="icon">📁</span>CSV to QFX</a>
+      <a href="/pdf-bank-statement-to-csv" class="sidebar-link"><span class="icon">📄</span>PDF Bank Stmt to CSV</a>
+      <a href="/bank-statement-converter" class="sidebar-link"><span class="icon">🏛</span>Bank Stmt Converter</a>
+      <a href="/chase-bank-statement-to-csv" class="sidebar-link"><span class="icon">🏦</span>Chase to CSV</a>
+      <a href="/wells-fargo-statement-to-csv" class="sidebar-link"><span class="icon">💰</span>Wells Fargo to CSV</a>
+      <a href="/bank-of-america-statement-to-csv" class="sidebar-link"><span class="icon">🏛</span>BofA to CSV</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Calendar</div>
+      <a href="/ics-to-csv" class="sidebar-link"><span class="icon">📅</span>ICS to CSV</a>
+      <a href="/csv-to-ics" class="sidebar-link"><span class="icon">📊</span>CSV to ICS</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-heading">Notebooks</div>
@@ -199,6 +240,51 @@
       <a href="/avif-to-jpg" class="sidebar-link"><span class="icon">✨</span>AVIF to JPG</a>
       <a href="/webp-to-jpg" class="sidebar-link"><span class="icon">🖼</span>WebP to JPG</a>
       <a href="/svg-to-png" class="sidebar-link"><span class="icon">📐</span>SVG to PNG</a>
+      <a href="/jpg-to-avif" class="sidebar-link"><span class="icon">🖼</span>JPG to AVIF</a>
+      <a href="/png-to-svg" class="sidebar-link"><span class="icon">📐</span>PNG to SVG</a>
+      <a href="/image-compressor" class="sidebar-link"><span class="icon">💧</span>Image Compressor</a>
+      <a href="/qr-code-generator" class="sidebar-link"><span class="icon">📱</span>QR Code Generator</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Audio</div>
+      <a href="/mp3-to-wav" class="sidebar-link"><span class="icon">🎧</span>MP3 to WAV</a>
+      <a href="/wav-to-mp3" class="sidebar-link"><span class="icon">🎵</span>WAV to MP3</a>
+      <a href="/mp3-to-flac" class="sidebar-link"><span class="icon">🔊</span>MP3 to FLAC</a>
+      <a href="/flac-to-mp3" class="sidebar-link"><span class="icon">🎶</span>FLAC to MP3</a>
+      <a href="/wav-to-flac" class="sidebar-link"><span class="icon">🎤</span>WAV to FLAC</a>
+      <a href="/ogg-to-mp3" class="sidebar-link"><span class="icon">🎹</span>OGG to MP3</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">E-books</div>
+      <a href="/epub-to-pdf" class="sidebar-link"><span class="icon">📖</span>EPUB to PDF</a>
+      <a href="/epub-to-txt" class="sidebar-link"><span class="icon">📝</span>EPUB to TXT</a>
+      <a href="/pdf-to-epub" class="sidebar-link"><span class="icon">🔄</span>PDF to EPUB</a>
+      <a href="/cbz-to-pdf" class="sidebar-link"><span class="icon">📚</span>CBZ to PDF</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">PDF</div>
+      <a href="/jpg-to-pdf" class="sidebar-link"><span class="icon">🖼</span>JPG to PDF</a>
+      <a href="/pdf-to-jpg" class="sidebar-link"><span class="icon">📷</span>PDF to JPG</a>
+      <a href="/pdf-split" class="sidebar-link"><span class="icon">✂️</span>Split PDF</a>
+      <a href="/pdf-merge" class="sidebar-link"><span class="icon">📋</span>Merge PDF</a>
+      <a href="/pdf-to-word" class="sidebar-link"><span class="icon">📄</span>PDF to Word</a>
+      <a href="/word-to-pdf" class="sidebar-link"><span class="icon">📃</span>Word to PDF</a>
+      <a href="/pdf-to-text" class="sidebar-link"><span class="icon">📝</span>PDF to Text</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Blog</div>
+      <a href="/blog" class="sidebar-link"><span class="icon">📰</span>All Articles</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Latest Posts</div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Guides</div>
+      <a href="/guides" class="sidebar-link"><span class="icon">📖</span>All Guides</a>
+      <a href="/guides/bank-statement-formats" class="sidebar-link"><span class="icon">📘</span>Bank Statement Formats</a>
+      <a href="/guides/vcard-formats" class="sidebar-link"><span class="icon">📇</span>vCard Formats</a>
+      <a href="/guides/gps-formats" class="sidebar-link"><span class="icon">🗺</span>GPS Formats</a>
+      <a href="/guides/image-formats" class="sidebar-link"><span class="icon">🖼</span>Image Formats</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-heading">GPS & Fitness</div>
@@ -206,6 +292,9 @@
       <a href="/gpx-to-csv" class="sidebar-link"><span class="icon">📈</span>GPX to CSV</a>
       <a href="/fit-to-gpx" class="sidebar-link"><span class="icon">🏃</span>FIT to GPX</a>
       <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
+      <a href="/csv-to-gpx" class="sidebar-link"><span class="icon">🔄</span>CSV to GPX</a>
+      <a href="/kml-to-gpx" class="sidebar-link"><span class="icon">🗺</span>KML to GPX</a>
+    </div>
     </div>
     <div class="ad-container-sidebar">Ad</div>
   </nav>
@@ -544,6 +633,16 @@
           <div class="tool-card-title">CSS Anchor Positioning</div>
           <div class="tool-card-desc">Generate anchor-name, position-area, and position-fallback rules for tooltips and dropdowns.</div>
         </a>
+        <a href="/css-box-shadow-generator" class="tool-card">
+          <div class="tool-card-icon">🎨</div>
+          <div class="tool-card-title">CSS Box Shadow Generator</div>
+          <div class="tool-card-desc">Create and customize box shadows with sliders, color picker, and live preview.</div>
+        </a>
+        <a href="/css-animation-generator" class="tool-card">
+          <div class="tool-card-icon">✨</div>
+          <div class="tool-card-title">CSS Animation Generator</div>
+          <div class="tool-card-desc">Generate @keyframes animations with presets, custom editors, and live preview.</div>
+        </a>
       </div>
 
       <h2 class="section-heading">Text & Data Converters</h2>
@@ -573,6 +672,16 @@
           <div class="tool-card-title">XML to JSON</div>
           <div class="tool-card-desc">Convert XML documents to structured JSON format.</div>
         </a>
+        <a href="/yaml-to-json" class="tool-card">
+          <div class="tool-card-icon">🔄</div>
+          <div class="tool-card-title">YAML to JSON</div>
+          <div class="tool-card-desc">Convert YAML configuration files to JSON format.</div>
+        </a>
+        <a href="/json-to-csv" class="tool-card">
+          <div class="tool-card-icon">📊</div>
+          <div class="tool-card-title">JSON to CSV</div>
+          <div class="tool-card-desc">Convert JSON data to CSV spreadsheets with nested flattening.</div>
+        </a>
       </div>
 
       <h2 class="section-heading">Unit Converters</h2>
@@ -600,6 +709,20 @@
           <div class="tool-card-icon">📊</div>
           <div class="tool-card-title">VCF to XLSX</div>
           <div class="tool-card-desc">Export vCard contacts directly to Excel XLSX format.</div>
+        </a>
+      </div>
+
+      <h2 class="section-heading">Calendar Tools</h2>
+      <div class="tool-grid">
+        <a href="/ics-to-csv" class="tool-card">
+          <div class="tool-card-icon">📅</div>
+          <div class="tool-card-title">ICS to CSV</div>
+          <div class="tool-card-desc">Convert iCalendar files to CSV for Excel and calendar imports.</div>
+        </a>
+        <a href="/csv-to-ics" class="tool-card">
+          <div class="tool-card-icon">📊</div>
+          <div class="tool-card-title">CSV to ICS</div>
+          <div class="tool-card-desc">Convert CSV spreadsheets to iCalendar format for Google Calendar and Outlook.</div>
         </a>
       </div>
 
@@ -746,6 +869,11 @@
           <div class="tool-card-icon">🔄</div>
           <div class="tool-card-title">PDF to EPUB</div>
           <div class="tool-card-desc">Convert PDF documents to EPUB e-book format for readers.</div>
+        </a>
+        <a href="/cbz-to-pdf" class="tool-card">
+          <div class="tool-card-icon">📚</div>
+          <div class="tool-card-title">CBZ to PDF</div>
+          <div class="tool-card-desc">Convert CBZ comic archives to PDF with multi-page support.</div>
         </a>
       </div>
 

@@ -89,6 +89,8 @@
       { href: '/text-cleaner', icon: '\uD83D\uDDD1', label: 'Text Cleaner' },
       { href: '/scientific-notation-converter', icon: '\uD83D\uDD22', label: 'Scientific Notation Converter' },
       { href: '/username-generator', icon: '\uD83D\uDC64', label: 'Username Generator' },
+      { href: '/yaml-to-json', icon: '\uD83D\uDD04', label: 'YAML to JSON' },
+      { href: '/json-to-csv', icon: '\uD83D\uDCCA', label: 'JSON to CSV' },
       { href: '/jwt-decoder', icon: '\uD83D\uDD10', label: 'JWT Decoder' }
     ]},
     { heading: 'CSS Tools', links: [
@@ -97,6 +99,8 @@
       { href: '/css-property-generator', icon: '\uD83D\uDCCB', label: 'CSS @property Generator' },
       { href: '/css-text-wrap-visualizer', icon: '\u2194\uFE0F', label: 'CSS Text Wrap Visualizer' },
       { href: '/css-view-transitions-generator', icon: '\u2728', label: 'CSS View Transitions Generator' },
+      { href: '/css-box-shadow-generator', icon: '\uD83C\uDFA8', label: 'CSS Box Shadow Generator' },
+      { href: '/css-animation-generator', icon: '\u2728', label: 'CSS Animation Generator' },
       { href: '/css-anchor-positioning-generator', icon: '\u2693', label: 'CSS Anchor Positioning Generator' }
     ]},
     { heading: 'Contacts & CRM', links: [
@@ -149,7 +153,8 @@
     { heading: 'E-books', links: [
       { href: '/epub-to-pdf', icon: '\uD83D\uDCD6', label: 'EPUB to PDF' },
       { href: '/epub-to-txt', icon: '\uD83D\uDCDD', label: 'EPUB to TXT' },
-      { href: '/pdf-to-epub', icon: '\uD83D\uDD04', label: 'PDF to EPUB' }
+      { href: '/pdf-to-epub', icon: '\uD83D\uDD04', label: 'PDF to EPUB' },
+      { href: '/cbz-to-pdf', icon: '\uD83D\uDCDA', label: 'CBZ to PDF' }
     ]},
     { heading: 'PDF', links: [
       { href: '/jpg-to-pdf', icon: '\uD83D\uDDBC', label: 'JPG to PDF' },
@@ -186,15 +191,17 @@
     var el = document.getElementById('sidebar');
     if (!el) return;
     var currentPath = window.location.pathname.split('/').pop() || 'index.html';
-    var html = '';
+    var html = '<div class="sidebar-search"><span class="search-icon">\uD83D\uDD0D</span><input type="text" id="sidebarSearchInput" placeholder="Search tools..." oninput="filterSidebar(this.value)"></div>';
+    html += '<div id="sidebarSections">';
     sidebarSections.forEach(function (section) {
       html += '<div class="sidebar-section"><div class="sidebar-heading">' + section.heading + '</div>';
       section.links.forEach(function (link) {
         var active = (link.href === '/' + currentPath || (currentPath === 'index.html' && link.href === '/')) ? ' active' : '';
-        html += '<a href="' + link.href + '" class="sidebar-link' + active + '"><span class="icon">' + link.icon + '</span>' + link.label + '</a>';
+        html += '<a href="' + link.href + '" class="sidebar-link' + active + '" data-label="' + link.label.toLowerCase() + '"><span class="icon">' + link.icon + '</span>' + link.label + '</a>';
       });
       html += '</div>';
     });
+    html += '</div>';
     var ad = el.querySelector('.ad-container-sidebar');
     el.innerHTML = html;
     if (ad) el.appendChild(ad);
@@ -204,6 +211,23 @@
       adDiv.textContent = 'Ad';
       el.appendChild(adDiv);
     }
+  }
+
+  function filterSidebar(query) {
+    var q = query.toLowerCase().trim();
+    var container = document.getElementById('sidebarSections');
+    if (!container) return;
+    var sections = container.querySelectorAll('.sidebar-section');
+    sections.forEach(function (section) {
+      var links = section.querySelectorAll('.sidebar-link');
+      var visible = 0;
+      links.forEach(function (link) {
+        var match = !q || link.getAttribute('data-label').indexOf(q) !== -1;
+        link.style.display = match ? '' : 'none';
+        if (match) visible++;
+      });
+      section.style.display = (visible > 0) ? '' : 'none';
+    });
   }
 
   function loadBlogSidebar() {
@@ -861,7 +885,12 @@
     'css-property-generator': ['css-logical-properties', 'css-minifier', 'css-view-transitions-generator', 'css-anchor-positioning-generator'],
     'css-text-wrap-visualizer': ['css-logical-properties', 'css-minifier', 'css-property-generator', 'contrast-checker'],
     'css-view-transitions-generator': ['css-property-generator', 'css-anchor-positioning-generator', 'css-gradient-generator', 'css-text-wrap-visualizer'],
-    'css-anchor-positioning-generator': ['css-logical-properties', 'css-property-generator', 'css-view-transitions-generator', 'css-text-wrap-visualizer']
+    'css-anchor-positioning-generator': ['css-logical-properties', 'css-property-generator', 'css-view-transitions-generator', 'css-text-wrap-visualizer'],
+    'css-box-shadow-generator': ['css-gradient-generator', 'color-converter', 'hex-to-rgb', 'css-animation-generator'],
+    'css-animation-generator': ['css-box-shadow-generator', 'color-converter', 'css-gradient-generator', 'hex-to-rgb'],
+    'yaml-to-json': ['json-to-yaml', 'json-formatter', 'xml-to-json', 'json-to-csv'],
+    'json-to-csv': ['csv-to-json', 'json-formatter', 'yaml-to-json', 'xml-to-json'],
+    'cbz-to-pdf': ['epub-to-pdf', 'epub-to-txt', 'pdf-to-epub', 'jpg-to-pdf']
   };
 
   function injectRelatedTools() {
@@ -1483,7 +1512,12 @@
       'css-property-generator': { ratingValue: 4.5, reviewCount: 12 },
       'css-text-wrap-visualizer': { ratingValue: 4.6, reviewCount: 16 },
       'css-view-transitions-generator': { ratingValue: 4.5, reviewCount: 10 },
-      'css-anchor-positioning-generator': { ratingValue: 4.4, reviewCount: 8 }
+      'css-anchor-positioning-generator': { ratingValue: 4.4, reviewCount: 8 },
+      'css-box-shadow-generator': { ratingValue: 4.7, reviewCount: 12 },
+      'css-animation-generator': { ratingValue: 4.6, reviewCount: 15 },
+      'yaml-to-json': { ratingValue: 4.5, reviewCount: 18 },
+      'json-to-csv': { ratingValue: 4.6, reviewCount: 22 },
+      'cbz-to-pdf': { ratingValue: 4.5, reviewCount: 28 }
     };
     var path = window.location.pathname.split('/').pop().replace(/\.html$/, '');
     var r = ratings[path];

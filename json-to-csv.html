@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON to CSV Converter — JSON Array to Spreadsheet | ConvertPivot</title>
+  <meta name="description" content="Free online JSON to CSV converter. Convert JSON arrays and objects to CSV format for Excel and Google Sheets. Browser-based, no uploads.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/json-to-csv">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/json-to-csv">
+  <meta property="og:title" content="JSON to CSV Converter — Free Online Tool | ConvertPivot">
+  <meta property="og:description" content="Free online JSON to CSV converter. Convert JSON arrays and objects to CSV format for Excel and Google Sheets. Browser-based, no uploads.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JSON to CSV Converter — Free Online Tool | ConvertPivot">
+  <meta name="twitter:description" content="Free online JSON to CSV converter. Convert JSON arrays and objects to CSV format for Excel and Google Sheets. Browser-based, no uploads.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"JSON to CSV Converter","url":"https://convertpivot.com/json-to-csv","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online JSON to CSV converter. Convert JSON arrays and objects to CSV format for Excel and Google Sheets. Browser-based, no uploads.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I convert any JSON to CSV?","acceptedAnswer":{"@type":"Answer","text":"The JSON must be an array of objects. Each object becomes a row and its keys become column headers. Single objects or nested structures are flattened with dot notation for the headers."}},{"@type":"Question","name":"How are nested objects handled?","acceptedAnswer":{"@type":"Answer","text":"Nested objects are flattened using dot notation. For example, {\"address\":{\"city\":\"NYC\"}} becomes a column named \"address.city\". This ensures nested data is preserved in a flat CSV structure."}},{"@type":"Question","name":"What if JSON fields vary between objects?","acceptedAnswer":{"@type":"Answer","text":"Our converter collects all unique keys across every object in the array. Objects missing certain fields will have empty cells in those columns, ensuring no data is lost."}},{"@type":"Question","name":"Can I convert CSV back to JSON?","acceptedAnswer":{"@type":"Answer","text":"Not on this page, but we provide a CSV to JSON tool that handles the reverse conversion. Check our related tools section below."}},{"@type":"Question","name":"Is my data secure?","acceptedAnswer":{"@type":"Answer","text":"Yes. All JSON parsing and CSV generation happens entirely in your browser. Your data never leaves your device. Verify by checking the Network tab."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">JSON to CSV Converter</span></nav>
+    <div class="tool-header">
+      <h1>JSON to CSV Converter</h1>
+      <p>Convert JSON arrays to CSV format for Excel, Google Sheets, and other spreadsheet tools. Handles nested objects and varying fields.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-container">
+        <div class="converter-input">
+          <label for="jsonInput">JSON Input</label>
+          <textarea id="jsonInput" class="converter-input" placeholder='[&#10;  {"name":"Alice","age":30,"city":"New York","email":"alice@example.com"},&#10;  {"name":"Bob","age":25,"city":"Los Angeles","email":"bob@example.com"},&#10;  {"name":"Charlie","age":35,"city":"Chicago","email":"charlie@example.com}&#10;]' rows="10"></textarea>
+        </div>
+        <div class="converter-actions">
+          <button id="loadSampleBtn" class="btn btn-secondary">Load Sample</button>
+          <button id="convertBtn" class="btn btn-primary">Convert to CSV</button>
+          <button id="clearBtn" class="btn btn-secondary">Clear</button>
+        </div>
+        <div class="converter-output">
+          <label for="csvOutput">CSV Output</label>
+          <textarea id="csvOutput" class="converter-input" readonly rows="10" placeholder="Converted CSV will appear here."></textarea>
+          <div class="converter-actions">
+            <button id="downloadBtn" class="btn btn-secondary">Download CSV</button>
+            <button id="copyBtn" class="btn btn-secondary">Copy CSV</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the JSON to CSV Converter</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Enter JSON</h3><p>Paste a JSON array of objects into the input field. Each object will become a row in the CSV.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Click Convert</h3><p>Press Convert to CSV to transform your JSON array into a comma-separated table.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Download or Copy</h3><p>Download the CSV file for Excel or copy it to your clipboard for quick use.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">Can I convert any JSON to CSV? <span class="arrow">▼</span></button><div class="faq-answer">The JSON must be an array of objects. Each object becomes a row and its keys become column headers. Single objects or nested structures are flattened with dot notation for the headers.</div></div>
+        <div class="faq-item"><button class="faq-question">How are nested objects handled? <span class="arrow">▼</span></button><div class="faq-answer">Nested objects are flattened using dot notation. For example, {"address":{"city":"NYC"}} becomes a column named "address.city". This ensures nested data is preserved in a flat CSV structure.</div></div>
+        <div class="faq-item"><button class="faq-question">What if JSON fields vary between objects? <span class="arrow">▼</span></button><div class="faq-answer">Our converter collects all unique keys across every object in the array. Objects missing certain fields will have empty cells in those columns, ensuring no data is lost.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I convert CSV back to JSON? <span class="arrow">▼</span></button><div class="faq-answer">Not on this page, but we provide a CSV to JSON tool that handles the reverse conversion. Check our related tools section below.</div></div>
+        <div class="faq-item"><button class="faq-question">Is my data secure? <span class="arrow">▼</span></button><div class="faq-answer">Yes. All JSON parsing and CSV generation happens entirely in your browser. Your data never leaves your device. Verify by checking the Network tab.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/csv-to-json" class="related-tool-card">CSV to JSON <span class="desc">Convert CSV back to JSON</span></a>
+        <a href="/json-formatter" class="related-tool-card">JSON Formatter <span class="desc">Beautify and validate JSON</span></a>
+        <a href="/xml-to-json" class="related-tool-card">XML to JSON <span class="desc">Convert XML documents to JSON</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var jsonInput = document.getElementById('jsonInput');
+      var csvOutput = document.getElementById('csvOutput');
+      var convertBtn = document.getElementById('convertBtn');
+      var clearBtn = document.getElementById('clearBtn');
+      var copyBtn = document.getElementById('copyBtn');
+      var downloadBtn = document.getElementById('downloadBtn');
+      var loadSampleBtn = document.getElementById('loadSampleBtn');
+
+      var sampleJson = '[\n  {"name":"Alice","age":30,"city":"New York","email":"alice@example.com"},\n  {"name":"Bob","age":25,"city":"Los Angeles","email":"bob@example.com"},\n  {"name":"Charlie","age":35,"city":"Chicago","email":"charlie@example.com"}\n]';
+
+      function loadSample() {
+        jsonInput.value = sampleJson;
+      }
+
+      function flattenObj(obj, prefix) {
+        var result = {};
+        prefix = prefix || '';
+        for (var key in obj) {
+          if (obj.hasOwnProperty(key)) {
+            var newKey = prefix ? prefix + '.' + key : key;
+            if (typeof obj[key] === 'object' && obj[key] !== null && !Array.isArray(obj[key])) {
+              var flat = flattenObj(obj[key], newKey);
+              for (var k in flat) {
+                if (flat.hasOwnProperty(k)) {
+                  result[k] = flat[k];
+                }
+              }
+            } else if (Array.isArray(obj[key])) {
+              result[newKey] = JSON.stringify(obj[key]);
+            } else {
+              result[newKey] = obj[key];
+            }
+          }
+        }
+        return result;
+      }
+
+      function escapeCsv(val) {
+        if (val === null || val === undefined) return '';
+        var str = String(val);
+        if (str.indexOf(',') !== -1 || str.indexOf('"') !== -1 || str.indexOf('\n') !== -1 || str.indexOf('\r') !== -1) {
+          return '"' + str.replace(/"/g, '""') + '"';
+        }
+        return str;
+      }
+
+      function convert() {
+        var text = jsonInput.value;
+        if (!text.trim()) {
+          csvOutput.value = 'Enter JSON above and click Convert.';
+          return;
+        }
+        try {
+          var data = JSON.parse(text);
+          if (!Array.isArray(data)) {
+            csvOutput.value = 'Error: Input must be a JSON array of objects.';
+            return;
+          }
+          if (data.length === 0) {
+            csvOutput.value = 'Error: Array is empty.';
+            return;
+          }
+
+          var flattened = [];
+          for (var i = 0; i < data.length; i++) {
+            flattened.push(flattenObj(data[i]));
+          }
+
+          var allKeys = [];
+          for (var i = 0; i < flattened.length; i++) {
+            for (var key in flattened[i]) {
+              if (flattened[i].hasOwnProperty(key) && allKeys.indexOf(key) === -1) {
+                allKeys.push(key);
+              }
+            }
+          }
+
+          var csv = allKeys.join(',') + '\n';
+          for (var i = 0; i < flattened.length; i++) {
+            var row = [];
+            for (var j = 0; j < allKeys.length; j++) {
+              row.push(escapeCsv(flattened[i][allKeys[j]]));
+            }
+            csv += row.join(',') + '\n';
+          }
+
+          csvOutput.value = csv;
+        } catch (e) {
+          csvOutput.value = 'Error: ' + e.message;
+        }
+      }
+
+      function clearAll() {
+        jsonInput.value = '';
+        csvOutput.value = '';
+      }
+
+      function copyCsv() {
+        if (!csvOutput.value) return;
+        navigator.clipboard.writeText(csvOutput.value).catch(function() {
+          csvOutput.select();
+          document.execCommand('copy');
+        });
+        ConvertPivot.showToast('Copied!', 'success');
+      }
+
+      function downloadCsv() {
+        if (!csvOutput.value) return;
+        var blob = new Blob([csvOutput.value], { type: 'text/csv;charset=utf-8;' });
+        var link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'converted.csv';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(link.href);
+      }
+
+      loadSampleBtn.addEventListener('click', loadSample);
+      convertBtn.addEventListener('click', convert);
+      clearBtn.addEventListener('click', clearAll);
+      copyBtn.addEventListener('click', copyCsv);
+      downloadBtn.addEventListener('click', downloadCsv);
+    })();
+  </script>
+</body>
+</html>

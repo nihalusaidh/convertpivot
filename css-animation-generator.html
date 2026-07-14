@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Animation Generator — @keyframes Animation Builder | ConvertPivot</title>
+  <meta name="description" content="Free online CSS animation generator. Create @keyframes animations with a visual editor. Choose presets, customize timing, easing, direction, and generate ready-to-use CSS code.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/css-animation-generator">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/css-animation-generator">
+  <meta property="og:title" content="CSS Animation Generator — @keyframes Animation Builder | ConvertPivot">
+  <meta property="og:description" content="Free online CSS animation generator. Create @keyframes animations with a visual editor. Choose presets, customize timing, easing, direction, and generate ready-to-use CSS code.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CSS Animation Generator — @keyframes Animation Builder | ConvertPivot">
+  <meta name="twitter:description" content="Free online CSS animation generator. Create @keyframes animations with a visual editor. Choose presets, customize timing, easing, direction, and generate ready-to-use CSS code.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CSS Animation Generator","url":"https://convertpivot.com/css-animation-generator","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online CSS animation generator. Create @keyframes animations with a visual editor. Choose presets, customize timing, easing, direction, and generate ready-to-use CSS code.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is CSS animation and how does it work?","acceptedAnswer":{"@type":"Answer","text":"CSS animation allows elements to transition between different style states over time using @keyframes rules. You define keyframes with percentage positions (0% to 100%) that specify styles at each stage of the animation, then apply the animation to an element using the animation property."}},{"@type":"Question","name":"What is the difference between CSS transitions and animations?","acceptedAnswer":{"@type":"Answer","text":"Transitions only animate between two states (start and end) when triggered, like hover. Animations support multiple intermediate keyframes, can loop infinitely, play in reverse, and run automatically without a trigger. Animations give you more control over timing, direction, and fill modes."}},{"@type":"Question","name":"How do @keyframes work in CSS?","acceptedAnswer":{"@type":"Answer","text":"@keyframes defines the stages of an animation using percentage selectors. 0% is the start state and 100% is the end state. You can add intermediate stops like 25% or 50% to create complex multi-step animations. Each keyframe block contains CSS property declarations that are applied at that point in the animation cycle."}},{"@type":"Question","name":"What animation timing functions are available?","acceptedAnswer":{"@type":"Answer","text":"CSS provides several built-in timing functions: ease (slow start and end), ease-in (slow start), ease-out (slow end), ease-in-out (slow start and end, more pronounced than ease), and linear (constant speed). You can also create custom bezier curves with cubic-bezier(n,n,n,n) for precise control."}},{"@type":"Question","name":"How do I make a CSS animation loop infinitely?","acceptedAnswer":{"@type":"Answer","text":"Set animation-iteration-count to infinite. You can also use animation-direction: alternate to make the animation play forward then backward, creating a seamless looping effect. Combine infinite with alternate for smoother repeating animations like pulsing or floating effects."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">CSS Animation Generator</span></nav>
+    <div class="tool-header">
+      <h1>CSS Animation Generator</h1>
+      <p>Create @keyframes CSS animations with a visual builder. Choose from presets, customize timing and easing, and generate production-ready CSS code.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. No data is sent anywhere.</span></div>
+    <div class="converter-widget" id="toolWidget" style="max-width:900px;">
+      <div class="converter-form">
+        <div style="margin-bottom:12px;">
+          <label for="presetSelect" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:4px;">Preset Animation</label>
+          <select id="presetSelect" class="converter-input" style="width:100%;padding:8px 12px;border:1px solid var(--color-mist);border-radius:var(--radius-pill);background:var(--color-canvas);color:var(--color-ink);font-size:0.9rem;">
+            <option value="bounce">Bounce</option>
+            <option value="fadeIn">Fade In</option>
+            <option value="fadeOut">Fade Out</option>
+            <option value="slideInLeft">Slide In Left</option>
+            <option value="slideInRight">Slide In Right</option>
+            <option value="slideInUp">Slide In Up</option>
+            <option value="slideInDown">Slide In Down</option>
+            <option value="zoomIn">Zoom In</option>
+            <option value="zoomOut">Zoom Out</option>
+            <option value="rotate">Rotate</option>
+            <option value="flip">Flip</option>
+            <option value="pulse">Pulse</option>
+            <option value="shake">Shake</option>
+            <option value="swing">Swing</option>
+            <option value="wobble">Wobble</option>
+            <option value="tada">Tada</option>
+            <option value="jello">Jello</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+        <div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap;">
+          <div style="flex:1;min-width:120px;">
+            <label for="durationInput" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:4px;">Duration</label>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <input type="number" id="durationInput" class="converter-input" value="1" min="0.1" max="10" step="0.1" style="flex:1;padding:8px 12px;border:1px solid var(--color-mist);border-radius:var(--radius-pill);background:var(--color-canvas);color:var(--color-ink);font-size:0.9rem;">
+              <span style="font-size:0.85rem;color:var(--color-graphite);">s</span>
+            </div>
+          </div>
+          <div style="flex:1;min-width:150px;">
+            <label for="timingSelect" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:4px;">Timing Function</label>
+            <select id="timingSelect" class="converter-input" style="width:100%;padding:8px 12px;border:1px solid var(--color-mist);border-radius:var(--radius-pill);background:var(--color-canvas);color:var(--color-ink);font-size:0.9rem;">
+              <option value="ease">ease</option>
+              <option value="ease-in">ease-in</option>
+              <option value="ease-out">ease-out</option>
+              <option value="ease-in-out">ease-in-out</option>
+              <option value="linear">linear</option>
+              <option value="cubic-bezier(0.68,-0.55,0.27,1.55)">cubic-bezier</option>
+            </select>
+          </div>
+          <div style="flex:1;min-width:100px;">
+            <label for="delayInput" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:4px;">Delay</label>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <input type="number" id="delayInput" class="converter-input" value="0" min="0" max="5" step="0.1" style="flex:1;padding:8px 12px;border:1px solid var(--color-mist);border-radius:var(--radius-pill);background:var(--color-canvas);color:var(--color-ink);font-size:0.9rem;">
+              <span style="font-size:0.85rem;color:var(--color-graphite);">s</span>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap;">
+          <div style="flex:1;min-width:130px;">
+            <label for="directionSelect" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:4px;">Direction</label>
+            <select id="directionSelect" class="converter-input" style="width:100%;padding:8px 12px;border:1px solid var(--color-mist);border-radius:var(--radius-pill);background:var(--color-canvas);color:var(--color-ink);font-size:0.9rem;">
+              <option value="normal">normal</option>
+              <option value="reverse">reverse</option>
+              <option value="alternate">alternate</option>
+              <option value="alternate-reverse">alternate-reverse</option>
+            </select>
+          </div>
+          <div style="flex:1;min-width:110px;">
+            <label for="fillSelect" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:4px;">Fill Mode</label>
+            <select id="fillSelect" class="converter-input" style="width:100%;padding:8px 12px;border:1px solid var(--color-mist);border-radius:var(--radius-pill);background:var(--color-canvas);color:var(--color-ink);font-size:0.9rem;">
+              <option value="none">none</option>
+              <option value="forwards">forwards</option>
+              <option value="backwards">backwards</option>
+              <option value="both">both</option>
+            </select>
+          </div>
+          <div style="flex:1;min-width:120px;">
+            <label for="iterationInput" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:4px;">Iterations</label>
+            <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+              <input type="number" id="iterationInput" class="converter-input" value="1" min="0" max="9999" style="flex:1;min-width:60px;padding:8px 12px;border:1px solid var(--color-mist);border-radius:var(--radius-pill);background:var(--color-canvas);color:var(--color-ink);font-size:0.9rem;">
+              <label style="font-size:0.8rem;color:var(--color-graphite);white-space:nowrap;display:flex;align-items:center;gap:4px;"><input type="checkbox" id="infiniteCheck" style="margin:0;"> Infinite</label>
+            </div>
+          </div>
+        </div>
+        <div style="margin-bottom:12px;padding:16px;background:var(--color-smoke);border-radius:var(--radius-card);border:1px solid var(--color-mist);">
+          <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:8px;">Live Preview</label>
+          <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+            <div style="text-align:center;">
+              <div id="previewBox" style="width:100px;height:100px;background:var(--color-red);border-radius:8px;"></div>
+              <div style="font-size:0.75rem;color:var(--color-graphite);margin-top:4px;">Preview</div>
+            </div>
+            <div style="display:flex;gap:8px;">
+              <button id="playBtn" class="btn btn-primary" style="padding:8px 20px;">Pause</button>
+              <button id="resetBtn" class="btn btn-secondary" style="padding:8px 20px;">Reset</button>
+            </div>
+          </div>
+        </div>
+        <div id="customKeyframeEditor" style="display:none;margin-bottom:12px;padding:12px;background:var(--color-smoke);border-radius:var(--radius-card);border:1px solid var(--color-mist);">
+          <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:8px;">Custom Keyframes</label>
+          <div id="customKeyframesContainer"></div>
+        </div>
+        <div style="margin-bottom:8px;">
+          <label for="cssOutput" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:4px;">Generated CSS</label>
+          <textarea id="cssOutput" readonly style="width:100%;padding:12px;border:1px solid var(--color-mist);border-radius:var(--radius-card);background:var(--color-smoke);color:var(--color-ink);font-family:'Courier New',monospace;font-size:0.8rem;resize:vertical;min-height:120px;line-height:1.5;box-sizing:border-box;"></textarea>
+          <button id="copyCssBtn" class="btn btn-primary" style="margin-top:8px;">Copy CSS</button>
+        </div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the CSS Animation Generator</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Choose Your Animation</h3><p>Select from 17 preset animations like Bounce, Fade In, Slide, or Zoom. Each preset has professionally designed @keyframes ready to use. Select "Custom" to create your own animation from scratch.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Customize Timing &amp; Behavior</h3><p>Adjust duration (0.1s to 10s), timing function (ease, linear, cubic-bezier), delay, direction, fill mode, and iteration count. Toggle Infinite for endless looping. Watch the preview update in real time.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Copy the Generated CSS</h3><p>Click <strong>Copy CSS</strong> to copy the complete @keyframes rule and animation property. Paste the code directly into your stylesheet and apply it to any HTML element.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>CSS Animation Properties Reference</h2>
+      <div style="overflow-x:auto;">
+        <table class="format-table" style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+          <thead><tr style="background:var(--color-mist);"><th style="padding:8px 12px;text-align:left;">Property</th><th style="padding:8px 12px;text-align:left;">Values</th><th style="padding:8px 12px;text-align:left;">Description</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>animation-name</code></td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>@keyframes</code> name</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Specifies the name of the @keyframes animation to apply</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>animation-duration</code></td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Time in <code>s</code> or <code>ms</code></td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Sets how long one full animation cycle takes to complete</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>animation-timing-function</code></td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>ease</code>, <code>linear</code>, <code>ease-in</code>, <code>ease-out</code>, <code>ease-in-out</code>, <code>cubic-bezier()</code>, <code>steps()</code></td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Controls the speed curve of the animation between keyframes</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>animation-delay</code></td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Time in <code>s</code> or <code>ms</code></td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Delays the start of the animation. Negative values start the animation mid-cycle</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>animation-iteration-count</code></td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Number or <code>infinite</code></td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Determines how many times the animation plays</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>animation-direction</code></td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>normal</code>, <code>reverse</code>, <code>alternate</code>, <code>alternate-reverse</code></td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Sets whether the animation plays forward, backward, or alternates</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>animation-fill-mode</code></td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>none</code>, <code>forwards</code>, <code>backwards</code>, <code>both</code></td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Defines styles applied before the animation starts and after it ends</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>animation-play-state</code></td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>running</code>, <code>paused</code></td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Pauses or resumes a running animation without resetting it</td></tr>
+            <tr><td style="padding:6px 12px;"><code>animation</code> (shorthand)</td><td style="padding:6px 12px;">Combines all animation properties in one declaration</td><td style="padding:6px 12px;">Order: name, duration, timing-function, delay, iteration-count, direction, fill-mode, play-state</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What is CSS animation and how does it work? <span class="arrow">▼</span></button><div class="faq-answer">CSS animation allows elements to transition between different style states over time using @keyframes rules. You define keyframes with percentage positions (0% to 100%) that specify styles at each stage of the animation, then apply the animation to an element using the animation property.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the difference between CSS transitions and animations? <span class="arrow">▼</span></button><div class="faq-answer">Transitions only animate between two states (start and end) when triggered, like hover. Animations support multiple intermediate keyframes, can loop infinitely, play in reverse, and run automatically without a trigger. Animations give you more control over timing, direction, and fill modes.</div></div>
+        <div class="faq-item"><button class="faq-question">How do @keyframes work in CSS? <span class="arrow">▼</span></button><div class="faq-answer">@keyframes defines the stages of an animation using percentage selectors. 0% is the start state and 100% is the end state. You can add intermediate stops like 25% or 50% to create complex multi-step animations. Each keyframe block contains CSS property declarations that are applied at that point in the animation cycle.</div></div>
+        <div class="faq-item"><button class="faq-question">What animation timing functions are available? <span class="arrow">▼</span></button><div class="faq-answer">CSS provides several built-in timing functions: ease (slow start and end), ease-in (slow start), ease-out (slow end), ease-in-out (slow start and end, more pronounced than ease), and linear (constant speed). You can also create custom bezier curves with cubic-bezier(n,n,n,n) for precise control.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I make a CSS animation loop infinitely? <span class="arrow">▼</span></button><div class="faq-answer">Set animation-iteration-count to infinite. You can also use animation-direction: alternate to make the animation play forward then backward, creating a seamless looping effect. Combine infinite with alternate for smoother repeating animations like pulsing or floating effects.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var presetSelect = document.getElementById('presetSelect');
+      var durationInput = document.getElementById('durationInput');
+      var timingSelect = document.getElementById('timingSelect');
+      var delayInput = document.getElementById('delayInput');
+      var directionSelect = document.getElementById('directionSelect');
+      var fillSelect = document.getElementById('fillSelect');
+      var iterationInput = document.getElementById('iterationInput');
+      var infiniteCheck = document.getElementById('infiniteCheck');
+      var previewBox = document.getElementById('previewBox');
+      var playBtn = document.getElementById('playBtn');
+      var resetBtn = document.getElementById('resetBtn');
+      var cssOutput = document.getElementById('cssOutput');
+      var copyBtn = document.getElementById('copyCssBtn');
+      var customEditor = document.getElementById('customKeyframeEditor');
+      var customContainer = document.getElementById('customKeyframesContainer');
+
+      var isPlaying = true;
+
+      var customFrames = [
+        { pct: '0%', transform: '', opacity: 1 },
+        { pct: '25%', transform: '', opacity: 1 },
+        { pct: '50%', transform: '', opacity: 1 },
+        { pct: '75%', transform: '', opacity: 1 },
+        { pct: '100%', transform: '', opacity: 1 }
+      ];
+
+      var presets = {
+        bounce: [
+          { pct: '0%', transform: 'scale(1)' },
+          { pct: '20%', transform: 'scale(1.1)' },
+          { pct: '40%', transform: 'scale(0.9)' },
+          { pct: '60%', transform: 'scale(1.05)' },
+          { pct: '80%', transform: 'scale(0.95)' },
+          { pct: '100%', transform: 'scale(1)' }
+        ],
+        fadeIn: [
+          { pct: '0%', opacity: 0 },
+          { pct: '100%', opacity: 1 }
+        ],
+        fadeOut: [
+          { pct: '0%', opacity: 1 },
+          { pct: '100%', opacity: 0 }
+        ],
+        slideInLeft: [
+          { pct: '0%', transform: 'translateX(-100%)', opacity: 0 },
+          { pct: '100%', transform: 'translateX(0)', opacity: 1 }
+        ],
+        slideInRight: [
+          { pct: '0%', transform: 'translateX(100%)', opacity: 0 },
+          { pct: '100%', transform: 'translateX(0)', opacity: 1 }
+        ],
+        slideInUp: [
+          { pct: '0%', transform: 'translateY(100%)', opacity: 0 },
+          { pct: '100%', transform: 'translateY(0)', opacity: 1 }
+        ],
+        slideInDown: [
+          { pct: '0%', transform: 'translateY(-100%)', opacity: 0 },
+          { pct: '100%', transform: 'translateY(0)', opacity: 1 }
+        ],
+        zoomIn: [
+          { pct: '0%', transform: 'scale(0)', opacity: 0 },
+          { pct: '100%', transform: 'scale(1)', opacity: 1 }
+        ],
+        zoomOut: [
+          { pct: '0%', transform: 'scale(1)', opacity: 1 },
+          { pct: '100%', transform: 'scale(0)', opacity: 0 }
+        ],
+        rotate: [
+          { pct: '0%', transform: 'rotate(0deg)' },
+          { pct: '100%', transform: 'rotate(360deg)' }
+        ],
+        flip: [
+          { pct: '0%', transform: 'perspective(400px) rotateY(0deg)' },
+          { pct: '50%', transform: 'perspective(400px) rotateY(180deg)' },
+          { pct: '100%', transform: 'perspective(400px) rotateY(360deg)' }
+        ],
+        pulse: [
+          { pct: '0%', transform: 'scale(1)' },
+          { pct: '50%', transform: 'scale(1.05)' },
+          { pct: '100%', transform: 'scale(1)' }
+        ],
+        shake: [
+          { pct: '0%', transform: 'translateX(0)' },
+          { pct: '10%', transform: 'translateX(-10px)' },
+          { pct: '20%', transform: 'translateX(10px)' },
+          { pct: '30%', transform: 'translateX(-10px)' },
+          { pct: '40%', transform: 'translateX(10px)' },
+          { pct: '50%', transform: 'translateX(-10px)' },
+          { pct: '60%', transform: 'translateX(10px)' },
+          { pct: '70%', transform: 'translateX(-10px)' },
+          { pct: '80%', transform: 'translateX(10px)' },
+          { pct: '90%', transform: 'translateX(-10px)' },
+          { pct: '100%', transform: 'translateX(0)' }
+        ],
+        swing: [
+          { pct: '0%', transform: 'rotate(0deg)' },
+          { pct: '15%', transform: 'rotate(15deg)' },
+          { pct: '30%', transform: 'rotate(-10deg)' },
+          { pct: '45%', transform: 'rotate(5deg)' },
+          { pct: '60%', transform: 'rotate(-5deg)' },
+          { pct: '75%', transform: 'rotate(3deg)' },
+          { pct: '90%', transform: 'rotate(-2deg)' },
+          { pct: '100%', transform: 'rotate(0deg)' }
+        ],
+        wobble: [
+          { pct: '0%', transform: 'translateX(0) rotate(0deg)' },
+          { pct: '15%', transform: 'translateX(-25px) rotate(-5deg)' },
+          { pct: '30%', transform: 'translateX(20px) rotate(3deg)' },
+          { pct: '45%', transform: 'translateX(-15px) rotate(-3deg)' },
+          { pct: '60%', transform: 'translateX(10px) rotate(2deg)' },
+          { pct: '75%', transform: 'translateX(-5px) rotate(-1deg)' },
+          { pct: '100%', transform: 'translateX(0) rotate(0deg)' }
+        ],
+        tada: [
+          { pct: '0%', transform: 'scale(1) rotate(0deg)' },
+          { pct: '10%', transform: 'scale(0.9) rotate(-3deg)' },
+          { pct: '20%', transform: 'scale(1.1) rotate(-3deg)' },
+          { pct: '30%', transform: 'scale(1.1) rotate(3deg)' },
+          { pct: '40%', transform: 'scale(1.1) rotate(-3deg)' },
+          { pct: '50%', transform: 'scale(1.1) rotate(3deg)' },
+          { pct: '60%', transform: 'scale(1.1) rotate(-3deg)' },
+          { pct: '70%', transform: 'scale(1.1) rotate(3deg)' },
+          { pct: '80%', transform: 'scale(1.1) rotate(-3deg)' },
+          { pct: '90%', transform: 'scale(1.1) rotate(3deg)' },
+          { pct: '100%', transform: 'scale(1) rotate(0deg)' }
+        ],
+        jello: [
+          { pct: '0%', transform: 'skewX(0deg) skewY(0deg)' },
+          { pct: '12.5%', transform: 'skewX(-12deg) skewY(-12deg)' },
+          { pct: '25%', transform: 'skewX(12deg) skewY(12deg)' },
+          { pct: '37.5%', transform: 'skewX(-6deg) skewY(-6deg)' },
+          { pct: '50%', transform: 'skewX(6deg) skewY(6deg)' },
+          { pct: '62.5%', transform: 'skewX(-3deg) skewY(-3deg)' },
+          { pct: '75%', transform: 'skewX(3deg) skewY(3deg)' },
+          { pct: '100%', transform: 'skewX(0deg) skewY(0deg)' }
+        ]
+      };
+
+      function renderCustomFrames() {
+        var html = '';
+        for (var i = 0; i < customFrames.length; i++) {
+          var f = customFrames[i];
+          html += '<div class="custom-kf-row" data-idx="' + i + '" style="display:flex;align-items:center;gap:8px;margin-bottom:6px;padding:6px 8px;background:var(--color-canvas);border-radius:var(--radius-card);border:1px solid var(--color-mist);">';
+          html += '<span style="font-size:0.8rem;font-weight:600;min-width:36px;color:var(--color-graphite);">' + f.pct + '</span>';
+          html += '<input type="text" class="custom-kf-transform" placeholder="transform (e.g. scale(1.2))" value="' + f.transform + '" style="flex:1;min-width:100px;padding:6px 10px;border:1px solid var(--color-mist);border-radius:var(--radius-pill);background:var(--color-canvas);color:var(--color-ink);font-size:0.8rem;font-family:monospace;">';
+          html += '<input type="range" class="custom-kf-opacity" min="0" max="1" step="0.01" value="' + f.opacity + '" style="width:70px;">';
+          html += '<span class="custom-kf-opacity-label" style="font-size:0.8rem;color:var(--color-graphite);min-width:28px;text-align:right;">' + f.opacity + '</span>';
+          html += '</div>';
+        }
+        customContainer.innerHTML = html;
+
+        customContainer.querySelectorAll('.custom-kf-transform').forEach(function(inp, idx) {
+          inp.addEventListener('input', function() {
+            customFrames[idx].transform = this.value;
+            updateAnimation();
+          });
+        });
+        customContainer.querySelectorAll('.custom-kf-opacity').forEach(function(inp, idx) {
+          inp.addEventListener('input', function() {
+            customFrames[idx].opacity = parseFloat(this.value);
+            var label = customContainer.querySelectorAll('.custom-kf-opacity-label')[idx];
+            if (label) label.textContent = this.value;
+            updateAnimation();
+          });
+        });
+      }
+
+      function buildKeyframesCSS() {
+        var preset = presetSelect.value;
+        var data;
+        if (preset === 'custom') {
+          data = customFrames;
+        } else {
+          data = presets[preset];
+        }
+        if (!data) return '';
+        var parts = [];
+        for (var i = 0; i < data.length; i++) {
+          var frame = data[i];
+          var props = '';
+          if (frame.transform && frame.transform.length > 0) {
+            props += 'transform: ' + frame.transform + ';';
+          }
+          if (frame.opacity !== undefined && frame.opacity !== null) {
+            props += 'opacity: ' + frame.opacity + ';';
+          }
+          if (props.length > 0) {
+            parts.push(frame.pct + ' { ' + props + ' }');
+          }
+        }
+        return parts.join('\n');
+      }
+
+      function updateAnimation() {
+        var keyframesCss = buildKeyframesCSS();
+        if (!keyframesCss) {
+          cssOutput.value = '/* Select a preset or configure custom keyframes */';
+          return;
+        }
+
+        var styleEl = document.getElementById('cpAnimStyle');
+        if (!styleEl) {
+          styleEl = document.createElement('style');
+          styleEl.id = 'cpAnimStyle';
+          document.head.appendChild(styleEl);
+        }
+        styleEl.textContent = '@keyframes cpAnim {\n' + keyframesCss + '\n}';
+
+        var duration = durationInput.value;
+        if (duration.indexOf('.') === -1) duration = duration + '.0';
+        var timing = timingSelect.value;
+        var delay = delayInput.value;
+        if (delay.indexOf('.') === -1) delay = delay + '.0';
+        var direction = directionSelect.value;
+        var fill = fillSelect.value;
+        var iterations = infiniteCheck.checked ? 'infinite' : iterationInput.value;
+
+        previewBox.style.animation = 'cpAnim ' + duration + 's ' + timing + ' ' + delay + 's ' + iterations + ' ' + direction + ' ' + fill;
+        previewBox.style.animationPlayState = 'running';
+        isPlaying = true;
+        playBtn.textContent = 'Pause';
+
+        cssOutput.value = '@keyframes cpAnim {\n' + keyframesCss + '\n}\n\n.element {\n  animation: ' + 'cpAnim ' + duration + 's ' + timing + ' ' + delay + 's ' + iterations + ' ' + direction + ' ' + fill + ';\n}';
+      }
+
+      function togglePlay() {
+        if (isPlaying) {
+          previewBox.style.animationPlayState = 'paused';
+          playBtn.textContent = 'Play';
+          isPlaying = false;
+        } else {
+          previewBox.style.animationPlayState = 'running';
+          playBtn.textContent = 'Pause';
+          isPlaying = true;
+        }
+      }
+
+      function resetAnimation() {
+        var anim = previewBox.style.animation;
+        previewBox.style.animation = 'none';
+        previewBox.offsetHeight;
+        previewBox.style.animation = anim;
+        previewBox.style.animationPlayState = 'running';
+        playBtn.textContent = 'Pause';
+        isPlaying = true;
+      }
+
+      function fallbackCopy(text) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        if (typeof ConvertPivot !== 'undefined' && ConvertPivot.showToast) {
+          ConvertPivot.showToast('Copied!', 'success');
+        }
+      }
+
+      presetSelect.addEventListener('change', function() {
+        var isCustom = this.value === 'custom';
+        customEditor.style.display = isCustom ? 'block' : 'none';
+        updateAnimation();
+      });
+
+      durationInput.addEventListener('input', updateAnimation);
+      timingSelect.addEventListener('change', updateAnimation);
+      delayInput.addEventListener('input', updateAnimation);
+      directionSelect.addEventListener('change', updateAnimation);
+      fillSelect.addEventListener('change', updateAnimation);
+      iterationInput.addEventListener('input', updateAnimation);
+      infiniteCheck.addEventListener('change', updateAnimation);
+
+      playBtn.addEventListener('click', togglePlay);
+      resetBtn.addEventListener('click', resetAnimation);
+
+      copyBtn.addEventListener('click', function() {
+        var code = cssOutput.value;
+        if (!code || code.indexOf('/*') === 0) return;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(code).then(function() {
+            if (typeof ConvertPivot !== 'undefined' && ConvertPivot.showToast) {
+              ConvertPivot.showToast('Copied!', 'success');
+            }
+          }).catch(function() {
+            fallbackCopy(code);
+          });
+        } else {
+          fallbackCopy(code);
+        }
+      });
+
+      renderCustomFrames();
+      updateAnimation();
+    })();
+  </script>
+  <style>
+    .custom-kf-row { font-family: inherit; }
+    .custom-kf-row input[type="text"]:focus { outline: none; border-color: var(--color-red); }
+    .custom-kf-row input[type="range"] { accent-color: var(--color-red); cursor: pointer; }
+    .custom-kf-row input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--color-red); cursor: pointer; }
+    .custom-kf-row input[type="range"]::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: var(--color-red); cursor: pointer; border: none; }
+    @media (max-width:600px) {
+      .custom-kf-row { flex-wrap: wrap; }
+      .custom-kf-row input[type="text"] { min-width: 60px; }
+    }
+  </style>
+</body>
+</html>

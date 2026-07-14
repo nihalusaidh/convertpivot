@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Box Shadow Generator — Visual Box Shadow Builder | ConvertPivot</title>
+  <meta name="description" content="Free online CSS box-shadow generator. Create and customize box shadows with a visual editor. Adjust offset, blur, spread, color, and inset with live preview. Copy generated CSS code.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/css-box-shadow-generator">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/css-box-shadow-generator">
+  <meta property="og:title" content="CSS Box Shadow Generator — Visual Box Shadow Builder | ConvertPivot">
+  <meta property="og:description" content="Free online CSS box-shadow generator. Create and customize box shadows with a visual editor. Adjust offset, blur, spread, color, and inset with live preview. Copy generated CSS code.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CSS Box Shadow Generator — Visual Box Shadow Builder | ConvertPivot">
+  <meta name="twitter:description" content="Free online CSS box-shadow generator. Create and customize box shadows with a visual editor. Adjust offset, blur, spread, color, and inset with live preview. Copy generated CSS code.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CSS Box Shadow Generator","url":"https://convertpivot.com/css-box-shadow-generator","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online CSS box-shadow generator. Create and customize box shadows with a visual editor. Adjust offset, blur, spread, color, and inset. Copy generated CSS code.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is CSS box-shadow?","acceptedAnswer":{"@type":"Answer","text":"CSS box-shadow is a property that lets you add shadow effects to HTML elements. It can create drop shadows (offset, blur, spread, and color) or inner shadows using the inset keyword. Multiple shadows can be layered for complex effects."}},{"@type":"Question","name":"Can I use multiple box-shadows on one element?","acceptedAnswer":{"@type":"Answer","text":"Yes, you can apply multiple box-shadows by separating each shadow with a comma. For example: box-shadow: 2px 2px 5px rgba(0,0,0,0.3), -2px -2px 5px rgba(255,255,255,0.3). This creates layered shadow effects."}},{"@type":"Question","name":"What is the difference between inset and outset box-shadow?","acceptedAnswer":{"@type":"Answer","text":"Outset (default) shadows are drawn outside the element's border, creating a drop shadow. Inset shadows are drawn inside the element, creating a recessed or carved effect. Use the inset keyword to switch between them."}},{"@type":"Question","name":"Which browsers support CSS box-shadow?","acceptedAnswer":{"@type":"Answer","text":"CSS box-shadow is supported in all modern browsers including Chrome, Firefox, Safari, Edge, and Opera. Internet Explorer 9+ also supports it. No vendor prefixes are needed for current browser versions."}},{"@type":"Question","name":"Do box-shadows affect performance?","acceptedAnswer":{"@type":"Answer","text":"Box-shadows with large blur radii or multiple layers can impact rendering performance, especially during animations. For the best performance, use blur values sparingly and avoid animating box-shadow properties. Consider using CSS transforms or opacity for smoother animations."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">CSS Box Shadow Generator</span></nav>
+    <div class="tool-header">
+      <h1>CSS Box Shadow Generator</h1>
+      <p>Create and customize CSS box shadows with a visual editor. Adjust offset, blur, spread, color, and toggle inset. See live previews and copy the CSS code instantly.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All shadow rendering happens in your browser. Nothing is sent to any server.</span></div>
+    <div class="converter-widget" id="toolWidget" style="max-width:900px;">
+      <div class="converter-form">
+        <div style="display:flex;gap:20px;flex-wrap:wrap;">
+          <div style="flex:1;min-width:260px;">
+            <div style="margin-bottom:14px;">
+              <label for="bsOffsetX">Offset X: <span id="bsOffsetXVal">4</span>px</label>
+              <input type="range" id="bsOffsetX" min="-50" max="50" value="4" style="width:100%;">
+            </div>
+            <div style="margin-bottom:14px;">
+              <label for="bsOffsetY">Offset Y: <span id="bsOffsetYVal">4</span>px</label>
+              <input type="range" id="bsOffsetY" min="-50" max="50" value="4" style="width:100%;">
+            </div>
+            <div style="margin-bottom:14px;">
+              <label for="bsBlur">Blur: <span id="bsBlurVal">10</span>px</label>
+              <input type="range" id="bsBlur" min="0" max="100" value="10" style="width:100%;">
+            </div>
+            <div style="margin-bottom:14px;">
+              <label for="bsSpread">Spread: <span id="bsSpreadVal">0</span>px</label>
+              <input type="range" id="bsSpread" min="-50" max="50" value="0" style="width:100%;">
+            </div>
+            <div style="margin-bottom:14px;">
+              <label for="bsOpacity">Opacity: <span id="bsOpacityVal">50</span>%</label>
+              <input type="range" id="bsOpacity" min="0" max="100" value="50" style="width:100%;">
+            </div>
+            <div style="margin-bottom:14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+              <div style="flex:1;min-width:100px;">
+                <label for="bsColor">Shadow Color</label>
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <input type="color" id="bsColor" value="#000000" style="width:44px;height:36px;padding:2px;border:1px solid var(--color-mist);border-radius:4px;cursor:pointer;">
+                  <input type="text" id="bsHexText" class="converter-input" value="#000000" style="flex:1;">
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:6px;">
+                <label for="bsInset" style="font-size:0.85rem;font-weight:600;cursor:pointer;">Inset</label>
+                <input type="checkbox" id="bsInset" style="width:18px;height:18px;cursor:pointer;">
+              </div>
+            </div>
+            <div style="margin-bottom:8px;">
+              <label for="bsBgColor">Preview Background</label>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <input type="color" id="bsBgColor" value="#ffffff" style="width:44px;height:36px;padding:2px;border:1px solid var(--color-mist);border-radius:4px;cursor:pointer;">
+                <input type="text" id="bsBgHexText" class="converter-input" value="#ffffff" style="flex:1;">
+              </div>
+            </div>
+          </div>
+          <div style="flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:10px;">
+            <label style="font-size:0.85rem;font-weight:600;">Preview</label>
+            <div id="bsPreview" style="width:200px;height:200px;border-radius:8px;border:1px solid var(--color-mist);transition:box-shadow 0.05s,background 0.15s;"></div>
+          </div>
+        </div>
+        <div style="margin-top:16px;">
+          <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:6px;">CSS Code</label>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <textarea id="bsCssOutput" readonly style="flex:1;padding:12px;border:1px solid var(--color-mist);border-radius:var(--radius-card);background:var(--color-smoke);color:var(--color-ink);font-family:'Courier New',monospace;font-size:0.8rem;resize:vertical;min-height:50px;line-height:1.5;"></textarea>
+          </div>
+          <button id="bsCopyBtn" class="btn btn-primary" style="margin-top:8px;">Copy Box Shadow CSS</button>
+          <div style="margin-top:12px;">
+            <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:6px;">CSS Class Version</label>
+            <textarea id="bsCssClassOutput" readonly style="width:100%;padding:12px;border:1px solid var(--color-mist);border-radius:var(--radius-card);background:var(--color-smoke);color:var(--color-ink);font-family:'Courier New',monospace;font-size:0.8rem;resize:vertical;min-height:50px;line-height:1.5;"></textarea>
+            <button id="bsCopyClassBtn" class="btn btn-secondary" style="margin-top:6px;">Copy CSS Class</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the CSS Box Shadow Generator</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Adjust the Sliders</h3><p>Set the offset X and Y to control shadow position. Adjust blur for softness, spread for size, opacity for transparency, and toggle inset for inner shadows.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Preview Live</h3><p>The preview box updates in real time as you adjust each parameter. Change the preview background color to see how your shadow looks on different backgrounds.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Copy the CSS</h3><p>Once you are happy with the result, click <strong>Copy Box Shadow CSS</strong> to copy the box-shadow declaration, or copy the CSS class version for your stylesheet.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Box Shadow Value Reference</h2>
+      <div style="overflow-x:auto;">
+        <table class="format-table">
+          <thead><tr><th style="padding:8px 12px;text-align:left;">Value</th><th style="padding:8px 12px;text-align:left;">Description</th><th style="padding:8px 12px;text-align:left;">Example</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>offset-x</code></td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Horizontal offset. Positive moves shadow right, negative moves left.</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>box-shadow: 5px 5px 5px #000;</code></td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>offset-y</code></td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Vertical offset. Positive moves shadow down, negative moves up.</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>box-shadow: -5px 5px 5px #000;</code></td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>blur-radius</code></td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Blur radius. Higher values make the shadow softer and more spread out. Must be 0 or positive.</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>box-shadow: 2px 2px 20px #000;</code></td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>spread-radius</code></td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Spread radius. Positive expands the shadow, negative shrinks it.</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>box-shadow: 0 0 10px 5px #000;</code></td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>color</code></td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Shadow color. Supports any CSS color value including rgb(), rgba(), hsl(), and hex.</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);"><code>box-shadow: 2px 2px 5px rgba(0,0,0,0.5);</code></td></tr>
+            <tr><td style="padding:6px 12px;"><code>inset</code></td><td style="padding:6px 12px;">Draws the shadow inside the element instead of outside. Creates a recessed effect.</td><td style="padding:6px 12px;"><code>box-shadow: inset 0 2px 5px #000;</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What is CSS box-shadow? <span class="arrow">▼</span></button><div class="faq-answer">CSS box-shadow is a property that lets you add shadow effects to HTML elements. It can create drop shadows (offset, blur, spread, and color) or inner shadows using the inset keyword. Multiple shadows can be layered for complex effects.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I use multiple box-shadows on one element? <span class="arrow">▼</span></button><div class="faq-answer">Yes, you can apply multiple box-shadows by separating each shadow with a comma. For example: box-shadow: 2px 2px 5px rgba(0,0,0,0.3), -2px -2px 5px rgba(255,255,255,0.3). This creates layered shadow effects.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the difference between inset and outset box-shadow? <span class="arrow">▼</span></button><div class="faq-answer">Outset (default) shadows are drawn outside the element's border, creating a drop shadow. Inset shadows are drawn inside the element, creating a recessed or carved effect. Use the inset keyword to switch between them.</div></div>
+        <div class="faq-item"><button class="faq-question">Which browsers support CSS box-shadow? <span class="arrow">▼</span></button><div class="faq-answer">CSS box-shadow is supported in all modern browsers including Chrome, Firefox, Safari, Edge, and Opera. Internet Explorer 9+ also supports it. No vendor prefixes are needed for current browser versions.</div></div>
+        <div class="faq-item"><button class="faq-question">Do box-shadows affect performance? <span class="arrow">▼</span></button><div class="faq-answer">Box-shadows with large blur radii or multiple layers can impact rendering performance, especially during animations. For the best performance, use blur values sparingly and avoid animating box-shadow properties. Consider using CSS transforms or opacity for smoother animations.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var offsetX = document.getElementById('bsOffsetX');
+      var offsetY = document.getElementById('bsOffsetY');
+      var blur = document.getElementById('bsBlur');
+      var spread = document.getElementById('bsSpread');
+      var opacity = document.getElementById('bsOpacity');
+      var colorPicker = document.getElementById('bsColor');
+      var hexText = document.getElementById('bsHexText');
+      var inset = document.getElementById('bsInset');
+      var preview = document.getElementById('bsPreview');
+      var bgColor = document.getElementById('bsBgColor');
+      var bgHexText = document.getElementById('bsBgHexText');
+      var cssOutput = document.getElementById('bsCssOutput');
+      var cssClassOutput = document.getElementById('bsCssClassOutput');
+      var copyBtn = document.getElementById('bsCopyBtn');
+      var copyClassBtn = document.getElementById('bsCopyClassBtn');
+
+      function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+      function hexToRgba(hex, a) {
+        hex = hex.replace('#', '');
+        if (hex.length === 3) hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+        if (hex.length !== 6) return 'rgba(0,0,0,' + a + ')';
+        var r = parseInt(hex.substr(0, 2), 16);
+        var g = parseInt(hex.substr(2, 2), 16);
+        var b = parseInt(hex.substr(4, 2), 16);
+        return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
+      }
+
+      function buildShadowCss() {
+        var ox = parseInt(offsetX.value);
+        var oy = parseInt(offsetY.value);
+        var b = parseInt(blur.value);
+        var s = parseInt(spread.value);
+        var a = clamp(parseInt(opacity.value) / 100, 0, 1);
+        var color = hexToRgba(colorPicker.value, a.toFixed(2));
+        var parts = [];
+        if (inset.checked) parts.push('inset');
+        parts.push(ox + 'px');
+        parts.push(oy + 'px');
+        parts.push(b + 'px');
+        parts.push(s + 'px');
+        parts.push(color);
+        return parts.join(' ');
+      }
+
+      function update() {
+        document.getElementById('bsOffsetXVal').textContent = offsetX.value;
+        document.getElementById('bsOffsetYVal').textContent = offsetY.value;
+        document.getElementById('bsBlurVal').textContent = blur.value;
+        document.getElementById('bsSpreadVal').textContent = spread.value;
+        document.getElementById('bsOpacityVal').textContent = opacity.value;
+        var shadow = buildShadowCss();
+        preview.style.boxShadow = shadow;
+        preview.style.background = bgColor.value;
+        var shadowLine = 'box-shadow: ' + shadow + ';';
+        cssOutput.value = shadowLine;
+        cssClassOutput.value = '.box-shadow-element {\n  ' + shadowLine + '\n}';
+      }
+
+      function syncColorPicker() {
+        var val = hexText.value.trim();
+        if (/^#[0-9a-f]{6}$/i.test(val) || /^#[0-9a-f]{3}$/i.test(val)) {
+          colorPicker.value = val;
+          update();
+        }
+      }
+
+      function syncBgColor() {
+        var val = bgHexText.value.trim();
+        if (/^#[0-9a-f]{6}$/i.test(val) || /^#[0-9a-f]{3}$/i.test(val)) {
+          bgColor.value = val;
+          update();
+        }
+      }
+
+      function doCopy(text, btn) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function() {
+            ConvertPivot.showToast('Box shadow CSS copied!', 'success');
+          }).catch(function() {
+            prompt('Copy to clipboard:', text);
+          });
+        } else {
+          prompt('Copy to clipboard:', text);
+        }
+      }
+
+      offsetX.addEventListener('input', update);
+      offsetY.addEventListener('input', update);
+      blur.addEventListener('input', update);
+      spread.addEventListener('input', update);
+      opacity.addEventListener('input', update);
+      colorPicker.addEventListener('input', function() { hexText.value = colorPicker.value; update(); });
+      hexText.addEventListener('input', syncColorPicker);
+      inset.addEventListener('change', update);
+      bgColor.addEventListener('input', function() { bgHexText.value = bgColor.value; update(); });
+      bgHexText.addEventListener('input', syncBgColor);
+
+      copyBtn.addEventListener('click', function() {
+        doCopy(cssOutput.value, this);
+      });
+
+      copyClassBtn.addEventListener('click', function() {
+        doCopy(cssClassOutput.value, this);
+      });
+
+      update();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CBZ to PDF Converter — Comic Book Archive to PDF | ConvertPivot</title>
+  <meta name="description" content="Free online CBZ to PDF converter. Convert comic book archive files (CBZ) to PDF documents. Browser-based, no uploads, no server.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/cbz-to-pdf">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/cbz-to-pdf">
+  <meta property="og:title" content="CBZ to PDF Converter — Free Online Tool | ConvertPivot">
+  <meta property="og:description" content="Free online CBZ to PDF converter. Convert comic book archive files (CBZ) to PDF documents. Browser-based, no uploads, no server.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CBZ to PDF Converter — Free Online Tool | ConvertPivot">
+  <meta name="twitter:description" content="Free online CBZ to PDF converter. Convert comic book archive files (CBZ) to PDF documents. Browser-based, no uploads, no server.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CBZ to PDF Converter","url":"https://convertpivot.com/cbz-to-pdf","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online CBZ to PDF converter. Convert comic book archive files (CBZ) to PDF documents. Browser-based, no uploads, no server.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a CBZ file?","acceptedAnswer":{"@type":"Answer","text":"CBZ (Comic Book ZIP) is a compressed archive format for comic books and manga. It is essentially a ZIP file containing sequentially numbered images (usually JPEG or PNG) that represent each page of the comic."}},{"@type":"Question","name":"Will the PDF look like the original comic?","acceptedAnswer":{"@type":"Answer","text":"Yes. Each page image from the CBZ is placed on its own PDF page and scaled to fit the page dimensions while maintaining the original aspect ratio. Image quality is preserved."}},{"@type":"Question","name":"What image formats are supported inside CBZ?","acceptedAnswer":{"@type":"Answer","text":"Our converter supports JPEG, PNG, WebP, GIF, and BMP images commonly found in CBZ archives. All images are sorted by filename before being added to the PDF to ensure correct page order."}},{"@type":"Question","name":"Are my files uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All processing happens entirely in your browser. Your CBZ file is extracted locally with JSZip and the PDF is generated client-side with jsPDF. Your files never leave your device."}},{"@type":"Question","name":"Is this tool free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no usage limits, no registration, and no hidden charges. All processing runs in your browser using open-source libraries."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">CBZ to PDF Converter</span></nav>
+    <div class="tool-header">
+      <h1>CBZ to PDF Converter</h1>
+      <p>Convert comic book archive files (CBZ) to PDF documents. Each page image is placed on its own PDF page with full quality preserved.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your files never leave your device.</span></div>
+    <div class="converter-widget" id="cbzToPdfWidget">
+      <div class="drop-zone" id="cbzDropZone">
+        <div class="drop-zone-icon">📚</div>
+        <div class="drop-zone-text">Drop <strong>CBZ file</strong> here, or click to browse</div>
+        <div class="drop-zone-hint">Supports .cbz comic book archives</div>
+        <input type="file" accept=".cbz" aria-label="Choose CBZ file">
+      </div>
+      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">✕</button></div>
+      <div class="converter-controls"><button class="btn btn-primary" id="convertBtn">Convert to PDF</button></div>
+      <div class="progress-bar" id="progressBar"><div class="progress-bar-fill"></div></div>
+      <div class="converter-actions" id="downloadSection" style="display:none;">
+        <button id="downloadBtn" class="btn btn-primary">Download PDF</button>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the CBZ to PDF Converter</h2>
+      <p>Select a CBZ comic book archive file from your device. The tool extracts all page images from the ZIP archive, sorts them by filename, and generates a PDF document with each page image on its own page. This is ideal for reading comics on devices that don't support CBZ, sharing with others, or archiving your collection in a universal format.</p>
+      <p>Each page is scaled to fit the PDF page dimensions while preserving the original aspect ratio. Images are embedded at full resolution for the best quality output.</p>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What is a CBZ file? <span class="arrow">▼</span></button><div class="faq-answer">CBZ (Comic Book ZIP) is a compressed archive format for comic books and manga. It is essentially a ZIP file containing sequentially numbered images (usually JPEG or PNG) that represent each page of the comic.</div></div>
+        <div class="faq-item"><button class="faq-question">Will the PDF look like the original comic? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Each page image from the CBZ is placed on its own PDF page and scaled to fit the page dimensions while maintaining the original aspect ratio. Image quality is preserved.</div></div>
+        <div class="faq-item"><button class="faq-question">What image formats are supported inside CBZ? <span class="arrow">▼</span></button><div class="faq-answer">Our converter supports JPEG, PNG, WebP, GIF, and BMP images commonly found in CBZ archives. All images are sorted by filename before being added to the PDF to ensure correct page order.</div></div>
+        <div class="faq-item"><button class="faq-question">Are my files uploaded to a server? <span class="arrow">▼</span></button><div class="faq-answer">No. All processing happens entirely in your browser. Your CBZ file is extracted locally with JSZip and the PDF is generated client-side with jsPDF. Your files never leave your device.</div></div>
+        <div class="faq-item"><button class="faq-question">Is this tool free? <span class="arrow">▼</span></button><div class="faq-answer">Yes, completely free with no usage limits, no registration, and no hidden charges. All processing runs in your browser using open-source libraries.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/heic-to-pdf" class="related-tool-card">HEIC to PDF <span class="desc">Convert HEIC photos to PDF</span></a>
+        <a href="/pdf-to-jpg" class="related-tool-card">PDF to JPG <span class="desc">Extract pages as images</span></a>
+        <a href="/pdf-merge" class="related-tool-card">PDF Merge <span class="desc">Combine multiple PDFs</span></a>
+      </div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var dropZone = document.getElementById('cbzDropZone');
+      var fileInput = dropZone.querySelector('input[type="file"]');
+      var fileInfo = document.querySelector('.file-info');
+      var fileName = document.querySelector('.file-info-name');
+      var fileSize = document.querySelector('.file-info-size');
+      var removeBtn = document.querySelector('.file-info-remove');
+      var convertBtn = document.getElementById('convertBtn');
+      var progressBar = document.getElementById('progressBar');
+      var downloadSection = document.getElementById('downloadSection');
+      var downloadBtn = document.getElementById('downloadBtn');
+      var currentFile = null;
+      var pdfBlob = null;
+
+      function formatSize(bytes) {
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+        return (bytes / 1048576).toFixed(1) + ' MB';
+      }
+
+      function handleFile(file) {
+        if (!file.name.toLowerCase().endsWith('.cbz')) {
+          ConvertPivot.showToast('Please select a .cbz file.', 'error');
+          return;
+        }
+        currentFile = file;
+        fileName.textContent = file.name;
+        fileSize.textContent = formatSize(file.size);
+        fileInfo.style.display = 'flex';
+        dropZone.style.display = 'none';
+        convertBtn.disabled = false;
+        pdfBlob = null;
+        downloadSection.style.display = 'none';
+      }
+
+      dropZone.addEventListener('click', function() {
+        fileInput.click();
+      });
+
+      fileInput.addEventListener('change', function(e) {
+        if (e.target.files.length > 0) {
+          handleFile(e.target.files[0]);
+        }
+      });
+
+      dropZone.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        dropZone.classList.add('drag-over');
+      });
+
+      dropZone.addEventListener('dragleave', function() {
+        dropZone.classList.remove('drag-over');
+      });
+
+      dropZone.addEventListener('drop', function(e) {
+        e.preventDefault();
+        dropZone.classList.remove('drag-over');
+        if (e.dataTransfer.files.length > 0) {
+          handleFile(e.dataTransfer.files[0]);
+        }
+      });
+
+      removeBtn.addEventListener('click', function() {
+        currentFile = null;
+        fileInfo.style.display = 'none';
+        dropZone.style.display = 'block';
+        fileInput.value = '';
+        convertBtn.disabled = true;
+        pdfBlob = null;
+        downloadSection.style.display = 'none';
+        progressBar.classList.remove('show');
+      });
+
+      function blobToDataUrl(blob) {
+        return new Promise(function(resolve, reject) {
+          var reader = new FileReader();
+          reader.onload = function() { resolve(reader.result); };
+          reader.onerror = function() { reject(new Error('Failed to read image.')); };
+          reader.readAsDataURL(blob);
+        });
+      }
+
+      convertBtn.addEventListener('click', async function() {
+        if (!currentFile) return;
+        convertBtn.disabled = true;
+        progressBar.classList.add('show');
+        var fill = progressBar.querySelector('.progress-bar-fill');
+        fill.style.width = '0%';
+
+        try {
+          var buffer = await currentFile.arrayBuffer();
+          fill.style.width = '15%';
+
+          var zip = await JSZip.loadAsync(buffer);
+          fill.style.width = '25%';
+
+          var entries = Object.keys(zip.files);
+          var imageFiles = [];
+          for (var i = 0; i < entries.length; i++) {
+            var entry = zip.files[entries[i]];
+            if (!entry.dir) {
+              var parts = entries[i].split('.');
+              var ext = parts[parts.length - 1].toLowerCase();
+              if (['jpg', 'jpeg', 'png', 'webp', 'gif', 'bmp'].indexOf(ext) !== -1) {
+                imageFiles.push({ path: entries[i], file: entry });
+              }
+            }
+          }
+
+          if (imageFiles.length === 0) {
+            throw new Error('No image files found in the CBZ archive.');
+          }
+
+          imageFiles.sort(function(a, b) {
+            return a.path.localeCompare(b.path, undefined, { numeric: true, sensitivity: 'base' });
+          });
+
+          fill.style.width = '35%';
+
+          var doc = new jspdf.jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+          var pageWidth = doc.internal.pageSize.getWidth();
+          var pageHeight = doc.internal.pageSize.getHeight();
+          var totalPages = imageFiles.length;
+
+          var remainingImages = imageFiles.slice(0);
+
+          function addNextImage() {
+            if (remainingImages.length === 0) {
+              fill.style.width = '100%';
+              pdfBlob = doc.output('blob');
+              downloadSection.style.display = 'flex';
+              ConvertPivot.showToast('PDF created successfully!', 'success');
+              convertBtn.disabled = false;
+              return;
+            }
+
+            var imgFile = remainingImages[0];
+            remainingImages = remainingImages.slice(1);
+
+            imgFile.file.async('blob').then(function(blob) {
+              return blobToDataUrl(blob);
+            }).then(function(dataUrl) {
+              var imgIdx = totalPages - remainingImages.length - 1;
+              if (imgIdx > 0) {
+                doc.addPage();
+              }
+
+              var imgFormat = 'JPEG';
+              var ext = imgFile.path.split('.').pop().toLowerCase();
+              if (ext === 'png') imgFormat = 'PNG';
+              else if (ext === 'webp') imgFormat = 'WEBP';
+              else if (ext === 'gif') imgFormat = 'GIF';
+              else if (ext === 'bmp') imgFormat = 'JPEG';
+
+              doc.addImage(dataUrl, imgFormat, 0, 0, pageWidth, pageHeight, undefined, 'FAST');
+
+              var pct = 35 + Math.round(((imgIdx + 1) / totalPages) * 60);
+              fill.style.width = Math.min(pct, 100) + '%';
+
+              addNextImage();
+            }).catch(function(err) {
+              ConvertPivot.showToast('Error processing image: ' + err.message, 'error');
+              convertBtn.disabled = false;
+              progressBar.classList.remove('show');
+            });
+          }
+
+          addNextImage();
+        } catch (err) {
+          ConvertPivot.showToast('Error: ' + err.message, 'error');
+          convertBtn.disabled = false;
+          progressBar.classList.remove('show');
+        }
+      });
+
+      downloadBtn.addEventListener('click', function() {
+        if (!pdfBlob) return;
+        var link = document.createElement('a');
+        link.href = URL.createObjectURL(pdfBlob);
+        link.download = 'converted.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(link.href);
+      });
+    })();
+  </script>
+</body>
+</html>
