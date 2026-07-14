@@ -26,6 +26,13 @@
   // SIDEBAR DATA & BUILDER
   // ============================================================
   var sidebarSections = [
+    { heading: 'Converter Categories', links: [
+      { href: '/convert/pdf', icon: '\uD83D\uDCC4', label: 'PDF Converters' },
+      { href: '/convert/audio', icon: '\uD83C\uDFA7', label: 'Audio Converters' },
+      { href: '/convert/image', icon: '\uD83D\uDDBC', label: 'Image Converters' },
+      { href: '/convert/finance', icon: '\uD83C\uDFE6', label: 'Finance Converters' },
+      { href: '/convert/ebook', icon: '\uD83D\uDCD6', label: 'E-book Converters' }
+    ]},
     { heading: 'Developer Tools', links: [
       { href: '/binary-converter', icon: '\u2B21', label: 'Binary Converter' },
       { href: '/hex-to-rgb', icon: '\uD83C\uDFA8', label: 'Hex to RGB' },
@@ -115,14 +122,9 @@
       { href: '/pdf-to-text', icon: '\uD83D\uDCDD', label: 'PDF to Text' }
     ]},
     { heading: 'Blog', links: [
-      { href: '/blog', icon: '\uD83D\uDCF0', label: 'All Articles' },
-      { href: '/blog/how-to-convert-pdf-to-excel', icon: '\uD83D\uDCC4', label: 'PDF to Excel Tutorial' },
-      { href: '/blog/how-to-convert-mp4-to-mp3', icon: '\uD83C\uDFA7', label: 'MP4 to MP3 Tutorial' },
-      { href: '/blog/how-to-convert-vcf-to-excel', icon: '\uD83D\uDCD6', label: 'VCF to Excel Tutorial' },
-      { href: '/blog/ultimate-guide-image-optimization', icon: '\uD83D\uDDBC', label: 'Image Optimization Guide' },
-      { href: '/blog/top-10-free-online-file-converters', icon: '\u2B50', label: 'Top 10 Converters 2026' },
-      { href: '/blog/mp4-vs-mkv-vs-avi-vs-mov', icon: '\uD83C\uDFAC', label: 'MP4 vs MKV vs AVI vs MOV' }
+      { href: '/blog', icon: '\uD83D\uDCF0', label: 'All Articles' }
     ]},
+    { heading: 'Latest Posts', links: []},
     { heading: 'Guides', links: [
       { href: '/guides', icon: '\uD83D\uDCD6', label: 'All Guides' },
       { href: '/guides/bank-statement-formats', icon: '\uD83D\uDCD8', label: 'Bank Statement Formats' },
@@ -162,6 +164,36 @@
       adDiv.textContent = 'Ad';
       el.appendChild(adDiv);
     }
+  }
+
+  function loadBlogSidebar() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/blog/posts.json', true);
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        try {
+          var posts = JSON.parse(xhr.responseText);
+          posts.sort(function(a, b) { return new Date(b.date) - new Date(a.date); });
+          var latest = posts.slice(0, 10);
+          var section = document.querySelector('.sidebar-section .sidebar-heading');
+          var allSections = document.querySelectorAll('.sidebar-section');
+          var latestSection = null;
+          allSections.forEach(function(s) {
+            if (s.querySelector('.sidebar-heading') && s.querySelector('.sidebar-heading').textContent === 'Latest Posts') {
+              latestSection = s;
+            }
+          });
+          if (latestSection) {
+            var html = '';
+            latest.forEach(function(p) {
+              html += '<a href="/blog/' + p.slug + '" class="sidebar-link"><span class="icon">\uD83D\uDCF0</span>' + p.title.replace(/\u2014.*$/, '').trim() + '</a>';
+            });
+            latestSection.innerHTML = '<div class="sidebar-heading">Latest Posts</div>' + html;
+          }
+        } catch(e) {}
+      }
+    };
+    xhr.send();
   }
 
   (function initSidebar() {
@@ -674,6 +706,208 @@
   }
 
   // ============================================================
+  // RELATED TOOLS INJECTION (internal linking for SEO)
+  // ============================================================
+  var relatedToolsMap = {
+    'binary-converter': ['hex-to-rgb', 'timestamp-converter', 'uuid-generator', 'all-unit-converters'],
+    'hex-to-rgb': ['color-converter', 'binary-converter', 'image-to-base64', 'all-unit-converters'],
+    'timestamp-converter': ['binary-converter', 'all-unit-converters', 'temperature-converter', 'percentage-calculator'],
+    'json-formatter': ['json-to-yaml', 'xml-to-json', 'csv-to-json', 'html-to-markdown'],
+    'base64-encoder': ['base64-decoder', 'url-encoder-decoder', 'image-to-base64', 'html-entity-encoder-decoder'],
+    'base64-decoder': ['base64-encoder', 'url-encoder-decoder', 'image-to-base64', 'html-entity-encoder-decoder'],
+    'password-generator': ['uuid-generator', 'word-counter', 'case-converter', 'all-unit-converters'],
+    'word-counter': ['case-converter', 'text-diff', 'password-generator', 'markdown-to-html'],
+    'url-encoder-decoder': ['base64-encoder', 'base64-decoder', 'html-entity-encoder-decoder', 'image-to-base64'],
+    'html-entity-encoder-decoder': ['url-encoder-decoder', 'base64-encoder', 'markdown-to-html', 'json-formatter'],
+    'uuid-generator': ['password-generator', 'binary-converter', 'timestamp-converter', 'all-unit-converters'],
+    'case-converter': ['word-counter', 'text-diff', 'password-generator', 'markdown-to-html'],
+    'markdown-to-html': ['html-to-markdown', 'case-converter', 'json-formatter', 'word-counter'],
+    'html-to-markdown': ['markdown-to-html', 'json-formatter', 'case-converter', 'text-diff'],
+    'json-to-yaml': ['json-formatter', 'xml-to-json', 'csv-to-json', 'yaml-to-json'],
+    'xml-to-json': ['json-formatter', 'json-to-yaml', 'csv-to-json', 'html-to-markdown'],
+    'csv-to-json': ['json-formatter', 'xml-to-json', 'json-to-yaml', 'all-unit-converters'],
+    'image-to-base64': ['base64-encoder', 'base64-decoder', 'hex-to-rgb', 'color-converter'],
+    'color-converter': ['hex-to-rgb', 'image-to-base64', 'all-unit-converters', 'text-diff'],
+    'text-diff': ['word-counter', 'case-converter', 'json-formatter', 'markdown-to-html'],
+    'percentage-calculator': ['temperature-converter', 'all-unit-converters', 'binary-converter', 'word-counter'],
+    'temperature-converter': ['percentage-calculator', 'all-unit-converters', 'binary-converter', 'timestamp-converter'],
+    'all-unit-converters': ['temperature-converter', 'percentage-calculator', 'binary-converter', 'timestamp-converter'],
+    'vcf-to-csv': ['csv-to-vcf', 'vcf-to-xlsx', 'ics-to-csv', 'csv-to-ics'],
+    'csv-to-vcf': ['vcf-to-csv', 'vcf-to-xlsx', 'ics-to-csv', 'csv-to-ics'],
+    'vcf-to-xlsx': ['vcf-to-csv', 'csv-to-vcf', 'ics-to-csv', 'csv-to-ics'],
+    'ics-to-csv': ['csv-to-ics', 'vcf-to-csv', 'csv-to-vcf', 'csv-to-json'],
+    'csv-to-ics': ['ics-to-csv', 'vcf-to-csv', 'csv-to-vcf', 'csv-to-json'],
+    'ofx-to-csv': ['qfx-to-csv', 'qbo-to-csv', 'csv-to-ofx', 'csv-to-qfx'],
+    'qfx-to-csv': ['ofx-to-csv', 'qbo-to-csv', 'csv-to-qfx', 'csv-to-qbo'],
+    'qbo-to-csv': ['ofx-to-csv', 'qfx-to-csv', 'csv-to-qbo', 'csv-to-ofx'],
+    'csv-to-qbo': ['csv-to-ofx', 'csv-to-qfx', 'qbo-to-csv', 'ofx-to-csv'],
+    'csv-to-ofx': ['csv-to-qfx', 'csv-to-qbo', 'ofx-to-csv', 'qfx-to-csv'],
+    'csv-to-qfx': ['csv-to-ofx', 'csv-to-qbo', 'qfx-to-csv', 'ofx-to-csv'],
+    'pdf-bank-statement-to-csv': ['bank-statement-converter', 'ofx-to-csv', 'qfx-to-csv', 'chase-bank-statement-to-csv'],
+    'bank-statement-converter': ['pdf-bank-statement-to-csv', 'ofx-to-csv', 'qfx-to-csv', 'qbo-to-csv'],
+    'chase-bank-statement-to-csv': ['wells-fargo-statement-to-csv', 'bank-of-america-statement-to-csv', 'bank-statement-converter', 'pdf-bank-statement-to-csv'],
+    'wells-fargo-statement-to-csv': ['chase-bank-statement-to-csv', 'bank-of-america-statement-to-csv', 'bank-statement-converter', 'pdf-bank-statement-to-csv'],
+    'bank-of-america-statement-to-csv': ['chase-bank-statement-to-csv', 'wells-fargo-statement-to-csv', 'bank-statement-converter', 'pdf-bank-statement-to-csv'],
+    'ipynb-to-pdf': ['ipynb-to-docx', 'ipynb-to-html', 'ipynb-to-py', 'pdf-compress'],
+    'ipynb-to-docx': ['ipynb-to-pdf', 'ipynb-to-html', 'ipynb-to-py', 'word-to-pdf'],
+    'ipynb-to-html': ['ipynb-to-pdf', 'ipynb-to-docx', 'ipynb-to-py', 'markdown-to-html'],
+    'ipynb-to-py': ['ipynb-to-pdf', 'ipynb-to-docx', 'ipynb-to-html', 'text-diff'],
+    'heic-to-jpg': ['heic-to-pdf', 'avif-to-jpg', 'webp-to-jpg', 'jpg-to-heic'],
+    'heic-to-pdf': ['heic-to-jpg', 'avif-to-jpg', 'webp-to-jpg', 'jpg-to-pdf'],
+    'avif-to-jpg': ['heic-to-jpg', 'webp-to-jpg', 'jpg-to-avif', 'heic-to-pdf'],
+    'webp-to-jpg': ['avif-to-jpg', 'heic-to-jpg', 'jpg-to-avif', 'svg-to-png'],
+    'svg-to-png': ['png-to-svg', 'image-compressor', 'webp-to-jpg', 'image-to-base64'],
+    'jpg-to-heic': ['heic-to-jpg', 'jpg-to-avif', 'avif-to-jpg', 'heic-to-pdf'],
+    'jpg-to-avif': ['avif-to-jpg', 'jpg-to-heic', 'heic-to-jpg', 'webp-to-jpg'],
+    'png-to-svg': ['svg-to-png', 'image-compressor', 'image-to-base64', 'color-converter'],
+    'image-compressor': ['svg-to-png', 'png-to-svg', 'heic-to-jpg', 'webp-to-jpg'],
+    'qr-code-generator': ['image-to-base64', 'color-converter', 'all-unit-converters', 'password-generator'],
+    'gpx-to-kml': ['kml-to-gpx', 'gpx-to-csv', 'fit-to-gpx', 'csv-to-gpx'],
+    'gpx-to-csv': ['csv-to-gpx', 'gpx-to-kml', 'fit-to-csv', 'fit-to-gpx'],
+    'fit-to-gpx': ['fit-to-csv', 'gpx-to-kml', 'gpx-to-csv', 'csv-to-gpx'],
+    'fit-to-csv': ['fit-to-gpx', 'gpx-to-csv', 'csv-to-gpx', 'gpx-to-kml'],
+    'csv-to-gpx': ['gpx-to-csv', 'gpx-to-kml', 'fit-to-gpx', 'kml-to-gpx'],
+    'kml-to-gpx': ['gpx-to-kml', 'gpx-to-csv', 'fit-to-gpx', 'csv-to-gpx'],
+    'mp3-to-wav': ['wav-to-mp3', 'mp3-to-flac', 'wav-to-flac', 'flac-to-mp3'],
+    'wav-to-mp3': ['mp3-to-wav', 'mp3-to-flac', 'wav-to-flac', 'ogg-to-mp3'],
+    'mp3-to-flac': ['flac-to-mp3', 'mp3-to-wav', 'wav-to-flac', 'wav-to-mp3'],
+    'flac-to-mp3': ['mp3-to-flac', 'mp3-to-wav', 'wav-to-flac', 'wav-to-mp3'],
+    'wav-to-flac': ['flac-to-mp3', 'mp3-to-wav', 'wav-to-mp3', 'ogg-to-mp3'],
+    'ogg-to-mp3': ['mp3-to-wav', 'wav-to-mp3', 'flac-to-mp3', 'wav-to-flac'],
+    'epub-to-pdf': ['epub-to-txt', 'pdf-to-epub', 'pdf-to-word', 'word-to-pdf'],
+    'epub-to-txt': ['epub-to-pdf', 'pdf-to-epub', 'pdf-to-text', 'markdown-to-html'],
+    'pdf-to-epub': ['epub-to-pdf', 'epub-to-txt', 'pdf-to-word', 'word-to-pdf'],
+    'jpg-to-pdf': ['pdf-to-jpg', 'pdf-merge', 'pdf-compress', 'word-to-pdf'],
+    'pdf-to-jpg': ['jpg-to-pdf', 'pdf-to-word', 'pdf-to-text', 'pdf-compress'],
+    'pdf-compress': ['pdf-split', 'pdf-merge', 'jpg-to-pdf', 'pdf-to-text'],
+    'pdf-split': ['pdf-merge', 'pdf-compress', 'jpg-to-pdf', 'pdf-to-word'],
+    'pdf-merge': ['pdf-split', 'pdf-compress', 'jpg-to-pdf', 'pdf-to-word'],
+    'pdf-to-word': ['word-to-pdf', 'pdf-to-text', 'pdf-to-jpg', 'pdf-compress'],
+    'word-to-pdf': ['pdf-to-word', 'pdf-to-text', 'jpg-to-pdf', 'pdf-compress'],
+    'pdf-to-text': ['pdf-to-word', 'word-to-pdf', 'pdf-to-jpg', 'pdf-compress']
+  };
+
+  function injectRelatedTools() {
+    var path = window.location.pathname.split('/').pop().replace(/\.html$/, '');
+    if (!path || path === '' || path === 'index') return;
+    var related = relatedToolsMap[path];
+    if (!related || related.length < 2) return;
+    var container = document.querySelector('.converter-widget');
+    if (!container) return;
+    var div = document.createElement('div');
+    div.className = 'content-section';
+    div.style.marginTop = '20px';
+    var links = related.map(function(slug) {
+      var label = slug.replace(/-/g, ' ');
+      return '<a href="/' + slug + '" style="display:inline-block;margin:4px 6px 4px 0;padding:6px 14px;border:1px solid var(--color-mist);border-radius:20px;font-size:0.85rem;color:var(--color-graphite);text-decoration:none;transition:all 0.15s;" onmouseover="this.style.borderColor=\'var(--color-red)\';this.style.color=\'var(--color-ink)\'" onmouseout="this.style.borderColor=\'var(--color-mist)\';this.style.color=\'var(--color-graphite)\'">' + label + '</a>';
+    }).join('');
+    div.innerHTML = '<h3 style="font-size:1rem;margin-bottom:10px;">\uD83D\uDD17 Related Converters</h3><div>' + links + '</div>';
+    container.parentNode.insertBefore(div, container.nextSibling);
+  }
+
+  // ============================================================
+  // RELATED BLOG LINKS INJECTION
+  // ============================================================
+  var blogLinksMap = {
+    'binary-converter': ['/blog/how-to-read-binary'],
+    'hex-to-rgb': ['/blog/ultimate-guide-image-optimization'],
+    'timestamp-converter': ['/blog/what-is-uuid'],
+    'json-formatter': ['/blog/json-vs-yaml', '/blog/json-vs-xml-vs-yaml-vs-toml'],
+    'base64-encoder': ['/blog/base64-encoding-guide'],
+    'base64-decoder': ['/blog/base64-encoding-guide'],
+    'password-generator': ['/blog/password-strength-guide'],
+    'word-counter': ['/blog/text-case-guide'],
+    'url-encoder-decoder': ['/blog/url-encoding-guide'],
+    'html-entity-encoder-decoder': ['/blog/html-entity-encoding'],
+    'uuid-generator': ['/blog/what-is-uuid'],
+    'case-converter': ['/blog/text-case-guide'],
+    'markdown-to-html': ['/blog/html-entity-encoding'],
+    'html-to-markdown': ['/blog/url-encoding-guide'],
+    'json-to-yaml': ['/blog/json-vs-yaml', '/blog/json-vs-xml-vs-yaml-vs-toml'],
+    'xml-to-json': ['/blog/json-vs-xml-vs-yaml-vs-toml', '/blog/json-vs-yaml'],
+    'csv-to-json': ['/blog/json-vs-xml-vs-yaml-vs-toml'],
+    'all-unit-converters': ['/blog/how-to-read-binary', '/blog/what-is-uuid'],
+    'vcf-to-csv': ['/blog/open-vcf-files-in-excel', '/blog/how-to-convert-vcf-to-excel'],
+    'csv-to-vcf': ['/blog/vcard-21-vs-30-vs-40', '/blog/open-vcf-files-in-excel'],
+    'vcf-to-xlsx': ['/blog/vcard-21-vs-30-vs-40', '/blog/how-to-convert-vcf-to-excel'],
+    'ofx-to-csv': ['/blog/ofx-vs-qfx-vs-qbo', '/blog/complete-guide-bank-statement-conversion', '/blog/bank-statement-formats'],
+    'qfx-to-csv': ['/blog/ofx-vs-qfx-vs-qbo', '/blog/bank-statement-formats'],
+    'qbo-to-csv': ['/blog/ofx-vs-qfx-vs-qbo', '/blog/bank-statement-formats'],
+    'csv-to-qbo': ['/blog/ofx-vs-qfx-vs-qbo', '/blog/bank-statement-formats'],
+    'csv-to-ofx': ['/blog/complete-guide-bank-statement-conversion', '/blog/ofx-vs-qfx-vs-qbo'],
+    'csv-to-qfx': ['/blog/ofx-vs-qfx-vs-qbo', '/blog/bank-statement-formats'],
+    'pdf-bank-statement-to-csv': ['/blog/convert-bank-statement-pdf-to-excel', '/blog/complete-guide-bank-statement-conversion'],
+    'bank-statement-converter': ['/blog/complete-guide-bank-statement-conversion', '/blog/bank-statement-formats'],
+    'chase-bank-statement-to-csv': ['/blog/convert-bank-statement-pdf-to-excel', '/blog/bank-statement-formats'],
+    'wells-fargo-statement-to-csv': ['/blog/convert-bank-statement-pdf-to-excel', '/blog/bank-statement-formats'],
+    'bank-of-america-statement-to-csv': ['/blog/convert-bank-statement-pdf-to-excel', '/blog/bank-statement-formats'],
+    'ipynb-to-pdf': ['/blog/pdf-vs-word-vs-excel'],
+    'ipynb-to-docx': ['/blog/pdf-vs-word-vs-excel'],
+    'ipynb-to-html': ['/blog/pdf-vs-word-vs-excel'],
+    'ipynb-to-py': ['/blog/pdf-vs-word-vs-excel'],
+    'heic-to-jpg': ['/blog/heic-vs-jpeg-vs-webp-vs-avif', '/blog/convert-heic-to-jpg'],
+    'heic-to-pdf': ['/blog/heic-vs-jpeg-vs-webp-vs-avif', '/blog/convert-heic-to-jpg'],
+    'avif-to-jpg': ['/blog/heic-vs-jpeg-vs-webp-vs-avif', '/blog/ultimate-guide-image-optimization'],
+    'webp-to-jpg': ['/blog/heic-vs-jpeg-vs-webp-vs-avif', '/blog/ultimate-guide-image-optimization'],
+    'svg-to-png': ['/blog/svg-vs-png', '/blog/ultimate-guide-image-optimization'],
+    'jpg-to-heic': ['/blog/jpg-to-heic', '/blog/heic-vs-jpeg-vs-webp-vs-avif'],
+    'jpg-to-avif': ['/blog/heic-vs-jpeg-vs-webp-vs-avif', '/blog/ultimate-guide-image-optimization'],
+    'png-to-svg': ['/blog/svg-vs-png', '/blog/ultimate-guide-image-optimization'],
+    'image-compressor': ['/blog/compress-images-guide', '/blog/ultimate-guide-image-optimization'],
+    'qr-code-generator': ['/blog/top-10-free-online-file-converters'],
+    'image-to-base64': ['/blog/base64-encoding-guide', '/blog/ultimate-guide-image-optimization'],
+    'color-converter': ['/blog/heic-vs-jpeg-vs-webp-vs-avif', '/blog/ultimate-guide-image-optimization'],
+    'gpx-to-kml': ['/blog/gpx-vs-kml-vs-fit'],
+    'gpx-to-csv': ['/blog/gpx-vs-kml-vs-fit'],
+    'fit-to-gpx': ['/blog/gpx-vs-kml-vs-fit'],
+    'fit-to-csv': ['/blog/gpx-vs-kml-vs-fit'],
+    'csv-to-gpx': ['/blog/gpx-vs-kml-vs-fit'],
+    'kml-to-gpx': ['/blog/gpx-vs-kml-vs-fit'],
+    'mp3-to-wav': ['/blog/mp3-vs-flac-vs-wav-vs-ogg', '/blog/convert-audio-without-quality-loss', '/blog/flac-vs-mp3'],
+    'wav-to-mp3': ['/blog/mp3-vs-flac-vs-wav-vs-ogg', '/blog/convert-audio-without-quality-loss', '/blog/flac-vs-mp3'],
+    'mp3-to-flac': ['/blog/mp3-vs-flac-vs-wav-vs-ogg', '/blog/flac-vs-mp3', '/blog/wav-vs-flac'],
+    'flac-to-mp3': ['/blog/mp3-vs-flac-vs-wav-vs-ogg', '/blog/flac-vs-mp3', '/blog/wav-vs-flac'],
+    'wav-to-flac': ['/blog/mp3-vs-flac-vs-wav-vs-ogg', '/blog/wav-vs-flac', '/blog/convert-audio-without-quality-loss'],
+    'ogg-to-mp3': ['/blog/mp3-vs-flac-vs-wav-vs-ogg', '/blog/convert-audio-without-quality-loss'],
+    'epub-to-pdf': ['/blog/epub-vs-mobi-vs-pdf', '/blog/ebook-formats-explained', '/blog/how-to-convert-epub-to-pdf'],
+    'epub-to-txt': ['/blog/ebook-formats-explained', '/blog/epub-vs-mobi-vs-pdf'],
+    'pdf-to-epub': ['/blog/how-to-create-ebook-from-pdf', '/blog/ebook-formats-explained', '/blog/kindle-vs-kobo-vs-ipad-2026'],
+    'jpg-to-pdf': ['/blog/how-to-convert-jpg-to-pdf', '/blog/pdf-vs-word-vs-excel'],
+    'pdf-to-jpg': ['/blog/pdf-vs-word-vs-excel', '/blog/top-10-free-online-file-converters'],
+    'pdf-compress': ['/blog/pdf-compression-guide', '/blog/how-to-reduce-pdf-file-size'],
+    'pdf-split': ['/blog/split-merge-pdf-guide', '/blog/top-10-free-online-file-converters'],
+    'pdf-merge': ['/blog/split-merge-pdf-guide', '/blog/top-10-free-online-file-converters'],
+    'pdf-to-word': ['/blog/pdf-vs-word-vs-excel', '/blog/how-to-convert-pdf-to-excel'],
+    'word-to-pdf': ['/blog/word-to-pdf-guide', '/blog/pdf-vs-word-vs-excel'],
+    'pdf-to-text': ['/blog/extract-text-from-pdf', '/blog/pdf-vs-word-vs-excel'],
+    'percentage-calculator': ['/blog/password-strength-guide'],
+    'temperature-converter': ['/blog/how-to-read-binary'],
+    'text-diff': ['/blog/text-case-guide']
+  };
+
+  function injectBlogLinks() {
+    var path = window.location.pathname.split('/').pop().replace(/\.html$/, '');
+    if (!path || path === '' || path === 'index') return;
+    var slugs = blogLinksMap[path];
+    if (!slugs || slugs.length < 1) return;
+    var container = document.querySelector('.converter-widget');
+    if (!container) return;
+    var div = document.createElement('div');
+    div.className = 'content-section';
+    div.style.marginTop = '20px';
+    var links = slugs.map(function(s) {
+      var label = s.split('/').pop().replace(/-/g, ' ');
+      return '<a href="' + s + '" style="display:inline-block;margin:4px 6px 4px 0;padding:6px 14px;border:1px solid var(--color-mist);border-radius:20px;font-size:0.85rem;color:var(--color-graphite);text-decoration:none;transition:all 0.15s;" onmouseover="this.style.borderColor=\'var(--color-red)\';this.style.color=\'var(--color-ink)\'" onmouseout="this.style.borderColor=\'var(--color-mist)\';this.style.color=\'var(--color-graphite)\'">' + label + '</a>';
+    }).join('');
+    div.innerHTML = '<h3 style="font-size:1rem;margin-bottom:10px;">\uD83D\uDCF0 Related Articles</h3><div>' + links + '</div>';
+    if (container.nextSibling) {
+      container.parentNode.insertBefore(div, container.nextSibling);
+    } else {
+      container.parentNode.appendChild(div);
+    }
+  }
+
+  // ============================================================
   // FORMAT DETECTION (magic bytes)
   // ============================================================
   var formatSignatures = {
@@ -1172,6 +1406,9 @@
     injectFeedbackWidget();
     injectReferenceTable();
     injectContentSections();
+    injectRelatedTools();
+    injectBlogLinks();
+    setTimeout(loadBlogSidebar, 500);
   });
 
 })();

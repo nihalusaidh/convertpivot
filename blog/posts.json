@@ -7,6 +7,20 @@
     "category": "Design"
   },
   {
+    "title": "Bank Statement Formats Explained — OFX, QFX, QBO, CSV",
+    "slug": "bank-statement-formats",
+    "description": "Bank statement formats explained simply. Learn the difference between OFX, QFX, QBO, CSV and PDF statements. Find out which format your bank uses and how to convert them.",
+    "date": "July 14, 2026",
+    "category": "Finance"
+  },
+  {
+    "title": "Base64 Encoding Explained — When and Why to Use It",
+    "slug": "base64-encoding-guide",
+    "description": "Base64 encoding explained in plain English. Learn why email attachments, data URIs, and APIs use Base64. Free online encoder and decoder included.",
+    "date": "July 14, 2026",
+    "category": "Developer Tools"
+  },
+  {
     "title": "Best Audio Formats for Music Production — MP3 vs FLAC vs WAV vs AAC",
     "slug": "best-audio-formats-music-production",
     "description": "Compare MP3, FLAC, WAV, and AAC audio formats for music production. Learn about sample rates, bit depths, compression trade-offs, and which format to use for recording, mixing, mastering, and distribution.",
@@ -19,6 +33,20 @@
     "description": "Complete guide to bank statement conversion. Learn how to convert PDF bank statements to CSV, Excel, OFX, QFX, and QBO format for QuickBooks, Quicken, and financial analysis.",
     "date": "July 13, 2026",
     "category": "Finance"
+  },
+  {
+    "title": "How to Compress Images Without Losing Quality",
+    "slug": "compress-images-guide",
+    "description": "Image compression guide that actually works. Learn lossless vs lossy compression, optimal settings for web vs print, and how to shrink image file sizes by up to 80%.",
+    "date": "July 14, 2026",
+    "category": "Images"
+  },
+  {
+    "title": "How to Convert Audio Files Without Losing Quality",
+    "slug": "convert-audio-without-quality-loss",
+    "description": "Audio conversion quality guide. Learn which formats preserve audio fidelity, when to use lossless vs lossy, and how to convert between MP3, WAV, FLAC, and OGG safely.",
+    "date": "July 14, 2026",
+    "category": "Audio"
   },
   {
     "title": "How to Convert Bank Statement PDF to Excel",
@@ -54,6 +82,20 @@
     "description": "EPUB vs MOBI vs PDF: Compare e-book formats across device compatibility, reflowable text, DRM support, and file size. Learn which format works best for Kindle, iPad, and publishing.",
     "date": "July 13, 2026",
     "category": "E-books"
+  },
+  {
+    "title": "How to Extract Text from PDF Files",
+    "slug": "extract-text-from-pdf",
+    "description": "Learn how to extract text from PDF files without losing formatting. Free online tool extracts plain text from any PDF. Works with scanned documents and digital PDFs.",
+    "date": "July 14, 2026",
+    "category": "PDF"
+  },
+  {
+    "title": "FLAC vs MP3 — Can You Actually Hear the Difference?",
+    "slug": "flac-vs-mp3",
+    "description": "FLAC vs MP3 blind listening test results. Learn whether lossless audio is worth the file size, what audiophiles get wrong, and which format fits your needs.",
+    "date": "July 14, 2026",
+    "category": "Audio"
   },
   {
     "title": "GPX vs KML vs FIT — GPS File Formats Compared",
@@ -112,6 +154,13 @@
     "category": "Tutorial"
   },
   {
+    "title": "How to Read Binary Code Like a Pro",
+    "slug": "how-to-read-binary",
+    "description": "Learn how to read binary code step by step. Convert binary to decimal, understand bits and bytes, and read binary numbers like a programmer. No math degree required.",
+    "date": "July 14, 2026",
+    "category": "Developer Tools"
+  },
+  {
     "title": "How to Reduce PDF File Size Without Losing Quality",
     "slug": "how-to-reduce-pdf-file-size",
     "description": "Learn how to reduce PDF file size without losing quality. Step-by-step guide to compressing PDFs using online tools, Adobe Acrobat, and advanced optimization techniques.",
@@ -119,11 +168,32 @@
     "category": "Guides"
   },
   {
+    "title": "HTML Entity Encoding — When You Actually Need It",
+    "slug": "html-entity-encoding",
+    "description": "HTML entities explained. Learn when to use &amp; &lt; &gt; &quot; &apos; entities to prevent XSS, display reserved characters, and write valid HTML. Free encoder included.",
+    "date": "July 14, 2026",
+    "category": "Developer Tools"
+  },
+  {
+    "title": "Convert JPG to HEIC — Should You Switch to Apple's Format?",
+    "slug": "jpg-to-heic",
+    "description": "Should you convert your JPG photos to HEIC? Learn the pros and cons of Apple's image format, compatibility issues, storage savings, and when to make the switch.",
+    "date": "July 14, 2026",
+    "category": "Images"
+  },
+  {
     "title": "JSON vs XML vs YAML vs TOML — Config Format Comparison",
     "slug": "json-vs-xml-vs-yaml-vs-toml",
     "description": "Configuration format comparison: JSON vs XML vs YAML vs TOML across readability, type safety, parsing speed, and ecosystem support. Find the best format for config files, APIs, and data serialization.",
     "date": "July 13, 2026",
     "category": "Data"
+  },
+  {
+    "title": "JSON vs YAML — Which One Should You Use?",
+    "slug": "json-vs-yaml",
+    "description": "JSON vs YAML comparison for developers. Learn the key differences in syntax, use cases, and when to choose each format for configuration, APIs, and data storage.",
+    "date": "July 14, 2026",
+    "category": "Developer Tools"
   },
   {
     "title": "Kindle vs Kobo vs iPad — Which E-reader Should You Buy in 2026?",
@@ -161,6 +231,20 @@
     "category": "Tutorial"
   },
   {
+    "title": "The Ultimate Password Strength Guide",
+    "slug": "password-strength-guide",
+    "description": "Password strength guide with real math. Learn how password length, character variety, and randomness affect security. Generate uncrackable passwords instantly.",
+    "date": "July 14, 2026",
+    "category": "Developer Tools"
+  },
+  {
+    "title": "PDF Compression — How Small Can You Go Without Losing Quality?",
+    "slug": "pdf-compression-guide",
+    "description": "PDF compression explained. Learn how to reduce PDF file size without noticeable quality loss. Compare compression levels and find the sweet spot for your documents.",
+    "date": "July 14, 2026",
+    "category": "PDF"
+  },
+  {
     "title": "PDF vs Word vs Excel — Document Format Comparison",
     "slug": "pdf-vs-word-vs-excel",
     "description": "Document format comparison: PDF vs Word (DOCX) vs Excel (XLSX) across editing, formatting, data analysis, portability, and collaboration. Find the right format for reports, spreadsheets, and documents.",
@@ -173,6 +257,27 @@
     "description": "Image format basics: PNG vs JPEG vs GIF vs BMP across lossless compression, transparency, animation, color depth, and file size. Learn which format works best for web, print, and design.",
     "date": "July 13, 2026",
     "category": "Images"
+  },
+  {
+    "title": "How to Split and Merge PDF Files Like a Pro",
+    "slug": "split-merge-pdf-guide",
+    "description": "Learn how to split large PDFs into smaller files and merge multiple PDFs into one document. Free online PDF splitter and merger. No upload required.",
+    "date": "July 14, 2026",
+    "category": "PDF"
+  },
+  {
+    "title": "SVG vs PNG — When to Use Vector vs Raster Graphics",
+    "slug": "svg-vs-png",
+    "description": "SVG vs PNG comparison for designers and developers. Learn when to use vector graphics, when raster is better, and how to convert between formats without quality loss.",
+    "date": "July 14, 2026",
+    "category": "Images"
+  },
+  {
+    "title": "Case Converter Guide — When to Use Each Text Case",
+    "slug": "text-case-guide",
+    "description": "Complete guide to text case styles: camelCase, snake_case, PascalCase, kebab-case, and more. Learn when programmers use each naming convention and convert between them.",
+    "date": "July 14, 2026",
+    "category": "Developer Tools"
   },
   {
     "title": "Top 10 Free Online File Converters in 2026",
@@ -189,10 +294,45 @@
     "category": "Guides"
   },
   {
+    "title": "URL Encoding Guide — What Every Developer Should Know",
+    "slug": "url-encoding-guide",
+    "description": "Complete URL encoding guide. Learn percent-encoding rules, why spaces become %20, and how to encode/decode URLs safely. Free online URL encoder included.",
+    "date": "July 14, 2026",
+    "category": "Developer Tools"
+  },
+  {
     "title": "vCard 2.1 vs 3.0 vs 4.0 — Which Version to Use",
     "slug": "vcard-21-vs-30-vs-40",
     "description": "vCard version comparison: Compare vCard 2.1, 3.0, and 4.0 formats for contact management. Learn about encoding differences, device compatibility, and how to choose the right version.",
     "date": "July 13, 2026",
     "category": "Contacts"
+  },
+  {
+    "title": "WAV vs FLAC — Which Lossless Format Should You Use?",
+    "slug": "wav-vs-flac",
+    "description": "WAV vs FLAC comparison for music production and archiving. Learn the real-world differences in file size, metadata support, and compatibility between these lossless formats.",
+    "date": "July 14, 2026",
+    "category": "Audio"
+  },
+  {
+    "title": "What Is a UUID and Why Do You Need One?",
+    "slug": "what-is-uuid",
+    "description": "UUID explained simply. Learn what UUIDs are, how version 4 UUIDs work, when to use them in databases and APIs, and generate RFC-compliant UUIDs instantly.",
+    "date": "July 14, 2026",
+    "category": "Developer Tools"
+  },
+  {
+    "title": "Why Browser-Based Converters Are Safer Than Desktop Software",
+    "slug": "why-browser-based-converters",
+    "description": "Browser-based converters vs desktop software — which is safer? Learn why client-side file conversion protects your privacy and why your files should never leave your device.",
+    "date": "July 14, 2026",
+    "category": "General"
+  },
+  {
+    "title": "Convert Word to PDF Without Losing Formatting",
+    "slug": "word-to-pdf-guide",
+    "description": "Stop sending Word docs that look different on every computer. Learn how to convert Word to PDF with perfect formatting preservation. Free browser-based converter.",
+    "date": "July 14, 2026",
+    "category": "PDF"
   }
 ]

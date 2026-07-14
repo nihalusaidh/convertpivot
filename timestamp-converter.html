@@ -28,7 +28,7 @@
 <body>
   <header class="site-header">
     <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
-    <a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
+    <a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
 
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation">
     <div class="sidebar-section">
@@ -94,19 +94,19 @@
     </div>
 
     <div class="converter-widget">
-      <div style="margin-bottom:20px;">
-        <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">Unix Timestamp (seconds)</label>
-        <input type="text" id="tsSeconds" value="1818086400" style="width:100%;padding:12px 14px;border:1px solid var(--color-mist);border-radius:8px;font-size:1rem;font-family:monospace;outline:none;" oninput="ConvertPivotTS.updateFromSeconds(this.value)">
+      <div style="margin-bottom:16px">
+        <label class="converter-label">Unix Timestamp (seconds)</label>
+        <input type="text" id="tsSeconds" value="1818086400" class="converter-input" oninput="ConvertPivotTS.updateFromSeconds(this.value)">
       </div>
-      <div style="margin-bottom:20px;">
-        <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">Milliseconds</label>
-        <input type="text" id="tsMs" value="1818086400000" style="width:100%;padding:12px 14px;border:1px solid var(--color-mist);border-radius:8px;font-size:1rem;font-family:monospace;outline:none;" oninput="ConvertPivotTS.updateFromMs(this.value)">
+      <div style="margin-bottom:16px">
+        <label class="converter-label">Milliseconds</label>
+        <input type="text" id="tsMs" value="1818086400000" class="converter-input" oninput="ConvertPivotTS.updateFromMs(this.value)">
       </div>
-      <div style="margin-bottom:20px;">
-        <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">Human Date (YYYY-MM-DD HH:MM:SS)</label>
-        <input type="text" id="tsDate" value="2027-08-12 00:00:00" style="width:100%;padding:12px 14px;border:1px solid var(--color-mist);border-radius:8px;font-size:1rem;font-family:monospace;outline:none;" oninput="ConvertPivotTS.updateFromDate(this.value)">
+      <div style="margin-bottom:16px">
+        <label class="converter-label">Human Date (YYYY-MM-DD HH:MM:SS)</label>
+        <input type="text" id="tsDate" value="2027-08-12 00:00:00" class="converter-input" oninput="ConvertPivotTS.updateFromDate(this.value)">
       </div>
-      <div style="padding:14px;background:var(--color-smoke);border-radius:8px;">
+      <div class="converter-result">
         <div style="font-size:0.85rem;color:var(--color-graphite);margin-bottom:4px;">ISO 8601</div>
         <div id="tsIso" style="font-family:monospace;font-size:0.95rem;">2027-08-12T00:00:00.000Z</div>
         <div style="font-size:0.85rem;color:var(--color-graphite);margin:10px 0 4px;">Local Date</div>

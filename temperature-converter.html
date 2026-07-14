@@ -36,16 +36,16 @@
     </div>
     <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
 
-    <div class="content-section">
-      <div class="converter-area">
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
         <div class="calc-fields">
           <div class="calc-row">
             <label for="tempInput">Temperature</label>
-            <input type="number" id="tempInput" step="any" value="100">
+            <input type="number" id="tempInput" class="converter-input" step="any" value="100">
           </div>
           <div class="calc-row">
             <label for="fromUnit">From</label>
-            <select id="fromUnit">
+            <select id="fromUnit" class="converter-input">
               <option value="C">Celsius (°C)</option>
               <option value="F">Fahrenheit (°F)</option>
               <option value="K">Kelvin (K)</option>
@@ -53,14 +53,14 @@
           </div>
           <div class="calc-row">
             <label for="toUnit">To</label>
-            <select id="toUnit">
+            <select id="toUnit" class="converter-input">
               <option value="F">Fahrenheit (°F)</option>
               <option value="C">Celsius (°C)</option>
               <option value="K">Kelvin (K)</option>
             </select>
           </div>
         </div>
-        <div class="result-box" id="tempResult">Result: 212 °F</div>
+        <div class="converter-result" style="margin-top:12px"><span id="tempResult">Result: 212 °F</span></div>
       </div>
     </div>
 

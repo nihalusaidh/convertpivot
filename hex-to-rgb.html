@@ -26,109 +26,52 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do you convert hex to RGB?","acceptedAnswer":{"@type":"Answer","text":"To convert hex to RGB, split the hex code into three pairs (RR, GG, BB) and convert each pair from hexadecimal to decimal. For example, FF0000 splits to FF=255, 00=0, 00=0, giving RGB(255, 0, 0) for red."}},{"@type":"Question","name":"What is the difference between hex and RGB?","acceptedAnswer":{"@type":"Answer","text":"Hex and RGB are two ways of representing the same colors. Hex uses base-16 (e.g. #FF0000) while RGB uses decimal values (e.g. rgb(255, 0, 0)). Both can represent 16.7 million colors. Hex is more common in web development, while designers often prefer RGB or HSL."}},{"@type":"Question","name":"What is HSL?","acceptedAnswer":{"@type":"Answer","text":"HSL stands for Hue, Saturation, and Lightness. Hue is the color angle (0-360 degrees), saturation is the intensity (0-100%), and lightness is the brightness (0-100%). HSL is often more intuitive for humans to work with than hex or RGB."}},{"@type":"Question","name":"Is this converter free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no limits, no signup, and your data stays on your device."}}]}</script>
 </head>
 <body>
-  <header class="site-header">
-    <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
-    <a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
-
-  <nav id="sidebar" class="sidebar" aria-label="Tool navigation">
-    <div class="sidebar-section">
-      <div class="sidebar-heading">Developer Tools</div>
-      <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
-      <a href="/hex-to-rgb" class="sidebar-link active"><span class="icon">🎨</span>Hex to RGB</a>
-      <a href="/timestamp-converter" class="sidebar-link"><span class="icon">⏱</span>Timestamp Converter</a>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-heading">Contacts & CRM</div>
-      <a href="/vcf-to-csv" class="sidebar-link"><span class="icon">📇</span>VCF to CSV</a>
-      <a href="/csv-to-vcf" class="sidebar-link"><span class="icon">📋</span>CSV to VCF</a>
-      <a href="/vcf-to-xlsx" class="sidebar-link"><span class="icon">📊</span>VCF to XLSX</a>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-heading">Financial</div>
-      <a href="/ofx-to-csv" class="sidebar-link"><span class="icon">🏦</span>OFX to CSV</a>
-      <a href="/qfx-to-csv" class="sidebar-link"><span class="icon">💰</span>QFX to CSV</a>
-      <a href="/qbo-to-csv" class="sidebar-link"><span class="icon">📒</span>QBO to CSV</a>
-      <a href="/csv-to-qbo" class="sidebar-link"><span class="icon">🔄</span>CSV to QBO</a>
-      <a href="/pdf-bank-statement-to-csv" class="sidebar-link"><span class="icon">📄</span>PDF Bank Statement to CSV</a>
-      <a href="/bank-statement-converter" class="sidebar-link"><span class="icon">🏛</span>Bank Statement Converter</a>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-heading">Notebooks</div>
-      <a href="/ipynb-to-pdf" class="sidebar-link"><span class="icon">📓</span>IPYNB to PDF</a>
-      <a href="/ipynb-to-docx" class="sidebar-link"><span class="icon">📝</span>IPYNB to DOCX</a>
-      <a href="/ipynb-to-html" class="sidebar-link"><span class="icon">🌐</span>IPYNB to HTML</a>
-      <a href="/ipynb-to-py" class="sidebar-link"><span class="icon">🐍</span>IPYNB to PY</a>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-heading">Media</div>
-      <a href="/heic-to-jpg" class="sidebar-link"><span class="icon">📸</span>HEIC to JPG</a>
-      <a href="/heic-to-pdf" class="sidebar-link"><span class="icon">🖼</span>HEIC to PDF</a>
-      <a href="/avif-to-jpg" class="sidebar-link"><span class="icon">✨</span>AVIF to JPG</a>
-      <a href="/webp-to-jpg" class="sidebar-link"><span class="icon">🖼</span>WebP to JPG</a>
-      <a href="/svg-to-png" class="sidebar-link"><span class="icon">📐</span>SVG to PNG</a>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-heading">GPS & Fitness</div>
-      <a href="/gpx-to-kml" class="sidebar-link"><span class="icon">🗺</span>GPX to KML</a>
-      <a href="/gpx-to-csv" class="sidebar-link"><span class="icon">📈</span>GPX to CSV</a>
-      <a href="/fit-to-gpx" class="sidebar-link"><span class="icon">🏃</span>FIT to GPX</a>
-      <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
-    </div>
-    <div class="ad-container-sidebar">Ad</div>
-  </nav>
-
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb">
-      <a href="/">Home</a><span class="sep">›</span>
-      <span class="current">Hex to RGB Converter</span>
-    </nav>
-
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Hex to RGB Converter</span></nav>
     <div class="tool-header">
       <h1>Hex to RGB Converter — Color Code Converter</h1>
       <p>Convert between hex, RGB, and HSL color codes instantly. Type in any field and all formats update in real time with a live color preview.</p>
     </div>
-
-    <div class="privacy-banner">
-      <span class="icon">🔒</span>
-      <span>100% browser-based. Your data never leaves your device. No upload, no server.</span>
-    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your data never leaves your device. No upload, no server.</span></div>
 
     <div class="converter-widget">
-      <div id="colorPreview" style="height:60px;border-radius:8px;margin-bottom:20px;background:#FF0000;"></div>
-      <div style="margin-bottom:16px;">
-        <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">Hex</label>
-        <input type="text" id="colHex" value="#FF0000" style="width:100%;padding:12px 14px;border:1px solid var(--color-mist);border-radius:8px;font-size:1rem;font-family:monospace;outline:none;" oninput="ConvertPivotColor.updateFrom('hex', this.value)">
+      <div id="colorPreview" style="height:60px;border-radius:8px;margin-bottom:20px;background:#FF0000"></div>
+      <div style="margin-bottom:16px">
+        <label class="converter-label" for="colHex">Hex</label>
+        <input type="text" id="colHex" class="converter-input" value="#FF0000" oninput="ConvertPivotColor.updateFrom('hex', this.value)">
       </div>
-      <div class="how-it-works" style="grid-template-columns:1fr 1fr 1fr;margin-top:0;">
+      <div class="how-it-works" style="grid-template-columns:1fr 1fr 1fr;margin-top:0">
         <div>
-          <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">R</label>
-          <input type="number" id="colR" value="255" min="0" max="255" style="width:100%;padding:10px;border:1px solid var(--color-mist);border-radius:8px;font-size:1rem;font-family:monospace;outline:none;" oninput="ConvertPivotColor.updateFrom('rgb', this.value, 'r')">
+          <label class="converter-label" for="colR">R</label>
+          <input type="number" id="colR" class="converter-input" value="255" min="0" max="255" oninput="ConvertPivotColor.updateFrom('rgb', this.value, 'r')">
         </div>
         <div>
-          <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">G</label>
-          <input type="number" id="colG" value="0" min="0" max="255" style="width:100%;padding:10px;border:1px solid var(--color-mist);border-radius:8px;font-size:1rem;font-family:monospace;outline:none;" oninput="ConvertPivotColor.updateFrom('rgb', this.value, 'g')">
+          <label class="converter-label" for="colG">G</label>
+          <input type="number" id="colG" class="converter-input" value="0" min="0" max="255" oninput="ConvertPivotColor.updateFrom('rgb', this.value, 'g')">
         </div>
         <div>
-          <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">B</label>
-          <input type="number" id="colB" value="0" min="0" max="255" style="width:100%;padding:10px;border:1px solid var(--color-mist);border-radius:8px;font-size:1rem;font-family:monospace;outline:none;" oninput="ConvertPivotColor.updateFrom('rgb', this.value, 'b')">
-        </div>
-      </div>
-      <div class="how-it-works" style="grid-template-columns:1fr 1fr 1fr;margin-top:12px;">
-        <div>
-          <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">H</label>
-          <input type="number" id="colH" value="0" min="0" max="360" style="width:100%;padding:10px;border:1px solid var(--color-mist);border-radius:8px;font-size:1rem;font-family:monospace;outline:none;" oninput="ConvertPivotColor.updateFrom('hsl', this.value, 'h')">
-        </div>
-        <div>
-          <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">S%</label>
-          <input type="number" id="colS" value="100" min="0" max="100" style="width:100%;padding:10px;border:1px solid var(--color-mist);border-radius:8px;font-size:1rem;font-family:monospace;outline:none;" oninput="ConvertPivotColor.updateFrom('hsl', this.value, 's')">
-        </div>
-        <div>
-          <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">L%</label>
-          <input type="number" id="colL" value="50" min="0" max="100" style="width:100%;padding:10px;border:1px solid var(--color-mist);border-radius:8px;font-size:1rem;font-family:monospace;outline:none;" oninput="ConvertPivotColor.updateFrom('hsl', this.value, 'l')">
+          <label class="converter-label" for="colB">B</label>
+          <input type="number" id="colB" class="converter-input" value="0" min="0" max="255" oninput="ConvertPivotColor.updateFrom('rgb', this.value, 'b')">
         </div>
       </div>
-      <div style="margin-top:16px;padding:12px;background:var(--color-smoke);border-radius:8px;text-align:center;font-size:0.9rem;">
-        <span id="colRgbText">rgb(255, 0, 0)</span>
+      <div class="how-it-works" style="grid-template-columns:1fr 1fr 1fr;margin-top:12px">
+        <div>
+          <label class="converter-label" for="colH">H</label>
+          <input type="number" id="colH" class="converter-input" value="0" min="0" max="360" oninput="ConvertPivotColor.updateFrom('hsl', this.value, 'h')">
+        </div>
+        <div>
+          <label class="converter-label" for="colS">S%</label>
+          <input type="number" id="colS" class="converter-input" value="100" min="0" max="100" oninput="ConvertPivotColor.updateFrom('hsl', this.value, 's')">
+        </div>
+        <div>
+          <label class="converter-label" for="colL">L%</label>
+          <input type="number" id="colL" class="converter-input" value="50" min="0" max="100" oninput="ConvertPivotColor.updateFrom('hsl', this.value, 'l')">
+        </div>
+      </div>
+      <div class="converter-result" style="margin-top:16px">
+        <span id="colRgbText" style="font-family:monospace">rgb(255, 0, 0)</span>
       </div>
     </div>
 
@@ -141,22 +84,10 @@
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item">
-          <button class="faq-question">How do you convert hex to RGB? <span class="arrow">▼</span></button>
-          <div class="faq-answer">To convert hex to RGB, split the hex code into three pairs (RR, GG, BB) and convert each pair from hexadecimal to decimal. For example, FF0000 splits to FF=255, 00=0, 00=0, giving RGB(255, 0, 0) for red.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">What is the difference between hex and RGB? <span class="arrow">▼</span></button>
-          <div class="faq-answer">Hex and RGB are two ways of representing the same colors. Hex uses base-16 (e.g. #FF0000) while RGB uses decimal values (e.g. rgb(255, 0, 0)). Both can represent 16.7 million colors.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">What is HSL? <span class="arrow">▼</span></button>
-          <div class="faq-answer">HSL stands for Hue, Saturation, and Lightness. Hue is the color angle (0-360 degrees), Saturation is the intensity (0-100%), and Lightness is the brightness (0-100%). HSL is more intuitive for creating color palettes.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">Can I convert colors with transparency? <span class="arrow">▼</span></button>
-          <div class="faq-answer">Yes. Our converter supports 8-character hex codes (ARGB format) and RGBA values. The alpha channel is displayed as a separate field, and the color preview supports a checkerboard background to show transparency.</div>
-        </div>
+        <div class="faq-item"><button class="faq-question">How do you convert hex to RGB? <span class="arrow">▼</span></button><div class="faq-answer">To convert hex to RGB, split the hex code into three pairs (RR, GG, BB) and convert each pair from hexadecimal to decimal. For example, FF0000 splits to FF=255, 00=0, 00=0, giving RGB(255, 0, 0) for red.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the difference between hex and RGB? <span class="arrow">▼</span></button><div class="faq-answer">Hex and RGB are two ways of representing the same colors. Hex uses base-16 (e.g. #FF0000) while RGB uses decimal values (e.g. rgb(255, 0, 0)). Both can represent 16.7 million colors.</div></div>
+        <div class="faq-item"><button class="faq-question">What is HSL? <span class="arrow">▼</span></button><div class="faq-answer">HSL stands for Hue, Saturation, and Lightness. Hue is the color angle (0-360 degrees), Saturation is the intensity (0-100%), and Lightness is the brightness (0-100%). HSL is more intuitive for creating color palettes.</div></div>
+        <div class="faq-item"><button class="faq-question">Is this converter free? <span class="arrow">▼</span></button><div class="faq-answer">Yes, completely free with no limits, no signup, and your data stays on your device.</div></div>
       </div>
     </div>
 
@@ -168,24 +99,11 @@
         <a href="/heic-to-jpg" class="related-tool-card">HEIC to JPG <span class="desc">Convert iPhone photos</span></a>
       </div>
     </div>
-
     <div class="ad-container">Ad</div>
   </main>
-
   <footer class="site-footer">
-    <div class="footer-content">
-      <div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div>
-      <div class="footer-links">
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/blog">Blog</a>
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
-        <a href="/contact">Contact</a>
-      </div>
-    </div>
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
   </footer>
-
   <script src="js/shared.js"></script>
   <script>
   var ConvertPivotColor = {

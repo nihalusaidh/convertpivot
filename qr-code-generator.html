@@ -16,7 +16,7 @@
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="QR Code Generator — Generate QR Codes Online Free | ConvertPivot">
-  <meta name="twitter:description" content="Free online QR code generator. Create QR codes from text, URLs, phone numbers, and more. Download as PNG. 100% browser-based, no upload.">
+  <meta name="twitter:description" content="Free online QR code generator. Create QR codes from text, URLs, phone numbers, and more. Download as PNG.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -24,7 +24,6 @@
   <link rel="icon" href="/favicon-16.png" sizes="16x16">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"QR Code Generator","url":"https://convertpivot.com/qr-code-generator","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online QR code generator. Create QR codes from text, URLs, phone numbers, and more. Download as PNG. 100% browser-based, no upload.","browserRequirements":"JavaScript"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What can I put in a QR code?","acceptedAnswer":{"@type":"Answer","text":"You can encode URLs, plain text, phone numbers, email addresses, SMS messages, Wi-Fi credentials, contact information (vCard), calendar events, and geographic locations."}},{"@type":"Question","name":"Is QR code generation private?","acceptedAnswer":{"@type":"Answer","text":"Yes, all QR code generation happens entirely in your browser using a JavaScript library. Your data is never sent to any server or third party."}},{"@type":"Question","name":"Can I download the QR code?","acceptedAnswer":{"@type":"Answer","text":"Yes, after generating your QR code, you can download it as a PNG image file by clicking the Download PNG button beneath the QR code."}},{"@type":"Question","name":"Is this free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, this QR code generator is completely free to use with no usage limits, watermarks, or registration required."}}]}</script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
   <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
@@ -35,19 +34,24 @@
       <h1>QR Code Generator</h1>
       <p>Create QR codes from text, URLs, phone numbers, and more. Download as PNG. 100% browser-based, no upload.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device.</span></div>
 
-    <div class="content-section">
-      <div class="converter-area">
-        <div class="calc-fields">
-          <div class="calc-row">
-            <label for="qrInput">Content</label>
-            <input type="text" id="qrInput" placeholder="Enter text or URL..." value="https://convertpivot.com">
-          </div>
+    <div class="converter-widget">
+      <div class="converter-form">
+        <label for="qrInput">Content to encode</label>
+        <div class="converter-inline">
+          <input type="text" id="qrInput" class="converter-input" placeholder="Enter text or URL..." value="https://convertpivot.com">
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+          <button class="btn btn-sm btn-ghost qr-preset" data-value="https://convertpivot.com">Website</button>
+          <button class="btn btn-sm btn-ghost qr-preset" data-value="Hello, world!">Text</button>
+          <button class="btn btn-sm btn-ghost qr-preset" data-value="tel:+1234567890">Phone</button>
+          <button class="btn btn-sm btn-ghost qr-preset" data-value="mailto:hello@example.com">Email</button>
         </div>
         <button id="generateBtn" class="btn btn-primary">Generate QR Code</button>
-        <div id="qrCodeContainer" class="qr-container"></div>
-        <button id="downloadQrBtn" class="btn btn-secondary" style="display:none;">Download PNG</button>
+        <div id="qrCodeContainer" class="qr-container" style="text-align:center;margin:16px 0;min-height:280px;display:flex;align-items:center;justify-content:center"></div>
+        <div id="qrError" style="color:var(--color-error,#ef4444);text-align:center;display:none;margin-bottom:12px"></div>
+        <button id="downloadQrBtn" class="btn btn-secondary" style="display:none;margin:0 auto">Download PNG</button>
       </div>
     </div>
 
@@ -83,44 +87,72 @@
   <footer class="site-footer">
     <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
   </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script src="js/shared.js"></script>
   <script>
-    let qrCode = null;
+    (function() {
+      var qrCode = null;
+      var input = document.getElementById('qrInput');
+      var container = document.getElementById('qrCodeContainer');
+      var downloadBtn = document.getElementById('downloadQrBtn');
+      var errorDiv = document.getElementById('qrError');
 
-    function generateQR() {
-      const text = document.getElementById('qrInput').value.trim();
-      if (!text) return;
+      function generateQR() {
+        var text = input.value.trim();
+        errorDiv.style.display = 'none';
 
-      const container = document.getElementById('qrCodeContainer');
-      container.innerHTML = '';
+        if (!text) {
+          errorDiv.textContent = 'Please enter some content first.';
+          errorDiv.style.display = '';
+          return;
+        }
 
-      qrCode = new QRCode(container, {
-        text: text,
-        width: 256,
-        height: 256,
-        colorDark: '#000000',
-        colorLight: '#ffffff',
-        correctLevel: QRCode.CorrectLevel.H
+        if (typeof QRCode === 'undefined') {
+          errorDiv.textContent = 'QR library failed to load. Please refresh the page.';
+          errorDiv.style.display = '';
+          return;
+        }
+
+        container.innerHTML = '';
+        try {
+          qrCode = new QRCode(container, {
+            text: text,
+            width: 256,
+            height: 256,
+            colorDark: '#000000',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.H
+          });
+          downloadBtn.style.display = '';
+        } catch (e) {
+          errorDiv.textContent = 'Failed to generate QR code. Try different content.';
+          errorDiv.style.display = '';
+        }
+      }
+
+      document.getElementById('generateBtn').addEventListener('click', generateQR);
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') generateQR();
       });
 
-      document.getElementById('downloadQrBtn').style.display = '';
-    }
+      downloadBtn.addEventListener('click', function() {
+        var canvas = container.querySelector('canvas');
+        if (!canvas) return;
+        var link = document.createElement('a');
+        link.download = 'qrcode.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
 
-    document.getElementById('generateBtn').addEventListener('click', generateQR);
-    document.getElementById('qrInput').addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') generateQR();
-    });
+      document.querySelectorAll('.qr-preset').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          input.value = this.getAttribute('data-value');
+          generateQR();
+        });
+      });
 
-    document.getElementById('downloadQrBtn').addEventListener('click', function() {
-      const canvas = document.querySelector('#qrCodeContainer canvas');
-      if (!canvas) return;
-      const link = document.createElement('a');
-      link.download = 'qrcode.png';
-      link.href = canvas.toDataURL('image/png');
-      link.click();
-    });
-
-    generateQR();
+      generateQR();
+    })();
   </script>
 </body>
 </html>

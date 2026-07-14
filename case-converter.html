@@ -152,6 +152,12 @@
         }
       });
 
+      input.addEventListener('input', function() { output.value = convert(input.value, getSelectedCase()); });
+      var caseRadios = document.getElementsByName('caseType');
+      for (var i = 0; i < caseRadios.length; i++) {
+        caseRadios[i].addEventListener('change', function() { output.value = convert(input.value, getSelectedCase()); });
+      }
+
       document.getElementById('clearCaseBtn').addEventListener('click', function() {
         input.value = '';
         output.value = '';
@@ -162,6 +168,8 @@
         output.select();
         navigator.clipboard.writeText(output.value);
       });
+
+      output.value = convert(input.value, getSelectedCase());
     })();
   </script>
 </body>

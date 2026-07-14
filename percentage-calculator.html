@@ -36,8 +36,8 @@
     </div>
     <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
 
-    <div class="content-section">
-      <div class="converter-area">
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
         <div class="mode-selector">
           <label class="radio-label"><input type="radio" name="mode" value="percentOf" checked> X is what % of Y</label>
           <label class="radio-label"><input type="radio" name="mode" value="whatIs"> What is X% of Y</label>
@@ -46,14 +46,14 @@
         <div class="calc-fields">
           <div class="calc-row">
             <label for="calcInput1">X</label>
-            <input type="number" id="calcInput1" step="any" value="25">
+            <input type="number" id="calcInput1" class="converter-input" step="any" value="25">
           </div>
           <div class="calc-row">
             <label for="calcInput2">Y</label>
-            <input type="number" id="calcInput2" step="any" value="200">
+            <input type="number" id="calcInput2" class="converter-input" step="any" value="200">
           </div>
         </div>
-        <div class="result-box" id="calcResult">Result: 12.5%</div>
+        <div class="converter-result" style="margin-top:12px"><span id="calcResult">Result: 12.5%</span></div>
       </div>
     </div>
 

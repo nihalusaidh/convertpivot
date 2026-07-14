@@ -28,7 +28,7 @@
 <body>
   <header class="site-header">
     <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
-    <a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
+    <a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
 
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation">
     <div class="sidebar-section">
@@ -94,21 +94,21 @@
     </div>
 
     <div class="converter-widget">
-      <div style="margin-bottom:20px;">
-        <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">Decimal</label>
-        <input type="text" id="binDecimal" value="255" style="width:100%;padding:12px 14px;border:1px solid var(--color-mist);border-radius:8px;font-size:1rem;font-family:monospace;outline:none;" oninput="ConvertPivotBinary.updateFrom('decimal', this.value)">
+      <div style="margin-bottom:16px">
+        <label class="converter-label">Decimal</label>
+        <input type="text" id="binDecimal" value="255" class="converter-input" oninput="ConvertPivotBinary.updateFrom('decimal', this.value)">
       </div>
-      <div style="margin-bottom:20px;">
-        <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">Binary</label>
-        <input type="text" id="binBinary" value="11111111" style="width:100%;padding:12px 14px;border:1px solid var(--color-mist);border-radius:8px;font-size:1rem;font-family:monospace;outline:none;" oninput="ConvertPivotBinary.updateFrom('binary', this.value)">
+      <div style="margin-bottom:16px">
+        <label class="converter-label">Binary</label>
+        <input type="text" id="binBinary" value="11111111" class="converter-input" oninput="ConvertPivotBinary.updateFrom('binary', this.value)">
       </div>
-      <div style="margin-bottom:20px;">
-        <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">Octal</label>
-        <input type="text" id="binOctal" value="377" style="width:100%;padding:12px 14px;border:1px solid var(--color-mist);border-radius:8px;font-size:1rem;font-family:monospace;outline:none;" oninput="ConvertPivotBinary.updateFrom('octal', this.value)">
+      <div style="margin-bottom:16px">
+        <label class="converter-label">Octal</label>
+        <input type="text" id="binOctal" value="377" class="converter-input" oninput="ConvertPivotBinary.updateFrom('octal', this.value)">
       </div>
-      <div style="margin-bottom:20px;">
-        <label style="font-size:0.85rem;font-weight:600;margin-bottom:6px;display:block;">Hexadecimal</label>
-        <input type="text" id="binHex" value="FF" style="width:100%;padding:12px 14px;border:1px solid var(--color-mist);border-radius:8px;font-size:1rem;font-family:monospace;outline:none;" oninput="ConvertPivotBinary.updateFrom('hex', this.value)">
+      <div style="margin-bottom:16px">
+        <label class="converter-label">Hexadecimal</label>
+        <input type="text" id="binHex" value="FF" class="converter-input" oninput="ConvertPivotBinary.updateFrom('hex', this.value)">
       </div>
     </div>
 

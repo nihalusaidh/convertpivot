@@ -94,8 +94,8 @@
         var s = '';
         for (var i = 0; i < 36; i++) {
           if (i === 8 || i === 13 || i === 18 || i === 23) { s += '-'; }
-          else if (i === 13) { s += '4'; }
-          else if (i === 18) { s += hex[Math.floor(Math.random() * 4) + 8]; }
+          else if (i === 14) { s += '4'; }
+          else if (i === 19) { s += hex[Math.floor(Math.random() * 4) + 8]; }
           else { s += hex[Math.floor(Math.random() * 16)]; }
         }
         return s;
