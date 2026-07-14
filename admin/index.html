@@ -11,50 +11,6 @@ body{margin:0;font-family:-apple-system,BlinkMacSystemFont,segoe ui,roboto,arial
 <body>
 <script>window.CMS_MANUAL_INIT = true</script>
 <script src="https://cdn.jsdelivr.net/npm/decap-cms@latest/dist/decap-cms.js"></script>
-<script>
-CMS.init({
-  config: {
-    backend: {
-      name: 'github',
-      repo: 'nihalusaidh/convertpivot',
-      branch: 'main',
-      base_url: 'https://convertpivot.com',
-      auth_endpoint: '/api/auth'
-    },
-    media_folder: 'images/uploads',
-    public_folder: '/images/uploads',
-    collections: [{
-      name: 'blog',
-      label: 'Blog Posts',
-      folder: 'content/blog',
-      create: true,
-      slug: '{{slug}}',
-      fields: [
-        { label: 'Title', name: 'title', widget: 'string' },
-        { label: 'Slug', name: 'slug', widget: 'string', hint: 'URL-friendly name' },
-        { label: 'Meta Description', name: 'description', widget: 'string', hint: '150-160 characters for SEO' },
-        { label: 'Category', name: 'category', widget: 'string', hint: 'e.g., Audio, Images, Tutorial, Finance' },
-        { label: 'Publish Date', name: 'date', widget: 'datetime' },
-        { label: 'Featured Image', name: 'image', widget: 'image', required: false },
-        { label: 'Body', name: 'body', widget: 'markdown' },
-        { label: 'FAQ Q1', name: 'faq1_q', widget: 'string', required: false },
-        { label: 'FAQ A1', name: 'faq1_a', widget: 'text', required: false },
-        { label: 'FAQ Q2', name: 'faq2_q', widget: 'string', required: false },
-        { label: 'FAQ A2', name: 'faq2_a', widget: 'text', required: false },
-        { label: 'FAQ Q3', name: 'faq3_q', widget: 'string', required: false },
-        { label: 'FAQ A3', name: 'faq3_a', widget: 'text', required: false },
-        { label: 'FAQ Q4', name: 'faq4_q', widget: 'string', required: false },
-        { label: 'FAQ A4', name: 'faq4_a', widget: 'text', required: false },
-        { label: 'FAQ Q5', name: 'faq5_q', widget: 'string', required: false },
-        { label: 'FAQ A5', name: 'faq5_a', widget: 'text', required: false },
-        { label: 'Related Tool 1', name: 'tool1', widget: 'string', required: false },
-        { label: 'Related Tool 2', name: 'tool2', widget: 'string', required: false },
-        { label: 'Related Tool 3', name: 'tool3', widget: 'string', required: false },
-        { label: 'Related Tool 4', name: 'tool4', widget: 'string', required: false }
-      ]
-    }]
-  }
-});
-</script>
+<script>CMS.init()</script>
 </body>
 </html>
