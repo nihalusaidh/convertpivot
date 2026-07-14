@@ -224,6 +224,10 @@ a:hover { color: var(--color-red); }
   font-weight: 600;
 }
 
+.sidebar-heading.active-section {
+  color: var(--color-red);
+}
+
 .sidebar-link {
   display: flex;
   align-items: center;
@@ -231,7 +235,7 @@ a:hover { color: var(--color-red); }
   padding: 8px 20px;
   font-size: 0.9rem;
   color: var(--color-graphite);
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, padding-left 0.15s;
   border-left: 3px solid transparent;
 }
 
@@ -244,7 +248,7 @@ a:hover { color: var(--color-red); }
   background: var(--color-red-light);
   color: var(--color-red);
   border-left-color: var(--color-red);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .sidebar-link .icon {

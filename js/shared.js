@@ -194,10 +194,12 @@
     var html = '<div class="sidebar-search"><span class="search-icon">\uD83D\uDD0D</span><input type="text" id="sidebarSearchInput" placeholder="Search tools..." oninput="filterSidebar(this.value)"></div>';
     html += '<div id="sidebarSections">';
     sidebarSections.forEach(function (section) {
-      html += '<div class="sidebar-section"><div class="sidebar-heading">' + section.heading + '</div>';
+      var hasActive = false;
+      html += '<div class="sidebar-section"><div class="sidebar-heading' + (section.links.some(function(l) { return l.href === '/' + currentPath }) ? ' active-section' : '') + '">' + section.heading + '</div>';
       section.links.forEach(function (link) {
         var active = (link.href === '/' + currentPath || (currentPath === 'index.html' && link.href === '/')) ? ' active' : '';
         html += '<a href="' + link.href + '" class="sidebar-link' + active + '" data-label="' + link.label.toLowerCase() + '"><span class="icon">' + link.icon + '</span>' + link.label + '</a>';
+        if (active) hasActive = true;
       });
       html += '</div>';
     });
@@ -213,7 +215,7 @@
     }
   }
 
-  function filterSidebar(query) {
+  window.filterSidebar = function filterSidebar(query) {
     var q = query.toLowerCase().trim();
     var container = document.getElementById('sidebarSections');
     if (!container) return;
