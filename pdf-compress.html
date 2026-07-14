@@ -190,7 +190,7 @@
           var pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer.slice(0) }).promise;
           var totalPages = pdfDoc.numPages;
           var scaleF = window.devicePixelRatio > 1 ? 0.75 : 1.0;
-          var jspdf = new jspdf.jsPDF({ orientation: 'p', unit: 'pt', format: 'a4', compress: true });
+          var doc = new window.jspdf.jsPDF({ orientation: 'p', unit: 'pt', format: 'a4', compress: true });
 
           for (var i = 1; i <= totalPages; i++) {
             var page = await pdfDoc.getPage(i);
@@ -205,8 +205,8 @@
 
             var dataUrl = canvas.toDataURL('image/jpeg', 0.6);
 
-            var pdfW = jspdf.internal.pageSize.getWidth();
-            var pdfH = jspdf.internal.pageSize.getHeight();
+            var pdfW = doc.internal.pageSize.getWidth();
+            var pdfH = doc.internal.pageSize.getHeight();
             var imgW = viewport.width;
             var imgH = viewport.height;
             var scale = Math.min(pdfW / imgW, pdfH / imgH, 1);
@@ -215,13 +215,13 @@
             var ox = (pdfW - dw) / 2;
             var oy = (pdfH - dh) / 2;
 
-            if (i > 1) jspdf.addPage();
-            jspdf.addImage(dataUrl, 'JPEG', ox, oy, dw, dh);
+            if (i > 1) doc.addPage();
+            doc.addImage(dataUrl, 'JPEG', ox, oy, dw, dh);
 
             progress.set(Math.round((i / totalPages) * 90));
           }
 
-          var pdfBytes = jspdf.output('arraybuffer');
+          var pdfBytes = doc.output('arraybuffer');
           progress.set(100);
 
           var compressedBlob = new Blob([pdfBytes], { type: 'application/pdf' });
