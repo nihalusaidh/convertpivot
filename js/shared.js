@@ -278,7 +278,11 @@
     }
     // Rebuild sidebar on bfcache restore (browser back/forward)
     window.addEventListener('pageshow', function (e) {
-      if (e.persisted) buildSidebar();
+      if (!e.persisted) return;
+      buildSidebar();
+      // Force full-page repaint — bfcache often only paints the viewport
+      var mc = document.getElementById('main-content');
+      if (mc) { mc.style.opacity = '0.999'; setTimeout(function () { mc.style.opacity = ''; }, 10); }
     });
   })();
 
