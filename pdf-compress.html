@@ -114,6 +114,7 @@
   <script src="js/shared.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script>
   pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
@@ -185,15 +186,15 @@
         var arrayBuffer = await currentFile.arrayBuffer();
 
         if (level === 'high') {
-          // High: render pages via PDF.js at reduced resolution, re-embed as JPEG
+          // High: render pages via PDF.js at reduced resolution, output via jsPDF
           var pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer.slice(0) }).promise;
           var totalPages = pdfDoc.numPages;
-          var newDoc = await PDFLib.PDFDocument.create();
-          var scaleFactor = window.devicePixelRatio > 1 ? 0.75 : 1.0;
+          var scaleF = window.devicePixelRatio > 1 ? 0.75 : 1.0;
+          var jspdf = new jspdf.jsPDF({ orientation: 'p', unit: 'pt', format: 'a4', compress: true });
 
           for (var i = 1; i <= totalPages; i++) {
             var page = await pdfDoc.getPage(i);
-            var viewport = page.getViewport({ scale: scaleFactor * 0.5 });
+            var viewport = page.getViewport({ scale: scaleF * 0.5 });
             var canvas = document.createElement('canvas');
             canvas.width = viewport.width;
             canvas.height = viewport.height;
@@ -202,24 +203,25 @@
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             await page.render({ canvasContext: ctx, viewport: viewport }).promise;
 
-            var jpegBlob = await new Promise(function(resolve) {
-              canvas.toBlob(function(b) { resolve(b); }, 'image/jpeg', 0.6);
-            });
-            var jpegBytes = await jpegBlob.arrayBuffer();
-            var img = await newDoc.embedJpg(new Uint8Array(jpegBytes));
+            var dataUrl = canvas.toDataURL('image/jpeg', 0.6);
 
-            var pdfPage = newDoc.addPage([viewport.width, viewport.height]);
-            pdfPage.drawImage(img, { x: 0, y: 0, width: viewport.width, height: viewport.height });
+            var pdfW = jspdf.internal.pageSize.getWidth();
+            var pdfH = jspdf.internal.pageSize.getHeight();
+            var imgW = viewport.width;
+            var imgH = viewport.height;
+            var scale = Math.min(pdfW / imgW, pdfH / imgH, 1);
+            var dw = imgW * scale;
+            var dh = imgH * scale;
+            var ox = (pdfW - dw) / 2;
+            var oy = (pdfH - dh) / 2;
+
+            if (i > 1) jspdf.addPage();
+            jspdf.addImage(dataUrl, 'JPEG', ox, oy, dw, dh);
 
             progress.set(Math.round((i / totalPages) * 90));
           }
 
-          if (removeMeta) {
-            newDoc.setTitle(''); newDoc.setAuthor(''); newDoc.setSubject('');
-            newDoc.setKeywords([]); newDoc.setCreator(''); newDoc.setProducer('');
-          }
-
-          var pdfBytes = await newDoc.save({ useObjectStreams: true });
+          var pdfBytes = jspdf.output('arraybuffer');
           progress.set(100);
 
           var compressedBlob = new Blob([pdfBytes], { type: 'application/pdf' });
@@ -232,7 +234,7 @@
           resultHtml += 'Original: ' + ConvertPivot.formatFileSize(originalSize) + '<br>';
           resultHtml += 'Compressed: ' + ConvertPivot.formatFileSize(compressedSize) + '<br>';
           resultHtml += 'Savings: <strong>' + savings + '%</strong><br>';
-          resultHtml += '<div style="font-size:0.8rem;color:var(--color-graphite);margin:8px 0;">Note: High compression rasterizes pages to images at reduced quality. Best for image-heavy PDFs like scans and photos.</div>';
+          resultHtml += '<div style="font-size:0.8rem;color:var(--color-graphite);margin:8px 0;">Note: High compression rasterizes pages to JPEG images. Best for image-heavy PDFs like scans and photos.</div>';
           resultHtml += '<a href="' + url + '" class="btn btn-success" download="compressed-' + currentFile.name.replace('.pdf','') + '.pdf">Download Compressed PDF</a>';
           progress.done();
           ConvertPivot.showResult('pdfCompressResult', resultHtml, 'success', true);
