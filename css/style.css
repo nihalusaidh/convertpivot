@@ -172,6 +172,7 @@ a:hover { color: var(--color-red); }
   overflow-y: auto;
   z-index: 50;
   padding: 12px 0;
+  box-shadow: inset -1px 0 0 rgba(0,0,0,0.02);
   transition: background 0.2s, border-color 0.2s;
 }
 
@@ -287,6 +288,20 @@ a:hover { color: var(--color-red); }
   padding: 48px 0 40px;
   max-width: 720px;
   margin: 0 auto;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255,0,0,0.03) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .hero h1 {
@@ -370,20 +385,33 @@ a:hover { color: var(--color-red); }
 .converter-widget {
   background: var(--color-canvas);
   border: 2px solid var(--color-red);
-  border-radius: var(--radius-card);
+  border-radius: 12px;
   padding: 32px;
   margin-bottom: 32px;
   max-width: 600px;
-  transition: background 0.2s, border-color 0.2s;
+  position: relative;
+  box-shadow: 0 4px 24px rgba(255,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.converter-widget::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-red-gradient);
+  border-radius: 12px 12px 0 0;
 }
 
 .drop-zone {
   border: 2px dashed var(--color-mist);
-  border-radius: var(--radius-card);
+  border-radius: 12px;
   padding: 48px 24px;
   text-align: center;
   cursor: pointer;
-  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
   position: relative;
 }
 
@@ -391,6 +419,7 @@ a:hover { color: var(--color-red); }
 .drop-zone.drag-over {
   border-color: var(--color-red);
   background: var(--color-red-light);
+  box-shadow: 0 4px 20px rgba(255,0,0,0.08);
 }
 
 .drop-zone.drop-success {
@@ -513,7 +542,7 @@ a:hover { color: var(--color-red); }
 
 /* === CONVERTER INPUT === */
 .converter-input {
-  padding: 8px 12px;
+  padding: 10px 14px;
   border: 2px solid var(--color-red);
   border-radius: var(--radius-pill);
   background: var(--color-canvas);
@@ -526,7 +555,7 @@ a:hover { color: var(--color-red); }
 
 .converter-input:focus {
   border-color: var(--color-red);
-  box-shadow: 0 0 0 3px rgba(255,0,0,0.15);
+  box-shadow: 0 0 0 4px rgba(255,0,0,0.1), inset 0 1px 3px rgba(0,0,0,0.04);
 }
 
 .converter-input::placeholder {
@@ -549,18 +578,23 @@ pre.converter-input {
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.15s, transform 0.1s;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
   font-family: inherit;
 }
 
 .btn:active { transform: scale(0.97); }
 
 .btn-primary {
-  background: var(--color-red);
+  background: var(--color-red-gradient);
   color: #fff;
+  box-shadow: 0 2px 8px rgba(255,0,0,0.2);
 }
 
-.btn-primary:hover { background: var(--color-red-hover); }
+.btn-primary:hover {
+  background: var(--color-red);
+  box-shadow: 0 4px 16px rgba(255,0,0,0.3);
+  transform: translateY(-1px);
+}
 
 .btn-primary:disabled {
   background: var(--color-mist);
@@ -835,8 +869,8 @@ pre.converter-input {
 
 /* === PRIVACY BANNER === */
 .privacy-banner {
-  background: var(--color-smoke);
-  border: 1px solid var(--color-mist);
+  background: var(--color-red-light);
+  border: 1px solid rgba(255,0,0,0.15);
   border-radius: var(--radius-card);
   padding: 16px 20px;
   margin-bottom: 28px;
@@ -862,13 +896,14 @@ pre.converter-input {
   padding: 20px;
   border: 2px solid var(--color-red);
   border-radius: var(--radius-card);
-  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 
 .tool-card:hover {
   border-color: var(--color-red-hover);
   background: var(--color-red-light);
-  box-shadow: 0 2px 12px rgba(255,0,0,0.1);
+  box-shadow: 0 8px 24px rgba(255,0,0,0.1);
+  transform: translateY(-2px);
 }
 
 .tool-card-icon {
