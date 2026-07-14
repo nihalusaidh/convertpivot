@@ -274,6 +274,10 @@
         }
       });
     }
+    // Rebuild sidebar on bfcache restore (browser back/forward)
+    window.addEventListener('pageshow', function (e) {
+      if (e.persisted) buildSidebar();
+    });
   })();
 
   // ============================================================
