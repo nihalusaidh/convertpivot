@@ -1059,7 +1059,7 @@
   // ============================================================
   function injectAnalytics() {
     if (document.querySelector('#ga-gtag')) return;
-    var gaId = 'G-CNWXTPF26T';
+    var gaId = 'G-XZXBNSY680';
     var script1 = document.createElement('script');
     script1.id = 'ga-gtag';
     script1.async = true;
