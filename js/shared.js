@@ -114,7 +114,7 @@
     { heading: 'PDF', links: [
       { href: '/jpg-to-pdf', icon: '\uD83D\uDDBC', label: 'JPG to PDF' },
       { href: '/pdf-to-jpg', icon: '\uD83D\uDCF7', label: 'PDF to JPG' },
-      { href: '/pdf-compress', icon: '\uD83D\uDCE6', label: 'Compress PDF' },
+
       { href: '/pdf-split', icon: '\u2702', label: 'Split PDF' },
       { href: '/pdf-merge', icon: '\uD83D\uDCCB', label: 'Merge PDF' },
       { href: '/pdf-to-word', icon: '\uD83D\uDCC4', label: 'PDF to Word' },
@@ -748,7 +748,7 @@
     'chase-bank-statement-to-csv': ['wells-fargo-statement-to-csv', 'bank-of-america-statement-to-csv', 'bank-statement-converter', 'pdf-bank-statement-to-csv'],
     'wells-fargo-statement-to-csv': ['chase-bank-statement-to-csv', 'bank-of-america-statement-to-csv', 'bank-statement-converter', 'pdf-bank-statement-to-csv'],
     'bank-of-america-statement-to-csv': ['chase-bank-statement-to-csv', 'wells-fargo-statement-to-csv', 'bank-statement-converter', 'pdf-bank-statement-to-csv'],
-    'ipynb-to-pdf': ['ipynb-to-docx', 'ipynb-to-html', 'ipynb-to-py', 'pdf-compress'],
+    'ipynb-to-pdf': ['ipynb-to-docx', 'ipynb-to-html', 'ipynb-to-py', 'epub-to-pdf'],
     'ipynb-to-docx': ['ipynb-to-pdf', 'ipynb-to-html', 'ipynb-to-py', 'word-to-pdf'],
     'ipynb-to-html': ['ipynb-to-pdf', 'ipynb-to-docx', 'ipynb-to-py', 'markdown-to-html'],
     'ipynb-to-py': ['ipynb-to-pdf', 'ipynb-to-docx', 'ipynb-to-html', 'text-diff'],
@@ -777,14 +777,13 @@
     'epub-to-pdf': ['epub-to-txt', 'pdf-to-epub', 'pdf-to-word', 'word-to-pdf'],
     'epub-to-txt': ['epub-to-pdf', 'pdf-to-epub', 'pdf-to-text', 'markdown-to-html'],
     'pdf-to-epub': ['epub-to-pdf', 'epub-to-txt', 'pdf-to-word', 'word-to-pdf'],
-    'jpg-to-pdf': ['pdf-to-jpg', 'pdf-merge', 'pdf-compress', 'word-to-pdf'],
-    'pdf-to-jpg': ['jpg-to-pdf', 'pdf-to-word', 'pdf-to-text', 'pdf-compress'],
-    'pdf-compress': ['pdf-split', 'pdf-merge', 'jpg-to-pdf', 'pdf-to-text'],
-    'pdf-split': ['pdf-merge', 'pdf-compress', 'jpg-to-pdf', 'pdf-to-word'],
-    'pdf-merge': ['pdf-split', 'pdf-compress', 'jpg-to-pdf', 'pdf-to-word'],
-    'pdf-to-word': ['word-to-pdf', 'pdf-to-text', 'pdf-to-jpg', 'pdf-compress'],
-    'word-to-pdf': ['pdf-to-word', 'pdf-to-text', 'jpg-to-pdf', 'pdf-compress'],
-    'pdf-to-text': ['pdf-to-word', 'word-to-pdf', 'pdf-to-jpg', 'pdf-compress']
+    'jpg-to-pdf': ['pdf-to-jpg', 'pdf-merge', 'pdf-split', 'word-to-pdf'],
+    'pdf-to-jpg': ['jpg-to-pdf', 'pdf-to-word', 'pdf-to-text', 'pdf-split'],
+    'pdf-split': ['pdf-merge', 'pdf-to-word', 'jpg-to-pdf', 'pdf-to-text'],
+    'pdf-merge': ['pdf-split', 'pdf-to-word', 'jpg-to-pdf', 'pdf-to-text'],
+    'pdf-to-word': ['word-to-pdf', 'pdf-to-text', 'pdf-to-jpg', 'pdf-split'],
+    'word-to-pdf': ['pdf-to-word', 'pdf-to-text', 'jpg-to-pdf', 'pdf-split'],
+    'pdf-to-text': ['pdf-to-word', 'word-to-pdf', 'pdf-to-jpg', 'pdf-merge']
   };
 
   function injectRelatedTools() {
@@ -874,7 +873,7 @@
     'pdf-to-epub': ['/blog/how-to-create-ebook-from-pdf', '/blog/ebook-formats-explained', '/blog/kindle-vs-kobo-vs-ipad-2026'],
     'jpg-to-pdf': ['/blog/how-to-convert-jpg-to-pdf', '/blog/pdf-vs-word-vs-excel'],
     'pdf-to-jpg': ['/blog/pdf-vs-word-vs-excel', '/blog/top-10-free-online-file-converters'],
-    'pdf-compress': ['/blog/pdf-compression-guide', '/blog/how-to-reduce-pdf-file-size'],
+
     'pdf-split': ['/blog/split-merge-pdf-guide', '/blog/top-10-free-online-file-converters'],
     'pdf-merge': ['/blog/split-merge-pdf-guide', '/blog/top-10-free-online-file-converters'],
     'pdf-to-word': ['/blog/pdf-vs-word-vs-excel', '/blog/how-to-convert-pdf-to-excel'],
@@ -1246,7 +1245,7 @@
       'jpg-to-pdf': { ratingValue: 4.7, reviewCount: 245 },
       'pdf-to-jpg': { ratingValue: 4.6, reviewCount: 189 },
       'pdf-merge': { ratingValue: 4.8, reviewCount: 167 },
-      'pdf-compress': { ratingValue: 4.7, reviewCount: 198 },
+
       'pdf-split': { ratingValue: 4.6, reviewCount: 145 },
       'pdf-to-word': { ratingValue: 4.5, reviewCount: 234 },
       'word-to-pdf': { ratingValue: 4.6, reviewCount: 212 },
