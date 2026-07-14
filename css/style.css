@@ -335,7 +335,7 @@ a:hover { color: var(--color-red); }
 /* === CONVERTER WIDGET === */
 .converter-widget {
   background: var(--color-canvas);
-  border: 1px solid var(--color-mist);
+  border: 2px solid var(--color-red);
   border-radius: var(--radius-card);
   padding: 32px;
   margin-bottom: 32px;
@@ -480,23 +480,29 @@ a:hover { color: var(--color-red); }
 /* === CONVERTER INPUT === */
 .converter-input {
   padding: 8px 12px;
-  border: 1px solid var(--color-mist);
+  border: 2px solid var(--color-red);
   border-radius: var(--radius-pill);
   background: var(--color-canvas);
   color: var(--color-ink);
   font-size: 0.9rem;
   font-family: inherit;
   outline: none;
-  transition: border-color 0.2s, background 0.2s, color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
 }
 
 .converter-input:focus {
   border-color: var(--color-red);
+  box-shadow: 0 0 0 3px rgba(255,0,0,0.15);
 }
 
 .converter-input::placeholder {
   color: var(--color-graphite);
   opacity: 0.6;
+}
+
+textarea.converter-input,
+pre.converter-input {
+  border-radius: var(--radius-card);
 }
 
 .btn {
