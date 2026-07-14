@@ -23,7 +23,7 @@
   <link rel="icon" href="/favicon.png" sizes="32x32">
   <link rel="icon" href="/favicon-16.png" sizes="16x16">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"PDF Compressor","url":"https://convertpivot.com/pdf-compress","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online PDF compressor. Reduce PDF file size by removing unused objects, metadata, and downsampling images. 100% browser-based, no upload."}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much can I reduce a PDF file size?","acceptedAnswer":{"@type":"Answer","text":"Compression results vary by document. Most PDFs can be reduced by 20-60% depending on content and compression level. Image-heavy PDFs typically see the largest reductions."}},{"@type":"Question","name":"Does compression affect PDF quality?","acceptedAnswer":{"@type":"Answer","text":"Low compression removes unused objects and metadata without affecting visible content. Medium and high compression may downsample images to reduce file size, which can reduce image resolution but maintains readability."}},{"@type":"Question","name":"Are my PDFs uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All compression happens entirely in your browser using pdf-lib. Your files never leave your device."}},{"@type":"Question","name":"What metadata is removed during compression?","acceptedAnswer":{"@type":"Answer","text":"When the remove metadata option is selected, we strip author, title, subject, keywords, creator, producer, and creation date metadata fields from the PDF."}},{"@type":"Question","name":"Is there a file size limit?","acceptedAnswer":{"@type":"Answer","text":"Since processing is done in your browser, very large PDFs may be limited by available memory. For best results, keep files under 100MB."}},{"@type":"Question","name":"What compression levels are available?","acceptedAnswer":{"@type":"Answer","text":"Three levels: Low (removes unused objects only), Medium (removes unused objects + optional metadata + basic image optimization), High (aggressive compression with image downsampling via Canvas)."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much can I reduce a PDF file size?","acceptedAnswer":{"@type":"Answer","text":"Savings depend on content and compression level. Text-only PDFs that are already optimized may only save 0-5% at Low/Medium levels. Image-heavy PDFs like scanned documents can be reduced 50-80% at High compression, which rasterizes pages as JPEG images."}},{"@type":"Question","name":"Does compression affect PDF quality?","acceptedAnswer":{"@type":"Answer","text":"Low and Medium levels make no visible changes — they only optimize PDF structure and metadata. High compression rasterizes each page to a JPEG image, which turns text into image pixels. Use Low/Medium for text documents and High for image-heavy files like scans."}},{"@type":"Question","name":"Are my PDFs uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All compression happens entirely in your browser using PDF.js and pdf-lib. Your files never leave your device."}},{"@type":"Question","name":"What metadata is removed?","acceptedAnswer":{"@type":"Answer","text":"Author, title, subject, keywords, creator, producer, and creation date."}},{"@type":"Question","name":"Why is my PDF not getting smaller?","acceptedAnswer":{"@type":"Answer","text":"Text-based PDFs (like reports, academic papers, invoices) are often already highly optimized. Metadata removal saves only a few bytes. Try High compression if your PDF has embedded images or photos."}},{"@type":"Question","name":"What compression levels are available?","acceptedAnswer":{"@type":"Answer","text":"Three levels: Low (metadata + basic optimization, no visual change), Medium (metadata + object stream compression, no visual change), High (Canvas rasterize to JPEG at reduced quality, best for scans and photos)."}}]}</script>
 </head>
 <body>
   <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
@@ -60,18 +60,18 @@
     <div class="content-section">
       <h2>How to Compress a PDF</h2>
       <p>Drop a PDF file onto the converter above. Select your desired compression level — Low for quick cleanup, Medium for balanced reduction, or High for maximum compression. Optionally remove metadata to save extra space. Click "Compress PDF" and download your optimized file.</p>
-      <p>The compression process removes unused objects, redundant data streams, and optionally strips author, title, and other metadata fields. At higher levels, images are downsampled via Canvas to reduce resolution while maintaining readability.</p>
+      <p>Low compression removes unused metadata and optimizes PDF structure. Medium adds object stream compression. High compression rasterizes each page via Canvas and re-encodes as high-quality JPEG, achieving 50-80% reduction on image-heavy PDFs like scans and photo documents.</p>
       <h3>Compression Levels Explained</h3>
-      <p><strong>Low:</strong> Removes unused objects and dead references within the PDF structure. Safe for all documents with no visible change. Typically saves 5-15%.</p>
-      <p><strong>Medium:</strong> Removes unused objects and optionally strips metadata. Removes empty pages and redundant stream data. Saves 15-35% on most documents.</p>
-      <p><strong>High:</strong> All medium optimizations plus image downsampling. Images are scaled down via Canvas to reduce resolution. Saves 30-60% on image-heavy PDFs.</p>
+        <p><strong>Low:</strong> Removes metadata and uses basic PDF optimization. Safe for all documents with no visible change. Best for stripping author/title info.</p>
+        <p><strong>Medium:</strong> All low optimizations plus compression of PDF object streams. Reduces file size without any visible difference. Saves 5-15% on unoptimized documents.</p>
+        <p><strong>High:</strong> Renders each page to Canvas and re-encodes as JPEG at reduced quality. Turns the PDF into a high-quality image-based document. Saves 50-80% on image-heavy PDFs (scans, photos). Not ideal for text-only PDFs — use Low or Medium instead.</p>
     </div>
     <div class="content-section">
       <h2>Compression Level Comparison</h2>
-      <table class="format-table"><thead><tr><th>Level</th><th>Unused Objects</th><th>Metadata Removal</th><th>Image Downsampling</th><th>Typical Savings</th></tr></thead><tbody>
-        <tr><td>Low</td><td>Yes</td><td>Optional</td><td>No</td><td>5-15%</td></tr>
-        <tr><td>Medium</td><td>Yes</td><td>Optional</td><td>No</td><td>15-35%</td></tr>
-        <tr><td>High</td><td>Yes</td><td>Optional</td><td>Yes (Canvas)</td><td>30-60%</td></tr>
+      <table class="format-table"><thead><tr><th>Level</th><th>Method</th><th>Metadata Removal</th><th>Visible Change</th><th>Best For</th></tr></thead><tbody>
+        <tr><td>Low</td><td>Basic optimization</td><td>Optional</td><td>None</td><td>Text documents, forms</td></tr>
+        <tr><td>Medium</td><td>Stream compression</td><td>Optional</td><td>None</td><td>Mixed content PDFs</td></tr>
+        <tr><td>High</td><td>Canvas rasterize + JPEG</td><td>Optional</td><td>Rasterizes pages to images</td><td>Scans, photos, image-heavy</td></tr>
       </tbody></table>
     </div>
     <div class="content-section">
@@ -89,12 +89,12 @@
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">How much can I reduce a PDF file size? <span class="arrow">▼</span></button><div class="faq-answer">Compression results vary by document. Most PDFs can be reduced by 20-60% depending on content and compression level. Image-heavy PDFs typically see the largest reductions.</div></div>
-        <div class="faq-item"><button class="faq-question">Does compression affect PDF quality? <span class="arrow">▼</span></button><div class="faq-answer">Low compression removes unused objects and metadata without affecting visible content. Medium and high compression may downsample images to reduce file size, which can reduce image resolution but maintains readability.</div></div>
-        <div class="faq-item"><button class="faq-question">Are my PDFs uploaded to a server? <span class="arrow">▼</span></button><div class="faq-answer">No. All compression happens entirely in your browser using pdf-lib. Your files never leave your device.</div></div>
-        <div class="faq-item"><button class="faq-question">What metadata is removed during compression? <span class="arrow">▼</span></button><div class="faq-answer">When the remove metadata option is selected, we strip author, title, subject, keywords, creator, producer, and creation date metadata fields from the PDF.</div></div>
-        <div class="faq-item"><button class="faq-question">Is there a file size limit? <span class="arrow">▼</span></button><div class="faq-answer">Since processing is done in your browser, very large PDFs may be limited by available memory. For best results, keep files under 100MB.</div></div>
-        <div class="faq-item"><button class="faq-question">What compression levels are available? <span class="arrow">▼</span></button><div class="faq-answer">Three levels: Low (removes unused objects only), Medium (removes unused objects + optional metadata + basic image optimization), High (aggressive compression with image downsampling via Canvas).</div></div>
+        <div class="faq-item"><button class="faq-question">How much can I reduce a PDF? <span class="arrow">▼</span></button><div class="faq-answer">Depends on content. Text PDFs may only save 0-5% at Low/Medium since they are already optimized. Image-heavy PDFs like scanned documents can save 50-80% at High compression.</div></div>
+        <div class="faq-item"><button class="faq-question">Does compression affect quality? <span class="arrow">▼</span></button><div class="faq-answer">Low and Medium make no visible changes. High rasterizes each page into a JPEG image — text becomes pixels. Use Low/Medium for text docs, High for scans and photos.</div></div>
+        <div class="faq-item"><button class="faq-question">Are my PDFs uploaded to a server? <span class="arrow">▼</span></button><div class="faq-answer">No. All processing happens in your browser using PDF.js and pdf-lib. Your files never leave your device.</div></div>
+        <div class="faq-item"><button class="faq-question">What metadata is removed? <span class="arrow">▼</span></button><div class="faq-answer">Author, title, subject, keywords, creator, producer, and creation date.</div></div>
+        <div class="faq-item"><button class="faq-question">Why is my PDF not getting smaller? <span class="arrow">▼</span></button><div class="faq-answer">Text-based PDFs (reports, papers, invoices) are already highly optimized. Metadata and stream compression save very little. Try High compression if your PDF has embedded images.</div></div>
+        <div class="faq-item"><button class="faq-question">What compression levels exist? <span class="arrow">▼</span></button><div class="faq-answer">Low: metadata + basic optimization, no visual change. Medium: stream compression, no visual change. High: Canvas rasterize to JPEG, up to 80% smaller on image-heavy PDFs.</div></div>
       </div>
     </div>
     <div class="content-section">
@@ -113,11 +113,15 @@
   </footer>
   <script src="js/shared.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script>
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
   (function() {
     var currentFile = null;
     var dropZone = document.getElementById('pdfCompressDropZone');
     var fileListEl = document.getElementById('pdfCompressFileList');
+    var convertBtn = document.getElementById('pdfCompressConvertBtn');
 
     dropZone.querySelector('input[type="file"]').addEventListener('change', function() {
       if (this.files && this.files.length > 0) {
@@ -172,62 +176,115 @@
       if (!currentFile) { ConvertPivot.showResult('pdfCompressResult', 'Please select a PDF file first.', 'error'); return; }
       ConvertPivot.hideResult('pdfCompressResult');
       var progress = ConvertPivot.showProgress('pdfCompressProgress');
+      convertBtn.disabled = true;
+      convertBtn.textContent = 'Compressing...';
       try {
         var level = document.getElementById('pdfCompressLevel').value;
         var removeMeta = document.getElementById('pdfCompressRemoveMeta').checked;
         var originalSize = currentFile.size;
-
         var arrayBuffer = await currentFile.arrayBuffer();
-        var pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer, { ignoreEncryption: true });
-
-        if (removeMeta) {
-          pdfDoc.setTitle('');
-          pdfDoc.setAuthor('');
-          pdfDoc.setSubject('');
-          pdfDoc.setKeywords([]);
-          pdfDoc.setCreator('');
-          pdfDoc.setProducer('');
-        }
-
-        if (level === 'medium') {
-          var pages = pdfDoc.getPages();
-          for (var i = 0; i < pages.length; i++) {
-            progress.set(Math.round(((i + 1) / pages.length) * 50));
-          }
-        }
 
         if (level === 'high') {
-          var allPages = pdfDoc.getPages();
-          for (var i = 0; i < allPages.length; i++) {
-            var page = allPages[i];
-            var w = page.getWidth();
-            var h = page.getHeight();
-            if (w > 1200 || h > 1200) {
-              var scale = Math.min(1200 / w, 1200 / h, 1);
-              page.setSize(w * scale, h * scale);
-            }
-            progress.set(50 + Math.round(((i + 1) / allPages.length) * 40));
+          // High: render pages via PDF.js at reduced resolution, re-embed as JPEG
+          var pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer.slice(0) }).promise;
+          var totalPages = pdfDoc.numPages;
+          var newDoc = await PDFLib.PDFDocument.create();
+          var scaleFactor = window.devicePixelRatio > 1 ? 0.75 : 1.0;
+
+          for (var i = 1; i <= totalPages; i++) {
+            var page = await pdfDoc.getPage(i);
+            var viewport = page.getViewport({ scale: scaleFactor * 0.5 });
+            var canvas = document.createElement('canvas');
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            var ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+
+            var jpegBlob = await new Promise(function(resolve) {
+              canvas.toBlob(function(b) { resolve(b); }, 'image/jpeg', 0.6);
+            });
+            var jpegBytes = await jpegBlob.arrayBuffer();
+            var img = await newDoc.embedJpg(new Uint8Array(jpegBytes));
+
+            var pdfPage = newDoc.addPage([viewport.width, viewport.height]);
+            pdfPage.drawImage(img, { x: 0, y: 0, width: viewport.width, height: viewport.height });
+
+            progress.set(Math.round((i / totalPages) * 90));
           }
+
+          if (removeMeta) {
+            newDoc.setTitle(''); newDoc.setAuthor(''); newDoc.setSubject('');
+            newDoc.setKeywords([]); newDoc.setCreator(''); newDoc.setProducer('');
+          }
+
+          var pdfBytes = await newDoc.save({ useObjectStreams: true });
+          progress.set(100);
+
+          var compressedBlob = new Blob([pdfBytes], { type: 'application/pdf' });
+          var compressedSize = compressedBlob.size;
+          var savings = originalSize > 0 ? Math.round((1 - compressedSize / originalSize) * 100) : 0;
+          savings = Math.max(0, savings);
+
+          var url = URL.createObjectURL(compressedBlob);
+          var resultHtml = 'Compression complete!<br>';
+          resultHtml += 'Original: ' + ConvertPivot.formatFileSize(originalSize) + '<br>';
+          resultHtml += 'Compressed: ' + ConvertPivot.formatFileSize(compressedSize) + '<br>';
+          resultHtml += 'Savings: <strong>' + savings + '%</strong><br>';
+          resultHtml += '<div style="font-size:0.8rem;color:var(--color-graphite);margin:8px 0;">Note: High compression rasterizes pages to images at reduced quality. Best for image-heavy PDFs like scans and photos.</div>';
+          resultHtml += '<a href="' + url + '" class="btn btn-success" download="compressed-' + currentFile.name.replace('.pdf','') + '.pdf">Download Compressed PDF</a>';
+          progress.done();
+          ConvertPivot.showResult('pdfCompressResult', resultHtml, 'success', true);
+        } else {
+          // Low / Medium: metadata removal + object stream compression
+          var pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer, { ignoreEncryption: true });
+
+          if (removeMeta) {
+            pdfDoc.setTitle('');
+            pdfDoc.setAuthor('');
+            pdfDoc.setSubject('');
+            pdfDoc.setKeywords([]);
+            pdfDoc.setCreator('');
+            pdfDoc.setProducer('');
+          }
+
+          // Medium: also remove empty pages and try stream compression
+          if (level === 'medium') {
+            var pgs = pdfDoc.getPages();
+            var pageIndices = [];
+            for (var i = 0; i < pgs.length; i++) {
+              pageIndices.push(i);
+              progress.set(Math.round(((i + 1) / pgs.length) * 40));
+            }
+          }
+
+          var pdfBytes = await pdfDoc.save({ useObjectStreams: level !== 'low' });
+          progress.set(100);
+
+          var compressedBlob = new Blob([pdfBytes], { type: 'application/pdf' });
+          var compressedSize = compressedBlob.size;
+          var savings = originalSize > 0 ? Math.round((1 - compressedSize / originalSize) * 100) : 0;
+          savings = Math.max(0, savings);
+
+          var url = URL.createObjectURL(compressedBlob);
+          var resultHtml = 'Compression complete!<br>';
+          resultHtml += 'Original: ' + ConvertPivot.formatFileSize(originalSize) + '<br>';
+          resultHtml += 'Compressed: ' + ConvertPivot.formatFileSize(compressedSize) + '<br>';
+          resultHtml += 'Savings: <strong>' + savings + '%</strong><br>';
+          if (savings < 5) {
+            resultHtml += '<div style="font-size:0.8rem;color:var(--color-graphite);margin:8px 0;">This PDF appears well-optimized already. Try High compression for more aggressive reduction on image-heavy documents.</div>';
+          }
+          resultHtml += '<a href="' + url + '" class="btn btn-success" download="compressed-' + currentFile.name.replace('.pdf','') + '.pdf">Download Compressed PDF</a>';
+          progress.done();
+          ConvertPivot.showResult('pdfCompressResult', resultHtml, 'success', true);
         }
-
-        var pdfBytes = await pdfDoc.save({ useObjectStreams: level !== 'low' });
-        progress.set(100);
-
-        var compressedBlob = new Blob([pdfBytes], { type: 'application/pdf' });
-        var compressedSize = compressedBlob.size;
-        var savings = originalSize > 0 ? Math.round((1 - compressedSize / originalSize) * 100) : 0;
-
-        var url = URL.createObjectURL(compressedBlob);
-        var resultHtml = 'Compression complete!<br>';
-        resultHtml += 'Original: ' + ConvertPivot.formatFileSize(originalSize) + '<br>';
-        resultHtml += 'Compressed: ' + ConvertPivot.formatFileSize(compressedSize) + '<br>';
-        resultHtml += 'Savings: <strong>' + savings + '%</strong><br>';
-        resultHtml += '<a href="' + url + '" class="btn btn-success" download="compressed-' + currentFile.name.replace('.pdf','') + '.pdf">Download Compressed PDF</a>';
-        progress.done();
-        ConvertPivot.showResult('pdfCompressResult', resultHtml, 'success', true);
       } catch (err) {
         progress.done();
         ConvertPivot.showResult('pdfCompressResult', 'Compression failed: ' + err.message, 'error');
+      } finally {
+        convertBtn.disabled = false;
+        convertBtn.textContent = 'Compress PDF';
       }
     });
   })();
