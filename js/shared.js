@@ -282,7 +282,7 @@
       buildSidebar();
       // Force full-page repaint — bfcache often only paints the viewport
       var mc = document.getElementById('main-content');
-      if (mc) { mc.style.opacity = '0.999'; setTimeout(function () { mc.style.opacity = ''; }, 10); }
+      if (mc) { mc.style.display = 'none'; void mc.offsetHeight; mc.style.display = ''; }
     });
   })();
 
