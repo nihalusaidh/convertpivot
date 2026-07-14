@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS View Transitions Generator — @view-transition API Tool | ConvertPivot</title>
+  <meta name="description" content="Free online CSS View Transitions API generator. Create @view-transition rules, set view-transition-name, customize crossfade timing and pseudo-element animations for smooth SPA page transitions.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/css-view-transitions-generator">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/css-view-transitions-generator">
+  <meta property="og:title" content="CSS View Transitions Generator — @view-transition API Tool | ConvertPivot">
+  <meta property="og:description" content="Free online CSS View Transitions API generator. Create @view-transition rules and customize crossfade timing and pseudo-element animations.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CSS View Transitions Generator — @view-transition API Tool | ConvertPivot">
+  <meta name="twitter:description" content="Free online CSS View Transitions API generator. Create @view-transition rules and customize crossfade timing and pseudo-element animations.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CSS View Transitions Generator","url":"https://convertpivot.com/css-view-transitions-generator","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Generate CSS View Transitions API rules for smooth page transitions between SPA routes. Customize @view-transition and view-transition-name.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the CSS View Transitions API?","acceptedAnswer":{"@type":"Answer","text":"The CSS View Transitions API allows you to create smooth animated transitions between different states of a page, typically when navigating between routes in a single-page application. It uses the @view-transition at-rule and view-transition-name property to control which elements participate in transitions."}},{"@type":"Question","name":"How do view transitions work?","acceptedAnswer":{"@type":"Answer","text":"When a transition triggers, the browser captures the old and new state of the page (or specific elements). It then creates a crossfade between the two states by default. You can customize this by styling the ::view-transition-old() and ::view-transition-new() pseudo-elements with custom animations."}},{"@type":"Question","name":"What is view-transition-name?","acceptedAnswer":{"@type":"Answer","text":"view-transition-name is a CSS property that assigns a name to an element so it participates independently in the view transition. Elements with the same name in the old and new state will morph smoothly between their positions and sizes, rather than crossfading."}},{"@type":"Question","name":"What browser support does View Transitions have?","acceptedAnswer":{"@type":"Answer","text":"Chrome 111+, Edge 111+, Opera 97+, and Android WebView 111+ support the View Transitions API. Safari and Firefox have the feature under development. For cross-browser use, treat it as a progressive enhancement."}},{"@type":"Question","name":"Can I use view transitions in multi-page apps?","acceptedAnswer":{"@type":"Answer","text":"Yes, the Cross-document View Transitions spec (Chrome 126+) allows transitions across full page navigations (MPA). You use the same @view-transition at-rule with navigation: auto to enable cross-document transitions. This is a newer feature with more limited browser support."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">CSS View Transitions Generator</span></nav>
+    <div class="tool-header">
+      <h1>CSS View Transitions Generator</h1>
+      <p>Generate CSS for the View Transitions API. Set up @view-transition rules, assign view-transition-name to elements, and customize pseudo-element animations for smooth page transitions.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All generation happens in your browser. No data is sent anywhere.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div style="display:flex;flex-direction:column;gap:4px;">
+              <label for="transitionDuration" style="font-size:0.9rem;font-weight:600;">Crossfade Duration</label>
+              <input id="transitionDuration" type="text" value="0.6s" placeholder="e.g. 0.6s, 500ms" style="width:100%;padding:8px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-family:Consolas,monospace;font-size:0.85rem;">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px;">
+              <label for="transitionTiming" style="font-size:0.9rem;font-weight:600;">Timing Function</label>
+              <select id="transitionTiming" style="width:100%;padding:8px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;">
+                <option value="ease">ease</option>
+                <option value="ease-in-out">ease-in-out</option>
+                <option value="ease-in">ease-in</option>
+                <option value="ease-out">ease-out</option>
+                <option value="linear">linear</option>
+                <option value="cubic-bezier(0.22, 1, 0.36, 1)">ease-out (custom)</option>
+              </select>
+            </div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+            <div style="display:flex;align-items:center;gap:6px;">
+              <input id="optCustomElements" type="checkbox" style="width:18px;height:18px;accent-color:#ff6600;">
+              <label for="optCustomElements" style="font-size:0.9rem;">Enable named element transitions</label>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <input id="optCrossDoc" type="checkbox" style="width:18px;height:18px;accent-color:#ff6600;">
+              <label for="optCrossDoc" style="font-size:0.9rem;">Cross-document (MPA) navigation</label>
+            </div>
+          </div>
+          <div id="elementList" style="display:none;flex-direction:column;gap:8px;padding:12px;border:1px solid var(--color-mist);border-radius:8px;">
+            <div style="font-size:0.9rem;font-weight:600;">Transition Elements</div>
+            <div id="elementsContainer" style="display:flex;flex-direction:column;gap:6px;">
+              <div style="display:flex;gap:8px;">
+                <input class="elemName" type="text" value="page-header" placeholder="element-name" style="flex:1;padding:6px 10px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-family:Consolas,monospace;font-size:0.85rem;">
+                <button class="removeElem" style="background:none;border:none;cursor:pointer;color:#999;font-size:1.1rem;">✕</button>
+              </div>
+              <div style="display:flex;gap:8px;">
+                <input class="elemName" type="text" value="main-content" placeholder="element-name" style="flex:1;padding:6px 10px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-family:Consolas,monospace;font-size:0.85rem;">
+                <button class="removeElem" style="background:none;border:none;cursor:pointer;color:#999;font-size:1.1rem;">✕</button>
+              </div>
+            </div>
+            <button id="addElemBtn" style="background:none;border:1px dashed var(--color-mist);border-radius:18px;padding:6px 16px;cursor:pointer;font-size:0.85rem;color:var(--text-secondary);">+ Add Element</button>
+          </div>
+          <button id="generateVtBtn" class="btn btn-primary" style="padding:8px 24px;">Generate CSS</button>
+        </div>
+        <div id="resultArea" style="margin-top:16px;display:none;">
+          <label style="font-size:0.9rem;font-weight:600;">Generated CSS:</label>
+          <pre id="cssOutput" style="background:var(--color-smoke);border:1px solid var(--color-mist);border-radius:8px;padding:12px;font-family:Consolas,monospace;font-size:0.85rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all;margin-top:6px;"></pre>
+          <button id="copyOutputBtn" class="btn btn-primary" style="padding:6px 20px;font-size:0.85rem;margin-top:6px;">Copy CSS</button>
+        </div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the CSS View Transitions Generator</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Set Transition Timing</h3><p>Configure crossfade duration and timing function for the default ::view-transition-group animation. These apply to all transitioning elements.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Add Named Elements</h3><p>Enable named element transitions and list the elements that should animate independently. Elements with the same name in old and new states will morph between positions.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Copy & Use</h3><p>Copy the generated CSS into your stylesheet. Add view-transition-name to matching DOM elements in your app and call document.startViewTransition() to trigger transitions.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>View Transitions API Reference</h2>
+      <div style="overflow-x:auto;">
+        <table class="format-table" style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+          <thead><tr style="background:var(--color-mist);"><th style="padding:8px 12px;text-align:left;">Property / Rule</th><th style="padding:8px 12px;text-align:left;">Purpose</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:Consolas,monospace;">@view-transition { navigation: auto; }</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Enables cross-document view transitions (MPA)</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:Consolas,monospace;">view-transition-name: foo</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Assigns an element to participate independently in the transition</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:Consolas,monospace;">::view-transition-group(foo)</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Pseudo-element wrapping the old and new states</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:Consolas,monospace;">::view-transition-old(foo)</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Snapshot of the element before the transition</td></tr>
+            <tr><td style="padding:6px 12px;font-family:Consolas,monospace;">::view-transition-new(foo)</td><td style="padding:6px 12px;">Live representation of the element after the transition</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What is the CSS View Transitions API? <span class="arrow">▼</span></button><div class="faq-answer">The CSS View Transitions API allows you to create smooth animated transitions between different states of a page, typically when navigating between routes in a single-page application. It uses the @view-transition at-rule and view-transition-name property to control which elements participate in transitions.</div></div>
+        <div class="faq-item"><button class="faq-question">How do view transitions work? <span class="arrow">▼</span></button><div class="faq-answer">When a transition triggers, the browser captures the old and new state of the page. It then creates a crossfade between the two states by default. You can customize this by styling the ::view-transition-old() and ::view-transition-new() pseudo-elements with custom animations.</div></div>
+        <div class="faq-item"><button class="faq-question">What is view-transition-name? <span class="arrow">▼</span></button><div class="faq-answer">view-transition-name is a CSS property that assigns a name to an element so it participates independently in the view transition. Elements with the same name in the old and new state will morph smoothly between their positions and sizes, rather than crossfading.</div></div>
+        <div class="faq-item"><button class="faq-question">What browser support does View Transitions have? <span class="arrow">▼</span></button><div class="faq-answer">Chrome 111+, Edge 111+, Opera 97+, and Android WebView 111+ support the View Transitions API. Safari and Firefox have the feature under development. For cross-browser use, treat it as a progressive enhancement.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I use view transitions in multi-page apps? <span class="arrow">▼</span></button><div class="faq-answer">Yes, the Cross-document View Transitions spec (Chrome 126+) allows transitions across full page navigations (MPA). You use the same @view-transition at-rule with navigation: auto to enable cross-document transitions.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var duration = document.getElementById('transitionDuration');
+      var timing = document.getElementById('transitionTiming');
+      var optCustom = document.getElementById('optCustomElements');
+      var optCross = document.getElementById('optCrossDoc');
+      var elemList = document.getElementById('elementList');
+      var elementsContainer = document.getElementById('elementsContainer');
+      var addBtn = document.getElementById('addElemBtn');
+      var generateBtn = document.getElementById('generateVtBtn');
+      var cssOutput = document.getElementById('cssOutput');
+      var resultArea = document.getElementById('resultArea');
+      var copyBtn = document.getElementById('copyOutputBtn');
+
+      function getElementNames() {
+        var inputs = elementsContainer.querySelectorAll('.elemName');
+        var names = [];
+        for (var i = 0; i < inputs.length; i++) {
+          var v = inputs[i].value.trim();
+          if (v) names.push(v);
+        }
+        return names;
+      }
+
+      function generate() {
+        var dur = duration.value.trim() || '0.6s';
+        var tim = timing.value;
+        var hasCustom = optCustom.checked;
+        var isCross = optCross.checked;
+        var names = hasCustom ? getElementNames() : [];
+
+        var css = '';
+        if (isCross) {
+          css += '@view-transition {\n';
+          css += '  navigation: auto;\n';
+          css += '}\n\n';
+        }
+
+        css += '/* Base transition animation */\n';
+        css += '::view-transition-group(root) {\n';
+        css += '  animation-duration: ' + dur + ';\n';
+        css += '  animation-timing-function: ' + tim + ';\n';
+        css += '}\n\n';
+
+        css += '::view-transition-old(root) {\n';
+        css += '  animation-duration: ' + dur + ';\n';
+        css += '  animation-timing-function: ' + tim + ';\n';
+        css += '}\n\n';
+
+        css += '::view-transition-new(root) {\n';
+        css += '  animation-duration: ' + dur + ';\n';
+        css += '  animation-timing-function: ' + tim + ';\n';
+        css += '}\n';
+
+        if (hasCustom && names.length > 0) {
+          css += '\n/* Named element transitions */\n';
+          for (var i = 0; i < names.length; i++) {
+            css += '\n/* ' + names[i] + ' */\n';
+            css += '::view-transition-group(' + names[i] + ') {\n';
+            css += '  animation-duration: ' + dur + ';\n';
+            css += '  animation-timing-function: ' + tim + ';\n';
+            css += '}\n';
+            css += '::view-transition-old(' + names[i] + ') {\n';
+            css += '  animation-duration: ' + dur + ';\n';
+            css += '  animation-timing-function: ' + tim + ';\n';
+            css += '}\n';
+            css += '::view-transition-new(' + names[i] + ') {\n';
+            css += '  animation-duration: ' + dur + ';\n';
+            css += '  animation-timing-function: ' + tim + ';\n';
+            css += '}\n';
+          }
+
+          css += '\n/* Assign to elements in your HTML:\n';
+          for (var j = 0; j < names.length; j++) {
+            css += '   .' + names[j] + ' { view-transition-name: ' + names[j] + '; }\n';
+          }
+          css += '*/';
+        }
+
+        cssOutput.textContent = css;
+        resultArea.style.display = 'block';
+
+        copyBtn.onclick = function() {
+          navigator.clipboard.writeText(css).then(function() {
+            copyBtn.textContent = 'Copied!';
+            setTimeout(function() { copyBtn.textContent = 'Copy CSS'; }, 1500);
+          }).catch(function() {});
+        };
+      }
+
+      optCustom.addEventListener('change', function() {
+        elemList.style.display = optCustom.checked ? 'flex' : 'none';
+        if (optCustom.checked) generate();
+      });
+      optCross.addEventListener('change', generate);
+
+      addBtn.addEventListener('click', function() {
+        var div = document.createElement('div');
+        div.style.display = 'flex';
+        div.style.gap = '8px';
+        div.innerHTML = '<input class="elemName" type="text" placeholder="element-name" style="flex:1;padding:6px 10px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-family:Consolas,monospace;font-size:0.85rem;"><button class="removeElem" style="background:none;border:none;cursor:pointer;color:#999;font-size:1.1rem;">✕</button>';
+        elementsContainer.appendChild(div);
+        div.querySelector('.removeElem').addEventListener('click', function() {
+          div.remove();
+          if (optCustom.checked) generate();
+        });
+        div.querySelector('.elemName').addEventListener('input', function() {
+          if (optCustom.checked) generate();
+        });
+      });
+
+      elementsContainer.addEventListener('click', function(e) {
+        if (e.target.classList.contains('removeElem')) {
+          var row = e.target.parentElement;
+          row.remove();
+          if (optCustom.checked) generate();
+        }
+      });
+
+      elementsContainer.addEventListener('input', function(e) {
+        if (e.target.classList.contains('elemName')) {
+          if (optCustom.checked) generate();
+        }
+      });
+
+      generateBtn.addEventListener('click', generate);
+      duration.addEventListener('input', function() { setTimeout(generate, 100); });
+      timing.addEventListener('change', generate);
+
+      generate();
+    })();
+  </script>
+</body>
+</html>

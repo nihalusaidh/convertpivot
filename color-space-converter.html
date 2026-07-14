@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OKLCH / LCH / Display P3 Color Converter — Modern CSS Color Spaces | ConvertPivot</title>
+  <meta name="description" content="Free online color space converter. Convert between sRGB, HEX, HSL, OKLCH, OKLAB, LCH, LAB, and Display P3. See gamut warnings and copy CSS code for any format.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/color-space-converter">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/color-space-converter">
+  <meta property="og:title" content="OKLCH / LCH / Display P3 Color Converter — Modern CSS Color Spaces | ConvertPivot">
+  <meta property="og:description" content="Free online color space converter. Convert between sRGB, HEX, HSL, OKLCH, OKLAB, LCH, LAB, and Display P3. See gamut warnings.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="OKLCH / LCH / Display P3 Color Converter — Modern CSS Color Spaces | ConvertPivot">
+  <meta name="twitter:description" content="Free online color space converter. Convert between sRGB, HEX, HSL, OKLCH, OKLAB, LCH, LAB, and Display P3. See gamut warnings.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Color Space Converter","url":"https://convertpivot.com/color-space-converter","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online color space converter. Convert between sRGB, HEX, HSL, OKLCH, OKLAB, LCH, LAB, and Display P3.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between OKLCH and LCH?","acceptedAnswer":{"@type":"Answer","text":"OKLCH is a newer, more perceptually uniform color space than LCH. Equal changes in OKLCH values correspond to equal perceived color differences, making it better for gradients, color palettes, and accessible design. LCH (CIE LCH) was standardized in 1976 and has known issues with blue/purple hue distortion."}},{"@type":"Question","name":"What is Display P3 and when should I use it?","acceptedAnswer":{"@type":"Answer","text":"Display P3 is a wide-gamut color space used by Apple devices. It covers about 45% more visible colors than sRGB, with especially vivid reds and greens. Use it via the CSS color() function for displays that support it, with an sRGB fallback."}},{"@type":"Question","name":"Why is OKLCH recommended for CSS gradients?","acceptedAnswer":{"@type":"Answer","text":"OKLCH is the default interpolation space for CSS color-mix() because it produces smooth, perceptually uniform gradient transitions without the gray dead zones or unexpected hue shifts that occur in sRGB or LCH interpolation."}},{"@type":"Question","name":"How do I detect if a color is out of gamut?","acceptedAnswer":{"@type":"Answer","text":"A color is out of gamut when its components fall outside a color space's valid range. For sRGB, this means any linear RGB component below 0 or above 1. This tool shows gamut warnings when you convert a color that cannot be accurately displayed in a given color space."}},{"@type":"Question","name":"What does the CSS color() function do?","acceptedAnswer":{"@type":"Answer","text":"The CSS color() function lets you specify colors in any supported color space, including Display P3, Rec.2020, and others. For example, color(display-p3 1 0 0) specifies pure red in the Display P3 gamut. It requires modern browser support."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Color Space Converter</span></nav>
+    <div class="tool-header">
+      <h1>Color Space Converter</h1>
+      <p>Convert colors between HEX, RGB, HSL, OKLCH, OKLAB, LCH, LAB, and Display P3. See gamut boundaries and copy CSS code for any format.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All color conversions happen in your browser. No data is sent anywhere.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
+          <div style="flex:0 0 120px;">
+            <div id="colorPreview" style="width:120px;height:120px;border-radius:8px;border:2px solid var(--color-mist);cursor:pointer;"></div>
+            <input type="color" id="colorPicker" value="#FF6633" style="width:100%;height:32px;margin-top:4px;padding:2px;border-radius:4px;border:1px solid var(--color-mist);cursor:pointer;">
+          </div>
+          <div style="flex:1;min-width:200px;">
+            <label for="colorInput">Enter any CSS color:</label>
+            <input type="text" id="colorInput" class="converter-input" value="#FF6633" style="font-family:Consolas,monospace;width:100%;">
+            <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;">
+              <button class="btn btn-secondary" data-example="#FF6633">#FF6633</button>
+              <button class="btn btn-secondary" data-example="oklch(0.628 0.257 29.2)">oklch(0.628 0.257 29.2)</button>
+              <button class="btn btn-secondary" data-example="color(display-p3 1 0.2 0.1)">P3 Red</button>
+              <button class="btn btn-secondary" data-example="lch(52% 72.2 29.2)">lch(52% 72.2 29.2)</button>
+            </div>
+          </div>
+        </div>
+        <div id="gamutWarning" style="display:none;padding:8px 12px;border-radius:6px;margin-bottom:12px;font-size:0.9rem;"></div>
+        <div id="conversionResults" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;"></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the Color Space Converter</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Enter a Color</h3><p>Type any CSS color value — HEX, RGB, HSL, OKLCH, LCH, OKLAB, or Display P3 — or use the color picker. The tool parses it automatically.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>View All Conversions</h3><p>See the color translated into every major color format. Each result shows the exact CSS code you can copy.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Check Gamut Boundaries</h3><p>If a color can't be displayed in a given space, a gamut warning appears. Use the warning to decide when to provide fallback colors.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>CSS Color Space Reference</h2>
+      <div style="overflow-x:auto;">
+        <table class="format-table" style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+          <thead><tr style="background:var(--color-mist);"><th style="padding:8px 12px;text-align:left;">Color Space</th><th style="padding:8px 12px;text-align:left;">CSS Function</th><th style="padding:8px 12px;text-align:left;">Components</th><th style="padding:8px 12px;text-align:left;">Best For</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">sRGB</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">rgb() / #hex</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">R 0-255, G 0-255, B 0-255</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Universal browser support</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">HSL</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">hsl()</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">H 0-360, S 0-100%, L 0-100%</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Intuitive color picking</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">OKLCH</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">oklch()</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">L 0-1, C 0-0.4, H 0-360</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Gradients, palettes, contrast</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">OKLAB</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">oklab()</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">L 0-1, a -0.4-0.4, b -0.4-0.4</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Color science</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">LCH</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">lch()</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">L 0-100, C 0-230, H 0-360</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Print / legacy color work</td></tr>
+            <tr><td style="padding:6px 12px;">Display P3</td><td style="padding:6px 12px;">color(display-p3)</td><td style="padding:6px 12px;">R 0-1, G 0-1, B 0-1</td><td style="padding:6px 12px;">Wide-gamut displays (Apple)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What is the difference between OKLCH and LCH? <span class="arrow">▼</span></button><div class="faq-answer">OKLCH is a newer, more perceptually uniform color space than LCH. Equal changes in OKLCH values correspond to equal perceived color differences, making it better for gradients, color palettes, and accessible design. LCH (CIE LCH) was standardized in 1976 and has known issues with blue/purple hue distortion.</div></div>
+        <div class="faq-item"><button class="faq-question">What is Display P3 and when should I use it? <span class="arrow">▼</span></button><div class="faq-answer">Display P3 is a wide-gamut color space used by Apple devices. It covers about 45% more visible colors than sRGB, with especially vivid reds and greens. Use it via the CSS color() function for displays that support it, with an sRGB fallback.</div></div>
+        <div class="faq-item"><button class="faq-question">Why is OKLCH recommended for CSS gradients? <span class="arrow">▼</span></button><div class="faq-answer">OKLCH is the default interpolation space for CSS color-mix() because it produces smooth, perceptually uniform gradient transitions without the gray dead zones or unexpected hue shifts that occur in sRGB or LCH interpolation.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I detect if a color is out of gamut? <span class="arrow">▼</span></button><div class="faq-answer">A color is out of gamut when its components fall outside a color space's valid range. For sRGB, this means any linear RGB component below 0 or above 1. This tool shows gamut warnings when you convert a color that cannot be accurately displayed in a given color space.</div></div>
+        <div class="faq-item"><button class="faq-question">What does the CSS color() function do? <span class="arrow">▼</span></button><div class="faq-answer">The CSS color() function lets you specify colors in any supported color space, including Display P3, Rec.2020, and others. For example, color(display-p3 1 0 0) specifies pure red in the Display P3 gamut. It requires modern browser support.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var colorInput = document.getElementById('colorInput');
+      var colorPicker = document.getElementById('colorPicker');
+      var preview = document.getElementById('colorPreview');
+      var resultsDiv = document.getElementById('conversionResults');
+      var gamutWarning = document.getElementById('gamutWarning');
+
+      function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+      function srgbToLinear(c) { c = clamp(c, 0, 1); return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); }
+      function linearToSrgb(c) { return c <= 0.0031308 ? c * 12.92 : 1.055 * Math.pow(c, 1 / 2.4) - 0.055; }
+
+      function hexToRgb(hex) {
+        hex = hex.replace('#','');
+        if (hex.length === 3) hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+        if (hex.length !== 6) return null;
+        return { r: parseInt(hex.substr(0,2),16)/255, g: parseInt(hex.substr(2,2),16)/255, b: parseInt(hex.substr(4,2),16)/255 };
+      }
+      function rgbToHex(r, g, b) {
+        r = clamp(Math.round(r*255),0,255); g = Math.round(clamp(g,0,1)*255); b = Math.round(clamp(b,0,1)*255);
+        return '#' + r.toString(16).padStart(2,'0') + g.toString(16).padStart(2,'0') + b.toString(16).padStart(2,'0');
+      }
+
+      function srgbToHsl(r, g, b) {
+        var mx = Math.max(r,g,b), mn = Math.min(r,g,b), d = mx - mn;
+        var h = 0; if (d !== 0) { if (mx === r) h = ((g-b)/d + (g<b?6:0)) * 60; else if (mx === g) h = ((b-r)/d + 2) * 60; else h = ((r-g)/d + 4) * 60; }
+        var l = (mx+mn)/2, s = d === 0 ? 0 : d / (1 - Math.abs(2*l-1));
+        return { h: h % 360, s: s, l: l };
+      }
+      function hslToSrgb(h, s, l) {
+        h = ((h % 360) + 360) % 360; s = clamp(s,0,1); l = clamp(l,0,1);
+        var c = (1 - Math.abs(2*l-1)) * s, x = c * (1 - Math.abs((h/60) % 2 - 1)), m = l - c/2;
+        var r, g, b;
+        if (h < 60) { r=c; g=x; b=0; } else if (h < 120) { r=x; g=c; b=0; } else if (h < 180) { r=0; g=c; b=x; }
+        else if (h < 240) { r=0; g=x; b=c; } else if (h < 300) { r=x; g=0; b=c; } else { r=c; g=0; b=x; }
+        return { r: r+m, g: g+m, b: b+m };
+      }
+
+      var M_srgb_xyz = [[0.4123907992659595,0.357584339383878,0.1804807884018343],[0.21263900587151027,0.715168678767756,0.07219231536073371],[0.01933081871559182,0.11919477979462598,0.9505321522496607]];
+      var M_xyz_srgb = [[3.2409699419045226,-1.5373831775700939,-0.4986107602930034],[-0.9692436362808796,1.8759675015077202,0.04155505740717559],[0.05563007969699366,-0.2039769590111344,1.0569715108029177]];
+      var M_p3_xyz = [[0.4865709486482162,0.26566769316909306,0.1982172852343625],[0.2289745640697488,0.6917385218365064,0.079286914093745],[0,0.04511338185890264,1.043944368900976]];
+      var M_xyz_p3 = [[2.493496911941425,-0.9313836179191239,-0.40271078445071684],[-0.8294889695615747,1.7626640603183923,0.023624685841943577],[0.03584583024378447,-0.07617238926804182,0.9568845240076872]];
+      var M_xyz_lms = [[0.8189330101,0.3618667424,-0.1288597137],[0.0329845436,0.9293118715,0.0361456387],[0.0482003018,0.2643662691,0.6338517070]];
+      var M_lms_oklab = [[0.2104542553,0.7936177850,-0.0040720468],[1.9779984951,-2.4285922050,0.4505937099],[0.0259040371,0.7827717662,-0.8086757660]];
+      var M_oklab_lms = [[1,0.3963377774,0.2158037573],[1,-0.1055613458,-0.0638541728],[1,-0.0894841775,-1.2914855480]];
+      var M_lms_xyz = [[1.2270138511,-0.5577999807,0.2812561490],[-0.0405801784,1.1122568696,-0.0716766787],[-0.0763812845,-0.4214819784,1.5861632204]];
+      var D65 = [0.950489,1,1.088840];
+
+      function matMul(m, v) { return [m[0][0]*v[0]+m[0][1]*v[1]+m[0][2]*v[2], m[1][0]*v[0]+m[1][1]*v[1]+m[1][2]*v[2], m[2][0]*v[0]+m[2][1]*v[1]+m[2][2]*v[2]]; }
+
+      function linearSrgbToXyz(r,g,b) { return matMul(M_srgb_xyz, [r,g,b]); }
+      function xyzToLinearSrgb(x,y,z) { return matMul(M_xyz_srgb, [x,y,z]); }
+      function linearP3ToXyz(r,g,b) { return matMul(M_p3_xyz, [r,g,b]); }
+      function xyzToLinearP3(x,y,z) { return matMul(M_xyz_p3, [x,y,z]); }
+
+      function xyzToOklab(x,y,z) {
+        var lms = matMul(M_xyz_lms, [x,y,z]);
+        lms[0] = Math.cbrt(lms[0]); lms[1] = Math.cbrt(lms[1]); lms[2] = Math.cbrt(lms[2]);
+        return matMul(M_lms_oklab, lms);
+      }
+      function oklabToXyz(L,a,b) {
+        var lms = matMul(M_oklab_lms, [L,a,b]);
+        lms[0] = lms[0]*lms[0]*lms[0]; lms[1] = lms[1]*lms[1]*lms[1]; lms[2] = lms[2]*lms[2]*lms[2];
+        return matMul(M_lms_xyz, lms);
+      }
+      function oklabToOklch(L,a,b) { return { L: L, C: Math.sqrt(a*a+b*b), H: Math.atan2(b,a)*180/Math.PI }; }
+      function oklchToOklab(L,C,H) { var h = H*Math.PI/180; return { L: L, a: C*Math.cos(h), b: C*Math.sin(h) }; }
+
+      function xyzToLab(x,y,z) {
+        var f = function(t) { return t > 0.008856 ? Math.cbrt(t) : 7.787*t + 16/116; };
+        var fx = f(x/D65[0]), fy = f(y/D65[1]), fz = f(z/D65[2]);
+        return { L: 116*fy - 16, a: 500*(fx-fy), b: 200*(fy-fz) };
+      }
+      function labToXyz(L,a,b) {
+        var fy = (L+16)/116, fx = a/500 + fy, fz = fy - b/200;
+        var fi = function(t) { var t3 = t*t*t; return t3 > 0.008856 ? t3 : (t - 16/116)/7.787; };
+        return [D65[0]*fi(fx), D65[1]*fi(fy), D65[2]*fi(fz)];
+      }
+      function labToLch(L,a,b) { return { L: L, C: Math.sqrt(a*a+b*b), H: Math.atan2(b,a)*180/Math.PI }; }
+
+      function isSrgbGamut(r,g,b) { return r>=-1e-9 && r<=1+1e-9 && g>=-1e-9 && g<=1+1e-9 && b>=-1e-9 && b<=1+1e-9; }
+      function isP3Gamut(r,g,b) { return r>=-1e-9 && r<=1+1e-9 && g>=-1e-9 && g<=1+1e-9 && b>=-1e-9 && b<=1+1e-9; }
+
+      function parseColor(str) {
+        str = str.trim();
+        if (/^#[0-9a-f]{3,8}$/i.test(str)) { var c = hexToRgb(str); return c ? { space:'srgb', r:c.r, g:c.g, b:c.b } : null; }
+        var m;
+        m = str.match(/^rgb\s*\(\s*(\d+\.?\d*)\s*(\d+\.?\d*)\s*(\d+\.?\d*)(?:\s*\/\s*[\d.]+)?\s*\)$/i);
+        if (m) return { space:'srgb', r:parseFloat(m[1])/255, g:parseFloat(m[2])/255, b:parseFloat(m[3])/255 };
+        m = str.match(/^rgb\s*\(\s*([0-9.]+)%\s*([0-9.]+)%\s*([0-9.]+)%(?:\s*\/\s*[\d.]+)?\s*\)$/i);
+        if (m) return { space:'srgb', r:parseFloat(m[1])/100, g:parseFloat(m[2])/100, b:parseFloat(m[3])/100 };
+        m = str.match(/^hsl\s*\(\s*([0-9.]+)\s*([0-9.]+)%\s*([0-9.]+)%(?:\s*\/\s*[\d.]+)?\s*\)$/i);
+        if (m) { var h = parseFloat(m[1]), s = parseFloat(m[2])/100, l = parseFloat(m[3])/100; var c2 = hslToSrgb(h,s,l); return { space:'srgb', r:c2.r, g:c2.g, b:c2.b }; }
+        m = str.match(/^oklch\s*\(\s*([0-9.]+)\s*([0-9.]+)\s*([0-9.]+)(?:deg)?(?:\s*\/\s*[\d.]+)?\s*\)$/i);
+        if (m) { var ok = oklchToOklab(parseFloat(m[1]),parseFloat(m[2]),parseFloat(m[3])); var xyz2 = oklabToXyz(ok.L,ok.a,ok.b); var sr = xyzToLinearSrgb(xyz2[0],xyz2[1],xyz2[2]); return { space:'srgb', r:linearToSrgb(sr[0]), g:linearToSrgb(sr[1]), b:linearToSrgb(sr[2]), _lr:sr[0],_lg:sr[1],_lb:sr[2] }; }
+        m = str.match(/^oklab\s*\(\s*([0-9.]+)\s*([-0-9.]+)\s*([-0-9.]+)(?:\s*\/\s*[\d.]+)?\s*\)$/i);
+        if (m) { var xyz3 = oklabToXyz(parseFloat(m[1]),parseFloat(m[2]),parseFloat(m[3])); var sr2 = xyzToLinearSrgb(xyz3[0],xyz3[1],xyz3[2]); return { space:'srgb', r:linearToSrgb(sr2[0]), g:linearToSrgb(sr2[1]), b:linearToSrgb(sr2[2]), _lr:sr2[0],_lg:sr2[1],_lb:sr2[2] }; }
+        m = str.match(/^lch\s*\(\s*([0-9.]+)%?\s*([0-9.]+)\s*([0-9.]+)(?:deg)?(?:\s*\/\s*[\d.]+)?\s*\)$/i);
+        if (m) { var lab = { L: parseFloat(m[1]), a: parseFloat(m[2])*Math.cos(parseFloat(m[3])*Math.PI/180), b: parseFloat(m[2])*Math.sin(parseFloat(m[3])*Math.PI/180) }; var xyz4 = labToXyz(lab.L,lab.a,lab.b); var sr3 = xyzToLinearSrgb(xyz4[0],xyz4[1],xyz4[2]); return { space:'srgb', r:linearToSrgb(sr3[0]), g:linearToSrgb(sr3[1]), b:linearToSrgb(sr3[2]), _lr:sr3[0],_lg:sr3[1],_lb:sr3[2] }; }
+        m = str.match(/^color\s*\(\s*display-p3\s*([0-9.]+)\s*([0-9.]+)\s*([0-9.]+)(?:\s*\/\s*[\d.]+)?\s*\)$/i);
+        if (m) { var p3lr = parseFloat(m[1]), p3lg = parseFloat(m[2]), p3lb = parseFloat(m[3]); var xyz5 = linearP3ToXyz(p3lr,p3lg,p3lb); var sr4 = xyzToLinearSrgb(xyz5[0],xyz5[1],xyz5[2]); return { space:'srgb', r:linearToSrgb(clamp(sr4[0],0,1)), g:linearToSrgb(clamp(sr4[1],0,1)), b:linearToSrgb(clamp(sr4[2],0,1)), _lr:sr4[0],_lg:sr4[1],_lb:sr4[2], _p3lr:p3lr,_p3lg:p3lg,_p3lb:p3lb }; }
+        return null;
+      }
+
+      function fmt(v, d) { d = d || 4; return parseFloat(v.toFixed(d)); }
+
+      function update() {
+        var raw = colorInput.value.trim();
+        if (!raw) { resultsDiv.innerHTML = '<p style="color:var(--text-secondary);padding:12px;">Enter a color above to see all conversions.</p>'; gamutWarning.style.display = 'none'; return; }
+        var parsed = parseColor(raw);
+        if (!parsed) { resultsDiv.innerHTML = '<p style="color:var(--color-error);padding:12px;">Could not parse that color. Try #FF6633 or oklch(0.628 0.257 29.2)</p>'; gamutWarning.style.display = 'none'; return; }
+        var r = parsed.r, g = parsed.g, b = parsed.b;
+        var lr = parsed._lr !== undefined ? parsed._lr : srgbToLinear(r);
+        var lg = parsed._lg !== undefined ? parsed._lg : srgbToLinear(g);
+        var lb = parsed._lb !== undefined ? parsed._lb : srgbToLinear(b);
+        var hex = rgbToHex(r, g, b);
+        preview.style.background = hex;
+        colorPicker.value = hex;
+
+        var xyz = linearSrgbToXyz(lr, lg, lb);
+        var oklab = xyzToOklab(xyz[0], xyz[1], xyz[2]);
+        var oklch = oklabToOklch(oklab[0], oklab[1], oklab[2]);
+        var cielab = xyzToLab(xyz[0], xyz[1], xyz[2]);
+        var cielch = labToLch(cielab.L, cielab.a, cielab.b);
+        var hsl = srgbToHsl(r, g, b);
+        var p3lin = xyzToLinearP3(xyz[0], xyz[1], xyz[2]);
+        var insrgb = isSrgbGamut(lr, lg, lb);
+        var inp3 = isP3Gamut(p3lin[0], p3lin[1], p3lin[2]);
+
+        var warnings = [];
+        if (!insrgb) warnings.push('This color is outside the sRGB gamut and may not display accurately on standard screens.');
+        if (!inp3) warnings.push('This color is outside the Display P3 gamut and may not display accurately on wide-gamut screens.');
+        if (warnings.length) {
+          gamutWarning.style.display = 'block';
+          gamutWarning.style.background = 'var(--color-red-light)';
+          gamutWarning.style.color = 'var(--color-red)';
+          gamutWarning.innerHTML = '<strong>⚠ Gamut Warning:</strong> ' + warnings.join(' ');
+        } else { gamutWarning.style.display = 'none'; }
+
+        var formats = [
+          { name: 'HEX', css: hex, note: '' },
+          { name: 'sRGB', css: 'rgb(' + Math.round(r*255) + ' ' + Math.round(g*255) + ' ' + Math.round(b*255) + ')', note: '' },
+          { name: 'HSL', css: 'hsl(' + fmt(hsl.h,1) + ' ' + fmt(hsl.s*100,1) + '% ' + fmt(hsl.l*100,1) + '%)', note: '' },
+          { name: 'OKLCH', css: 'oklch(' + fmt(oklch.L) + ' ' + fmt(oklch.C) + ' ' + fmt(oklch.H,1) + ')', note: 'Perceptually uniform. Best for gradients & palettes.' },
+          { name: 'OKLAB', css: 'oklab(' + fmt(oklab[0]) + ' ' + fmt(oklab[1]) + ' ' + fmt(oklab[2]) + ')', note: 'Cartesian form of OKLCH.' },
+          { name: 'LCH', css: 'lch(' + fmt(cielch.L,1) + '% ' + fmt(cielch.C,1) + ' ' + fmt(cielch.H,1) + ')', note: 'CIE LCH. Legacy perceptually-inspired space.' },
+          { name: 'LAB', css: 'lab(' + fmt(cielab.L,1) + '% ' + fmt(cielab.a,1) + ' ' + fmt(cielab.b,1) + ')', note: 'CIE Lab. Cartesian form of LCH.' },
+          { name: 'Display P3', css: 'color(display-p3 ' + fmt(p3lin[0]) + ' ' + fmt(p3lin[1]) + ' ' + fmt(p3lin[2]) + ')', note: inp3 ? 'Wide gamut. ~45% more colors than sRGB.' : 'Out of P3 gamut — displayed colors may be clipped.' }
+        ];
+
+        var html = '';
+        for (var i = 0; i < formats.length; i++) {
+          var f = formats[i];
+          html += '<div style="background:var(--color-canvas);border:1px solid var(--color-mist);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:6px;">';
+          html += '<div style="display:flex;justify-content:space-between;align-items:center;"><strong style="font-size:0.9rem;">' + f.name + '</strong>';
+          if (f.note) html += '<span style="font-size:0.75rem;color:var(--text-secondary);max-width:50%;text-align:right;">' + f.note + '</span>';
+          html += '</div>';
+          html += '<code style="font-size:0.85rem;word-break:break-all;background:var(--color-smoke);padding:6px 10px;border-radius:4px;display:block;">' + f.css + '</code>';
+          html += '<button class="btn btn-secondary" style="padding:4px 12px;font-size:0.8rem;align-self:flex-end;" onclick="var t=this;navigator.clipboard.writeText(\'' + f.css.replace(/'/g,"\\'") + '\').then(function(){t.textContent=\'Copied!\';setTimeout(function(){t.textContent=\'Copy\';},1500);}).catch(function(){prompt(\'Copy:\',\'' + f.css.replace(/'/g,"\\'") + '\');})">Copy</button>';
+          html += '</div>';
+        }
+        resultsDiv.innerHTML = html;
+      }
+
+      colorInput.addEventListener('input', update);
+      colorPicker.addEventListener('input', function() { colorInput.value = colorPicker.value; update(); });
+      preview.addEventListener('click', function() { colorPicker.click(); });
+
+      document.querySelectorAll('[data-example]').forEach(function(btn) {
+        btn.addEventListener('click', function() { colorInput.value = this.getAttribute('data-example'); update(); });
+      });
+
+      update();
+    })();
+  </script>
+</body>
+</html>

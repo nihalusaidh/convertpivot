@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duplicate Line Remover — Remove Duplicate Lines from Text | ConvertPivot</title>
+  <meta name="description" content="Free online duplicate line remover. Remove duplicate lines, sort unique lines, count line frequency. Perfect for cleaning lists, data files, and contact lists.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/duplicate-line-remover">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/duplicate-line-remover">
+  <meta property="og:title" content="Duplicate Line Remover — Remove Duplicate Lines from Text | ConvertPivot">
+  <meta property="og:description" content="Free online duplicate line remover. Remove duplicate lines, sort unique lines, count line frequency. Perfect for cleaning lists, data files, and contact lists.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Duplicate Line Remover — Remove Duplicate Lines from Text | ConvertPivot">
+  <meta name="twitter:description" content="Free online duplicate line remover. Remove duplicate lines, sort unique lines, count line frequency. Perfect for cleaning lists, data files, and contact lists.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Duplicate Line Remover","url":"https://convertpivot.com/duplicate-line-remover","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online duplicate line remover. Remove duplicate lines, sort unique lines, count line frequency. Perfect for cleaning lists, data files, and contact lists.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does this remove exact or case-insensitive duplicates?","acceptedAnswer":{"@type":"Answer","text":"Both options are available. Case-sensitive mode treats 'Hello' and 'hello' as different lines. Case-insensitive mode treats them as the same and keeps the first occurrence."}},{"@type":"Question","name":"Can I see how many times each line appears?","acceptedAnswer":{"@type":"Answer","text":"Yes. Enable 'Show frequency' mode to see each unique line with its occurrence count, sorted by frequency (highest first)."}},{"@type":"Question","name":"Will this work with CSV data?","acceptedAnswer":{"@type":"Answer","text":"For simple CSV cleanup, yes. For complex CSV with quoted fields containing newlines, a dedicated CSV tool is better. This tool works line-by-line."}},{"@type":"Question","name":"What happens to empty lines?","acceptedAnswer":{"@type":"Answer","text":"You can choose to ignore or keep empty lines using the 'Ignore empty lines' toggle. Empty lines are defined as lines with only whitespace."}}]}</script>
+  <style>
+    .converter-textarea {
+      width:100%;padding:12px 14px;border:1px solid var(--color-mist);border-radius:var(--radius-card);font-size:0.9rem;font-family:inherit;background:var(--color-canvas);color:var(--color-ink);resize:vertical;outline:none;transition:border-color 0.15s,background 0.15s,color 0.15s;
+    }
+    .converter-textarea:focus { border-color:var(--color-red); }
+    .converter-textarea[readonly] { background:var(--color-smoke); }
+    [data-theme="dark"] .converter-textarea[readonly] { background:var(--color-surface); }
+    .radio-label { display:inline-flex;align-items:center;gap:6px;font-size:0.9rem;cursor:pointer;padding:6px 12px;border:1px solid var(--color-mist);border-radius:var(--radius-pill);transition:border-color 0.15s,background 0.15s; }
+    .radio-label:hover { border-color:var(--color-red); }
+    .radio-label input[type="radio"] { accent-color:var(--color-red); }
+    .toggle-group { display:flex;flex-wrap:wrap;gap:8px;margin:10px 0; }
+    .toggle-label { display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;cursor:pointer;color:var(--color-graphite); }
+    .toggle-label input[type="checkbox"] { accent-color:var(--color-red);width:16px;height:16px; }
+    .stats-bar { display:flex;flex-wrap:wrap;gap:16px;padding:12px 16px;background:var(--color-smoke);border-radius:var(--radius-card);margin:12px 0;font-size:0.85rem; }
+    .stat-item { display:flex;flex-direction:column; }
+    .stat-value { font-weight:700;font-size:1.1rem;color:var(--color-ink); }
+    .stat-label { color:var(--color-graphite);font-size:0.75rem; }
+    .swap-btn { font-size:1.2rem;padding:6px 12px;min-width:40px; }
+  </style>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Duplicate Line Remover</span></nav>
+    <div class="tool-header">
+      <h1>Duplicate Line Remover</h1>
+      <p>Remove duplicate lines from any text. Choose exact or case-insensitive matching, sort output, and analyze line frequency.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your text never leaves your device.</span></div>
+    <div class="converter-widget" id="toolWidget" style="max-width:800px;">
+      <div class="converter-form">
+        <label for="dlrInput">Input Text (one line per entry):</label>
+        <textarea id="dlrInput" class="converter-textarea" rows="8" placeholder="Paste your text here, one line per entry...&#10;&#10;apple&#10;banana&#10;apple&#10;cherry&#10;BANANA"></textarea>
+        <div style="margin-top:14px;font-weight:600;font-size:0.9rem;">Deduplication Options</div>
+        <div class="toggle-group">
+          <label class="radio-label"><input type="radio" name="dlrMode" value="exact" checked> Exact Match</label>
+          <label class="radio-label"><input type="radio" name="dlrMode" value="ignorecase"> Case Insensitive</label>
+        </div>
+        <div style="margin-top:10px;font-weight:600;font-size:0.9rem;">Sort Order</div>
+        <div class="toggle-group">
+          <label class="radio-label"><input type="radio" name="dlrSort" value="none" checked> Keep Original</label>
+          <label class="radio-label"><input type="radio" name="dlrSort" value="az"> A – Z</label>
+          <label class="radio-label"><input type="radio" name="dlrSort" value="za"> Z – A</label>
+        </div>
+        <div style="margin-top:10px;">
+          <div class="toggle-group">
+            <label class="toggle-label"><input type="checkbox" id="dlrTrim"> Trim whitespace from lines before comparison</label>
+            <label class="toggle-label"><input type="checkbox" id="dlrIgnoreEmpty" checked> Ignore empty lines</label>
+            <label class="toggle-label"><input type="checkbox" id="dlrFrequency"> Show frequency (count occurrences)</label>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;">
+          <button id="dlrProcessBtn" class="btn btn-primary">Remove Duplicates</button>
+          <button id="dlrClearBtn" class="btn btn-secondary">Clear</button>
+        </div>
+        <div id="dlrStats" class="stats-bar" style="display:none;"></div>
+        <textarea id="dlrOutput" class="converter-textarea" rows="8" readonly placeholder="Cleaned output will appear here..."></textarea>
+        <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;">
+          <button id="dlrCopyBtn" class="btn btn-primary">Copy Result</button>
+          <button id="dlrSwapBtn" class="btn btn-secondary swap-btn" title="Swap input and output">⇄</button>
+        </div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the Duplicate Line Remover</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Paste Your Text</h3><p>Type or paste your text into the input area. Each line should contain one entry — a word, email address, URL, or any text string.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Choose Options</h3><p>Select exact or case-insensitive matching. Toggle trimming, empty line filtering, and frequency analysis. Pick a sort order for the output.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Process &amp; Copy</h3><p>Click <strong>Remove Duplicates</strong> to clean your list. View the stats, then copy the result or swap it back to the input for further editing.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Modes Reference</h2>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+          <thead><tr style="background:var(--color-mist);"><th style="padding:8px 12px;text-align:left;">Operation</th><th style="padding:8px 12px;text-align:left;">Input</th><th style="padding:8px 12px;text-align:left;">Output</th><th style="padding:8px 12px;text-align:left;">Use Case</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-weight:600;">Exact Dedup</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">apple, banana, APPLE, apple</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">apple, banana, APPLE</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Remove identical lines only</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-weight:600;">Case Insensitive</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">apple, banana, APPLE, Apple</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">apple, banana</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Merge duplicates ignoring case</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-weight:600;">Frequency Mode</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">apple, apple, banana, apple</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">apple (3), banana (1)</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Count how often each line appears</td></tr>
+            <tr><td style="padding:6px 12px;font-weight:600;">Sort A–Z</td><td style="padding:6px 12px;">cherry, apple, banana</td><td style="padding:6px 12px;">apple, banana, cherry</td><td style="padding:6px 12px;">Alphabetical ordering</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">Does this remove exact or case-insensitive duplicates? <span class="arrow">▼</span></button><div class="faq-answer">Both options are available. Case-sensitive mode treats "Hello" and "hello" as different lines. Case-insensitive mode treats them as the same and keeps the first occurrence.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I see how many times each line appears? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Enable "Show frequency" mode to see each unique line with its occurrence count, sorted by frequency (highest first).</div></div>
+        <div class="faq-item"><button class="faq-question">Will this work with CSV data? <span class="arrow">▼</span></button><div class="faq-answer">For simple CSV cleanup, yes. For complex CSV with quoted fields containing newlines, a dedicated CSV tool is better. This tool works line-by-line.</div></div>
+        <div class="faq-item"><button class="faq-question">What happens to empty lines? <span class="arrow">▼</span></button><div class="faq-answer">You can choose to ignore or keep empty lines using the "Ignore empty lines" toggle. Empty lines are defined as lines with only whitespace.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var input = document.getElementById('dlrInput');
+      var output = document.getElementById('dlrOutput');
+      var stats = document.getElementById('dlrStats');
+      var processBtn = document.getElementById('dlrProcessBtn');
+      var clearBtn = document.getElementById('dlrClearBtn');
+      var copyBtn = document.getElementById('dlrCopyBtn');
+      var swapBtn = document.getElementById('dlrSwapBtn');
+      var modeRadios = document.querySelectorAll('input[name="dlrMode"]');
+      var sortRadios = document.querySelectorAll('input[name="dlrSort"]');
+      var trimChk = document.getElementById('dlrTrim');
+      var ignoreEmptyChk = document.getElementById('dlrIgnoreEmpty');
+      var freqChk = document.getElementById('dlrFrequency');
+
+      function getLines(text) {
+        var lines = text.split('\n');
+        if (trimChk.checked) {
+          for (var i = 0; i < lines.length; i++) lines[i] = lines[i].trim();
+        }
+        if (ignoreEmptyChk.checked) {
+          var filtered = [];
+          for (var i = 0; i < lines.length; i++) {
+            if (lines[i] !== '') filtered.push(lines[i]);
+          }
+          lines = filtered;
+        }
+        return lines;
+      }
+
+      function getMode() {
+        for (var i = 0; i < modeRadios.length; i++) {
+          if (modeRadios[i].checked) return modeRadios[i].value;
+        }
+        return 'exact';
+      }
+
+      function getSort() {
+        for (var i = 0; i < sortRadios.length; i++) {
+          if (sortRadios[i].checked) return sortRadios[i].value;
+        }
+        return 'none';
+      }
+
+      function process() {
+        var text = input.value;
+        if (!text.trim()) {
+          output.value = '';
+          stats.style.display = 'none';
+          return;
+        }
+        var lines = getLines(text);
+        var totalIn = lines.length;
+        var mode = getMode();
+        var sort = getSort();
+        var showFreq = freqChk.checked;
+
+        if (totalIn === 0) {
+          output.value = '';
+          stats.style.display = 'none';
+          return;
+        }
+
+        var seen = {};
+        var uniqueLines = [];
+        var freqMap = {};
+
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i];
+          var key = (mode === 'ignorecase') ? line.toLowerCase() : line;
+
+          if (showFreq) {
+            if (freqMap[key]) {
+              freqMap[key].count++;
+            } else {
+              freqMap[key] = { line: line, count: 1 };
+            }
+          }
+
+          if (!seen[key]) {
+            seen[key] = true;
+            uniqueLines.push(line);
+          }
+        }
+
+        var duplicatesRemoved = totalIn - uniqueLines.length;
+
+        if (sort === 'az') {
+          uniqueLines.sort(function(a, b) {
+            return a.localeCompare(b);
+          });
+        } else if (sort === 'za') {
+          uniqueLines.sort(function(a, b) {
+            return b.localeCompare(a);
+          });
+        }
+
+        var result;
+        if (showFreq) {
+          var freqItems = [];
+          for (var k in freqMap) {
+            if (freqMap.hasOwnProperty(k)) {
+              freqItems.push(freqMap[k]);
+            }
+          }
+          freqItems.sort(function(a, b) { return b.count - a.count; });
+          var freqLines = [];
+          for (var i = 0; i < freqItems.length; i++) {
+            freqLines.push(freqItems[i].line + ' (' + freqItems[i].count + ')');
+          }
+          result = freqLines.join('\n');
+        } else {
+          result = uniqueLines.join('\n');
+        }
+
+        output.value = result;
+
+        stats.style.display = 'flex';
+        stats.innerHTML =
+          '<div class="stat-item"><span class="stat-value">' + totalIn + '</span><span class="stat-label">Lines In</span></div>' +
+          '<div class="stat-item"><span class="stat-value">' + (showFreq ? freqItems.length : uniqueLines.length) + '</span><span class="stat-label">Unique Lines</span></div>' +
+          '<div class="stat-item"><span class="stat-value">' + duplicatesRemoved + '</span><span class="stat-label">Duplicates Removed</span></div>';
+      }
+
+      processBtn.addEventListener('click', process);
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && e.ctrlKey) process();
+      });
+
+      clearBtn.addEventListener('click', function() {
+        input.value = '';
+        output.value = '';
+        stats.style.display = 'none';
+        for (var i = 0; i < modeRadios.length; i++) {
+          modeRadios[i].checked = (modeRadios[i].value === 'exact');
+        }
+        for (var i = 0; i < sortRadios.length; i++) {
+          sortRadios[i].checked = (sortRadios[i].value === 'none');
+        }
+        trimChk.checked = false;
+        ignoreEmptyChk.checked = true;
+        freqChk.checked = false;
+        input.focus();
+      });
+
+      copyBtn.addEventListener('click', function() {
+        var text = output.value;
+        if (!text) return;
+        navigator.clipboard.writeText(text).then(function() {
+          var orig = copyBtn.textContent;
+          copyBtn.textContent = 'Copied!';
+          setTimeout(function() { copyBtn.textContent = orig; }, 1500);
+        });
+      });
+
+      swapBtn.addEventListener('click', function() {
+        var temp = input.value;
+        input.value = output.value;
+        output.value = temp;
+        process();
+      });
+    })();
+  </script>
+</body>
+</html>

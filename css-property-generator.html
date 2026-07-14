@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS @property Generator — Register Custom Properties | ConvertPivot</title>
+  <meta name="description" content="Free online CSS @property generator. Create registered custom properties with syntax, initial value, and inherits. Generate cross-browser @property rules with fallback for older browsers.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/css-property-generator">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/css-property-generator">
+  <meta property="og:title" content="CSS @property Generator — Register Custom Properties | ConvertPivot">
+  <meta property="og:description" content="Free online CSS @property generator. Create registered custom properties with syntax, initial value, and inherits.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CSS @property Generator — Register Custom Properties | ConvertPivot">
+  <meta name="twitter:description" content="Free online CSS @property generator. Create registered custom properties with syntax, initial value, and inherits.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CSS @property Generator","url":"https://convertpivot.com/css-property-generator","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Generate CSS @property rules for registering custom properties. Supports all syntax descriptors.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does CSS @property do?","acceptedAnswer":{"@type":"Answer","text":"CSS @property is a CSS at-rule that lets you register custom properties (CSS variables) with type information. You specify the syntax (like color, length, percentage), an initial value, and whether the property inherits. This enables the browser to treat custom properties like native CSS properties — including type checking, animation, and proper fallback values."}},{"@type":"Question","name":"Why register a custom property?","acceptedAnswer":{"@type":"Answer","text":"Registered custom properties can be animated with CSS transitions and keyframes, which unregistered ones cannot. The browser also validates values against the declared syntax and provides proper fallback behavior when invalid values are assigned."}},{"@type":"Question","name":"What syntax types are supported?","acceptedAnswer":{"@type":"Answer","text":"The syntax descriptor accepts: length, number, percentage, length-percentage, color, image, url, integer, angle, time, resolution, transform-function, transform-list, and custom-ident. You can also use a pipe-delimited list like length-percentage | color."}},{"@type":"Question","name":"Is @property widely supported?","acceptedAnswer":{"@type":"Answer","text":"CSS @property is supported in Chrome 85+, Edge 85+, Opera 71+, and most Chromium-based browsers. Firefox 128+ added support. Safari 15.4+ has experimental support behind a flag. For broader support, pair @property with a fallback in your stylesheet."}},{"@type":"Question","name":"How is @property different from regular CSS variables?","acceptedAnswer":{"@type":"Answer","text":"Regular CSS variables (var() fallback) only provide a fallback value when the variable is not defined. They have no type system and cannot be animated. @property adds syntax validation, inheritance control, and enables smooth transitions and animations on custom properties."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">CSS @property Generator</span></nav>
+    <div class="tool-header">
+      <h1>CSS @property Generator</h1>
+      <p>Create registered CSS custom properties with @property at-rules. Define syntax, initial values, and inheritance for type-safe, animatable CSS variables.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All generation happens in your browser. No data is sent anywhere.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <label for="propName" style="font-size:0.9rem;font-weight:600;">Property Name</label>
+            <input id="propName" type="text" value="--my-custom-color" placeholder="--property-name" style="width:100%;padding:8px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-family:Consolas,monospace;font-size:0.9rem;">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <label for="propSyntax" style="font-size:0.9rem;font-weight:600;">Syntax</label>
+            <select id="propSyntax" style="width:100%;padding:8px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-family:Consolas,monospace;font-size:0.9rem;">
+              <option value="<color>">&lt;color&gt;</option>
+              <option value="<length>">&lt;length&gt;</option>
+              <option value="<number>">&lt;number&gt;</option>
+              <option value="<percentage>">&lt;percentage&gt;</option>
+              <option value="<length-percentage>">&lt;length-percentage&gt;</option>
+              <option value="<angle>">&lt;angle&gt;</option>
+              <option value="<time>">&lt;time&gt;</option>
+              <option value="<resolution>">&lt;resolution&gt;</option>
+              <option value="<integer>">&lt;integer&gt;</option>
+              <option value="<image>">&lt;image&gt;</option>
+              <option value="<url>">&lt;url&gt;</option>
+              <option value="<transform-function>">&lt;transform-function&gt;</option>
+              <option value="<transform-list>">&lt;transform-list&gt;</option>
+              <option value="<custom-ident>">&lt;custom-ident&gt;</option>
+              <option value="*">* (any)</option>
+            </select>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <label for="propInitial" style="font-size:0.9rem;font-weight:600;">Initial Value</label>
+            <input id="propInitial" type="text" value="#ff6600" placeholder="e.g. #ff6600, 0px, 1" style="width:100%;padding:8px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-family:Consolas,monospace;font-size:0.9rem;">
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <input id="propInherits" type="checkbox" style="width:18px;height:18px;accent-color:#ff6600;">
+            <label for="propInherits" style="font-size:0.9rem;font-weight:600;">Inherits</label>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <button id="generateBtn" class="btn btn-primary" style="padding:8px 24px;">Generate @property</button>
+          </div>
+        </div>
+        <div id="resultArea" style="margin-top:16px;display:none;">
+          <label style="font-size:0.9rem;font-weight:600;">Generated CSS:</label>
+          <pre id="cssOutput" style="background:var(--color-smoke);border:1px solid var(--color-mist);border-radius:8px;padding:12px;font-family:Consolas,monospace;font-size:0.85rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all;margin-top:6px;"></pre>
+          <div style="display:flex;gap:8px;margin-top:6px;">
+            <button id="copyOutputBtn" class="btn btn-primary" style="padding:6px 20px;font-size:0.85rem;">Copy CSS</button>
+            <button id="copyOutputBtnJs" class="btn btn-secondary" style="padding:6px 20px;font-size:0.85rem;">Copy JS (CSS.registerProperty)</button>
+          </div>
+          <pre id="jsOutput" style="background:var(--color-smoke);border:1px solid var(--color-mist);border-radius:8px;padding:12px;font-family:Consolas,monospace;font-size:0.85rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all;margin-top:6px;display:none;"></pre>
+        </div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the CSS @property Generator</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Enter Property Details</h3><p>Choose a custom property name (must start with --), select the syntax type from the dropdown, and provide an initial value that matches the chosen syntax.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Set Inheritance</h3><p>Decide whether the property should inherit from parent elements. Colors, lengths, and numbers typically inherit. Background images typically do not.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Copy as CSS or JS</h3><p>Copy the generated @property rule into your stylesheet, or use the JavaScript version for dynamic registration via CSS.registerProperty().</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Syntax Descriptor Reference</h2>
+      <div style="overflow-x:auto;">
+        <table class="format-table" style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+          <thead><tr style="background:var(--color-mist);"><th style="padding:8px 12px;text-align:left;">Syntax</th><th style="padding:8px 12px;text-align:left;">Description</th><th style="padding:8px 12px;text-align:left;">Example Initial Value</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:Consolas,monospace;">&lt;color&gt;</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Any valid CSS color</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">#ff6600</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:Consolas,monospace;">&lt;length&gt;</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Length with unit (px, rem, em, vw)</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">16px</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:Consolas,monospace;">&lt;number&gt;</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Any numeric value (no unit)</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">0.5</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:Consolas,monospace;">&lt;percentage&gt;</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Percentage value</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">50%</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:Consolas,monospace;">&lt;length-percentage&gt;</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Length or percentage</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">100%</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:Consolas,monospace;">&lt;angle&gt;</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Angle with unit (deg, rad, turn)</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">45deg</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:Consolas,monospace;">&lt;time&gt;</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Time with unit (s, ms)</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">300ms</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:Consolas,monospace;">&lt;integer&gt;</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Whole number (no decimals)</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">1</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:Consolas,monospace;">&lt;image&gt;</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">CSS image (gradient, url)</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">linear-gradient(...)</td></tr>
+            <tr><td style="padding:6px 12px;font-family:Consolas,monospace;">*</td><td style="padding:6px 12px;">Any value (no type checking)</td><td style="padding:6px 12px;">any value</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What does CSS @property do? <span class="arrow">▼</span></button><div class="faq-answer">CSS @property is a CSS at-rule that lets you register custom properties (CSS variables) with type information. You specify the syntax (like color, length, percentage), an initial value, and whether the property inherits. This enables the browser to treat custom properties like native CSS properties — including type checking, animation, and proper fallback values.</div></div>
+        <div class="faq-item"><button class="faq-question">Why register a custom property? <span class="arrow">▼</span></button><div class="faq-answer">Registered custom properties can be animated with CSS transitions and keyframes, which unregistered ones cannot. The browser also validates values against the declared syntax and provides proper fallback behavior when invalid values are assigned.</div></div>
+        <div class="faq-item"><button class="faq-question">What syntax types are supported? <span class="arrow">▼</span></button><div class="faq-answer">The syntax descriptor accepts: length, number, percentage, length-percentage, color, image, url, integer, angle, time, resolution, transform-function, transform-list, and custom-ident. You can also combine with pipes like length-percentage | color.</div></div>
+        <div class="faq-item"><button class="faq-question">Is @property widely supported? <span class="arrow">▼</span></button><div class="faq-answer">CSS @property is supported in Chrome 85+, Edge 85+, Opera 71+, and most Chromium-based browsers. Firefox 128+ added support. Safari 15.4+ has experimental support behind a flag. For broader support, pair @property with a fallback.</div></div>
+        <div class="faq-item"><button class="faq-question">How is @property different from regular CSS variables? <span class="arrow">▼</span></button><div class="faq-answer">Regular CSS variables (var() fallback) only provide a fallback value when the variable is not defined. They have no type system and cannot be animated. @property adds syntax validation, inheritance control, and enables smooth transitions and animations on custom properties.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var propName = document.getElementById('propName');
+      var propSyntax = document.getElementById('propSyntax');
+      var propInitial = document.getElementById('propInitial');
+      var propInherits = document.getElementById('propInherits');
+      var generateBtn = document.getElementById('generateBtn');
+      var cssOutput = document.getElementById('cssOutput');
+      var jsOutput = document.getElementById('jsOutput');
+      var resultArea = document.getElementById('resultArea');
+      var copyBtn = document.getElementById('copyOutputBtn');
+      var copyBtnJs = document.getElementById('copyOutputBtnJs');
+
+      function generate() {
+        var name = propName.value.trim();
+        var syntax = propSyntax.value;
+        var initial = propInitial.value.trim();
+        var inherits = propInherits.checked;
+
+        if (!name || !name.startsWith('--')) {
+          resultArea.style.display = 'none';
+          return;
+        }
+
+        var css = '@property ' + name + ' {\n';
+        css += '  syntax: "' + syntax + '";\n';
+        css += '  inherits: ' + (inherits ? 'true' : 'false') + ';\n';
+        css += '  initial-value: ' + initial + ';\n';
+        css += '}';
+
+        var js = 'CSS.registerProperty({\n';
+        js += '  name: "' + name + '",\n';
+        js += '  syntax: "' + syntax + '",\n';
+        js += '  inherits: ' + (inherits ? 'true' : 'false') + ',\n';
+        js += '  initialValue: "' + initial + '"\n';
+        js += '});';
+
+        cssOutput.textContent = css;
+        jsOutput.textContent = js;
+        jsOutput.style.display = 'none';
+        resultArea.style.display = 'block';
+
+        copyBtn.onclick = function() {
+          navigator.clipboard.writeText(css).then(function() {
+            copyBtn.textContent = 'Copied!';
+            setTimeout(function() { copyBtn.textContent = 'Copy CSS'; }, 1500);
+          }).catch(function() {});
+        };
+
+        copyBtnJs.onclick = function() {
+          var vis = jsOutput.style.display;
+          if (vis === 'none') {
+            jsOutput.style.display = 'block';
+            copyBtnJs.textContent = 'Hide JS';
+          } else {
+            jsOutput.style.display = 'none';
+            copyBtnJs.textContent = 'Copy JS (CSS.registerProperty)';
+          }
+        };
+      }
+
+      generateBtn.addEventListener('click', generate);
+
+      var inputs = [propName, propSyntax, propInitial, propInherits];
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener('input', function() {
+          if (propName.value.trim() && propName.value.trim().startsWith('--')) {
+            generate();
+          }
+        });
+      }
+
+      generate();
+    })();
+  </script>
+</body>
+</html>

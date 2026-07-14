@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NATO Phonetic Alphabet Converter — Text to Phonetic | ConvertPivot</title>
+  <meta name="description" content="Free online NATO phonetic alphabet converter. Convert text to phonetic alphabet (Alpha, Bravo, Charlie) and back. 100% browser-based.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/nato-phonetic-alphabet">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/nato-phonetic-alphabet">
+  <meta property="og:title" content="NATO Phonetic Alphabet Converter — Text to Phonetic | ConvertPivot">
+  <meta property="og:description" content="Free online NATO phonetic alphabet converter. Convert text to phonetic alphabet (Alpha, Bravo, Charlie) and back. 100% browser-based.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NATO Phonetic Alphabet Converter — Text to Phonetic | ConvertPivot">
+  <meta name="twitter:description" content="Free online NATO phonetic alphabet converter. Convert text to phonetic alphabet (Alpha, Bravo, Charlie) and back. 100% browser-based.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"NATO Phonetic Alphabet Converter","url":"https://convertpivot.com/nato-phonetic-alphabet","applicationCategory":"ReferenceApplication","operatingSystem":"All","description":"Free online NATO phonetic alphabet converter. Convert text to phonetic alphabet and back. 100% browser-based.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the NATO phonetic alphabet?","acceptedAnswer":{"@type":"Answer","text":"The NATO phonetic alphabet is a standardized set of code words used to spell letters clearly in voice communication. A=Alpha, B=Bravo, C=Charlie, D=Delta, E=Echo, F=Foxtrot, G=Golf, H=Hotel, I=India, J=Juliett, K=Kilo, L=Lima, M=Mike, N=November, O=Oscar, P=Papa, Q=Quebec, R=Romeo, S=Sierra, T=Tango, U=Uniform, V=Victor, W=Whiskey, X=X-ray, Y=Yankee, Z=Zulu."}},{"@type":"Question","name":"Why is the phonetic alphabet used?","acceptedAnswer":{"@type":"Answer","text":"The phonetic alphabet prevents miscommunication in voice transmissions where similar-sounding letters can be confused (e.g., B and D, M and N). It is used in aviation, military, emergency services, and customer service."}},{"@type":"Question","name":"What are the NATO code words for numbers?","acceptedAnswer":{"@type":"Answer","text":"NATO numbers are: 0=Zero, 1=One, 2=Two, 3=Three, 4=Four, 5=Five, 6=Six, 7=Seven, 8=Eight, 9=Nine. Unlike letters, numbers are typically pronounced normally rather than with code words."}},{"@type":"Question","name":"Is this tool free?","acceptedAnswer":{"@type":"Answer","text":"Yes, this NATO phonetic alphabet converter is completely free. All processing is done locally in your browser with no server uploads."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">NATO Phonetic Alphabet</span></nav>
+    <div class="tool-header">
+      <h1>NATO Phonetic Alphabet Converter</h1>
+      <p>Convert text to NATO phonetic alphabet (Alpha, Bravo, Charlie) and back.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <label for="natoDirection">Direction:</label>
+        <select id="natoDirection" class="converter-input" style="width:auto;min-width:250px;margin-bottom:12px;">
+          <option value="toNato">Text to NATO Phonetic</option>
+          <option value="toText">NATO Phonetic to Text</option>
+        </select>
+        <label for="natoInput">Input:</label>
+        <textarea id="natoInput" class="converter-textarea" rows="3" placeholder="Enter text or NATO phonetic words..."></textarea>
+        <div class="converter-inline">
+          <button id="convertNatoBtn" class="btn btn-primary">Convert</button>
+          <button id="copyNatoBtn" class="btn btn-ghost">Copy Result</button>
+          <button id="clearNatoBtn" class="btn btn-ghost">Clear</button>
+        </div>
+        <label for="natoOutput">Result:</label>
+        <textarea id="natoOutput" class="converter-textarea" rows="3" placeholder="Converted text will appear here..." readonly></textarea>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the NATO Phonetic Alphabet Converter</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Choose Direction</h3><p>Select whether to convert text to phonetic spelling or decode phonetics back to text.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Enter Text</h3><p>Type your text or paste phonetic words like Alpha Bravo Charlie.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Get Result</h3><p>Click <strong>Convert</strong> and the phonetic translation appears instantly.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What is the NATO phonetic alphabet? <span class="arrow">▼</span></button><div class="faq-answer">The NATO phonetic alphabet is a standardized set of code words used to spell letters clearly in voice communication. A=Alpha, B=Bravo, C=Charlie, D=Delta, E=Echo, F=Foxtrot, G=Golf, H=Hotel, I=India, J=Juliett, K=Kilo, L=Lima, M=Mike, N=November, O=Oscar, P=Papa, Q=Quebec, R=Romeo, S=Sierra, T=Tango, U=Uniform, V=Victor, W=Whiskey, X=X-ray, Y=Yankee, Z=Zulu.</div></div>
+        <div class="faq-item"><button class="faq-question">Why is the phonetic alphabet used? <span class="arrow">▼</span></button><div class="faq-answer">The phonetic alphabet prevents miscommunication in voice transmissions where similar-sounding letters can be confused (e.g., B and D, M and N). It is used in aviation, military, emergency services, and customer service.</div></div>
+        <div class="faq-item"><button class="faq-question">What are the NATO code words for numbers? <span class="arrow">▼</span></button><div class="faq-answer">NATO numbers are: 0=Zero, 1=One, 2=Two, 3=Three, 4=Four, 5=Five, 6=Six, 7=Seven, 8=Eight, 9=Nine. Unlike letters, numbers are typically pronounced normally rather than with code words.</div></div>
+        <div class="faq-item"><button class="faq-question">Is this tool free? <span class="arrow">▼</span></button><div class="faq-answer">Yes, this NATO phonetic alphabet converter is completely free. All processing is done locally in your browser with no server uploads.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>NATO Phonetic Alphabet Reference Table</h2>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+          <thead><tr style="background:var(--color-mist);"><th style="padding:8px 12px;text-align:left;">Letter</th><th style="padding:8px 12px;text-align:left;">Code Word</th><th style="padding:8px 12px;text-align:left;">Letter</th><th style="padding:8px 12px;text-align:left;">Code Word</th><th style="padding:8px 12px;text-align:left;">Letter</th><th style="padding:8px 12px;text-align:left;">Code Word</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">A</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Alpha</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">J</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Juliett</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">S</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Sierra</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">B</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Bravo</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">K</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Kilo</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">T</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Tango</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">C</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Charlie</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">L</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Lima</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">U</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Uniform</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">D</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Delta</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">M</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Mike</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">V</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Victor</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">E</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Echo</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">N</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">November</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">W</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Whiskey</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">F</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Foxtrot</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">O</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Oscar</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">X</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">X-ray</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">G</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Golf</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">P</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Papa</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Y</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Yankee</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">H</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Hotel</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Q</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Quebec</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Z</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Zulu</td></tr>
+            <tr><td style="padding:6px 12px;">I</td><td style="padding:6px 12px;">India</td><td style="padding:6px 12px;">R</td><td style="padding:6px 12px;">Romeo</td><td style="padding:6px 12px;"></td><td style="padding:6px 12px;"></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var natoMap = {
+        'a':'Alpha','b':'Bravo','c':'Charlie','d':'Delta','e':'Echo','f':'Foxtrot','g':'Golf','h':'Hotel','i':'India','j':'Juliett','k':'Kilo','l':'Lima','m':'Mike','n':'November','o':'Oscar','p':'Papa','q':'Quebec','r':'Romeo','s':'Sierra','t':'Tango','u':'Uniform','v':'Victor','w':'Whiskey','x':'X-ray','y':'Yankee','z':'Zulu',
+        '0':'Zero','1':'One','2':'Two','3':'Three','4':'Four','5':'Five','6':'Six','7':'Seven','8':'Eight','9':'Nine'
+      };
+      var reverseMap = {};
+      for (var k in natoMap) reverseMap[natoMap[k].toLowerCase()] = k;
+
+      var input = document.getElementById('natoInput');
+      var output = document.getElementById('natoOutput');
+      var direction = document.getElementById('natoDirection');
+
+      document.getElementById('convertNatoBtn').addEventListener('click', function() {
+        var text = input.value.trim();
+        if (!text) { output.value = 'Please enter input.'; return; }
+        if (direction.value === 'toNato') {
+          var result = [];
+          for (var i = 0; i < text.length; i++) {
+            var c = text[i].toLowerCase();
+            if (natoMap[c]) result.push(natoMap[c]);
+            else if (c === ' ') result.push('/');
+          }
+          output.value = result.join(' ');
+        } else {
+          var words = text.split(/\s+/);
+          var result = '';
+          for (var w = 0; w < words.length; w++) {
+            if (words[w] === '/') { result += ' '; }
+            else if (reverseMap[words[w].toLowerCase()]) { result += reverseMap[words[w].toLowerCase()]; }
+          }
+          output.value = result.toUpperCase();
+        }
+      });
+
+      document.getElementById('copyNatoBtn').addEventListener('click', function() {
+        if (output.value) { output.select(); navigator.clipboard.writeText(output.value); }
+      });
+
+      document.getElementById('clearNatoBtn').addEventListener('click', function() {
+        input.value = '';
+        output.value = '';
+      });
+    })();
+  </script>
+</body>
+</html>

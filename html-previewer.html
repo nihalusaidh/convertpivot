@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Previewer — Live HTML Editor & Renderer | ConvertPivot</title>
+  <meta name="description" content="Free online HTML previewer. Write or paste HTML code and see instant live preview. No signup required. All rendering happens in your browser.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/html-previewer">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/html-previewer">
+  <meta property="og:title" content="HTML Previewer — Live HTML Editor & Renderer | ConvertPivot">
+  <meta property="og:description" content="Free online HTML previewer. Write or paste HTML code and see instant live preview. No signup required. All rendering happens in your browser.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HTML Previewer — Live HTML Editor & Renderer | ConvertPivot">
+  <meta name="twitter:description" content="Free online HTML previewer. Write or paste HTML code and see instant live preview. No signup required. All rendering happens in your browser.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"HTML Previewer","url":"https://convertpivot.com/html-previewer","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online HTML previewer. Write or paste HTML code and see instant live preview. No signup required. All rendering happens in your browser.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this HTML previewer safe to use with unknown code?","acceptedAnswer":{"@type":"Answer","text":"Yes. The preview is rendered inside a sandboxed iframe with the 'sandbox' attribute. This prevents any JavaScript from accessing your browser's session, cookies, or other tabs. Malicious scripts are contained within the preview. All processing is local."}},{"@type":"Question","name":"Can I use this instead of CodePen or JSFiddle?","acceptedAnswer":{"@type":"Answer","text":"This tool is ideal for quick HTML previews without signing up for an account. Unlike CodePen or JSFiddle which require accounts and have server-side features, ConvertPivot's HTML previewer is entirely local, instant, and requires no account. It's perfect for testing email templates, landing page snippets, or learning HTML."}},{"@type":"Question","name":"Does the HTML previewer support CSS and JavaScript?","acceptedAnswer":{"@type":"Answer","text":"Yes, the preview renders full HTML documents including embedded CSS in style tags and JavaScript in script tags. You can include external CDN links for libraries like Tailwind CSS, Bootstrap, or Alpine.js. The preview updates instantly as you type."}},{"@type":"Question","name":"What happens to my HTML code after I close the page?","acceptedAnswer":{"@type":"Answer","text":"Your HTML code is stored in your browser's localStorage and can be restored on your next visit. You can also download your HTML as a file or copy it to your clipboard. No data is ever sent to any server."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">HTML Previewer</span></nav>
+    <div class="tool-header">
+      <h1>HTML Previewer</h1>
+      <p>Write or paste HTML code and see the live rendered result instantly. Full CSS and JavaScript support in a sandboxed preview.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All code stays in your browser. The preview runs in a sandboxed iframe for safety.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
+          <button id="previewBtn" class="btn btn-primary">Preview</button>
+          <button id="clearHtmlBtn" class="btn btn-ghost">Clear</button>
+          <button id="downloadHtmlBtn" class="btn btn-ghost">Download HTML</button>
+          <button id="copyHtmlBtn" class="btn btn-ghost">Copy Code</button>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-height:400px;">
+          <div style="display:flex;flex-direction:column;">
+            <label for="htmlInput" style="font-size:0.85rem;margin-bottom:4px;">HTML Code:</label>
+            <textarea id="htmlInput" class="converter-input" style="flex:1;min-height:380px;font-family:Consolas,monospace;font-size:0.85rem;resize:vertical;" placeholder="<h1>Hello, World!</h1>"></textarea>
+          </div>
+          <div style="display:flex;flex-direction:column;">
+            <label style="font-size:0.85rem;margin-bottom:4px;">Live Preview:</label>
+            <iframe id="previewFrame" style="flex:1;border:1px solid var(--color-mist);border-radius:6px;background:#fff;min-height:380px;" sandbox="allow-scripts allow-same-origin"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the HTML Previewer</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Write or Paste HTML</h3><p>Type your HTML code directly into the editor or paste snippets from anywhere. The monospace font makes code easy to read and edit.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Click Preview</h3><p>Press the Preview button or use Ctrl+Enter to render the HTML in the live preview panel. The preview automatically scrolls so you can see the full result.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Export or Copy</h3><p>Download your HTML as a file or copy the code to your clipboard. Your code is also saved in your browser for the next visit.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>HTML Template Quick Start</h2>
+      <div style="overflow-x:auto;">
+        <pre style="background:var(--color-cream);padding:16px;border-radius:6px;font-size:0.85rem;overflow-x:auto;">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;My Page&lt;/title&gt;
+  &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="container mt-5"&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+    &lt;p&gt;This is a Bootstrap-powered preview.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">Is this HTML previewer safe to use with unknown code? <span class="arrow">▼</span></button><div class="faq-answer">Yes. The preview is rendered inside a sandboxed iframe with the 'sandbox' attribute. This prevents any JavaScript from accessing your browser's session, cookies, or other tabs. Malicious scripts are contained within the preview. All processing is local.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I use this instead of CodePen or JSFiddle? <span class="arrow">▼</span></button><div class="faq-answer">This tool is ideal for quick HTML previews without signing up for an account. Unlike CodePen or JSFiddle which require accounts and have server-side features, ConvertPivot's HTML previewer is entirely local, instant, and requires no account. It's perfect for testing email templates, landing page snippets, or learning HTML.</div></div>
+        <div class="faq-item"><button class="faq-question">Does the HTML previewer support CSS and JavaScript? <span class="arrow">▼</span></button><div class="faq-answer">Yes, the preview renders full HTML documents including embedded CSS in style tags and JavaScript in script tags. You can include external CDN links for libraries like Tailwind CSS, Bootstrap, or Alpine.js. The preview updates instantly as you type.</div></div>
+        <div class="faq-item"><button class="faq-question">What happens to my HTML code after I close the page? <span class="arrow">▼</span></button><div class="faq-answer">Your HTML code is stored in your browser's localStorage and can be restored on your next visit. You can also download your HTML as a file or copy it to your clipboard. No data is ever sent to any server.</div></div>
+        <div class="faq-item"><button class="faq-question">Why is the preview in a sandboxed iframe? <span class="arrow">▼</span></button><div class="faq-answer">The sandbox attribute prevents the previewed HTML from running scripts that could access your browser data or perform actions beyond the preview area. This is a security best practice that protects you when previewing untrusted or unknown HTML code.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var input = document.getElementById('htmlInput');
+      var frame = document.getElementById('previewFrame');
+      var STORAGE_KEY = 'cp_html_preview';
+
+      function preview() {
+        var html = input.value;
+        var doc = frame.contentDocument || frame.contentWindow.document;
+        doc.open();
+        doc.write(html);
+        doc.close();
+        try { localStorage.setItem(STORAGE_KEY, html); } catch(e) {}
+      }
+
+      document.getElementById('previewBtn').addEventListener('click', preview);
+      document.getElementById('clearHtmlBtn').addEventListener('click', function() {
+        input.value = '';
+        preview();
+        try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+      });
+      document.getElementById('downloadHtmlBtn').addEventListener('click', function() {
+        var blob = new Blob([input.value], { type: 'text/html' });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'preview.html';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
+      });
+      document.getElementById('copyHtmlBtn').addEventListener('click', function() {
+        navigator.clipboard.writeText(input.value).then(function() {
+          var btn = document.getElementById('copyHtmlBtn');
+          var orig = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(function() { btn.textContent = orig; }, 2000);
+        }).catch(function() {
+          input.select();
+          document.execCommand('copy');
+        });
+      });
+      input.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); preview(); }
+      });
+      try {
+        var saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) { input.value = saved; }
+      } catch(e) {}
+      preview();
+    })();
+  </script>
+</body>
+</html>

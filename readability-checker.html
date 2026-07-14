@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Readability Checker — Flesch-Kincaid & Gunning Fog Score | ConvertPivot</title>
+  <meta name="description" content="Free online readability checker. Analyze text with Flesch-Kincaid Grade Level, Reading Ease, Gunning Fog Index, and more. Improve your writing clarity instantly.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/readability-checker">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/readability-checker">
+  <meta property="og:title" content="Readability Checker — Flesch-Kincaid & Gunning Fog Score | ConvertPivot">
+  <meta property="og:description" content="Free online readability checker. Analyze text with Flesch-Kincaid Grade Level, Reading Ease, Gunning Fog Index, and more. Improve your writing clarity instantly.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Readability Checker — Flesch-Kincaid & Gunning Fog Score | ConvertPivot">
+  <meta name="twitter:description" content="Free online readability checker. Analyze text with Flesch-Kincaid Grade Level, Reading Ease, Gunning Fog Index, and more. Improve your writing clarity instantly.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Readability Checker","url":"https://convertpivot.com/readability-checker","applicationCategory":"UtilitiesApplication","operatingSystem":"All","description":"Free online readability checker. Analyze text with Flesch-Kincaid Grade Level, Reading Ease, Gunning Fog Index, and more. Improve your writing clarity instantly.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the Flesch Reading Ease score?","acceptedAnswer":{"@type":"Answer","text":"Flesch Reading Ease scores range from 0 to 100. Higher scores indicate text that is easier to read. Scores of 60-70 are considered plain English easily understood by 13-15 year olds. Scores below 30 indicate very difficult academic text. The formula uses average sentence length and average syllables per word."}},{"@type":"Question","name":"What is a good readability score for my content?","acceptedAnswer":{"@type":"Answer","text":"For general audiences, aim for a Flesch Reading Ease of 60-70 (plain English). Blog posts and marketing content should target grade level 6-8. Academic papers may target grade level 12-16. Legal documents often score below grade 12 but benefit from simplification when possible."}},{"@type":"Question","name":"How is the Flesch-Kincaid Grade Level calculated?","acceptedAnswer":{"@type":"Answer","text":"The Flesch-Kincaid Grade Level formula is: 0.39 x (words/sentences) + 11.8 x (syllables/words) - 15.59. The result corresponds to a US school grade level. For example, a score of 8.0 means an 8th grader can understand the text. Most newspapers target grade level 6-8."}},{"@type":"Question","name":"What is the Gunning Fog Index?","acceptedAnswer":{"@type":"Answer","text":"The Gunning Fog Index estimates the years of formal education needed to understand a text on first reading. It uses average sentence length and the percentage of complex words (3 or more syllables). Scores of 7-8 are ideal for general audiences. Scores above 12 indicate college-level reading difficulty."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Readability Checker</span></nav>
+    <div class="tool-header">
+      <h1>Readability Checker</h1>
+      <p>Analyze any text with Flesch-Kincaid, Gunning Fog, and other readability formulas. Get instant grade-level scores and improvement suggestions.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All text analysis happens in your browser. Your content never leaves your device.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <label for="readabilityInput">Paste your text below:</label>
+        <textarea id="readabilityInput" class="converter-input" rows="8" placeholder="Paste or type your text here to analyze its readability..."></textarea>
+        <div id="readabilityStats" class="converter-result" style="margin-top:12px;"></div>
+        <div id="readabilityDetails" style="margin-top:8px;"></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the Readability Checker</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Paste Your Text</h3><p>Copy and paste any article, blog post, essay, or document into the text area. The checker works with text of any length.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Instant Analysis</h3><p>Results update automatically as you type or paste. See Flesch Reading Ease, Flesch-Kincaid Grade Level, Gunning Fog Index, and detailed text statistics.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Improve Your Writing</h3><p>Use the grade level targets and suggestions to simplify your text. Shorter sentences and simpler words improve readability scores.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Readability Score Reference</h2>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+          <thead><tr style="background:var(--color-mist);"><th style="padding:8px 12px;text-align:left;">Score Range</th><th style="padding:8px 12px;text-align:left;">Description</th><th style="padding:8px 12px;text-align:left;">Grade Level</th><th style="padding:8px 12px;text-align:left;">Typical Content</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">90-100</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Very Easy</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">5th grade</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Children's books, comics</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">80-90</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Easy</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">6th grade</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Popular magazines</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">70-80</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Fairly Easy</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">7th grade</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Newspapers, blogs</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">60-70</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Standard</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">8th-9th grade</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Plain English, general audience</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">50-60</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Fairly Difficult</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">10th-12th grade</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Textbooks, technical docs</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">30-50</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Difficult</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">College</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Academic papers, reports</td></tr>
+            <tr><td style="padding:6px 12px;">0-30</td><td style="padding:6px 12px;">Very Difficult</td><td style="padding:6px 12px;">College graduate</td><td style="padding:6px 12px;">Legal documents, scientific journals</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What is the Flesch Reading Ease score? <span class="arrow">▼</span></button><div class="faq-answer">Flesch Reading Ease scores range from 0 to 100. Higher scores indicate text that is easier to read. Scores of 60-70 are considered plain English easily understood by 13-15 year olds. Scores below 30 indicate very difficult academic text. The formula uses average sentence length and average syllables per word.</div></div>
+        <div class="faq-item"><button class="faq-question">What is a good readability score for my content? <span class="arrow">▼</span></button><div class="faq-answer">For general audiences, aim for a Flesch Reading Ease of 60-70 (plain English). Blog posts and marketing content should target grade level 6-8. Academic papers may target grade level 12-16. Legal documents often score below grade 12 but benefit from simplification when possible.</div></div>
+        <div class="faq-item"><button class="faq-question">How is the Flesch-Kincaid Grade Level calculated? <span class="arrow">▼</span></button><div class="faq-answer">The Flesch-Kincaid Grade Level formula is: 0.39 x (words/sentences) + 11.8 x (syllables/words) - 15.59. The result corresponds to a US school grade level. For example, a score of 8.0 means an 8th grader can understand the text. Most newspapers target grade level 6-8.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the Gunning Fog Index? <span class="arrow">▼</span></button><div class="faq-answer">The Gunning Fog Index estimates the years of formal education needed to understand a text on first reading. It uses average sentence length and the percentage of complex words (3 or more syllables). Scores of 7-8 are ideal for general audiences. Scores above 12 indicate college-level reading difficulty.</div></div>
+        <div class="faq-item"><button class="faq-question">How can I improve my readability score? <span class="arrow">▼</span></button><div class="faq-answer">Use shorter sentences, prefer simpler words, avoid jargon, and break long paragraphs into smaller chunks. Aim for an average of 15-20 words per sentence. Replace multi-syllable words with simpler alternatives when possible. Active voice generally scores better than passive voice.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      function countSyllables(word) {
+        word = word.toLowerCase().replace(/[^a-z]/g, '');
+        if (!word) return 0;
+        if (word.length <= 3) return 1;
+        word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
+        word = word.replace(/^y/, '');
+        var syl = word.match(/[aeiouy]{1,2}/g);
+        return syl ? syl.length : 1;
+      }
+
+      function analyze() {
+        var text = document.getElementById('readabilityInput').value.trim();
+        var statsDiv = document.getElementById('readabilityStats');
+        var detailsDiv = document.getElementById('readabilityDetails');
+        if (!text) {
+          statsDiv.className = 'converter-result';
+          statsDiv.innerHTML = '';
+          detailsDiv.innerHTML = '';
+          return;
+        }
+        var sentences = text.split(/[.!?]+/).filter(function(s) { return s.trim().length > 0; }).length || 1;
+        var words = text.match(/[a-zA-Z]+/g) || [];
+        var wordCount = words.length || 1;
+        var chars = text.replace(/\s/g, '').length;
+        var letters = text.replace(/[^a-zA-Z]/g, '').length;
+        var totalSyllables = 0;
+        var complexWords = 0;
+        for (var i = 0; i < words.length; i++) {
+          var s = countSyllables(words[i]);
+          totalSyllables += s;
+          if (s >= 3) complexWords++;
+        }
+        var avgWordsPerSentence = wordCount / sentences;
+        var avgSyllablesPerWord = totalSyllables / wordCount;
+        var fleschEase = 206.835 - 1.015 * avgWordsPerSentence - 84.6 * avgSyllablesPerWord;
+        fleschEase = Math.max(0, Math.min(100, fleschEase));
+        var fleschKincaid = 0.39 * avgWordsPerSentence + 11.8 * avgSyllablesPerWord - 15.59;
+        fleschKincaid = Math.max(0, fleschKincaid);
+        var fogIndex = 0.4 * (avgWordsPerSentence + 100 * (complexWords / wordCount));
+        fogIndex = Math.max(0, fogIndex);
+        var easeLabel = '';
+        if (fleschEase >= 90) easeLabel = 'Very Easy';
+        else if (fleschEase >= 80) easeLabel = 'Easy';
+        else if (fleschEase >= 70) easeLabel = 'Fairly Easy';
+        else if (fleschEase >= 60) easeLabel = 'Standard';
+        else if (fleschEase >= 50) easeLabel = 'Fairly Difficult';
+        else if (fleschEase >= 30) easeLabel = 'Difficult';
+        else easeLabel = 'Very Difficult';
+        statsDiv.className = 'converter-result show success';
+        statsDiv.innerHTML = '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;">' +
+          '<div style="padding:12px;background:var(--color-cream);border-radius:6px;text-align:center;"><div style="font-size:0.8rem;color:var(--text-secondary);">Flesch Reading Ease</div><div style="font-size:1.6rem;font-weight:700;color:var(--color-red);">' + fleschEase.toFixed(1) + '</div><div style="font-size:0.8rem;">' + easeLabel + '</div></div>' +
+          '<div style="padding:12px;background:var(--color-cream);border-radius:6px;text-align:center;"><div style="font-size:0.8rem;color:var(--text-secondary);">Flesch-Kincaid Grade</div><div style="font-size:1.6rem;font-weight:700;color:var(--color-red);">' + fleschKincaid.toFixed(1) + '</div><div style="font-size:0.8rem;">Grade level</div></div>' +
+          '<div style="padding:12px;background:var(--color-cream);border-radius:6px;text-align:center;"><div style="font-size:0.8rem;color:var(--text-secondary);">Gunning Fog Index</div><div style="font-size:1.6rem;font-weight:700;color:var(--color-red);">' + fogIndex.toFixed(1) + '</div><div style="font-size:0.8rem;">Years of education</div></div>' +
+          '<div style="padding:12px;background:var(--color-cream);border-radius:6px;text-align:center;"><div style="font-size:0.8rem;color:var(--text-secondary);">Avg Sentence Length</div><div style="font-size:1.6rem;font-weight:700;color:var(--color-red);">' + avgWordsPerSentence.toFixed(1) + '</div><div style="font-size:0.8rem;">Words per sentence</div></div>' +
+        '</div>';
+        detailsDiv.innerHTML = '<div style="margin-top:10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;font-size:0.85rem;">' +
+          '<div style="padding:8px 12px;background:var(--color-cream);border-radius:4px;"><strong>Words:</strong> ' + wordCount + '</div>' +
+          '<div style="padding:8px 12px;background:var(--color-cream);border-radius:4px;"><strong>Sentences:</strong> ' + sentences + '</div>' +
+          '<div style="padding:8px 12px;background:var(--color-cream);border-radius:4px;"><strong>Syllables:</strong> ' + totalSyllables + '</div>' +
+          '<div style="padding:8px 12px;background:var(--color-cream);border-radius:4px;"><strong>Complex Words:</strong> ' + complexWords + '</div>' +
+          '<div style="padding:8px 12px;background:var(--color-cream);border-radius:4px;"><strong>Characters:</strong> ' + chars + '</div>' +
+          '<div style="padding:8px 12px;background:var(--color-cream);border-radius:4px;"><strong>Letters:</strong> ' + letters + '</div>' +
+        '</div>';
+      }
+      var input = document.getElementById('readabilityInput');
+      var debounceTimer;
+      input.addEventListener('input', function() {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(analyze, 300);
+      });
+      analyze();
+    })();
+  </script>
+</body>
+</html>

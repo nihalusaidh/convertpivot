@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Calculator — Exact Years, Months, Days & Next Birthday | ConvertPivot</title>
+  <meta name="description" content="Free online age calculator. Calculate exact age in years, months, days, hours, minutes and seconds. See your next birthday countdown and zodiac sign.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/age-calculator">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/age-calculator">
+  <meta property="og:title" content="Age Calculator — Exact Years, Months, Days & Next Birthday | ConvertPivot">
+  <meta property="og:description" content="Free online age calculator. Calculate exact age in years, months, days, hours, minutes and seconds. See your next birthday countdown and zodiac sign.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Age Calculator — Exact Years, Months, Days & Next Birthday | ConvertPivot">
+  <meta name="twitter:description" content="Free online age calculator. Calculate exact age in years, months, days, hours, minutes and seconds. See your next birthday countdown and zodiac sign.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Age Calculator","url":"https://convertpivot.com/age-calculator","applicationCategory":"UtilitiesApplication","operatingSystem":"All","description":"Free online age calculator. Calculate exact age in years, months, days, hours, minutes and seconds. See your next birthday countdown and zodiac sign.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is my exact age calculated?","acceptedAnswer":{"@type":"Answer","text":"Your exact age is calculated by comparing your birth date to the current date (or a custom date). The calculator accounts for leap years and varying month lengths to give precise year, month, day, hour, minute, and second differences. The result updates in real-time if you enable live ticking."}},{"@type":"Question","name":"What is my age in months or weeks?","acceptedAnswer":{"@type":"Answer","text":"Your age in months is the total number of complete months since birth. Age in weeks is the total days divided by 7. The calculator shows both total months and total weeks alongside the standard years-months-days display."}},{"@type":"Question","name":"How many days until my next birthday?","acceptedAnswer":{"@type":"Answer","text":"The next birthday countdown shows the exact number of days, hours, minutes, and seconds remaining until your next birthday. If today is your birthday, it congratulates you and shows the countdown to your next one."}},{"@type":"Question","name":"Does this calculator work for historical dates?","acceptedAnswer":{"@type":"Answer","text":"Yes, you can change the 'as of' date to any past or future date to calculate age at a specific point in time. This is useful for calculating exactly how old someone was on a particular historical date or will be on a future date."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Age Calculator</span></nav>
+    <div class="tool-header">
+      <h1>Age Calculator</h1>
+      <p>Calculate your exact age in years, months, days, hours, minutes, and seconds. Live countdown to your next birthday.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All calculations happen in your browser. Your birth date never leaves your device.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div>
+            <label for="birthDate">Date of Birth:</label>
+            <input type="date" id="birthDate" class="converter-input">
+          </div>
+          <div>
+            <label for="asOfDate">As of Date:</label>
+            <input type="date" id="asOfDate" class="converter-input">
+          </div>
+        </div>
+        <div style="margin-top:10px;display:flex;align-items:center;gap:8px;">
+          <input type="checkbox" id="liveTick" checked>
+          <label for="liveTick" style="font-size:0.9rem;">Live ticking (updates every second)</label>
+        </div>
+        <div id="ageResult" style="margin-top:16px;"></div>
+        <div id="birthdayCountdown" style="margin-top:12px;"></div>
+        <div id="zodiacDisplay" style="margin-top:10px;"></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the Age Calculator</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Enter Your Birth Date</h3><p>Use the date picker to select your date of birth. The date format adjusts automatically to your browser's locale.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Choose a Reference Date</h3><p>The "As of Date" defaults to today. Change it to calculate your age on any past or future date.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>See Instant Results</h3><p>View your exact age in years, months, and days plus total months, weeks, hours, and minutes. The countdown shows time until your next birthday.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Age Calculation Reference</h2>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+          <thead><tr style="background:var(--color-mist);"><th style="padding:8px 12px;text-align:left;">Unit</th><th style="padding:8px 12px;text-align:left;">Calculation</th><th style="padding:8px 12px;text-align:left;">Example (30 years old)</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Years</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Date difference in years</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">30 years</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Months</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Total months between dates</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">360 months</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Weeks</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Total days / 7</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">~1565 weeks</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Days</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Exact day count including leap years</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">~10,957 days</td></tr>
+            <tr><td style="padding:6px 12px;">Hours</td><td style="padding:6px 12px;">Days * 24</td><td style="padding:6px 12px;">~262,968 hours</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">How is my exact age calculated? <span class="arrow">▼</span></button><div class="faq-answer">Your exact age is calculated by comparing your birth date to the current date (or a custom date). The calculator accounts for leap years and varying month lengths to give precise year, month, day, hour, minute, and second differences. The result updates in real-time if you enable live ticking.</div></div>
+        <div class="faq-item"><button class="faq-question">What is my age in months or weeks? <span class="arrow">▼</span></button><div class="faq-answer">Your age in months is the total number of complete months since birth. Age in weeks is the total days divided by 7. The calculator shows both total months and total weeks alongside the standard years-months-days display.</div></div>
+        <div class="faq-item"><button class="faq-question">How many days until my next birthday? <span class="arrow">▼</span></button><div class="faq-answer">The next birthday countdown shows the exact number of days, hours, minutes, and seconds remaining until your next birthday. If today is your birthday, it congratulates you and shows the countdown to your next one.</div></div>
+        <div class="faq-item"><button class="faq-question">Does this calculator work for historical dates? <span class="arrow">▼</span></button><div class="faq-answer">Yes, you can change the 'as of' date to any past or future date to calculate age at a specific point in time. This is useful for calculating exactly how old someone was on a particular historical date or will be on a future date.</div></div>
+        <div class="faq-item"><button class="faq-question">How do leap years affect age calculation? <span class="arrow">▼</span></button><div class="faq-answer">Leap years add an extra day (February 29) every 4 years. The JavaScript Date object handles leap years automatically. If you were born on February 29, your birthday is counted on March 1 in non-leap years for age calculation purposes.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var birthInput = document.getElementById('birthDate');
+      var asOfInput = document.getElementById('asOfDate');
+      var liveCheck = document.getElementById('liveTick');
+      var ageDiv = document.getElementById('ageResult');
+      var bdayDiv = document.getElementById('birthdayCountdown');
+      var zodiacDiv = document.getElementById('zodiacDisplay');
+      var tickTimer = null;
+
+      function getZodiac(month, day) {
+        if ((month === 3 && day >= 21) || (month === 4 && day <= 19)) return { name: 'Aries', emoji: '♈', element: 'Fire' };
+        if ((month === 4 && day >= 20) || (month === 5 && day <= 20)) return { name: 'Taurus', emoji: '♉', element: 'Earth' };
+        if ((month === 5 && day >= 21) || (month === 6 && day <= 20)) return { name: 'Gemini', emoji: '♊', element: 'Air' };
+        if ((month === 6 && day >= 21) || (month === 7 && day <= 22)) return { name: 'Cancer', emoji: '♋', element: 'Water' };
+        if ((month === 7 && day >= 23) || (month === 8 && day <= 22)) return { name: 'Leo', emoji: '♌', element: 'Fire' };
+        if ((month === 8 && day >= 23) || (month === 9 && day <= 22)) return { name: 'Virgo', emoji: '♍', element: 'Earth' };
+        if ((month === 9 && day >= 23) || (month === 10 && day <= 22)) return { name: 'Libra', emoji: '♎', element: 'Air' };
+        if ((month === 10 && day >= 23) || (month === 11 && day <= 21)) return { name: 'Scorpio', emoji: '♏', element: 'Water' };
+        if ((month === 11 && day >= 22) || (month === 12 && day <= 21)) return { name: 'Sagittarius', emoji: '♐', element: 'Fire' };
+        if ((month === 12 && day >= 22) || (month === 1 && day <= 19)) return { name: 'Capricorn', emoji: '♑', element: 'Earth' };
+        if ((month === 1 && day >= 20) || (month === 2 && day <= 18)) return { name: 'Aquarius', emoji: '♒', element: 'Air' };
+        return { name: 'Pisces', emoji: '♓', element: 'Water' };
+      }
+
+      function calculate() {
+        var birthVal = birthInput.value;
+        if (!birthVal) {
+          ageDiv.innerHTML = '<p style="color:var(--text-secondary);">Enter your date of birth to calculate age.</p>';
+          bdayDiv.innerHTML = '';
+          zodiacDiv.innerHTML = '';
+          return;
+        }
+        var birth = new Date(birthVal + 'T00:00:00');
+        var asOfVal = asOfInput.value;
+        var now = asOfVal ? new Date(asOfVal + 'T00:00:00') : new Date();
+        if (isNaN(birth.getTime())) {
+          ageDiv.innerHTML = '<p style="color:var(--color-error);">Invalid birth date.</p>';
+          return;
+        }
+        if (birth > now) {
+          ageDiv.innerHTML = '<p style="color:var(--color-error);">Birth date cannot be in the future.</p>';
+          bdayDiv.innerHTML = '';
+          zodiacDiv.innerHTML = '';
+          return;
+        }
+        var diffMs = now.getTime() - birth.getTime();
+        var totalDays = Math.floor(diffMs / 86400000);
+        var totalHours = Math.floor(diffMs / 3600000);
+        var totalMinutes = Math.floor(diffMs / 60000);
+        var totalWeeks = totalDays / 7;
+        var years = now.getFullYear() - birth.getFullYear();
+        var months = now.getMonth() - birth.getMonth();
+        var days = now.getDate() - birth.getDate();
+        if (days < 0) {
+          months--;
+          var prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+          days += prevMonth.getDate();
+        }
+        if (months < 0) {
+          years--;
+          months += 12;
+        }
+        var totalMonths = years * 12 + months;
+        ageDiv.innerHTML = '<div style="margin-top:8px;">' +
+          '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">' +
+          '<div style="padding:16px;background:var(--color-cream);border-radius:8px;text-align:center;"><div style="font-size:2rem;font-weight:700;color:var(--color-red);">' + years + '</div><div style="font-size:0.85rem;color:var(--text-secondary);">Years</div></div>' +
+          '<div style="padding:16px;background:var(--color-cream);border-radius:8px;text-align:center;"><div style="font-size:2rem;font-weight:700;color:var(--color-red);">' + months + '</div><div style="font-size:0.85rem;color:var(--text-secondary);">Months</div></div>' +
+          '<div style="padding:16px;background:var(--color-cream);border-radius:8px;text-align:center;"><div style="font-size:2rem;font-weight:700;color:var(--color-red);">' + days + '</div><div style="font-size:0.85rem;color:var(--text-secondary);">Days</div></div>' +
+          '</div>' +
+          '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px;">' +
+          '<div style="padding:10px;background:var(--color-cream);border-radius:6px;text-align:center;font-size:0.9rem;"><strong>' + totalMonths + '</strong> <span style="color:var(--text-secondary);">Total months</span></div>' +
+          '<div style="padding:10px;background:var(--color-cream);border-radius:6px;text-align:center;font-size:0.9rem;"><strong>' + totalWeeks.toFixed(1) + '</strong> <span style="color:var(--text-secondary);">Total weeks</span></div>' +
+          '<div style="padding:10px;background:var(--color-cream);border-radius:6px;text-align:center;font-size:0.9rem;"><strong>' + totalDays.toLocaleString() + '</strong> <span style="color:var(--text-secondary);">Total days</span></div>' +
+          '</div>' +
+          '<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px;">' +
+          '<div style="padding:10px;background:var(--color-cream);border-radius:6px;text-align:center;font-size:0.9rem;"><strong>' + totalHours.toLocaleString() + '</strong> <span style="color:var(--text-secondary);">Total hours</span></div>' +
+          '<div style="padding:10px;background:var(--color-cream);border-radius:6px;text-align:center;font-size:0.9rem;"><strong>' + totalMinutes.toLocaleString() + '</strong> <span style="color:var(--text-secondary);">Total minutes</span></div>' +
+          '</div>' +
+          '</div>';
+        var zodiac = getZodiac(birth.getMonth() + 1, birth.getDate());
+        zodiacDiv.innerHTML = '<div style="padding:10px 14px;background:var(--color-cream);border-radius:6px;font-size:0.9rem;"><strong>Zodiac Sign:</strong> ' + zodiac.emoji + ' ' + zodiac.name + ' (' + zodiac.element + ')</div>';
+        if (!asOfVal) {
+          var nextBday = new Date(now.getFullYear(), birth.getMonth(), birth.getDate());
+          if (nextBday < now) nextBday.setFullYear(nextBday.getFullYear() + 1);
+          var bdayDiff = nextBday.getTime() - now.getTime();
+          var bdayDays = Math.floor(bdayDiff / 86400000);
+          var bdayHours = Math.floor((bdayDiff % 86400000) / 3600000);
+          var bdayMins = Math.floor((bdayDiff % 3600000) / 60000);
+          var bdaySecs = Math.floor((bdayDiff % 60000) / 1000);
+          if (bdayDays === 0 && bdayHours === 0 && bdayMins === 0 && bdaySecs < 2) {
+            bdayDiv.innerHTML = '<div style="padding:14px;background:#e8f5e9;border-radius:8px;text-align:center;font-size:1.1rem;color:#2e7d32;"><strong>🎉 Happy Birthday!</strong></div>';
+          } else {
+            bdayDiv.innerHTML = '<div style="margin-top:8px;padding:14px;background:var(--color-cream);border-radius:8px;"><div style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:6px;">Next Birthday Countdown</div><div style="display:flex;gap:8px;justify-content:center;">' +
+              '<div style="text-align:center;padding:8px 12px;background:var(--bg);border-radius:6px;min-width:50px;"><div style="font-size:1.3rem;font-weight:700;color:var(--color-red);">' + bdayDays + '</div><div style="font-size:0.75rem;color:var(--text-secondary);">days</div></div>' +
+              '<div style="text-align:center;padding:8px 12px;background:var(--bg);border-radius:6px;min-width:50px;"><div style="font-size:1.3rem;font-weight:700;color:var(--color-red);">' + bdayHours + '</div><div style="font-size:0.75rem;color:var(--text-secondary);">hrs</div></div>' +
+              '<div style="text-align:center;padding:8px 12px;background:var(--bg);border-radius:6px;min-width:50px;"><div style="font-size:1.3rem;font-weight:700;color:var(--color-red);">' + bdayMins + '</div><div style="font-size:0.75rem;color:var(--text-secondary);">min</div></div>' +
+              '<div style="text-align:center;padding:8px 12px;background:var(--bg);border-radius:6px;min-width:50px;"><div style="font-size:1.3rem;font-weight:700;color:var(--color-red);">' + bdaySecs + '</div><div style="font-size:0.75rem;color:var(--text-secondary);">sec</div></div>' +
+              '</div></div>';
+          }
+        } else {
+          bdayDiv.innerHTML = '';
+        }
+      }
+
+      function scheduleTick() {
+        if (tickTimer) clearTimeout(tickTimer);
+        if (liveCheck.checked && !asOfInput.value) {
+          tickTimer = setTimeout(function() { calculate(); scheduleTick(); }, 1000);
+        }
+      }
+
+      birthInput.addEventListener('change', function() { calculate(); scheduleTick(); });
+      asOfInput.addEventListener('change', function() { calculate(); scheduleTick(); });
+      liveCheck.addEventListener('change', function() { calculate(); scheduleTick(); });
+      var today = new Date();
+      asOfInput.value = today.toISOString().split('T')[0];
+      birthInput.value = '1990-01-01';
+      calculate();
+      scheduleTick();
+    })();
+  </script>
+</body>
+</html>

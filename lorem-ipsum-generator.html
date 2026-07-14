@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lorem Ipsum Generator — Generate Dummy Text | ConvertPivot</title>
+  <meta name="description" content="Free Lorem Ipsum generator. Generate paragraphs, words, or sentences of dummy text for layouts and design mockups. 100% browser-based.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/lorem-ipsum-generator">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/lorem-ipsum-generator">
+  <meta property="og:title" content="Lorem Ipsum Generator — Generate Dummy Text | ConvertPivot">
+  <meta property="og:description" content="Free Lorem Ipsum generator. Generate paragraphs, words, or sentences of dummy text for layouts and design mockups. 100% browser-based.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lorem Ipsum Generator — Generate Dummy Text | ConvertPivot">
+  <meta name="twitter:description" content="Free Lorem Ipsum generator. Generate paragraphs, words, or sentences of dummy text for layouts and design mockups. 100% browser-based.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Lorem Ipsum Generator","url":"https://convertpivot.com/lorem-ipsum-generator","applicationCategory":"DesignApplication","operatingSystem":"All","description":"Free Lorem Ipsum generator. Generate paragraphs, words, or sentences of dummy text. 100% browser-based.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Lorem Ipsum?","acceptedAnswer":{"@type":"Answer","text":"Lorem Ipsum is dummy text used in the printing and typesetting industry. It has been the industry's standard dummy text since the 1500s when a printer scrambled a Latin passage to make a type specimen book."}},{"@type":"Question","name":"Why use Lorem Ipsum?","acceptedAnswer":{"@type":"Answer","text":"Designers use Lorem Ipsum as placeholder text to focus on layout and visual design rather than content. It provides a natural-looking text distribution that helps evaluate fonts, spacing, and overall design."}},{"@type":"Question","name":"Is Lorem Ipsum real Latin?","acceptedAnswer":{"@type":"Answer","text":"Yes, Lorem Ipsum is derived from a Latin text by Cicero written in 45 BC. The standard passage comes from sections 1.10.32 and 1.10.33 of 'De Finibus Bonorum et Malorum' (The Extremes of Good and Evil)."}},{"@type":"Question","name":"Is this tool free?","acceptedAnswer":{"@type":"Answer","text":"Yes, this Lorem Ipsum generator is completely free. All text is generated locally in your browser with no server uploads required."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Lorem Ipsum Generator</span></nav>
+    <div class="tool-header">
+      <h1>Lorem Ipsum Generator</h1>
+      <p>Generate placeholder text for your designs, layouts, and mockups.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <label for="loremType">Generate:</label>
+        <select id="loremType" class="converter-input" style="width:auto;min-width:200px;margin-bottom:12px;">
+          <option value="paragraphs">Paragraphs</option>
+          <option value="sentences">Sentences</option>
+          <option value="words">Words</option>
+        </select>
+        <label for="loremCount">Count:</label>
+        <input type="number" id="loremCount" class="converter-input" value="3" min="1" max="100" style="width:100px;margin-bottom:12px;">
+        <div class="converter-inline">
+          <button id="generateLoremBtn" class="btn btn-primary">Generate</button>
+          <button id="copyLoremBtn" class="btn btn-ghost">Copy Text</button>
+          <button id="clearLoremBtn" class="btn btn-ghost">Clear</button>
+        </div>
+        <label for="loremOutput">Generated Text:</label>
+        <textarea id="loremOutput" class="converter-textarea" rows="10" placeholder="Generated text will appear here..." readonly></textarea>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the Lorem Ipsum Generator</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Choose Type</h3><p>Select whether you need paragraphs, sentences, or individual words of dummy text.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Set Count</h3><p>Enter the number of paragraphs, sentences, or words you want to generate (1-100).</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Copy & Use</h3><p>Click <strong>Generate</strong>, then copy the text to use in your design mockups, wireframes, or templates.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What is Lorem Ipsum? <span class="arrow">▼</span></button><div class="faq-answer">Lorem Ipsum is dummy text used in the printing and typesetting industry. It has been the industry's standard dummy text since the 1500s when a printer scrambled a Latin passage to make a type specimen book.</div></div>
+        <div class="faq-item"><button class="faq-question">Why use Lorem Ipsum? <span class="arrow">▼</span></button><div class="faq-answer">Designers use Lorem Ipsum as placeholder text to focus on layout and visual design rather than content. It provides a natural-looking text distribution that helps evaluate fonts, spacing, and overall design.</div></div>
+        <div class="faq-item"><button class="faq-question">Is Lorem Ipsum real Latin? <span class="arrow">▼</span></button><div class="faq-answer">Yes, Lorem Ipsum is derived from a Latin text by Cicero written in 45 BC. The standard passage comes from sections 1.10.32 and 1.10.33 of 'De Finibus Bonorum et Malorum' (The Extremes of Good and Evil).</div></div>
+        <div class="faq-item"><button class="faq-question">Is this tool free? <span class="arrow">▼</span></button><div class="faq-answer">Yes, this Lorem Ipsum generator is completely free. All text is generated locally in your browser with no server uploads required.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var words = ['lorem','ipsum','dolor','sit','amet','consectetur','adipiscing','elit','sed','do','eiusmod','tempor','incididunt','ut','labore','et','dolore','magna','aliqua','ut','enim','ad','minim','veniam','quis','nostrud','exercitation','ullamco','laboris','nisi','ut','aliquip','ex','ea','commodo','consequat','duis','aute','irure','dolor','in','reprehenderit','in','voluptate','velit','esse','cillum','dolore','eu','fugiat','nulla','pariatur','excepteur','sint','occaecat','cupidatat','non','proident','sunt','in','culpa','qui','officia','deserunt','mollit','anim','id','est','laborum'];
+
+      function randomWord() { return words[Math.floor(Math.random() * words.length)]; }
+
+      function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+      function generateSentence() {
+        var len = 5 + Math.floor(Math.random() * 10);
+        var sent = '';
+        for (var i = 0; i < len; i++) sent += (i === 0 ? '' : ' ') + randomWord();
+        return capitalize(sent) + '.';
+      }
+
+      function generateParagraph() {
+        var sentCount = 3 + Math.floor(Math.random() * 5);
+        var para = '';
+        for (var i = 0; i < sentCount; i++) para += (i > 0 ? ' ' : '') + generateSentence();
+        return para;
+      }
+
+      var output = document.getElementById('loremOutput');
+
+      document.getElementById('generateLoremBtn').addEventListener('click', function() {
+        var type = document.getElementById('loremType').value;
+        var count = parseInt(document.getElementById('loremCount').value, 10);
+        if (isNaN(count) || count < 1) count = 1;
+        if (count > 100) { count = 100; document.getElementById('loremCount').value = 100; }
+        var result = '';
+        if (type === 'paragraphs') {
+          for (var i = 0; i < count; i++) result += generateParagraph() + '\n\n';
+        } else if (type === 'sentences') {
+          for (var i = 0; i < count; i++) result += generateSentence() + ' ';
+        } else {
+          for (var i = 0; i < count; i++) result += randomWord() + ' ';
+        }
+        output.value = result.trim();
+      });
+
+      document.getElementById('copyLoremBtn').addEventListener('click', function() {
+        if (output.value) { output.select(); navigator.clipboard.writeText(output.value); }
+      });
+
+      document.getElementById('clearLoremBtn').addEventListener('click', function() {
+        output.value = '';
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Contrast Checker — WCAG AA/AAA Accessibility | ConvertPivot</title>
+  <meta name="description" content="Free online color contrast checker. Check WCAG AA and AAA compliance for text and background color combinations. Includes color picker and live preview.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/contrast-checker">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/contrast-checker">
+  <meta property="og:title" content="Color Contrast Checker — WCAG AA/AAA Accessibility | ConvertPivot">
+  <meta property="og:description" content="Free online color contrast checker. Check WCAG AA and AAA compliance for text and background color combinations. Includes color picker and live preview.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Color Contrast Checker — WCAG AA/AAA Accessibility | ConvertPivot">
+  <meta name="twitter:description" content="Free online color contrast checker. Check WCAG AA and AAA compliance for text and background color combinations. Includes color picker and live preview.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Color Contrast Checker","url":"https://convertpivot.com/contrast-checker","applicationCategory":"UtilitiesApplication","operatingSystem":"All","description":"Free online color contrast checker. Check WCAG AA and AAA compliance for text and background color combinations. Includes color picker and live preview.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is WCAG color contrast ratio?","acceptedAnswer":{"@type":"Answer","text":"WCAG (Web Content Accessibility Guidelines) defines contrast ratio requirements for text and background colors. The ratio ranges from 1:1 (same color) to 21:1 (black on white). Normal text requires 4.5:1 (AA) or 7:1 (AAA). Large text (18px+ bold or 24px+ regular) requires 3:1 (AA) or 4.5:1 (AAA)."}},{"@type":"Question","name":"How is the contrast ratio calculated?","acceptedAnswer":{"@type":"Answer","text":"The contrast ratio is calculated using the relative luminance of both colors. Luminance is a weighted sum of RGB values: L = 0.2126R + 0.7152G + 0.0722B (after linearization). The contrast ratio is (L1 + 0.05) / (L2 + 0.05) where L1 is the lighter color and L2 is the darker color."}},{"@type":"Question","name":"What does AA vs AAA compliance mean?","acceptedAnswer":{"@type":"Answer","text":"WCAG AA is the minimum compliance level required by most government and enterprise accessibility standards. AA requires 4.5:1 for normal text and 3:1 for large text. AAA is a higher standard requiring 7:1 for normal text and 4.5:1 for large text. AAA is not required for full compliance but represents best practice."}},{"@type":"Question","name":"How do I choose accessible color combinations?","acceptedAnswer":{"@type":"Answer","text":"Start by choosing a background color, then adjust the text color until you reach at least AA compliance. Dark text on light backgrounds generally works best. Avoid low-contrast combinations like light gray on white, or dark blue on black. Use the color pickers to experiment with different combinations."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Contrast Checker</span></nav>
+    <div class="tool-header">
+      <h1>Color Contrast Checker</h1>
+      <p>Check WCAG AA and AAA accessibility compliance for any text and background color combination. Preview the result in real-time.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All color calculations happen in your browser. No data is sent anywhere.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div>
+            <label for="textColorPicker">Text Color:</label>
+            <input type="color" id="textColorPicker" class="converter-input" value="#333333" style="height:48px;padding:4px;">
+            <input type="text" id="textColorHex" class="converter-input" value="#333333" style="margin-top:4px;font-family:Consolas,monospace;text-align:center;">
+          </div>
+          <div>
+            <label for="bgColorPicker">Background Color:</label>
+            <input type="color" id="bgColorPicker" class="converter-input" value="#FFFFFF" style="height:48px;padding:4px;">
+            <input type="text" id="bgColorHex" class="converter-input" value="#FFFFFF" style="margin-top:4px;font-family:Consolas,monospace;text-align:center;">
+          </div>
+        </div>
+        <div id="contrastResult" style="margin-top:16px;"></div>
+        <div id="contrastPreview" style="margin-top:12px;padding:24px;border-radius:8px;text-align:center;font-size:1.1rem;border:1px solid var(--color-mist);">Sample Text — The quick brown fox jumps over the lazy dog.</div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the Contrast Checker</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Choose Text Color</h3><p>Use the color picker or type a hex code for the foreground text color. The preview updates instantly as you adjust.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Choose Background Color</h3><p>Select the background color using the picker or hex input. The contrast ratio is calculated in real-time between the two colors.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Check WCAG Compliance</h3><p>See the contrast ratio and pass/fail indicators for WCAG AA and AAA at both normal text and large text thresholds.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>WCAG Contrast Requirements Reference</h2>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+          <thead><tr style="background:var(--color-mist);"><th style="padding:8px 12px;text-align:left;">Level</th><th style="padding:8px 12px;text-align:left;">Normal Text</th><th style="padding:8px 12px;text-align:left;">Large Text</th><th style="padding:8px 12px;text-align:left;">UI Components</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">AA</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">4.5:1</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">3:1</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">3:1</td></tr>
+            <tr><td style="padding:6px 12px;">AAA</td><td style="padding:6px 12px;">7:1</td><td style="padding:6px 12px;">4.5:1</td><td style="padding:6px 12px;">Not defined</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:8px;font-size:0.85rem;color:var(--text-secondary);">Large text is defined as at least 18pt (24px) bold or 24pt (32px) regular.</p>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What is WCAG color contrast ratio? <span class="arrow">▼</span></button><div class="faq-answer">WCAG (Web Content Accessibility Guidelines) defines contrast ratio requirements for text and background colors. The ratio ranges from 1:1 (same color) to 21:1 (black on white). Normal text requires 4.5:1 (AA) or 7:1 (AAA). Large text (18px+ bold or 24px+ regular) requires 3:1 (AA) or 4.5:1 (AAA).</div></div>
+        <div class="faq-item"><button class="faq-question">How is the contrast ratio calculated? <span class="arrow">▼</span></button><div class="faq-answer">The contrast ratio is calculated using the relative luminance of both colors. Luminance is a weighted sum of RGB values: L = 0.2126R + 0.7152G + 0.0722B (after linearization). The contrast ratio is (L1 + 0.05) / (L2 + 0.05) where L1 is the lighter color and L2 is the darker color.</div></div>
+        <div class="faq-item"><button class="faq-question">What does AA vs AAA compliance mean? <span class="arrow">▼</span></button><div class="faq-answer">WCAG AA is the minimum compliance level required by most government and enterprise accessibility standards. AA requires 4.5:1 for normal text and 3:1 for large text. AAA is a higher standard requiring 7:1 for normal text and 4.5:1 for large text. AAA is not required for full compliance but represents best practice.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I choose accessible color combinations? <span class="arrow">▼</span></button><div class="faq-answer">Start by choosing a background color, then adjust the text color until you reach at least AA compliance. Dark text on light backgrounds generally works best. Avoid low-contrast combinations like light gray on white, or dark blue on black. Use the color pickers to experiment with different combinations.</div></div>
+        <div class="faq-item"><button class="faq-question">Does this checker account for text size? <span class="arrow">▼</span></button><div class="faq-answer">Yes. The checker shows separate results for normal text (under 18pt bold / 24pt regular) and large text (18pt+ bold / 24pt+ regular). Large text has slightly relaxed contrast requirements because thicker strokes make it easier to read at lower contrast ratios.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var textPicker = document.getElementById('textColorPicker');
+      var textHex = document.getElementById('textColorHex');
+      var bgPicker = document.getElementById('bgColorPicker');
+      var bgHex = document.getElementById('bgColorHex');
+      var resultDiv = document.getElementById('contrastResult');
+      var previewDiv = document.getElementById('contrastPreview');
+
+      function hexToRgb(hex) {
+        hex = hex.replace('#', '');
+        if (hex.length === 3) hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+        return { r: parseInt(hex.substr(0,2), 16), g: parseInt(hex.substr(2,2), 16), b: parseInt(hex.substr(4,2), 16) };
+      }
+
+      function linearize(v) {
+        v = v / 255;
+        return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+      }
+
+      function relativeLuminance(r, g, b) {
+        return 0.2126 * linearize(r) + 0.7152 * linearize(g) + 0.0722 * linearize(b);
+      }
+
+      function contrastRatio(c1, c2) {
+        var l1 = relativeLuminance(c1.r, c1.g, c1.b);
+        var l2 = relativeLuminance(c2.r, c2.g, c2.b);
+        var lighter = Math.max(l1, l2);
+        var darker = Math.min(l1, l2);
+        return (lighter + 0.05) / (darker + 0.05);
+      }
+
+      function update() {
+        var textColor = textHex.value.startsWith('#') ? textHex.value : '#' + textHex.value;
+        var bgColor = bgHex.value.startsWith('#') ? bgHex.value : '#' + bgHex.value;
+        if (!/^#[0-9a-f]{6}$/i.test(textColor) || !/^#[0-9a-f]{6}$/i.test(bgColor)) {
+          resultDiv.innerHTML = '<p style="color:var(--color-error);">Invalid hex color. Use format #RRGGBB.</p>';
+          return;
+        }
+        textPicker.value = textColor;
+        bgPicker.value = bgColor;
+        var tc = hexToRgb(textColor);
+        var bc = hexToRgb(bgColor);
+        var ratio = contrastRatio(tc, bc);
+        var passAA = ratio >= 4.5;
+        var passAALarge = ratio >= 3;
+        var passAAA = ratio >= 7;
+        var passAAALarge = ratio >= 4.5;
+        previewDiv.style.color = textColor;
+        previewDiv.style.backgroundColor = bgColor;
+        resultDiv.innerHTML = '<div style="text-align:center;margin-bottom:12px;"><div style="font-size:2rem;font-weight:700;color:var(--color-red);">' + ratio.toFixed(2) + ':1</div><div style="font-size:0.9rem;color:var(--text-secondary);">Contrast Ratio</div></div>' +
+          '<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;">' +
+          '<div style="padding:10px;border-radius:6px;text-align:center;font-size:0.9rem;' + (passAA ? 'background:#e8f5e9;color:#2e7d32;' : 'background:#ffebee;color:#c62828;') + '">' + (passAA ? '✓' : '✗') + ' WCAG AA (' + ratio.toFixed(2) + ':1 ≥ 4.5:1)</div>' +
+          '<div style="padding:10px;border-radius:6px;text-align:center;font-size:0.9rem;' + (passAALarge ? 'background:#e8f5e9;color:#2e7d32;' : 'background:#ffebee;color:#c62828;') + '">' + (passAALarge ? '✓' : '✗') + ' WCAG AA Large (' + ratio.toFixed(2) + ':1 ≥ 3:1)</div>' +
+          '<div style="padding:10px;border-radius:6px;text-align:center;font-size:0.9rem;' + (passAAA ? 'background:#e8f5e9;color:#2e7d32;' : 'background:#ffebee;color:#c62828;') + '">' + (passAAA ? '✓' : '✗') + ' WCAG AAA (' + ratio.toFixed(2) + ':1 ≥ 7:1)</div>' +
+          '<div style="padding:10px;border-radius:6px;text-align:center;font-size:0.9rem;' + (passAAALarge ? 'background:#e8f5e9;color:#2e7d32;' : 'background:#ffebee;color:#c62828;') + '">' + (passAAALarge ? '✓' : '✗') + ' WCAG AAA Large (' + ratio.toFixed(2) + ':1 ≥ 4.5:1)</div>' +
+          '</div>';
+      }
+
+      textPicker.addEventListener('input', function() { textHex.value = textPicker.value; update(); });
+      bgPicker.addEventListener('input', function() { bgHex.value = bgPicker.value; update(); });
+      textHex.addEventListener('input', update);
+      bgHex.addEventListener('input', update);
+      update();
+    })();
+  </script>
+</body>
+</html>

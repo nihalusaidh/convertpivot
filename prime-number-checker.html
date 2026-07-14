@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime Number Checker — Check If a Number Is Prime | ConvertPivot</title>
+  <meta name="description" content="Free online prime number checker. Check if any number is prime, find next prime, and list factors. 100% browser-based. No upload required.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/prime-number-checker">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/prime-number-checker">
+  <meta property="og:title" content="Prime Number Checker — Check If a Number Is Prime | ConvertPivot">
+  <meta property="og:description" content="Free online prime number checker. Check if any number is prime, find next prime, and list factors. 100% browser-based.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Prime Number Checker — Check If a Number Is Prime | ConvertPivot">
+  <meta name="twitter:description" content="Free online prime number checker. Check if any number is prime, find next prime, and list factors. 100% browser-based.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Prime Number Checker","url":"https://convertpivot.com/prime-number-checker","applicationCategory":"ReferenceApplication","operatingSystem":"All","description":"Free online prime number checker. Check if any number is prime, find next prime, list factors. 100% browser-based.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a prime number?","acceptedAnswer":{"@type":"Answer","text":"A prime number is a natural number greater than 1 that can only be divided evenly by 1 and itself. The first few prime numbers are 2, 3, 5, 7, 11, 13, 17, 19, 23, and 29. 2 is the only even prime number."}},{"@type":"Question","name":"How do you check if a number is prime?","acceptedAnswer":{"@type":"Answer","text":"A number is prime if it is greater than 1 and has no divisors other than 1 and itself. The most common method is trial division — checking if the number is divisible by any integer from 2 to its square root."}},{"@type":"Question","name":"What are prime numbers used for?","acceptedAnswer":{"@type":"Answer","text":"Prime numbers are fundamental in cryptography, especially RSA encryption which relies on the difficulty of factoring large prime numbers. They are also used in hash functions, random number generation, and error-correcting codes."}},{"@type":"Question","name":"Is this tool free?","acceptedAnswer":{"@type":"Answer","text":"Yes, this prime number checker is completely free. All checking is done locally in your browser with no server uploads."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Prime Number Checker</span></nav>
+    <div class="tool-header">
+      <h1>Prime Number Checker</h1>
+      <p>Check if any number is prime, find the next prime, and list its factors.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <label for="primeInput">Enter a Number:</label>
+        <input type="number" id="primeInput" class="converter-input" placeholder="Enter a positive integer (e.g., 17)" style="width:100%;margin-bottom:12px;">
+        <div class="converter-inline">
+          <button id="checkPrimeBtn" class="btn btn-primary">Check Prime</button>
+          <button id="clearPrimeBtn" class="btn btn-ghost">Clear</button>
+        </div>
+        <div id="primeResult" class="converter-result" style="margin-top:12px;">
+          <div class="converter-result-message"></div>
+        </div>
+        <div id="primeDetails" style="margin-top:12px;padding:12px;background:var(--color-cream);border-radius:8px;display:none;">
+          <div id="primeFactors" style="font-size:0.9rem;margin-bottom:6px;"></div>
+          <div id="nextPrime" style="font-size:0.9rem;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the Prime Number Checker</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Enter a Number</h3><p>Type any positive integer greater than 1 into the input field.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Check</h3><p>Click <strong>Check Prime</strong> to instantly see if the number is prime.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>See Details</h3><p>The tool shows factors, whether it's prime or composite, and the next prime number.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What is a prime number? <span class="arrow">▼</span></button><div class="faq-answer">A prime number is a natural number greater than 1 that can only be divided evenly by 1 and itself. The first few prime numbers are 2, 3, 5, 7, 11, 13, 17, 19, 23, and 29. 2 is the only even prime number.</div></div>
+        <div class="faq-item"><button class="faq-question">How do you check if a number is prime? <span class="arrow">▼</span></button><div class="faq-answer">A number is prime if it is greater than 1 and has no divisors other than 1 and itself. The most common method is trial division — checking if the number is divisible by any integer from 2 to its square root.</div></div>
+        <div class="faq-item"><button class="faq-question">What are prime numbers used for? <span class="arrow">▼</span></button><div class="faq-answer">Prime numbers are fundamental in cryptography, especially RSA encryption which relies on the difficulty of factoring large prime numbers. They are also used in hash functions, random number generation, and error-correcting codes.</div></div>
+        <div class="faq-item"><button class="faq-question">Is this tool free? <span class="arrow">▼</span></button><div class="faq-answer">Yes, this prime number checker is completely free. All checking is done locally in your browser with no server uploads.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var input = document.getElementById('primeInput');
+
+      function isPrime(n) {
+        if (n < 2) return false;
+        if (n === 2) return true;
+        if (n % 2 === 0) return false;
+        var sqrt = Math.sqrt(n);
+        for (var i = 3; i <= sqrt; i += 2) {
+          if (n % i === 0) return false;
+        }
+        return true;
+      }
+
+      function getFactors(n) {
+        var factors = [];
+        for (var i = 1; i <= Math.sqrt(n); i++) {
+          if (n % i === 0) {
+            factors.push(i);
+            if (i !== n / i) factors.push(n / i);
+          }
+        }
+        return factors.sort(function(a, b) { return a - b; });
+      }
+
+      function nextPrime(n) {
+        var candidate = n + 1;
+        while (true) {
+          if (isPrime(candidate)) return candidate;
+          candidate++;
+        }
+      }
+
+      document.getElementById('checkPrimeBtn').addEventListener('click', function() {
+        var val = parseInt(input.value, 10);
+        if (isNaN(val) || val < 1) {
+          ConvertPivot.showResult('primeResult', 'Please enter a positive integer.', 'error');
+          document.getElementById('primeDetails').style.display = 'none';
+          return;
+        }
+        var prime = isPrime(val);
+        var factors = getFactors(val);
+        document.getElementById('primeFactors').textContent = 'Factors: ' + factors.join(', ');
+        if (prime) {
+          ConvertPivot.showResult('primeResult', val + ' is a prime number! It can only be divided by 1 and itself.', 'success');
+          document.getElementById('nextPrime').textContent = '';
+        } else {
+          var np = nextPrime(val);
+          ConvertPivot.showResult('primeResult', val + ' is not a prime number (composite). It has ' + factors.length + ' factors.', 'error');
+          document.getElementById('nextPrime').textContent = 'Next prime number: ' + np;
+        }
+        document.getElementById('primeDetails').style.display = 'block';
+      });
+
+      document.getElementById('clearPrimeBtn').addEventListener('click', function() {
+        input.value = '';
+        document.getElementById('primeDetails').style.display = 'none';
+        document.getElementById('primeResult').querySelector('.converter-result-message').textContent = '';
+        document.getElementById('primeResult').style.display = 'none';
+      });
+    })();
+  </script>
+</body>
+</html>

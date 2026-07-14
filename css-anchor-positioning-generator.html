@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Anchor Positioning Generator — anchor-name, position-area | ConvertPivot</title>
+  <meta name="description" content="Free online CSS Anchor Positioning API generator. Generate anchor-name, position-anchor, position-area, position-fallback rules for tooltips, popovers, and dropdowns that follow their trigger element.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/css-anchor-positioning-generator">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/css-anchor-positioning-generator">
+  <meta property="og:title" content="CSS Anchor Positioning Generator | ConvertPivot">
+  <meta property="og:description" content="Generate CSS anchor positioning rules for tooltips, popovers, and dropdowns. Configure anchor-name, position-anchor, position-area, and fallbacks.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CSS Anchor Positioning Generator | ConvertPivot">
+  <meta name="twitter:description" content="Generate CSS anchor positioning rules for tooltips, popovers, and dropdowns.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CSS Anchor Positioning Generator","url":"https://convertpivot.com/css-anchor-positioning-generator","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Generate CSS Anchor Positioning rules for tooltips, popovers, dropdowns, and other positioned elements.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is CSS Anchor Positioning?","acceptedAnswer":{"@type":"Answer","text":"CSS Anchor Positioning is a specification that lets you position elements relative to other elements (anchors) on the page. Instead of using JavaScript to calculate position on scroll/resize, you use CSS properties like anchor-name, position-anchor, and position-area to declare the relationship."}},{"@type":"Question","name":"How do I use anchor positioning?","acceptedAnswer":{"@type":"Answer","text":"First, give the anchor element an anchor-name (e.g., anchor-name: --tooltip-trigger). Then, on the positioned element, set position-anchor: --tooltip-trigger and position-area: top center to place it above the anchor. The browser automatically handles scrolling and resizing."}},{"@type":"Question","name":"What is position-area?","acceptedAnswer":{"@type":"Answer","text":"position-area is a shorthand that specifies where the positioned element should appear relative to its anchor. It takes two keywords: the block direction (top, bottom, start, end, center, y-start, y-end) and the inline direction (left, right, start, end, center, x-start, x-end). For example, position-area: top center places the element centered above the anchor."}},{"@type":"Question","name":"What is position-fallback?","acceptedAnswer":{"@type":"Answer","text":"position-fallback lets you define alternative positions that the browser will try if the preferred position doesn't fit in the viewport. You define a @position-fallback at-rule listing multiple position-area values. The browser tries each in order and uses the first one that fits."}},{"@type":"Question","name":"What browser support does Anchor Positioning have?","acceptedAnswer":{"@type":"Answer","text":"CSS Anchor Positioning is supported in Chrome 125+, Edge 125+, and Chromium-based browsers. Safari and Firefox have the feature in development. For production use, pair with a JavaScript polyfill or use feature detection with @supports (anchor-name: --x)."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">CSS Anchor Positioning Generator</span></nav>
+    <div class="tool-header">
+      <h1>CSS Anchor Positioning Generator</h1>
+      <p>Generate CSS anchor positioning rules to place tooltips, popovers, and dropdowns relative to anchor elements — no JavaScript required.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All generation happens in your browser. No data is sent anywhere.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div style="display:flex;flex-direction:column;gap:4px;">
+              <label for="anchorName" style="font-size:0.9rem;font-weight:600;">Anchor Name</label>
+              <input id="anchorName" type="text" value="--my-anchor" placeholder="--anchor-name" style="width:100%;padding:8px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-family:Consolas,monospace;font-size:0.85rem;">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px;">
+              <label for="positionedSelector" style="font-size:0.9rem;font-weight:600;">Target Element Class</label>
+              <input id="positionedSelector" type="text" value=".tooltip" placeholder=".my-element" style="width:100%;padding:8px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-family:Consolas,monospace;font-size:0.85rem;">
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div style="display:flex;flex-direction:column;gap:4px;">
+              <label for="posBlock" style="font-size:0.9rem;font-weight:600;">Block Direction</label>
+              <select id="posBlock" style="width:100%;padding:8px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;">
+                <option value="top">top</option>
+                <option value="bottom">bottom</option>
+                <option value="center">center</option>
+                <option value="start">start (writing-mode aware)</option>
+                <option value="end">end (writing-mode aware)</option>
+                <option value="y-start">y-start</option>
+                <option value="y-end">y-end</option>
+              </select>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px;">
+              <label for="posInline" style="font-size:0.9rem;font-weight:600;">Inline Direction</label>
+              <select id="posInline" style="width:100%;padding:8px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;">
+                <option value="center" selected>center</option>
+                <option value="left">left</option>
+                <option value="right">right</option>
+                <option value="start">start (writing-mode aware)</option>
+                <option value="end">end (writing-mode aware)</option>
+                <option value="x-start">x-start</option>
+                <option value="x-end">x-end</option>
+              </select>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <input id="optFallback" type="checkbox" style="width:18px;height:18px;accent-color:#ff6600;">
+            <label for="optFallback" style="font-size:0.9rem;">Generate position-fallback alternatives</label>
+          </div>
+          <div id="fallbackArea" style="display:none;flex-direction:column;gap:8px;padding:12px;border:1px solid var(--color-mist);border-radius:8px;">
+            <div style="font-size:0.9rem;font-weight:600;">Fallback Positions (tried in order):</div>
+            <div id="fallbackContainer">
+              <div style="display:flex;gap:6px;margin-bottom:4px;">
+                <select class="fbBlock" style="flex:1;padding:6px 10px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;">
+                  <option value="bottom">bottom</option>
+                  <option value="top">top</option>
+                  <option value="center">center</option>
+                  <option value="start">start</option>
+                  <option value="end">end</option>
+                </select>
+                <select class="fbInline" style="flex:1;padding:6px 10px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;">
+                  <option value="center" selected>center</option>
+                  <option value="left">left</option>
+                  <option value="right">right</option>
+                  <option value="start">start</option>
+                  <option value="end">end</option>
+                </select>
+                <button class="removeFb" style="background:none;border:none;cursor:pointer;color:#999;font-size:1.1rem;">✕</button>
+              </div>
+              <div style="display:flex;gap:6px;margin-bottom:4px;">
+                <select class="fbBlock" style="flex:1;padding:6px 10px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;">
+                  <option value="top">top</option>
+                  <option value="bottom">bottom</option>
+                  <option value="center">center</option>
+                  <option value="start">start</option>
+                  <option value="end">end</option>
+                </select>
+                <select class="fbInline" style="flex:1;padding:6px 10px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;">
+                  <option value="left">left</option>
+                  <option value="right">right</option>
+                  <option value="center" selected>center</option>
+                  <option value="start">start</option>
+                  <option value="end">end</option>
+                </select>
+                <button class="removeFb" style="background:none;border:none;cursor:pointer;color:#999;font-size:1.1rem;">✕</button>
+              </div>
+            </div>
+            <button id="addFbBtn" style="background:none;border:1px dashed var(--color-mist);border-radius:18px;padding:6px 16px;cursor:pointer;font-size:0.85rem;color:var(--text-secondary);">+ Add Fallback</button>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <input id="optAnchorSize" type="checkbox" style="width:18px;height:18px;accent-color:#ff6600;">
+            <label for="optAnchorSize" style="font-size:0.9rem;">Use anchor-size() for width/height</label>
+          </div>
+          <button id="generateAncBtn" class="btn btn-primary" style="padding:8px 24px;">Generate CSS</button>
+        </div>
+        <div id="resultArea" style="margin-top:16px;display:none;">
+          <label style="font-size:0.9rem;font-weight:600;">Generated CSS:</label>
+          <pre id="cssOutput" style="background:var(--color-smoke);border:1px solid var(--color-mist);border-radius:8px;padding:12px;font-family:Consolas,monospace;font-size:0.85rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all;margin-top:6px;"></pre>
+          <button id="copyOutputBtn" class="btn btn-primary" style="padding:6px 20px;font-size:0.85rem;margin-top:6px;">Copy CSS</button>
+        </div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the CSS Anchor Positioning Generator</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Define the Anchor</h3><p>Choose an anchor name (a dashed ident like --my-anchor) and set the block/inline position where the target should appear relative to the anchor.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Add Fallbacks</h3><p>Enable position-fallback to define alternative positions. The browser tries each fallback in order and uses the first one that fits in the viewport — essential for responsive tooltips.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Copy & Apply</h3><p>Copy the generated CSS. Add anchor-name to your anchor element and the positioned class to the target. The browser handles all scroll, resize, and viewport boundary logic automatically.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Anchor Positioning Reference</h2>
+      <div style="overflow-x:auto;">
+        <table class="format-table" style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+          <thead><tr style="background:var(--color-mist);"><th style="padding:8px 12px;text-align:left;">Property</th><th style="padding:8px 12px;text-align:left;">Description</th><th style="padding:8px 12px;text-align:left;">Example</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:Consolas,monospace;">anchor-name</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Assigns an anchor name to an element</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">anchor-name: --my-anchor;</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:Consolas,monospace;">position-anchor</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">References the anchor element</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">position-anchor: --my-anchor;</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:Consolas,monospace;">position-area</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Block and inline position relative to anchor</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">position-area: top center;</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:Consolas,monospace;">position-fallback</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Fallback positions if preferred doesn't fit</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">position-fallback: --fallback-tooltip;</td></tr>
+            <tr><td style="padding:6px 12px;font-family:Consolas,monospace;">anchor-size()</td><td style="padding:6px 12px;">Reference anchor dimensions in CSS</td><td style="padding:6px 12px;">width: anchor-size(--my-anchor width);</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What is CSS Anchor Positioning? <span class="arrow">▼</span></button><div class="faq-answer">CSS Anchor Positioning is a specification that lets you position elements relative to other elements (anchors) on the page. Instead of using JavaScript to calculate position on scroll/resize, you use CSS properties like anchor-name, position-anchor, and position-area to declare the relationship.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I use anchor positioning? <span class="arrow">▼</span></button><div class="faq-answer">First, give the anchor element an anchor-name (e.g., anchor-name: --tooltip-trigger). Then, on the positioned element, set position-anchor: --tooltip-trigger and position-area: top center to place it above the anchor. The browser automatically handles scrolling and resizing.</div></div>
+        <div class="faq-item"><button class="faq-question">What is position-area? <span class="arrow">▼</span></button><div class="faq-answer">position-area is a shorthand that specifies where the positioned element should appear relative to its anchor. It takes two keywords: the block direction (top, bottom, start, end, center, y-start, y-end) and the inline direction (left, right, start, end, center, x-start, x-end).</div></div>
+        <div class="faq-item"><button class="faq-question">What is position-fallback? <span class="arrow">▼</span></button><div class="faq-answer">position-fallback lets you define alternative positions that the browser will try if the preferred position doesn't fit in the viewport. You define a @position-fallback at-rule listing multiple position-area values. The browser tries each in order and uses the first one that fits.</div></div>
+        <div class="faq-item"><button class="faq-question">What browser support does Anchor Positioning have? <span class="arrow">▼</span></button><div class="faq-answer">CSS Anchor Positioning is supported in Chrome 125+, Edge 125+, and Chromium-based browsers. Safari and Firefox have the feature in development. For production, pair with a JavaScript polyfill or use feature detection with @supports (anchor-name: --x).</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var anchorName = document.getElementById('anchorName');
+      var positionedSel = document.getElementById('positionedSelector');
+      var posBlock = document.getElementById('posBlock');
+      var posInline = document.getElementById('posInline');
+      var optFallback = document.getElementById('optFallback');
+      var optAnchorSize = document.getElementById('optAnchorSize');
+      var fallbackArea = document.getElementById('fallbackArea');
+      var fbContainer = document.getElementById('fallbackContainer');
+      var addFbBtn = document.getElementById('addFbBtn');
+      var generateBtn = document.getElementById('generateAncBtn');
+      var cssOutput = document.getElementById('cssOutput');
+      var resultArea = document.getElementById('resultArea');
+      var copyBtn = document.getElementById('copyOutputBtn');
+
+      function getFallbacks() {
+        var rows = fbContainer.querySelectorAll('div[style*="display:flex;gap:6px"]');
+        var fbs = [];
+        for (var i = 0; i < rows.length; i++) {
+          var blk = rows[i].querySelector('.fbBlock');
+          var inl = rows[i].querySelector('.fbInline');
+          if (blk && inl) fbs.push(blk.value + ' ' + inl.value);
+        }
+        return fbs;
+      }
+
+      function generate() {
+        var anc = anchorName.value.trim();
+        var sel = positionedSel.value.trim() || '.target';
+        var block = posBlock.value;
+        var inline = posInline.value;
+        var hasFallback = optFallback.checked;
+        var hasSize = optAnchorSize.checked;
+        var fbs = hasFallback ? getFallbacks() : [];
+
+        if (!anc || !anc.startsWith('--')) {
+          resultArea.style.display = 'none';
+          return;
+        }
+
+        var css = '/* Anchor element */\n';
+        css += sel + '-anchor {\n';
+        css += '  anchor-name: ' + anc + ';\n';
+        css += '}\n\n';
+
+        css += '/* Positioned element */\n';
+        css += sel + ' {\n';
+        css += '  position: absolute;\n';
+        css += '  position-anchor: ' + anc + ';\n';
+        css += '  position-area: ' + block + ' ' + inline + ';\n';
+        if (hasSize) {
+          css += '  width: anchor-size(' + anc + ' width);\n';
+          css += '  height: anchor-size(' + anc + ' height);\n';
+        }
+        if (hasFallback && fbs.length > 0) {
+          var fbName = anc.replace(/^--/, '--fallback-');
+          css += '  position-fallback: ' + fbName + ';\n';
+        }
+        css += '}\n';
+
+        if (hasFallback && fbs.length > 0) {
+          var fbName = anc.replace(/^--/, '--fallback-');
+          css += '\n/* Position fallbacks */\n';
+          css += '@position-fallback ' + fbName + ' {\n';
+          for (var i = 0; i < fbs.length; i++) {
+            css += '  @try { position-area: ' + fbs[i] + '; }\n';
+          }
+          css += '}\n';
+        }
+
+        cssOutput.textContent = css;
+        resultArea.style.display = 'block';
+
+        copyBtn.onclick = function() {
+          navigator.clipboard.writeText(css).then(function() {
+            copyBtn.textContent = 'Copied!';
+            setTimeout(function() { copyBtn.textContent = 'Copy CSS'; }, 1500);
+          }).catch(function() {});
+        };
+      }
+
+      optFallback.addEventListener('change', function() {
+        fallbackArea.style.display = optFallback.checked ? 'flex' : 'none';
+        if (optFallback.checked) generate();
+      });
+
+      fbContainer.addEventListener('click', function(e) {
+        if (e.target.classList.contains('removeFb')) {
+          var row = e.target.parentElement;
+          row.remove();
+          if (optFallback.checked) generate();
+        }
+      });
+
+      fbContainer.addEventListener('change', function(e) {
+        if (e.target.classList.contains('fbBlock') || e.target.classList.contains('fbInline')) {
+          if (optFallback.checked) generate();
+        }
+      });
+
+      addFbBtn.addEventListener('click', function() {
+        var div = document.createElement('div');
+        div.style.display = 'flex';
+        div.style.gap = '6px';
+        div.style.marginBottom = '4px';
+        div.innerHTML = '<select class="fbBlock" style="flex:1;padding:6px 10px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;"><option value="top">top</option><option value="bottom">bottom</option><option value="center">center</option><option value="start">start</option><option value="end">end</option></select><select class="fbInline" style="flex:1;padding:6px 10px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;"><option value="center">center</option><option value="left">left</option><option value="right">right</option><option value="start">start</option><option value="end">end</option></select><button class="removeFb" style="background:none;border:none;cursor:pointer;color:#999;font-size:1.1rem;">✕</button>';
+        fbContainer.appendChild(div);
+        div.querySelector('.removeFb').addEventListener('click', function() { div.remove(); if (optFallback.checked) generate(); });
+        div.querySelector('.fbBlock').addEventListener('change', function() { if (optFallback.checked) generate(); });
+        div.querySelector('.fbInline').addEventListener('change', function() { if (optFallback.checked) generate(); });
+      });
+
+      generateBtn.addEventListener('click', generate);
+
+      var inputs = [anchorName, positionedSel, posBlock, posInline, optAnchorSize];
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener('change', function() { setTimeout(generate, 50); });
+        if (inputs[i].tagName === 'INPUT' && inputs[i].type !== 'checkbox') {
+          inputs[i].addEventListener('input', function() { setTimeout(generate, 100); });
+        }
+      }
+
+      generate();
+    })();
+  </script>
+</body>
+</html>

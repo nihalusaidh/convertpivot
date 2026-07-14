@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scientific Notation Converter — Decimal to Scientific & Engineering Notation | ConvertPivot</title>
+  <meta name="description" content="Free online scientific notation converter. Convert between decimal numbers, scientific notation, and engineering notation. Perfect for students, scientists, and engineers.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/scientific-notation-converter">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/scientific-notation-converter">
+  <meta property="og:title" content="Scientific Notation Converter — Decimal to Scientific & Engineering Notation | ConvertPivot">
+  <meta property="og:description" content="Free online scientific notation converter. Convert between decimal numbers, scientific notation, and engineering notation. Perfect for students, scientists, and engineers.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Scientific Notation Converter — Decimal to Scientific & Engineering Notation | ConvertPivot">
+  <meta name="twitter:description" content="Free online scientific notation converter. Convert between decimal numbers, scientific notation, and engineering notation. Perfect for students, scientists, and engineers.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Scientific Notation Converter","url":"https://convertpivot.com/scientific-notation-converter","applicationCategory":"EducationalApplication","operatingSystem":"All","description":"Free online scientific notation converter. Convert between decimal numbers, scientific notation, and engineering notation. Perfect for students, scientists, and engineers.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is scientific notation?","acceptedAnswer":{"@type":"Answer","text":"Scientific notation expresses numbers as a \u00d7 10^b where a is between 1 and 10. It is used for very large or very small numbers."}},{"@type":"Question","name":"What is engineering notation?","acceptedAnswer":{"@type":"Answer","text":"Engineering notation is like scientific notation but exponents are always multiples of 3 (kilo, mega, giga, milli, micro, nano)."}},{"@type":"Question","name":"How do I convert a number to scientific notation?","acceptedAnswer":{"@type":"Answer","text":"Move the decimal point until only one non-zero digit remains to its left. Count the moves \u2014 that is the exponent (positive for left, negative for right)."}},{"@type":"Question","name":"What is E notation?","acceptedAnswer":{"@type":"Answer","text":"E notation (e.g., 1.23e4) is a compact way to write scientific notation used in programming and calculators. 'e' stands for exponent."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Scientific Notation Converter</span></nav>
+    <div class="tool-header">
+      <h1>Scientific Notation Converter</h1>
+      <p>Convert between decimal numbers, scientific notation, and engineering notation instantly. Auto-detects input format.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your numbers stay on your device.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <label for="sciInput" style="font-weight:600;font-size:0.95rem;">Enter a number:</label>
+        <input type="text" id="sciInput" class="converter-input" placeholder="e.g. 1234 or 1.234e3 or 1.234\u00d710\u00b3" style="font-family:inherit;font-size:1rem;">
+        <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;">
+          <button id="convertBtn" class="btn btn-primary">Convert</button>
+          <button id="clearBtn" class="btn btn-ghost">Clear</button>
+        </div>
+        <div id="sciResults" style="margin-top:16px;"></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the Scientific Notation Converter</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Enter Your Number</h3><p>Type or paste a decimal number (e.g., 1234) or scientific notation (e.g., 1.234e3 or 1.234\u00d710\u00b3). The tool auto-detects which format you entered.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Click Convert</h3><p>Hit the <strong>Convert</strong> button or press Enter. Your number is instantly processed in your browser with no data sent to any server.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Review All Formats</h3><p>See your number in scientific notation, engineering notation, E notation, and written in words. Copy any result with one click.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>SI Prefix Reference</h2>
+      <p>Engineering notation uses exponents that are multiples of 3, matching common SI prefixes. This table shows the most frequently used prefixes.</p>
+      <div style="overflow-x:auto;">
+        <table class="format-table">
+          <thead><tr><th>Prefix</th><th>Symbol</th><th>Power</th><th>Decimal</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td>Nano</td><td>n</td><td>10<sup>\u22129</sup></td><td>0.000000001</td><td>1 nm = 10\u207b\u2079 m</td></tr>
+            <tr><td>Micro</td><td>\u00b5</td><td>10<sup>\u22126</sup></td><td>0.000001</td><td>1 \u00b5m = 10\u207b\u2076 m</td></tr>
+            <tr><td>Milli</td><td>m</td><td>10<sup>\u22123</sup></td><td>0.001</td><td>1 mm = 10\u207b\u00b3 m</td></tr>
+            <tr><td>Centi</td><td>c</td><td>10<sup>\u22122</sup></td><td>0.01</td><td>1 cm = 10\u207b\u00b2 m</td></tr>
+            <tr><td>Deci</td><td>d</td><td>10<sup>\u22121</sup></td><td>0.1</td><td>1 dm = 10\u207b\u00b9 m</td></tr>
+            <tr><td>Kilo</td><td>k</td><td>10<sup>3</sup></td><td>1,000</td><td>1 km = 10\u00b3 m</td></tr>
+            <tr><td>Mega</td><td>M</td><td>10<sup>6</sup></td><td>1,000,000</td><td>1 MHz = 10\u2076 Hz</td></tr>
+            <tr><td>Giga</td><td>G</td><td>10<sup>9</sup></td><td>1,000,000,000</td><td>1 GB = 10\u2079 bytes</td></tr>
+            <tr><td>Tera</td><td>T</td><td>10<sup>12</sup></td><td>1,000,000,000,000</td><td>1 TB = 10\u00b9\u00b2 bytes</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What is scientific notation? <span class="arrow">▼</span></button><div class="faq-answer">Scientific notation expresses numbers as <strong>a × 10<sup>b</sup></strong> where <em>a</em> (the mantissa or coefficient) is between 1 and 10. The exponent <em>b</em> indicates how many places the decimal point was moved. It is commonly used in science, engineering, and mathematics to represent very large or very small numbers concisely. For example, the speed of light (299,792,458 m/s) is written as 2.99792458 × 10<sup>8</sup> m/s.</div></div>
+        <div class="faq-item"><button class="faq-question">What is engineering notation? <span class="arrow">▼</span></button><div class="faq-answer">Engineering notation is a variation of scientific notation where the exponent is always a multiple of 3. This aligns with common SI prefixes like kilo (10³), mega (10⁶), giga (10⁹), milli (10⁻³), micro (10⁻⁶), and nano (10⁻⁹). For example, 0.000047 is written as 47 × 10⁻⁶ (47 micro) rather than 4.7 × 10⁻⁵ in standard scientific notation. This makes it easier to relate to real-world units.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I convert a number to scientific notation? <span class="arrow">▼</span></button><div class="faq-answer">To convert a decimal number to scientific notation: <strong>1)</strong> Move the decimal point left or right until only one non-zero digit remains to its left. <strong>2)</strong> Count how many places you moved the decimal — that becomes the exponent. Moving left gives a positive exponent (large numbers); moving right gives a negative exponent (small numbers). <strong>3)</strong> Remove trailing zeros from the mantissa. For example, 4,500,000 becomes 4.5 × 10⁶ (decimal moved 6 places left).</div></div>
+        <div class="faq-item"><button class="faq-question">What is E notation? <span class="arrow">▼</span></button><div class="faq-answer">E notation (also called scientific E notation) is a compact way to write scientific notation where the "× 10<sup>n</sup>" part is replaced with "e" followed by the exponent. For example, 1.23 × 10⁴ is written as 1.23e4 (or 1.23E4). It is widely used in programming languages (Python, JavaScript, Java), calculators, spreadsheets, and data formats to represent large and small numbers in a text-friendly format that does not require superscripts or special characters.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var input = document.getElementById('sciInput');
+      var resultsDiv = document.getElementById('sciResults');
+
+      var supMap = {'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+
+      function toSup(n) {
+        if (n === 0) return '⁰';
+        var s = '', neg = n < 0;
+        if (neg) n = -n;
+        var d = n.toString();
+        for (var i = 0; i < d.length; i++) s += supMap[d[i]] || d[i];
+        return (neg ? '⁻' : '') + s;
+      }
+
+      var ones = ['','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+      var tens = ['','','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
+      var scales = ['','thousand','million','billion','trillion','quadrillion'];
+
+      function wordsBelow1000(n) {
+        if (n === 0) return '';
+        var w = '';
+        if (n >= 100) { w += ones[Math.floor(n / 100)] + ' hundred'; n %= 100; if (n > 0) w += ' '; }
+        if (n >= 20) { w += tens[Math.floor(n / 10)]; n %= 10; if (n > 0) w += '-'; }
+        if (n > 0) w += ones[n];
+        return w;
+      }
+
+      function numberToWords(num) {
+        if (num === 0) return 'zero';
+        if (Math.abs(num) > 1e15) return 'a very ' + (num > 0 ? 'large' : 'small') + ' number';
+        var sign = num < 0;
+        if (sign) num = -num;
+        var intPart = Math.floor(num);
+        var fracPart = Math.round((num - intPart) * 1e15);
+        var word = '';
+        if (intPart === 0) { word = 'zero'; }
+        else {
+          var parts = [];
+          var remain = intPart;
+          var scaleIdx = 0;
+          while (remain > 0) {
+            var chunk = remain % 1000;
+            if (chunk > 0) {
+              var w = wordsBelow1000(chunk);
+              if (scales[scaleIdx]) w += ' ' + scales[scaleIdx];
+              parts.unshift(w);
+            }
+            remain = Math.floor(remain / 1000);
+            scaleIdx++;
+          }
+          word = parts.join(' ');
+        }
+        if (fracPart > 0) {
+          word += ' point';
+          var fracStr = fracPart.toString().replace(/0+$/, '');
+          for (var i = 0; i < fracStr.length; i++) {
+            word += ' ' + ones[parseInt(fracStr[i])];
+          }
+        }
+        if (sign) word = 'negative ' + word;
+        return word;
+      }
+
+      function countSigFigs(numStr) {
+        numStr = numStr.trim();
+        var hasDecimal = numStr.indexOf('.') >= 0;
+        var digits = numStr.replace(/^[\s0]+/, '');
+        if (digits.length === 0 || digits === '0' || digits === '0.') return 0;
+        var parts = digits.split('.');
+        var intPart = parts[0];
+        var fracPart = parts.length > 1 ? parts[1] : '';
+        var sig = 0;
+        var started = false;
+        for (var i = 0; i < intPart.length; i++) {
+          if (intPart[i] !== '0') { started = true; sig++; }
+          else if (started) sig++;
+        }
+        if (hasDecimal) {
+          for (var i = 0; i < fracPart.length; i++) {
+            sig++;
+          }
+        }
+        return sig;
+      }
+
+      function sciToParts(str) {
+        str = str.trim().replace(/\s/g, '');
+        var m, mantissa, exponent;
+        m = str.match(/^([+\-]?\d+\.?\d*)[eE]([+\-]?\d+)$/);
+        if (m) return { mantissa: parseFloat(m[1]), exponent: parseInt(m[2]), type: 'e' };
+        m = str.match(/^([+\-]?\d+\.?\d*)\u00d710\^?([+\-]?\d+)$/);
+        if (m) return { mantissa: parseFloat(m[1]), exponent: parseInt(m[2]), type: 'sci' };
+        m = str.match(/^([+\-]?\d+\.?\d*)\*10\^?([+\-]?\d+)$/);
+        if (m) return { mantissa: parseFloat(m[1]), exponent: parseInt(m[2]), type: 'sci' };
+        return null;
+      }
+
+      function detectInputType(str) {
+        str = str.trim();
+        if (/[eE]/.test(str) || /\u00d710/.test(str) || /\*10\^/.test(str)) return 'scientific';
+        return 'decimal';
+      }
+
+      function formatSci(mantissa, exponent) {
+        var mStr = mantissa.toPrecision(15).replace(/\.?0+$/, '');
+        var neg = exponent < 0;
+        var expStr = Math.abs(exponent).toString();
+        var expSup = '';
+        for (var i = 0; i < expStr.length; i++) expSup += supMap[expStr[i]];
+        return mStr + ' \u00d7 10' + (neg ? '⁻' : '') + expSup;
+      }
+
+      function formatESci(mantissa, exponent) {
+        var mStr = mantissa.toPrecision(15).replace(/\.?0+$/, '');
+        return mStr + 'e' + exponent;
+      }
+
+      function toEngineering(mantissa, exponent) {
+        var rem = exponent % 3;
+        if (rem < 0) rem += 3;
+        return { mantissa: mantissa * Math.pow(10, rem), exponent: exponent - rem };
+      }
+
+      function convert() {
+        var raw = input.value.trim();
+        if (!raw) { resultsDiv.innerHTML = ''; return; }
+        var type = detectInputType(raw);
+        var num, sciMantissa, sciExponent, sigFigs, inWords;
+        var isSciInput = false;
+        if (type === 'scientific') {
+          var parts = sciToParts(raw);
+          if (!parts) {
+            resultsDiv.innerHTML = '<div style="padding:16px;background:var(--color-smoke);border-radius:8px;color:var(--color-error);font-weight:500;">Invalid scientific notation format. Use e.g. 1.234e3 or 1.234\u00d710\u00b3</div>';
+            return;
+          }
+          isSciInput = true;
+          num = parts.mantissa * Math.pow(10, parts.exponent);
+          sciMantissa = parts.mantissa;
+          sciExponent = parts.exponent;
+          sigFigs = countSigFigs(parts.mantissa.toString());
+          inWords = numberToWords(num);
+        } else {
+          num = parseFloat(raw);
+          if (isNaN(num) || !isFinite(num)) {
+            resultsDiv.innerHTML = '<div style="padding:16px;background:var(--color-smoke);border-radius:8px;color:var(--color-error);font-weight:500;">Invalid number. Enter a valid decimal number.</div>';
+            return;
+          }
+          var expStr = num.toExponential(15);
+          var expParts = expStr.split('e');
+          sciMantissa = parseFloat(expParts[0]);
+          sciExponent = parseInt(expParts[1]);
+          sigFigs = countSigFigs(raw);
+          inWords = numberToWords(num);
+        }
+        var eng = toEngineering(sciMantissa, sciExponent);
+        var decStr = type === 'scientific' ? num.toString() : raw;
+        if (Math.abs(num) > 1e15 || (Math.abs(num) < 1e-10 && num !== 0)) {
+          decStr = num.toPrecision(15).replace(/\.?0+e/, 'e');
+        }
+        var eNotation = formatESci(sciMantissa, sciExponent);
+        var sciFormatted = formatSci(sciMantissa, sciExponent);
+        var engFormatted = formatSci(eng.mantissa, eng.exponent);
+
+        var html = '';
+        html += '<div style="margin-bottom:6px;font-size:0.8rem;color:var(--color-graphite);">' + (isSciInput ? 'Input detected as <strong>scientific notation</strong>' : 'Input detected as <strong>decimal number</strong>') + '</div>';
+        html += '<div class="result-card" style="border:1px solid var(--color-mist);border-radius:8px;overflow:hidden;margin-bottom:8px;">';
+        html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--color-smoke);border-bottom:1px solid var(--color-mist);"><span style="font-weight:600;font-size:0.9rem;">🔬 Decimal</span><button class="copy-btn" data-copy="' + decStr.replace(/"/g, '&quot;') + '" style="background:none;border:1px solid var(--color-mist);border-radius:18px;padding:4px 14px;font-size:0.8rem;cursor:pointer;color:var(--color-graphite);font-family:inherit;">Copy</button></div>';
+        html += '<div style="padding:12px 16px;font-size:1.1rem;font-weight:600;font-family:monospace;">' + decStr + '</div></div>';
+
+        html += '<div class="result-card" style="border:1px solid var(--color-mist);border-radius:8px;overflow:hidden;margin-bottom:8px;">';
+        html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--color-smoke);border-bottom:1px solid var(--color-mist);"><span style="font-weight:600;font-size:0.9rem;">🧪 Scientific Notation</span><button class="copy-btn" data-copy="' + sciFormatted.replace(/"/g, '&quot;') + '" style="background:none;border:1px solid var(--color-mist);border-radius:18px;padding:4px 14px;font-size:0.8rem;cursor:pointer;color:var(--color-graphite);font-family:inherit;">Copy</button></div>';
+        html += '<div style="padding:12px 16px;font-size:1.1rem;font-weight:600;font-family:monospace;">' + sciFormatted + '</div></div>';
+
+        html += '<div class="result-card" style="border:1px solid var(--color-mist);border-radius:8px;overflow:hidden;margin-bottom:8px;">';
+        html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--color-smoke);border-bottom:1px solid var(--color-mist);"><span style="font-weight:600;font-size:0.9rem;">⚙️ Engineering Notation</span><button class="copy-btn" data-copy="' + engFormatted.replace(/"/g, '&quot;') + '" style="background:none;border:1px solid var(--color-mist);border-radius:18px;padding:4px 14px;font-size:0.8rem;cursor:pointer;color:var(--color-graphite);font-family:inherit;">Copy</button></div>';
+        html += '<div style="padding:12px 16px;font-size:1.1rem;font-weight:600;font-family:monospace;">' + engFormatted + '</div></div>';
+
+        html += '<div class="result-card" style="border:1px solid var(--color-mist);border-radius:8px;overflow:hidden;margin-bottom:8px;">';
+        html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--color-smoke);border-bottom:1px solid var(--color-mist);"><span style="font-weight:600;font-size:0.9rem;">💻 E Notation</span><button class="copy-btn" data-copy="' + eNotation.replace(/"/g, '&quot;') + '" style="background:none;border:1px solid var(--color-mist);border-radius:18px;padding:4px 14px;font-size:0.8rem;cursor:pointer;color:var(--color-graphite);font-family:inherit;">Copy</button></div>';
+        html += '<div style="padding:12px 16px;font-size:1.1rem;font-weight:600;font-family:monospace;">' + eNotation + '</div></div>';
+
+        html += '<div class="result-card" style="border:1px solid var(--color-mist);border-radius:8px;overflow:hidden;margin-bottom:8px;">';
+        html += '<div style="padding:12px 16px;background:var(--color-smoke);border-bottom:1px solid var(--color-mist);font-weight:600;font-size:0.9rem;">🔢 Number in Words</div>';
+        html += '<div style="padding:12px 16px;font-size:0.95rem;">' + (inWords || '—') + '</div></div>';
+
+        html += '<div class="result-card" style="border:1px solid var(--color-mist);border-radius:8px;overflow:hidden;">';
+        html += '<div style="padding:12px 16px;background:var(--color-smoke);border-bottom:1px solid var(--color-mist);font-weight:600;font-size:0.9rem;">🔬 Significant Figures</div>';
+        html += '<div style="padding:12px 16px;font-size:0.95rem;"><strong>' + sigFigs + '</strong> significant figure' + (sigFigs !== 1 ? 's' : '') + '</div></div>';
+
+        resultsDiv.innerHTML = html;
+
+        resultsDiv.querySelectorAll('.copy-btn').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var text = this.getAttribute('data-copy');
+            if (navigator.clipboard) {
+              navigator.clipboard.writeText(text).then(function() {
+                if (typeof showToast === 'function') showToast('Copied to clipboard!', 'success');
+              });
+            }
+          });
+        });
+      }
+
+      document.getElementById('convertBtn').addEventListener('click', convert);
+      document.getElementById('clearBtn').addEventListener('click', function() {
+        input.value = '';
+        resultsDiv.innerHTML = '';
+      });
+      input.addEventListener('keydown', function(e) { if (e.key === 'Enter') convert(); });
+    })();
+  </script>
+</body>
+</html>

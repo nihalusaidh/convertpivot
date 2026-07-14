@@ -79,6 +79,16 @@
   <url><loc>https://convertpivot.com/blog/convert-heic-to-jpg</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
   <url><loc>https://convertpivot.com/blog/open-vcf-files-in-excel</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
   <url><loc>https://convertpivot.com/blog/convert-bank-statement-pdf-to-excel</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
+  <url><loc>https://convertpivot.com/hash-generator</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/slug-generator</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/lorem-ipsum-generator</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/morse-code-translator</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/roman-numeral-converter</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/palindrome-checker</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/prime-number-checker</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/reading-time-calculator</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/number-system-converter</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/nato-phonetic-alphabet</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
   <url><loc>https://convertpivot.com/404</loc><priority>0.1</priority><changefreq>yearly</changefreq><lastmod>2026-07-13</lastmod></url>
   <url><loc>https://convertpivot.com/mp3-to-wav</loc><priority>0.6</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
   <url><loc>https://convertpivot.com/wav-to-mp3</loc><priority>0.6</priority><changefreq>monthly</changefreq><lastmod>2026-07-13</lastmod></url>
@@ -139,4 +149,33 @@
   <url><loc>https://convertpivot.com/blog/compress-images-guide</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
   <url><loc>https://convertpivot.com/blog/bank-statement-formats</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
   <url><loc>https://convertpivot.com/blog/why-browser-based-converters</loc><priority>0.5</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/cron-expression-generator</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/anagram-solver</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/data-storage-converter</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/color-palette-generator</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/password-strength-checker</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/timezone-converter</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/random-number-generator</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/number-to-words-converter</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/text-repeater</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/css-minifier</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/regex-tester</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/duplicate-line-remover</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/reverse-text-generator</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/list-randomizer</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/css-gradient-generator</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/readability-checker</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/age-calculator</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/html-previewer</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/contrast-checker</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/text-cleaner</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/scientific-notation-converter</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/username-generator</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/jwt-decoder</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/color-space-converter</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/css-logical-properties</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/css-property-generator</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/css-text-wrap-visualizer</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/css-view-transitions-generator</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://convertpivot.com/css-anchor-positioning-generator</loc><priority>0.7</priority><changefreq>monthly</changefreq><lastmod>2026-07-14</lastmod></url>
 </urlset>

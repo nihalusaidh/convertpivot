@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hash Generator — MD5 SHA-256 SHA-512 Online | ConvertPivot</title>
+  <meta name="description" content="Free online hash generator. Generate MD5, SHA-1, SHA-256, SHA-512 hashes for text and files. 100% browser-based. No upload required.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/hash-generator">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/hash-generator">
+  <meta property="og:title" content="Hash Generator — MD5 SHA-256 SHA-512 Online | ConvertPivot">
+  <meta property="og:description" content="Free online hash generator. Generate MD5, SHA-1, SHA-256, SHA-512 hashes for text and files. 100% browser-based.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hash Generator — MD5 SHA-256 SHA-512 Online | ConvertPivot">
+  <meta name="twitter:description" content="Free online hash generator. Generate MD5, SHA-1, SHA-256, SHA-512 hashes for text and files. 100% browser-based.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Hash Generator","url":"https://convertpivot.com/hash-generator","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online hash generator. Generate MD5, SHA-1, SHA-256, SHA-512 hashes for text and files. 100% browser-based.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a hash?","acceptedAnswer":{"@type":"Answer","text":"A hash is a fixed-length string generated from input data using a mathematical algorithm. Hashing is a one-way function — you cannot reverse a hash back to the original input. Hashes are used for data integrity verification, password storage, and digital signatures."}},{"@type":"Question","name":"What is the difference between MD5, SHA-1, SHA-256, and SHA-512?","acceptedAnswer":{"@type":"Answer","text":"MD5 produces a 128-bit hash and is considered cryptographically broken. SHA-1 produces 160 bits and is also deprecated. SHA-256 produces 256 bits and is currently secure. SHA-512 produces 512 bits and offers the highest security. For modern applications, use SHA-256 or SHA-512."}},{"@type":"Question","name":"Can hashes be reversed?","acceptedAnswer":{"@type":"Answer","text":"No, hashes are mathematically one-way functions. You cannot reverse a hash to find the original input. However, weak passwords can be looked up in rainbow tables — precomputed hash databases. This is why salting passwords before hashing is important."}},{"@type":"Question","name":"Is this hash generator secure?","acceptedAnswer":{"@type":"Answer","text":"Yes. All hashing is performed locally in your browser using the Web Crypto API (SubtleCrypto) and a native JavaScript MD5 implementation. Your data never leaves your device and is not sent to any server."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Hash Generator</span></nav>
+    <div class="tool-header">
+      <h1>Hash Generator</h1>
+      <p>Generate MD5, SHA-1, SHA-256, and SHA-512 hashes for text and files instantly in your browser.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <div style="display:flex;gap:8px;margin-bottom:12px;">
+          <button id="hashTextTab" class="btn btn-primary" style="flex:1;">Text</button>
+          <button id="hashFileTab" class="btn btn-ghost" style="flex:1;">File</button>
+        </div>
+        <div id="hashTextSection">
+          <label for="hashInput">Input Text:</label>
+          <textarea id="hashInput" class="converter-textarea" rows="4" placeholder="Enter text to hash..."></textarea>
+        </div>
+        <div id="hashFileSection" style="display:none;">
+          <label>Upload File:</label>
+          <div id="hashDropZone" style="border:2px dashed var(--color-mist);border-radius:8px;padding:30px;text-align:center;cursor:pointer;margin-bottom:10px;color:var(--text-secondary);">
+            Drop a file here or click to browse
+          </div>
+          <input type="file" id="hashFileInput" style="display:none;">
+          <div id="hashFileName" style="font-size:0.85rem;margin-bottom:8px;"></div>
+        </div>
+        <label for="hashAlgorithm">Algorithm:</label>
+        <select id="hashAlgorithm" class="converter-input" style="width:auto;min-width:200px;margin-bottom:12px;">
+          <option value="SHA-256">SHA-256 (256-bit)</option>
+          <option value="SHA-512">SHA-512 (512-bit)</option>
+          <option value="SHA-1">SHA-1 (160-bit)</option>
+          <option value="MD5">MD5 (128-bit)</option>
+        </select>
+        <div class="converter-inline">
+          <button id="generateHashBtn" class="btn btn-primary">Generate Hash</button>
+          <button id="hashAllBtn" class="btn btn-ghost">All Algorithms</button>
+          <button id="copyHashBtn" class="btn btn-ghost">Copy Hash</button>
+          <button id="clearHashBtn" class="btn btn-ghost">Clear</button>
+        </div>
+        <div id="hashResults" style="margin-top:12px;">
+          <div style="padding:10px 12px;background:var(--color-cream);border-radius:6px;margin-bottom:6px;font-family:monospace;font-size:0.85rem;word-break:break-all;" id="hashOutput"></div>
+        </div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the Hash Generator</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Enter Text or Upload File</h3><p>Switch between Text and File modes. Type text or drag a file to compute its hash.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Choose Algorithm</h3><p>Select MD5, SHA-1, SHA-256, or SHA-512. Or click <strong>All Algorithms</strong> to see all four at once.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Copy the Hash</h3><p>Click <strong>Copy Hash</strong> to copy the result to your clipboard for verification or sharing.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Hash Algorithm Reference</h2>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+          <thead><tr style="background:var(--color-mist);"><th style="padding:8px 12px;text-align:left;">Algorithm</th><th style="padding:8px 12px;text-align:left;">Bit Length</th><th style="padding:8px 12px;text-align:left;">Hex Length</th><th style="padding:8px 12px;text-align:left;">Security</th><th style="padding:8px 12px;text-align:left;">Use Case</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">MD5</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">128</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">32 chars</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Broken</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Checksums, non-critical</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">SHA-1</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">160</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">40 chars</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Deprecated</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Legacy systems, git</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">SHA-256</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">256</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">64 chars</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Secure</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">TLS, blockchain, general</td></tr>
+            <tr><td style="padding:6px 12px;">SHA-512</td><td style="padding:6px 12px;">512</td><td style="padding:6px 12px;">128 chars</td><td style="padding:6px 12px;">Most Secure</td><td style="padding:6px 12px;">High-security, large data</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What is a hash? <span class="arrow">▼</span></button><div class="faq-answer">A hash is a fixed-length string generated from input data using a mathematical algorithm. Hashing is a one-way function — you cannot reverse a hash back to the original input. Hashes are used for data integrity verification, password storage, and digital signatures.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the difference between MD5, SHA-1, SHA-256, and SHA-512? <span class="arrow">▼</span></button><div class="faq-answer">MD5 produces a 128-bit hash and is considered cryptographically broken. SHA-1 produces 160 bits and is also deprecated. SHA-256 produces 256 bits and is currently secure. SHA-512 produces 512 bits and offers the highest security. For modern applications, use SHA-256 or SHA-512.</div></div>
+        <div class="faq-item"><button class="faq-question">Can hashes be reversed? <span class="arrow">▼</span></button><div class="faq-answer">No, hashes are mathematically one-way functions. You cannot reverse a hash to find the original input. However, weak passwords can be looked up in rainbow tables — precomputed hash databases. This is why salting passwords before hashing is important.</div></div>
+        <div class="faq-item"><button class="faq-question">Is this hash generator secure? <span class="arrow">▼</span></button><div class="faq-answer">Yes. All hashing is performed locally in your browser using the Web Crypto API (SubtleCrypto) and a native JavaScript MD5 implementation. Your data never leaves your device and is not sent to any server.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var input = document.getElementById('hashInput');
+      var output = document.getElementById('hashOutput');
+      var algo = document.getElementById('hashAlgorithm');
+      var dropZone = document.getElementById('hashDropZone');
+      var fileInput = document.getElementById('hashFileInput');
+      var fileName = document.getElementById('hashFileName');
+      var textSection = document.getElementById('hashTextSection');
+      var fileSection = document.getElementById('hashFileSection');
+      var currentFile = null;
+
+      document.getElementById('hashTextTab').addEventListener('click', function() {
+        textSection.style.display = 'block';
+        fileSection.style.display = 'none';
+        currentFile = null;
+        fileName.textContent = '';
+        this.className = 'btn btn-primary';
+        document.getElementById('hashFileTab').className = 'btn btn-ghost';
+      });
+      document.getElementById('hashFileTab').addEventListener('click', function() {
+        textSection.style.display = 'none';
+        fileSection.style.display = 'block';
+        this.className = 'btn btn-primary';
+        document.getElementById('hashTextTab').className = 'btn btn-ghost';
+      });
+
+      function hex(buf) {
+        var h = '';
+        for (var i = 0; i < buf.length; i++) h += ('0' + buf[i].toString(16)).slice(-2);
+        return h;
+      }
+
+      function md5(str) {
+        function rotateLeft(x, n) { return (x << n) | (x >>> (32 - n)); }
+        function toWordArray(s) {
+          var l = s.length, arr = [];
+          for (var i = 0; i < l; i++) arr[i >> 2] |= (s.charCodeAt(i) & 0xFF) << ((i % 4) * 8);
+          return arr;
+        }
+        var s = unescape(encodeURIComponent(str));
+        var words = toWordArray(s);
+        words[s.length >> 2] |= 0x80 << ((s.length % 4) * 8);
+        words[(((s.length + 8) >> 6) << 4) + 14] = s.length * 8;
+        var a = 0x67452301, b = 0xEFCDAB89, c = 0x98BADCFE, d = 0x10325476;
+        for (var i = 0; i < words.length; i += 16) {
+          var aa = a, bb = b, cc = c, dd = d;
+          function F(x, y, z) { return (x & y) | (~x & z); }
+          function G(x, y, z) { return (x & z) | (y & ~z); }
+          function H(x, y, z) { return x ^ y ^ z; }
+          function I(x, y, z) { return y ^ (x | ~z); }
+          function FF(a, b, c, d, x, s, ac) { a += F(b, c, d) + x + ac; a = rotateLeft(a, s); a += b; return a; }
+          function GG(a, b, c, d, x, s, ac) { a += G(b, c, d) + x + ac; a = rotateLeft(a, s); a += b; return a; }
+          function HH(a, b, c, d, x, s, ac) { a += H(b, c, d) + x + ac; a = rotateLeft(a, s); a += b; return a; }
+          function II(a, b, c, d, x, s, ac) { a += I(b, c, d) + x + ac; a = rotateLeft(a, s); a += b; return a; }
+          var T = [0xD76AA478,0xE8C7B756,0x242070DB,0xC1BDCEEE,0xF57C0FAF,0x4787C62A,0xA8304613,0xFD469501,0x698098D8,0x8B44F7AF,0xFFFF5BB1,0x895CD7BE,0x6B901122,0xFD987193,0xA679438E,0x49B40821,0xF61E2562,0xC040B340,0x265E5A51,0xE9B6C7AA,0xD62F105D,0x02441453,0xD8A1E681,0xE7D3FBC8,0x21E1CDE6,0xC33707D6,0xF4D50D87,0x455A14ED,0xA9E3E905,0xFCEFA3F8,0x676F02D9,0x8D2A4C8A,0xFFFA3942,0x8771F681,0x6D9D6122,0xFDE5380C,0xA4BEEA44,0x4BDECFA9,0xF6BB4B60,0xBEBFBC70,0x289B7EC6,0xEAA127FA,0xD4EF3085,0x04881D05,0xD9D4D039,0xE6DB99E5,0x1FA27CF8,0xC4AC5665,0xF4292244,0x432AFF97,0xAB9423A7,0xFC93A039,0x655B59C3,0x8F0CCC92,0xFFEFF47D,0x85845DD1,0x6FA87E4F,0xFE2CE6E0,0xA3014314,0x4E0811A1,0xF7537E82,0xBD3AF235,0x2AD7D2BB,0xEB86D391];
+          for (var j = 0; j < 64; j++) {
+            var k, f, g;
+            if (j < 16) { f = F(b, c, d); g = j; }
+            else if (j < 32) { f = G(b, c, d); g = (5 * j + 1) % 16; }
+            else if (j < 48) { f = H(b, c, d); g = (3 * j + 5) % 16; }
+            else { f = I(b, c, d); g = (7 * j) % 16; }
+            var temp = d; d = c; c = b; b = b + rotateLeft(a + f + T[j] + (words[i + g] || 0), [7,12,17,22,5,9,14,20,4,11,16,23,6,10,15,21][(j>>3) + ((j>>4)&4) - (j>=48?3:j>=32?1:0)]); a = temp;
+          }
+          a += aa; b += bb; c += cc; d += dd;
+        }
+        return hex([a,b,c,d].map(function(x) { return [x & 0xFF, (x >> 8) & 0xFF, (x >> 16) & 0xFF, (x >> 24) & 0xFF]; }).flat());
+      }
+
+      async function computeHash(algo, data) {
+        if (algo === 'MD5') return md5(typeof data === 'string' ? data : new TextDecoder().decode(data));
+        var buf = typeof data === 'string' ? new TextEncoder().encode(data) : data;
+        var hashBuf = await crypto.subtle.digest(algo, buf);
+        return hex(new Uint8Array(hashBuf));
+      }
+
+      function displayHash(label, hash) {
+        return '<div style="padding:10px 12px;background:var(--color-cream);border-radius:6px;margin-bottom:6px;"><strong>' + label + ':</strong> <span style="font-family:monospace;font-size:0.85rem;word-break:break-all;">' + hash + '</span></div>';
+      }
+
+      async function doHash() {
+        var isFile = fileSection.style.display !== 'none';
+        var data;
+        if (isFile) {
+          if (!currentFile) { output.innerHTML = '<div style="color:var(--color-error);">Please select a file first.</div>'; return; }
+          data = await currentFile.arrayBuffer();
+        } else {
+          var text = input.value;
+          if (!text) { output.innerHTML = '<div style="color:var(--color-error);">Please enter text first.</div>'; return; }
+          data = text;
+        }
+        var algorithm = algo.value;
+        var h = await computeHash(algorithm, data);
+        output.innerHTML = displayHash(algorithm + ' (' + algorithm.replace('SHA-', 'SHA-') + ')', h);
+      }
+
+      async function doAllHashes() {
+        var isFile = fileSection.style.display !== 'none';
+        var data;
+        if (isFile) {
+          if (!currentFile) { output.innerHTML = '<div style="color:var(--color-error);">Please select a file first.</div>'; return; }
+          data = await currentFile.arrayBuffer();
+        } else {
+          var text = input.value;
+          if (!text) { output.innerHTML = '<div style="color:var(--color-error);">Please enter text first.</div>'; return; }
+          data = text;
+        }
+        var algos = ['MD5', 'SHA-1', 'SHA-256', 'SHA-512'];
+        var html = '';
+        for (var i = 0; i < algos.length; i++) {
+          var h = await computeHash(algos[i], data);
+          html += displayHash(algos[i], h);
+        }
+        output.innerHTML = html;
+      }
+
+      document.getElementById('generateHashBtn').addEventListener('click', doHash);
+      document.getElementById('hashAllBtn').addEventListener('click', doAllHashes);
+
+      document.getElementById('copyHashBtn').addEventListener('click', function() {
+        var text = output.textContent || output.innerText;
+        if (text) {
+          var match = text.match(/[a-f0-9]{32,}/i);
+          if (match) navigator.clipboard.writeText(match[0]);
+        }
+      });
+
+      document.getElementById('clearHashBtn').addEventListener('click', function() {
+        input.value = '';
+        output.innerHTML = '';
+        currentFile = null;
+        fileName.textContent = '';
+      });
+
+      dropZone.addEventListener('click', function() { fileInput.click(); });
+      dropZone.addEventListener('dragover', function(e) { e.preventDefault(); dropZone.style.borderColor = 'var(--color-red)'; });
+      dropZone.addEventListener('dragleave', function() { dropZone.style.borderColor = 'var(--color-mist)'; });
+      dropZone.addEventListener('drop', function(e) {
+        e.preventDefault();
+        dropZone.style.borderColor = 'var(--color-mist)';
+        if (e.dataTransfer.files.length > 0) {
+          currentFile = e.dataTransfer.files[0];
+          fileName.textContent = 'File: ' + currentFile.name + ' (' + (currentFile.size / 1024).toFixed(1) + ' KB)';
+        }
+      });
+      fileInput.addEventListener('change', function() {
+        if (this.files.length > 0) {
+          currentFile = this.files[0];
+          fileName.textContent = 'File: ' + currentFile.name + ' (' + (currentFile.size / 1024).toFixed(1) + ' KB)';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

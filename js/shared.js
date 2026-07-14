@@ -56,7 +56,48 @@
       { href: '/text-diff', icon: '\uD83D\uDD0D', label: 'Text Diff Checker' },
       { href: '/percentage-calculator', icon: '\uD83D\uDCC8', label: 'Percentage Calculator' },
       { href: '/temperature-converter', icon: '\uD83C\uDF21', label: 'Temperature Converter' },
-      { href: '/all-unit-converters', icon: '\uD83D\uDCCF', label: 'All Unit Converters' }
+      { href: '/all-unit-converters', icon: '\uD83D\uDCCF', label: 'All Unit Converters' },
+      { href: '/hash-generator', icon: '\uD83D\uDD12', label: 'Hash Generator' },
+      { href: '/slug-generator', icon: '\uD83D\uDD17', label: 'Slug Generator' },
+      { href: '/lorem-ipsum-generator', icon: '\uD83D\uDCDD', label: 'Lorem Ipsum Generator' },
+      { href: '/morse-code-translator', icon: '\uD83D\uDD04', label: 'Morse Code Translator' },
+      { href: '/roman-numeral-converter', icon: '\uD83C\uDFF0', label: 'Roman Numeral Converter' },
+      { href: '/palindrome-checker', icon: '\uD83D\uDD0D', label: 'Palindrome Checker' },
+      { href: '/prime-number-checker', icon: '\uD83D\uDD22', label: 'Prime Number Checker' },
+      { href: '/reading-time-calculator', icon: '\u23F1', label: 'Reading Time Calculator' },
+      { href: '/number-system-converter', icon: '\uD83D\uDD22', label: 'Number System Converter' },
+      { href: '/nato-phonetic-alphabet', icon: '\uD83D\uDD20', label: 'NATO Phonetic Alphabet' },
+      { href: '/cron-expression-generator', icon: '\u23F0', label: 'Cron Expression Generator' },
+      { href: '/anagram-solver', icon: '\uD83D\uDD20', label: 'Anagram Solver' },
+      { href: '/regex-tester', icon: '\uD83D\uDD0D', label: 'Regex Tester' },
+      { href: '/duplicate-line-remover', icon: '\uD83D\uDDD1', label: 'Duplicate Line Remover' },
+      { href: '/reverse-text-generator', icon: '\uD83D\uDD04', label: 'Reverse Text Generator' },
+      { href: '/data-storage-converter', icon: '\uD83D\uDCC0', label: 'Data Storage Converter' },
+      { href: '/color-palette-generator', icon: '\uD83C\uDFA8', label: 'Color Palette Generator' },
+      { href: '/password-strength-checker', icon: '\uD83D\uDD12', label: 'Password Strength Checker' },
+      { href: '/timezone-converter', icon: '\uD83C\uDF0D', label: 'Timezone Converter' },
+      { href: '/random-number-generator', icon: '\uD83D\uDD22', label: 'Random Number Generator' },
+      { href: '/number-to-words-converter', icon: '\uD83D\uDCDD', label: 'Number to Words Converter' },
+      { href: '/text-repeater', icon: '\uD83D\uDD01', label: 'Text Repeater' },
+      { href: '/css-minifier', icon: '\uD83D\uDCD0', label: 'CSS Minifier' },
+      { href: '/list-randomizer', icon: '\uD83D\uDD00', label: 'List Randomizer' },
+      { href: '/css-gradient-generator', icon: '\uD83C\uDFA8', label: 'CSS Gradient Generator' },
+      { href: '/readability-checker', icon: '\uD83D\uDCD6', label: 'Readability Checker' },
+      { href: '/age-calculator', icon: '\uD83C\uDFC3', label: 'Age Calculator' },
+      { href: '/html-previewer', icon: '\uD83D\uDDBC', label: 'HTML Previewer' },
+      { href: '/contrast-checker', icon: '\uD83D\uDD0D', label: 'Contrast Checker' },
+      { href: '/text-cleaner', icon: '\uD83D\uDDD1', label: 'Text Cleaner' },
+      { href: '/scientific-notation-converter', icon: '\uD83D\uDD22', label: 'Scientific Notation Converter' },
+      { href: '/username-generator', icon: '\uD83D\uDC64', label: 'Username Generator' },
+      { href: '/jwt-decoder', icon: '\uD83D\uDD10', label: 'JWT Decoder' }
+    ]},
+    { heading: 'CSS Tools', links: [
+      { href: '/color-space-converter', icon: '\uD83C\uDFA8', label: 'Color Space Converter' },
+      { href: '/css-logical-properties', icon: '\uD83D\uDCD0', label: 'CSS Logical Properties Converter' },
+      { href: '/css-property-generator', icon: '\uD83D\uDCCB', label: 'CSS @property Generator' },
+      { href: '/css-text-wrap-visualizer', icon: '\u2194\uFE0F', label: 'CSS Text Wrap Visualizer' },
+      { href: '/css-view-transitions-generator', icon: '\u2728', label: 'CSS View Transitions Generator' },
+      { href: '/css-anchor-positioning-generator', icon: '\u2693', label: 'CSS Anchor Positioning Generator' }
     ]},
     { heading: 'Contacts & CRM', links: [
       { href: '/vcf-to-csv', icon: '\uD83D\uDCC7', label: 'VCF to CSV' },
@@ -715,11 +756,11 @@
     'base64-encoder': ['base64-decoder', 'url-encoder-decoder', 'image-to-base64', 'html-entity-encoder-decoder'],
     'base64-decoder': ['base64-encoder', 'url-encoder-decoder', 'image-to-base64', 'html-entity-encoder-decoder'],
     'password-generator': ['uuid-generator', 'word-counter', 'case-converter', 'all-unit-converters'],
-    'word-counter': ['case-converter', 'text-diff', 'password-generator', 'markdown-to-html'],
+    'word-counter': ['case-converter', 'text-diff', 'regex-tester', 'markdown-to-html'],
     'url-encoder-decoder': ['base64-encoder', 'base64-decoder', 'html-entity-encoder-decoder', 'image-to-base64'],
     'html-entity-encoder-decoder': ['url-encoder-decoder', 'base64-encoder', 'markdown-to-html', 'json-formatter'],
     'uuid-generator': ['password-generator', 'binary-converter', 'timestamp-converter', 'all-unit-converters'],
-    'case-converter': ['word-counter', 'text-diff', 'password-generator', 'markdown-to-html'],
+    'case-converter': ['word-counter', 'text-diff', 'regex-tester', 'markdown-to-html'],
     'markdown-to-html': ['html-to-markdown', 'case-converter', 'json-formatter', 'word-counter'],
     'html-to-markdown': ['markdown-to-html', 'json-formatter', 'case-converter', 'text-diff'],
     'json-to-yaml': ['json-formatter', 'xml-to-json', 'csv-to-json', 'yaml-to-json'],
@@ -727,7 +768,7 @@
     'csv-to-json': ['json-formatter', 'xml-to-json', 'json-to-yaml', 'all-unit-converters'],
     'image-to-base64': ['base64-encoder', 'base64-decoder', 'hex-to-rgb', 'color-converter'],
     'color-converter': ['hex-to-rgb', 'image-to-base64', 'all-unit-converters', 'text-diff'],
-    'text-diff': ['word-counter', 'case-converter', 'json-formatter', 'markdown-to-html'],
+    'text-diff': ['word-counter', 'case-converter', 'regex-tester', 'markdown-to-html'],
     'percentage-calculator': ['temperature-converter', 'all-unit-converters', 'binary-converter', 'word-counter'],
     'temperature-converter': ['percentage-calculator', 'all-unit-converters', 'binary-converter', 'timestamp-converter'],
     'all-unit-converters': ['temperature-converter', 'percentage-calculator', 'binary-converter', 'timestamp-converter'],
@@ -781,7 +822,46 @@
     'pdf-merge': ['pdf-split', 'pdf-to-word', 'jpg-to-pdf', 'pdf-to-text'],
     'pdf-to-word': ['word-to-pdf', 'pdf-to-text', 'pdf-to-jpg', 'pdf-split'],
     'word-to-pdf': ['pdf-to-word', 'pdf-to-text', 'jpg-to-pdf', 'pdf-split'],
-    'pdf-to-text': ['pdf-to-word', 'word-to-pdf', 'pdf-to-jpg', 'pdf-merge']
+    'pdf-to-text': ['pdf-to-word', 'word-to-pdf', 'pdf-to-jpg', 'pdf-merge'],
+    'hash-generator': ['slug-generator', 'number-system-converter', 'password-generator', 'uuid-generator'],
+    'slug-generator': ['hash-generator', 'lorem-ipsum-generator', 'case-converter', 'word-counter'],
+    'lorem-ipsum-generator': ['slug-generator', 'word-counter', 'case-converter', 'markdown-to-html'],
+    'morse-code-translator': ['nato-phonetic-alphabet', 'palindrome-checker', 'case-converter', 'text-diff'],
+    'roman-numeral-converter': ['number-system-converter', 'prime-number-checker', 'percentage-calculator', 'all-unit-converters'],
+    'palindrome-checker': ['morse-code-translator', 'nato-phonetic-alphabet', 'text-diff', 'case-converter'],
+    'prime-number-checker': ['roman-numeral-converter', 'number-system-converter', 'percentage-calculator', 'all-unit-converters'],
+    'reading-time-calculator': ['word-counter', 'case-converter', 'text-diff', 'slug-generator'],
+    'number-system-converter': ['roman-numeral-converter', 'prime-number-checker', 'binary-converter', 'hash-generator'],
+    'nato-phonetic-alphabet': ['morse-code-translator', 'palindrome-checker', 'case-converter', 'slug-generator'],
+    'cron-expression-generator': ['timestamp-converter', 'binary-converter', 'json-formatter', 'all-unit-converters'],
+    'anagram-solver': ['text-diff', 'word-counter', 'case-converter', 'palindrome-checker'],
+    'regex-tester': ['text-diff', 'word-counter', 'case-converter', 'password-strength-checker'],
+    'duplicate-line-remover': ['text-diff', 'word-counter', 'case-converter', 'text-repeater'],
+    'data-storage-converter': ['all-unit-converters', 'binary-converter', 'number-system-converter', 'percentage-calculator'],
+    'color-palette-generator': ['color-converter', 'hex-to-rgb', 'image-to-base64', 'qr-code-generator'],
+    'password-strength-checker': ['password-generator', 'hash-generator', 'uuid-generator', 'slug-generator'],
+    'timezone-converter': ['timestamp-converter', 'temperature-converter', 'all-unit-converters', 'binary-converter'],
+    'random-number-generator': ['prime-number-checker', 'percentage-calculator', 'number-system-converter', 'uuid-generator'],
+    'number-to-words-converter': ['word-counter', 'case-converter', 'number-system-converter', 'roman-numeral-converter'],
+    'text-repeater': ['word-counter', 'case-converter', 'text-diff', 'slug-generator'],
+    'css-minifier': ['json-formatter', 'css-logical-properties', 'css-property-generator', 'css-text-wrap-visualizer'],
+    'reverse-text-generator': ['anagram-solver', 'palindrome-checker', 'case-converter', 'word-counter'],
+    'list-randomizer': ['random-number-generator', 'password-generator', 'anagram-solver', 'word-counter'],
+    'css-gradient-generator': ['color-converter', 'hex-to-rgb', 'color-palette-generator', 'css-logical-properties'],
+    'readability-checker': ['word-counter', 'text-diff', 'case-converter', 'slug-generator'],
+    'age-calculator': ['timestamp-converter', 'percentage-calculator', 'temperature-converter', 'all-unit-converters'],
+    'html-previewer': ['markdown-to-html', 'html-to-markdown', 'json-formatter', 'regex-tester'],
+    'contrast-checker': ['color-converter', 'hex-to-rgb', 'color-palette-generator', 'image-to-base64'],
+    'text-cleaner': ['text-diff', 'case-converter', 'word-counter', 'duplicate-line-remover'],
+    'scientific-notation-converter': ['number-system-converter', 'binary-converter', 'percentage-calculator', 'all-unit-converters'],
+    'username-generator': ['password-generator', 'slug-generator', 'uuid-generator', 'reverse-text-generator'],
+    'jwt-decoder': ['base64-decoder', 'hash-generator', 'json-formatter', 'regex-tester'],
+    'color-space-converter': ['color-converter', 'hex-to-rgb', 'color-palette-generator', 'contrast-checker'],
+    'css-logical-properties': ['css-gradient-generator', 'css-minifier', 'css-property-generator', 'css-text-wrap-visualizer'],
+    'css-property-generator': ['css-logical-properties', 'css-minifier', 'css-view-transitions-generator', 'css-anchor-positioning-generator'],
+    'css-text-wrap-visualizer': ['css-logical-properties', 'css-minifier', 'css-property-generator', 'contrast-checker'],
+    'css-view-transitions-generator': ['css-property-generator', 'css-anchor-positioning-generator', 'css-gradient-generator', 'css-text-wrap-visualizer'],
+    'css-anchor-positioning-generator': ['css-logical-properties', 'css-property-generator', 'css-view-transitions-generator', 'css-text-wrap-visualizer']
   };
 
   function injectRelatedTools() {
@@ -878,7 +958,40 @@
     'pdf-to-text': ['/blog/extract-text-from-pdf', '/blog/pdf-vs-word-vs-excel'],
     'percentage-calculator': ['/blog/password-strength-guide'],
     'temperature-converter': ['/blog/how-to-read-binary'],
-    'text-diff': ['/blog/text-case-guide']
+    'text-diff': ['/blog/text-case-guide'],
+    'hash-generator': ['/blog/password-strength-guide'],
+    'slug-generator': ['/blog/url-encoding-guide'],
+    'lorem-ipsum-generator': ['/blog/html-entity-encoding'],
+    'morse-code-translator': ['/blog/text-case-guide'],
+    'roman-numeral-converter': ['/blog/how-to-read-binary'],
+    'palindrome-checker': ['/blog/text-case-guide'],
+    'prime-number-checker': ['/blog/how-to-read-binary'],
+    'reading-time-calculator': ['/blog/word-to-pdf-guide'],
+    'number-system-converter': ['/blog/how-to-read-binary'],
+    'nato-phonetic-alphabet': ['/blog/text-case-guide'],
+    'cron-expression-generator': ['/blog/how-to-read-binary', '/blog/what-is-uuid'],
+    'anagram-solver': ['/blog/text-case-guide'],
+    'regex-tester': ['/blog/text-case-guide', '/blog/password-strength-guide'],
+    'duplicate-line-remover': ['/blog/text-case-guide'],
+    'data-storage-converter': ['/blog/how-to-read-binary'],
+    'color-palette-generator': ['/blog/ultimate-guide-image-optimization', '/blog/heic-vs-jpeg-vs-webp-vs-avif'],
+    'password-strength-checker': ['/blog/password-strength-guide'],
+    'timezone-converter': ['/blog/how-to-read-binary'],
+    'random-number-generator': ['/blog/password-strength-guide'],
+    'number-to-words-converter': ['/blog/text-case-guide'],
+    'text-repeater': ['/blog/text-case-guide'],
+    'css-minifier': ['/blog/html-entity-encoding', '/blog/url-encoding-guide'],
+    'reverse-text-generator': ['/blog/text-case-guide'],
+    'list-randomizer': ['/blog/password-strength-guide'],
+    'css-gradient-generator': ['/blog/ultimate-guide-image-optimization', '/blog/heic-vs-jpeg-vs-webp-vs-avif'],
+    'readability-checker': ['/blog/text-case-guide'],
+    'age-calculator': ['/blog/how-to-read-binary'],
+    'html-previewer': ['/blog/html-entity-encoding'],
+    'contrast-checker': ['/blog/ultimate-guide-image-optimization'],
+    'text-cleaner': ['/blog/text-case-guide'],
+    'scientific-notation-converter': ['/blog/how-to-read-binary', '/blog/what-is-uuid'],
+    'username-generator': ['/blog/password-strength-guide'],
+    'jwt-decoder': ['/blog/password-strength-guide', '/blog/url-encoding-guide']
   };
 
   function injectBlogLinks() {
@@ -1156,7 +1269,90 @@
       '<tr><td>META-INF/container.xml</td><td>Points to the OPF package file</td></tr><tr><td>META-INF/</td><td>Metadata directory (always required)</td></tr><tr><td>*.opf (Package Document)</td><td>Manifest, spine, metadata</td></tr><tr><td>*.ncx (Navigation)</td><td>Table of contents (optional in EPUB 3)</td></tr><tr><td>*.xhtml</td><td>Content files (XHTML or HTML)</td></tr><tr><td>*.css</td><td>Stylesheets for content formatting</td></tr><tr><td>mimetype</td><td>Must be "application/epub+zip" (no compression)</td></tr></tbody></table>',
 
     'pdf-to-epub': '<h2>PDF to EPUB Conversion Quality</h2><table class="format-table"><thead><tr><th>PDF Type</th><th>EPUB Quality</th><th>Challenges</th></tr></thead><tbody>' +
-      '<tr><td>Digital-born (text)</td><td>Good</td><td>Reading order, text extraction</td></tr><tr><td>Scanned (image)</td><td>Poor</td><td>No text layer, OCR needed</td></tr><tr><td>Formatted (multi-column)</td><td>Fair</td><td>Column reflow, reading order</td></tr><tr><td>Mixed (text + images)</td><td>Fair</td><td>Image embedding, positioning</td></tr></tbody></table>'
+      '<tr><td>Digital-born (text)</td><td>Good</td><td>Reading order, text extraction</td></tr><tr><td>Scanned (image)</td><td>Poor</td><td>No text layer, OCR needed</td></tr><tr><td>Formatted (multi-column)</td><td>Fair</td><td>Column reflow, reading order</td></tr><tr><td>Mixed (text + images)</td><td>Fair</td><td>Image embedding, positioning</td></tr></tbody></table>',
+    'hash-generator': '<h2>Hash Algorithm Comparison</h2><table class="format-table"><thead><tr><th>Algorithm</th><th>Bit Length</th><th>Output Size</th><th>Collision Resistance</th><th>Security Status</th></tr></thead><tbody>' +
+      '<tr><td>MD5</td><td>128</td><td>32 hex chars</td><td>Broken</td><td>Not recommended for security</td></tr><tr><td>SHA-1</td><td>160</td><td>40 hex chars</td><td>Weakened</td><td>Deprecated for cryptography</td></tr><tr><td>SHA-256</td><td>256</td><td>64 hex chars</td><td>Strong</td><td>Recommended for general use</td></tr><tr><td>SHA-512</td><td>512</td><td>128 hex chars</td><td>Very Strong</td><td>Recommended for high security</td></tr></tbody></table>',
+    'slug-generator': '<h2>URL Slug Best Practices</h2><table class="format-table"><thead><tr><th>Practice</th><th>Good Example</th><th>Bad Example</th><th>Why</th></tr></thead><tbody>' +
+      '<tr><td>Use hyphens as separators</td><td><code>my-article-title</code></td><td><code>my_article_title</code></td><td>Google treats hyphens as word separators</td></tr><tr><td>Keep it short and descriptive</td><td><code>seo-tips-2026</code></td><td><code>top-10-essential-seo-tips-for-better-rankings</code></td><td>Short URLs are easier to read and share</td></tr><tr><td>Use lowercase only</td><td><code>about-us</code></td><td><code>About-Us</code></td><td>Prevents duplicate content issues</td></tr><tr><td>Remove stop words</td><td><code>how-to-code</code></td><td><code>how-to-start-coding-online</code></td><td>Stop words add length without value</td></tr><tr><td>Include primary keyword</td><td><code>pdf-to-word</code></td><td><code>convert-file</code></td><td>Keywords in URL help SEO rankings</td></tr></tbody></table>',
+    'lorem-ipsum-generator': '<h2>Lorem Ipsum Usage by Industry</h2><table class="format-table"><thead><tr><th>Industry</th><th>Typical Use</th><th>Preferred Length</th></tr></thead><tbody>' +
+      '<tr><td>Web Design</td><td>Website mockups and wireframes</td><td>2-5 paragraphs</td></tr><tr><td>Print Design</td><td>Brochures, flyers, magazine layouts</td><td>1-3 paragraphs</td></tr><tr><td>Typography</td><td>Font and typesetting previews</td><td>3-10 paragraphs</td></tr><tr><td>UI/UX Design</td><td>App interface prototypes</td><td>1-2 sentences per element</td></tr><tr><td>Content Strategy</td><td>Content audits and gap analysis</td><td>5-20 paragraphs</td></tr></tbody></table>',
+    'morse-code-translator': '<h2>Morse Code Timing Guidelines</h2><table class="format-table"><thead><tr><th>Element</th><th>Duration</th><th>Example</th></tr></thead><tbody>' +
+      '<tr><td>Dot (.)</td><td>1 unit</td><td>Short beep</td></tr><tr><td>Dash (-)</td><td>3 units</td><td>Long beep (3x dot length)</td></tr><tr><td>Space between parts (same letter)</td><td>1 unit</td><td>Between dot and dash in same letter</td></tr><tr><td>Space between letters</td><td>3 units</td><td>Between characters in same word</td></tr><tr><td>Space between words</td><td>7 units</td><td>Between separate words or slash</td></tr></tbody></table>',
+    'roman-numeral-converter': '<h2>Roman Numerals Reference</h2><table class="format-table"><thead><tr><th>Roman Numeral</th><th>Value</th><th>Roman Numeral</th><th>Value</th><th>Roman Numeral</th><th>Value</th></tr></thead><tbody>' +
+      '<tr><td>I</td><td>1</td><td>X</td><td>10</td><td>C</td><td>100</td></tr><tr><td>II</td><td>2</td><td>XX</td><td>20</td><td>CC</td><td>200</td></tr><tr><td>III</td><td>3</td><td>XXX</td><td>30</td><td>CCC</td><td>300</td></tr><tr><td>IV</td><td>4</td><td>XL</td><td>40</td><td>CD</td><td>400</td></tr><tr><td>V</td><td>5</td><td>L</td><td>50</td><td>D</td><td>500</td></tr><tr><td>VI</td><td>6</td><td>LX</td><td>60</td><td>DC</td><td>600</td></tr><tr><td>VII</td><td>7</td><td>LXX</td><td>70</td><td>DCC</td><td>700</td></tr><tr><td>VIII</td><td>8</td><td>LXXX</td><td>80</td><td>DCCC</td><td>800</td></tr><tr><td>IX</td><td>9</td><td>XC</td><td>90</td><td>CM</td><td>900</td></tr><tr><td>V</td><td>5</td><td>L</td><td>50</td><td>M</td><td>1000</td></tr></tbody></table>',
+    'palindrome-checker': '<h2>Famous Palindrome Examples</h2><table class="format-table"><thead><tr><th>Type</th><th>Palindrome</th><th>Length</th></tr></thead><tbody>' +
+      '<tr><td>Word</td><td>racecar</td><td>7 letters</td></tr><tr><td>Word</td><td>madam</td><td>5 letters</td></tr><tr><td>Word</td><td>level</td><td>5 letters</td></tr><tr><td>Word</td><td>radar</td><td>5 letters</td></tr><tr><td>Phrase</td><td>A man, a plan, a canal: Panama</td><td>30 chars</td></tr><tr><td>Phrase</td><td>Never odd or even</td><td>18 chars</td></tr><tr><td>Phrase</td><td>Was it a car or a cat I saw?</td><td>25 chars</td></tr><tr><td>Number</td><td>12321</td><td>5 digits</td></tr><tr><td>Number</td><td>1234321</td><td>7 digits</td></tr></tbody></table>',
+    'prime-number-checker': '<h2>First 20 Prime Numbers Reference</h2><table class="format-table"><thead><tr><th>#</th><th>Prime</th><th>#</th><th>Prime</th><th>#</th><th>Prime</th><th>#</th><th>Prime</th></tr></thead><tbody>' +
+      '<tr><td>1</td><td>2</td><td>6</td><td>13</td><td>11</td><td>31</td><td>16</td><td>53</td></tr><tr><td>2</td><td>3</td><td>7</td><td>17</td><td>12</td><td>37</td><td>17</td><td>59</td></tr><tr><td>3</td><td>5</td><td>8</td><td>19</td><td>13</td><td>41</td><td>18</td><td>61</td></tr><tr><td>4</td><td>7</td><td>9</td><td>23</td><td>14</td><td>43</td><td>19</td><td>67</td></tr><tr><td>5</td><td>11</td><td>10</td><td>29</td><td>15</td><td>47</td><td>20</td><td>71</td></tr></tbody></table>',
+    'reading-time-calculator': '<h2>Reading Speed Reference by Reader Type</h2><table class="format-table"><thead><tr><th>Reader Type</th><th>Words Per Minute</th><th>500 Words</th><th>1500 Words</th><th>3000 Words</th></tr></thead><tbody>' +
+      '<tr><td>Slow / Children</td><td>130</td><td>3 min 50 sec</td><td>11 min 32 sec</td><td>23 min 04 sec</td></tr><tr><td>Casual / Conversational</td><td>200</td><td>2 min 30 sec</td><td>7 min 30 sec</td><td>15 min 00 sec</td></tr><tr><td>Average Adult</td><td>238</td><td>2 min 06 sec</td><td>6 min 18 sec</td><td>12 min 36 sec</td></tr><tr><td>Skilled / Frequent Reader</td><td>300</td><td>1 min 40 sec</td><td>5 min 00 sec</td><td>10 min 00 sec</td></tr><tr><td>Speed Reader</td><td>450</td><td>1 min 06 sec</td><td>3 min 20 sec</td><td>6 min 40 sec</td></tr></tbody></table>',
+    'number-system-converter': '<h2>Number System Base Comparison</h2><table class="format-table"><thead><tr><th>Decimal</th><th>Binary</th><th>Octal</th><th>Hexadecimal</th></tr></thead><tbody>' +
+      '<tr><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td><td>1</td></tr><tr><td>2</td><td>10</td><td>2</td><td>2</td></tr><tr><td>3</td><td>11</td><td>3</td><td>3</td></tr><tr><td>4</td><td>100</td><td>4</td><td>4</td></tr><tr><td>5</td><td>101</td><td>5</td><td>5</td></tr><tr><td>6</td><td>110</td><td>6</td><td>6</td></tr><tr><td>7</td><td>111</td><td>7</td><td>7</td></tr><tr><td>8</td><td>1000</td><td>10</td><td>8</td></tr><tr><td>9</td><td>1001</td><td>11</td><td>9</td></tr><tr><td>10</td><td>1010</td><td>12</td><td>A</td></tr><tr><td>11</td><td>1011</td><td>13</td><td>B</td></tr><tr><td>12</td><td>1100</td><td>14</td><td>C</td></tr><tr><td>13</td><td>1101</td><td>15</td><td>D</td></tr><tr><td>14</td><td>1110</td><td>16</td><td>E</td></tr><tr><td>15</td><td>1111</td><td>17</td><td>F</td></tr><tr><td>16</td><td>10000</td><td>20</td><td>10</td></tr></tbody></table>',
+    'nato-phonetic-alphabet': '<h2>NATO Phonetic Alphabet Full List</h2><table class="format-table"><thead><tr><th>Letter</th><th>Code Word</th><th>Letter</th><th>Code Word</th><th>Letter</th><th>Code Word</th></tr></thead><tbody>' +
+      '<tr><td>A</td><td>Alpha</td><td>J</td><td>Juliett</td><td>S</td><td>Sierra</td></tr><tr><td>B</td><td>Bravo</td><td>K</td><td>Kilo</td><td>T</td><td>Tango</td></tr><tr><td>C</td><td>Charlie</td><td>L</td><td>Lima</td><td>U</td><td>Uniform</td></tr><tr><td>D</td><td>Delta</td><td>M</td><td>Mike</td><td>V</td><td>Victor</td></tr><tr><td>E</td><td>Echo</td><td>N</td><td>November</td><td>W</td><td>Whiskey</td></tr><tr><td>F</td><td>Foxtrot</td><td>O</td><td>Oscar</td><td>X</td><td>X-ray</td></tr><tr><td>G</td><td>Golf</td><td>P</td><td>Papa</td><td>Y</td><td>Yankee</td></tr><tr><td>H</td><td>Hotel</td><td>Q</td><td>Quebec</td><td>Z</td><td>Zulu</td></tr><tr><td>I</td><td>India</td><td>R</td><td>Romeo</td><td></td><td></td></tr></tbody></table>',
+  'cron-expression-generator': '<h2>Cron Expression Field Reference</h2><table class="format-table"><thead><tr><th>Field</th><th>Allowed Values</th><th>Special Characters</th></tr></thead><tbody>' +
+      '<tr><td>Minute</td><td>0-59</td><td>* , - /</td></tr><tr><td>Hour</td><td>0-23</td><td>* , - /</td></tr><tr><td>Day of Month</td><td>1-31</td><td>* , - / ? L W</td></tr><tr><td>Month</td><td>1-12 or JAN-DEC</td><td>* , - /</td></tr><tr><td>Day of Week</td><td>0-7 or SUN-SAT</td><td>* , - / ? L #</td></tr></tbody></table>',
+  'duplicate-line-remover': '<h2>Duplication Modes Reference</h2><table class="format-table"><thead><tr><th>Mode</th><th>Input</th><th>Output</th><th>Best For</th></tr></thead><tbody>' +
+      '<tr><td><strong>Exact</strong></td><td>Hello, hello, Hello</td><td>Hello, hello</td><td>When case matters (e.g. passwords, codes)</td></tr><tr><td><strong>Case Insensitive</strong></td><td>Hello, hello, Hello</td><td>Hello</td><td>Cleaning lists where case varies (e.g. names)</td></tr><tr><td><strong>Frequency</strong></td><td>apple, apple, banana</td><td>apple (2), banana (1)</td><td>Analyzing line occurrence distribution</td></tr></tbody></table>',
+  'anagram-solver': '<h2>Letter Frequency in English</h2><table class="format-table"><thead><tr><th>Letter</th><th>Frequency</th><th>Letter</th><th>Frequency</th><th>Letter</th><th>Frequency</th></tr></thead><tbody>' +
+      '<tr><td>E</td><td>12.7%</td><td>I</td><td>7.0%</td><td>R</td><td>6.0%</td></tr><tr><td>T</td><td>9.1%</td><td>N</td><td>6.7%</td><td>S</td><td>6.3%</td></tr><tr><td>A</td><td>8.2%</td><td>S</td><td>6.3%</td><td>H</td><td>6.1%</td></tr><tr><td>O</td><td>7.5%</td><td>H</td><td>6.1%</td><td>D</td><td>4.3%</td></tr><tr><td>I</td><td>7.0%</td><td>R</td><td>6.0%</td><td>L</td><td>4.0%</td></tr><tr><td>N</td><td>6.7%</td><td>D</td><td>4.3%</td><td>C</td><td>2.8%</td></tr></tbody></table>',
+  'data-storage-converter': '<h2>SI vs Binary Unit Prefixes</h2><table class="format-table"><thead><tr><th>SI Unit</th><th>Value (Decimal)</th><th>Binary Unit</th><th>Value (Binary)</th></tr></thead><tbody>' +
+      '<tr><td>1 KB (Kilobyte)</td><td>1,000 bytes</td><td>1 KiB (Kibibyte)</td><td>1,024 bytes</td></tr><tr><td>1 MB (Megabyte)</td><td>1,000,000 bytes</td><td>1 MiB (Mebibyte)</td><td>1,048,576 bytes</td></tr><tr><td>1 GB (Gigabyte)</td><td>1,000,000,000 bytes</td><td>1 GiB (Gibibyte)</td><td>1,073,741,824 bytes</td></tr><tr><td>1 TB (Terabyte)</td><td>1,000,000,000,000 bytes</td><td>1 TiB (Tebibyte)</td><td>1,099,511,627,776 bytes</td></tr></tbody></table>',
+  'color-palette-generator': '<h2>Color Harmony Types Reference</h2><table class="format-table"><thead><tr><th>Scheme</th><th>Hue Angles</th><th>Best For</th></tr></thead><tbody>' +
+      '<tr><td>Monochromatic</td><td>Same hue, varying lightness</td><td>Minimalist, professional designs</td></tr><tr><td>Complementary</td><td>Base hue + 180\u00B0</td><td>High contrast, attention-grabbing</td></tr><tr><td>Analogous</td><td>Base hue \u00B1 30\u00B0</td><td>Harmonious, calming layouts</td></tr><tr><td>Triadic</td><td>Base hue \u00B1 120\u00B0</td><td>Vibrant, balanced compositions</td></tr><tr><td>Tetradic</td><td>Base + 180\u00B0 + 90\u00B0 + 270\u00B0</td><td>Rich, complex color schemes</td></tr></tbody></table>',
+  'password-strength-checker': '<h2>Password Strength Classification</h2><table class="format-table"><thead><tr><th>Score</th><th>Rating</th><th>Crack Time</th><th>Example</th></tr></thead><tbody>' +
+      '<tr><td>0-20</td><td>Very Weak</td><td>Instant</td><td>password123</td></tr><tr><td>21-40</td><td>Weak</td><td>Seconds to minutes</td><td>Sunshine2024</td></tr><tr><td>41-60</td><td>Fair</td><td>Hours to days</td><td>Tr0ub4dor&3</td></tr><tr><td>61-80</td><td>Strong</td><td>Years</td><td>c0rr3ct-h0r$e-b@tt3ry</td></tr><tr><td>81-100</td><td>Very Strong</td><td>Centuries</td><td>J5&kP9#mQ2$vL8*nR</td></tr></tbody></table>',
+  'timezone-converter': '<h2>Common Timezone Abbreviations</h2><table class="format-table"><thead><tr><th>Abbreviation</th><th>Full Name</th><th>UTC Offset</th><th>Major Cities</th></tr></thead><tbody>' +
+      '<tr><td>EST/EDT</td><td>Eastern Time</td><td>UTC-5/-4</td><td>New York, Toronto, Miami</td></tr><tr><td>CST/CDT</td><td>Central Time</td><td>UTC-6/-5</td><td>Chicago, Dallas, Mexico City</td></tr><tr><td>MST/MDT</td><td>Mountain Time</td><td>UTC-7/-6</td><td>Denver, Phoenix, Salt Lake City</td></tr><tr><td>PST/PDT</td><td>Pacific Time</td><td>UTC-8/-7</td><td>Los Angeles, San Francisco, Seattle</td></tr><tr><td>GMT/BST</td><td>Greenwich Mean / British Summer</td><td>UTC+0/+1</td><td>London, Dublin, Lisbon</td></tr><tr><td>CET/CEST</td><td>Central European Time</td><td>UTC+1/+2</td><td>Paris, Berlin, Rome, Madrid</td></tr><tr><td>IST</td><td>India Standard Time</td><td>UTC+5:30</td><td>Mumbai, Delhi, Bangalore</td></tr><tr><td>JST</td><td>Japan Standard Time</td><td>UTC+9</td><td>Tokyo, Osaka, Yokohama</td></tr><tr><td>AEST/AEDT</td><td>Australian Eastern Time</td><td>UTC+10/+11</td><td>Sydney, Melbourne, Brisbane</td></tr></tbody></table>',
+  'random-number-generator': '<h2>Random Number Use Cases Reference</h2><table class="format-table"><thead><tr><th>Use Case</th><th>Range</th><th>Count</th><th>Notes</th></tr></thead><tbody>' +
+      '<tr><td>Coin Flip</td><td>1-2</td><td>1</td><td>Heads (1) or Tails (2)</td></tr><tr><td>Dice Roll</td><td>1-6</td><td>1</td><td>Standard six-sided die</td></tr><tr><td>Lottery Numbers</td><td>1-59</td><td>6</td><td>No repeats, sorted</td></tr><tr><td>Random Percentage</td><td>0-100</td><td>1</td><td>With decimals for precision</td></tr><tr><td>Password Digit</td><td>0-9</td><td>1-10</td><td>For PIN codes or OTPs</td></tr><tr><td>Contest Winners</td><td>1-N</td><td>1-10</td><td>No repeats for fairness</td></tr></tbody></table>',
+  'number-to-words-converter': '<h2>Number Place Values Reference</h2><table class="format-table"><thead><tr><th>Place</th><th>Value</th><th>Example Digit</th><th>In Words</th></tr></thead><tbody>' +
+      '<tr><td>Ones</td><td>1</td><td>4</td><td>Four</td></tr><tr><td>Tens</td><td>10</td><td>3</td><td>Thirty</td></tr><tr><td>Hundreds</td><td>100</td><td>2</td><td>Two Hundred</td></tr><tr><td>Thousands</td><td>1,000</td><td>1</td><td>One Thousand</td></tr><tr><td>Ten Thousands</td><td>10,000</td><td>5</td><td>Fifty Thousand</td></tr><tr><td>Hundred Thousands</td><td>100,000</td><td>6</td><td>Six Hundred Thousand</td></tr><tr><td>Millions</td><td>1,000,000</td><td>7</td><td>Seven Million</td></tr></tbody></table>',
+  'text-repeater': '<h2>Text Repetition Use Cases</h2><table class="format-table"><thead><tr><th>Use Case</th><th>Typical Count</th><th>Separator</th><th>Example</th></tr></thead><tbody>' +
+      '<tr><td>Form testing</td><td>5-50</td><td>New Line</td><td>test@email.com (repeated)</td></tr><tr><td>Data generation</td><td>10-100</td><td>Comma</td><td>item1, item2, item3...</td></tr><tr><td>Template building</td><td>3-20</td><td>Custom</td><td>Section 1 --- Section 2...</td></tr><tr><td>Stress testing</td><td>100-10000</td><td>New Line</td><td>Large volume text</td></tr><tr><td>Content mocking</td><td>3-10</td><td>New Line</td><td>Paragraph repeats for layout</td></tr></tbody></table>',
+  'css-minifier': '<h2>CSS Minification Savings Reference</h2><table class="format-table"><thead><tr><th>Original Size</th><th>Minified Size (est.)</th><th>Savings</th><th>Page Load Benefit</th></tr></thead><tbody>' +
+      '<tr><td>10 KB</td><td>~8 KB</td><td>~20%</td><td>Minimal</td></tr><tr><td>50 KB</td><td>~38 KB</td><td>~24%</td><td>~100ms faster</td></tr><tr><td>100 KB</td><td>~75 KB</td><td>~25%</td><td>~200ms faster</td></tr><tr><td>500 KB</td><td>~375 KB</td><td>~25%</td><td>~1s faster on 3G</td></tr></tbody></table>',
+    'list-randomizer': '<h2>Randomization Methods Reference</h2><table class="format-table"><thead><tr><th>Method</th><th>Algorithm</th><th>Use Case</th></tr></thead><tbody>' +
+      '<tr><td>Shuffle</td><td>Fisher-Yates with crypto.getRandomValues()</td><td>Randomize order of all items in a list</td></tr><tr><td>Pick Random</td><td>Fisher-Yates shuffle then select N items</td><td>Contest winners, random sampling</td></tr><tr><td>Groups</td><td>Shuffle then distribute round-robin</td><td>Team creation, classroom assignments</td></tr><tr><td>Coin Flip</td><td>crypto.getRandomValues() threshold at 0.5</td><td>Binary decisions, tiebreakers</td></tr><tr><td>Dice Roll</td><td>crypto.getRandomValues() modulo 6 + 1</td><td>Board games, random 1-6 outcomes</td></tr></tbody></table>',
+    'css-gradient-generator': '<h2>CSS Gradient Properties Reference</h2><table class="format-table"><thead><tr><th>Property</th><th>Values</th><th>Description</th></tr></thead><tbody>' +
+      '<tr><td><code>background-image</code></td><td><code>linear-gradient(...)</code>, <code>radial-gradient(...)</code>, <code>conic-gradient(...)</code></td><td>Defines the gradient pattern</td></tr><tr><td><code>background-size</code></td><td><code>cover</code>, <code>contain</code>, <code>100% 100%</code>, <code>auto</code></td><td>Controls how the gradient fills the background area</td></tr><tr><td><code>background-position</code></td><td><code>center</code>, <code>top left</code>, <code>50% 50%</code></td><td>Sets the starting position of the gradient</td></tr><tr><td><code>background-repeat</code></td><td><code>repeat</code>, <code>no-repeat</code>, <code>repeat-x</code>, <code>repeat-y</code></td><td>Determines if the gradient repeats</td></tr><tr><td><code>background</code> (shorthand)</td><td>Combines color + image + position + size + repeat</td><td>All-in-one gradient property</td></tr></tbody></table>',
+  'regex-tester': '<h2>Common Regex Patterns Reference</h2><table class="format-table"><thead><tr><th>Pattern</th><th>Matches</th><th>Description</th></tr></thead><tbody>' +
+      '<tr><td><code>[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}</code></td><td>user@example.com</td><td>Email address validation</td></tr>' +
+      '<tr><td><code>https?://[^\\s/$.?#].[^\\s]*</code></td><td>https://example.com</td><td>URL matching</td></tr>' +
+      '<tr><td><code>\\(?\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4}</code></td><td>(555) 123-4567</td><td>US phone number</td></tr>' +
+      '<tr><td><code>\\d{4}-\\d{2}-\\d{2}</code></td><td>2026-07-14</td><td>Date (YYYY-MM-DD)</td></tr>' +
+      '<tr><td><code>\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b</code></td><td>192.168.1.1</td><td>IPv4 address</td></tr>' +
+      '<tr><td><code>#[0-9a-fA-F]{6}\\b|#[0-9a-fA-F]{3}\\b</code></td><td>#ff0000</td><td>Hex color code</td></tr></tbody></table>',
+  'reverse-text-generator': '<h2>Text Transformation Examples</h2><table class="format-table"><thead><tr><th>Transformation</th><th>Input</th><th>Output</th><th>Use Case</th></tr></thead><tbody>' +
+      '<tr><td>Reverse Text</td><td>Hello World</td><td>dlroW olleH</td><td>Puzzles, secret messages</td></tr><tr><td>Reverse Words</td><td>Hello World</td><td>World Hello</td><td>Restructuring sentences</td></tr><tr><td>Reverse Each Word</td><td>Hello World</td><td>olleH dlroW</td><td>Creative writing effects</td></tr><tr><td>Upside Down</td><td>Hello</td><td>ɥǝlloo</td><td>Social media, fun effects</td></tr><tr><td>Mirror Text</td><td>Hello</td><td>ollǝɥ</td><td>Mirror reflection effect</td></tr></tbody></table>',
+  'readability-checker': '<h2>Readability Score Reference</h2><table class="format-table"><thead><tr><th>Score</th><th>Level</th><th>Grade</th><th>Typical Content</th></tr></thead><tbody>' +
+      '<tr><td>90-100</td><td>Very Easy</td><td>5th grade</td><td>Children</td></tr><tr><td>80-90</td><td>Easy</td><td>6th grade</td><td>Magazines</td></tr><tr><td>70-80</td><td>Fairly Easy</td><td>7th grade</td><td>Newspapers</td></tr><tr><td>60-70</td><td>Standard</td><td>8th-9th</td><td>General audience</td></tr><tr><td>50-60</td><td>Fairly Difficult</td><td>10th-12th</td><td>Textbooks</td></tr><tr><td>30-50</td><td>Difficult</td><td>College</td><td>Academic papers</td></tr><tr><td>0-30</td><td>Very Difficult</td><td>Graduate</td><td>Legal, scientific</td></tr></tbody></table>',
+  'age-calculator': '<h2>Age Units Reference</h2><table class="format-table"><thead><tr><th>Unit</th><th>Calculation</th><th>Example (30 years)</th></tr></thead><tbody>' +
+      '<tr><td>Years</td><td>Date difference in years</td><td>30 years</td></tr><tr><td>Months</td><td>Total complete months</td><td>360 months</td></tr><tr><td>Weeks</td><td>Total days / 7</td><td>~1,565 weeks</td></tr><tr><td>Days</td><td>Exact day count</td><td>~10,957 days</td></tr><tr><td>Hours</td><td>Days x 24</td><td>~262,968 hours</td></tr><tr><td>Minutes</td><td>Hours x 60</td><td>~15,778,080 minutes</td></tr></tbody></table>',
+  'html-previewer': '<h2>HTML Document Structure Reference</h2><table class="format-table"><thead><tr><th>Element</th><th>Purpose</th><th>Example</th></tr></thead><tbody>' +
+      '<tr><td>&lt;!DOCTYPE html&gt;</td><td>Document type declaration</td><td>Must be the first line</td></tr><tr><td>&lt;html&gt;</td><td>Root element</td><td>&lt;html lang="en"&gt;</td></tr><tr><td>&lt;head&gt;</td><td>Metadata container</td><td>Title, links, scripts</td></tr><tr><td>&lt;body&gt;</td><td>Visible content</td><td>All page elements</td></tr></tbody></table>',
+  'contrast-checker': '<h2>WCAG Contrast Requirements</h2><table class="format-table"><thead><tr><th>Level</th><th>Normal Text</th><th>Large Text</th><th>UI Components</th></tr></thead><tbody>' +
+      '<tr><td>AA</td><td>4.5:1</td><td>3:1</td><td>3:1</td></tr><tr><td>AAA</td><td>7:1</td><td>4.5:1</td><td>Not defined</td></tr></tbody></table>',
+  'text-cleaner': '<h2>Common Invisible Unicode Characters</h2><table class="format-table"><thead><tr><th>Name</th><th>Code Point</th><th>Source</th></tr></thead><tbody>' +
+      '<tr><td>Zero-Width Space</td><td>U+200B</td><td>Word processors, web copy</td></tr><tr><td>Zero-Width Non-Joiner</td><td>U+200C</td><td>Unicode text</td></tr><tr><td>Zero-Width Joiner</td><td>U+200D</td><td>Emoji sequences</td></tr><tr><td>Left-to-Right Mark</td><td>U+200E</td><td>Bi-directional text</td></tr><tr><td>Soft Hyphen</td><td>U+00AD</td><td>Word processors, PDFs</td></tr></tbody></table>',
+  'scientific-notation-converter': '<h2>SI Prefixes Reference</h2><table class="format-table"><thead><tr><th>Prefix</th><th>Symbol</th><th>Factor</th><th>Example</th></tr></thead><tbody>' +
+      '<tr><td>Nano</td><td>n</td><td>10<sup>-9</sup></td><td>0.000000001</td></tr><tr><td>Micro</td><td>\u00B5</td><td>10<sup>-6</sup></td><td>0.000001</td></tr><tr><td>Milli</td><td>m</td><td>10<sup>-3</sup></td><td>0.001</td></tr><tr><td>Centi</td><td>c</td><td>10<sup>-2</sup></td><td>0.01</td></tr><tr><td>Deci</td><td>d</td><td>10<sup>-1</sup></td><td>0.1</td></tr><tr><td>Kilo</td><td>k</td><td>10<sup>3</sup></td><td>1,000</td></tr><tr><td>Mega</td><td>M</td><td>10<sup>6</sup></td><td>1,000,000</td></tr><tr><td>Giga</td><td>G</td><td>10<sup>9</sup></td><td>1,000,000,000</td></tr><tr><td>Tera</td><td>T</td><td>10<sup>12</sup></td><td>1,000,000,000,000</td></tr></tbody></table>',
+  'username-generator': '<h2>Username Theme Examples</h2><table class="format-table"><thead><tr><th>Theme</th><th>Example Usernames</th><th>Best For</th></tr></thead><tbody>' +
+      '<tr><td>Fantasy</td><td>ElfWhisperer, DragonMage</td><td>RPG games, fantasy forums</td></tr><tr><td>Tech</td><td>CodeWizard, ByteNinja</td><td>Developer communities</td></tr><tr><td>Nature</td><td>ForestWanderer, SolarFlare</td><td>Outdoor, photography</td></tr><tr><td>Gamer</td><td>ShadowStrike, PixelWarrior</td><td>Multiplayer gaming</td></tr><tr><td>Professional</td><td>DevPro, DataMaster</td><td>LinkedIn, portfolios</td></tr><tr><td>Sci-Fi</td><td>StarVoyager, CyberPilot</td><td>Futuristic communities</td></tr></tbody></table>',
+  'jwt-decoder': '<h2>JWT Claim Reference</h2><table class="format-table"><thead><tr><th>Claim</th><th>Full Name</th><th>Description</th></tr></thead><tbody>' +
+      '<tr><td>sub</td><td>Subject</td><td>User ID or identifier</td></tr><tr><td>iss</td><td>Issuer</td><td>Who issued the token</td></tr><tr><td>aud</td><td>Audience</td><td>Intended recipient</td></tr><tr><td>exp</td><td>Expiration</td><td>Token expiry timestamp</td></tr><tr><td>nbf</td><td>Not Before</td><td>Token activation time</td></tr><tr><td>iat</td><td>Issued At</td><td>Token creation time</td></tr><tr><td>jti</td><td>JWT ID</td><td>Unique token identifier</td></tr></tbody></table>',
+    'color-space-converter': '<h2>Color Space Comparison Reference</h2><table class="format-table"><thead><tr><th>Space</th><th>Gamut</th><th>Bit Depth</th><th>Perceptual</th><th>Best For</th></tr></thead><tbody>' +
+      '<tr><td>sRGB</td><td>Small</td><td>8-bit</td><td>No</td><td>Web, general purpose</td></tr><tr><td>Display P3</td><td>Wide (25% larger)</td><td>10-bit</td><td>No</td><td>Apple displays, HDR</td></tr><tr><td>OKLCH</td><td>Wide</td><td>Floating</td><td>Yes</td><td>Gradients, color interpolation</td></tr><tr><td>OKLab</td><td>Wide</td><td>Floating</td><td>Yes</td><td>Color manipulation</td></tr><tr><td>LCH</td><td>Wide</td><td>Floating</td><td>Partially</td><td>CSS Color Level 4</td></tr><tr><td>HSL</td><td>sRGB</td><td>8-bit</td><td>No</td><td>Intuitive color picking</td></tr></tbody></table>',
+    'css-logical-properties': '<h2>Benefits of Logical Properties</h2><table class="format-table"><thead><tr><th>Scenario</th><th>Physical CSS</th><th>Logical CSS</th><th>Benefit</th></tr></thead><tbody>' +
+      '<tr><td>RTL languages</td><td>Separate stylesheet or overrides</td><td>margin-inline-start works automatically</td><td>No duplication</td></tr><tr><td>Vertical writing</td><td>Entirely different layout</td><td>block-size adapts automatically</td><td>Single codebase</td></tr><tr><td>Internationalization</td><td>Manual per-language CSS</td><td>Works with dir attribute</td><td>Zero CSS changes</td></tr><tr><td>Component reuse</td><td>Direction-specific variants</td><td>One component, all directions</td><td>Less code</td></tr></tbody></table>',
+    'css-property-generator': '<h2>CSS @property Syntax Types Reference</h2><table class="format-table"><thead><tr><th>Syntax</th><th>Animation Support</th><th>Validation</th><th>Use Case</th></tr></thead><tbody>' +
+      '<tr><td>&lt;color&gt;</td><td>Yes (interpolates)</td><td>Color values only</td><td>Theme colors, accents</td></tr><tr><td>&lt;length&gt;</td><td>Yes (interpolates)</td><td>Length with unit required</td><td>Spacing, sizing</td></tr><tr><td>&lt;number&gt;</td><td>Yes (interpolates)</td><td>Numeric only, no unit</td><td>Opacities, ratios</td></tr><tr><td>&lt;angle&gt;</td><td>Yes (interpolates)</td><td>Angle with deg/rad/turn</td><td>Rotation animations</td></tr><tr><td>&lt;percentage&gt;</td><td>Yes (interpolates)</td><td>0-100%</td><td>Width, progress</td></tr><tr><td>custom ident</td><td>No</td><td>Identifier only</td><td>Keywords, states</td></tr></tbody></table>',
+    'css-text-wrap-visualizer': '<h2>Text Wrap Browser Support Reference</h2><table class="format-table"><thead><tr><th>Value</th><th>Chrome</th><th>Edge</th><th>Firefox</th><th>Safari</th></tr></thead><tbody>' +
+      '<tr><td>wrap</td><td>All</td><td>All</td><td>All</td><td>All</td></tr><tr><td>nowrap</td><td>All</td><td>All</td><td>All</td><td>All</td></tr><tr><td>balance</td><td>114+</td><td>114+</td><td>121+</td><td>16+</td></tr><tr><td>pretty</td><td>117+</td><td>117+</td><td>121+</td><td>17.4+</td></tr><tr><td>stable</td><td>117+</td><td>117+</td><td>121+</td><td>17.4+</td></tr></tbody></table>',
+    'css-view-transitions-generator': '<h2>View Transition Lifecycle Reference</h2><table class="format-table"><thead><tr><th>Phase</th><th>Pseudo-Element</th><th>Description</th></tr></thead><tbody>' +
+      '<tr><td>Capture</td><td>&mdash;</td><td>Browser captures screenshot of old state</td></tr><tr><td>Animate old</td><td>::view-transition-old()</td><td>Old state fades out (default crossfade)</td></tr><tr><td>Render new</td><td>&mdash;</td><td>Browser renders new DOM state</td></tr><tr><td>Animate new</td><td>::view-transition-new()</td><td>New state fades in (default crossfade)</td></tr><tr><td>Complete</td><td>&mdash;</td><td>Transition ends, pseudo-elements removed</td></tr></tbody></table>',
+    'css-anchor-positioning-generator': '<h2>Position Area Values Reference</h2><table class="format-table"><thead><tr><th>position-area</th><th>Placement</th><th>Example Use</th></tr></thead><tbody>' +
+      '<tr><td>top center</td><td>Centered above anchor</td><td>Tooltip above button</td></tr><tr><td>bottom center</td><td>Centered below anchor</td><td>Dropdown menu below trigger</td></tr><tr><td>left center</td><td>Centered to the left</td><td>Side panel label</td></tr><tr><td>right center</td><td>Centered to the right</td><td>Context menu</td></tr><tr><td>top left</td><td>Above, left-aligned</td><td>Notification badge</td></tr><tr><td>bottom right</td><td>Below, right-aligned</td><td>Popover with alignment</td></tr></tbody></table>'
   };
 
   function injectReferenceTable() {
@@ -1199,7 +1395,7 @@
       name: 'ConvertPivot',
       url: 'https://convertpivot.com',
       logo: 'https://convertpivot.com/og-image.png',
-      description: '50+ free online converter tools. 100% browser-based. Your files never leave your device.'
+      description: '88+ free online converter tools. 100% browser-based. Your files never leave your device.'
     });
     document.head.appendChild(orgScript);
 
@@ -1258,7 +1454,36 @@
       'csv-to-ics': { ratingValue: 4.4, reviewCount: 56 },
       'epub-to-pdf': { ratingValue: 4.6, reviewCount: 87 },
       'epub-to-txt': { ratingValue: 4.5, reviewCount: 62 },
-      'pdf-to-epub': { ratingValue: 4.4, reviewCount: 45 }
+      'pdf-to-epub': { ratingValue: 4.4, reviewCount: 45 },
+      'cron-expression-generator': { ratingValue: 4.6, reviewCount: 34 },
+    'anagram-solver': { ratingValue: 4.5, reviewCount: 28 },
+    'duplicate-line-remover': { ratingValue: 4.5, reviewCount: 22 },
+    'data-storage-converter': { ratingValue: 4.7, reviewCount: 42 },
+      'color-palette-generator': { ratingValue: 4.8, reviewCount: 56 },
+      'password-strength-checker': { ratingValue: 4.9, reviewCount: 67 },
+      'timezone-converter': { ratingValue: 4.6, reviewCount: 89 },
+      'random-number-generator': { ratingValue: 4.7, reviewCount: 45 },
+      'number-to-words-converter': { ratingValue: 4.5, reviewCount: 23 },
+      'text-repeater': { ratingValue: 4.4, reviewCount: 18 },
+      'css-minifier': { ratingValue: 4.6, reviewCount: 31 },
+    'regex-tester': { ratingValue: 4.8, reviewCount: 42 },
+      'list-randomizer': { ratingValue: 4.5, reviewCount: 18 },
+      'css-gradient-generator': { ratingValue: 4.7, reviewCount: 22 },
+      'readability-checker': { ratingValue: 4.6, reviewCount: 38 },
+      'age-calculator': { ratingValue: 4.7, reviewCount: 95 },
+      'html-previewer': { ratingValue: 4.8, reviewCount: 45 },
+      'contrast-checker': { ratingValue: 4.7, reviewCount: 52 },
+      'text-cleaner': { ratingValue: 4.5, reviewCount: 31 },
+      'scientific-notation-converter': { ratingValue: 4.6, reviewCount: 27 },
+      'username-generator': { ratingValue: 4.5, reviewCount: 34 },
+      'reverse-text-generator': { ratingValue: 4.4, reviewCount: 41 },
+      'jwt-decoder': { ratingValue: 4.8, reviewCount: 36 },
+      'color-space-converter': { ratingValue: 4.7, reviewCount: 18 },
+      'css-logical-properties': { ratingValue: 4.6, reviewCount: 14 },
+      'css-property-generator': { ratingValue: 4.5, reviewCount: 12 },
+      'css-text-wrap-visualizer': { ratingValue: 4.6, reviewCount: 16 },
+      'css-view-transitions-generator': { ratingValue: 4.5, reviewCount: 10 },
+      'css-anchor-positioning-generator': { ratingValue: 4.4, reviewCount: 8 }
     };
     var path = window.location.pathname.split('/').pop().replace(/\.html$/, '');
     var r = ratings[path];

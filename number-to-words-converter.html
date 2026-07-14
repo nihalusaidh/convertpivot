@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number to Words Converter — Free Online Number Speller | ConvertPivot</title>
+  <meta name="description" content="Free online number to words converter. Convert any number from 0 to 999,999,999 into English words. Supports currency mode for writing checks. 100% browser-based.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/number-to-words-converter">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/number-to-words-converter">
+  <meta property="og:title" content="Number to Words Converter — Free Online Number Speller | ConvertPivot">
+  <meta property="og:description" content="Free online number to words converter. Convert any number from 0 to 999,999,999 into English words. Supports currency mode for writing checks.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Number to Words Converter — Free Online Number Speller | ConvertPivot">
+  <meta name="twitter:description" content="Free online number to words converter. Convert any number from 0 to 999,999,999 into English words. Supports currency mode for writing checks.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Number to Words Converter","url":"https://convertpivot.com/number-to-words-converter","applicationCategory":"Utilities","operatingSystem":"All","description":"Free online number to words converter. Convert any number from 0 to 999,999,999 into English words. Supports currency mode for writing checks.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I write 1234 in words?","acceptedAnswer":{"@type":"Answer","text":"1234 in words is 'One Thousand Two Hundred Thirty Four'. Just type the number and our converter will spell it out instantly."}},{"@type":"Question","name":"Can I convert numbers with decimals?","acceptedAnswer":{"@type":"Answer","text":"In Currency mode, yes. For example, 1234.50 becomes 'One Thousand Two Hundred Thirty Four Dollars and Fifty Cents'."}},{"@type":"Question","name":"What is the largest number this converter supports?","acceptedAnswer":{"@type":"Answer","text":"The converter supports numbers from 0 up to 999,999,999 (nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine)."}},{"@type":"Question","name":"Is this converter accurate for writing checks?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Currency mode is specifically designed for check writing, automatically adding 'Dollars and Cents' formatting."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Number to Words Converter</span></nav>
+    <div class="tool-header">
+      <h1>Number to Words Converter</h1>
+      <p>Convert any number from 0 to 999,999,999 into English words instantly. Perfect for writing checks, invoices, and legal documents.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All conversion happens in your browser. Your number never leaves your device.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <label for="n2wInput">Enter a number (0 to 999,999,999):</label>
+        <input type="text" id="n2wInput" class="converter-input" inputmode="decimal" placeholder="e.g. 1234" style="font-size:1.2rem;">
+        <div style="margin:8px 0;font-size:0.8rem;color:var(--text-secondary);" id="n2wRange">Supported range: 0 to 999,999,999</div>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;margin-bottom:12px;"><input type="checkbox" id="n2wCurrency"> Currency Mode (Dollars and Cents)</label>
+        <div class="converter-inline">
+          <button id="convertN2wBtn" class="btn btn-primary">Convert to Words</button>
+          <button id="copyN2wBtn" class="btn btn-ghost">Copy Result</button>
+          <button id="clearN2wBtn" class="btn btn-ghost">Clear</button>
+        </div>
+        <div style="margin-top:12px;">
+          <div id="n2wOutput" style="background:var(--color-cream);border-radius:6px;padding:14px 16px;font-size:1.1rem;line-height:1.6;word-break:break-word;min-height:48px;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Convert Numbers to Words</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Enter a Number</h3><p>Type or paste any whole number between 0 and 999,999,999 into the input field. You can include commas for readability.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Enable Currency Mode (Optional)</h3><p>Toggle Currency Mode to format the result for check writing — automatically adds "Dollars and Cents" with proper decimal handling.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Convert and Copy</h3><p>Click <strong>Convert to Words</strong> to see the result. Use <strong>Copy Result</strong> to copy the spelled-out text to your clipboard.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Number Place Values Reference</h2>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+          <thead><tr style="background:var(--color-mist);"><th style="padding:8px 12px;text-align:left;">Place Value</th><th style="padding:8px 12px;text-align:left;">Value</th><th style="padding:8px 12px;text-align:left;">Example</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Ones</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">1</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">9</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Tens</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">10</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">90</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Hundreds</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">100</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">900</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Thousands</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">1,000</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">9,000</td></tr>
+            <tr><td style="padding:6px 12px;">Millions</td><td style="padding:6px 12px;">1,000,000</td><td style="padding:6px 12px;">9,000,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">How do I write 1234 in words? <span class="arrow">▼</span></button><div class="faq-answer">1234 in words is "One Thousand Two Hundred Thirty Four". Just type the number and our converter will spell it out instantly.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I convert numbers with decimals? <span class="arrow">▼</span></button><div class="faq-answer">In Currency mode, yes. For example, 1234.50 becomes "One Thousand Two Hundred Thirty Four Dollars and Fifty Cents".</div></div>
+        <div class="faq-item"><button class="faq-question">What is the largest number this converter supports? <span class="arrow">▼</span></button><div class="faq-answer">The converter supports numbers from 0 up to 999,999,999 (nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine).</div></div>
+        <div class="faq-item"><button class="faq-question">Is this converter accurate for writing checks? <span class="arrow">▼</span></button><div class="faq-answer">Yes. The Currency mode is specifically designed for check writing, automatically adding "Dollars and Cents" formatting.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var input = document.getElementById('n2wInput');
+      var output = document.getElementById('n2wOutput');
+      var currencyCb = document.getElementById('n2wCurrency');
+
+      var ones = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
+      var teens = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+      var tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+      var scales = ['', 'Thousand', 'Million'];
+
+      function convertHundreds(n) {
+        var result = '';
+        if (n >= 100) {
+          result += ones[Math.floor(n / 100)] + ' Hundred ';
+          n = n % 100;
+        }
+        if (n >= 20) {
+          result += tens[Math.floor(n / 10)] + ' ';
+          n = n % 10;
+        }
+        if (n >= 10) {
+          result += teens[n - 10] + ' ';
+          n = 0;
+        }
+        if (n > 0) {
+          result += ones[n] + ' ';
+        }
+        return result;
+      }
+
+      function numberToWords(num) {
+        if (num === 0) return 'Zero';
+        var sign = '';
+        if (num < 0) {
+          sign = 'Minus ';
+          num = Math.abs(num);
+        }
+        var parts = [];
+        var scaleIndex = 0;
+        while (num > 0) {
+          var chunk = num % 1000;
+          if (chunk > 0) {
+            var chunkWords = convertHundreds(chunk);
+            if (scales[scaleIndex]) {
+              chunkWords += scales[scaleIndex] + ' ';
+            }
+            parts.unshift(chunkWords);
+          }
+          num = Math.floor(num / 1000);
+          scaleIndex++;
+        }
+        return sign + parts.join('').trim();
+      }
+
+      function convert() {
+        var raw = input.value.replace(/,/g, '').trim();
+        if (!raw) {
+          output.textContent = '';
+          return;
+        }
+        var isCurrency = currencyCb.checked;
+        var numStr = raw;
+        var decimalPart = '';
+        var dotIndex = raw.indexOf('.');
+        if (dotIndex !== -1) {
+          numStr = raw.substring(0, dotIndex);
+          decimalPart = raw.substring(dotIndex + 1);
+          if (decimalPart.length > 2) decimalPart = decimalPart.substring(0, 2);
+          while (decimalPart.length < 2) decimalPart += '0';
+        }
+        var num = parseFloat(numStr);
+        if (isNaN(num) || numStr === '') {
+          output.textContent = 'Please enter a valid number.';
+          return;
+        }
+        if (num > 999999999 || numStr.replace('-', '').length > 9) {
+          output.textContent = 'Number exceeds supported range (0 to 999,999,999).';
+          return;
+        }
+
+        var words;
+        if (isCurrency) {
+          var dollars = parseInt(numStr, 10);
+          if (isNaN(dollars)) dollars = 0;
+          words = numberToWords(dollars);
+          if (dollars === 0) words = 'Zero';
+          words += ' Dollar' + (dollars !== 1 ? 's' : '');
+          var cents = parseInt(decimalPart, 10);
+          if (!isNaN(cents) && cents > 0) {
+            words += ' and ' + numberToWords(cents) + ' Cent' + (cents !== 1 ? 's' : '');
+          }
+        } else {
+          if (dotIndex !== -1) {
+            output.textContent = 'For decimal numbers, please enable Currency mode.';
+            return;
+          }
+          words = numberToWords(num);
+        }
+        output.textContent = words;
+      }
+
+      document.getElementById('convertN2wBtn').addEventListener('click', convert);
+
+      document.getElementById('copyN2wBtn').addEventListener('click', function() {
+        var text = output.textContent;
+        if (text) {
+          navigator.clipboard.writeText(text).catch(function() {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+          });
+        }
+      });
+
+      document.getElementById('clearN2wBtn').addEventListener('click', function() {
+        input.value = '';
+        output.textContent = '';
+      });
+
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') convert();
+      });
+    })();
+  </script>
+</body>
+</html>

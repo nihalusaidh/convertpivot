@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timezone Converter — Free Online Time Zone Calculator | ConvertPivot</title>
+  <meta name="description" content="Free online timezone converter. Convert time between any two timezones worldwide. Automatic DST handling. Plan meetings across time zones. 100% browser-based.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/timezone-converter">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/timezone-converter">
+  <meta property="og:title" content="Timezone Converter — Free Online Time Zone Calculator | ConvertPivot">
+  <meta property="og:description" content="Free online timezone converter. Convert time between any two timezones worldwide. Automatic DST handling. Plan meetings across time zones. 100% browser-based.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Timezone Converter — Free Online Time Zone Calculator | ConvertPivot">
+  <meta name="twitter:description" content="Free online timezone converter. Convert time between any two timezones worldwide. Automatic DST handling. Plan meetings across time zones. 100% browser-based.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Timezone Converter","url":"https://convertpivot.com/timezone-converter","applicationCategory":"UtilitiesApplication","operatingSystem":"All","description":"Free online timezone converter. Convert time between any two timezones worldwide. Automatic DST handling. Plan meetings across time zones. 100% browser-based.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I convert time between timezones?","acceptedAnswer":{"@type":"Answer","text":"Select your source timezone, enter the date and time, then select the target timezone. The tool instantly calculates the equivalent time in the target zone using JavaScript's Intl.DateTimeFormat, which accounts for all timezone offsets and DST rules."}},{"@type":"Question","name":"What is UTC?","acceptedAnswer":{"@type":"Answer","text":"UTC (Coordinated Universal Time) is the primary time standard by which the world regulates clocks and time. It is not adjusted for Daylight Saving Time. All timezones are defined as offsets from UTC, such as UTC+5:30 for India or UTC-5 for Eastern Time."}},{"@type":"Question","name":"How does Daylight Saving Time affect timezone conversion?","acceptedAnswer":{"@type":"Answer","text":"Daylight Saving Time (DST) shifts clocks forward by one hour in spring and back in fall. This tool automatically handles DST transitions because it uses the IANA timezone database via Intl.DateTimeFormat, which includes accurate DST rules for all regions."}},{"@type":"Question","name":"What is the easiest way to schedule a meeting across timezones?","acceptedAnswer":{"@type":"Answer","text":"Use a timezone converter to find overlapping business hours. Check the working hours (9 AM–5 PM) in each timezone and look for common windows. Morning in New York is afternoon in London and evening in Dubai. Avoid scheduling during typical lunch breaks (12–1 PM) or outside business hours."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Timezone Converter</span></nav>
+    <div class="tool-header">
+      <h1>Timezone Converter</h1>
+      <p>Convert time between any two timezones worldwide with automatic DST handling. Schedule meetings across time zones with confidence.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All timezone conversion happens locally in your browser using built-in JavaScript APIs.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <label for="fromTimezone">From Timezone:</label>
+        <div style="position:relative;margin-bottom:12px;">
+          <input type="text" id="fromTimezone" class="converter-input" list="tzList" placeholder="Search timezone..." style="width:100%;" autocomplete="off">
+          <datalist id="tzList"></datalist>
+        </div>
+        <label for="toTimezone">To Timezone:</label>
+        <div style="position:relative;margin-bottom:12px;">
+          <input type="text" id="toTimezone" class="converter-input" list="tzList2" placeholder="Search timezone..." style="width:100%;" autocomplete="off">
+          <datalist id="tzList2"></datalist>
+        </div>
+        <div style="display:flex;gap:8px;margin-bottom:12px;">
+          <div style="flex:1;">
+            <label for="tzDate">Date:</label>
+            <input type="date" id="tzDate" class="converter-input" style="width:100%;">
+          </div>
+          <div style="flex:1;">
+            <label for="tzTime">Time:</label>
+            <input type="time" id="tzTime" class="converter-input" style="width:100%;">
+          </div>
+        </div>
+        <div class="converter-inline">
+          <button id="convertTzBtn" class="btn btn-primary">Convert</button>
+          <button id="nowTzBtn" class="btn btn-ghost">Now</button>
+          <button id="swapTzBtn" class="btn btn-ghost">Swap ⇄</button>
+        </div>
+        <div id="tzResults" style="margin-top:16px;"></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the Timezone Converter</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Select Timezones</h3><p>Type to search from 30+ IANA timezones in the <strong>From</strong> and <strong>To</strong> fields. Use the <strong>Swap</strong> button to reverse them.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Set Date &amp; Time</h3><p>Pick a date and time. Click <strong>Now</strong> to fill in the current date and time instantly.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Convert</h3><p>Click <strong>Convert</strong> to see the equivalent time in the target timezone with both timezone abbreviations displayed.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Common Timezone Reference</h2>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+          <thead><tr style="background:var(--color-mist);"><th style="padding:8px 12px;text-align:left;">Timezone</th><th style="padding:8px 12px;text-align:left;">IANA Name</th><th style="padding:8px 12px;text-align:left;">UTC Offset (Standard)</th><th style="padding:8px 12px;text-align:left;">Major Cities</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Eastern Time</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">America/New_York</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">UTC−5</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">New York, Washington DC</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Central Time</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">America/Chicago</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">UTC−6</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Chicago, Dallas</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Mountain Time</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">America/Denver</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">UTC−7</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Denver, Phoenix</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Pacific Time</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">America/Los_Angeles</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">UTC−8</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Los Angeles, San Francisco</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Greenwich Mean</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Europe/London</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">UTC+0</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">London, Dublin</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Central European</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Europe/Paris</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">UTC+1</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Paris, Berlin, Rome</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Gulf</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Asia/Dubai</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">UTC+4</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Dubai, Abu Dhabi</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">India</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Asia/Kolkata</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">UTC+5:30</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Mumbai, Delhi, Bangalore</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">China</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Asia/Shanghai</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">UTC+8</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Shanghai, Beijing</td></tr>
+            <tr><td style="padding:6px 12px;">Japan</td><td style="padding:6px 12px;">Asia/Tokyo</td><td style="padding:6px 12px;">UTC+9</td><td style="padding:6px 12px;">Tokyo, Osaka</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">How do I convert time between timezones? <span class="arrow">▼</span></button><div class="faq-answer">Select your source timezone, enter the date and time, then select the target timezone. The tool instantly calculates the equivalent time in the target zone using JavaScript's Intl.DateTimeFormat, which accounts for all timezone offsets and DST rules.</div></div>
+        <div class="faq-item"><button class="faq-question">What is UTC? <span class="arrow">▼</span></button><div class="faq-answer">UTC (Coordinated Universal Time) is the primary time standard by which the world regulates clocks and time. It is not adjusted for Daylight Saving Time. All timezones are defined as offsets from UTC, such as UTC+5:30 for India or UTC-5 for Eastern Time.</div></div>
+        <div class="faq-item"><button class="faq-question">How does Daylight Saving Time affect timezone conversion? <span class="arrow">▼</span></button><div class="faq-answer">Daylight Saving Time (DST) shifts clocks forward by one hour in spring and back in fall. This tool automatically handles DST transitions because it uses the IANA timezone database via Intl.DateTimeFormat, which includes accurate DST rules for all regions.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the easiest way to schedule a meeting across timezones? <span class="arrow">▼</span></button><div class="faq-answer">Use a timezone converter to find overlapping business hours. Check the working hours (9 AM–5 PM) in each timezone and look for common windows. Morning in New York is afternoon in London and evening in Dubai. Avoid scheduling during typical lunch breaks (12–1 PM) or outside business hours.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var timezones = [
+        'Pacific/Midway', 'Pacific/Honolulu', 'America/Juneau', 'America/Los_Angeles',
+        'America/Phoenix', 'America/Denver', 'America/Chicago', 'America/New_York',
+        'America/Halifax', 'America/St_Johns', 'America/Sao_Paulo', 'America/Buenos_Aires',
+        'Atlantic/Azores', 'Europe/London', 'Europe/Dublin', 'Europe/Paris',
+        'Europe/Berlin', 'Europe/Rome', 'Europe/Madrid', 'Europe/Amsterdam',
+        'Europe/Brussels', 'Europe/Vienna', 'Europe/Stockholm', 'Europe/Moscow',
+        'Asia/Dubai', 'Asia/Kolkata', 'Asia/Dhaka', 'Asia/Bangkok',
+        'Asia/Shanghai', 'Asia/Singapore', 'Asia/Tokyo', 'Asia/Seoul',
+        'Australia/Perth', 'Australia/Adelaide', 'Australia/Sydney', 'Australia/Brisbane',
+        'Pacific/Auckland', 'Pacific/Fiji', 'Pacific/Guam'
+      ];
+
+      var fromInput = document.getElementById('fromTimezone');
+      var toInput = document.getElementById('toTimezone');
+      var tzDate = document.getElementById('tzDate');
+      var tzTime = document.getElementById('tzTime');
+      var tzResults = document.getElementById('tzResults');
+
+      function populateDatalists() {
+        var list1 = document.getElementById('tzList');
+        var list2 = document.getElementById('tzList2');
+        for (var i = 0; i < timezones.length; i++) {
+          var opt1 = document.createElement('option');
+          opt1.value = timezones[i];
+          list1.appendChild(opt1);
+          var opt2 = document.createElement('option');
+          opt2.value = timezones[i];
+          list2.appendChild(opt2);
+        }
+      }
+      populateDatalists();
+
+      fromInput.value = 'America/New_York';
+      toInput.value = 'Europe/London';
+
+      function getTzAbbr(tz, date) {
+        try {
+          var parts = date.toLocaleString('en-US', { timeZone: tz, timeZoneName: 'short' });
+          var match = parts.match(/([A-Z]{2,5})$/);
+          return match ? match[1] : tz.split('/').pop();
+        } catch(e) {
+          return tz.split('/').pop();
+        }
+      }
+
+      function convertTime() {
+        var fromTz = fromInput.value.trim();
+        var toTz = toInput.value.trim();
+        var dateVal = tzDate.value;
+        var timeVal = tzTime.value;
+
+        if (!fromTz || !toTz) {
+          tzResults.innerHTML = '<div style="color:var(--color-error);padding:12px;">Please select both timezones.</div>';
+          return;
+        }
+        if (!dateVal || !timeVal) {
+          tzResults.innerHTML = '<div style="color:var(--color-error);padding:12px;">Please enter a date and time.</div>';
+          return;
+        }
+
+        var dateStr = dateVal + 'T' + timeVal + ':00';
+        var date = new Date(dateStr);
+
+        if (isNaN(date.getTime())) {
+          tzResults.innerHTML = '<div style="color:var(--color-error);padding:12px;">Invalid date or time.</div>';
+          return;
+        }
+
+        var fromAbbr = getTzAbbr(fromTz, date);
+        var toAbbr = getTzAbbr(toTz, date);
+
+        try {
+          var fromFormatted = date.toLocaleString('en-US', {
+            timeZone: fromTz,
+            weekday: 'short',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          });
+
+          var toFormatted = date.toLocaleString('en-US', {
+            timeZone: toTz,
+            weekday: 'short',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          });
+        } catch(e) {
+          tzResults.innerHTML = '<div style="color:var(--color-error);padding:12px;">Invalid timezone name. Please select from the list.</div>';
+          return;
+        }
+
+        var html = '';
+        html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">';
+
+        html += '<div style="padding:16px;background:var(--color-cream);border-radius:8px;text-align:center;">';
+        html += '<div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-secondary);margin-bottom:4px;">Source Time</div>';
+        html += '<div style="font-size:1.2rem;font-weight:700;color:var(--text-primary);">' + fromFormatted + '</div>';
+        html += '<div style="font-size:0.85rem;color:var(--text-secondary);margin-top:4px;">' + fromTz + ' (' + fromAbbr + ')</div>';
+        html += '</div>';
+
+        html += '<div style="padding:16px;background:var(--color-cream);border-radius:8px;text-align:center;">';
+        html += '<div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-secondary);margin-bottom:4px;">Target Time</div>';
+        html += '<div style="font-size:1.2rem;font-weight:700;color:var(--text-primary);">' + toFormatted + '</div>';
+        html += '<div style="font-size:0.85rem;color:var(--text-secondary);margin-top:4px;">' + toTz + ' (' + toAbbr + ')</div>';
+        html += '</div>';
+
+        html += '</div>';
+        tzResults.innerHTML = html;
+      }
+
+      document.getElementById('convertTzBtn').addEventListener('click', convertTime);
+
+      document.getElementById('nowTzBtn').addEventListener('click', function() {
+        var now = new Date();
+        var localOffset = now.getTimezoneOffset();
+        var localDate = new Date(now.getTime() - localOffset * 60000);
+        tzDate.value = localDate.toISOString().slice(0, 10);
+        tzTime.value = localDate.toISOString().slice(11, 16);
+        convertTime();
+      });
+
+      document.getElementById('swapTzBtn').addEventListener('click', function() {
+        var temp = fromInput.value;
+        fromInput.value = toInput.value;
+        toInput.value = temp;
+        convertTime();
+      });
+
+      var now = new Date();
+      var localOffset = now.getTimezoneOffset();
+      var localDate = new Date(now.getTime() - localOffset * 60000);
+      tzDate.value = localDate.toISOString().slice(0, 10);
+      tzTime.value = localDate.toISOString().slice(11, 16);
+
+      convertTime();
+
+      fromInput.addEventListener('change', convertTime);
+      toInput.addEventListener('change', convertTime);
+      tzDate.addEventListener('change', convertTime);
+      tzTime.addEventListener('change', convertTime);
+    })();
+  </script>
+</body>
+</html>

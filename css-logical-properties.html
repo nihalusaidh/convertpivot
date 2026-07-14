@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Logical Properties Converter — Physical to Logical CSS | ConvertPivot</title>
+  <meta name="description" content="Free online CSS logical properties converter. Convert margin-left, padding-top, width, top to margin-inline-start, padding-block-start, inline-size, inset-block-start. Bidirectional with LTR/RTL support.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/css-logical-properties">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/css-logical-properties">
+  <meta property="og:title" content="CSS Logical Properties Converter — Physical to Logical CSS | ConvertPivot">
+  <meta property="og:description" content="Free online CSS logical properties converter. Convert margin-left to margin-inline-start and more. Bidirectional with LTR/RTL support.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CSS Logical Properties Converter — Physical to Logical CSS | ConvertPivot">
+  <meta name="twitter:description" content="Free online CSS logical properties converter. Convert margin-left to margin-inline-start and more.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CSS Logical Properties Converter","url":"https://convertpivot.com/css-logical-properties","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Convert CSS physical properties to logical (writing-mode-aware) equivalents. Supports margin, padding, border, sizing, and positioning.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are CSS logical properties?","acceptedAnswer":{"@type":"Answer","text":"CSS logical properties let you write CSS that adapts to different writing modes and text directions. Instead of using physical directions like left, right, top, bottom, you use flow-relative terms like inline-start, inline-end, block-start, and block-end. This makes your layouts automatically work in LTR, RTL, and vertical writing modes without separate overrides."}},{"@type":"Question","name":"Why should I use logical properties?","acceptedAnswer":{"@type":"Answer","text":"Logical properties make your layouts truly international. A component using margin-inline-start will automatically flip from left to right margin when the page direction changes from LTR to RTL. This eliminates the need for separate RTL stylesheets or direction-specific overrides."}},{"@type":"Question","name":"What properties can be converted?","acceptedAnswer":{"@type":"Answer","text":"All margin, padding, border side and corner properties, inset properties (top/right/bottom/left), sizing (width/height), overflow-x/y, text-align, float, clear, and resize. Four-value shorthands like margin: 1px 2px 3px 4px cannot be automatically converted because their order is positional, not directional."}},{"@type":"Question","name":"What browser support do logical properties have?","acceptedAnswer":{"@type":"Answer","text":"Chrome 87+, Edge 87+, Safari 15+, and Firefox 66+ support the core set of logical properties. Some shorthand variants are newer. The core longhand properties (margin-inline-start, padding-block-end, etc.) are broadly supported across all modern browsers."}},{"@type":"Question","name":"Do I need to change all my CSS at once?","acceptedAnswer":{"@type":"Answer","text":"No. You can mix physical and logical properties in the same stylesheet. A common migration strategy is to use logical properties for new components and gradually convert existing ones. The properties work alongside each other — the cascade resolves conflicts normally."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">CSS Logical Properties Converter</span></nav>
+    <div class="tool-header">
+      <h1>CSS Logical Properties Converter</h1>
+      <p>Convert physical CSS properties (margin-left, padding-top, width) to writing-mode-aware logical equivalents (margin-inline-start, padding-block-start, inline-size) and back.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All conversion happens in your browser. No data is sent anywhere.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;align-items:center;">
+          <span style="font-size:0.9rem;font-weight:600;">Direction:</span>
+          <button id="dirToLogical" class="btn btn-primary" style="padding:6px 16px;font-size:0.85rem;">Physical → Logical</button>
+          <button id="dirToPhysical" class="btn btn-secondary" style="padding:6px 16px;font-size:0.85rem;">Logical → Physical</button>
+          <span style="font-size:0.9rem;font-weight:600;margin-left:12px;">Writing Mode:</span>
+          <select id="writingMode" style="padding:6px 12px;border-radius:18px;border:1px solid var(--color-mist);background:var(--color-canvas);font-size:0.85rem;">
+            <option value="ltr">LTR (inline-start = left)</option>
+            <option value="rtl">RTL (inline-start = right)</option>
+          </select>
+        </div>
+        <label for="cssInput" style="font-size:0.9rem;font-weight:600;">Paste CSS here:</label>
+        <textarea id="cssInput" class="converter-input" rows="8" style="width:100%;font-family:Consolas,monospace;font-size:0.85rem;resize:vertical;padding:12px;">.sidebar {
+  margin-left: 24px;
+  padding-right: 16px;
+  border-left: 2px solid blue;
+  width: 300px;
+  float: left;
+  top: 10px;
+  overflow-x: auto;
+}</textarea>
+        <div style="display:flex;gap:8px;margin-top:8px;">
+          <button id="convertBtn" class="btn btn-primary" style="padding:8px 24px;">Convert</button>
+          <button class="btn btn-secondary" style="padding:8px 24px;" onclick="document.getElementById('cssInput').value='.sidebar {\n  margin-left: 24px;\n  padding-right: 16px;\n  border-left: 2px solid blue;\n  width: 300px;\n  float: left;\n  top: 10px;\n  overflow-x: auto;\n}';document.getElementById('convertBtn').click();">Reset</button>
+        </div>
+        <div id="resultArea" style="margin-top:12px;display:none;">
+          <label style="font-size:0.9rem;font-weight:600;">Converted CSS:</label>
+          <pre id="cssOutput" style="background:var(--color-smoke);border:1px solid var(--color-mist);border-radius:8px;padding:12px;font-family:Consolas,monospace;font-size:0.85rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all;margin-top:6px;"></pre>
+          <button id="copyOutputBtn" class="btn btn-primary" style="padding:6px 20px;font-size:0.85rem;margin-top:6px;">Copy CSS</button>
+          <div id="conversionNote" style="margin-top:8px;padding:8px 12px;border-radius:6px;font-size:0.85rem;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the CSS Logical Properties Converter</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Paste Your CSS</h3><p>Copy any CSS block containing physical properties like margin-left, padding-top, width, top, or border-radius into the input area.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Choose Direction & Writing Mode</h3><p>Select Physical → Logical to generate RTL-friendly CSS, or Logical → Physical for the reverse. Choose LTR or RTL to control how inline-start maps.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Copy the Result</h3><p>Review the converted CSS with highlighted changes. Click Copy to paste into your stylesheet. Test by switching your HTML dir attribute.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Physical ↔ Logical Property Reference</h2>
+      <div style="overflow-x:auto;">
+        <table class="format-table" style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+          <thead><tr style="background:var(--color-mist);"><th style="padding:8px 12px;text-align:left;">Physical</th><th style="padding:8px 12px;text-align:left;">Logical (LTR)</th><th style="padding:8px 12px;text-align:left;">Logical (RTL)</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">margin-left</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">margin-inline-start</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">margin-inline-end</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">margin-right</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">margin-inline-end</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">margin-inline-start</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">padding-top</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">padding-block-start</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">padding-block-start</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">padding-bottom</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">padding-block-end</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">padding-block-end</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">border-left-width</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">border-inline-start-width</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">border-inline-end-width</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">top</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">inset-block-start</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">inset-block-start</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">left</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">inset-inline-start</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">inset-inline-end</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">width</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">inline-size</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">inline-size</td></tr>
+            <tr><td style="padding:6px 12px;">height</td><td style="padding:6px 12px;">block-size</td><td style="padding:6px 12px;">block-size</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What are CSS logical properties? <span class="arrow">▼</span></button><div class="faq-answer">CSS logical properties let you write CSS that adapts to different writing modes and text directions. Instead of using physical directions like left, right, top, bottom, you use flow-relative terms like inline-start, inline-end, block-start, and block-end. This makes your layouts automatically work in LTR, RTL, and vertical writing modes.</div></div>
+        <div class="faq-item"><button class="faq-question">Why should I use logical properties? <span class="arrow">▼</span></button><div class="faq-answer">Logical properties make your layouts truly international. A component using margin-inline-start will automatically flip from left to right margin when the page direction changes from LTR to RTL. This eliminates the need for separate RTL stylesheets or direction-specific overrides.</div></div>
+        <div class="faq-item"><button class="faq-question">What properties can be converted? <span class="arrow">▼</span></button><div class="faq-answer">All margin, padding, border side and corner properties, inset properties (top/right/bottom/left), sizing (width/height), overflow-x/y, text-align, float, clear, and resize. Four-value shorthands like margin: 1px 2px 3px 4px cannot be automatically converted because their order is positional, not directional.</div></div>
+        <div class="faq-item"><button class="faq-question">What browser support do logical properties have? <span class="arrow">▼</span></button><div class="faq-answer">Chrome 87+, Edge 87+, Safari 15+, and Firefox 66+ support the core set of logical properties. Some shorthand variants are newer. The core longhand properties (margin-inline-start, padding-block-end, etc.) are broadly supported across all modern browsers.</div></div>
+        <div class="faq-item"><button class="faq-question">Do I need to change all my CSS at once? <span class="arrow">▼</span></button><div class="faq-answer">No. You can mix physical and logical properties in the same stylesheet. A common migration strategy is to use logical properties for new components and gradually convert existing ones. The properties work alongside each other — the cascade resolves conflicts normally.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var cssInput = document.getElementById('cssInput');
+      var cssOutput = document.getElementById('cssOutput');
+      var resultArea = document.getElementById('resultArea');
+      var copyBtn = document.getElementById('copyOutputBtn');
+      var convertBtn = document.getElementById('convertBtn');
+      var dirToLogical = document.getElementById('dirToLogical');
+      var dirToPhysical = document.getElementById('dirToPhysical');
+      var writingMode = document.getElementById('writingMode');
+      var convNote = document.getElementById('conversionNote');
+      var currentDir = 'toLogical';
+
+      var physicalToLogical = {
+        'margin-left': 'margin-inline-start',
+        'margin-right': 'margin-inline-end',
+        'margin-top': 'margin-block-start',
+        'margin-bottom': 'margin-block-end',
+        'padding-left': 'padding-inline-start',
+        'padding-right': 'padding-inline-end',
+        'padding-top': 'padding-block-start',
+        'padding-bottom': 'padding-block-end',
+        'border-left': 'border-inline-start',
+        'border-right': 'border-inline-end',
+        'border-top': 'border-block-start',
+        'border-bottom': 'border-block-end',
+        'border-left-width': 'border-inline-start-width',
+        'border-right-width': 'border-inline-end-width',
+        'border-top-width': 'border-block-start-width',
+        'border-bottom-width': 'border-block-end-width',
+        'border-left-style': 'border-inline-start-style',
+        'border-right-style': 'border-inline-end-style',
+        'border-top-style': 'border-block-start-style',
+        'border-bottom-style': 'border-block-end-style',
+        'border-left-color': 'border-inline-start-color',
+        'border-right-color': 'border-inline-end-color',
+        'border-top-color': 'border-block-start-color',
+        'border-bottom-color': 'border-block-end-color',
+        'border-top-left-radius': 'border-start-start-radius',
+        'border-top-right-radius': 'border-start-end-radius',
+        'border-bottom-left-radius': 'border-end-start-radius',
+        'border-bottom-right-radius': 'border-end-end-radius',
+        'top': 'inset-block-start',
+        'bottom': 'inset-block-end',
+        'left': 'inset-inline-start',
+        'right': 'inset-inline-end',
+        'width': 'inline-size',
+        'height': 'block-size',
+        'min-width': 'min-inline-size',
+        'min-height': 'min-block-size',
+        'max-width': 'max-inline-size',
+        'max-height': 'max-block-size',
+        'overflow-x': 'overflow-inline',
+        'overflow-y': 'overflow-block',
+        'resize': null
+      };
+
+      var logicalToPhysicalLtr = {
+        'margin-inline-start': 'margin-left',
+        'margin-inline-end': 'margin-right',
+        'margin-block-start': 'margin-top',
+        'margin-block-end': 'margin-bottom',
+        'padding-inline-start': 'padding-left',
+        'padding-inline-end': 'padding-right',
+        'padding-block-start': 'padding-top',
+        'padding-block-end': 'padding-bottom',
+        'border-inline-start': 'border-left',
+        'border-inline-end': 'border-right',
+        'border-block-start': 'border-top',
+        'border-block-end': 'border-bottom',
+        'border-inline-start-width': 'border-left-width',
+        'border-inline-end-width': 'border-right-width',
+        'border-block-start-width': 'border-top-width',
+        'border-block-end-width': 'border-bottom-width',
+        'border-inline-start-style': 'border-left-style',
+        'border-inline-end-style': 'border-right-style',
+        'border-block-start-style': 'border-top-style',
+        'border-block-end-style': 'border-bottom-style',
+        'border-inline-start-color': 'border-left-color',
+        'border-inline-end-color': 'border-right-color',
+        'border-block-start-color': 'border-top-color',
+        'border-block-end-color': 'border-bottom-color',
+        'border-start-start-radius': 'border-top-left-radius',
+        'border-start-end-radius': 'border-top-right-radius',
+        'border-end-start-radius': 'border-bottom-left-radius',
+        'border-end-end-radius': 'border-bottom-right-radius',
+        'inset-block-start': 'top',
+        'inset-block-end': 'bottom',
+        'inset-inline-start': 'left',
+        'inset-inline-end': 'right',
+        'inline-size': 'width',
+        'block-size': 'height',
+        'min-inline-size': 'min-width',
+        'min-block-size': 'min-height',
+        'max-inline-size': 'max-width',
+        'max-block-size': 'max-height',
+        'overflow-inline': 'overflow-x',
+        'overflow-block': 'overflow-y'
+      };
+
+      var logicalToPhysicalRtl = {};
+      for (var k in logicalToPhysicalLtr) {
+        if (logicalToPhysicalLtr.hasOwnProperty(k)) {
+          logicalToPhysicalRtl[k] = logicalToPhysicalLtr[k];
+        }
+      }
+      logicalToPhysicalRtl['margin-inline-start'] = 'margin-right';
+      logicalToPhysicalRtl['margin-inline-end'] = 'margin-left';
+      logicalToPhysicalRtl['padding-inline-start'] = 'padding-right';
+      logicalToPhysicalRtl['padding-inline-end'] = 'padding-left';
+      logicalToPhysicalRtl['border-inline-start'] = 'border-right';
+      logicalToPhysicalRtl['border-inline-end'] = 'border-left';
+      logicalToPhysicalRtl['border-inline-start-width'] = 'border-right-width';
+      logicalToPhysicalRtl['border-inline-end-width'] = 'border-left-width';
+      logicalToPhysicalRtl['border-inline-start-style'] = 'border-right-style';
+      logicalToPhysicalRtl['border-inline-end-style'] = 'border-left-style';
+      logicalToPhysicalRtl['border-inline-start-color'] = 'border-right-color';
+      logicalToPhysicalRtl['border-inline-end-color'] = 'border-left-color';
+      logicalToPhysicalRtl['inset-inline-start'] = 'right';
+      logicalToPhysicalRtl['inset-inline-end'] = 'left';
+
+      var directionalValues = {
+        'text-align': { physicalToLogical: { left: 'start', right: 'end' }, logicalToPhysicalLtr: { start: 'left', end: 'right' }, logicalToPhysicalRtl: { start: 'right', end: 'left' } },
+        'float': { physicalToLogical: { left: 'inline-start', right: 'inline-end' }, logicalToPhysicalLtr: { 'inline-start': 'left', 'inline-end': 'right' }, logicalToPhysicalRtl: { 'inline-start': 'right', 'inline-end': 'left' } },
+        'clear': { physicalToLogical: { left: 'inline-start', right: 'inline-end', both: 'both' }, logicalToPhysicalLtr: { 'inline-start': 'left', 'inline-end': 'right', both: 'both' }, logicalToPhysicalRtl: { 'inline-start': 'right', 'inline-end': 'left', both: 'both' } }
+      };
+
+      function resizeValue(v) {
+        if (!v || v === 'both') return 'both';
+        var m = v.match(/^(horizontal|vertical)$/);
+        if (m) return m[1] === 'horizontal' ? 'inline' : 'block';
+        return v;
+      }
+      function resizeValueRev(v, mode) {
+        if (v === 'inline') return 'horizontal';
+        if (v === 'block') return 'vertical';
+        return v;
+      }
+
+      function convertLine(line, isLogicalToPhysical) {
+        var trim = line.trim();
+        var m = trim.match(/^([a-zA-Z][a-zA-Z0-9-]*)\s*:\s*(.*?)\s*;?\s*$/);
+        if (!m) return { text: line, changed: false };
+        var prop = m[1], val = m[2].trim();
+
+        if (isLogicalToPhysical) {
+          var wm = writingMode.value;
+          var map = wm === 'rtl' ? logicalToPhysicalRtl : logicalToPhysicalLtr;
+          if (map[prop]) { return { text: line.replace(prop, map[prop]), changed: true }; }
+          if (prop === 'resize') { var rv = resizeValueRev(val, wm); return { text: line.replace(val, rv), changed: val !== rv }; }
+          if (directionalValues[prop]) {
+            var dmap = wm === 'rtl' ? directionalValues[prop].logicalToPhysicalRtl : directionalValues[prop].logicalToPhysicalLtr;
+            if (dmap[val]) return { text: line.replace(val, dmap[val]), changed: true };
+          }
+          return { text: line, changed: false };
+        } else {
+          if (physicalToLogical[prop]) {
+            var logical = physicalToLogical[prop];
+            if (logical) return { text: line.replace(prop, logical), changed: true };
+          }
+          if (prop === 'resize') { var rv2 = resizeValue(val); return { text: line.replace(val, rv2), changed: val !== rv2 }; }
+          if (directionalValues[prop]) {
+            var dmap2 = directionalValues[prop].physicalToLogical;
+            if (dmap2[val]) return { text: line.replace(val, dmap2[val]), changed: true };
+          }
+          return { text: line, changed: false };
+        }
+      }
+
+      function convert() {
+        var text = cssInput.value;
+        if (!text.trim()) { resultArea.style.display = 'none'; return; }
+        var isLogicalToPhysical = currentDir === 'toPhysical';
+        var lines = text.split('\n');
+        var outLines = [];
+        var changedCount = 0;
+        for (var i = 0; i < lines.length; i++) {
+          var result = convertLine(lines[i], isLogicalToPhysical);
+          if (result.changed) {
+            outLines.push('<span style="background:var(--color-red-light);padding:0 2px;border-radius:2px;">' + escapeHtml(result.text) + '</span>');
+            changedCount++;
+          } else {
+            outLines.push(escapeHtml(lines[i]));
+          }
+        }
+        var outText = lines.map(function(l, i) { return convertLine(l, isLogicalToPhysical); });
+        var plainText = outText.map(function(r) { return r.text; }).join('\n');
+        cssOutput.innerHTML = outLines.join('\n');
+        resultArea.style.display = 'block';
+
+        var dirLabel = isLogicalToPhysical ? 'Logical → Physical' : 'Physical → Logical';
+        var wmLabel = writingMode.value === 'rtl' ? 'RTL' : 'LTR';
+        convNote.style.background = changedCount > 0 ? 'var(--color-red-light)' : 'var(--color-smoke)';
+        convNote.style.color = 'var(--text-secondary)';
+        convNote.innerHTML = changedCount > 0
+          ? '✓ Converted ' + changedCount + ' propert' + (changedCount === 1 ? 'y' : 'ies') + ' (' + dirLabel + ', ' + wmLabel + '). Highlighted lines show changes.'
+          : 'No convertible properties found. Try pasting CSS with physical properties like margin-left, padding-top, width, etc.';
+
+        copyBtn.onclick = function() {
+          navigator.clipboard.writeText(plainText).then(function() {
+            copyBtn.textContent = 'Copied!';
+            setTimeout(function() { copyBtn.textContent = 'Copy CSS'; }, 1500);
+          }).catch(function() {});
+        };
+      }
+
+      function escapeHtml(s) {
+        var d = document.createElement('div');
+        d.appendChild(document.createTextNode(s));
+        return d.innerHTML;
+      }
+
+      function setDirection(dir) {
+        currentDir = dir;
+        dirToLogical.className = 'btn ' + (dir === 'toLogical' ? 'btn-primary' : 'btn-secondary');
+        dirToPhysical.className = 'btn ' + (dir === 'toPhysical' ? 'btn-primary' : 'btn-secondary');
+        if (cssInput.value.trim()) convert();
+      }
+
+      dirToLogical.addEventListener('click', function() { setDirection('toLogical'); });
+      dirToPhysical.addEventListener('click', function() { setDirection('toPhysical'); });
+      convertBtn.addEventListener('click', convert);
+      writingMode.addEventListener('change', function() { if (cssInput.value.trim()) convert(); });
+      cssInput.addEventListener('keydown', function(e) { if (e.key === 'Enter' && e.ctrlKey) convert(); });
+
+      setDirection('toLogical');
+      convert();
+    })();
+  </script>
+</body>
+</html>

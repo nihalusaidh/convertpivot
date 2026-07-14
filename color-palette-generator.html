@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Palette Generator — Free Online Color Scheme Tool | ConvertPivot</title>
+  <meta name="description" content="Free online color palette generator. Create harmonious color schemes with monochromatic, complementary, analogous, triadic, and tetradic palettes. Export as CSS variables.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/color-palette-generator">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/color-palette-generator">
+  <meta property="og:title" content="Color Palette Generator — Free Online Color Scheme Tool | ConvertPivot">
+  <meta property="og:description" content="Free online color palette generator. Create harmonious color schemes with monochromatic, complementary, analogous, triadic, and tetradic palettes. Export as CSS variables.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Color Palette Generator — Free Online Color Scheme Tool | ConvertPivot">
+  <meta name="twitter:description" content="Free online color palette generator. Create harmonious color schemes with monochromatic, complementary, analogous, triadic, and tetradic palettes. Export as CSS variables.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Color Palette Generator","url":"https://convertpivot.com/color-palette-generator","applicationCategory":"DesignApplication","operatingSystem":"All","description":"Free online color palette generator. Create harmonious color schemes with monochromatic, complementary, analogous, triadic, and tetradic palettes. Export as CSS variables.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a color palette?","acceptedAnswer":{"@type":"Answer","text":"A color palette is a curated set of colors used in design to create visual harmony. It typically includes a primary color and several supporting colors that work together aesthetically. Palettes are defined using color theory rules to ensure the colors complement each other."}},{"@type":"Question","name":"What is the difference between monochromatic and complementary colors?","acceptedAnswer":{"@type":"Answer","text":"Monochromatic palettes use variations of a single hue by changing its lightness and saturation. Complementary palettes use two colors directly opposite each other on the color wheel (180 degrees apart), creating high contrast and visual tension."}},{"@type":"Question","name":"How do I choose a color scheme for my website?","acceptedAnswer":{"@type":"Answer","text":"Start with a base color that represents your brand. Use color theory rules to generate complementary or analogous colors for balance. Consider accessibility — ensure sufficient contrast for text. Use the 60-30-10 rule: 60% primary, 30% secondary, 10% accent."}},{"@type":"Question","name":"What is color theory?","acceptedAnswer":{"@type":"Answer","text":"Color theory is the study of how colors interact and the visual effects of color combinations. It includes concepts like the color wheel, harmony, contrast, and color context. Color theory rules like complementary, analogous, and triadic schemes are based on geometric relationships on the color wheel."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Color Palette Generator</span></nav>
+    <div class="tool-header">
+      <h1>Color Palette Generator</h1>
+      <p>Generate harmonious color palettes from any base color using proven color theory rules. Export as CSS variables for your projects.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All color processing happens in your browser. No data is sent to any server.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <label for="baseColor">Base Color:</label>
+        <div style="display:flex;gap:12px;align-items:center;margin-bottom:16px;">
+          <input type="color" id="baseColor" value="#E53935" style="width:60px;height:60px;border:2px solid var(--color-mist);border-radius:8px;cursor:pointer;padding:0;">
+          <span style="font-family:monospace;font-size:1.1rem;" id="baseColorHex">#E53935</span>
+        </div>
+        <label>Palette Type:</label>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+          <button class="palette-type-btn btn btn-primary" data-type="monochromatic">Monochromatic</button>
+          <button class="palette-type-btn btn btn-ghost" data-type="complementary">Complementary</button>
+          <button class="palette-type-btn btn btn-ghost" data-type="analogous">Analogous</button>
+          <button class="palette-type-btn btn btn-ghost" data-type="triadic">Triadic</button>
+          <button class="palette-type-btn btn btn-ghost" data-type="tetradic">Tetradic</button>
+        </div>
+        <div class="converter-inline">
+          <button id="generatePaletteBtn" class="btn btn-primary">Generate Palette</button>
+          <button id="exportCssBtn" class="btn btn-ghost">Export as CSS Variables</button>
+        </div>
+        <div id="paletteResults" style="margin-top:16px;"></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the Color Palette Generator</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Choose a Base Color</h3><p>Click the color picker to select your starting color. Any color works — the tool will generate a harmonious palette around it.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Select a Palette Type</h3><p>Choose from monochromatic, complementary, analogous, triadic, or tetradic color schemes. Each uses a different color theory rule.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Copy or Export</h3><p>Click any swatch to copy its HEX or RGB value. Use <strong>Export as CSS Variables</strong> to get the full palette for your project.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Color Theory Reference</h2>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+          <thead><tr style="background:var(--color-mist);"><th style="padding:8px 12px;text-align:left;">Scheme</th><th style="padding:8px 12px;text-align:left;">Angle Rule</th><th style="padding:8px 12px;text-align:left;">Colors</th><th style="padding:8px 12px;text-align:left;">Best For</th><th style="padding:8px 12px;text-align:left;">Mood</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Monochromatic</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Same hue, varied lightness</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">5 shades</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Minimalist UI, backgrounds</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Clean, unified</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Complementary</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">180° apart</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">2 opposite + 3 neutrals</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">CTAs, emphasis, branding</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">High energy, contrast</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Analogous</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">30° apart</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">3 main + 2 blends</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Nature themes, gradients</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Harmonious, serene</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Triadic</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">120° apart</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">3 colors + 2 neutrals</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Vibrant UIs, illustration</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Balanced, dynamic</td></tr>
+            <tr><td style="padding:6px 12px;">Tetradic</td><td style="padding:6px 12px;">90° rectangles</td><td style="padding:6px 12px;">4 corners + accent</td><td style="padding:6px 12px;">Complex branding, dashboards</td><td style="padding:6px 12px;">Rich, diverse</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What is a color palette? <span class="arrow">▼</span></button><div class="faq-answer">A color palette is a curated set of colors used in design to create visual harmony. It typically includes a primary color and several supporting colors that work together aesthetically. Palettes are defined using color theory rules to ensure the colors complement each other.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the difference between monochromatic and complementary colors? <span class="arrow">▼</span></button><div class="faq-answer">Monochromatic palettes use variations of a single hue by changing its lightness and saturation. Complementary palettes use two colors directly opposite each other on the color wheel (180 degrees apart), creating high contrast and visual tension.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I choose a color scheme for my website? <span class="arrow">▼</span></button><div class="faq-answer">Start with a base color that represents your brand. Use color theory rules to generate complementary or analogous colors for balance. Consider accessibility — ensure sufficient contrast for text. Use the 60-30-10 rule: 60% primary, 30% secondary, 10% accent.</div></div>
+        <div class="faq-item"><button class="faq-question">What is color theory? <span class="arrow">▼</span></button><div class="faq-answer">Color theory is the study of how colors interact and the visual effects of color combinations. It includes concepts like the color wheel, harmony, contrast, and color context. Color theory rules like complementary, analogous, and triadic schemes are based on geometric relationships on the color wheel.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var baseColorInput = document.getElementById('baseColor');
+      var baseColorHex = document.getElementById('baseColorHex');
+      var paletteResults = document.getElementById('paletteResults');
+      var activeType = 'monochromatic';
+      var currentPalette = [];
+
+      var typeBtns = document.querySelectorAll('.palette-type-btn');
+      typeBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          typeBtns.forEach(function(b) { b.className = 'palette-type-btn btn btn-ghost'; });
+          this.className = 'palette-type-btn btn btn-primary';
+          activeType = this.getAttribute('data-type');
+          generatePalette();
+        });
+      });
+
+      baseColorInput.addEventListener('input', function() {
+        baseColorHex.textContent = this.value;
+        generatePalette();
+      });
+
+      function hslToRgb(h, s, l) {
+        h /= 360; s /= 100; l /= 100;
+        var r, g, b;
+        if (s === 0) { r = g = b = l; }
+        else {
+          function hue2rgb(p, q, t) {
+            if (t < 0) t += 1;
+            if (t > 1) t -= 1;
+            if (t < 1/6) return p + (q - p) * 6 * t;
+            if (t < 1/2) return q;
+            if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+            return p;
+          }
+          var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+          var p = 2 * l - q;
+          r = hue2rgb(p, q, h + 1/3);
+          g = hue2rgb(p, q, h);
+          b = hue2rgb(p, q, h - 1/3);
+        }
+        return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+      }
+
+      function rgbToHsl(r, g, b) {
+        r /= 255; g /= 255; b /= 255;
+        var max = Math.max(r, g, b), min = Math.min(r, g, b);
+        var h, s, l = (max + min) / 2;
+        if (max === min) { h = s = 0; }
+        else {
+          var d = max - min;
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          switch (max) {
+            case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+            case g: h = ((b - r) / d + 2) / 6; break;
+            case b: h = ((r - g) / d + 4) / 6; break;
+          }
+        }
+        return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
+      }
+
+      function hexToRgb(hex) {
+        var v = parseInt(hex.slice(1), 16);
+        return [(v >> 16) & 255, (v >> 8) & 255, v & 255];
+      }
+
+      function rgbToHex(r, g, b) {
+        return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+      }
+
+      function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+
+      function generateMonochromatic(h, s, l) {
+        var colors = [];
+        var lightnesses = [20, 35, 50, 65, 80];
+        for (var i = 0; i < 5; i++) {
+          var rgb = hslToRgb(h, Math.max(10, s - 10), lightnesses[i]);
+          colors.push({hex: rgbToHex(rgb[0], rgb[1], rgb[2]), rgb: rgb});
+        }
+        return colors;
+      }
+
+      function generateComplementary(h, s, l) {
+        var colors = [];
+        var base = hslToRgb(h, s, l);
+        colors.push({hex: rgbToHex(base[0], base[1], base[2]), rgb: base});
+        var comp = hslToRgb((h + 180) % 360, s, l);
+        colors.push({hex: rgbToHex(comp[0], comp[1], comp[2]), rgb: comp});
+        var neutrals = [
+          hslToRgb(h, Math.max(5, s - 30), 30),
+          hslToRgb(h, Math.max(5, s - 30), 60),
+          hslToRgb(h, Math.max(5, s - 30), 85)
+        ];
+        for (var i = 0; i < 3; i++) {
+          colors.push({hex: rgbToHex(neutrals[i][0], neutrals[i][1], neutrals[i][2]), rgb: neutrals[i]});
+        }
+        return colors;
+      }
+
+      function generateAnalogous(h, s, l) {
+        var colors = [];
+        var angles = [-60, -30, 0, 30, 60];
+        for (var i = 0; i < 5; i++) {
+          var hue = (h + angles[i] + 360) % 360;
+          var lightness = clamp(l + (i === 2 ? 0 : i < 2 ? 10 : -10), 10, 90);
+          var rgb = hslToRgb(hue, s, lightness);
+          colors.push({hex: rgbToHex(rgb[0], rgb[1], rgb[2]), rgb: rgb});
+        }
+        return colors;
+      }
+
+      function generateTriadic(h, s, l) {
+        var colors = [];
+        var angles = [0, 120, 240];
+        for (var i = 0; i < 3; i++) {
+          var hue = (h + angles[i]) % 360;
+          var rgb = hslToRgb(hue, s, l);
+          colors.push({hex: rgbToHex(rgb[0], rgb[1], rgb[2]), rgb: rgb});
+        }
+        var neutrals = [
+          hslToRgb(h, Math.max(5, s - 30), 25),
+          hslToRgb(h, Math.max(5, s - 30), 75)
+        ];
+        for (var i = 0; i < 2; i++) {
+          colors.push({hex: rgbToHex(neutrals[i][0], neutrals[i][1], neutrals[i][2]), rgb: neutrals[i]});
+        }
+        return colors;
+      }
+
+      function generateTetradic(h, s, l) {
+        var colors = [];
+        var angles = [0, 90, 180, 270];
+        for (var i = 0; i < 4; i++) {
+          var hue = (h + angles[i]) % 360;
+          var lightness = clamp(l + (i % 2 === 0 ? 0 : -10), 10, 90);
+          var rgb = hslToRgb(hue, s, lightness);
+          colors.push({hex: rgbToHex(rgb[0], rgb[1], rgb[2]), rgb: rgb});
+        }
+        var accent = hslToRgb((h + 45) % 360, Math.max(20, s - 20), clamp(l + 15, 10, 90));
+        colors.push({hex: rgbToHex(accent[0], accent[1], accent[2]), rgb: accent});
+        return colors;
+      }
+
+      function generatePalette() {
+        var hex = baseColorInput.value;
+        var rgb = hexToRgb(hex);
+        var hsl = rgbToHsl(rgb[0], rgb[1], rgb[2]);
+        var h = hsl[0], s = hsl[1], l = hsl[2];
+        var palette;
+
+        switch (activeType) {
+          case 'monochromatic': palette = generateMonochromatic(h, s, l); break;
+          case 'complementary': palette = generateComplementary(h, s, l); break;
+          case 'analogous': palette = generateAnalogous(h, s, l); break;
+          case 'triadic': palette = generateTriadic(h, s, l); break;
+          case 'tetradic': palette = generateTetradic(h, s, l); break;
+          default: palette = generateMonochromatic(h, s, l);
+        }
+
+        currentPalette = palette;
+        renderPalette(palette);
+      }
+
+      function renderPalette(palette) {
+        var html = '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;">';
+        for (var i = 0; i < palette.length; i++) {
+          var c = palette[i];
+          var hexVal = c.hex;
+          var rgbStr = c.rgb.join(', ');
+          var luminosity = ((c.rgb[0] * 299) + (c.rgb[1] * 587) + (c.rgb[2] * 114)) / 1000;
+          var textColor = luminosity > 128 ? '#1a1a1a' : '#ffffff';
+          html += '<div class="color-swatch" style="border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.1);cursor:pointer;" data-hex="' + hexVal + '" data-rgb="' + rgbStr + '">';
+          html += '<div style="height:100px;background:' + hexVal + ';position:relative;">';
+          html += '<span style="position:absolute;bottom:6px;right:8px;font-size:0.7rem;background:rgba(0,0,0,0.3);color:#fff;padding:2px 6px;border-radius:4px;">Color ' + (i + 1) + '</span>';
+          html += '</div>';
+          html += '<div style="padding:10px 12px;background:var(--color-card);">';
+          html += '<div style="font-family:monospace;font-size:0.9rem;font-weight:600;margin-bottom:4px;color:var(--text-primary);">' + hexVal + '</div>';
+          html += '<div style="font-family:monospace;font-size:0.8rem;color:var(--text-secondary);">RGB(' + rgbStr + ')</div>';
+          html += '<div style="display:flex;gap:6px;margin-top:8px;">';
+          html += '<button class="btn btn-ghost copy-swatch-hex" style="flex:1;font-size:0.75rem;padding:4px 8px;" data-hex="' + hexVal + '">Copy HEX</button>';
+          html += '<button class="btn btn-ghost copy-swatch-rgb" style="flex:1;font-size:0.75rem;padding:4px 8px;" data-rgb="rgb(' + rgbStr + ')">Copy RGB</button>';
+          html += '</div></div></div>';
+        }
+        html += '</div>';
+        paletteResults.innerHTML = html;
+
+        document.querySelectorAll('.copy-swatch-hex').forEach(function(btn) {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navigator.clipboard.writeText(this.getAttribute('data-hex'));
+            var orig = this.textContent;
+            this.textContent = 'Copied!';
+            var self = this;
+            setTimeout(function() { self.textContent = orig; }, 1500);
+          });
+        });
+        document.querySelectorAll('.copy-swatch-rgb').forEach(function(btn) {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navigator.clipboard.writeText(this.getAttribute('data-rgb'));
+            var orig = this.textContent;
+            this.textContent = 'Copied!';
+            var self = this;
+            setTimeout(function() { self.textContent = orig; }, 1500);
+          });
+        });
+      }
+
+      document.getElementById('generatePaletteBtn').addEventListener('click', generatePalette);
+
+      document.getElementById('exportCssBtn').addEventListener('click', function() {
+        if (currentPalette.length === 0) { generatePalette(); }
+        var lines = [];
+        for (var i = 0; i < currentPalette.length; i++) {
+          lines.push('  --color-' + (i + 1) + ': ' + currentPalette[i].hex + ';');
+        }
+        var css = ':root {\n' + lines.join('\n') + '\n}';
+        navigator.clipboard.writeText(css);
+        var orig = this.textContent;
+        this.textContent = 'Copied!';
+        var self = this;
+        setTimeout(function() { self.textContent = orig; }, 1500);
+      });
+
+      generatePalette();
+    })();
+  </script>
+</body>
+</html>

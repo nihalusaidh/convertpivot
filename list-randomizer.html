@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List Randomizer — Shuffle, Pick Random Items & Team Generator | ConvertPivot</title>
+  <meta name="description" content="Free online list randomizer. Shuffle lists, pick random winners, split into teams, flip coins, and roll dice. True randomness using cryptographic APIs.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/list-randomizer">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/list-randomizer">
+  <meta property="og:title" content="List Randomizer — Shuffle, Pick Random Items & Team Generator | ConvertPivot">
+  <meta property="og:description" content="Free online list randomizer. Shuffle lists, pick random winners, split into teams, flip coins, and roll dice. True randomness using cryptographic APIs.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="List Randomizer — Shuffle, Pick Random Items & Team Generator | ConvertPivot">
+  <meta name="twitter:description" content="Free online list randomizer. Shuffle lists, pick random winners, split into teams, flip coins, and roll dice. True randomness using cryptographic APIs.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"List Randomizer","url":"https://convertpivot.com/list-randomizer","applicationCategory":"Utilities","operatingSystem":"All","description":"Free online list randomizer. Shuffle lists, pick random winners, split into teams, flip coins, and roll dice. True randomness using cryptographic APIs.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this truly random?","acceptedAnswer":{"@type":"Answer","text":"Yes. The shuffle uses the Fisher-Yates algorithm with cryptographically secure random numbers from crypto.getRandomValues(). This is the same randomness used in security applications."}},{"@type":"Question","name":"Can I pick multiple random items at once?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use the Pick Random option with a count selector. You can choose whether to allow repeats or force unique picks (without replacement)."}},{"@type":"Question","name":"How do I split items into groups?","acceptedAnswer":{"@type":"Answer","text":"Enter all items and select Randomize Groups. Choose how many groups to create. Items are randomly distributed as evenly as possible across groups."}},{"@type":"Question","name":"What is the coin flip and dice roll for?","acceptedAnswer":{"@type":"Answer","text":"Quick random decisions. Coin flip gives Heads/Tails. Dice roll simulates a standard six-sided die with an animated result display."}}]}</script>
+  <style>
+    .lr-actions { display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px; }
+    .lr-actions .btn { font-size:0.85rem;padding:8px 16px; }
+    .lr-actions .btn.active { background:var(--color-red);color:#fff;border-color:var(--color-red); }
+    .lr-options { display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;max-width:400px; }
+    .lr-options label { font-size:0.85rem;color:var(--color-graphite);display:flex;align-items:center;gap:8px; }
+    .lr-options input[type="number"] { width:70px;padding:6px 10px;border:1px solid var(--color-mist);border-radius:var(--radius-pill);font-size:0.85rem;background:var(--color-canvas);color:var(--color-ink);outline:none; }
+    .lr-options input[type="number"]:focus { border-color:var(--color-red); }
+    .lr-options input[type="checkbox"] { accent-color:var(--color-red); }
+    .lr-seed { margin-bottom:14px;display:flex;align-items:center;gap:8px; }
+    .lr-seed label { font-size:0.85rem;color:var(--color-graphite); }
+    .lr-seed input { padding:6px 12px;border:1px solid var(--color-mist);border-radius:var(--radius-pill);font-size:0.85rem;background:var(--color-canvas);color:var(--color-ink);outline:none;width:160px; }
+    .lr-seed input:focus { border-color:var(--color-red); }
+    .lr-items-count { font-size:0.85rem;color:var(--color-graphite);margin-bottom:12px; }
+    .lr-result { margin-top:16px; }
+    .lr-result-list { list-style:none;padding:0;margin:0 0 12px;counter-reset:lr-counter; }
+    .lr-result-list li { counter-increment:lr-counter;padding:8px 12px;background:var(--color-smoke);border-radius:4px;margin-bottom:4px;font-size:0.9rem;display:flex;align-items:center;gap:8px; }
+    .lr-result-list li::before { content:counter(lr-counter);font-size:0.75rem;color:var(--color-graphite);min-width:20px; }
+    .lr-result-groups { display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:12px; }
+    .lr-result-group { background:var(--color-smoke);border-radius:var(--radius-card);padding:14px; }
+    .lr-result-group h4 { font-size:0.85rem;color:var(--color-graphite);margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--color-mist); }
+    .lr-result-group ul { list-style:none;padding:0;margin:0; }
+    .lr-result-group li { padding:4px 0;font-size:0.85rem;color:var(--color-ink); }
+    .lr-coin { display:flex;flex-direction:column;align-items:center;gap:16px;padding:24px 0; }
+    .lr-coin-face { width:120px;height:120px;border-radius:50%;background:var(--color-smoke);border:3px solid var(--color-mist);display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:700;transition:transform 0.6s ease; }
+    .lr-coin-face.flipping { animation:coinFlip 0.8s ease-in-out; }
+    @keyframes coinFlip { 0%{transform:rotateY(0deg);}50%{transform:rotateY(720deg);}100%{transform:rotateY(0deg);} }
+    .lr-coin-result { font-size:1.5rem;font-weight:700; }
+    .lr-dice { display:flex;flex-direction:column;align-items:center;gap:16px;padding:24px 0; }
+    .lr-dice-face { width:100px;height:100px;background:var(--color-smoke);border:3px solid var(--color-mist);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:3rem;transition:transform 0.3s; }
+    .lr-dice-face.rolling { animation:diceRoll 0.6s ease-in-out; }
+    @keyframes diceRoll { 0%{transform:rotate(0deg) scale(1);}25%{transform:rotate(90deg) scale(1.2);}50%{transform:rotate(180deg) scale(1);}75%{transform:rotate(270deg) scale(1.2);}100%{transform:rotate(360deg) scale(1);} }
+    .lr-dice-result { font-size:1.5rem;font-weight:700; }
+    .lr-msg { padding:12px 16px;background:var(--color-red-light);border-radius:var(--radius-card);color:var(--color-error);font-size:0.85rem;margin-bottom:12px;display:none; }
+    @media (max-width:480px) {
+      .lr-options { grid-template-columns:1fr; }
+      .lr-result-groups { grid-template-columns:1fr; }
+      .lr-actions .btn { font-size:0.8rem;padding:6px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">List Randomizer</span></nav>
+    <div class="tool-header">
+      <h1>List Randomizer</h1>
+      <p>Shuffle lists, pick random items, split into teams, flip coins, and roll dice. All randomness uses cryptographically secure APIs.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. No data is sent to any server.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <label for="lrInput">Enter Items (one per line):</label>
+        <textarea id="lrInput" class="converter-input" rows="8" placeholder="Item 1&#10;Item 2&#10;Item 3&#10;..." style="width:100%;resize:vertical;padding:12px;border:1px solid var(--color-mist);border-radius:8px;font-size:0.9rem;background:var(--color-canvas);color:var(--color-ink);outline:none;font-family:inherit;"></textarea>
+        <div class="lr-items-count" id="lrCount">0 items</div>
+        <div class="lr-actions" id="lrActions">
+          <button class="btn btn-primary" data-action="shuffle">🔀 Shuffle</button>
+          <button class="btn btn-secondary" data-action="pick">🎯 Pick Random</button>
+          <button class="btn btn-secondary" data-action="groups">👥 Groups</button>
+          <button class="btn btn-secondary" data-action="coin">🪙 Coin Flip</button>
+          <button class="btn btn-secondary" data-action="dice">🎲 Dice Roll</button>
+        </div>
+        <div class="lr-options" id="lrOptions" style="display:none;">
+          <label>Count: <input type="number" id="lrPickCount" value="1" min="1" max="1000"></label>
+          <label><input type="checkbox" id="lrAllowRepeats" checked> Allow repeats</label>
+          <label>Groups: <input type="number" id="lrGroupCount" value="2" min="2" max="50"></label>
+        </div>
+        <div class="lr-seed">
+          <label for="lrSeed">Seed (optional):</label>
+          <input type="text" id="lrSeed" placeholder="e.g. contest2026">
+        </div>
+        <div id="lrMsg" class="lr-msg"></div>
+        <div class="lr-result" id="lrResult"></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the List Randomizer</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Enter Your List</h3><p>Type or paste each item on a separate line. The tool supports any number of items — from 2 to thousands.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Choose an Action</h3><p>Shuffle to randomize order, Pick Random to select winners, or Groups to split into teams. Optional seed for reproducible results.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Copy Results</h3><p>Click the Copy button to copy results to your clipboard. Use Coin Flip or Dice Roll for quick random decisions.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Features Reference</h2>
+      <div style="overflow-x:auto;">
+        <table class="format-table">
+          <thead><tr><th style="padding:10px 14px;text-align:left;">Feature</th><th style="padding:10px 14px;text-align:left;">Description</th><th style="padding:10px 14px;text-align:left;">Best For</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:8px 14px;border-bottom:1px solid var(--color-smoke);">Shuffle</td><td style="padding:8px 14px;border-bottom:1px solid var(--color-smoke);">Randomize the order of all items using Fisher-Yates</td><td style="padding:8px 14px;border-bottom:1px solid var(--color-smoke);">Randomizing playlists, raffle orders, study cards</td></tr>
+            <tr><td style="padding:8px 14px;border-bottom:1px solid var(--color-smoke);">Pick Random</td><td style="padding:8px 14px;border-bottom:1px solid var(--color-smoke);">Select N random items with or without replacement</td><td style="padding:8px 14px;border-bottom:1px solid var(--color-smoke);">Contest winners, survey samples, lucky draws</td></tr>
+            <tr><td style="padding:8px 14px;border-bottom:1px solid var(--color-smoke);">Groups</td><td style="padding:8px 14px;border-bottom:1px solid var(--color-smoke);">Split items into N random groups, evenly distributed</td><td style="padding:8px 14px;border-bottom:1px solid var(--color-smoke);">Team assignments, classroom groupings, project teams</td></tr>
+            <tr><td style="padding:8px 14px;border-bottom:1px solid var(--color-smoke);">Coin Flip</td><td style="padding:8px 14px;border-bottom:1px solid var(--color-smoke);">Animated Heads/Tails with cryptographic randomness</td><td style="padding:8px 14px;border-bottom:1px solid var(--color-smoke);">Binary decisions, tiebreakers, quick choices</td></tr>
+            <tr><td style="padding:8px 14px;">Dice Roll</td><td style="padding:8px 14px;">Animated standard six-sided die with Unicode faces</td><td style="padding:8px 14px;">Board games, RPGs, random 1-6 outcomes</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">Is this truly random? <span class="arrow">▼</span></button><div class="faq-answer">Yes. The shuffle uses the Fisher-Yates algorithm with cryptographically secure random numbers from crypto.getRandomValues(). This is the same randomness used in security applications.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I pick multiple random items at once? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Use the Pick Random option with a count selector. You can choose whether to allow repeats or force unique picks (without replacement).</div></div>
+        <div class="faq-item"><button class="faq-question">How do I split items into groups? <span class="arrow">▼</span></button><div class="faq-answer">Enter all items and select Randomize Groups. Choose how many groups to create. Items are randomly distributed as evenly as possible across groups.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the coin flip and dice roll for? <span class="arrow">▼</span></button><div class="faq-answer">Quick random decisions. Coin flip gives Heads/Tails. Dice roll simulates a standard six-sided die with an animated result display.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var input = document.getElementById('lrInput');
+      var countEl = document.getElementById('lrCount');
+      var resultEl = document.getElementById('lrResult');
+      var msgEl = document.getElementById('lrMsg');
+      var optionsEl = document.getElementById('lrOptions');
+      var pickCount = document.getElementById('lrPickCount');
+      var allowRepeats = document.getElementById('lrAllowRepeats');
+      var groupCount = document.getElementById('lrGroupCount');
+      var seedEl = document.getElementById('lrSeed');
+      var actionBtns = document.querySelectorAll('#lrActions .btn');
+
+      function getItems() {
+        return input.value.split('\n').map(function(l) { return l.trim(); }).filter(function(l) { return l.length > 0; });
+      }
+
+      function updateCount() {
+        var items = getItems();
+        countEl.textContent = items.length + ' item' + (items.length !== 1 ? 's' : '');
+      }
+
+      input.addEventListener('input', updateCount);
+      updateCount();
+
+      function showError(msg) {
+        msgEl.textContent = msg;
+        msgEl.style.display = 'block';
+        setTimeout(function() { msgEl.style.display = 'none'; }, 4000);
+      }
+
+      function getSeedRng(seed) {
+        if (!seed) return null;
+        var h = 0;
+        for (var i = 0; i < seed.length; i++) {
+          h = ((h << 5) - h) + seed.charCodeAt(i);
+          h = h & h;
+        }
+        return function() {
+          h = (h * 1664525 + 1013904223) & 0x7fffffff;
+          return (h >>> 0) / 0x7fffffff;
+        };
+      }
+
+      function getRandom() {
+        var seed = seedEl.value.trim();
+        var rng = getSeedRng(seed);
+        if (rng) return rng;
+        var arr = new Uint32Array(1);
+        crypto.getRandomValues(arr);
+        return function() { crypto.getRandomValues(arr); return arr[0] / 0xffffffff; };
+      }
+
+      function fisherYatesShuffle(arr) {
+        var rng = getRandom();
+        for (var i = arr.length - 1; i > 0; i--) {
+          var j = Math.floor(rng() * (i + 1));
+          var tmp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = tmp;
+        }
+        return arr;
+      }
+
+      function buildListHtml(items) {
+        if (items.length === 0) return '';
+        var html = '<ol class="lr-result-list">';
+        for (var i = 0; i < items.length; i++) {
+          html += '<li>' + escapeHtml(items[i]) + '</li>';
+        }
+        html += '</ol>';
+        return html;
+      }
+
+      function buildCopyBtn(text) {
+        return '<button class="btn btn-secondary" onclick="var t=this;navigator.clipboard.writeText(' + JSON.stringify(text) + ').then(function(){t.textContent=\'Copied!\';setTimeout(function(){t.textContent=\'Copy Results\';},2000);}).catch(function(){prompt(\'Press Ctrl+C to copy:\', ' + JSON.stringify(text) + ');})">Copy Results</button>';
+      }
+
+      function escapeHtml(s) {
+        var d = document.createElement('div');
+        d.appendChild(document.createTextNode(s));
+        return d.innerHTML;
+      }
+
+      function setActiveAction(action) {
+        actionBtns.forEach(function(b) {
+          b.className = 'btn ' + (b.getAttribute('data-action') === action ? 'btn-primary active' : 'btn-secondary');
+        });
+        if (action === 'pick') {
+          optionsEl.style.display = 'grid';
+          pickCount.parentElement.style.display = 'flex';
+          allowRepeats.parentElement.style.display = 'flex';
+          groupCount.parentElement.style.display = 'none';
+        } else if (action === 'groups') {
+          optionsEl.style.display = 'grid';
+          pickCount.parentElement.style.display = 'none';
+          allowRepeats.parentElement.style.display = 'none';
+          groupCount.parentElement.style.display = 'flex';
+        } else {
+          optionsEl.style.display = 'none';
+        }
+      }
+
+      actionBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var action = this.getAttribute('data-action');
+          setActiveAction(action);
+          if (action === 'coin') { doCoinFlip(); return; }
+          if (action === 'dice') { doDiceRoll(); return; }
+          var items = getItems();
+          if (items.length < 2 && action !== 'pick') {
+            showError('Enter at least 2 items.');
+            return;
+          }
+          if (items.length === 0) {
+            showError('Enter at least 1 item.');
+            return;
+          }
+          if (action === 'shuffle') doShuffle(items);
+          else if (action === 'pick') doPick(items);
+          else if (action === 'groups') doGroups(items);
+        });
+      });
+
+      function doShuffle(items) {
+        var shuffled = fisherYatesShuffle(items.slice());
+        var html = buildListHtml(shuffled);
+        html += buildCopyBtn(shuffled.join('\n'));
+        resultEl.innerHTML = html;
+      }
+
+      function doPick(items) {
+        var count = parseInt(pickCount.value) || 1;
+        var repeats = allowRepeats.checked;
+        var rng = getRandom();
+        var picked = [];
+        if (repeats) {
+          for (var i = 0; i < count; i++) {
+            picked.push(items[Math.floor(rng() * items.length)]);
+          }
+        } else {
+          if (count > items.length) {
+            showError('Cannot pick ' + count + ' unique items from only ' + items.length + ' items.');
+            return;
+          }
+          var pool = items.slice();
+          fisherYatesShuffle(pool);
+          for (var i = 0; i < count; i++) {
+            picked.push(pool[i]);
+          }
+        }
+        var html = buildListHtml(picked);
+        html += buildCopyBtn(picked.join('\n'));
+        resultEl.innerHTML = html;
+      }
+
+      function doGroups(items) {
+        var groups = parseInt(groupCount.value) || 2;
+        if (groups < 2) groups = 2;
+        if (groups > items.length) groups = items.length;
+        var shuffled = fisherYatesShuffle(items.slice());
+        var result = [];
+        for (var i = 0; i < groups; i++) result.push([]);
+        for (var i = 0; i < shuffled.length; i++) {
+          result[i % groups].push(shuffled[i]);
+        }
+        var html = '<div class="lr-result-groups">';
+        for (var g = 0; g < result.length; g++) {
+          html += '<div class="lr-result-group"><h4>Group ' + (g + 1) + ' (' + result[g].length + ' items)</h4><ul>';
+          for (var j = 0; j < result[g].length; j++) {
+            html += '<li>' + escapeHtml(result[g][j]) + '</li>';
+          }
+          html += '</ul></div>';
+        }
+        html += '</div>';
+        var allText = '';
+        for (var g = 0; g < result.length; g++) {
+          allText += 'Group ' + (g + 1) + ':\n' + result[g].join('\n') + '\n\n';
+        }
+        html += buildCopyBtn(allText.trim());
+        resultEl.innerHTML = html;
+      }
+
+      function doCoinFlip() {
+        var rng = getRandom();
+        var result = rng() < 0.5 ? 'Heads' : 'Tails';
+        resultEl.innerHTML = '<div class="lr-coin">' +
+          '<div class="lr-coin-face flipping" id="lrCoinFace" style="background:' + (result === 'Heads' ? 'var(--color-red);color:#fff' : 'var(--color-smoke);color:var(--color-ink)') + '">' + result + '</div>' +
+          '<div class="lr-coin-result">' + result + '</div>' +
+          '<button class="btn btn-primary" onclick="document.querySelector(\'[data-action=coin]\').click()">Flip Again</button>' +
+          '</div>';
+      }
+
+      var diceChars = ['\u2680', '\u2681', '\u2682', '\u2683', '\u2684', '\u2685'];
+
+      function doDiceRoll() {
+        var rng = getRandom();
+        var result = Math.floor(rng() * 6) + 1;
+        var iteration = 0;
+        var interval = setInterval(function() {
+          var r = Math.floor(Math.random() * 6);
+          var faceEl = document.getElementById('lrDiceFace');
+          if (faceEl) faceEl.textContent = diceChars[r];
+          iteration++;
+          if (iteration > 8) {
+            clearInterval(interval);
+            var faceEl2 = document.getElementById('lrDiceFace');
+            if (faceEl2) { faceEl2.textContent = diceChars[result - 1]; faceEl2.classList.remove('rolling'); }
+          }
+        }, 80);
+        resultEl.innerHTML = '<div class="lr-dice">' +
+          '<div class="lr-dice-face rolling" id="lrDiceFace">' + diceChars[0] + '</div>' +
+          '<div class="lr-dice-result">' + result + '</div>' +
+          '<button class="btn btn-primary" onclick="document.querySelector(\'[data-action=dice]\').click()">Roll Again</button>' +
+          '</div>';
+      }
+
+      setActiveAction('shuffle');
+    })();
+  </script>
+</body>
+</html>

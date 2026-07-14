@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JWT Decoder — Decode JSON Web Tokens Online | ConvertPivot</title>
+  <meta name="description" content="Free online JWT decoder. Decode JSON Web Tokens directly in your browser. No server upload — your tokens stay on your device. View header, payload, expiration status.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/jwt-decoder">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/jwt-decoder">
+  <meta property="og:title" content="JWT Decoder — Decode JSON Web Tokens Online | ConvertPivot">
+  <meta property="og:description" content="Free online JWT decoder. Decode JSON Web Tokens directly in your browser. No server upload — your tokens stay on your device. View header, payload, expiration status.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JWT Decoder — Decode JSON Web Tokens Online | ConvertPivot">
+  <meta name="twitter:description" content="Free online JWT decoder. Decode JSON Web Tokens directly in your browser. No server upload — your tokens stay on your device. View header, payload, expiration status.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"JWT Decoder","url":"https://convertpivot.com/jwt-decoder","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online JWT decoder. Decode JSON Web Tokens directly in your browser. No server upload — your tokens stay on your device. View header, payload, expiration status.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it safe to decode JWTs here?","acceptedAnswer":{"@type":"Answer","text":"Yes. All decoding happens locally in your browser. The JWT is never sent to any server. The signature is not verified (that requires the secret key), but the header and payload are safely decoded client-side."}},{"@type":"Question","name":"Can I verify the JWT signature?","acceptedAnswer":{"@type":"Answer","text":"This tool decodes JWT data but cannot verify the signature without the secret key. Signature verification requires the HMAC secret or RSA public key that only the issuing server knows."}},{"@type":"Question","name":"What information is in a JWT?","acceptedAnswer":{"@type":"Answer","text":"The header contains the algorithm (typ and alg). The payload contains claims like sub (user ID), iat (issued at), exp (expiration), iss (issuer), and custom data. The signature is a cryptographic hash of the header and payload."}},{"@type":"Question","name":"How do I know if my JWT is expired?","acceptedAnswer":{"@type":"Answer","text":"The tool automatically checks the exp (expiration) claim against the current time and shows whether the token is expired, valid, or will expire soon. It also shows the exact expiration date/time."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">JWT Decoder</span></nav>
+    <div class="tool-header">
+      <h1>JWT Decoder</h1>
+      <p>Decode JSON Web Tokens directly in your browser. No data is sent to any server — your tokens stay on your device.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All decoding happens in your browser. Your JWT is never uploaded anywhere.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <label for="jwtInput">Paste your JWT below:</label>
+        <textarea id="jwtInput" class="converter-input" rows="4" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjE4OTM0NTYwMDB9.abc123def456" style="font-family:var(--font-mono,monospace);font-size:0.85rem;resize:vertical;word-break:break-all;"></textarea>
+        <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;">
+          <button id="decodeJwtBtn" class="btn btn-primary">Decode</button>
+          <button id="exampleJwtBtn" class="btn btn-ghost">Load Example</button>
+          <button id="clearJwtBtn" class="btn btn-ghost">Clear</button>
+        </div>
+        <div id="jwtValidation" style="margin-top:10px;font-size:0.9rem;"></div>
+        <div id="jwtResults" style="margin-top:12px;display:none;">
+          <div style="margin-bottom:16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex-wrap:wrap;gap:4px;">
+              <h3 style="margin:0;font-size:1rem;">Header</h3>
+              <button id="copyHeaderBtn" class="btn btn-ghost" style="font-size:0.8rem;padding:4px 10px;">Copy Header</button>
+            </div>
+            <pre id="jwtHeaderDisplay" class="jwt-json-display" style="background:var(--color-cream);padding:12px;border-radius:6px;overflow-x:auto;font-family:var(--font-mono,monospace);font-size:0.85rem;line-height:1.5;margin:0;border:1px solid var(--color-mist);white-space:pre-wrap;"></pre>
+          </div>
+          <div style="margin-bottom:16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex-wrap:wrap;gap:4px;">
+              <h3 style="margin:0;font-size:1rem;">Payload</h3>
+              <button id="copyPayloadBtn" class="btn btn-ghost" style="font-size:0.8rem;padding:4px 10px;">Copy Payload</button>
+            </div>
+            <pre id="jwtPayloadDisplay" class="jwt-json-display" style="background:var(--color-cream);padding:12px;border-radius:6px;overflow-x:auto;font-family:var(--font-mono,monospace);font-size:0.85rem;line-height:1.5;margin:0;border:1px solid var(--color-mist);white-space:pre-wrap;"></pre>
+          </div>
+          <div id="jwtExpirySection" style="margin-bottom:12px;padding:10px 14px;border-radius:6px;font-size:0.9rem;"></div>
+          <div id="jwtSignatureDisplay" style="padding:8px 12px;background:var(--color-cream);border-radius:6px;font-size:0.85rem;border:1px solid var(--color-mist);">
+            <strong>Signature:</strong> <span id="jwtSigValue" style="font-family:var(--font-mono,monospace);word-break:break-all;"></span>
+            <div style="margin-top:4px;font-size:0.8rem;color:var(--text-secondary);">Signature verification requires the secret key known only to the issuing server.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the JWT Decoder</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Paste Your Token</h3><p>Copy and paste your JWT string into the input field. JWTs have three dot-separated parts: header, payload, signature.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Decode Automatically</h3><p>Click <strong>Decode</strong> or the tool will auto-decode as you type. The header and payload are Base64URL-decoded and pretty-printed as JSON.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Review Expiration &amp; Claims</h3><p>Check the expiration status, view highlighted claims (sub, iat, exp, iss), and copy the decoded data with one click.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Common JWT Claims Reference</h2>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+          <thead><tr style="background:var(--color-mist);"><th style="padding:8px 12px;text-align:left;">Claim</th><th style="padding:8px 12px;text-align:left;">Name</th><th style="padding:8px 12px;text-align:left;">Description</th><th style="padding:8px 12px;text-align:left;">Example</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:var(--font-mono,monospace);">sub</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Subject</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">The principal (user ID) that the token represents</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:var(--font-mono,monospace);">1234567890</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:var(--font-mono,monospace);">iss</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Issuer</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">The issuer of the token</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:var(--font-mono,monospace);">https://auth.example.com</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:var(--font-mono,monospace);">aud</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Audience</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">The intended recipient of the token</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:var(--font-mono,monospace);">https://api.example.com</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:var(--font-mono,monospace);">exp</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Expiration</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Unix timestamp when the token expires</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:var(--font-mono,monospace);">1893456000</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:var(--font-mono,monospace);">nbf</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Not Before</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Unix timestamp before which the token is not valid</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:var(--font-mono,monospace);">1516239022</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:var(--font-mono,monospace);">iat</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Issued At</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Unix timestamp when the token was issued</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);font-family:var(--font-mono,monospace);">1516239022</td></tr>
+            <tr><td style="padding:6px 12px;font-family:var(--font-mono,monospace);">jti</td><td style="padding:6px 12px;">JWT ID</td><td style="padding:6px 12px;">Unique identifier for the token (prevents replay attacks)</td><td style="padding:6px 12px;font-family:var(--font-mono,monospace);">550e8400-e29b-41d4-a716-446655440000</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">Is it safe to decode JWTs here? <span class="arrow">▼</span></button><div class="faq-answer">Yes. All decoding happens locally in your browser. The JWT is never sent to any server. The signature is not verified (that requires the secret key), but the header and payload are safely decoded client-side.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I verify the JWT signature? <span class="arrow">▼</span></button><div class="faq-answer">This tool decodes JWT data but cannot verify the signature without the secret key. Signature verification requires the HMAC secret or RSA public key that only the issuing server knows.</div></div>
+        <div class="faq-item"><button class="faq-question">What information is in a JWT? <span class="arrow">▼</span></button><div class="faq-answer">The header contains the algorithm (typ and alg). The payload contains claims like sub (user ID), iat (issued at), exp (expiration), iss (issuer), and custom data. The signature is a cryptographic hash of the header and payload.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I know if my JWT is expired? <span class="arrow">▼</span></button><div class="faq-answer">The tool automatically checks the "exp" (expiration) claim against the current time and shows whether the token is expired, valid, or will expire soon. It also shows the exact expiration date/time.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var EXAMPLE_JWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjE4OTM0NTYwMDB9.abc123def456';
+
+      var jwtInput = document.getElementById('jwtInput');
+      var validationDiv = document.getElementById('jwtValidation');
+      var resultsDiv = document.getElementById('jwtResults');
+      var headerDisplay = document.getElementById('jwtHeaderDisplay');
+      var payloadDisplay = document.getElementById('jwtPayloadDisplay');
+      var sigValue = document.getElementById('jwtSigValue');
+      var expirySection = document.getElementById('jwtExpirySection');
+
+      function base64UrlDecode(str) {
+        str = str.replace(/-/g, '+').replace(/_/g, '/');
+        while (str.length % 4) str += '=';
+        try {
+          return decodeURIComponent(escape(atob(str)));
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function formatJSON(jsonStr) {
+        try {
+          var obj = JSON.parse(jsonStr);
+          return JSON.stringify(obj, null, 2);
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function highlightClaims(jsonStr, claims) {
+        var highlighted = jsonStr;
+        for (var i = 0; i < claims.length; i++) {
+          var claim = claims[i];
+          var re = new RegExp('("' + claim + '"\\s*:)', 'g');
+          highlighted = highlighted.replace(re, '<span style="color:var(--color-red);font-weight:600;">$1</span>');
+        }
+        return highlighted;
+      }
+
+      function timeAgo(ts) {
+        var now = Math.floor(Date.now() / 1000);
+        var diff = ts - now;
+        if (diff < 0) return 'expired ' + Math.floor(Math.abs(diff) / 60) + 'm ago';
+        if (diff < 60) return 'expires in ' + diff + 's';
+        if (diff < 3600) return 'expires in ' + Math.floor(diff / 60) + 'm';
+        if (diff < 86400) return 'expires in ' + Math.floor(diff / 3600) + 'h ' + Math.floor((diff % 3600) / 60) + 'm';
+        return 'expires in ' + Math.floor(diff / 86400) + 'd ' + Math.floor((diff % 86400) / 3600) + 'h';
+      }
+
+      function formatDate(ts) {
+        var d = new Date(ts * 1000);
+        return d.toLocaleString();
+      }
+
+      function decode() {
+        var raw = jwtInput.value.trim();
+        if (!raw) {
+          validationDiv.innerHTML = '';
+          resultsDiv.style.display = 'none';
+          return;
+        }
+
+        var parts = raw.split('.');
+        if (parts.length !== 3) {
+          validationDiv.innerHTML = '<strong style="color:var(--color-error);">Invalid JWT format.</strong> Expected 3 dot-separated parts (header.payload.signature), found ' + parts.length + '.';
+          resultsDiv.style.display = 'none';
+          return;
+        }
+
+        var headerB64 = parts[0];
+        var payloadB64 = parts[1];
+        var signature = parts[2];
+
+        var headerJson = base64UrlDecode(headerB64);
+        var payloadJson = base64UrlDecode(payloadB64);
+
+        if (!headerJson || !payloadJson) {
+          validationDiv.innerHTML = '<strong style="color:var(--color-error);">Invalid Base64URL encoding.</strong> Could not decode one or more parts. Ensure the JWT is properly formatted.';
+          resultsDiv.style.display = 'none';
+          return;
+        }
+
+        var headerFormatted = formatJSON(headerJson);
+        var payloadFormatted = formatJSON(payloadJson);
+
+        if (!headerFormatted || !payloadFormatted) {
+          validationDiv.innerHTML = '<strong style="color:var(--color-error);">Invalid JSON.</strong> The decoded header or payload is not valid JSON.';
+          resultsDiv.style.display = 'none';
+          return;
+        }
+
+        validationDiv.innerHTML = '<strong style="color:var(--color-success);">✓ Valid JWT format.</strong> Header and payload decoded successfully.';
+
+        var highlightedClaims = ['sub', 'iat', 'exp', 'iss'];
+        var headerHighlighted = highlightClaims(headerFormatted, highlightedClaims);
+        var payloadHighlighted = highlightClaims(payloadFormatted, highlightedClaims);
+
+        headerDisplay.innerHTML = headerHighlighted;
+        payloadDisplay.innerHTML = payloadHighlighted;
+        sigValue.textContent = signature;
+
+        var payloadObj = JSON.parse(payloadJson);
+        var now = Math.floor(Date.now() / 1000);
+        var expiryHtml = '';
+
+        if (payloadObj.exp) {
+          var expTime = parseInt(payloadObj.exp);
+          var expDate = formatDate(expTime);
+          if (expTime < now) {
+            expiryHtml = '<div style="background:rgba(220,38,38,0.1);border-left:4px solid var(--color-error);padding:10px 14px;border-radius:4px;"><strong style="color:var(--color-error);">✗ Expired</strong> — Token expired ' + formatDate(expTime) + ' (' + timeAgo(expTime) + ').</div>';
+          } else if (expTime - now < 3600) {
+            expiryHtml = '<div style="background:rgba(234,179,8,0.1);border-left:4px solid #eab308;padding:10px 14px;border-radius:4px;"><strong style="color:#eab308;">⚡ Expiring Soon</strong> — Token expires ' + formatDate(expTime) + ' (' + timeAgo(expTime) + ').</div>';
+          } else {
+            expiryHtml = '<div style="background:rgba(34,197,94,0.1);border-left:4px solid var(--color-success);padding:10px 14px;border-radius:4px;"><strong style="color:var(--color-success);">✓ Valid</strong> — Token expires ' + formatDate(expTime) + ' (' + timeAgo(expTime) + ').</div>';
+          }
+        } else {
+          expiryHtml = '<div style="background:var(--color-cream);border-left:4px solid var(--text-secondary);padding:10px 14px;border-radius:4px;"><strong>No expiration</strong> — This token does not contain an "exp" claim.</div>';
+        }
+
+        if (payloadObj.iat) {
+          expiryHtml += '<div style="margin-top:6px;font-size:0.85rem;color:var(--text-secondary);">Issued at: ' + formatDate(parseInt(payloadObj.iat)) + '</div>';
+        }
+
+        expirySection.innerHTML = expiryHtml;
+        resultsDiv.style.display = 'block';
+      }
+
+      document.getElementById('decodeJwtBtn').addEventListener('click', decode);
+
+      document.getElementById('exampleJwtBtn').addEventListener('click', function() {
+        jwtInput.value = EXAMPLE_JWT;
+        decode();
+      });
+
+      document.getElementById('clearJwtBtn').addEventListener('click', function() {
+        jwtInput.value = '';
+        validationDiv.innerHTML = '';
+        resultsDiv.style.display = 'none';
+      });
+
+      jwtInput.addEventListener('input', decode);
+
+      document.getElementById('copyHeaderBtn').addEventListener('click', function() {
+        var text = headerDisplay.textContent;
+        navigator.clipboard.writeText(text).then(function() {
+          var btn = document.getElementById('copyHeaderBtn');
+          var orig = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(function() { btn.textContent = orig; }, 1500);
+        }).catch(function() {
+          var range = document.createRange();
+          range.selectNode(headerDisplay);
+          window.getSelection().removeAllRanges();
+          window.getSelection().addRange(range);
+          document.execCommand('copy');
+          window.getSelection().removeAllRanges();
+        });
+      });
+
+      document.getElementById('copyPayloadBtn').addEventListener('click', function() {
+        var text = payloadDisplay.textContent;
+        navigator.clipboard.writeText(text).then(function() {
+          var btn = document.getElementById('copyPayloadBtn');
+          var orig = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(function() { btn.textContent = orig; }, 1500);
+        }).catch(function() {
+          var range = document.createRange();
+          range.selectNode(payloadDisplay);
+          window.getSelection().removeAllRanges();
+          window.getSelection().addRange(range);
+          document.execCommand('copy');
+          window.getSelection().removeAllRanges();
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

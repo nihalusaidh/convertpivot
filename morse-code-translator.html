@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morse Code Translator — Text to Morse Code Online | ConvertPivot</title>
+  <meta name="description" content="Free online Morse code translator. Convert text to Morse code and Morse code to text instantly. 100% browser-based. No upload required.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/morse-code-translator">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/morse-code-translator">
+  <meta property="og:title" content="Morse Code Translator — Text to Morse Code Online | ConvertPivot">
+  <meta property="og:description" content="Free online Morse code translator. Convert text to Morse code and Morse code to text instantly. 100% browser-based.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Morse Code Translator — Text to Morse Code Online | ConvertPivot">
+  <meta name="twitter:description" content="Free online Morse code translator. Convert text to Morse code and Morse code to text instantly. 100% browser-based.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Morse Code Translator","url":"https://convertpivot.com/morse-code-translator","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online Morse code translator. Convert text to Morse code and decode Morse code back to text. 100% browser-based.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Morse code?","acceptedAnswer":{"@type":"Answer","text":"Morse code is a method of encoding text using sequences of dots (.) and dashes (-). It was developed in the 1830s by Samuel Morse and Alfred Vail for telegraph communication. Each letter and number has a unique sequence."}},{"@type":"Question","name":"How do you read Morse code?","acceptedAnswer":{"@type":"Answer","text":"In Morse code, dots (.) represent short signals and dashes (-) represent long signals. A space between parts of the same letter is one unit, between letters is three units, and between words is seven units."}},{"@type":"Question","name":"Is Morse code still used today?","acceptedAnswer":{"@type":"Answer","text":"Yes, Morse code is still used in aviation, amateur radio, and as an assistive technology. The most famous distress signal SOS (... --- ...) is universally recognized. Learning Morse code is also a popular hobby."}},{"@type":"Question","name":"Is this tool free?","acceptedAnswer":{"@type":"Answer","text":"Yes, this Morse code translator is completely free. All translation is done locally in your browser with no server uploads."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Morse Code Translator</span></nav>
+    <div class="tool-header">
+      <h1>Morse Code Translator</h1>
+      <p>Convert text to Morse code or decode Morse code back to text instantly.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <label for="morseDirection">Direction:</label>
+        <select id="morseDirection" class="converter-input" style="width:auto;min-width:200px;margin-bottom:12px;">
+          <option value="toMorse">Text to Morse Code</option>
+          <option value="toText">Morse Code to Text</option>
+        </select>
+        <label for="morseInput">Input:</label>
+        <textarea id="morseInput" class="converter-textarea" rows="3" placeholder="Enter text or Morse code..."></textarea>
+        <div class="converter-inline">
+          <button id="translateMorseBtn" class="btn btn-primary">Translate</button>
+          <button id="playMorseBtn" class="btn btn-ghost">Play Sound</button>
+          <button id="copyMorseBtn" class="btn btn-ghost">Copy Result</button>
+          <button id="clearMorseBtn" class="btn btn-ghost">Clear</button>
+        </div>
+        <label for="morseOutput">Result:</label>
+        <textarea id="morseOutput" class="converter-textarea" rows="3" placeholder="Translation will appear here..." readonly></textarea>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the Morse Code Translator</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Choose Direction</h3><p>Select whether to convert text to Morse code or decode Morse code back to text.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Enter Input</h3><p>Type or paste your text or Morse code (use dots . and dashes - separated by spaces).</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Get Translation</h3><p>Click <strong>Translate</strong> and the converted result appears instantly.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What is Morse code? <span class="arrow">▼</span></button><div class="faq-answer">Morse code is a method of encoding text using sequences of dots (.) and dashes (-). It was developed in the 1830s by Samuel Morse and Alfred Vail for telegraph communication. Each letter and number has a unique sequence.</div></div>
+        <div class="faq-item"><button class="faq-question">How do you read Morse code? <span class="arrow">▼</span></button><div class="faq-answer">In Morse code, dots (.) represent short signals and dashes (-) represent long signals. A space between parts of the same letter is one unit, between letters is three units, and between words is seven units.</div></div>
+        <div class="faq-item"><button class="faq-question">Is Morse code still used today? <span class="arrow">▼</span></button><div class="faq-answer">Yes, Morse code is still used in aviation, amateur radio, and as an assistive technology. The most famous distress signal SOS (... --- ...) is universally recognized. Learning Morse code is also a popular hobby.</div></div>
+        <div class="faq-item"><button class="faq-question">Is this tool free? <span class="arrow">▼</span></button><div class="faq-answer">Yes, this Morse code translator is completely free. All translation is done locally in your browser with no server uploads.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var charToMorse = {
+        'a':'.-','b':'-...','c':'-.-.','d':'-..','e':'.','f':'..-.','g':'--.','h':'....','i':'..','j':'.---','k':'-.-','l':'.-..','m':'--','n':'-.','o':'---','p':'.--.','q':'--.-','r':'.-.','s':'...','t':'-','u':'..-','v':'...-','w':'.--','x':'-..-','y':'-.--','z':'--..',
+        '0':'-----','1':'.----','2':'..---','3':'...--','4':'....-','5':'.....','6':'-....','7':'--...','8':'---..','9':'----.',
+        '.':'.-.-.-',',':'--..--','?':'..--..','!':'-.-.--',"'":'.----.','/':'-..-.','(':'-.--.',')':'-.--.-','&':'.-...',':':'---...',';':'-.-.-.','=':'-...-','+':'.-.-.','-':'-....-','_':'..--.-','"':'.-..-.','@':'.--.-.'
+      };
+      var morseToChar = {};
+      for (var k in charToMorse) morseToChar[charToMorse[k]] = k;
+
+      var input = document.getElementById('morseInput');
+      var output = document.getElementById('morseOutput');
+      var direction = document.getElementById('morseDirection');
+
+      document.getElementById('translateMorseBtn').addEventListener('click', function() {
+        var text = input.value.trim().toLowerCase();
+        if (!text) { output.value = 'Please enter input.'; return; }
+        if (direction.value === 'toMorse') {
+          var result = [];
+          for (var i = 0; i < text.length; i++) {
+            var c = text[i];
+            if (c === ' ') { result.push('/'); }
+            else if (charToMorse[c]) { result.push(charToMorse[c]); }
+          }
+          output.value = result.join(' ');
+        } else {
+          var words = text.split('/');
+          var result = [];
+          for (var w = 0; w < words.length; w++) {
+            var letters = words[w].trim().split(' ');
+            var word = '';
+            for (var l = 0; l < letters.length; l++) {
+              if (morseToChar[letters[l]]) word += morseToChar[letters[l]];
+            }
+            result.push(word);
+          }
+          output.value = result.join(' ').toUpperCase();
+        }
+      });
+
+      document.getElementById('playMorseBtn').addEventListener('click', function() {
+        var dir = direction.value;
+        if (dir === 'toText') return;
+        var text = input.value.trim().toLowerCase();
+        if (!text) return;
+        var morse = [];
+        for (var i = 0; i < text.length; i++) {
+          var c = text[i];
+          if (c === ' ') { morse.push('/'); }
+          else if (charToMorse[c]) { morse.push(charToMorse[c]); }
+        }
+        var seq = morse.join(' ');
+        var ctx = new (window.AudioContext || window.webkitAudioContext)();
+        var dot = 0.08, dash = 0.24, gap = 0.08, letterGap = 0.2, wordGap = 0.4;
+        var time = ctx.currentTime;
+        for (var i = 0; i < seq.length; i++) {
+          var ch = seq[i];
+          if (ch === '.') { playTone(ctx, time, dot); time += dot + gap; }
+          else if (ch === '-') { playTone(ctx, time, dash); time += dash + gap; }
+          else if (ch === ' ') { time += letterGap; }
+          else if (ch === '/') { time += wordGap; }
+        }
+        function playTone(ctx, t, dur) {
+          var osc = ctx.createOscillator();
+          var gain = ctx.createGain();
+          osc.connect(gain); gain.connect(ctx.destination);
+          osc.frequency.value = 700;
+          gain.gain.setValueAtTime(0.5, t);
+          gain.gain.setValueAtTime(0.5, t + dur - 0.01);
+          gain.gain.linearRampToValueAtTime(0, t + dur);
+          osc.start(t); osc.stop(t + dur);
+        }
+      });
+
+      document.getElementById('copyMorseBtn').addEventListener('click', function() {
+        if (output.value) { output.select(); navigator.clipboard.writeText(output.value); }
+      });
+
+      document.getElementById('clearMorseBtn').addEventListener('click', function() {
+        input.value = '';
+        output.value = '';
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reverse Text Generator — Upside Down, Backwards & Mirror Text | ConvertPivot</title>
+  <meta name="description" content="Free online reverse text generator. Flip text upside down, reverse it backwards, mirror it, or reverse word order. Copy and share transformed text instantly.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/reverse-text-generator">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/reverse-text-generator">
+  <meta property="og:title" content="Reverse Text Generator — Upside Down, Backwards & Mirror Text | ConvertPivot">
+  <meta property="og:description" content="Free online reverse text generator. Flip text upside down, reverse it backwards, mirror it, or reverse word order. Copy and share transformed text instantly.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Reverse Text Generator — Upside Down, Backwards & Mirror Text | ConvertPivot">
+  <meta name="twitter:description" content="Free online reverse text generator. Flip text upside down, reverse it backwards, mirror it, or reverse word order. Copy and share transformed text instantly.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Reverse Text Generator","url":"https://convertpivot.com/reverse-text-generator","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online reverse text generator. Flip text upside down, reverse it backwards, mirror it, or reverse word order. Copy and share transformed text instantly.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does upside down text work?","acceptedAnswer":{"@type":"Answer","text":"Upside down text uses Unicode characters that look like rotated versions of normal letters. Each letter is mapped to its closest upside-down equivalent in the Unicode standard. This creates the illusion of text flipped 180 degrees."}},{"@type":"Question","name":"Can I use upside down text on social media?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upside down, reversed, and mirrored text works on most social media platforms including Twitter/X, Instagram, Facebook, Reddit, and TikTok. Some platforms may normalize certain characters."}},{"@type":"Question","name":"What is the difference between reverse text and mirror text?","acceptedAnswer":{"@type":"Answer","text":"Reverse text (backwards) simply reverses the character order ('abc' becomes 'cba'). Mirror text reverses the order AND flips each character to its mirrored equivalent, creating a true mirror reflection effect."}},{"@type":"Question","name":"Will upside down text work in usernames?","acceptedAnswer":{"@type":"Answer","text":"Some platforms allow Unicode characters in usernames, but many restrict them. Check the specific platform's username rules. The reversed text (character reversal) uses standard ASCII and works everywhere."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Reverse Text Generator</span></nav>
+    <div class="tool-header">
+      <h1>Reverse Text Generator</h1>
+      <p>Flip text upside down, reverse it backwards, create mirror text, or reverse word order. Instant transformations as you type.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All text processing happens in your browser. Your text never leaves your device.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <label for="textInput">Enter your text:</label>
+        <textarea id="textInput" class="converter-input" rows="4" placeholder="Type or paste your text here..." style="width:100%;resize:vertical;padding:12px;font-size:1rem;border:1px solid var(--color-mist);border-radius:var(--radius-card);background:var(--color-canvas);color:var(--color-ink);font-family:inherit;outline:none;" onfocus="this.style.borderColor='var(--color-red)'" onblur="this.style.borderColor='var(--color-mist)'"></textarea>
+        <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;">
+          <button id="clearTextBtn" class="btn btn-ghost" style="margin-left:auto;">Clear</button>
+        </div>
+        <div id="resultsContainer" style="margin-top:16px;"></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the Reverse Text Generator</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Enter Your Text</h3><p>Type or paste any text into the input field above. All 5 transformations update instantly as you type.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Choose Your Transformation</h3><p>View all five variations — reverse text, reverse words, reverse each word, upside down, and mirror text — displayed side by side.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Copy & Share</h3><p>Click the <strong>Copy</strong> button on any result to copy it to your clipboard and paste it anywhere.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Transformation Examples</h2>
+      <div style="overflow-x:auto;">
+        <table class="format-table">
+          <thead><tr><th>Transformation</th><th>Input Example</th><th>Output Example</th><th>Use Case</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Reverse Text</strong></td><td><code>Hello World</code></td><td><code>dlroW olleH</code></td><td>Creating palindromes, puzzles</td></tr>
+            <tr><td><strong>Reverse Words</strong></td><td><code>Hello World</code></td><td><code>World Hello</code></td><td>Changing sentence word order</td></tr>
+            <tr><td><strong>Reverse Each Word</strong></td><td><code>Hello World</code></td><td><code>olleH dlroW</code></td><td>Word-level scrambling</td></tr>
+            <tr><td><strong>Upside Down</strong></td><td><code>Hello World</code></td><td><code>ɥǝllo ʍoɹlp</code></td><td>Fun social media posts, bios</td></tr>
+            <tr><td><strong>Mirror Text</strong></td><td><code>Hello World</code></td><td><code>plɹoʍ ollǝɥ</code></td><td>Mirror reflection effects</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">How does upside down text work? <span class="arrow">▼</span></button><div class="faq-answer">Upside down text uses Unicode characters that look like rotated versions of normal letters. Each letter is mapped to its closest upside-down equivalent in the Unicode standard. This creates the illusion of text flipped 180 degrees.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I use upside down text on social media? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Upside down, reversed, and mirrored text works on most social media platforms including Twitter/X, Instagram, Facebook, Reddit, and TikTok. Some platforms may normalize certain characters.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the difference between reverse text and mirror text? <span class="arrow">▼</span></button><div class="faq-answer">Reverse text (backwards) simply reverses the character order ("abc" → "cba"). Mirror text reverses the order AND flips each character to its mirrored equivalent, creating a true mirror reflection effect.</div></div>
+        <div class="faq-item"><button class="faq-question">Will upside down text work in usernames? <span class="arrow">▼</span></button><div class="faq-answer">Some platforms allow Unicode characters in usernames, but many restrict them. Check the specific platform's username rules. The reversed text (character reversal) uses standard ASCII and works everywhere.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var upsideDown = {
+        'a': '\u0250', 'b': 'q', 'c': '\u0254', 'd': 'p', 'e': '\u01DD', 'f': '\u025F', 'g': '\u0253', 'h': '\u0265', 'i': '\u1D09', 'j': '\u027E', 'k': '\u029E', 'l': 'l', 'm': '\u026F', 'n': 'u', 'o': 'o', 'p': 'd', 'q': 'b', 'r': '\u0279', 's': 's', 't': '\u0287', 'u': 'n', 'v': '\u028C', 'w': '\u028D', 'x': 'x', 'y': '\u028E', 'z': 'z',
+        'A': '\u2200', 'B': 'B', 'C': '\u0186', 'D': 'D', 'E': '\u018E', 'F': '\u2132', 'G': '\u2141', 'H': 'H', 'I': 'I', 'J': '\u017F', 'K': 'K', 'L': '\u02E5', 'M': 'W', 'N': 'N', 'O': 'O', 'P': '\u0500', 'Q': 'Q', 'R': 'R', 'S': 'S', 'T': '\u2534', 'U': '\u2229', 'V': '\u039B', 'W': 'M', 'X': 'X', 'Y': '\u2144', 'Z': 'Z',
+        '0': '0', '1': '\u0196', '2': '2', '3': '\u0190', '4': '4', '5': '5', '6': '9', '7': '7', '8': '8', '9': '6',
+        '.': '\u02D9', ',': "'", '!': '\u00A1', '?': '\u00BF', "'": ',', ' ': ' '
+      };
+
+      function toUpsideDown(str) {
+        var out = '';
+        for (var i = 0; i < str.length; i++) {
+          out += upsideDown[str[i]] || str[i];
+        }
+        return out;
+      }
+
+      function reverseText(str) {
+        return str.split('').reverse().join('');
+      }
+
+      function reverseWords(str) {
+        return str.split(/\s+/).reverse().join(' ');
+      }
+
+      function reverseEachWord(str) {
+        return str.split(/\s+/).map(function(w) { return w.split('').reverse().join(''); }).join(' ');
+      }
+
+      function mirrorText(str) {
+        return toUpsideDown(reverseText(str));
+      }
+
+      var input = document.getElementById('textInput');
+      var container = document.getElementById('resultsContainer');
+
+      var transforms = [
+        { id: 'reverseText', label: 'Reverse Text', icon: '\u2194' },
+        { id: 'reverseWords', label: 'Reverse Words', icon: '\u2194' },
+        { id: 'reverseEachWord', label: 'Reverse Each Word', icon: '\u2194' },
+        { id: 'upsideDown', label: 'Upside Down', icon: '\u2191' },
+        { id: 'mirror', label: 'Mirror Text', icon: '\u21C4' }
+      ];
+
+      function render() {
+        var text = input.value;
+        if (!text) {
+          container.innerHTML = '<div style="text-align:center;padding:32px;color:var(--color-graphite);font-size:0.9rem;">Enter text above to see all transformations</div>';
+          return;
+        }
+
+        var results = [
+          { label: 'Reverse Text', icon: '\u2194', value: reverseText(text), desc: 'Character order reversed' },
+          { label: 'Reverse Words', icon: '\u2194', value: reverseWords(text), desc: 'Word order reversed' },
+          { label: 'Reverse Each Word', icon: '\u2194', value: reverseEachWord(text), desc: 'Each word reversed individually' },
+          { label: 'Upside Down', icon: '\u2191', value: toUpsideDown(text), desc: 'Flipped 180\u00B0 using Unicode' },
+          { label: 'Mirror Text', icon: '\u21C4', value: mirrorText(text), desc: 'Reversed + flipped for mirror effect' }
+        ];
+
+        var html = '';
+        for (var i = 0; i < results.length; i++) {
+          var r = results[i];
+          var charCount = r.value.length;
+          html += '<div style="border:1px solid var(--color-mist);border-radius:var(--radius-card);padding:14px 16px;margin-bottom:10px;">' +
+            '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">' +
+              '<div><strong style="font-size:0.95rem;">' + r.icon + ' ' + r.label + '</strong>' +
+              ' <span style="color:var(--color-graphite);font-size:0.8rem;">(' + charCount + ' char' + (charCount !== 1 ? 's' : '') + ')</span></div>' +
+              '<button class="copy-btn" data-value="' + r.value.replace(/"/g, '&quot;') + '" style="padding:4px 14px;border:1px solid var(--color-mist);border-radius:var(--radius-pill);background:none;cursor:pointer;font-size:0.8rem;font-family:inherit;color:var(--color-graphite);transition:all 0.15s;">Copy</button>' +
+            '</div>' +
+            '<div style="padding:10px 12px;background:var(--color-smoke);border-radius:4px;font-size:1rem;word-break:break-all;font-family:monospace;color:var(--color-ink);">' + r.value + '</div>' +
+            '<div style="font-size:0.75rem;color:var(--color-graphite);margin-top:4px;">' + r.desc + '</div>' +
+          '</div>';
+        }
+        container.innerHTML = html;
+
+        container.querySelectorAll('.copy-btn').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var val = this.getAttribute('data-value');
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(val).then(function() {
+                var orig = this.textContent;
+                this.textContent = 'Copied!';
+                this.style.borderColor = 'var(--color-success)';
+                this.style.color = 'var(--color-success)';
+                var self = this;
+                setTimeout(function() { self.textContent = orig; self.style.borderColor = ''; self.style.color = ''; }, 1800);
+              }.bind(this)).catch(function() {});
+            } else {
+              var ta = document.createElement('textarea');
+              ta.value = val;
+              document.body.appendChild(ta);
+              ta.select();
+              document.execCommand('copy');
+              document.body.removeChild(ta);
+              var orig = this.textContent;
+              this.textContent = 'Copied!';
+              this.style.borderColor = 'var(--color-success)';
+              this.style.color = 'var(--color-success)';
+              var self = this;
+              setTimeout(function() { self.textContent = orig; self.style.borderColor = ''; self.style.color = ''; }, 1800);
+            }
+          });
+        });
+      }
+
+      input.addEventListener('input', render);
+      document.getElementById('clearTextBtn').addEventListener('click', function() {
+        input.value = '';
+        render();
+        input.focus();
+      });
+
+      render();
+    })();
+  </script>
+</body>
+</html>

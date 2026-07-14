@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Username Generator — Unique & Creative Username Ideas | ConvertPivot</title>
+  <meta name="description" content="Free online username generator. Create unique, creative, and available usernames for gaming, social media, forums, and more. Multiple themes and customization options.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/username-generator">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/username-generator">
+  <meta property="og:title" content="Random Username Generator — Unique & Creative Username Ideas | ConvertPivot">
+  <meta property="og:description" content="Free online username generator. Create unique, creative, and available usernames for gaming, social media, forums, and more. Multiple themes and customization options.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Random Username Generator — Unique & Creative Username Ideas | ConvertPivot">
+  <meta name="twitter:description" content="Free online username generator. Create unique, creative, and available usernames for gaming, social media, forums, and more. Multiple themes and customization options.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Random Username Generator","url":"https://convertpivot.com/username-generator","applicationCategory":"UtilitiesApplication","operatingSystem":"All","description":"Free online username generator. Create unique, creative, and available usernames for gaming, social media, forums, and more. Multiple themes and customization options.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does this username generator work?","acceptedAnswer":{"@type":"Answer","text":"It combines words from themed word lists with optional prefixes, suffixes, and numbers. You can customize the style, length, and separator to create unique combinations."}},{"@type":"Question","name":"Can I use these usernames for gaming?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Gamer and Fantasy themes are specifically designed for gaming. The Sci-Fi theme works great for futuristic games. All generated names are checked for common profanity."}},{"@type":"Question","name":"How do I create a username that's available?","acceptedAnswer":{"@type":"Answer","text":"Add numbers or unique prefixes/suffixes. Longer usernames with random number suffixes are more likely to be available on popular platforms."}},{"@type":"Question","name":"What themes are available?","acceptedAnswer":{"@type":"Answer","text":"Random (mixed), Fantasy (magical names), Tech (tech-inspired), Nature (natural elements), Gamer (gaming style), Professional (clean for work), Funny (humorous), and Sci-Fi (futuristic)."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Username Generator</span></nav>
+    <div class="tool-header">
+      <h1>Random Username Generator</h1>
+      <p>Create unique, creative, and available usernames for gaming, social media, forums, and more. Generate usernames instantly with themes, prefixes, and custom styles.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. No data is sent to any server.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;">
+          <div>
+            <label for="themeSelect">Theme:</label>
+            <select id="themeSelect" class="converter-input">
+              <option value="random">Random</option>
+              <option value="fantasy">Fantasy</option>
+              <option value="tech">Tech</option>
+              <option value="nature">Nature</option>
+              <option value="gamer">Gamer</option>
+              <option value="professional">Professional</option>
+              <option value="funny">Funny</option>
+              <option value="scifi">Sci-Fi</option>
+            </select>
+          </div>
+          <div>
+            <label for="prefixSelect">Prefix:</label>
+            <select id="prefixSelect" class="converter-input">
+              <option value="">None</option>
+              <option value="Mr_">Mr_</option>
+              <option value="Ms_">Ms_</option>
+              <option value="The">The</option>
+              <option value="Official">Official</option>
+              <option value="Its">Its</option>
+              <option value="Just">Just</option>
+              <option value="Real">Real</option>
+              <option value="Not">Not</option>
+              <option value="xX">xX</option>
+              <option value="Dr_">Dr_</option>
+              <option value="Sir">Sir</option>
+              <option value="Captain">Captain</option>
+              <option value="Agent">Agent</option>
+              <option value="King">King</option>
+              <option value="Queen">Queen</option>
+            </select>
+          </div>
+          <div>
+            <label for="suffixSelect">Suffix:</label>
+            <select id="suffixSelect" class="converter-input">
+              <option value="">None</option>
+              <option value="_Xx">_Xx</option>
+              <option value="YT">YT</option>
+              <option value="_TV">_TV</option>
+              <option value="Live">Live</option>
+              <option value="GG">GG</option>
+              <option value="Pro">Pro</option>
+              <option value="OG">OG</option>
+              <option value="_io">_io</option>
+              <option value="Hub">Hub</option>
+              <option value="Zone">Zone</option>
+              <option value="King">King</option>
+              <option value="Queen">Queen</option>
+              <option value="City">City</option>
+              <option value="World">World</option>
+              <option value="HQ">HQ</option>
+            </select>
+          </div>
+          <div>
+            <label for="separatorSelect">Separator:</label>
+            <select id="separatorSelect" class="converter-input">
+              <option value="_">Underscore (_)</option>
+              <option value="-">Hyphen (-)</option>
+              <option value=".">Dot (.)</option>
+              <option value="">None</option>
+            </select>
+          </div>
+          <div>
+            <label for="countSelect">Number of usernames:</label>
+            <select id="countSelect" class="converter-input">
+              <option value="1">1</option>
+              <option value="5" selected>5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+            </select>
+          </div>
+          <div>
+            <label for="lengthSelect">Username length:</label>
+            <select id="lengthSelect" class="converter-input">
+              <option value="short">Short</option>
+              <option value="medium" selected>Medium</option>
+              <option value="long">Long</option>
+            </select>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;padding-top:22px;">
+            <input type="checkbox" id="includeNumbers" checked>
+            <label for="includeNumbers" style="margin:0;">Include numbers (1-999)</label>
+          </div>
+        </div>
+        <button id="generateBtn" class="btn btn-primary" style="margin-top:14px;width:100%;">Generate Usernames</button>
+        <div id="usernameResults" style="margin-top:14px;"></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the Username Generator</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Choose a Theme</h3><p>Select from 8 themes including Fantasy, Tech, Nature, Gamer, and more. Each theme has a curated word list for consistent style.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Customize Your Username</h3><p>Add a prefix or suffix, pick a separator, toggle numbers, and choose the username length. Adjust the number of results from 1 to 20.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Generate &amp; Copy</h3><p>Click <strong>Generate Usernames</strong> to create unique names instantly. Click any username to copy it to your clipboard.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Theme Examples</h2>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+          <thead><tr style="background:var(--color-mist);"><th style="padding:8px 12px;text-align:left;">Theme</th><th style="padding:8px 12px;text-align:left;">Example Username</th><th style="padding:8px 12px;text-align:left;">Style</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Random</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">TheNebula_42</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Mixed, unpredictable</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Random</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">SilentPulse</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Mixed, unpredictable</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Fantasy</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">MysticElf_77</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Magical, mythical</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Fantasy</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">DragonSoul_OG</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Magical, mythical</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Tech</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">ByteCraft_88</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Modern, digital</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Tech</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">QuantumFox_io</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Modern, digital</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Nature</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">WildRiver_33</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Organic, peaceful</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Nature</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">CrystalMeadow</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Organic, peaceful</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Gamer</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">xXRapidFireXx</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Bold, competitive</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Gamer</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">ShadowStrike</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Bold, competitive</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Professional</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">James_Walsh</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Clean, formal</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Professional</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Agent_Morgan</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Clean, formal</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Funny</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">SillyWombat_69</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Humorous, playful</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Funny</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">LazyTaco_HQ</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Humorous, playful</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Sci-Fi</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">NeonZephyr_77</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Futuristic, space-age</td></tr>
+            <tr><td style="padding:6px 12px;">Sci-Fi</td><td style="padding:6px 12px;">CaptainNova</td><td style="padding:6px 12px;">Futuristic, space-age</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">How does this username generator work? <span class="arrow">▼</span></button><div class="faq-answer">It combines words from themed word lists with optional prefixes, suffixes, and numbers. You can customize the style, length, and separator to create unique combinations.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I use these usernames for gaming? <span class="arrow">▼</span></button><div class="faq-answer">Yes. The Gamer and Fantasy themes are specifically designed for gaming. The Sci-Fi theme works great for futuristic games. All generated names are checked for common profanity.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I create a username that's available? <span class="arrow">▼</span></button><div class="faq-answer">Add numbers or unique prefixes/suffixes. Longer usernames with random number suffixes are more likely to be available on popular platforms.</div></div>
+        <div class="faq-item"><button class="faq-question">What themes are available? <span class="arrow">▼</span></button><div class="faq-answer">Random (mixed), Fantasy (magical names), Tech (tech-inspired), Nature (natural elements), Gamer (gaming style), Professional (clean for work), Funny (humorous), and Sci-Fi (futuristic).</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var words = {
+        random: [
+          'Nebula','Pulse','Echo','Vortex','Blaze','Cipher','Drift','Flux','Haven','Jade',
+          'Karma','Lunar','Mirage','Nova','Onyx','Phantom','Quasar','Raven','Shadow','Tide',
+          'Umbra','Vertex','Whim','Zenith','Arc','Bolt','Crest','Dusk','Frost','Gleam',
+          'Haze','Ink','Jazz','Kindle','Loom','Mesh','Nest','Orbit','Peak','Quest',
+          'Rift','Spire','Twist','Vibe','Wisp','Zest','Aura','Core','Drift','Flare'
+        ],
+        fantasy: [
+          'Mystic','Dragon','Elf','Wizard','Rune','Sorcerer','Enchant','Fairy','Griffin','Phoenix',
+          'Warlock','Potion','Crystal','Wand','Spell','Dwarf','Goblin','Knight','Castle','Dungeon',
+          'Oracle','Shaman','Troll','Ogre','Sphinx','Basilisk','Chimera','Pegasus','Valkyrie','Centaur',
+          'Golem','Sprite','Djinn','Nymph','Satyr','Harpy','Cyclops','Behemoth','Wyvern','Mermaid',
+          'Paladin','Bard','Rogue','Monk','Alchemist','Druid','Necromancer','Ranger','Berserker','Warlord'
+        ],
+        tech: [
+          'Byte','Code','Pixel','Quantum','Vector','Syntax','Logic','Cache','Flux','Reactor',
+          'Binary','Chip','Cyber','Data','Digital','Drive','Fiber','Firmware','Graph','Hydra',
+          'Kernel','Latency','Matrix','Module','Neural','Node','Packet','Portal','Protocol','Radar',
+          'Robot','Script','Server','Signal','Silicon','Socket','Sonic','Spark','Spectrum','Static',
+          'Switch','Synapse','System','Tech','Turbo','Wave','Wifi','Wireless','Cipher','Grid'
+        ],
+        nature: [
+          'River','Meadow','Forest','Mountain','Ocean','Crystal','Wild','Storm','Leaf','Dawn',
+          'Rain','Wind','Stone','Feather','Ember','Branch','Canyon','Cascade','Cliff','Cloud',
+          'Coast','Coral','Delta','Dune','Fjord','Flint','Flower','Frost','Garden','Glacier',
+          'Grove','Harbor','Horizon','Island','Jungle','Lagoon','Lily','Maple','Marsh','Moon',
+          'Moss','Oasis','Pebble','Petal','Pine','Pond','Prism','Ridge','Sage','Shore'
+        ],
+        gamer: [
+          'Shadow','Strike','Blitz','Fury','Rapid','Phantom','Stealth','Viper','Wraith','Apex',
+          'Blade','Crusher','Death','Elite','Falcon','Flash','Ghost','Glitch','Havoc','Hunter',
+          'Impact','Iron','Killer','Legend','Maverick','Nemesis','Night','Oblivion','Predator','Rage',
+          'Rebel','Reaper','Rogue','Saber','Scorpion','Sentinel','Sniper','Spawn','Spectre','Storm',
+          'Titan','Trigger','Vandal','Venom','Warden','Warrior','Widow','Wizard','Wolf','Zealot'
+        ],
+        professional: [
+          'James','Alex','Morgan','Taylor','Jordan','Casey','Riley','Quinn','Avery','Blake',
+          'Cameron','Drew','Ellis','Finley','Harper','Jade','Kendall','Logan','Mason','Nico',
+          'Parker','Reese','Sage','Skyler','Sterling','Tatum','Wells','Ashton','Bennett','Carter',
+          'Dalton','Emerson','Graham','Harrison','Hunter','Jackson','Kennedy','Lane','Mercer','Nash',
+          'Oakley','Preston','Reid','Shelby','Spencer','Tanner','Walker','Whitney','Wyatt','York'
+        ],
+        funny: [
+          'Silly','Wacky','Lazy','Goofy','Zany','Dizzy','Chunky','Fluffy','Wobbly','Grumpy',
+          'Jumpy','Loopy','Mochi','Noodle','Pickle','Quirky','Snazzy','Tofu','Wiggly','Willow',
+          'Bacon','Biscuit','Blob','Bubble','Cheese','Cookie','Doodle','Fuzzy','Gizmo','Jelly',
+          'Kiwi','Muffin','Nugget','Pancake','Peanut','Pudding','Pumpkin','Squid','Taco','Waffle',
+          'Ziggy','Bumble','Cheddar','Dippy','Flippy','Goober','Mochi','Nibbles','Pickles','Snickers'
+        ],
+        scifi: [
+          'Nova','Orion','Neon','Xenon','Zephyr','Cosmo','Astra','Stellar','Lunar','Solar',
+          'Andromeda','Cygnus','Draco','Eclipse','Galaxy','Helix','Jupiter','Lyra','Mars','Mercury',
+          'Nebula','Orbit','Phoenix','Pluto','Pulsar','Quasar','Rigel','Saturn','Sirius','Titan',
+          'Uranus','Vega','Venus','Vortex','Zenith','Apollo','Aurora','Comet','Cosmos','Cyborg',
+          'Hyperion','Neptune','Nexus','Omega','Orion','Proxima','Satellite','Serenity','Utopia','Warp'
+        ]
+      };
+
+      var profanityList = ['fuck','shit','damn','ass','bitch','crap','dick','bastard','piss','slut','cock','cunt','whore'];
+
+      function containsProfanity(str) {
+        var lower = str.toLowerCase();
+        for (var i = 0; i < profanityList.length; i++) {
+          if (lower.indexOf(profanityList[i]) !== -1) return true;
+        }
+        return false;
+      }
+
+      function pickRandom(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+      }
+
+      function randomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      function getStrengthLabel(username) {
+        var len = username.length;
+        var hasNum = /\d/.test(username);
+        var hasSpec = /[_\-.]/.test(username);
+        var score = 0;
+        if (len >= 8) score++;
+        if (len >= 12) score++;
+        if (hasNum) score++;
+        if (hasSpec) score++;
+        if (containsProfanity(username)) return {label:'Flagged',cls:'badge-error',desc:'Contains inappropriate content'};
+        if (score >= 3) return {label:'Strong',cls:'badge-success',desc:'Unique and hard to guess'};
+        if (score >= 2) return {label:'Moderate',cls:'badge-warning',desc:'Decent uniqueness'};
+        return {label:'Common',cls:'badge-info',desc:'May already be taken'};
+      }
+
+      function generateUsername(theme, prefix, suffix, separator, includeNumbers, length) {
+        var list = words[theme] || words.random;
+        var word = pickRandom(list);
+        var word2 = '';
+        if (length === 'long') {
+          word2 = pickRandom(list);
+          while (word2 === word) word2 = pickRandom(list);
+        }
+        var username = '';
+        if (length === 'short') {
+          username = word;
+        } else if (length === 'medium') {
+          username = word + separator + pickRandom(list.filter(function(w){return w!==word;}));
+        } else {
+          username = word + separator + word2;
+        }
+        if (includeNumbers) {
+          username += randomInt(1, 999);
+        }
+        if (prefix) {
+          username = prefix + username;
+        }
+        if (suffix) {
+          username = username + suffix;
+        }
+        return username;
+      }
+
+      function escapeHtml(str) {
+        var div = document.createElement('div');
+        div.appendChild(document.createTextNode(str));
+        return div.innerHTML;
+      }
+
+      var generateBtn = document.getElementById('generateBtn');
+      var resultsDiv = document.getElementById('usernameResults');
+
+      function copyUsername(username, el) {
+        navigator.clipboard.writeText(username).then(function() {
+          el.style.borderColor = 'var(--color-green)';
+          el.style.background = 'var(--color-cream)';
+          setTimeout(function() {
+            el.style.borderColor = 'var(--color-mist)';
+          }, 800);
+        }).catch(function() {});
+      }
+
+      resultsDiv.addEventListener('click', function(e) {
+        var item = e.target.closest('.username-item');
+        if (item) {
+          var textEl = item.querySelector('.username-text');
+          if (textEl) copyUsername(textEl.textContent, item);
+        }
+      });
+
+      function generate() {
+        var theme = document.getElementById('themeSelect').value;
+        var prefix = document.getElementById('prefixSelect').value;
+        var suffix = document.getElementById('suffixSelect').value;
+        var separator = document.getElementById('separatorSelect').value;
+        var includeNumbers = document.getElementById('includeNumbers').checked;
+        var length = document.getElementById('lengthSelect').value;
+        var count = parseInt(document.getElementById('countSelect').value);
+
+        var html = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;">';
+
+        for (var i = 0; i < count; i++) {
+          var username = generateUsername(theme, prefix, suffix, separator, includeNumbers, length);
+          var strength = getStrengthLabel(username);
+          var escaped = escapeHtml(username);
+          html += '<div class="username-item" style="cursor:pointer;padding:10px 14px;background:var(--color-cream);border-radius:6px;border:1px solid var(--color-mist);transition:all 0.15s;display:flex;flex-direction:column;gap:4px;" title="Click to copy">';
+          html += '<span class="username-text" style="font-weight:600;font-size:1rem;word-break:break-all;">' + escaped + '</span>';
+          html += '<span style="font-size:0.75rem;"><span class="badge ' + strength.cls + '">' + strength.label + '</span> <span style="color:var(--text-secondary);">' + strength.desc + '</span></span>';
+          html += '</div>';
+        }
+
+        html += '</div>';
+        resultsDiv.innerHTML = html;
+      }
+
+      generateBtn.addEventListener('click', generate);
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && e.target.closest('.converter-form')) generate();
+      });
+
+      generate();
+    })();
+  </script>
+</body>
+</html>

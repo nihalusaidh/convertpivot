@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Minifier — Free Online CSS Compressor | ConvertPivot</title>
+  <meta name="description" content="Free online CSS minifier and beautifier. Compress CSS by removing whitespace and comments, or format messy CSS with proper indentation. 100% browser-based.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/css-minifier">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/css-minifier">
+  <meta property="og:title" content="CSS Minifier — Free Online CSS Compressor | ConvertPivot">
+  <meta property="og:description" content="Free online CSS minifier and beautifier. Compress CSS by removing whitespace and comments, or format messy CSS with proper indentation. 100% browser-based.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CSS Minifier — Free Online CSS Compressor | ConvertPivot">
+  <meta name="twitter:description" content="Free online CSS minifier and beautifier. Compress CSS by removing whitespace and comments, or format messy CSS with proper indentation. 100% browser-based.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CSS Minifier","url":"https://convertpivot.com/css-minifier","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online CSS minifier and beautifier. Compress CSS by removing whitespace and comments, or format messy CSS with proper indentation. 100% browser-based.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why should I minify my CSS?","acceptedAnswer":{"@type":"Answer","text":"Minifying CSS reduces file size by removing unnecessary whitespace, comments, and formatting. Smaller files load faster, improving page speed and reducing bandwidth costs."}},{"@type":"Question","name":"Does minifying CSS affect functionality?","acceptedAnswer":{"@type":"Answer","text":"No. Minification only removes unnecessary characters without changing the CSS behavior. Your styles will work exactly the same after minification."}},{"@type":"Question","name":"Can I reverse minification?","acceptedAnswer":{"@type":"Answer","text":"Yes. Switch to Beautify mode to reformat minified CSS with proper indentation and line breaks, making it readable again."}},{"@type":"Question","name":"Is my CSS code stored anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. All processing is done locally in your browser. Your CSS code never leaves your device or gets sent to any server."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">CSS Minifier</span></nav>
+    <div class="tool-header">
+      <h1>CSS Minifier &amp; Beautifier</h1>
+      <p>Compress CSS by removing whitespace and comments, or format messy CSS with proper indentation. All in your browser.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <label for="cssInput">CSS Input:</label>
+        <textarea id="cssInput" class="converter-textarea" rows="8" placeholder="/* Enter your CSS here */&#10;.container {&#10;  max-width: 1200px;&#10;  margin: 0 auto;&#10;  padding: 20px;&#10;}&#10;&#10;.button {&#10;  background: blue;&#10;  color: white;&#10;  border: none;&#10;  padding: 10px 20px;&#10;}"></textarea>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+          <button id="minifyBtn" class="btn btn-primary" style="flex:1;">Minify</button>
+          <button id="beautifyBtn" class="btn btn-ghost" style="flex:1;">Beautify</button>
+        </div>
+        <button id="convertCssBtn" class="btn btn-primary" style="width:100%;margin-bottom:12px;">Convert</button>
+        <label for="cssOutput">Output:</label>
+        <textarea id="cssOutput" class="converter-textarea" rows="8" readonly placeholder="Result will appear here..."></textarea>
+        <div id="cssStats" style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:8px;"></div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <button id="copyCssBtn" class="btn btn-primary">Copy Result</button>
+          <button id="clearCssBtn" class="btn btn-ghost">Clear</button>
+          <button id="sampleCssBtn" class="btn btn-ghost">Sample CSS</button>
+        </div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the CSS Minifier</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Paste Your CSS</h3><p>Enter or paste your CSS code into the input area. You can also click <strong>Sample CSS</strong> to load a demo stylesheet.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Choose Mode</h3><p>Select <strong>Minify</strong> to compress the CSS by removing whitespace and comments, or <strong>Beautify</strong> to format it with proper indentation.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Copy the Result</h3><p>Click <strong>Copy Result</strong> to copy the output. Size savings are displayed so you can see exactly how much space was saved.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>CSS Minification Savings</h2>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+          <thead><tr style="background:var(--color-mist);"><th style="padding:8px 12px;text-align:left;">Original Size</th><th style="padding:8px 12px;text-align:left;">Minified Size</th><th style="padding:8px 12px;text-align:left;">Estimated Savings</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">10 KB</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">~8 KB</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">~20%</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">50 KB</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">~38 KB</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">~24%</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">100 KB</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">~75 KB</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">~25%</td></tr>
+            <tr><td style="padding:6px 12px;">500 KB</td><td style="padding:6px 12px;">~375 KB</td><td style="padding:6px 12px;">~25%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">Why should I minify my CSS? <span class="arrow">▼</span></button><div class="faq-answer">Minifying CSS reduces file size by removing unnecessary whitespace, comments, and formatting. Smaller files load faster, improving page speed and reducing bandwidth costs.</div></div>
+        <div class="faq-item"><button class="faq-question">Does minifying CSS affect functionality? <span class="arrow">▼</span></button><div class="faq-answer">No. Minification only removes unnecessary characters without changing the CSS behavior. Your styles will work exactly the same after minification.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I reverse minification? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Switch to Beautify mode to reformat minified CSS with proper indentation and line breaks, making it readable again.</div></div>
+        <div class="faq-item"><button class="faq-question">Is my CSS code stored anywhere? <span class="arrow">▼</span></button><div class="faq-answer">No. All processing is done locally in your browser. Your CSS code never leaves your device or gets sent to any server.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var input = document.getElementById('cssInput');
+      var output = document.getElementById('cssOutput');
+      var stats = document.getElementById('cssStats');
+      var mode = 'minify';
+
+      document.getElementById('minifyBtn').addEventListener('click', function() {
+        mode = 'minify';
+        this.className = 'btn btn-primary';
+        document.getElementById('beautifyBtn').className = 'btn btn-ghost';
+      });
+      document.getElementById('beautifyBtn').addEventListener('click', function() {
+        mode = 'beautify';
+        this.className = 'btn btn-primary';
+        document.getElementById('minifyBtn').className = 'btn btn-ghost';
+      });
+
+      function minifyCSS(css) {
+        css = css.replace(/\/\*[\s\S]*?\*\//g, '');
+        css = css.replace(/\s*\{\s*/g, '{');
+        css = css.replace(/\s*\}\s*/g, '}');
+        css = css.replace(/\s*:\s*/g, ':');
+        css = css.replace(/\s*;\s*/g, ';');
+        css = css.replace(/\s*,\s*/g, ',');
+        css = css.replace(/;\}/g, '}');
+        css = css.replace(/\s+/g, ' ');
+        css = css.replace(/^\s+|\s+$/g, '');
+        return css;
+      }
+
+      function beautifyCSS(css) {
+        css = css.replace(/\/\*[\s\S]*?\*\//g, '');
+        css = css.replace(/\{/g, ' {\n');
+        css = css.replace(/;/g, ';\n');
+        css = css.replace(/\}/g, '\n}\n');
+        var lines = css.split('\n');
+        var indent = 0;
+        var result = [];
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i].trim();
+          if (!line) continue;
+          if (line.indexOf('}') === 0) indent = Math.max(0, indent - 1);
+          var spaces = '';
+          for (var j = 0; j < indent; j++) spaces += '  ';
+          result.push(spaces + line);
+          if (line.indexOf('{') >= 0) indent++;
+        }
+        css = result.join('\n');
+        css = css.replace(/\s*:\s*/g, ': ');
+        return css;
+      }
+
+      function convert() {
+        var css = input.value;
+        if (!css.trim()) {
+          output.value = '';
+          stats.textContent = '';
+          return;
+        }
+        var originalSize = css.length;
+        var result = mode === 'minify' ? minifyCSS(css) : beautifyCSS(css);
+        output.value = result;
+        var resultSize = result.length;
+        var saved = originalSize - resultSize;
+        var pct = originalSize > 0 ? ((saved / originalSize) * 100).toFixed(1) : 0;
+        if (mode === 'minify') {
+          stats.textContent = 'Original: ' + originalSize + ' bytes | Result: ' + resultSize + ' bytes | Saved: ' + saved + ' bytes (' + pct + '%)';
+        } else {
+          stats.textContent = 'Original: ' + originalSize + ' bytes | Result: ' + resultSize + ' bytes';
+        }
+      }
+
+      document.getElementById('convertCssBtn').addEventListener('click', convert);
+
+      document.getElementById('copyCssBtn').addEventListener('click', function() {
+        var text = output.value;
+        if (!text) return;
+        navigator.clipboard.writeText(text).then(function() {
+          var btn = document.getElementById('copyCssBtn');
+          var orig = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(function() { btn.textContent = orig; }, 1500);
+        });
+      });
+
+      document.getElementById('clearCssBtn').addEventListener('click', function() {
+        input.value = '';
+        output.value = '';
+        stats.textContent = '';
+      });
+
+      document.getElementById('sampleCssBtn').addEventListener('click', function() {
+        input.value = '/* Reset */\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;\n  line-height: 1.6;\n  color: #333;\n  background: #fafafa;\n}\n\n.container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 0 20px;\n}\n\n.header {\n  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n  color: white;\n  padding: 60px 0;\n  text-align: center;\n}\n\n.header h1 {\n  font-size: 2.5rem;\n  margin-bottom: 10px;\n}\n\n.card {\n  background: white;\n  border-radius: 8px;\n  box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n  padding: 24px;\n  margin-bottom: 20px;\n  transition: transform 0.2s ease;\n}\n\n.card:hover {\n  transform: translateY(-2px);\n}\n\n.btn {\n  display: inline-block;\n  padding: 10px 20px;\n  border: none;\n  border-radius: 4px;\n  cursor: pointer;\n  font-size: 1rem;\n  transition: background 0.2s ease;\n}\n\n.btn-primary {\n  background: #667eea;\n  color: white;\n}\n\n.btn-primary:hover {\n  background: #5a6fd6;\n}\n\n@media (max-width: 768px) {\n  .header h1 {\n    font-size: 1.8rem;\n  }\n\n  .container {\n    padding: 0 10px;\n  }\n}';
+        convert();
+      });
+
+      input.addEventListener('input', convert);
+      convert();
+    })();
+  </script>
+</body>
+</html>

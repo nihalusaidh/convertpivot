@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Number Generator — Free Online Number Picker | ConvertPivot</title>
+  <meta name="description" content="Free online random number generator. Generate random numbers between any range using cryptographically secure randomness. Supports repeats, decimals, and sorting. Coin flip, dice roll, and lottery modes.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/random-number-generator">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/random-number-generator">
+  <meta property="og:title" content="Random Number Generator — Free Online Number Picker | ConvertPivot">
+  <meta property="og:description" content="Free online random number generator. Generate random numbers between any range using cryptographically secure randomness.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Random Number Generator — Free Online Number Picker | ConvertPivot">
+  <meta name="twitter:description" content="Free online random number generator. Generate random numbers between any range using cryptographically secure randomness.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Random Number Generator","url":"https://convertpivot.com/random-number-generator","applicationCategory":"Utilities","operatingSystem":"All","description":"Free online random number generator. Generate random numbers between any range using cryptographically secure randomness. Coin flip, dice roll, and lottery modes.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How random are the numbers?","acceptedAnswer":{"@type":"Answer","text":"This tool uses crypto.getRandomValues(), which is cryptographically secure — the same randomness used for encryption. It's significantly more random than Math.random()."}},{"@type":"Question","name":"Can I generate numbers without repeats?","acceptedAnswer":{"@type":"Answer","text":"Yes. Toggle 'Allow Repeats' off to generate unique numbers within your range. If the range is smaller than the count, an error will show."}},{"@type":"Question","name":"What is the maximum number of numbers I can generate?","acceptedAnswer":{"@type":"Answer","text":"You can generate up to 1,000 numbers at once. For larger sets, generate in batches."}},{"@type":"Question","name":"Can I use this for a lottery or contest?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Use the Lottery preset (1-59, pick 6) or set your own range. The cryptographic randomness ensures fair results."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Random Number Generator</span></nav>
+    <div class="tool-header">
+      <h1>Random Number Generator</h1>
+      <p>Generate cryptographically secure random numbers between any range. Supports coin flips, dice rolls, lottery picks, and more.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All number generation happens in your browser using crypto.getRandomValues(). No data is sent to any server.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
+          <button class="btn btn-sm btn-ghost preset-btn" data-min="1" data-max="2" data-count="1">Coin Flip (1-2)</button>
+          <button class="btn btn-sm btn-ghost preset-btn" data-min="1" data-max="6" data-count="1">Dice Roll (1-6)</button>
+          <button class="btn btn-sm btn-ghost preset-btn" data-min="1" data-max="59" data-count="6" data-repeats="false">Lottery (1-59, pk 6)</button>
+          <button class="btn btn-sm btn-ghost preset-btn" data-min="0" data-max="100" data-count="1" data-decimal="true">Random Percent</button>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
+          <div>
+            <label for="rngMin">Minimum:</label>
+            <input type="number" id="rngMin" class="converter-input" value="1">
+          </div>
+          <div>
+            <label for="rngMax">Maximum:</label>
+            <input type="number" id="rngMax" class="converter-input" value="100">
+          </div>
+        </div>
+        <div style="margin-bottom:12px;">
+          <label for="rngCount">How many numbers to generate (max 1000):</label>
+          <input type="number" id="rngCount" class="converter-input" value="1" min="1" max="1000" style="width:120px;">
+        </div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px;align-items:center;">
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="rngRepeats" checked> Allow Repeats</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="rngDecimal"> Decimal</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="rngSort"> Sort Ascending</label>
+        </div>
+        <div class="converter-inline">
+          <button id="generateRngBtn" class="btn btn-primary">Generate</button>
+          <button id="copyRngBtn" class="btn btn-ghost">Copy All</button>
+          <button id="clearRngBtn" class="btn btn-ghost">Clear</button>
+        </div>
+        <div style="margin-top:8px;font-size:0.85rem;color:var(--text-secondary);" id="rngCountDisplay">Total: 0 numbers</div>
+        <div style="margin-top:8px;">
+          <div id="rngOutput" style="background:var(--color-cream);border-radius:6px;padding:12px;font-family:monospace;font-size:0.9rem;max-height:400px;overflow-y:auto;white-space:pre-wrap;word-break:break-all;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Generate Random Numbers</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Set Your Range</h3><p>Enter the minimum and maximum values for your random numbers. You can also click a preset for common use cases like coin flips or dice rolls.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Choose Options</h3><p>Toggle whether repeats are allowed, whether you want decimal numbers, and whether results should be sorted ascending.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Generate and Copy</h3><p>Click <strong>Generate</strong> to get your random numbers. Use <strong>Copy All</strong> to copy the results to your clipboard.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Common Random Number Use Cases</h2>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+          <thead><tr style="background:var(--color-mist);"><th style="padding:8px 12px;text-align:left;">Use Case</th><th style="padding:8px 12px;text-align:left;">Range</th><th style="padding:8px 12px;text-align:left;">Outcomes</th><th style="padding:8px 12px;text-align:left;">Description</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Coin Flip</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">1-2</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">2</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Heads or tails</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Dice Roll</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">1-6</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">6</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Standard six-sided die</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Lottery</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">1-59</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">59</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Pick 6 unique numbers</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Random Percent</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">0-100</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">101</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Percentage values (decimal)</td></tr>
+            <tr><td style="padding:6px 12px;">Password Digit</td><td style="padding:6px 12px;">0-9</td><td style="padding:6px 12px;">10</td><td style="padding:6px 12px;">Single random digit</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">How random are the numbers? <span class="arrow">▼</span></button><div class="faq-answer">This tool uses crypto.getRandomValues(), which is cryptographically secure — the same randomness used for encryption. It's significantly more random than Math.random().</div></div>
+        <div class="faq-item"><button class="faq-question">Can I generate numbers without repeats? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Toggle "Allow Repeats" off to generate unique numbers within your range. If the range is smaller than the count, an error will show.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the maximum number of numbers I can generate? <span class="arrow">▼</span></button><div class="faq-answer">You can generate up to 1,000 numbers at once. For larger sets, generate in batches.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I use this for a lottery or contest? <span class="arrow">▼</span></button><div class="faq-answer">Absolutely. Use the Lottery preset (1-59, pick 6) or set your own range. The cryptographic randomness ensures fair results.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var minInput = document.getElementById('rngMin');
+      var maxInput = document.getElementById('rngMax');
+      var countInput = document.getElementById('rngCount');
+      var repeatsCb = document.getElementById('rngRepeats');
+      var decimalCb = document.getElementById('rngDecimal');
+      var sortCb = document.getElementById('rngSort');
+      var output = document.getElementById('rngOutput');
+      var countDisplay = document.getElementById('rngCountDisplay');
+
+      function getRandomInt(min, max) {
+        var range = max - min + 1;
+        var maxValid = 4294967295 - (4294967295 % range);
+        var rand;
+        do {
+          var arr = new Uint32Array(1);
+          crypto.getRandomValues(arr);
+          rand = arr[0];
+        } while (rand >= maxValid);
+        return min + (rand % range);
+      }
+
+      function getRandomFloat(min, max) {
+        var arr = new Uint32Array(2);
+        crypto.getRandomValues(arr);
+        var float = arr[0] / 4294967296 + (arr[1] / 4294967296) / 4294967296;
+        return min + float * (max - min);
+      }
+
+      function generate() {
+        var min = parseFloat(minInput.value);
+        var max = parseFloat(maxInput.value);
+        var count = parseInt(countInput.value, 10);
+        var allowRepeats = repeatsCb.checked;
+        var decimal = decimalCb.checked;
+        var sort = sortCb.checked;
+
+        if (isNaN(min) || isNaN(max) || isNaN(count)) {
+          output.textContent = 'Please enter valid numbers for min, max, and count.';
+          countDisplay.textContent = 'Total: 0 numbers';
+          return;
+        }
+        if (min >= max) {
+          output.textContent = 'Maximum must be greater than minimum.';
+          countDisplay.textContent = 'Total: 0 numbers';
+          return;
+        }
+        if (count < 1) {
+          output.textContent = 'Count must be at least 1.';
+          countDisplay.textContent = 'Total: 0 numbers';
+          return;
+        }
+        if (count > 1000) {
+          output.textContent = 'Maximum count is 1,000.';
+          countDisplay.textContent = 'Total: 0 numbers';
+          return;
+        }
+        if (!allowRepeats && !decimal) {
+          var intRange = Math.floor(max) - Math.ceil(min) + 1;
+          if (intRange < count) {
+            output.textContent = 'Cannot generate ' + count + ' unique integers in the range ' + Math.ceil(min) + '-' + Math.floor(max) + '. Reduce the count or allow repeats.';
+            countDisplay.textContent = 'Total: 0 numbers';
+            return;
+          }
+        }
+
+        var numbers = [];
+        var seen = new Set();
+
+        while (numbers.length < count) {
+          var num;
+          if (decimal) {
+            num = getRandomFloat(min, max);
+            num = parseFloat(num.toFixed(4));
+          } else {
+            num = getRandomInt(Math.ceil(min), Math.floor(max));
+          }
+          if (!allowRepeats) {
+            var key = decimal ? num.toFixed(4) : num;
+            if (seen.has(key)) continue;
+            seen.add(key);
+          }
+          numbers.push(num);
+        }
+
+        if (sort) {
+          numbers.sort(function(a, b) { return a - b; });
+        }
+
+        output.textContent = numbers.join('\n');
+        countDisplay.textContent = 'Total: ' + numbers.length + ' number' + (numbers.length !== 1 ? 's' : '');
+      }
+
+      document.getElementById('generateRngBtn').addEventListener('click', generate);
+
+      document.getElementById('copyRngBtn').addEventListener('click', function() {
+        var text = output.textContent;
+        if (text) {
+          navigator.clipboard.writeText(text).catch(function() {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+          });
+        }
+      });
+
+      document.getElementById('clearRngBtn').addEventListener('click', function() {
+        output.textContent = '';
+        countDisplay.textContent = 'Total: 0 numbers';
+      });
+
+      var presetBtns = document.querySelectorAll('.preset-btn');
+      for (var i = 0; i < presetBtns.length; i++) {
+        (function(btn) {
+          btn.addEventListener('click', function() {
+            minInput.value = btn.getAttribute('data-min');
+            maxInput.value = btn.getAttribute('data-max');
+            countInput.value = btn.getAttribute('data-count');
+            repeatsCb.checked = btn.getAttribute('data-repeats') !== 'false';
+            decimalCb.checked = btn.getAttribute('data-decimal') === 'true';
+            sortCb.checked = false;
+            generate();
+          });
+        })(presetBtns[i]);
+      }
+    })();
+  </script>
+</body>
+</html>

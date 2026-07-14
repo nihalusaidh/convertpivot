@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slug Generator — Create SEO-Friendly URL Slugs | ConvertPivot</title>
+  <meta name="description" content="Free online slug generator. Convert any text into SEO-friendly URL slugs instantly. 100% browser-based. No upload required.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/slug-generator">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/slug-generator">
+  <meta property="og:title" content="Slug Generator — Create SEO-Friendly URL Slugs | ConvertPivot">
+  <meta property="og:description" content="Free online slug generator. Convert any text into SEO-friendly URL slugs instantly. 100% browser-based.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Slug Generator — Create SEO-Friendly URL Slugs | ConvertPivot">
+  <meta name="twitter:description" content="Free online slug generator. Convert any text into SEO-friendly URL slugs instantly. 100% browser-based.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Slug Generator","url":"https://convertpivot.com/slug-generator","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online slug generator. Convert any text into SEO-friendly URL slugs instantly. 100% browser-based.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a URL slug?","acceptedAnswer":{"@type":"Answer","text":"A URL slug is the part of a URL that identifies a specific page in a human-readable format. For example, in 'example.com/blog/my-article', 'my-article' is the slug. SEO-friendly slugs use lowercase letters, numbers, and hyphens."}},{"@type":"Question","name":"Why are slugs important for SEO?","acceptedAnswer":{"@type":"Answer","text":"Descriptive slugs help search engines understand page content and improve click-through rates. Including target keywords in your slug can positively impact rankings. Clean slugs are also easier for users to read and share."}},{"@type":"Question","name":"What characters are allowed in a slug?","acceptedAnswer":{"@type":"Answer","text":"URL slugs should only contain lowercase letters (a-z), numbers (0-9), and hyphens (-). Special characters, spaces, and uppercase letters are converted or removed. Hyphens are preferred over underscores for word separation."}},{"@type":"Question","name":"Is this slug generator free?","acceptedAnswer":{"@type":"Answer","text":"Yes, this slug generator is completely free. All processing is done locally in your browser — no data is sent to any server."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Slug Generator</span></nav>
+    <div class="tool-header">
+      <h1>Slug Generator</h1>
+      <p>Convert any text into SEO-friendly URL slugs instantly in your browser.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <label for="slugInput">Enter Text:</label>
+        <textarea id="slugInput" class="converter-textarea" rows="3" placeholder="Type the title or text you want to convert to a slug..."></textarea>
+        <label for="slugSeparator">Separator:</label>
+        <select id="slugSeparator" class="converter-input" style="width:auto;min-width:150px;margin-bottom:12px;">
+          <option value="-">Hyphen (-)</option>
+          <option value="_">Underscore (_)</option>
+          <option value="">None (concatenated)</option>
+        </select>
+        <label style="display:flex;align-items:center;gap:6px;font-size:0.9rem;cursor:pointer;margin-bottom:12px;"><input type="checkbox" id="slugLowercase" checked> Lowercase only</label>
+        <div class="converter-inline">
+          <button id="copySlugBtn" class="btn btn-ghost">Copy Slug</button>
+          <button id="clearSlugBtn" class="btn btn-ghost">Clear</button>
+        </div>
+        <label for="slugOutput">URL Slug:</label>
+        <input type="text" id="slugOutput" class="converter-input" readonly style="width:100%;padding:12px 14px;font-family:monospace;font-size:0.95rem;">
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the Slug Generator</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Enter Text</h3><p>Type or paste the page title, article headline, or any text you want to convert.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Generate Slug</h3><p>Click <strong>Generate Slug</strong> to automatically create a clean, URL-friendly version.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Copy & Use</h3><p>Copy the generated slug and use it in your CMS, URL structure, or permalink settings.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What is a URL slug? <span class="arrow">▼</span></button><div class="faq-answer">A URL slug is the part of a URL that identifies a specific page in a human-readable format. For example, in 'example.com/blog/my-article', 'my-article' is the slug. SEO-friendly slugs use lowercase letters, numbers, and hyphens.</div></div>
+        <div class="faq-item"><button class="faq-question">Why are slugs important for SEO? <span class="arrow">▼</span></button><div class="faq-answer">Descriptive slugs help search engines understand page content and improve click-through rates. Including target keywords in your slug can positively impact rankings. Clean slugs are also easier for users to read and share.</div></div>
+        <div class="faq-item"><button class="faq-question">What characters are allowed in a slug? <span class="arrow">▼</span></button><div class="faq-answer">URL slugs should only contain lowercase letters (a-z), numbers (0-9), and hyphens (-). Special characters, spaces, and uppercase letters are converted or removed. Hyphens are preferred over underscores for word separation.</div></div>
+        <div class="faq-item"><button class="faq-question">Is this slug generator free? <span class="arrow">▼</span></button><div class="faq-answer">Yes, this slug generator is completely free. All processing is done locally in your browser — no data is sent to any server.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      var input = document.getElementById('slugInput');
+      var output = document.getElementById('slugOutput');
+      var separator = document.getElementById('slugSeparator');
+      var lowercase = document.getElementById('slugLowercase');
+
+      function generateSlug(text) {
+        var sep = separator.value || '';
+        var result = text
+          .replace(/[^\w\s-]/g, '')
+          .replace(/[\s_]+/g, sep || '-')
+          .replace(/-+/g, sep || '-');
+        if (lowercase.checked) result = result.toLowerCase();
+        if (sep) result = result.replace(/-/g, sep).replace(/_/g, sep);
+        result = result.replace(new RegExp('^[' + (sep || '-') + ']+|[' + (sep || '-') + ']+$', 'g'), '');
+        return result;
+      }
+
+      function update() {
+        var text = input.value;
+        output.value = text ? generateSlug(text) : '';
+      }
+
+      input.addEventListener('input', update);
+      separator.addEventListener('change', update);
+      lowercase.addEventListener('change', update);
+
+      document.getElementById('copySlugBtn').addEventListener('click', function() {
+        if (output.value) { output.select(); navigator.clipboard.writeText(output.value); }
+      });
+
+      document.getElementById('clearSlugBtn').addEventListener('click', function() {
+        input.value = '';
+        output.value = '';
+      });
+    })();
+  </script>
+</body>
+</html>

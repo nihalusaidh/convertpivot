@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cron Expression Generator — Free Online Cron Builder | ConvertPivot</title>
+  <meta name="description" content="Free online cron expression generator with visual builder, human-readable descriptions, and next 5 run time preview. Build cron jobs for Linux, Kubernetes, and AWS.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/cron-expression-generator">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/cron-expression-generator">
+  <meta property="og:title" content="Cron Expression Generator — Free Online Cron Builder | ConvertPivot">
+  <meta property="og:description" content="Free online cron expression generator with visual builder, human-readable descriptions, and next 5 run time preview. Build cron jobs for Linux, Kubernetes, and AWS.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cron Expression Generator — Free Online Cron Builder | ConvertPivot">
+  <meta name="twitter:description" content="Free online cron expression generator with visual builder, human-readable descriptions, and next 5 run time preview. Build cron jobs for Linux, Kubernetes, and AWS.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Cron Expression Generator","url":"https://convertpivot.com/cron-expression-generator","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online cron expression generator with visual builder, human-readable descriptions, and next 5 run time preview. Build cron jobs for Linux, Kubernetes, and AWS.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a cron expression?","acceptedAnswer":{"@type":"Answer","text":"A cron expression is a string consisting of five fields separated by spaces that define a schedule for recurring tasks. Each field represents a time unit: minute, hour, day of month, month, and day of week. Cron expressions are used in Unix-like operating systems, Kubernetes CronJobs, AWS EventBridge, and many other scheduling systems to automate recurring jobs."}},{"@type":"Question","name":"How do I read a cron expression?","acceptedAnswer":{"@type":"Answer","text":"A cron expression has five fields: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-7, where 0 and 7 are Sunday). Each field can contain a specific value, a range (e.g. 1-5), a step (e.g. */15), a list (e.g. 1,3,5), or an asterisk (*) meaning 'every'. For example, '0 9 * * 1-5' means 'At 9:00 AM, Monday through Friday'."}},{"@type":"Question","name":"What are the 5 fields in a cron expression?","acceptedAnswer":{"@type":"Answer","text":"The five fields in a standard cron expression are: 1) Minute (0-59) — when the job runs within the hour, 2) Hour (0-23) — the hour of day, 3) Day of Month (1-31) — the day of the month, 4) Month (1-12) — the month of the year, and 5) Day of Week (0-7) — the day of the week (0 and 7 both represent Sunday). All fields support wildcards (*), ranges (-), steps (*/), and lists (,)."}},{"@type":"Question","name":"Can I test my cron expression before deploying?","acceptedAnswer":{"@type":"Answer","text":"Yes. This cron expression generator provides a next-5-run-times preview that calculates the next execution times based on your current local time. You can visually build your expression using the dropdown controls and immediately see the human-readable description and upcoming schedule. This helps catch scheduling errors before deploying to production."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Cron Expression Generator</span></nav>
+    <div class="tool-header">
+      <h1>Cron Expression Generator</h1>
+      <p>Visually build cron expressions with dropdown controls. See human-readable descriptions and preview the next 5 execution times instantly.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. No data is sent to any server.</span></div>
+    <div class="converter-widget" id="toolWidget">
+      <div class="converter-form">
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+          <button class="btn btn-ghost preset-btn" data-preset="*/5 * * * *">Every 5 min</button>
+          <button class="btn btn-ghost preset-btn" data-preset="0 * * * *">Every hour</button>
+          <button class="btn btn-ghost preset-btn" data-preset="0 0 * * *">Daily at midnight</button>
+          <button class="btn btn-ghost preset-btn" data-preset="0 9 * * 1-5">Weekdays at 9am</button>
+          <button class="btn btn-ghost preset-btn" data-preset="0 0 * * 1">Every Monday</button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:14px;">
+          <div><label for="cronMinute">Minute</label><select id="cronMinute" class="converter-input"></select></div>
+          <div><label for="cronHour">Hour</label><select id="cronHour" class="converter-input"></select></div>
+          <div><label for="cronDom">Day of Month</label><select id="cronDom" class="converter-input"></select></div>
+          <div><label for="cronMonth">Month</label><select id="cronMonth" class="converter-input"></select></div>
+          <div><label for="cronDow">Day of Week</label><select id="cronDow" class="converter-input"></select></div>
+        </div>
+        <div class="converter-inline">
+          <button id="copyCronBtn" class="btn btn-ghost">Copy Expression</button>
+          <button id="clearCronBtn" class="btn btn-ghost">Reset</button>
+        </div>
+        <div id="cronExpressionDisplay" style="margin-top:12px;padding:10px 14px;background:var(--color-cream);border-radius:6px;font-family:monospace;font-size:1.1rem;text-align:center;word-break:break-all;"></div>
+        <div id="cronDescription" style="margin-top:6px;padding:8px 14px;border-radius:6px;text-align:center;font-size:0.95rem;color:var(--text-secondary);"></div>
+        <div id="cronNextRuns" style="margin-top:10px;"></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>How to Use the Cron Expression Generator</h2>
+      <div class="how-it-works">
+        <div class="how-step"><div class="how-step-num">1</div><h3>Select Preset or Build Manually</h3><p>Click a common preset button like "Every 5 min" or use the dropdowns to fine-tune each cron field.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Read the Description</h3><p>The human-readable description explains exactly when your cron job will run — e.g. "At minute 0, every hour, every day."</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Preview Run Times</h3><p>Check the next 5 execution times calculated from the current moment to verify your schedule is correct.</p></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Cron Expression Field Reference</h2>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+          <thead><tr style="background:var(--color-mist);"><th style="padding:8px 12px;text-align:left;">Field</th><th style="padding:8px 12px;text-align:left;">Required</th><th style="padding:8px 12px;text-align:left;">Allowed Values</th><th style="padding:8px 12px;text-align:left;">Wildcards</th><th style="padding:8px 12px;text-align:left;">Example</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Minute</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Yes</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">0-59</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">*, */n, a-b, a,b</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">*/15 (every 15 min)</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Hour</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Yes</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">0-23</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">*, */n, a-b, a,b</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">9-17 (9 AM to 5 PM)</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Day of Month</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Yes</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">1-31</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">*, */n, a-b, a,b</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">1,15 (1st and 15th)</td></tr>
+            <tr><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Month</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">Yes</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">1-12</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">*, */n, a-b, a,b</td><td style="padding:6px 12px;border-bottom:1px solid var(--color-mist);">*/3 (every quarter)</td></tr>
+            <tr><td style="padding:6px 12px;">Day of Week</td><td style="padding:6px 12px;">Yes</td><td style="padding:6px 12px;">0-7 (0=Sun)</td><td style="padding:6px 12px;">*, */n, a-b, a,b</td><td style="padding:6px 12px;">1-5 (weekdays)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What is a cron expression? <span class="arrow">▼</span></button><div class="faq-answer">A cron expression is a string consisting of five fields separated by spaces that define a schedule for recurring tasks. Each field represents a time unit: minute, hour, day of month, month, and day of week. Cron expressions are used in Unix-like operating systems, Kubernetes CronJobs, AWS EventBridge, and many other scheduling systems to automate recurring jobs.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I read a cron expression? <span class="arrow">▼</span></button><div class="faq-answer">A cron expression has five fields: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-7, where 0 and 7 are Sunday). Each field can contain a specific value, a range (e.g. 1-5), a step (e.g. */15), a list (e.g. 1,3,5), or an asterisk (*) meaning 'every'. For example, '0 9 * * 1-5' means 'At 9:00 AM, Monday through Friday'.</div></div>
+        <div class="faq-item"><button class="faq-question">What are the 5 fields in a cron expression? <span class="arrow">▼</span></button><div class="faq-answer">The five fields in a standard cron expression are: 1) Minute (0-59) — when the job runs within the hour, 2) Hour (0-23) — the hour of day, 3) Day of Month (1-31) — the day of the month, 4) Month (1-12) — the month of the year, and 5) Day of Week (0-7) — the day of the week (0 and 7 both represent Sunday). All fields support wildcards (*), ranges (-), steps (*/), and lists (,).</div></div>
+        <div class="faq-item"><button class="faq-question">Can I test my cron expression before deploying? <span class="arrow">▼</span></button><div class="faq-answer">Yes. This cron expression generator provides a next-5-run-times preview that calculates the next execution times based on your current local time. You can visually build your expression using the dropdown controls and immediately see the human-readable description and upcoming schedule. This helps catch scheduling errors before deploying to production.</div></div>
+      </div>
+    </div>
+    <div class="content-section" id="relatedTools">
+      <h2>Related Tools</h2>
+      <div class="related-tools"></div>
+    </div>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script>
+    (function() {
+      function populateSelect(id, values, labels) {
+        var sel = document.getElementById(id);
+        sel.innerHTML = '';
+        for (var i = 0; i < values.length; i++) {
+          var opt = document.createElement('option');
+          opt.value = values[i];
+          opt.textContent = labels ? labels[i] : values[i];
+          sel.appendChild(opt);
+        }
+      }
+
+      var minuteOptions = ['*','*/1','*/5','*/10','*/15','*/30'];
+      for (var m = 0; m <= 59; m++) minuteOptions.push(String(m));
+      populateSelect('cronMinute', minuteOptions);
+
+      var hourOptions = ['*','*/1','*/2','*/6','*/12'];
+      for (var h = 0; h <= 23; h++) hourOptions.push(String(h));
+      populateSelect('cronHour', hourOptions);
+
+      var domOptions = ['*','*/1','*/2','*/7','*/14'];
+      for (var d = 1; d <= 31; d++) domOptions.push(String(d));
+      populateSelect('cronDom', domOptions);
+
+      var monthOptions = ['*','*/1','*/2','*/3','*/6'];
+      for (var mo = 1; mo <= 12; mo++) monthOptions.push(String(mo));
+      populateSelect('cronMonth', monthOptions);
+
+      var dowLabels = ['0 (Sun)','1 (Mon)','2 (Tue)','3 (Wed)','4 (Thu)','5 (Fri)','6 (Sat)','7 (Sun)','Mon-Fri','Weekends'];
+      var dowValues = ['*','0','1','2','3','4','5','6','7','1-5','0,6'];
+      populateSelect('cronDow', dowValues, dowLabels);
+
+      var expDisplay = document.getElementById('cronExpressionDisplay');
+      var descDisplay = document.getElementById('cronDescription');
+      var nextDisplay = document.getElementById('cronNextRuns');
+
+      var dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      var monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+      function describeField(value, fieldName, unitNames) {
+        if (value === '*') return 'every ' + fieldName;
+        if (value.indexOf('*/') === 0) return 'every ' + value.substr(2) + ' ' + fieldName;
+        if (value.indexOf('-') >= 0) {
+          var parts = value.split('-');
+          return fieldName + ' ' + parts[0] + ' through ' + parts[1];
+        }
+        if (value.indexOf(',') >= 0) {
+          var items = value.split(',');
+          return fieldName + ' ' + items.join(', ');
+        }
+        return 'at ' + fieldName + ' ' + value;
+      }
+
+      function describeCron(expr) {
+        var parts = expr.split(' ');
+        var desc = '';
+
+        if (parts[0] === '*') desc += 'every minute';
+        else if (parts[0] === '*/1') desc += 'every minute';
+        else if (parts[0].indexOf('*/') === 0) desc += 'every ' + parts[0].substr(2) + ' minutes';
+        else if (parts[0].indexOf(',') >= 0) desc += 'at minute ' + parts[0];
+        else desc += 'at minute ' + parts[0];
+
+        if (parts[1] === '*') desc += ', every hour';
+        else if (parts[1].indexOf('*/') === 0) desc += ', every ' + parts[1].substr(2) + ' hours';
+        else if (parts[1].indexOf('-') >= 0) desc += ', hour ' + parts[1];
+        else desc += ', at hour ' + parts[1];
+
+        if (parts[2] === '*') desc += ', every day';
+        else if (parts[2].indexOf('*/') === 0) desc += ', every ' + parts[2].substr(2) + ' days';
+        else if (parts[2].indexOf(',') >= 0) desc += ', on day ' + parts[2];
+        else desc += ', on day ' + parts[2];
+
+        if (parts[3] === '*') desc += ', every month';
+        else if (parts[3].indexOf('*/') === 0) desc += ', every ' + parts[3].substr(2) + ' months';
+        else if (parts[3].indexOf(',') >= 0) desc += ', in month ' + parts[3];
+        else desc += ', in month ' + parts[3];
+
+        if (parts[4] === '*') desc += ', any day of week';
+        else if (parts[4] === '1-5') desc += ', Monday through Friday';
+        else if (parts[4] === '0,6') desc += ', Saturday through Sunday';
+        else if (parts[4] === '0' || parts[4] === '7') desc += ', on Sunday';
+        else if (parts[4].indexOf('-') >= 0) {
+          var pr = parts[4].split('-');
+          desc += ', ' + dayNames[parseInt(pr[0])] + ' through ' + dayNames[parseInt(pr[1])];
+        } else desc += ', on ' + dayNames[parseInt(parts[4])];
+
+        return desc.charAt(0).toUpperCase() + desc.substr(1) + '.';
+      }
+
+      function matchesCron(date, expr) {
+        var parts = expr.split(' ');
+        var min = date.getMinutes(), hour = date.getHours(), dom = date.getDate(), mon = date.getMonth() + 1, dow = date.getDay();
+
+        function matches(val, unit) {
+          if (val === '*') return true;
+          if (val.indexOf('*/') === 0) {
+            var step = parseInt(val.substr(2));
+            return step > 0 && unit % step === 0;
+          }
+          if (val.indexOf('-') >= 0) {
+            var r = val.split('-');
+            return unit >= parseInt(r[0]) && unit <= parseInt(r[1]);
+          }
+          if (val.indexOf(',') >= 0) {
+            var items = val.split(',');
+            for (var i = 0; i < items.length; i++) if (parseInt(items[i]) === unit) return true;
+            return false;
+          }
+          return parseInt(val) === unit;
+        }
+        return matches(parts[0], min) && matches(parts[1], hour) && matches(parts[2], dom) && matches(parts[3], mon) && matches(parts[4], dow);
+      }
+
+      function getNextRuns(expr, count) {
+        var now = new Date();
+        var runs = [];
+        var d = new Date(now);
+        d.setSeconds(0);
+        d.setMilliseconds(0);
+        var maxLoops = 525600;
+        var loops = 0;
+        while (runs.length < count && loops < maxLoops) {
+          if (matchesCron(d, expr)) {
+            if (d > now) runs.push(new Date(d));
+          }
+          d.setMinutes(d.getMinutes() + 1);
+          loops++;
+        }
+        return runs;
+      }
+
+      function formatDate(d) {
+        var day = String(d.getDate()).padStart(2, '0');
+        var month = String(d.getMonth() + 1).padStart(2, '0');
+        var year = d.getFullYear();
+        var hour = String(d.getHours()).padStart(2, '0');
+        var min = String(d.getMinutes()).padStart(2, '0');
+        var dow = dayNames[d.getDay()];
+        return day + '/' + month + '/' + year + ' ' + hour + ':' + min + ' (' + dow + ')';
+      }
+
+      function updateCron() {
+        var parts = [
+          document.getElementById('cronMinute').value || '*',
+          document.getElementById('cronHour').value || '*',
+          document.getElementById('cronDom').value || '*',
+          document.getElementById('cronMonth').value || '*',
+          document.getElementById('cronDow').value || '*'
+        ];
+        var expr = parts.join(' ');
+        expDisplay.textContent = expr;
+        descDisplay.textContent = describeCron(expr);
+
+        var runs = getNextRuns(expr, 5);
+        var html = '<div style="font-weight:600;margin-bottom:6px;font-size:0.9rem;">Next 5 Run Times:</div>';
+        if (runs.length === 0) {
+          html += '<div style="padding:8px 12px;background:var(--color-cream);border-radius:6px;font-size:0.85rem;color:var(--color-error);">No upcoming run times found. Check your expression.</div>';
+        } else {
+          for (var i = 0; i < runs.length; i++) {
+            html += '<div style="padding:6px 10px;background:var(--color-cream);border-radius:4px;margin-bottom:4px;font-family:monospace;font-size:0.85rem;">' + formatDate(runs[i]) + '</div>';
+          }
+        }
+        nextDisplay.innerHTML = html;
+      }
+
+      var selects = ['cronMinute','cronHour','cronDom','cronMonth','cronDow'];
+      for (var i = 0; i < selects.length; i++) {
+        document.getElementById(selects[i]).addEventListener('change', updateCron);
+      }
+
+      var presetBtns = document.querySelectorAll('.preset-btn');
+      for (var i = 0; i < presetBtns.length; i++) {
+        presetBtns[i].addEventListener('click', function() {
+          var expr = this.getAttribute('data-preset');
+          var parts = expr.split(' ');
+          document.getElementById('cronMinute').value = parts[0];
+          document.getElementById('cronHour').value = parts[1];
+          document.getElementById('cronDom').value = parts[2];
+          document.getElementById('cronMonth').value = parts[3];
+          document.getElementById('cronDow').value = parts[4];
+          updateCron();
+        });
+      }
+
+      document.getElementById('copyCronBtn').addEventListener('click', function() {
+        var text = expDisplay.textContent;
+        if (text) navigator.clipboard.writeText(text);
+      });
+
+      document.getElementById('clearCronBtn').addEventListener('click', function() {
+        document.getElementById('cronMinute').value = '*';
+        document.getElementById('cronHour').value = '*';
+        document.getElementById('cronDom').value = '*';
+        document.getElementById('cronMonth').value = '*';
+        document.getElementById('cronDow').value = '*';
+        updateCron();
+      });
+
+      updateCron();
+    })();
+  </script>
+</body>
+</html>
