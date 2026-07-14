@@ -189,10 +189,9 @@
           pdfDoc.setProducer('');
         }
 
-        if (level === 'medium' || level === 'high') {
+        if (level === 'medium') {
           var pages = pdfDoc.getPages();
           for (var i = 0; i < pages.length; i++) {
-            pages[i].setRotation({ angle: pages[i].getRotation().angle });
             progress.set(Math.round(((i + 1) / pages.length) * 50));
           }
         }
