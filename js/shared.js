@@ -1646,9 +1646,11 @@
   // ============================================================
   // AUTO-INIT
   // ============================================================
+  // Build sidebar immediately (nav element already in DOM since script loads at body end)
+  buildSidebar();
+
   document.addEventListener('DOMContentLoaded', function () {
     trackPageview();
-    buildSidebar();
     initDarkMode();
     injectThemeColor();
     injectOrgSchema();
