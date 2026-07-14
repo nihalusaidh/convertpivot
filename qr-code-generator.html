@@ -36,26 +36,63 @@
     </div>
     <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device.</span></div>
 
-    <div class="converter-widget" style="max-width:600px;margin:0 auto;">
+    <div class="converter-widget" style="max-width:640px;margin:0 auto;">
       <div class="converter-form">
-        <div style="background:var(--color-smoke);border-radius:var(--radius-card);padding:20px;margin-bottom:20px;">
+        <div style="background:var(--color-smoke);border-radius:var(--radius-card);padding:20px;margin-bottom:16px;">
           <label for="qrInput" style="font-weight:600;font-size:0.95rem;display:block;margin-bottom:8px;color:var(--color-ink);">Enter text or URL</label>
-          <input type="text" id="qrInput" class="converter-input" placeholder="https://example.com" value="https://convertpivot.com" style="width:100%;padding:12px 16px;font-size:1rem;border:2px solid var(--color-mist);border-radius:var(--radius-card);background:var(--color-bg);color:var(--color-ink);transition:border-color 0.15s;box-sizing:border-box;">
-          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+          <input type="text" id="qrInput" placeholder="https://example.com" value="https://convertpivot.com" style="width:100%;padding:12px 16px;font-size:1rem;border:2px solid var(--color-mist);border-radius:var(--radius-card);background:var(--color-bg);color:var(--color-ink);transition:border-color 0.15s;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='var(--color-red)'" onblur="this.style.borderColor='var(--color-mist)'">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px">
             <button class="btn btn-sm btn-ghost qr-preset" data-value="https://convertpivot.com">Website</button>
             <button class="btn btn-sm btn-ghost qr-preset" data-value="Hello, world!">Text</button>
             <button class="btn btn-sm btn-ghost qr-preset" data-value="tel:+1234567890">Phone</button>
             <button class="btn btn-sm btn-ghost qr-preset" data-value="mailto:hello@example.com">Email</button>
+            <button class="btn btn-sm btn-ghost qr-preset" data-value="WIFI:S:MyWiFi;T:WPA;P:password123;;">Wi-Fi</button>
+            <button class="btn btn-sm btn-ghost qr-preset" data-value="BEGIN:VCARD
+VERSION:3.0
+FN:John Doe
+TEL:+1234567890
+EMAIL:john@example.com
+END:VCARD">vCard</button>
           </div>
-          <button id="generateBtn" class="btn btn-primary" style="margin-top:14px;width:100%;padding:12px;font-size:1rem;">Generate QR Code</button>
         </div>
 
-        <div style="background:var(--color-smoke);border-radius:var(--radius-card);padding:24px;text-align:center;">
-          <div id="qrCodeContainer" style="min-height:280px;display:flex;align-items:center;justify-content:center;background:var(--color-bg);border-radius:var(--radius-card);padding:16px;">
-            <div style="color:var(--color-mist);font-size:0.9rem;">Your QR code will appear here</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+          <div style="background:var(--color-smoke);border-radius:var(--radius-card);padding:14px;">
+            <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:6px;color:var(--color-graphite);">Foreground</label>
+            <input type="color" id="qrFgColor" value="#000000" style="width:100%;height:36px;padding:2px;border:2px solid var(--color-mist);border-radius:6px;background:none;cursor:pointer;">
           </div>
-          <div id="qrError" style="color:var(--color-error,#ef4444);text-align:center;display:none;margin-top:12px;font-size:0.9rem;"></div>
-          <button id="downloadQrBtn" class="btn btn-secondary" style="display:none;margin-top:16px;padding:10px 24px;">Download PNG</button>
+          <div style="background:var(--color-smoke);border-radius:var(--radius-card);padding:14px;">
+            <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:6px;color:var(--color-graphite);">Background</label>
+            <input type="color" id="qrBgColor" value="#ffffff" style="width:100%;height:36px;padding:2px;border:2px solid var(--color-mist);border-radius:6px;background:none;cursor:pointer;">
+          </div>
+          <div style="background:var(--color-smoke);border-radius:var(--radius-card);padding:14px;">
+            <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:6px;color:var(--color-graphite);">Size</label>
+            <select id="qrSize" style="width:100%;padding:8px;border:2px solid var(--color-mist);border-radius:6px;background:var(--color-bg);color:var(--color-ink);font-size:0.85rem;outline:none;">
+              <option value="180">Small</option>
+              <option value="256" selected>Medium</option>
+              <option value="360">Large</option>
+            </select>
+          </div>
+          <div style="background:var(--color-smoke);border-radius:var(--radius-card);padding:14px;">
+            <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:6px;color:var(--color-graphite);">Error Correction</label>
+            <select id="qrECC" style="width:100%;padding:8px;border:2px solid var(--color-mist);border-radius:6px;background:var(--color-bg);color:var(--color-ink);font-size:0.85rem;outline:none;">
+              <option value="L">Low (7%)</option>
+              <option value="M">Medium (15%)</option>
+              <option value="Q">High (25%)</option>
+              <option value="H" selected>Highest (30%)</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="generateBtn" class="btn btn-primary" style="width:100%;padding:12px;font-size:1rem;margin-bottom:16px;">Generate QR Code</button>
+
+        <div style="background:var(--color-smoke);border-radius:var(--radius-card);padding:24px;text-align:center;">
+          <div style="font-size:0.8rem;font-weight:600;color:var(--color-graphite);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;">Your QR Code</div>
+          <div id="qrCodeContainer" style="min-height:300px;display:flex;align-items:center;justify-content:center;background:var(--color-bg);border-radius:var(--radius-card);padding:20px;">
+            <div style="color:var(--color-mist);font-size:0.9rem;">Enter content and click Generate</div>
+          </div>
+          <div id="qrError" style="color:var(--color-error,#ef4444);text-align:center;display:none;margin-top:10px;font-size:0.9rem;"></div>
+          <button id="downloadQrBtn" class="btn btn-secondary" style="display:none;margin-top:16px;padding:10px 24px;font-size:0.95rem;">Download PNG</button>
         </div>
       </div>
     </div>
@@ -63,9 +100,9 @@
     <div class="content-section">
       <h2>How to Use the QR Code Generator</h2>
       <div class="how-it-works">
-        <div class="how-step"><div class="how-step-num">1</div><h3>Enter Your Content</h3><p>Type or paste the text, URL, or any data you want to encode in the QR code.</p></div>
-        <div class="how-step"><div class="how-step-num">2</div><h3>Generate QR Code</h3><p>Click the Generate button to create your QR code instantly in your browser.</p></div>
-        <div class="how-step"><div class="how-step-num">3</div><h3>Download PNG</h3><p>Save your QR code as a high-quality PNG image for printing or sharing.</p></div>
+        <div class="how-step"><div class="how-step-num">1</div><h3>Enter Your Content</h3><p>Type or paste the text, URL, or any data you want to encode in the QR code. Use the preset buttons for common formats like Website, Wi-Fi, or vCard.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Customize Appearance</h3><p>Change the foreground and background colors, adjust the size, and choose error correction level. The QR code updates live as you make changes.</p></div>
+        <div class="how-step"><div class="how-step-num">3</div><h3>Download PNG</h3><p>Save your QR code as a high-quality PNG image for printing or sharing. The filename matches your content.</p></div>
       </div>
     </div>
 
@@ -101,14 +138,22 @@
       var container = document.getElementById('qrCodeContainer');
       var downloadBtn = document.getElementById('downloadQrBtn');
       var errorDiv = document.getElementById('qrError');
+      var fgPicker = document.getElementById('qrFgColor');
+      var bgPicker = document.getElementById('qrBgColor');
+      var sizeSelect = document.getElementById('qrSize');
+      var eccSelect = document.getElementById('qrECC');
+
+      var eccMap = { L: QRCode.CorrectLevel.L, M: QRCode.CorrectLevel.M, Q: QRCode.CorrectLevel.Q, H: QRCode.CorrectLevel.H };
+
+      var debounceTimer;
 
       function generateQR() {
         var text = input.value.trim();
         errorDiv.style.display = 'none';
 
         if (!text) {
-          errorDiv.textContent = 'Please enter some content first.';
-          errorDiv.style.display = '';
+          container.innerHTML = '<div style="color:var(--color-mist);font-size:0.9rem;">Enter content and click Generate</div>';
+          downloadBtn.style.display = 'none';
           return;
         }
 
@@ -118,15 +163,20 @@
           return;
         }
 
+        var size = parseInt(sizeSelect.value, 10);
+        var fg = fgPicker.value;
+        var bg = bgPicker.value;
+        var ecc = eccMap[eccSelect.value] || QRCode.CorrectLevel.H;
+
         container.innerHTML = '';
         try {
           qrCode = new QRCode(container, {
             text: text,
-            width: 256,
-            height: 256,
-            colorDark: '#000000',
-            colorLight: '#ffffff',
-            correctLevel: QRCode.CorrectLevel.H
+            width: size,
+            height: size,
+            colorDark: fg,
+            colorLight: bg,
+            correctLevel: ecc
           });
           downloadBtn.style.display = '';
         } catch (e) {
@@ -136,15 +186,24 @@
       }
 
       document.getElementById('generateBtn').addEventListener('click', generateQR);
-      input.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') generateQR();
+      input.addEventListener('input', function() {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(generateQR, 300);
       });
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') { clearTimeout(debounceTimer); generateQR(); }
+      });
+      fgPicker.addEventListener('input', generateQR);
+      bgPicker.addEventListener('input', generateQR);
+      sizeSelect.addEventListener('change', generateQR);
+      eccSelect.addEventListener('change', generateQR);
 
       downloadBtn.addEventListener('click', function() {
         var canvas = container.querySelector('canvas');
         if (!canvas) return;
         var link = document.createElement('a');
-        link.download = 'qrcode.png';
+        var prefix = input.value.trim().replace(/[^a-z0-9]/gi, '_').substring(0, 30) || 'qrcode';
+        link.download = prefix + '.png';
         link.href = canvas.toDataURL('image/png');
         link.click();
       });
