@@ -1,32 +1,48 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PNG to SVG — Raster to Vector | ConvertPivot</title>
-  <meta name="description" content="Free online PNG to SVG converter. Convert PNG raster images to SVG vector format with embedded base64 data. Private browser-based tool.">
-    <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <title>PNG to SVG Converter — Raster to Vector Tracing | ConvertPivot</title>
+  <meta name="description" content="Free online PNG to SVG converter with real vector tracing. Convert PNG raster images to SVG vector paths using ImageTracer. Private browser-based tool with before/after comparison.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/png-to-svg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/png-to-svg">
-  <meta property="og:title" content="PNG to SVG — Raster to Vector | ConvertPivot">
-  <meta property="og:description" content="Free online PNG to SVG converter. Convert PNG raster images to SVG vector format with embedded base64 data. Private browser-based tool.">
+  <meta property="og:title" content="PNG to SVG Converter — Raster to Vector Tracing | ConvertPivot">
+  <meta property="og:description" content="Free online PNG to SVG converter with real vector tracing. Convert PNG raster images to SVG vector paths using ImageTracer. Private browser-based tool with before/after comparison.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PNG to SVG — Raster to Vector | ConvertPivot">
-  <meta name="twitter:description" content="Free online PNG to SVG converter. Convert PNG raster images to SVG vector format with embedded base64 data. Private browser-based tool.">
+  <meta name="twitter:title" content="PNG to SVG Converter — Raster to Vector Tracing | ConvertPivot">
+  <meta name="twitter:description" content="Free online PNG to SVG converter with real vector tracing. Convert PNG raster images to SVG vector paths using ImageTracer. Private browser-based tool with before/after comparison.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="icon" href="/favicon.png" sizes="32x32">
   <link rel="icon" href="/favicon-16.png" sizes="16x16">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"PNG to SVG Converter","url":"https://convertpivot.com/png-to-svg","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online PNG to SVG converter. Convert PNG raster images to SVG vector format with embedded base64 data. Private browser-based tool."}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between raster and vector images?","acceptedAnswer":{"@type":"Answer","text":"Raster images (like PNG and JPEG) are made of pixels and lose quality when scaled up. Vector images (like SVG) are defined by mathematical paths and can be scaled infinitely without quality loss. Vector graphics are ideal for logos, icons, and illustrations."}},{"@type":"Question","name":"Does this converter trace the image into real vectors?","acceptedAnswer":{"@type":"Answer","text":"This converter embeds the PNG image as a base64-encoded data URI inside an SVG container. This preserves the original raster data within an SVG wrapper. It does not perform vector tracing. For true raster-to-vector conversion, use a dedicated vectorization tool like Adobe Illustrator's Image Trace or Inkscape's Trace Bitmap."}},{"@type":"Question","name":"When would I use an embedded PNG in SVG?","acceptedAnswer":{"@type":"Answer","text":"Embedding a PNG inside SVG is useful when you need to combine raster images with vector elements in a single file, apply SVG filters or transformations to a raster image, or work with tools that prefer SVG input but need to include photographic content."}},{"@type":"Question","name":"Will an embedded PNG SVG be smaller than the original PNG?","acceptedAnswer":{"@type":"Answer","text":"The SVG file will be slightly larger than the original PNG because base64 encoding adds approximately 33% overhead. However, the SVG wrapper provides additional utility when you need to combine raster and vector elements, add responsive scaling, or apply CSS styling."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"PNG to SVG Converter","url":"https://convertpivot.com/png-to-svg","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online PNG to SVG converter with real vector tracing. Convert PNG raster images to SVG vector paths using ImageTracer. Private browser-based tool with before/after comparison."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between raster and vector images?","acceptedAnswer":{"@type":"Answer","text":"Raster images (like PNG and JPEG) are made of pixels and lose quality when scaled up. Vector images (like SVG) are defined by mathematical paths and can be scaled infinitely without quality loss. Vector graphics are ideal for logos, icons, and illustrations."}},{"@type":"Question","name":"Does this converter trace the image into real vectors?","acceptedAnswer":{"@type":"Answer","text":"Yes. This converter uses ImageTracerJS to perform real vector tracing, converting PNG pixel data into SVG vector paths. You can choose between detailed tracing (more points, higher quality) or simplified tracing (fewer points, smaller file). For complex photographic images where vector tracing may not produce ideal results, the tool automatically falls back to base64 embedding to preserve the original image quality."}},{"@type":"Question","name":"When should I use vector tracing vs base64 embedding?","acceptedAnswer":{"@type":"Answer","text":"Vector tracing works best on logos, icons, illustrations, text, and images with clear edges and solid colors. The result is a true scalable SVG with small file size. Base64 embedding (the fallback method) is better for photographs and complex gradients, where vector tracing would produce too many paths or lose detail. The tool automatically uses the best approach based on the image type."}},{"@type":"Question","name":"Will the SVG file be smaller than the original PNG?","acceptedAnswer":{"@type":"Answer","text":"For vector-traced SVGs of simple graphics (logos, icons), the file will typically be much smaller than the original PNG and will scale infinitely without quality loss. For base64-embedded SVGs (fallback method), the file will be approximately 33% larger than the original PNG due to base64 encoding overhead."}}]}</script>
+  <style>
+    .tracing-mode { display:flex; align-items:center; gap:8px; margin-top:16px; flex-wrap:wrap; }
+    .mode-label { font-size:0.85rem; font-weight:500; color:var(--color-graphite); margin-right:4px; }
+    .mode-btn { position:relative; display:inline-block; }
+    .mode-btn input { position:absolute; opacity:0; width:0; height:0; }
+    .mode-btn span { display:inline-block; padding:7px 18px; border:1px solid var(--color-mist); border-radius:var(--radius-pill); font-size:0.85rem; cursor:pointer; transition:all 0.15s; color:var(--color-graphite); background:var(--color-canvas); user-select:none; }
+    .mode-btn input:checked + span { border-color:var(--color-red); background:var(--color-red); color:#fff; }
+    .mode-btn span:hover { border-color:var(--color-red); }
+    .comparison { display:none; grid-template-columns:1fr 1fr; gap:16px; margin:16px 0; }
+    .comparison-item { text-align:center; }
+    .comparison-label { font-size:0.8rem; font-weight:600; margin-bottom:8px; color:var(--color-graphite); text-transform:uppercase; letter-spacing:0.04em; }
+    .comparison-image { border:1px solid var(--color-mist); border-radius:var(--radius-card); padding:8px; background:var(--color-smoke); min-height:80px; display:flex; align-items:center; justify-content:center; }
+    .comparison-image img, .comparison-image svg { max-width:100%; height:auto; display:block; margin:0 auto; }
+    #downloadSvgBtn { margin-top:0; }
+    @media (max-width:480px) { .comparison { grid-template-columns:1fr; } }
+  </style>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
   <nav id="sidebar" class="sidebar">
     <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
       <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
@@ -60,7 +76,7 @@
       <a href="/avif-to-jpg" class="sidebar-link"><span class="icon">✨</span>AVIF to JPG</a>
       <a href="/webp-to-jpg" class="sidebar-link"><span class="icon">🖼</span>WebP to JPG</a>
       <a href="/svg-to-png" class="sidebar-link"><span class="icon">📐</span>SVG to PNG</a>
-      <a href="/jpg-to-heic" class="sidebar-link"><span class="icon">📸</span>JPG to HEIC</a>
+      <a href="/jpg-to-avif" class="sidebar-link"><span class="icon">✨</span>JPG to AVIF</a>
       <a href="/jpg-to-avif" class="sidebar-link"><span class="icon">✨</span>JPG to AVIF</a>
       <a href="/png-to-svg" class="sidebar-link active"><span class="icon">📐</span>PNG to SVG</a>
     </div>
@@ -76,8 +92,8 @@
   <main id="main-content" class="main-content">
     <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">PNG to SVG</span></nav>
     <div class="tool-header">
-      <h1>PNG to SVG Converter — Raster to Vector Wrapper</h1>
-      <p>Convert PNG raster images to SVG vector format. Embeds your PNG as base64 data inside a scalable SVG container for design and development use.</p>
+      <h1>PNG to SVG Converter — Raster to Vector Tracing</h1>
+      <p>Convert PNG raster images to SVG vector format with real vector tracing. For logos, icons, and illustrations, ImageTracer creates actual vector paths. For photographic images, the tool falls back to embedding the PNG as base64 data inside an SVG container.</p>
     </div>
     <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your images never leave your device.</span></div>
     <div class="converter-widget" id="pngsvgWidget">
@@ -88,9 +104,27 @@
         <input type="file" accept=".png" aria-label="Choose PNG file">
       </div>
       <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">✕</button></div>
+      <div class="tracing-mode">
+        <span class="mode-label">Tracing Quality:</span>
+        <label class="mode-btn"><input type="radio" name="traceMode" value="detailed" checked><span>Detailed</span></label>
+        <label class="mode-btn"><input type="radio" name="traceMode" value="simplified"><span>Simplified</span></label>
+      </div>
       <div class="converter-controls"><button class="btn btn-primary" id="pngsvgConvertBtn">Convert to SVG</button></div>
       <div class="progress-bar" id="pngsvgProgress"><div class="progress-bar-fill"></div></div>
-      <div class="converter-result" id="pngsvgResult"><div class="converter-result-message"></div></div>
+      <div class="converter-result" id="pngsvgResult">
+        <div class="converter-result-message"></div>
+        <div class="comparison" id="pngsvgComparison">
+          <div class="comparison-item">
+            <div class="comparison-label">Original PNG</div>
+            <div class="comparison-image" id="originalPreview"></div>
+          </div>
+          <div class="comparison-item">
+            <div class="comparison-label">Traced SVG</div>
+            <div class="comparison-image" id="svgPreview"></div>
+          </div>
+        </div>
+        <button class="btn btn-success" id="downloadSvgBtn" style="display:none">⬇ Download SVG</button>
+      </div>
     </div>
     <div class="content-section">
       <h2>How to Convert PNG to SVG</h2>
@@ -98,38 +132,37 @@
         <div class="how-step">
           <div class="how-step-num">1</div>
           <h3>Select Your PNG</h3>
-          <p>Drag and drop a PNG image onto the converter or click to browse. The image is read and decoded in your browser.</p>
+          <p>Drag and drop a PNG image onto the converter or click to browse. The image is read and decoded in your browser. Works best with logos, icons, illustrations, and graphics with clear edges.</p>
         </div>
         <div class="how-step">
           <div class="how-step-num">2</div>
-          <h3>Generate SVG</h3>
-          <p>Click "Convert to SVG" to embed the PNG image as a base64-encoded data URI inside an SVG element. The SVG automatically sizes to match your PNG's dimensions.</p>
+          <h3>Choose Tracing Mode</h3>
+          <p>Pick <strong>Detailed</strong> for maximum quality with more vector points, or <strong>Simplified</strong> for smaller file sizes with fewer paths. The tool then traces the image using ImageTracerJS to create real SVG vector paths.</p>
         </div>
         <div class="how-step">
           <div class="how-step-num">3</div>
           <h3>Download and Use</h3>
-          <p>Download the SVG file. Use it in design tools, web projects, or anywhere SVG is accepted. The embedded image retains its original resolution and quality.</p>
+          <p>Compare the original PNG with the traced SVG right in your browser. Download the SVG file for use in design tools, web projects, or anywhere vector graphics are needed.</p>
         </div>
       </div>
-      <p>This converter takes a PNG raster image and wraps it inside an SVG (Scalable Vector Graphics) container by encoding the PNG as a base64 data URI. The resulting file is a valid SVG document that displays the original PNG when rendered, while gaining the benefits of SVG compatibility—responsive scaling, CSS styling, and the ability to combine with other vector elements in a single file.</p>
-      <p>This approach is particularly useful in several scenarios. Web developers may need to serve raster images through SVG-enabled pipelines. Designers working in tools like Figma, Sketch, or Adobe XD might need to import raster assets into SVG-based workflows. When you need to apply SVG filters, masks, or transformations to a raster image, embedding it in SVG is the most practical approach.</p>
-      <p>It is important to understand that this is not vector tracing. The output SVG contains the original pixel data encoded as base64 text rather than actual vector paths. For true raster-to-vector conversion that creates scalable paths, you need dedicated vectorization software. However, embedding in SVG offers a lightweight way to gain SVG compatibility without losing any image quality.</p>
-      <p>The SVG file includes viewBox and width/height attributes matching your original PNG dimensions, making it responsive by default. The base64 encoding adds approximately 33% overhead to the file size compared to the original PNG.</p>
+      <p>This converter uses <strong>ImageTracerJS</strong>, a powerful browser-based raster-to-vector tracing library, to convert your PNG images into genuine SVG vector paths. Unlike simple base64 embedding (which just wraps pixel data in an SVG container), vector tracing analyzes the image and creates mathematical paths that can be scaled infinitely, edited in vector software, and styled with CSS.</p>
+      <p>For logos, icons, diagrams, and illustrations with solid colors and clear edges, vector tracing produces exceptional results — the SVG will be smaller than the PNG and will scale to any size without quality loss. For complex photographic images with gradients and fine detail, the tool automatically falls back to base64 embedding, which preserves the original pixel data inside an SVG wrapper while still providing SVG compatibility.</p>
+      <p>You can choose between <strong>Detailed trace</strong> (more vector points, better fidelity, larger file) and <strong>Simplified trace</strong> (fewer points, cleaner paths, smaller file). The before/after comparison lets you instantly see the results before downloading.</p>
     </div>
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
         <div class="faq-item"><button class="faq-question">What is the difference between raster and vector images? <span class="arrow">▼</span></button><div class="faq-answer">Raster images (like PNG and JPEG) are made of pixels and lose quality when scaled up. Vector images (like SVG) are defined by mathematical paths and can be scaled infinitely without quality loss. Vector graphics are ideal for logos, icons, and illustrations.</div></div>
-        <div class="faq-item"><button class="faq-question">Does this converter trace the image into real vectors? <span class="arrow">▼</span></button><div class="faq-answer">This converter embeds the PNG as a base64 data URI inside an SVG container. It does not perform vector tracing. For true raster-to-vector conversion, use a dedicated vectorization tool like Adobe Illustrator's Image Trace or Inkscape's Trace Bitmap.</div></div>
-        <div class="faq-item"><button class="faq-question">When would I use an embedded PNG in SVG? <span class="arrow">▼</span></button><div class="faq-answer">Embedding a PNG inside SVG is useful when you need to combine raster images with vector elements in a single file, apply SVG filters or transformations to a raster image, or work with tools that prefer SVG input.</div></div>
-        <div class="faq-item"><button class="faq-question">Will an embedded PNG SVG be smaller than the original PNG? <span class="arrow">▼</span></button><div class="faq-answer">The SVG file will be slightly larger than the original PNG because base64 encoding adds approximately 33% overhead. However, the SVG wrapper provides additional utility when you need to combine raster and vector elements.</div></div>
+        <div class="faq-item"><button class="faq-question">Does this converter trace the image into real vectors? <span class="arrow">▼</span></button><div class="faq-answer">Yes. This converter uses ImageTracerJS to perform real vector tracing, converting PNG pixel data into SVG vector paths. You can choose between <strong>Detailed trace</strong> (more points, higher quality) and <strong>Simplified trace</strong> (fewer points, smaller file). For complex photographic images where vector tracing may not produce ideal results, the tool automatically falls back to base64 embedding to preserve the original image quality.</div></div>
+        <div class="faq-item"><button class="faq-question">When should I use vector tracing vs base64 embedding? <span class="arrow">▼</span></button><div class="faq-answer"><strong>Vector tracing</strong> works best on logos, icons, illustrations, text, and images with clear edges and solid colors. The result is a true scalable SVG with small file size. <strong>Base64 embedding</strong> (the automatic fallback) is better for photographs and complex gradients where vector tracing would produce too many paths or lose detail. The tool tries vector tracing first and falls back to base64 embedding if needed.</div></div>
+        <div class="faq-item"><button class="faq-question">Will the SVG file be smaller than the original PNG? <span class="arrow">▼</span></button><div class="faq-answer">For vector-traced SVGs of simple graphics (logos, icons), the file will typically be much smaller than the original PNG and will scale infinitely without quality loss. For base64-embedded SVGs (fallback method), the file will be approximately 33% larger than the original PNG due to base64 encoding overhead.</div></div>
       </div>
     </div>
     <div class="content-section">
       <h2>Related Tools</h2>
       <div class="related-tools">
         <a href="/svg-to-png" class="related-tool-card">SVG to PNG <span class="desc">Convert vector to raster</span></a>
-        <a href="/jpg-to-heic" class="related-tool-card">JPG to HEIC <span class="desc">Convert to iPhone format</span></a>
+        <a href="/heic-to-jpg" class="related-tool-card">HEIC to JPG <span class="desc">Convert iPhone photos to JPEG</span></a>
         <a href="/jpg-to-avif" class="related-tool-card">JPG to AVIF <span class="desc">Convert to next-gen format</span></a>
       </div>
     </div>
@@ -147,6 +180,8 @@
     document.getElementById('pngsvgConvertBtn').addEventListener('click', async function() {
       if (!currentFile) { ConvertPivot.showResult('pngsvgResult', 'Please select a PNG file first.', 'error'); return; }
       ConvertPivot.hideResult('pngsvgResult');
+      document.getElementById('pngsvgComparison').style.display = 'none';
+      document.getElementById('downloadSvgBtn').style.display = 'none';
       var progress = ConvertPivot.showProgress('pngsvgProgress');
       try {
         var dataUrl = await ConvertPivot.readFileAsDataURL(currentFile);
@@ -156,17 +191,49 @@
           img.onload = resolve;
           img.onerror = reject;
         });
-        var svg =
-          '<?xml version="1.0" encoding="UTF-8"?>\n' +
-          '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ' +
-          'width="' + img.naturalWidth + '" height="' + img.naturalHeight + '" ' +
-          'viewBox="0 0 ' + img.naturalWidth + ' ' + img.naturalHeight + '">\n' +
-          '  <image width="' + img.naturalWidth + '" height="' + img.naturalHeight + '" xlink:href="' + dataUrl + '"/>\n' +
-          '</svg>';
+        var modeEl = document.querySelector('input[name="traceMode"]:checked');
+        var isDetailed = modeEl && modeEl.value === 'detailed';
+        var traceOptions = isDetailed
+          ? { ltres: 0.5, qtres: 1, pathomit: 1 }
+          : { ltres: 1, qtres: 3, pathomit: 8 };
+        if (typeof ImageTracer === 'undefined') {
+          try {
+            await MediaConverter.loadScript('https://cdn.jsdelivr.net/npm/imagetracerjs@1.2.6/imagetracer_v1.2.6.js');
+          } catch (e) {}
+        }
+        var svg;
+        var traced = false;
+        if (typeof ImageTracer !== 'undefined' && typeof ImageTracer.imageToSVG === 'function') {
+          try {
+            svg = await new Promise(function(resolve, reject) {
+              ImageTracer.imageToSVG(dataUrl, traceOptions, function(svgStr) { resolve(svgStr); });
+            });
+            traced = true;
+          } catch (e) {}
+        }
+        if (!svg) {
+          svg =
+            '<?xml version="1.0" encoding="UTF-8"?>\n' +
+            '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ' +
+            'width="' + img.naturalWidth + '" height="' + img.naturalHeight + '" ' +
+            'viewBox="0 0 ' + img.naturalWidth + ' ' + img.naturalHeight + '">\n' +
+            '  <image width="' + img.naturalWidth + '" height="' + img.naturalHeight + '" xlink:href="' + dataUrl + '"/>\n' +
+            '</svg>';
+        }
         progress.done();
+        document.getElementById('originalPreview').innerHTML = '<img src="' + dataUrl + '" alt="Original PNG">';
+        var svgBlob = new Blob([svg], { type: 'image/svg+xml;charset=utf-8' });
+        var svgUrl = URL.createObjectURL(svgBlob);
+        document.getElementById('svgPreview').innerHTML = '<img src="' + svgUrl + '" alt="Traced SVG">';
+        document.getElementById('pngsvgComparison').style.display = 'grid';
         var filename = currentFile.name.replace(/\.png$/i, '.svg');
-        ConvertPivot.downloadFile(svg, filename, 'image/svg+xml');
-        ConvertPivot.showResult('pngsvgResult', 'PNG embedded in SVG (' + img.naturalWidth + 'x' + img.naturalHeight + ').', 'success');
+        var downloadBtn = document.getElementById('downloadSvgBtn');
+        downloadBtn.onclick = function() {
+          ConvertPivot.downloadFile(svg, filename, 'image/svg+xml');
+        };
+        downloadBtn.style.display = 'inline-flex';
+        var modeLabel = traced ? (isDetailed ? 'detailed vector trace' : 'simplified vector trace') : 'base64 (fallback)';
+        ConvertPivot.showResult('pngsvgResult', 'Conversion complete (' + img.naturalWidth + 'x' + img.naturalHeight + ', ' + modeLabel + ').', 'success');
         currentFile = null;
       } catch (err) {
         progress.done();

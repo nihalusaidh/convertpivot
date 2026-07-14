@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSV to OFX — Spreadsheet to Bank OFX | ConvertPivot</title>
+  <title>CSV to OFX â€” Spreadsheet to Bank OFX | ConvertPivot</title>
   <meta name="description" content="Free online CSV to OFX converter. Convert Excel spreadsheets to Open Financial Exchange format for QuickBooks, Quicken, and bank import. 100% browser-based.">
     <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/csv-to-ofx">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/csv-to-ofx">
-  <meta property="og:title" content="CSV to OFX — Spreadsheet to Bank OFX | ConvertPivot">
+  <meta property="og:title" content="CSV to OFX â€” Spreadsheet to Bank OFX | ConvertPivot">
   <meta property="og:description" content="Free online CSV to OFX converter. Convert Excel spreadsheets to Open Financial Exchange format for QuickBooks, Quicken, and bank import.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="CSV to OFX — Spreadsheet to Bank OFX | ConvertPivot">
+  <meta name="twitter:title" content="CSV to OFX â€” Spreadsheet to Bank OFX | ConvertPivot">
   <meta name="twitter:description" content="Free online CSV to OFX converter. Convert Excel spreadsheets to Open Financial Exchange format for QuickBooks, Quicken, and bank import.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -23,71 +23,71 @@
   <link rel="icon" href="/favicon.png" sizes="32x32">
   <link rel="icon" href="/favicon-16.png" sizes="16x16">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CSV to OFX Converter","url":"https://convertpivot.com/csv-to-ofx","applicationCategory":"FinanceApplication","operatingSystem":"All","description":"Free online CSV to OFX converter. Convert Excel spreadsheets to Open Financial Exchange format for QuickBooks, Quicken, and bank import. 100% browser-based."}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an OFX file?","acceptedAnswer":{"@type":"Answer","text":"OFX (Open Financial Exchange) is a standardized file format used by financial institutions to exchange transaction data. It is supported by QuickBooks, Quicken, Microsoft Money, and many personal finance apps."}},{"@type":"Question","name":"What columns does my CSV need?","acceptedAnswer":{"@type":"Answer","text":"Your CSV should have Date, Description, and Amount columns at minimum. The converter also recognizes Type (DEBIT/CREDIT), Memo, and CheckNumber columns. The first row must contain column headers."}},{"@type":"Question","name":"Can I import OFX into QuickBooks?","acceptedAnswer":{"@type":"Answer","text":"Yes. QuickBooks supports OFX import natively. The generated OFX file follows the standard OFX 1.02 SGML specification, which is compatible with QuickBooks, Quicken, and most accounting software."}},{"@type":"Question","name":"Is this conversion secure?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. The conversion runs entirely in your browser using JavaScript. Your financial data never leaves your device—no upload, no server storage, no third-party access."}},{"@type":"Question","name":"What if my CSV has extra columns?","acceptedAnswer":{"@type":"Answer","text":"Extra columns are ignored during conversion. The converter only looks for Date, Description, and Amount columns. You can safely include additional data columns without affecting the output."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an OFX file?","acceptedAnswer":{"@type":"Answer","text":"OFX (Open Financial Exchange) is a standardized file format used by financial institutions to exchange transaction data. It is supported by QuickBooks, Quicken, Microsoft Money, and many personal finance apps."}},{"@type":"Question","name":"What columns does my CSV need?","acceptedAnswer":{"@type":"Answer","text":"Your CSV should have Date, Description, and Amount columns at minimum. The converter also recognizes Type (DEBIT/CREDIT), Memo, and CheckNumber columns. The first row must contain column headers."}},{"@type":"Question","name":"Can I import OFX into QuickBooks?","acceptedAnswer":{"@type":"Answer","text":"Yes. QuickBooks supports OFX import natively. The generated OFX file follows the standard OFX 1.02 SGML specification, which is compatible with QuickBooks, Quicken, and most accounting software."}},{"@type":"Question","name":"Is this conversion secure?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. The conversion runs entirely in your browser using JavaScript. Your financial data never leaves your deviceâ€”no upload, no server storage, no third-party access."}},{"@type":"Question","name":"What if my CSV has extra columns?","acceptedAnswer":{"@type":"Answer","text":"Extra columns are ignored during conversion. The converter only looks for Date, Description, and Amount columns. You can safely include additional data columns without affecting the output."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
   <nav id="sidebar" class="sidebar">
     <div class="sidebar-section"><div class="sidebar-heading">Developer Tools</div>
-      <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
-      <a href="/hex-to-rgb" class="sidebar-link"><span class="icon">🎨</span>Hex to RGB</a>
-      <a href="/timestamp-converter" class="sidebar-link"><span class="icon">⏱</span>Timestamp Converter</a>
+      <a href="/binary-converter" class="sidebar-link"><span class="icon">â¬¡</span>Binary Converter</a>
+      <a href="/hex-to-rgb" class="sidebar-link"><span class="icon">ðŸŽ¨</span>Hex to RGB</a>
+      <a href="/timestamp-converter" class="sidebar-link"><span class="icon">â±</span>Timestamp Converter</a>
     </div>
     <div class="sidebar-section"><div class="sidebar-heading">Contacts & CRM</div>
-      <a href="/vcf-to-csv" class="sidebar-link"><span class="icon">📇</span>VCF to CSV</a>
-      <a href="/csv-to-vcf" class="sidebar-link"><span class="icon">📋</span>CSV to VCF</a>
-      <a href="/vcf-to-xlsx" class="sidebar-link"><span class="icon">📊</span>VCF to XLSX</a>
+      <a href="/vcf-to-csv" class="sidebar-link"><span class="icon">ðŸ“‡</span>VCF to CSV</a>
+      <a href="/csv-to-vcf" class="sidebar-link"><span class="icon">ðŸ“‹</span>CSV to VCF</a>
+      <a href="/vcf-to-xlsx" class="sidebar-link"><span class="icon">ðŸ“Š</span>VCF to XLSX</a>
     </div>
     <div class="sidebar-section"><div class="sidebar-heading">Financial</div>
-      <a href="/ofx-to-csv" class="sidebar-link"><span class="icon">🏦</span>OFX to CSV</a>
-      <a href="/qfx-to-csv" class="sidebar-link"><span class="icon">💰</span>QFX to CSV</a>
-      <a href="/qbo-to-csv" class="sidebar-link"><span class="icon">📒</span>QBO to CSV</a>
-      <a href="/csv-to-qbo" class="sidebar-link"><span class="icon">🔄</span>CSV to QBO</a>
-      <a href="/csv-to-ofx" class="sidebar-link active"><span class="icon">🏦</span>CSV to OFX</a>
-      <a href="/csv-to-qfx" class="sidebar-link"><span class="icon">💰</span>CSV to QFX</a>
-      <a href="/pdf-bank-statement-to-csv" class="sidebar-link"><span class="icon">📄</span>PDF Bank Statement to CSV</a>
-      <a href="/bank-statement-converter" class="sidebar-link"><span class="icon">🏛</span>Bank Statement Converter</a>
+      <a href="/ofx-to-csv" class="sidebar-link"><span class="icon">ðŸ¦</span>OFX to CSV</a>
+      <a href="/qfx-to-csv" class="sidebar-link"><span class="icon">ðŸ’°</span>QFX to CSV</a>
+      <a href="/qbo-to-csv" class="sidebar-link"><span class="icon">ðŸ“’</span>QBO to CSV</a>
+      <a href="/csv-to-qbo" class="sidebar-link"><span class="icon">ðŸ”„</span>CSV to QBO</a>
+      <a href="/csv-to-ofx" class="sidebar-link active"><span class="icon">ðŸ¦</span>CSV to OFX</a>
+      <a href="/csv-to-qfx" class="sidebar-link"><span class="icon">ðŸ’°</span>CSV to QFX</a>
+      <a href="/pdf-bank-statement-to-csv" class="sidebar-link"><span class="icon">ðŸ“„</span>PDF Bank Statement to CSV</a>
+      <a href="/bank-statement-converter" class="sidebar-link"><span class="icon">ðŸ›</span>Bank Statement Converter</a>
     </div>
     <div class="sidebar-section"><div class="sidebar-heading">Notebooks</div>
-      <a href="/ipynb-to-pdf" class="sidebar-link"><span class="icon">📓</span>IPYNB to PDF</a>
-      <a href="/ipynb-to-docx" class="sidebar-link"><span class="icon">📝</span>IPYNB to DOCX</a>
-      <a href="/ipynb-to-html" class="sidebar-link"><span class="icon">🌐</span>IPYNB to HTML</a>
-      <a href="/ipynb-to-py" class="sidebar-link"><span class="icon">🐍</span>IPYNB to PY</a>
+      <a href="/ipynb-to-pdf" class="sidebar-link"><span class="icon">ðŸ““</span>IPYNB to PDF</a>
+      <a href="/ipynb-to-docx" class="sidebar-link"><span class="icon">ðŸ“</span>IPYNB to DOCX</a>
+      <a href="/ipynb-to-html" class="sidebar-link"><span class="icon">ðŸŒ</span>IPYNB to HTML</a>
+      <a href="/ipynb-to-py" class="sidebar-link"><span class="icon">ðŸ</span>IPYNB to PY</a>
     </div>
     <div class="sidebar-section"><div class="sidebar-heading">Media</div>
-      <a href="/heic-to-jpg" class="sidebar-link"><span class="icon">📸</span>HEIC to JPG</a>
-      <a href="/heic-to-pdf" class="sidebar-link"><span class="icon">🖼</span>HEIC to PDF</a>
-      <a href="/avif-to-jpg" class="sidebar-link"><span class="icon">✨</span>AVIF to JPG</a>
-      <a href="/webp-to-jpg" class="sidebar-link"><span class="icon">🖼</span>WebP to JPG</a>
-      <a href="/svg-to-png" class="sidebar-link"><span class="icon">📐</span>SVG to PNG</a>
-      <a href="/jpg-to-heic" class="sidebar-link"><span class="icon">📸</span>JPG to HEIC</a>
+      <a href="/heic-to-jpg" class="sidebar-link"><span class="icon">ðŸ“¸</span>HEIC to JPG</a>
+      <a href="/heic-to-pdf" class="sidebar-link"><span class="icon">ðŸ–¼</span>HEIC to PDF</a>
+      <a href="/avif-to-jpg" class="sidebar-link"><span class="icon">âœ¨</span>AVIF to JPG</a>
+      <a href="/webp-to-jpg" class="sidebar-link"><span class="icon">ðŸ–¼</span>WebP to JPG</a>
+      <a href="/svg-to-png" class="sidebar-link"><span class="icon">ðŸ“</span>SVG to PNG</a>
       <a href="/jpg-to-avif" class="sidebar-link"><span class="icon">✨</span>JPG to AVIF</a>
-      <a href="/png-to-svg" class="sidebar-link"><span class="icon">📐</span>PNG to SVG</a>
+      <a href="/jpg-to-avif" class="sidebar-link"><span class="icon">âœ¨</span>JPG to AVIF</a>
+      <a href="/png-to-svg" class="sidebar-link"><span class="icon">ðŸ“</span>PNG to SVG</a>
     </div>
     <div class="sidebar-section"><div class="sidebar-heading">GPS & Fitness</div>
-      <a href="/gpx-to-kml" class="sidebar-link"><span class="icon">🗺</span>GPX to KML</a>
-      <a href="/gpx-to-csv" class="sidebar-link"><span class="icon">📈</span>GPX to CSV</a>
-      <a href="/fit-to-gpx" class="sidebar-link"><span class="icon">🏃</span>FIT to GPX</a>
-      <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
-      <a href="/csv-to-gpx" class="sidebar-link"><span class="icon">🗺</span>CSV to GPX</a>
-      <a href="/kml-to-gpx" class="sidebar-link"><span class="icon">📍</span>KML to GPX</a>
+      <a href="/gpx-to-kml" class="sidebar-link"><span class="icon">ðŸ—º</span>GPX to KML</a>
+      <a href="/gpx-to-csv" class="sidebar-link"><span class="icon">ðŸ“ˆ</span>GPX to CSV</a>
+      <a href="/fit-to-gpx" class="sidebar-link"><span class="icon">ðŸƒ</span>FIT to GPX</a>
+      <a href="/fit-to-csv" class="sidebar-link"><span class="icon">ðŸ“Š</span>FIT to CSV</a>
+      <a href="/csv-to-gpx" class="sidebar-link"><span class="icon">ðŸ—º</span>CSV to GPX</a>
+      <a href="/kml-to-gpx" class="sidebar-link"><span class="icon">ðŸ“</span>KML to GPX</a>
     </div>
   </nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">CSV to OFX</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">CSV to OFX</span></nav>
     <div class="tool-header">
-      <h1>CSV to OFX Converter — Spreadsheet to Bank Format</h1>
+      <h1>CSV to OFX Converter â€” Spreadsheet to Bank Format</h1>
       <p>Convert CSV spreadsheets to OFX (Open Financial Exchange) format for import into QuickBooks, Quicken, and personal finance apps. Your data stays completely private.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your financial data never leaves your device.</span></div>
+    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span>100% browser-based. Your financial data never leaves your device.</span></div>
     <div class="converter-widget" id="csvofxWidget">
       <div class="drop-zone" id="csvofxDropZone">
-        <div class="drop-zone-icon">🏦</div>
+        <div class="drop-zone-icon">ðŸ¦</div>
         <div class="drop-zone-text">Drop a <strong>.csv</strong> file here, or click to browse</div>
         <div class="drop-zone-hint">CSV must have headers: Date, Description, Amount</div>
         <input type="file" accept=".csv" aria-label="Choose CSV file">
       </div>
-      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">✕</button></div>
+      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">âœ•</button></div>
       <div class="converter-controls"><button class="btn btn-primary" id="csvofxConvertBtn">Convert to OFX</button></div>
       <div class="progress-bar" id="csvofxProgress"><div class="progress-bar-fill"></div></div>
       <div class="converter-result" id="csvofxResult"><div class="converter-result-message"></div></div>
@@ -119,11 +119,11 @@
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">What is an OFX file? <span class="arrow">▼</span></button><div class="faq-answer">OFX (Open Financial Exchange) is a standardized file format used by financial institutions to exchange transaction data. It is supported by QuickBooks, Quicken, Microsoft Money, and many personal finance apps.</div></div>
-        <div class="faq-item"><button class="faq-question">What columns does my CSV need? <span class="arrow">▼</span></button><div class="faq-answer">Your CSV should have Date, Description, and Amount columns at minimum. The converter also recognizes Type (DEBIT/CREDIT), Memo, and CheckNumber columns. The first row must contain column headers.</div></div>
-        <div class="faq-item"><button class="faq-question">Can I import OFX into QuickBooks? <span class="arrow">▼</span></button><div class="faq-answer">Yes. QuickBooks supports OFX import natively. The generated OFX file follows the standard OFX 1.02 SGML specification compatible with QuickBooks, Quicken, and most accounting software.</div></div>
-        <div class="faq-item"><button class="faq-question">Is this conversion secure? <span class="arrow">▼</span></button><div class="faq-answer">Absolutely. The conversion runs entirely in your browser using JavaScript. Your financial data never leaves your device—no upload, no server storage, no third-party access.</div></div>
-        <div class="faq-item"><button class="faq-question">What if my CSV has extra columns? <span class="arrow">▼</span></button><div class="faq-answer">Extra columns are ignored during conversion. The converter only looks for Date, Description, and Amount columns. You can safely include additional data columns without affecting the output.</div></div>
+        <div class="faq-item"><button class="faq-question">What is an OFX file? <span class="arrow">â–¼</span></button><div class="faq-answer">OFX (Open Financial Exchange) is a standardized file format used by financial institutions to exchange transaction data. It is supported by QuickBooks, Quicken, Microsoft Money, and many personal finance apps.</div></div>
+        <div class="faq-item"><button class="faq-question">What columns does my CSV need? <span class="arrow">â–¼</span></button><div class="faq-answer">Your CSV should have Date, Description, and Amount columns at minimum. The converter also recognizes Type (DEBIT/CREDIT), Memo, and CheckNumber columns. The first row must contain column headers.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I import OFX into QuickBooks? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. QuickBooks supports OFX import natively. The generated OFX file follows the standard OFX 1.02 SGML specification compatible with QuickBooks, Quicken, and most accounting software.</div></div>
+        <div class="faq-item"><button class="faq-question">Is this conversion secure? <span class="arrow">â–¼</span></button><div class="faq-answer">Absolutely. The conversion runs entirely in your browser using JavaScript. Your financial data never leaves your deviceâ€”no upload, no server storage, no third-party access.</div></div>
+        <div class="faq-item"><button class="faq-question">What if my CSV has extra columns? <span class="arrow">â–¼</span></button><div class="faq-answer">Extra columns are ignored during conversion. The converter only looks for Date, Description, and Amount columns. You can safely include additional data columns without affecting the output.</div></div>
       </div>
     </div>
     <div class="content-section">
@@ -164,3 +164,4 @@
   </script>
 </body>
 </html>
+

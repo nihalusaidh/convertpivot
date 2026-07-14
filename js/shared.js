@@ -92,7 +92,6 @@
       { href: '/avif-to-jpg', icon: '\u2728', label: 'AVIF to JPG' },
       { href: '/webp-to-jpg', icon: '\uD83D\uDDBC', label: 'WebP to JPG' },
       { href: '/svg-to-png', icon: '\uD83D\uDCD0', label: 'SVG to PNG' },
-      { href: '/jpg-to-heic', icon: '\uD83D\uDD04', label: 'JPG to HEIC' },
       { href: '/jpg-to-avif', icon: '\uD83D\uDDBC', label: 'JPG to AVIF' },
       { href: '/png-to-svg', icon: '\uD83D\uDCD0', label: 'PNG to SVG' },
       { href: '/image-compressor', icon: '\uD83D\uDCA7', label: 'Image Compressor' },
@@ -752,13 +751,12 @@
     'ipynb-to-docx': ['ipynb-to-pdf', 'ipynb-to-html', 'ipynb-to-py', 'word-to-pdf'],
     'ipynb-to-html': ['ipynb-to-pdf', 'ipynb-to-docx', 'ipynb-to-py', 'markdown-to-html'],
     'ipynb-to-py': ['ipynb-to-pdf', 'ipynb-to-docx', 'ipynb-to-html', 'text-diff'],
-    'heic-to-jpg': ['heic-to-pdf', 'avif-to-jpg', 'webp-to-jpg', 'jpg-to-heic'],
+    'heic-to-jpg': ['heic-to-pdf', 'avif-to-jpg', 'webp-to-jpg', 'image-to-base64'],
     'heic-to-pdf': ['heic-to-jpg', 'avif-to-jpg', 'webp-to-jpg', 'jpg-to-pdf'],
     'avif-to-jpg': ['heic-to-jpg', 'webp-to-jpg', 'jpg-to-avif', 'heic-to-pdf'],
     'webp-to-jpg': ['avif-to-jpg', 'heic-to-jpg', 'jpg-to-avif', 'svg-to-png'],
     'svg-to-png': ['png-to-svg', 'image-compressor', 'webp-to-jpg', 'image-to-base64'],
-    'jpg-to-heic': ['heic-to-jpg', 'jpg-to-avif', 'avif-to-jpg', 'heic-to-pdf'],
-    'jpg-to-avif': ['avif-to-jpg', 'jpg-to-heic', 'heic-to-jpg', 'webp-to-jpg'],
+    'jpg-to-avif': ['avif-to-jpg', 'heic-to-jpg', 'heic-to-jpg', 'webp-to-jpg'],
     'png-to-svg': ['svg-to-png', 'image-compressor', 'image-to-base64', 'color-converter'],
     'image-compressor': ['svg-to-png', 'png-to-svg', 'heic-to-jpg', 'webp-to-jpg'],
     'qr-code-generator': ['image-to-base64', 'color-converter', 'all-unit-converters', 'password-generator'],
@@ -849,7 +847,6 @@
     'avif-to-jpg': ['/blog/heic-vs-jpeg-vs-webp-vs-avif', '/blog/ultimate-guide-image-optimization'],
     'webp-to-jpg': ['/blog/heic-vs-jpeg-vs-webp-vs-avif', '/blog/ultimate-guide-image-optimization'],
     'svg-to-png': ['/blog/svg-vs-png', '/blog/ultimate-guide-image-optimization'],
-    'jpg-to-heic': ['/blog/jpg-to-heic', '/blog/heic-vs-jpeg-vs-webp-vs-avif'],
     'jpg-to-avif': ['/blog/heic-vs-jpeg-vs-webp-vs-avif', '/blog/ultimate-guide-image-optimization'],
     'png-to-svg': ['/blog/svg-vs-png', '/blog/ultimate-guide-image-optimization'],
     'image-compressor': ['/blog/compress-images-guide', '/blog/ultimate-guide-image-optimization'],
@@ -1046,8 +1043,6 @@
     'heic-to-jpg': '<h2>Image Format Comparison</h2><table class="format-table"><thead><tr><th>Format</th><th>Compression</th><th>File Size</th><th>Browser Support</th><th>Best For</th></tr></thead><tbody>' +
       '<tr><td>HEIC</td><td>HEVC (H.265)</td><td>Very small</td><td>Apple only</td><td>iPhone photos</td></tr><tr><td>JPEG</td><td>DCT</td><td>Medium</td><td>Universal</td><td>Web, sharing</td></tr><tr><td>AVIF</td><td>AV1</td><td>Very small</td><td>Chrome, Firefox</td><td>Next-gen web</td></tr><tr><td>WebP</td><td>VP8/VP9</td><td>Small</td><td>Chrome, Edge, Firefox</td><td>Web optimization</td></tr><tr><td>PNG</td><td>Deflate</td><td>Large</td><td>Universal</td><td>Screenshots, transparency</td></tr></tbody></table>',
 
-    'jpg-to-heic': '<h2>Image Format Comparison</h2><table class="format-table"><thead><tr><th>Format</th><th>Compression</th><th>File Size</th><th>Browser Support</th><th>Best For</th></tr></thead><tbody>' +
-      '<tr><td>HEIC</td><td>HEVC (H.265)</td><td>Very small</td><td>Apple only</td><td>iPhone photos</td></tr><tr><td>JPEG</td><td>DCT</td><td>Medium</td><td>Universal</td><td>Web, sharing</td></tr><tr><td>AVIF</td><td>AV1</td><td>Very small</td><td>Chrome, Firefox</td><td>Next-gen web</td></tr><tr><td>WebP</td><td>VP8/VP9</td><td>Small</td><td>Chrome, Edge, Firefox</td><td>Web optimization</td></tr></tbody></table>',
 
     'heic-to-pdf': '<h2>HEIC to PDF Conversion Overview</h2><table class="format-table"><thead><tr><th>Step</th><th>Description</th></tr></thead><tbody>' +
       '<tr><td>1. Decode HEIC</td><td>Extract image data from HEIC container format</td></tr><tr><td>2. Convert to JPEG</td><td>Decode to bitmap via HEIC codec</td></tr><tr><td>3. Create PDF</td><td>Place each image onto a PDF page</td></tr><tr><td>4. Download</td><td>Save as a single multi-page PDF file</td></tr></tbody></table>',

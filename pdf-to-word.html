@@ -23,7 +23,7 @@
   <link rel="icon" href="/favicon.png" sizes="32x32">
   <link rel="icon" href="/favicon-16.png" sizes="16x16">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"PDF to Word Converter","url":"https://convertpivot.com/pdf-to-word","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online PDF to Word converter. Extract text from PDF and create editable Word documents. 100% browser-based, no upload."}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I edit the text before downloading?","acceptedAnswer":{"@type":"Answer","text":"Yes. After extraction, the text appears in an editable textarea. You can make any changes before downloading the Word document."}},{"@type":"Question","name":"What Word format is used?","acceptedAnswer":{"@type":"Answer","text":"The tool creates a .docx file (Office Open XML format) compatible with Microsoft Word 2007 and later, Google Docs, LibreOffice, and other word processors."}},{"@type":"Question","name":"Does it preserve formatting and images?","acceptedAnswer":{"@type":"Answer","text":"The tool extracts the text content only. Formatting, fonts, colors, tables, and images are not preserved. The output Word document contains the extracted text as paragraphs."}},{"@type":"Question","name":"Are my PDFs uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All conversion happens entirely in your browser using PDF.js and JSZip. Your files never leave your device."}},{"@type":"Question","name":"What about scanned PDFs?","acceptedAnswer":{"@type":"Answer","text":"Scanned (image-based) PDFs have no selectable text layer, so text cannot be extracted. Optical Character Recognition (OCR) would be needed first."}},{"@type":"Question","name":"Is there a file size limit?","acceptedAnswer":{"@type":"Answer","text":"Since processing is done in your browser, very large PDFs may be limited by available memory. For best results, keep files under 50MB."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I edit the text before downloading?","acceptedAnswer":{"@type":"Answer","text":"Yes. After extraction, the text appears in an editable textarea. You can make any changes before downloading the Word document."}},{"@type":"Question","name":"What Word format is used?","acceptedAnswer":{"@type":"Answer","text":"The tool creates a .docx file (Office Open XML format) compatible with Microsoft Word 2007 and later, Google Docs, LibreOffice, and other word processors."}},{"@type":"Question","name":"Does it preserve formatting and images?","acceptedAnswer":{"@type":"Answer","text":"The tool extracts the text content along with bold and italic formatting detected from the PDF fonts. Images, tables, colors, and complex layouts are not preserved. The output Word document contains the extracted text with basic formatting as paragraphs."}},{"@type":"Question","name":"Are my PDFs uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All conversion happens entirely in your browser using PDF.js and JSZip. Your files never leave your device."}},{"@type":"Question","name":"What about scanned PDFs?","acceptedAnswer":{"@type":"Answer","text":"Scanned (image-based) PDFs have no selectable text layer, so text cannot be extracted. Optical Character Recognition (OCR) would be needed first."}},{"@type":"Question","name":"Is there a file size limit?","acceptedAnswer":{"@type":"Answer","text":"Since processing is done in your browser, very large PDFs may be limited by available memory. For best results, keep files under 50MB."}}]}</script>
 </head>
 <body>
   <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
@@ -61,9 +61,9 @@
     <div class="content-section">
       <h2>How to Convert PDF to Word</h2>
       <p>Drop a PDF file onto the converter. Click "Convert to Word" to extract the text content using PDF.js. The extracted text appears in an editable text area where you can make any changes. When ready, click "Download as Word" to save as a .docx file.</p>
-      <p>The conversion extracts text from each page and arranges it as paragraphs in the Word document. Page breaks are inserted between pages to maintain the original document structure. The output file is a standard Office Open XML format (.docx) compatible with Microsoft Word 2007 and later.</p>
+      <p>The conversion extracts text from each page and arranges it as paragraphs in the Word document. <strong>Bold and italic formatting</strong> is detected from the PDF fonts and preserved in the output. Page breaks are inserted between pages to maintain the original document structure. The output file is a standard Office Open XML format (.docx) compatible with Microsoft Word 2007 and later.</p>
       <h3>Editing Before Download</h3>
-      <p>One advantage over traditional converters is the ability to edit the extracted text before saving. You can fix any extraction artifacts, adjust paragraph breaks, remove unwanted content, or add new text. Once satisfied, download the final Word document.</p>
+      <p>One advantage over traditional converters is the ability to edit the extracted text before saving. You can fix any extraction artifacts, adjust paragraph breaks, remove unwanted content, or add new text. Once satisfied, download the final Word document. Note that editing the text will remove the detected formatting — bold and italic styles are only preserved when you download without modifications.</p>
     </div>
     <div class="content-section">
       <h2>Output Format Comparison</h2>
@@ -90,7 +90,7 @@
       <div class="faq-list" id="faqPage">
         <div class="faq-item"><button class="faq-question">Can I edit the text before downloading? <span class="arrow">▼</span></button><div class="faq-answer">Yes. After extraction, the text appears in an editable textarea. You can make any changes before downloading the Word document.</div></div>
         <div class="faq-item"><button class="faq-question">What Word format is used? <span class="arrow">▼</span></button><div class="faq-answer">The tool creates a .docx file (Office Open XML format) compatible with Microsoft Word 2007 and later, Google Docs, LibreOffice, and other word processors.</div></div>
-        <div class="faq-item"><button class="faq-question">Does it preserve formatting and images? <span class="arrow">▼</span></button><div class="faq-answer">The tool extracts the text content only. Formatting, fonts, colors, tables, and images are not preserved. The output Word document contains the extracted text as paragraphs.</div></div>
+        <div class="faq-item"><button class="faq-question">Does it preserve formatting and images? <span class="arrow">▼</span></button><div class="faq-answer">The tool extracts the text content along with <strong>bold and italic formatting</strong> detected from the PDF fonts. Images, tables, colors, and complex layouts are not preserved. The output Word document contains the extracted text with basic formatting as paragraphs.</div></div>
         <div class="faq-item"><button class="faq-question">Are my PDFs uploaded to a server? <span class="arrow">▼</span></button><div class="faq-answer">No. All conversion happens entirely in your browser using PDF.js and JSZip. Your files never leave your device.</div></div>
         <div class="faq-item"><button class="faq-question">What about scanned PDFs? <span class="arrow">▼</span></button><div class="faq-answer">Scanned (image-based) PDFs have no selectable text layer, so text cannot be extracted. Optical Character Recognition (OCR) would be needed first.</div></div>
         <div class="faq-item"><button class="faq-question">Is there a file size limit? <span class="arrow">▼</span></button><div class="faq-answer">Since processing is done in your browser, very large PDFs may be limited by available memory. For best results, keep files under 50MB.</div></div>
@@ -125,6 +125,8 @@
     var outputArea = document.getElementById('pdfToWordOutput');
     var textContent = document.getElementById('pdfToWordContent');
     var statsEl = document.getElementById('pdfToWordStats');
+    var extractedRuns = null;
+    var extractedPlainText = '';
 
     dropZone.querySelector('input[type="file"]').addEventListener('change', function() {
       if (this.files && this.files.length > 0) {
@@ -187,25 +189,41 @@
         var arrayBuffer = await currentFile.arrayBuffer();
         var pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer.slice(0) }).promise;
         numPages = pdfDoc.numPages;
-        var allText = '';
+        var allRuns = [];
         for (var i = 1; i <= numPages; i++) {
           var page = await pdfDoc.getPage(i);
           var content = await page.getTextContent();
-          var lastY = null;
           for (var j = 0; j < content.items.length; j++) {
             var item = content.items[j];
+            var fontName = item.fontName || '';
             var y = item.transform[5];
-            if (lastY !== null && Math.abs(y - lastY) > 5) {
-              allText += '\n';
-            }
-            allText += item.str;
-            lastY = y;
+            var rawSize = Math.abs(item.transform[0] || item.transform[3]) * 2;
+            var fontSize = rawSize >= 2 ? Math.round(rawSize) : 24;
+            var bold = /bold|heavy|black/i.test(fontName);
+            var italic = /italic|oblique/i.test(fontName);
+            allRuns.push({ text: item.str, bold: bold, italic: italic, fontSize: fontSize, y: y, page: i });
           }
-          allText += '\n\n';
           progress.set(Math.round((i / numPages) * 100));
         }
-        textContent.value = allText.trim();
-        var charCount = allText.trim().length;
+        var plainText = '';
+        var prevY = null;
+        var prevPage = null;
+        for (var k = 0; k < allRuns.length; k++) {
+          var run = allRuns[k];
+          if (prevPage !== null && run.page !== prevPage) {
+            plainText += '\n\n';
+            prevY = null;
+          } else if (prevY !== null && Math.abs(run.y - prevY) > 5) {
+            plainText += '\n';
+          }
+          plainText += run.text;
+          prevY = run.y;
+          prevPage = run.page;
+        }
+        extractedPlainText = plainText;
+        extractedRuns = allRuns;
+        textContent.value = plainText;
+        var charCount = plainText.length;
         statsEl.textContent = numPages + ' page(s) | ' + charCount.toLocaleString() + ' character(s) | Edit before downloading';
         outputArea.style.display = 'block';
         progress.done();
@@ -220,6 +238,50 @@
       return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
     }
 
+    function buildFormattedDocx(runs) {
+      var bodyXml = '';
+      var paraRuns = [];
+      function flushPara() {
+        if (paraRuns.length === 0) return;
+        bodyXml += '<w:p><w:pPr><w:spacing w:after="120" w:line="276"/></w:pPr>';
+        var groups = [];
+        var cur = null;
+        for (var i = 0; i < paraRuns.length; i++) {
+          var r = paraRuns[i];
+          if (!cur || cur.bold !== r.bold || cur.italic !== r.italic || cur.fontSize !== r.fontSize) {
+            cur = { bold: r.bold, italic: r.italic, fontSize: r.fontSize, texts: [] };
+            groups.push(cur);
+          }
+          cur.texts.push(r.text);
+        }
+        for (var i = 0; i < groups.length; i++) {
+          var g = groups[i];
+          bodyXml += '<w:r><w:rPr>';
+          if (g.bold) bodyXml += '<w:b/>';
+          if (g.italic) bodyXml += '<w:i/>';
+          bodyXml += '<w:sz w:val="' + g.fontSize + '"/>';
+          bodyXml += '</w:rPr><w:t>' + escapeXml(g.texts.join('')) + '</w:t></w:r>';
+        }
+        bodyXml += '</w:p>';
+        paraRuns = [];
+      }
+      for (var i = 0; i < runs.length; i++) {
+        var run = runs[i];
+        var prevRun = i > 0 ? runs[i - 1] : null;
+        if (prevRun) {
+          if (run.page !== prevRun.page) {
+            flushPara();
+            bodyXml += '<w:p><w:r><w:br w:type="page"/></w:r></w:p>';
+          } else if (Math.abs(run.y - prevRun.y) > 5) {
+            flushPara();
+          }
+        }
+        paraRuns.push(run);
+      }
+      flushPara();
+      return bodyXml;
+    }
+
     document.getElementById('pdfToWordDownloadBtn').addEventListener('click', async function() {
       var editedText = textContent.value;
       if (!editedText) { ConvertPivot.showResult('pdfToWordResult', 'No text to save.', 'error'); return; }
@@ -227,12 +289,17 @@
       try {
         var baseName = currentFile ? currentFile.name.replace(/\.pdf$/i, '') : 'document';
 
-        var paragraphs = editedText.split('\n').filter(function(p) { return p.trim().length > 0; });
-        var bodyXml = '';
-        for (var i = 0; i < paragraphs.length; i++) {
-          bodyXml += '<w:p><w:r><w:t>' + escapeXml(paragraphs[i]) + '</w:t></w:r></w:p>';
+        var bodyXml;
+        if (extractedRuns && extractedPlainText === editedText) {
+          bodyXml = buildFormattedDocx(extractedRuns);
+        } else {
+          var paragraphs = editedText.split('\n').filter(function(p) { return p.trim().length > 0; });
+          bodyXml = '';
+          for (var i = 0; i < paragraphs.length; i++) {
+            bodyXml += '<w:p><w:r><w:t>' + escapeXml(paragraphs[i]) + '</w:t></w:r></w:p>';
+          }
+          if (bodyXml === '') bodyXml = '<w:p><w:r><w:t></w:t></w:r></w:p>';
         }
-        if (bodyXml === '') bodyXml = '<w:p><w:r><w:t></w:t></w:r></w:p>';
 
         var docXml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
           '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" ' +

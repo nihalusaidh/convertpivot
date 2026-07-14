@@ -175,13 +175,6 @@
     "category": "Developer Tools"
   },
   {
-    "title": "Convert JPG to HEIC — Should You Switch to Apple's Format?",
-    "slug": "jpg-to-heic",
-    "description": "Should you convert your JPG photos to HEIC? Learn the pros and cons of Apple's image format, compatibility issues, storage savings, and when to make the switch.",
-    "date": "July 14, 2026",
-    "category": "Images"
-  },
-  {
     "title": "JSON vs XML vs YAML vs TOML — Config Format Comparison",
     "slug": "json-vs-xml-vs-yaml-vs-toml",
     "description": "Configuration format comparison: JSON vs XML vs YAML vs TOML across readability, type safety, parsing speed, and ecosystem support. Find the best format for config files, APIs, and data serialization.",
