@@ -142,7 +142,7 @@
       var html = '<div class="file-list-header">' + images.length + ' image(s) — drag to reorder</div>';
       images.forEach(function(img, idx) {
         html += '<div class="file-list-item" data-index="' + idx + '" draggable="true">';
-        html += '<img src="' + img.dataUrl + '" class="file-list-thumb">';
+        html += '<img src="' + img.dataUrl + '" class="file-list-thumb" alt="Preview">';
         html += '<span class="file-list-name">' + img.file.name + '</span>';
         html += '<span class="file-list-size">' + ConvertPivot.formatFileSize(img.file.size) + '</span>';
         html += '<button class="file-list-remove" data-index="' + idx + '">✕</button>';

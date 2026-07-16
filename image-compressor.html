@@ -147,7 +147,7 @@
         var compLabel = item.compSize > 0 ? ConvertPivot.formatFileSize(item.compSize) : '—';
         var savingsClass = savings > 0 ? 'ic-savings-positive' : (savings < 0 ? 'ic-savings-negative' : 'ic-savings-neutral');
         html += '<div class="ic-item" data-index="' + idx + '">';
-        html += '<div class="ic-item-preview"><img src="' + item.dataUrl + '" class="ic-thumb"></div>';
+        html += '<div class="ic-item-preview"><img src="' + item.dataUrl + '" class="ic-thumb" alt="Preview"></div>';
         html += '<div class="ic-item-info">';
         html += '<div class="ic-item-name">' + item.file.name + '</div>';
         html += '<div class="ic-item-sizes">Original: ' + ConvertPivot.formatFileSize(item.origSize) + ' &rarr; Compressed: ' + compLabel + '</div>';
