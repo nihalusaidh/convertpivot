@@ -104,7 +104,6 @@
     <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
   </footer>
   <script src="js/shared.js?v=2"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
   <script>
   (function() {
     var pdfFiles = [];
@@ -176,6 +175,7 @@
     });
 
     function addPdfFiles(fileList) {
+      loadScript('https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js').then(function() {
       var pending = Array.from(fileList).filter(function(f) { return f.type === 'application/pdf' || f.name.match(/\.pdf$/i); });
       if (pending.length === 0) { ConvertPivot.showToast('Please select PDF files only.', 'error'); return; }
       pending.forEach(function(file) {
@@ -191,6 +191,7 @@
         };
         reader.readAsArrayBuffer(file);
       });
+      }).catch(function() { ConvertPivot.showToast('Failed to load PDF library', 'error'); });
     }
 
     document.getElementById('pdfMergeBtn').addEventListener('click', async function() {
@@ -198,6 +199,7 @@
       ConvertPivot.hideResult('pdfMergeResult');
       var progress = ConvertPivot.showProgress('pdfMergeProgress');
       try {
+        await loadScript('https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js');
         var mergedPdf = await PDFLib.PDFDocument.create();
         for (var i = 0; i < pdfFiles.length; i++) {
           var srcPdf = await PDFLib.PDFDocument.load(pdfFiles[i].data);

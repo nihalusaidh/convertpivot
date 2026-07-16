@@ -91,19 +91,19 @@
   <footer class="site-footer">
     <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
   </footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
   <script src="js/shared.js?v=2"></script>
   <script src="js/financial-converter.js"></script>
   <script>
   (function() {
     var currentFile = null;
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
     ConvertPivot.initDropZone('wellsDropZone', function(f) { currentFile = f; });
     document.getElementById('wellsConvertBtn').addEventListener('click', async function() {
       if (!currentFile) { ConvertPivot.showResult('wellsResult', 'Please select a Wells Fargo PDF file first.', 'error'); return; }
       ConvertPivot.hideResult('wellsResult');
       var progress = ConvertPivot.showProgress('wellsProgress');
       try {
+        await loadScript('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js');
+        window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
         var data = await ConvertPivot.readFileAsArrayBuffer(currentFile);
         var csv = await FinancialConverter.parsePDFStatement(data);
         progress.done();

@@ -5,7 +5,7 @@
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CSS Anchor Positioning Generator — anchor-name, position-area | ConvertPivot</title>
-  <meta name="description" content="Free online CSS Anchor Positioning API generator. Generate anchor-name, position-anchor, position-area, position-fallback rules for tooltips, popovers, and dropdowns that follow their trigger element.">
+  <meta name="description" content="Free online CSS anchor positioning generator. Create tooltips, popovers, and dropdowns with anchor-name and position-area. Generate cross-browser CSS.">
   <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/css-anchor-positioning-generator">
@@ -248,7 +248,7 @@
         cssOutput.textContent = css;
         resultArea.style.display = 'block';
 
-        copyBtn.onclick = function() {
+        copyBtn.addEventListener('click', function() {
           navigator.clipboard.writeText(css).then(function() {
             copyBtn.textContent = 'Copied!';
             setTimeout(function() { copyBtn.textContent = 'Copy CSS'; }, 1500);

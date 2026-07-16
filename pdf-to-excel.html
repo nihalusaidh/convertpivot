@@ -97,8 +97,6 @@
   <footer class="site-footer">
     <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
   </footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="js/shared.js?v=2"></script>
   <script>
   (function () {
@@ -118,8 +116,6 @@
     var currentFile = null;
     var extractedRows = [];
 
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
     dropZone.addEventListener('dragover', function (e) { e.preventDefault(); dropZone.classList.add('drag-over'); });
     dropZone.addEventListener('dragleave', function () { dropZone.classList.remove('drag-over'); });
     dropZone.addEventListener('drop', function (e) { e.preventDefault(); dropZone.classList.remove('drag-over'); if (e.dataTransfer.files.length > 0) handleFile(e.dataTransfer.files[0]); });
@@ -132,7 +128,10 @@
       infoSize.textContent = formatFileSize(file.size);
       fileInfo.classList.add('show');
       dropZone.style.display = 'none';
-      extractTables(file);
+      loadScript('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js').then(function() {
+        window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        extractTables(file);
+      }).catch(function() { showToast('Failed to load PDF library', 'error'); });
     }
 
     removeBtn.addEventListener('click', function () {
@@ -208,6 +207,7 @@
       if (extractedRows.length === 0) { showToast('No data extracted', 'error'); return; }
       var prog = showProgress('pdfExcelProgress');
       convertBtn.disabled = true;
+      loadScript('https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js').then(function() {
       setTimeout(function () {
         try {
           var maxCols = 0;
@@ -233,6 +233,7 @@
           showToast('Downloaded as ' + fmt.toUpperCase(), 'success');
         } catch (e) { showToast('Error: ' + e.message, 'error'); convertBtn.disabled = false; prog.done(); }
       }, 300);
+      }).catch(function() { showToast('Failed to load spreadsheet library', 'error'); convertBtn.disabled = false; prog.done(); });
     });
   })();
   </script>

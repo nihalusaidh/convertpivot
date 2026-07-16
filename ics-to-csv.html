@@ -118,7 +118,7 @@
           var csv = eventsToCSV(events);
           ConvertPivot.showResult('result', '<strong>' + events.length + '</strong> event(s) converted successfully.', 'success');
           downloadBtn.style.display = 'inline-block';
-          downloadBtn.onclick = function(){
+          downloadBtn.addEventListener('click', function(){
             var filename = currentFile.name.replace('.ics','.csv');
             ConvertPivot.downloadFile(csv, filename, 'text/csv;charset=utf-8');
           };

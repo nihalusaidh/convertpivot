@@ -151,7 +151,7 @@
         outputBlob = new Blob([data], { type: 'audio/mpeg' });
         var url = URL.createObjectURL(outputBlob);
         document.getElementById('audioPreview').src = url;
-        document.getElementById('downloadBtn').onclick = function() {
+        document.getElementById('downloadBtn').addEventListener('click', function() {
           var a = document.createElement('a');
           a.href = url;
           a.download = file.name.replace(/\.flac$/i, '.mp3');

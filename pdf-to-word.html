@@ -112,11 +112,8 @@
     <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
   </footer>
   <script src="js/shared.js?v=2"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script>
   (function() {
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
     var currentFile = null;
     var numPages = 0;
@@ -186,6 +183,8 @@
       outputArea.style.display = 'none';
       var progress = ConvertPivot.showProgress('pdfToWordProgress');
       try {
+        await loadScript('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js');
+        window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
         var arrayBuffer = await currentFile.arrayBuffer();
         var pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer.slice(0) }).promise;
         numPages = pdfDoc.numPages;
@@ -287,6 +286,7 @@
       if (!editedText) { ConvertPivot.showResult('pdfToWordResult', 'No text to save.', 'error'); return; }
 
       try {
+        await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js');
         var baseName = currentFile ? currentFile.name.replace(/\.pdf$/i, '') : 'document';
 
         var bodyXml;

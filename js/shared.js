@@ -1719,6 +1719,19 @@
   }
 
   // ============================================================
+  // LOAD SCRIPT (lazy-load CDN libraries)
+  // ============================================================
+  function loadScript(url) {
+    return new Promise(function(resolve, reject) {
+      var s = document.createElement('script');
+      s.src = url;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
+  // ============================================================
   // EXPOSE GLOBALLY
   // ============================================================
   window.ConvertPivot = {

@@ -5,7 +5,7 @@
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CSS Logical Properties Converter — Physical to Logical CSS | ConvertPivot</title>
-  <meta name="description" content="Free online CSS logical properties converter. Convert margin-left, padding-top, width, top to margin-inline-start, padding-block-start, inline-size, inset-block-start. Bidirectional with LTR/RTL support.">
+  <meta name="description" content="Free online CSS logical properties converter. Map physical CSS (margin-left, width) to logical (margin-inline-start, inline-size) for RTL/LTR layouts.">
   <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/css-logical-properties">
@@ -314,7 +314,7 @@
           ? '✓ Converted ' + changedCount + ' propert' + (changedCount === 1 ? 'y' : 'ies') + ' (' + dirLabel + ', ' + wmLabel + '). Highlighted lines show changes.'
           : 'No convertible properties found. Try pasting CSS with physical properties like margin-left, padding-top, width, etc.';
 
-        copyBtn.onclick = function() {
+        copyBtn.addEventListener('click', function() {
           navigator.clipboard.writeText(plainText).then(function() {
             copyBtn.textContent = 'Copied!';
             setTimeout(function() { copyBtn.textContent = 'Copy CSS'; }, 1500);

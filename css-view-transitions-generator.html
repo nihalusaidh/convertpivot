@@ -5,7 +5,7 @@
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CSS View Transitions Generator — @view-transition API Tool | ConvertPivot</title>
-  <meta name="description" content="Free online CSS View Transitions API generator. Create @view-transition rules, set view-transition-name, customize crossfade timing and pseudo-element animations for smooth SPA page transitions.">
+  <meta name="description" content="Free online CSS view transitions generator. Create SPA transitions with @view-transition rules and view-transition-name. Generate cross-browser CSS code.">
   <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/css-view-transitions-generator">
@@ -212,7 +212,7 @@
         cssOutput.textContent = css;
         resultArea.style.display = 'block';
 
-        copyBtn.onclick = function() {
+        copyBtn.addEventListener('click', function() {
           navigator.clipboard.writeText(css).then(function() {
             copyBtn.textContent = 'Copied!';
             setTimeout(function() { copyBtn.textContent = 'Copy CSS'; }, 1500);

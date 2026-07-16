@@ -91,7 +91,6 @@
   <footer class="site-footer">
     <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
   </footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
   <script src="js/shared.js?v=2"></script>
   <script>
   (function () {
@@ -121,7 +120,9 @@
       dropZone.style.display = 'none';
       fileInfo.style.display = 'flex';
       fileInfo.innerHTML = '<div style="display:flex;align-items:center;gap:12px;width:100%"><span style="flex:1;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + file.name + '</span><span style="color:var(--color-graphite);font-size:0.8rem">' + formatFileSize(file.size) + '</span><button class="btn-reload-page" style="background:none;border:none;cursor:pointer;color:var(--color-graphite);font-size:1.1rem">&times;</button></div>';
-      loadPdf(file);
+      loadScript('https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js').then(function() {
+        loadPdf(file);
+      }).catch(function() { showToast('Failed to load PDF library', 'error'); });
     }
 
     function loadPdf(file) {

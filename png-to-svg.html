@@ -5,7 +5,7 @@
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PNG to SVG Converter — Raster to Vector Tracing | ConvertPivot</title>
-  <meta name="description" content="Free online PNG to SVG converter with real vector tracing. Convert PNG raster images to SVG vector paths using ImageTracer. Private browser-based tool with before/after comparison.">
+  <meta name="description" content="Free online PNG to SVG converter. Convert raster PNG images to vector SVG using real tracing. Before/after comparison, adjustable smoothing, no upload.">
   <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/png-to-svg">
@@ -183,7 +183,7 @@
         document.getElementById('pngsvgComparison').style.display = 'grid';
         var filename = currentFile.name.replace(/\.png$/i, '.svg');
         var downloadBtn = document.getElementById('downloadSvgBtn');
-        downloadBtn.onclick = function() {
+        downloadBtn.addEventListener('click', function() {
           ConvertPivot.downloadFile(svg, filename, 'image/svg+xml');
         };
         downloadBtn.style.display = 'inline-flex';

@@ -5,7 +5,7 @@
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Word to PDF â€” Convert DOCX to PDF Online | ConvertPivot</title>
-  <meta name="description" content="Free online Word to PDF converter. Convert DOCX files to PDF documents using mammoth.js and pdf-lib. Preview extracted content before downloading. 100% browser-based.">
+  <meta name="description" content="Free online Word to PDF converter. Convert DOCX files to PDF with mammoth.js and pdf-lib. Preview extracted content before download. No upload needed.">
   <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/word-to-pdf">
@@ -111,7 +111,6 @@
   </footer>
   <script src="js/shared.js?v=2"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth.js/1.6.0/mammoth.browser.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
   <script>
   (function() {
     var currentFile = null;
@@ -201,6 +200,7 @@
       ConvertPivot.hideResult('wordToPdfResult');
       var progress = ConvertPivot.showProgress('wordToPdfProgress');
       try {
+        await loadScript('https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js');
         if (!extractedText) {
           var ab = await currentFile.arrayBuffer();
           var res = await mammoth.convertToHtml({ arrayBuffer: ab.slice(0) });
