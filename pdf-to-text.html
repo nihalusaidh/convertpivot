@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PDF to Text â€” Extract Text from PDF Online | ConvertPivot</title>
+  <title>PDF to Text — Extract Text from PDF Online | ConvertPivot</title>
   <meta name="description" content="Free online PDF to text extractor. Extract and copy text from PDF documents using PDF.js. Download extracted text as .txt file. 100% browser-based.">
   <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/pdf-to-text">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/pdf-to-text">
-  <meta property="og:title" content="PDF to Text â€” Extract Text from PDF Online | ConvertPivot">
+  <meta property="og:title" content="PDF to Text — Extract Text from PDF Online | ConvertPivot">
   <meta property="og:description" content="Free online PDF to text extractor. Extract and copy text from PDF documents using PDF.js. Download extracted text as .txt file.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PDF to Text â€” Extract Text from PDF Online | ConvertPivot">
+  <meta name="twitter:title" content="PDF to Text — Extract Text from PDF Online | ConvertPivot">
   <meta name="twitter:description" content="Free online PDF to text extractor. Extract and copy text from PDF documents using PDF.js. Download extracted text as .txt file.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -26,20 +26,20 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How accurate is the text extraction?","acceptedAnswer":{"@type":"Answer","text":"PDF.js provides excellent text extraction for text-based PDFs. Scanned documents (image-based PDFs) may produce limited results since they contain no selectable text layer."}},{"@type":"Question","name":"Can I extract text from scanned PDFs?","acceptedAnswer":{"@type":"Answer","text":"This tool extracts the existing text layer from PDFs. Scanned documents are essentially images and do not contain selectable text. For scanned PDFs, you would need OCR software first."}},{"@type":"Question","name":"What is the maximum file size?","acceptedAnswer":{"@type":"Answer","text":"Since processing happens in your browser, very large PDFs may be limited by available memory. For best results, keep files under 50MB."}},{"@type":"Question","name":"Are my PDFs uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All text extraction happens entirely in your browser using PDF.js. Your files never leave your device."}},{"@type":"Question","name":"Can I copy the extracted text to clipboard?","acceptedAnswer":{"@type":"Answer","text":"Yes. After extraction, a Copy to Clipboard button lets you copy all extracted text with one click. You can also manually select text in the output area."}},{"@type":"Question","name":"What text encoding is used in the output?","acceptedAnswer":{"@type":"Answer","text":"The extracted text is output as UTF-8 plain text (.txt file). This ensures compatibility with all text editors and platforms."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">?</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
   <nav id="sidebar" class="sidebar"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><a href="/">PDF Tools</a><span class="sep">â€º</span><span class="current">PDF to Text</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/">PDF Tools</a><span class="sep">›</span><span class="current">PDF to Text</span></nav>
     <div class="tool-header">
-      <h1>ðŸ“ PDF to Text Extractor â€” Extract Text from PDF</h1>
+      <h1>📝 PDF to Text Extractor — Extract Text from PDF</h1>
       <p>Extract all text content from PDF documents using PDF.js. View extracted text, copy to clipboard, or download as a plain text file.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span>100% browser-based. Your files never leave your device.</span></div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your files never leave your device.</span></div>
     <div class="converter-widget" id="pdfToTextWidget">
       <div class="drop-zone" id="pdfToTextDropZone">
-        <div class="drop-zone-icon">ðŸ“„</div>
+        <div class="drop-zone-icon">📄</div>
         <div class="drop-zone-text">Drop <strong>PDF</strong> here, or click to browse</div>
-        <div class="drop-zone-hint">Supports PDF files â€” extracts all text content</div>
+        <div class="drop-zone-hint">Supports PDF files — extracts all text content</div>
         <input type="file" accept=".pdf,application/pdf" aria-label="Choose PDF file">
       </div>
       <div class="file-list" id="pdfToTextFileList"></div>
@@ -52,8 +52,8 @@
         <div class="text-output-header">
           <span id="pdfToTextStats"></span>
           <div>
-            <button class="btn btn-secondary" id="pdfToTextCopyBtn">ðŸ“‹ Copy to Clipboard</button>
-            <button class="btn btn-success" id="pdfToTextDownloadBtn">â¬‡ Download .txt</button>
+            <button class="btn btn-secondary" id="pdfToTextCopyBtn">📋 Copy to Clipboard</button>
+            <button class="btn btn-success" id="pdfToTextDownloadBtn">⬇ Download .txt</button>
           </div>
         </div>
         <textarea id="pdfToTextContent" readonly style="width:100%;min-height:300px;padding:14px;border:1px solid var(--color-mist);border-radius:var(--radius-card);background:var(--color-smoke);color:var(--color-ink);font-size:0.85rem;font-family:monospace;line-height:1.6;resize:vertical;margin-top:12px;"></textarea>
@@ -71,12 +71,12 @@
       <table class="format-table"><thead><tr><th>PDF Type</th><th>Text Quality</th><th>Notes</th></tr></thead><tbody>
         <tr><td>Digital-born (Word, Google Docs)</td><td>Excellent</td><td>Full text layer, perfect extraction</td></tr>
         <tr><td>Web-generated (HTML to PDF)</td><td>Good</td><td>Clean text, minor spacing issues</td></tr>
-        <tr><td>Scanned (image-based)</td><td>None</td><td>No text layer â€” OCR needed first</td></tr>
+        <tr><td>Scanned (image-based)</td><td>None</td><td>No text layer — OCR needed first</td></tr>
         <tr><td>Mixed (text + images)</td><td>Good</td><td>Text parts extract, images ignored</td></tr>
       </tbody></table>
     </div>
     <div class="content-section">
-      <h2>PDF to Text â€” Pros and Cons</h2>
+      <h2>PDF to Text — Pros and Cons</h2>
       <h3>Extracted Text vs Original PDF</h3>
       <p><strong>Pros of Text Extraction:</strong> Editable plain text format, searchable content, small file size, can be used in any text editor or word processor, compatible with data processing tools.</p>
       <p><strong>Cons of Text Extraction:</strong> Loses all formatting, fonts, colors, images, and layout. Table structure is not preserved. Page numbers and headers may appear in unexpected positions.</p>
@@ -90,12 +90,12 @@
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">How accurate is the text extraction? <span class="arrow">â–¼</span></button><div class="faq-answer">PDF.js provides excellent text extraction for text-based PDFs. Scanned documents (image-based PDFs) may produce limited results since they contain no selectable text layer.</div></div>
-        <div class="faq-item"><button class="faq-question">Can I extract text from scanned PDFs? <span class="arrow">â–¼</span></button><div class="faq-answer">This tool extracts the existing text layer from PDFs. Scanned documents are essentially images and do not contain selectable text. For scanned PDFs, you would need OCR software first.</div></div>
-        <div class="faq-item"><button class="faq-question">What is the maximum file size? <span class="arrow">â–¼</span></button><div class="faq-answer">Since processing happens in your browser, very large PDFs may be limited by available memory. For best results, keep files under 50MB.</div></div>
-        <div class="faq-item"><button class="faq-question">Are my PDFs uploaded to a server? <span class="arrow">â–¼</span></button><div class="faq-answer">No. All text extraction happens entirely in your browser using PDF.js. Your files never leave your device.</div></div>
-        <div class="faq-item"><button class="faq-question">Can I copy the extracted text to clipboard? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. After extraction, a Copy to Clipboard button lets you copy all extracted text with one click. You can also manually select text in the output area.</div></div>
-        <div class="faq-item"><button class="faq-question">What text encoding is used in the output? <span class="arrow">â–¼</span></button><div class="faq-answer">The extracted text is output as UTF-8 plain text (.txt file). This ensures compatibility with all text editors and platforms.</div></div>
+        <div class="faq-item"><button class="faq-question">How accurate is the text extraction? <span class="arrow">▼</span></button><div class="faq-answer">PDF.js provides excellent text extraction for text-based PDFs. Scanned documents (image-based PDFs) may produce limited results since they contain no selectable text layer.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I extract text from scanned PDFs? <span class="arrow">▼</span></button><div class="faq-answer">This tool extracts the existing text layer from PDFs. Scanned documents are essentially images and do not contain selectable text. For scanned PDFs, you would need OCR software first.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the maximum file size? <span class="arrow">▼</span></button><div class="faq-answer">Since processing happens in your browser, very large PDFs may be limited by available memory. For best results, keep files under 50MB.</div></div>
+        <div class="faq-item"><button class="faq-question">Are my PDFs uploaded to a server? <span class="arrow">▼</span></button><div class="faq-answer">No. All text extraction happens entirely in your browser using PDF.js. Your files never leave your device.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I copy the extracted text to clipboard? <span class="arrow">▼</span></button><div class="faq-answer">Yes. After extraction, a Copy to Clipboard button lets you copy all extracted text with one click. You can also manually select text in the output area.</div></div>
+        <div class="faq-item"><button class="faq-question">What text encoding is used in the output? <span class="arrow">▼</span></button><div class="faq-answer">The extracted text is output as UTF-8 plain text (.txt file). This ensures compatibility with all text editors and platforms.</div></div>
       </div>
     </div>
     <div class="content-section">
@@ -162,10 +162,10 @@
       }
       var html = '<div class="file-list-header">Selected file</div>';
       html += '<div class="file-list-item">';
-      html += '<span class="file-list-icon" style="font-size:1.5rem;margin-right:8px;">ðŸ“„</span>';
+      html += '<span class="file-list-icon" style="font-size:1.5rem;margin-right:8px;">📄</span>';
       html += '<span class="file-list-name">' + currentFile.name + '</span>';
       html += '<span class="file-list-size">' + ConvertPivot.formatFileSize(currentFile.size) + '</span>';
-      html += '<button class="file-list-remove" id="pdfToTextRemoveBtn">âœ•</button>';
+      html += '<button class="file-list-remove" id="pdfToTextRemoveBtn">✕</button>';
       html += '</div>';
       fileListEl.innerHTML = html;
       document.getElementById('pdfToTextRemoveBtn').addEventListener('click', function() {

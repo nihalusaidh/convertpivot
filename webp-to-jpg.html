@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WebP to JPG â€” WebP Images to JPEG | ConvertPivot</title>
+  <title>WebP to JPG — WebP Images to JPEG | ConvertPivot</title>
   <meta name="description" content="Free online WebP to JPG converter. Convert WebP images to JPEG format. Works with all WebP including transparent. No upload, private.">
     <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/webp-to-jpg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/webp-to-jpg">
-  <meta property="og:title" content="WebP to JPG â€” WebP Images to JPEG | ConvertPivot">
+  <meta property="og:title" content="WebP to JPG — WebP Images to JPEG | ConvertPivot">
   <meta property="og:description" content="Free online WebP to JPG converter. Convert WebP images to JPEG format. Works with all WebP including transparent. No upload.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="WebP to JPG â€” WebP Images to JPEG | ConvertPivot">
+  <meta name="twitter:title" content="WebP to JPG — WebP Images to JPEG | ConvertPivot">
   <meta name="twitter:description" content="Free online WebP to JPG converter. Convert WebP images to JPEG format. Works with all WebP including transparent. No upload.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -26,40 +26,40 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a WebP file?","acceptedAnswer":{"@type":"Answer","text":"WebP is a modern image format developed by Google that provides superior lossless and lossy compression. WebP images are typically 25-35% smaller than equivalent JPEGs while maintaining similar quality."}},{"@type":"Question","name":"Why convert WebP to JPG?","acceptedAnswer":{"@type":"Answer","text":"While WebP is well-supported in modern browsers, many legacy applications, photo editors, and sharing platforms don't support it. JPEG conversion ensures maximum compatibility."}},{"@type":"Question","name":"Does WebP to JPG conversion handle transparency?","acceptedAnswer":{"@type":"Answer","text":"WebP supports transparency (alpha channel) but JPEG does not. Transparent areas are converted to a white background in the output JPEG."}},{"@type":"Question","name":"Is my image data private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Everything runs in your browser using the Canvas API. Your images never leave your device."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">?</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
   <nav id="sidebar" class="sidebar"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">WebP to JPG</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">WebP to JPG</span></nav>
     <div class="tool-header">
-      <h1>WebP to JPG Converter â€” Google's Format to JPEG</h1>
-      <p>Convert WebP images to JPEG for universal compatibility. WebP is efficient but JPG is supported everywhere â€” from email to photo printing.</p>
+      <h1>WebP to JPG Converter — Google's Format to JPEG</h1>
+      <p>Convert WebP images to JPEG for universal compatibility. WebP is efficient but JPG is supported everywhere — from email to photo printing.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span>100% browser-based. Your images never leave your device.</span></div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your images never leave your device.</span></div>
     <div class="converter-widget" id="webpToJpgWidget">
       <div class="drop-zone" id="webpToJpgDropZone">
-        <div class="drop-zone-icon">ðŸ–¼</div>
+        <div class="drop-zone-icon">🖼</div>
         <div class="drop-zone-text">Drop a <strong>WebP image</strong> here, or click to browse</div>
         <div class="drop-zone-hint">Converts to high-quality JPEG, preserving original resolution</div>
         <input type="file" accept=".webp" aria-label="Choose WebP file">
       </div>
-      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">âœ•</button></div>
+      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">✕</button></div>
       <div class="converter-controls"><button class="btn btn-primary" id="webpToJpgConvertBtn">Convert to JPG</button></div>
       <div class="progress-bar" id="webpToJpgProgress"><div class="progress-bar-fill"></div></div>
       <div class="converter-result" id="webpToJpgResult"><div class="converter-result-message"></div></div>
     </div>
     <div class="content-section">
       <h2>How to Convert WebP to JPG</h2>
-      <p>WebP is Google's image format designed for the modern web. It delivers excellent compression â€” typically 25-35% smaller files than JPEG at equivalent quality. However, many desktop applications, email clients, and photo editing tools still lack WebP support.</p>
+      <p>WebP is Google's image format designed for the modern web. It delivers excellent compression — typically 25-35% smaller files than JPEG at equivalent quality. However, many desktop applications, email clients, and photo editing tools still lack WebP support.</p>
       <p>Our converter uses the browser's built-in WebP decoder to render your image at full resolution, then exports it as a standard JPEG file. The process preserves the original dimensions, color profile, and quality. Images with transparency will have a white background applied since JPEG does not support alpha channels.</p>
       <p>This is especially useful when downloading images from modern websites that serve WebP by default and you need to use them in documents, presentations, or share with others.</p>
     </div>
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">What is a WebP file? <span class="arrow">â–¼</span></button><div class="faq-answer">WebP is a modern image format developed by Google that provides superior lossless and lossy compression. WebP images are typically 25-35% smaller than equivalent JPEGs.</div></div>
-        <div class="faq-item"><button class="faq-question">Why convert WebP to JPG? <span class="arrow">â–¼</span></button><div class="faq-answer">Many legacy applications, photo editors, and sharing platforms don't support WebP. JPEG conversion ensures maximum compatibility everywhere.</div></div>
-        <div class="faq-item"><button class="faq-question">Does WebP to JPG handle transparency? <span class="arrow">â–¼</span></button><div class="faq-answer">WebP supports alpha channels but JPEG does not. Transparent areas are rendered with a white background in the output JPEG.</div></div>
-        <div class="faq-item"><button class="faq-question">Is my image data private? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. Everything runs in your browser. Your images never leave your device.</div></div>
+        <div class="faq-item"><button class="faq-question">What is a WebP file? <span class="arrow">▼</span></button><div class="faq-answer">WebP is a modern image format developed by Google that provides superior lossless and lossy compression. WebP images are typically 25-35% smaller than equivalent JPEGs.</div></div>
+        <div class="faq-item"><button class="faq-question">Why convert WebP to JPG? <span class="arrow">▼</span></button><div class="faq-answer">Many legacy applications, photo editors, and sharing platforms don't support WebP. JPEG conversion ensures maximum compatibility everywhere.</div></div>
+        <div class="faq-item"><button class="faq-question">Does WebP to JPG handle transparency? <span class="arrow">▼</span></button><div class="faq-answer">WebP supports alpha channels but JPEG does not. Transparent areas are rendered with a white background in the output JPEG.</div></div>
+        <div class="faq-item"><button class="faq-question">Is my image data private? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Everything runs in your browser. Your images never leave your device.</div></div>
       </div>
     </div>
     <div class="content-section">

@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Color Converter â€” Hex, RGB, HSL, HSV, CMYK Converter | ConvertPivot</title>
+  <title>Color Converter — Hex, RGB, HSL, HSV, CMYK Converter | ConvertPivot</title>
   <meta name="description" content="Free online color converter. Convert between Hex, RGB, HSL, HSV, and CMYK color formats. Real-time preview, color name lookup, and WCAG contrast ratio checker.">
   <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/color-converter">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/color-converter">
-  <meta property="og:title" content="Color Converter â€” Hex, RGB, HSL, HSV, CMYK Converter | ConvertPivot">
+  <meta property="og:title" content="Color Converter — Hex, RGB, HSL, HSV, CMYK Converter | ConvertPivot">
   <meta property="og:description" content="Free online color converter. Convert between Hex, RGB, HSL, HSV, and CMYK color formats. Real-time preview, color name lookup, and WCAG contrast ratio checker.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Color Converter â€” Hex, RGB, HSL, HSV, CMYK Converter | ConvertPivot">
+  <meta name="twitter:title" content="Color Converter — Hex, RGB, HSL, HSV, CMYK Converter | ConvertPivot">
   <meta name="twitter:description" content="Free online color converter. Convert between Hex, RGB, HSL, HSV, and CMYK color formats. Real-time preview, color name lookup, and WCAG contrast ratio checker.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -26,15 +26,15 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What color formats are supported?","acceptedAnswer":{"@type":"Answer","text":"The converter supports Hex (#RRGGBB), RGB (red, green, blue), HSL (hue, saturation, lightness), HSV (hue, saturation, value), and CMYK (cyan, magenta, yellow, black)."}},{"@type":"Question","name":"How do I convert Hex to RGB?","acceptedAnswer":{"@type":"Answer","text":"Enter a hex color code like #FF0000 in the Hex field. All other fields update automatically in real-time. The RGB values for #FF0000 are 255, 0, 0."}},{"@type":"Question","name":"What is the WCAG contrast ratio?","acceptedAnswer":{"@type":"Answer","text":"The WCAG contrast ratio measures the difference between two colors. A ratio of 4.5:1 is required for normal text (WCAG AA), and 7:1 for enhanced contrast (WCAG AAA). The tool shows the ratio of your color against white and black backgrounds."}},{"@type":"Question","name":"How does the color name lookup work?","acceptedAnswer":{"@type":"Answer","text":"The tool includes a built-in lookup table with 140+ named colors. When you enter a color, it finds the closest matching named color and displays its common name."}},{"@type":"Question","name":"Can I copy color values?","acceptedAnswer":{"@type":"Answer","text":"Yes. Each color format has a copy button that copies the current value to your clipboard. A toast notification confirms the copy action."}},{"@type":"Question","name":"What is the difference between HSL and HSV?","acceptedAnswer":{"@type":"Answer","text":"HSL (Hue, Saturation, Lightness) and HSV (Hue, Saturation, Value) are both cylindrical color models. HSL ranges lightness from black to white, while HSV ranges value from black to the full color. HSL is more intuitive for artists, while HSV matches how computer graphics hardware works."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">?</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
   <nav id="sidebar" class="sidebar"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><a href="/">Developer Tools</a><span class="sep">â€º</span><span class="current">Color Converter</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/">Developer Tools</a><span class="sep">›</span><span class="current">Color Converter</span></nav>
     <div class="tool-header">
-      <h1>ðŸŽ¨ Color Converter â€” Hex, RGB, HSL, HSV, CMYK</h1>
+      <h1>🎨 Color Converter — Hex, RGB, HSL, HSV, CMYK</h1>
       <p>Convert colors between Hex, RGB, HSL, HSV, and CMYK formats in real-time. View a live color swatch, find the closest named color, and check WCAG contrast ratios against white and black backgrounds.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span>100% browser-based. All conversion happens locally on your device.</span></div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. All conversion happens locally on your device.</span></div>
     <div class="converter-widget" id="colorConverterWidget">
       <div class="cc-preview" id="ccPreview">
         <div class="cc-swatch" id="ccSwatch" style="background:#FF0000"></div>
@@ -45,35 +45,35 @@
           <label class="cc-label">Hex</label>
           <div class="cc-row">
             <input type="text" id="ccHex" value="#FF0000" class="cc-input cc-input-hex" maxlength="7">
-            <button class="cc-copy" data-copy="ccHex" aria-label="Copy Hex">ðŸ“‹</button>
+            <button class="cc-copy" data-copy="ccHex" aria-label="Copy Hex">📋</button>
           </div>
         </div>
         <div class="cc-group">
           <label class="cc-label">RGB</label>
           <div class="cc-row">
             <input type="number" id="ccR" min="0" max="255" value="255" class="cc-input cc-input-num"> <input type="number" id="ccG" min="0" max="255" value="0" class="cc-input cc-input-num"> <input type="number" id="ccB" min="0" max="255" value="0" class="cc-input cc-input-num">
-            <button class="cc-copy" data-copy="ccRgb" aria-label="Copy RGB">ðŸ“‹</button>
+            <button class="cc-copy" data-copy="ccRgb" aria-label="Copy RGB">📋</button>
           </div>
         </div>
         <div class="cc-group">
           <label class="cc-label">HSL</label>
           <div class="cc-row">
             <input type="number" id="ccH" min="0" max="360" value="0" class="cc-input cc-input-num"> <input type="number" id="ccS" min="0" max="100" value="100" class="cc-input cc-input-num"> <input type="number" id="ccL" min="0" max="100" value="50" class="cc-input cc-input-num">
-            <button class="cc-copy" data-copy="ccHsl" aria-label="Copy HSL">ðŸ“‹</button>
+            <button class="cc-copy" data-copy="ccHsl" aria-label="Copy HSL">📋</button>
           </div>
         </div>
         <div class="cc-group">
           <label class="cc-label">HSV</label>
           <div class="cc-row">
             <input type="number" id="ccHsvH" min="0" max="360" value="0" class="cc-input cc-input-num"> <input type="number" id="ccHsvS" min="0" max="100" value="100" class="cc-input cc-input-num"> <input type="number" id="ccV" min="0" max="100" value="100" class="cc-input cc-input-num">
-            <button class="cc-copy" data-copy="ccHsv" aria-label="Copy HSV">ðŸ“‹</button>
+            <button class="cc-copy" data-copy="ccHsv" aria-label="Copy HSV">📋</button>
           </div>
         </div>
         <div class="cc-group">
           <label class="cc-label">CMYK</label>
           <div class="cc-row">
             <input type="number" id="ccC" min="0" max="100" value="0" class="cc-input cc-input-num"> <input type="number" id="ccM" min="0" max="100" value="100" class="cc-input cc-input-num"> <input type="number" id="ccY" min="0" max="100" value="100" class="cc-input cc-input-num"> <input type="number" id="ccK" min="0" max="100" value="0" class="cc-input cc-input-num">
-            <button class="cc-copy" data-copy="ccCmyk" aria-label="Copy CMYK">ðŸ“‹</button>
+            <button class="cc-copy" data-copy="ccCmyk" aria-label="Copy CMYK">📋</button>
           </div>
         </div>
       </div>
@@ -88,7 +88,7 @@
     </div>
     <div class="content-section">
       <h2>How to Use the Color Converter</h2>
-      <p>Enter a color value in any of the supported formats â€” Hex, RGB, HSL, HSV, or CMYK. All other fields update automatically and in real-time as you type. A color swatch at the top previews the current color, and the closest named color from the built-in lookup table is displayed below it. Copy any format's value to your clipboard with the copy button next to each input group.</p>
+      <p>Enter a color value in any of the supported formats — Hex, RGB, HSL, HSV, or CMYK. All other fields update automatically and in real-time as you type. A color swatch at the top previews the current color, and the closest named color from the built-in lookup table is displayed below it. Copy any format's value to your clipboard with the copy button next to each input group.</p>
       <p>The WCAG contrast ratio section shows how your color performs against white and black backgrounds. A ratio of 4.5:1 or higher meets WCAG AA standards for normal text, while 7:1 or higher meets WCAG AAA standards. This is essential for ensuring your color choices are accessible to users with visual impairments.</p>
       <h3>Understanding Color Models</h3>
       <p><strong>Hex (#RRGGBB):</strong> A hexadecimal representation of RGB values. Each pair of characters represents red, green, and blue intensity from 00 to FF (0 to 255). Widely used in web design and CSS.</p>
@@ -98,7 +98,7 @@
       <p><strong>CMYK (Cyan, Magenta, Yellow, Key/Black):</strong> A subtractive color model used in printing. Values range from 0 to 100%. Colors are created by subtracting light using cyan, magenta, and yellow inks, with black added for depth.</p>
     </div>
     <div class="content-section">
-      <h2>Color Conversion Methods â€” Pros and Cons</h2>
+      <h2>Color Conversion Methods — Pros and Cons</h2>
       <h3>Hex vs RGB</h3>
       <p><strong>Pros of Hex:</strong> Compact 6-character notation, standard in CSS, easy to copy from design tools, widely used in web development. <strong>Cons:</strong> No alpha channel in 6-digit form, less intuitive than RGB, hard to adjust mentally.</p>
       <h3>HSL vs HSV</h3>
@@ -113,12 +113,12 @@
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">What color formats are supported? <span class="arrow">â–¼</span></button><div class="faq-answer">The converter supports Hex (#RRGGBB), RGB (0-255), HSL (0-360, 0-100%, 0-100%), HSV (0-360, 0-100%, 0-100%), and CMYK (0-100%). All fields update in real-time as you type.</div></div>
-        <div class="faq-item"><button class="faq-question">How do I convert Hex to RGB? <span class="arrow">â–¼</span></button><div class="faq-answer">Enter a hex color code like #FF0000 in the Hex field. The RGB fields update automatically. For #FF0000, the RGB values are 255, 0, 0. You can also click the copy button next to RGB to copy the formatted value.</div></div>
-        <div class="faq-item"><button class="faq-question">What is WCAG contrast ratio and why is it important? <span class="arrow">â–¼</span></button><div class="faq-answer">The WCAG contrast ratio measures the luminance difference between two colors for accessibility. A 4.5:1 ratio is required for normal text (AA standard), and 7:1 for enhanced contrast (AAA). It ensures content is readable by people with visual impairments.</div></div>
-        <div class="faq-item"><button class="faq-question">How does the color name lookup work? <span class="arrow">â–¼</span></button><div class="faq-answer">The tool contains a database of over 140 named colors. When you enter a color, it finds the closest match by comparing RGB values using Euclidean distance and displays the color name below the swatch.</div></div>
-        <div class="faq-item"><button class="faq-question">How do I copy a color value? <span class="arrow">â–¼</span></button><div class="faq-answer">Each color format has a clipboard button (ðŸ“‹) next to it. Click the button to copy the formatted value to your clipboard. A toast notification confirms the copy was successful.</div></div>
-        <div class="faq-item"><button class="faq-question">What is the difference between HSL and HSV? <span class="arrow">â–¼</span></button><div class="faq-answer">HSL (Lightness) runs from black (0%) through the pure color (50%) to white (100%). HSV (Value) runs from black (0%) to the pure color at full intensity (100%). HSL is better for creating color variations, while HSV is better for color picking.</div></div>
+        <div class="faq-item"><button class="faq-question">What color formats are supported? <span class="arrow">▼</span></button><div class="faq-answer">The converter supports Hex (#RRGGBB), RGB (0-255), HSL (0-360, 0-100%, 0-100%), HSV (0-360, 0-100%, 0-100%), and CMYK (0-100%). All fields update in real-time as you type.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I convert Hex to RGB? <span class="arrow">▼</span></button><div class="faq-answer">Enter a hex color code like #FF0000 in the Hex field. The RGB fields update automatically. For #FF0000, the RGB values are 255, 0, 0. You can also click the copy button next to RGB to copy the formatted value.</div></div>
+        <div class="faq-item"><button class="faq-question">What is WCAG contrast ratio and why is it important? <span class="arrow">▼</span></button><div class="faq-answer">The WCAG contrast ratio measures the luminance difference between two colors for accessibility. A 4.5:1 ratio is required for normal text (AA standard), and 7:1 for enhanced contrast (AAA). It ensures content is readable by people with visual impairments.</div></div>
+        <div class="faq-item"><button class="faq-question">How does the color name lookup work? <span class="arrow">▼</span></button><div class="faq-answer">The tool contains a database of over 140 named colors. When you enter a color, it finds the closest match by comparing RGB values using Euclidean distance and displays the color name below the swatch.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I copy a color value? <span class="arrow">▼</span></button><div class="faq-answer">Each color format has a clipboard button (📋) next to it. Click the button to copy the formatted value to your clipboard. A toast notification confirms the copy was successful.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the difference between HSL and HSV? <span class="arrow">▼</span></button><div class="faq-answer">HSL (Lightness) runs from black (0%) through the pure color (50%) to white (100%). HSV (Value) runs from black (0%) to the pure color at full intensity (100%). HSL is better for creating color variations, while HSV is better for color picking.</div></div>
       </div>
     </div>
     <div class="content-section">
@@ -334,12 +334,12 @@
       el.cb.textContent = 'Black: ' + cbR.toFixed(2) + ':1';
       el.cb.className = 'cc-contrast-bg' + (cbR >= 7 ? ' cc-aaa' : cbR >= 4.5 ? ' cc-aa' : cbR >= 3 ? ' cc-aalarge' : ' cc-fail');
       var detail = '';
-      if (cwR >= 4.5) detail += 'âœ“ Passes WCAG AA on white. ';
-      else detail += 'âœ— Fails WCAG AA on white. ';
-      if (cwR >= 7) detail += 'âœ“ Passes WCAG AAA on white. ';
-      if (cbR >= 4.5) detail += 'âœ“ Passes WCAG AA on black. ';
-      else detail += 'âœ— Fails WCAG AA on black. ';
-      if (cbR >= 7) detail += 'âœ“ Passes WCAG AAA on black. ';
+      if (cwR >= 4.5) detail += '✓ Passes WCAG AA on white. ';
+      else detail += '✗ Fails WCAG AA on white. ';
+      if (cwR >= 7) detail += '✓ Passes WCAG AAA on white. ';
+      if (cbR >= 4.5) detail += '✓ Passes WCAG AA on black. ';
+      else detail += '✗ Fails WCAG AA on black. ';
+      if (cbR >= 7) detail += '✓ Passes WCAG AAA on black. ';
       el.cd.textContent = detail;
       updating = false;
     }

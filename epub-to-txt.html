@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EPUB to TXT â€” Extract Text from EPUB Online | ConvertPivot</title>
+  <title>EPUB to TXT — Extract Text from EPUB Online | ConvertPivot</title>
   <meta name="description" content="Free online EPUB to TXT converter. Extract text from EPUB e-book chapters and download as plain text. Browser-based, no upload, preserves chapter structure.">
   <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/epub-to-txt">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/epub-to-txt">
-  <meta property="og:title" content="EPUB to TXT â€” Extract Text from EPUB Online | ConvertPivot">
+  <meta property="og:title" content="EPUB to TXT — Extract Text from EPUB Online | ConvertPivot">
   <meta property="og:description" content="Free online EPUB to TXT text extractor. Extract text from EPUB e-book files in your browser. View chapters, copy extracted text, or download as .txt file.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="EPUB to TXT â€” Extract Text from EPUB Online | ConvertPivot">
+  <meta name="twitter:title" content="EPUB to TXT — Extract Text from EPUB Online | ConvertPivot">
   <meta name="twitter:description" content="Free online EPUB to TXT text extractor. Extract text from EPUB e-book files in your browser. View chapters, copy extracted text, or download as .txt file.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -26,20 +26,20 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does EPUB to TXT extraction work?","acceptedAnswer":{"@type":"Answer","text":"EPUB is a ZIP file containing XHTML content documents. The tool reads the ZIP structure using JSZip, locates the OPF manifest file via container.xml, identifies the spine order of chapters, parses each XHTML file, strips HTML tags using DOMParser, and concatenates the clean text into a single output."}},{"@type":"Question","name":"Can I extract text from DRM-protected EPUBs?","acceptedAnswer":{"@type":"Answer","text":"No. This tool cannot process DRM-protected (Digital Rights Management) EPUB files. You must remove DRM first using authorized tools, which may violate copyright laws. Only convert EPUB files that you own and are DRM-free."}},{"@type":"Question","name":"Are my EPUB files uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All text extraction happens entirely in your browser using JSZip and the native DOMParser API. EPUB files are read locally and never leave your device."}},{"@type":"Question","name":"Can I select which chapters to include?","acceptedAnswer":{"@type":"Answer","text":"Yes. After extraction, the tool displays a chapter list with checkboxes. You can uncheck chapters you want to exclude and click Update Output to regenerate the text with only selected chapters."}},{"@type":"Question","name":"What is the maximum file size for EPUB conversion?","acceptedAnswer":{"@type":"Answer","text":"Since all processing occurs in your browser, very large EPUB files may be limited by available memory. For best results, keep files under 50 MB. EPUB files with hundreds of chapters may take longer to parse."}},{"@type":"Question","name":"Can I copy the extracted text to clipboard?","acceptedAnswer":{"@type":"Answer","text":"Yes. After extraction, a Copy to Clipboard button lets you copy all extracted text with one click. You can also manually select text within the output textarea."}},{"@type":"Question","name":"What formatting is preserved in the text output?","acceptedAnswer":{"@type":"Answer","text":"The tool extracts plain text only. All HTML formatting, images, fonts, colors, CSS styling, and layout information are stripped. Chapter headings are preserved as text headers. The output is UTF-8 plain text compatible with any text editor."}},{"@type":"Question","name":"Does the tool handle EPUB 3.0 files?","acceptedAnswer":{"@type":"Answer","text":"Yes. The tool supports both EPUB 2.0 and EPUB 3.0 formats. Both use the same ZIP container structure with container.xml pointing to the OPF file. EPUB 3.0 files may include additional XHTML namespaces, but the text extraction process works identically."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">?</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
   <nav id="sidebar" class="sidebar"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><a href="/">E-book Tools</a><span class="sep">â€º</span><span class="current">EPUB to TXT</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/">E-book Tools</a><span class="sep">›</span><span class="current">EPUB to TXT</span></nav>
     <div class="tool-header">
-      <h1>ðŸ“„ EPUB to TXT â€” Extract Text from E-Books</h1>
+      <h1>📄 EPUB to TXT — Extract Text from E-Books</h1>
       <p>Extract readable text content from EPUB e-book files. JSZip parses the EPUB container, reads every chapter, strips HTML formatting, and presents clean plain text. View chapter-by-chapter output, select which chapters to include, copy to clipboard, or download as a .txt file.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span>100% browser-based. Your files never leave your device.</span></div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your files never leave your device.</span></div>
     <div class="converter-widget" id="epubToTxtWidget">
       <div class="drop-zone" id="epubToTxtDropZone">
-        <div class="drop-zone-icon">ðŸ“–</div>
+        <div class="drop-zone-icon">📖</div>
         <div class="drop-zone-text">Drop <strong>EPUB</strong> here, or click to browse</div>
-        <div class="drop-zone-hint">Supports EPUB files (.epub) â€” extracts all chapter text</div>
+        <div class="drop-zone-hint">Supports EPUB files (.epub) — extracts all chapter text</div>
         <input type="file" accept=".epub,application/epub+zip" aria-label="Choose EPUB file">
       </div>
       <div class="file-list" id="epubToTxtFileList"></div>
@@ -59,8 +59,8 @@
         <div class="text-output-header">
           <span id="epubToTxtStats"></span>
           <div>
-            <button class="btn btn-secondary" id="epubToTxtCopyBtn">ðŸ“‹ Copy to Clipboard</button>
-            <button class="btn btn-success" id="epubToTxtDownloadBtn">â¬‡ Download .txt</button>
+            <button class="btn btn-secondary" id="epubToTxtCopyBtn">📋 Copy to Clipboard</button>
+            <button class="btn btn-success" id="epubToTxtDownloadBtn">⬇ Download .txt</button>
           </div>
         </div>
         <textarea id="epubToTxtContent" readonly style="width:100%;min-height:300px;padding:14px;border:1px solid var(--color-mist);border-radius:var(--radius-card);background:var(--color-smoke);color:var(--color-ink);font-size:0.85rem;font-family:monospace;line-height:1.6;resize:vertical;margin-top:12px;"></textarea>
@@ -68,7 +68,7 @@
     </div>
     <div class="content-section">
       <h2>How to Extract Text from EPUB</h2>
-      <p>Drop an EPUB e-book file onto the converter area above. Click "Extract Text" to begin processing. JSZip reads the EPUB container and parses its internal structure â€” navigating from <code>container.xml</code> to the OPF manifest file, then following the spine order to read each XHTML chapter. The DOMParser strips all HTML tags, leaving clean, readable text organized by chapter.</p>
+      <p>Drop an EPUB e-book file onto the converter area above. Click "Extract Text" to begin processing. JSZip reads the EPUB container and parses its internal structure — navigating from <code>container.xml</code> to the OPF manifest file, then following the spine order to read each XHTML chapter. The DOMParser strips all HTML tags, leaving clean, readable text organized by chapter.</p>
       <p>After extraction, the chapter list appears with checkboxes so you can select exactly which chapters to include in the final output. Click "Update Output" to regenerate the text with your chosen chapters included. The output textarea shows word and character counts for easy reference.</p>
       <h3>What Text Can Be Extracted</h3>
       <p>All text content within EPUB XHTML files is extracted: chapter headings, paragraphs, lists, table text, and captions. CSS-styled text, inline formatting (bold, italic), and special Unicode characters are all captured as plain text. Images, embedded fonts, audio, video, and interactive elements are ignored since they have no text equivalent.</p>
@@ -95,14 +95,14 @@
         <tr><td>EPUB with embedded fonts</td><td>Excellent</td><td>Text unaffected by font embedding, clean extraction</td></tr>
         <tr><td>Image-heavy (comics)</td><td>Poor</td><td>Minimal actual text; most content is in images</td></tr>
         <tr><td>EPUB 3.0 with MathML</td><td>Good</td><td>Math notation may appear as raw XML in text output</td></tr>
-        <tr><td>DRM-encrypted EPUB</td><td>None</td><td>Cannot be opened â€” DRM must be removed first</td></tr>
+        <tr><td>DRM-encrypted EPUB</td><td>None</td><td>Cannot be opened — DRM must be removed first</td></tr>
       </tbody></table>
     </div>
     <div class="content-section">
-      <h2>EPUB to TXT â€” Advantages and Limitations</h2>
+      <h2>EPUB to TXT — Advantages and Limitations</h2>
       <h3>Why Extract Text from EPUB</h3>
       <p><strong>Plain text portability:</strong> Text files are the most universally supported format. They open in any text editor, terminal, code editor, or word processor. No specialized e-book software is required. Plain text files are searchable, indexable, and machine-readable for data processing pipelines.</p>
-      <p><strong>Small file size:</strong> An EPUB containing hundreds of pages might be a few megabytes due to embedded fonts and images. The extracted plain text is typically just a few kilobytes â€” perfect for archiving, email attachments, or transferring between devices with limited bandwidth.</p>
+      <p><strong>Small file size:</strong> An EPUB containing hundreds of pages might be a few megabytes due to embedded fonts and images. The extracted plain text is typically just a few kilobytes — perfect for archiving, email attachments, or transferring between devices with limited bandwidth.</p>
       <p><strong>Accessibility:</strong> Plain text works with any screen reader, text-to-speech tool, or assistive technology. Users with visual impairments or reading difficulties can process extracted text with their preferred tools without compatibility issues.</p>
       <h3>Limitations of Text Extraction</h3>
       <p><strong>No formatting or layout:</strong> All HTML formatting, CSS styling, fonts, colors, images, tables, and layout information are completely stripped. The output is raw text with no visual hierarchy beyond chapter headings that are extracted from the content structure.</p>
@@ -133,14 +133,14 @@
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">How does EPUB to TXT extraction work? <span class="arrow">â–¼</span></button><div class="faq-answer">EPUB is a ZIP file containing XHTML content documents. The tool reads the ZIP structure using JSZip, locates the OPF manifest file via container.xml, identifies the spine order of chapters, parses each XHTML file, strips HTML tags using DOMParser, and concatenates the clean text into a single output.</div></div>
-        <div class="faq-item"><button class="faq-question">Can I extract text from DRM-protected EPUBs? <span class="arrow">â–¼</span></button><div class="faq-answer">No. This tool cannot process DRM-protected (Digital Rights Management) EPUB files. You must remove DRM first using authorized tools, which may violate copyright laws. Only convert EPUB files that you own and are DRM-free.</div></div>
-        <div class="faq-item"><button class="faq-question">Are my EPUB files uploaded to a server? <span class="arrow">â–¼</span></button><div class="faq-answer">No. All text extraction happens entirely in your browser using JSZip and the native DOMParser API. EPUB files are read locally and never leave your device.</div></div>
-        <div class="faq-item"><button class="faq-question">Can I select which chapters to include? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. After extraction, the tool displays a chapter list with checkboxes. You can uncheck chapters you want to exclude and click Update Output to regenerate the text with only selected chapters.</div></div>
-        <div class="faq-item"><button class="faq-question">What is the maximum file size for EPUB conversion? <span class="arrow">â–¼</span></button><div class="faq-answer">Since all processing occurs in your browser, very large EPUB files may be limited by available memory. For best results, keep files under 50 MB. EPUB files with hundreds of chapters may take longer to parse.</div></div>
-        <div class="faq-item"><button class="faq-question">Can I copy the extracted text to clipboard? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. After extraction, a Copy to Clipboard button lets you copy all extracted text with one click. You can also manually select text within the output textarea.</div></div>
-        <div class="faq-item"><button class="faq-question">What formatting is preserved in the text output? <span class="arrow">â–¼</span></button><div class="faq-answer">The tool extracts plain text only. All HTML formatting, images, fonts, colors, CSS styling, and layout information are stripped. Chapter headings are preserved as text headers. The output is UTF-8 plain text compatible with any text editor.</div></div>
-        <div class="faq-item"><button class="faq-question">Does the tool handle EPUB 3.0 files? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. The tool supports both EPUB 2.0 and EPUB 3.0 formats. Both use the same ZIP container structure with container.xml pointing to the OPF file. EPUB 3.0 files may include additional XHTML namespaces, but the text extraction process works identically.</div></div>
+        <div class="faq-item"><button class="faq-question">How does EPUB to TXT extraction work? <span class="arrow">▼</span></button><div class="faq-answer">EPUB is a ZIP file containing XHTML content documents. The tool reads the ZIP structure using JSZip, locates the OPF manifest file via container.xml, identifies the spine order of chapters, parses each XHTML file, strips HTML tags using DOMParser, and concatenates the clean text into a single output.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I extract text from DRM-protected EPUBs? <span class="arrow">▼</span></button><div class="faq-answer">No. This tool cannot process DRM-protected (Digital Rights Management) EPUB files. You must remove DRM first using authorized tools, which may violate copyright laws. Only convert EPUB files that you own and are DRM-free.</div></div>
+        <div class="faq-item"><button class="faq-question">Are my EPUB files uploaded to a server? <span class="arrow">▼</span></button><div class="faq-answer">No. All text extraction happens entirely in your browser using JSZip and the native DOMParser API. EPUB files are read locally and never leave your device.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I select which chapters to include? <span class="arrow">▼</span></button><div class="faq-answer">Yes. After extraction, the tool displays a chapter list with checkboxes. You can uncheck chapters you want to exclude and click Update Output to regenerate the text with only selected chapters.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the maximum file size for EPUB conversion? <span class="arrow">▼</span></button><div class="faq-answer">Since all processing occurs in your browser, very large EPUB files may be limited by available memory. For best results, keep files under 50 MB. EPUB files with hundreds of chapters may take longer to parse.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I copy the extracted text to clipboard? <span class="arrow">▼</span></button><div class="faq-answer">Yes. After extraction, a Copy to Clipboard button lets you copy all extracted text with one click. You can also manually select text within the output textarea.</div></div>
+        <div class="faq-item"><button class="faq-question">What formatting is preserved in the text output? <span class="arrow">▼</span></button><div class="faq-answer">The tool extracts plain text only. All HTML formatting, images, fonts, colors, CSS styling, and layout information are stripped. Chapter headings are preserved as text headers. The output is UTF-8 plain text compatible with any text editor.</div></div>
+        <div class="faq-item"><button class="faq-question">Does the tool handle EPUB 3.0 files? <span class="arrow">▼</span></button><div class="faq-answer">Yes. The tool supports both EPUB 2.0 and EPUB 3.0 formats. Both use the same ZIP container structure with container.xml pointing to the OPF file. EPUB 3.0 files may include additional XHTML namespaces, but the text extraction process works identically.</div></div>
       </div>
     </div>
     <div class="content-section">
@@ -257,10 +257,10 @@
       }
       var html = '<div class="file-list-header">Selected file</div>';
       html += '<div class="file-list-item">';
-      html += '<span class="file-list-icon" style="font-size:1.5rem;margin-right:8px;">ðŸ“–</span>';
+      html += '<span class="file-list-icon" style="font-size:1.5rem;margin-right:8px;">📖</span>';
       html += '<span class="file-list-name">' + currentFile.name + '</span>';
       html += '<span class="file-list-size">' + ConvertPivot.formatFileSize(currentFile.size) + '</span>';
-      html += '<button class="file-list-remove" id="epubToTxtRemoveBtn">âœ•</button>';
+      html += '<button class="file-list-remove" id="epubToTxtRemoveBtn">✕</button>';
       html += '</div>';
       fileListEl.innerHTML = html;
       document.getElementById('epubToTxtRemoveBtn').addEventListener('click', function() {
@@ -358,7 +358,7 @@
         html += '<label class="chapter-checkbox-item"><input type="checkbox" data-index="' + i + '" checked><span class="chapter-num">' + (i + 1) + '.</span><span class="chapter-title">' + ch.title + '</span><span class="chapter-size">' + ch.text.length.toLocaleString() + ' chars</span></label>';
       }
       chapterCheckboxes.innerHTML = html;
-      chapterStats.textContent = allChapters.length + ' chapter(s) â€” all selected';
+      chapterStats.textContent = allChapters.length + ' chapter(s) — all selected';
       chapterCheckboxes.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
         cb.addEventListener('change', updateChapterStats);
       });
@@ -368,7 +368,7 @@
       var checkboxes = chapterCheckboxes.querySelectorAll('input[type="checkbox"]');
       var checked = 0;
       checkboxes.forEach(function(cb) { if (cb.checked) checked++; });
-      chapterStats.textContent = allChapters.length + ' chapter(s) â€” ' + checked + ' selected';
+      chapterStats.textContent = allChapters.length + ' chapter(s) — ' + checked + ' selected';
     }
 
     document.getElementById('epubToTxtUpdateBtn').addEventListener('click', function() {

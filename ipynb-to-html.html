@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IPYNB to HTML â€” Jupyter Notebook to Web Page | ConvertPivot</title>
+  <title>IPYNB to HTML — Jupyter Notebook to Web Page | ConvertPivot</title>
   <meta name="description" content="Free online IPYNB to HTML converter. Convert Jupyter notebooks to clean web pages with rendered markdown and code highlighting. No upload.">
     <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/ipynb-to-html">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/ipynb-to-html">
-  <meta property="og:title" content="IPYNB to HTML â€” Jupyter Notebook to Web Page | ConvertPivot">
+  <meta property="og:title" content="IPYNB to HTML — Jupyter Notebook to Web Page | ConvertPivot">
   <meta property="og:description" content="Free online IPYNB to HTML converter. Convert Jupyter notebooks to clean web pages with rendered markdown and code highlighting.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="IPYNB to HTML â€” Jupyter Notebook to Web Page | ConvertPivot">
+  <meta name="twitter:title" content="IPYNB to HTML — Jupyter Notebook to Web Page | ConvertPivot">
   <meta name="twitter:description" content="Free online IPYNB to HTML converter. Convert Jupyter notebooks to clean web pages with rendered markdown and code highlighting.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -26,39 +26,39 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why convert IPYNB to HTML?","acceptedAnswer":{"@type":"Answer","text":"HTML notebooks can be hosted on any web server, shared as a single file, or embedded in documentation. They render perfectly in all modern browsers."}},{"@type":"Question","name":"Does the HTML output include images?","acceptedAnswer":{"@type":"Answer","text":"Yes. All cell outputs including inline images (plots, charts) are embedded as base64 data URLs in the HTML output."}},{"@type":"Question","name":"Can I host the HTML on my website?","acceptedAnswer":{"@type":"Answer","text":"Yes. The generated HTML is self-contained with embedded CSS and images. It can be uploaded to any web server or shared as a standalone file."}},{"@type":"Question","name":"Is my code private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Everything runs in your browser. Your notebook never leaves your device."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">?</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
   <nav id="sidebar" class="sidebar"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">IPYNB to HTML</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">IPYNB to HTML</span></nav>
     <div class="tool-header">
-      <h1>IPYNB to HTML Converter â€” Jupyter Notebook to Web Page</h1>
+      <h1>IPYNB to HTML Converter — Jupyter Notebook to Web Page</h1>
       <p>Convert Jupyter notebooks to self-contained HTML pages. Perfect for sharing notebooks on websites, documentation, or as standalone reports.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span>100% browser-based. Your notebook never leaves your device.</span></div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your notebook never leaves your device.</span></div>
     <div class="converter-widget" id="ipynbToHtmlWidget">
       <div class="drop-zone" id="ipynbToHtmlDropZone">
-        <div class="drop-zone-icon">ðŸŒ</div>
+        <div class="drop-zone-icon">🌐</div>
         <div class="drop-zone-text">Drop a <strong>.ipynb</strong> file here, or click to browse</div>
         <div class="drop-zone-hint">Output is a complete self-contained HTML page</div>
         <input type="file" accept=".ipynb" aria-label="Choose IPYNB file">
       </div>
-      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">âœ•</button></div>
+      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">✕</button></div>
       <div class="converter-controls"><button class="btn btn-primary" id="ipynbToHtmlConvertBtn">Convert to HTML</button></div>
       <div class="progress-bar" id="ipynbToHtmlProgress"><div class="progress-bar-fill"></div></div>
       <div class="converter-result" id="ipynbToHtmlResult"><div class="converter-result-message"></div></div>
     </div>
     <div class="content-section">
       <h2>How to Convert IPYNB to HTML</h2>
-      <p>Convert your Jupyter notebook to a professional HTML page with all content preserved â€” markdown is rendered to HTML with proper typography, code cells are syntax-highlighted for readability, and execution outputs including plots, tables, and images are embedded inline.</p>
+      <p>Convert your Jupyter notebook to a professional HTML page with all content preserved — markdown is rendered to HTML with proper typography, code cells are syntax-highlighted for readability, and execution outputs including plots, tables, and images are embedded inline.</p>
       <p>The generated HTML is fully self-contained with embedded CSS styles. It can be hosted on any web server, uploaded to GitHub Pages, shared as a file, or attached to emails. This is the standard format for publishing data science work online as interactive reports and portfolios.</p>
     </div>
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">Why convert IPYNB to HTML? <span class="arrow">â–¼</span></button><div class="faq-answer">HTML notebooks can be hosted on any web server, shared as a single file, or embedded in documentation. They render perfectly in all modern browsers.</div></div>
-        <div class="faq-item"><button class="faq-question">Does the HTML output include images? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. All cell outputs including inline images (plots, charts) are embedded as base64 data URLs in the HTML output.</div></div>
-        <div class="faq-item"><button class="faq-question">Can I host the HTML on my website? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. The generated HTML is self-contained with embedded CSS and images. It can be uploaded to any web server.</div></div>
-        <div class="faq-item"><button class="faq-question">Is my code private? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. Everything runs in your browser. Your notebook never leaves your device.</div></div>
+        <div class="faq-item"><button class="faq-question">Why convert IPYNB to HTML? <span class="arrow">▼</span></button><div class="faq-answer">HTML notebooks can be hosted on any web server, shared as a single file, or embedded in documentation. They render perfectly in all modern browsers.</div></div>
+        <div class="faq-item"><button class="faq-question">Does the HTML output include images? <span class="arrow">▼</span></button><div class="faq-answer">Yes. All cell outputs including inline images (plots, charts) are embedded as base64 data URLs in the HTML output.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I host the HTML on my website? <span class="arrow">▼</span></button><div class="faq-answer">Yes. The generated HTML is self-contained with embedded CSS and images. It can be uploaded to any web server.</div></div>
+        <div class="faq-item"><button class="faq-question">Is my code private? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Everything runs in your browser. Your notebook never leaves your device.</div></div>
       </div>
     </div>
     <div class="content-section">

@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PDF to Word â€” Convert PDF to DOCX Online | ConvertPivot</title>
+  <title>PDF to Word — Convert PDF to DOCX Online | ConvertPivot</title>
   <meta name="description" content="Free online PDF to Word converter. Extract text from PDF and create editable Word documents. Download as DOCX or DOC. 100% browser-based.">
   <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/pdf-to-word">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/pdf-to-word">
-  <meta property="og:title" content="PDF to Word â€” Convert PDF to DOCX Online | ConvertPivot">
+  <meta property="og:title" content="PDF to Word — Convert PDF to DOCX Online | ConvertPivot">
   <meta property="og:description" content="Free online PDF to Word converter. Extract text from PDF and create editable Word documents. Download as DOCX or DOC.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PDF to Word â€” Convert PDF to DOCX Online | ConvertPivot">
+  <meta name="twitter:title" content="PDF to Word — Convert PDF to DOCX Online | ConvertPivot">
   <meta name="twitter:description" content="Free online PDF to Word converter. Extract text from PDF and create editable Word documents. Download as DOCX or DOC.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -26,20 +26,20 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I edit the text before downloading?","acceptedAnswer":{"@type":"Answer","text":"Yes. After extraction, the text appears in an editable textarea. You can make any changes before downloading the Word document."}},{"@type":"Question","name":"What Word format is used?","acceptedAnswer":{"@type":"Answer","text":"The tool creates a .docx file (Office Open XML format) compatible with Microsoft Word 2007 and later, Google Docs, LibreOffice, and other word processors."}},{"@type":"Question","name":"Does it preserve formatting and images?","acceptedAnswer":{"@type":"Answer","text":"The tool extracts the text content along with bold and italic formatting detected from the PDF fonts. Images, tables, colors, and complex layouts are not preserved. The output Word document contains the extracted text with basic formatting as paragraphs."}},{"@type":"Question","name":"Are my PDFs uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All conversion happens entirely in your browser using PDF.js and JSZip. Your files never leave your device."}},{"@type":"Question","name":"What about scanned PDFs?","acceptedAnswer":{"@type":"Answer","text":"Scanned (image-based) PDFs have no selectable text layer, so text cannot be extracted. Optical Character Recognition (OCR) would be needed first."}},{"@type":"Question","name":"Is there a file size limit?","acceptedAnswer":{"@type":"Answer","text":"Since processing is done in your browser, very large PDFs may be limited by available memory. For best results, keep files under 50MB."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">?</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
   <nav id="sidebar" class="sidebar"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><a href="/">PDF Tools</a><span class="sep">â€º</span><span class="current">PDF to Word</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/">PDF Tools</a><span class="sep">›</span><span class="current">PDF to Word</span></nav>
     <div class="tool-header">
-      <h1>ðŸ“„ PDF to Word Converter â€” PDF to DOCX</h1>
+      <h1>📄 PDF to Word Converter — PDF to DOCX</h1>
       <p>Convert PDF documents to editable Word files. Extract text via PDF.js, edit the content, then download as DOCX format compatible with Microsoft Word.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span>100% browser-based. Your files never leave your device.</span></div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your files never leave your device.</span></div>
     <div class="converter-widget" id="pdfToWordWidget">
       <div class="drop-zone" id="pdfToWordDropZone">
-        <div class="drop-zone-icon">ðŸ“„</div>
+        <div class="drop-zone-icon">📄</div>
         <div class="drop-zone-text">Drop <strong>PDF</strong> here, or click to browse</div>
-        <div class="drop-zone-hint">Supports PDF files â€” edit text before downloading as Word</div>
+        <div class="drop-zone-hint">Supports PDF files — edit text before downloading as Word</div>
         <input type="file" accept=".pdf,application/pdf" aria-label="Choose PDF file">
       </div>
       <div class="file-list" id="pdfToWordFileList"></div>
@@ -52,7 +52,7 @@
         <div class="text-output-header">
           <span id="pdfToWordStats"></span>
           <div>
-            <button class="btn btn-success" id="pdfToWordDownloadBtn">â¬‡ Download as Word</button>
+            <button class="btn btn-success" id="pdfToWordDownloadBtn">⬇ Download as Word</button>
           </div>
         </div>
         <textarea id="pdfToWordContent" style="width:100%;min-height:300px;padding:14px;border:1px solid var(--color-mist);border-radius:var(--radius-card);background:var(--color-canvas);color:var(--color-ink);font-size:0.85rem;line-height:1.6;resize:vertical;margin-top:12px;"></textarea>
@@ -63,7 +63,7 @@
       <p>Drop a PDF file onto the converter. Click "Convert to Word" to extract the text content using PDF.js. The extracted text appears in an editable text area where you can make any changes. When ready, click "Download as Word" to save as a .docx file.</p>
       <p>The conversion extracts text from each page and arranges it as paragraphs in the Word document. <strong>Bold and italic formatting</strong> is detected from the PDF fonts and preserved in the output. Page breaks are inserted between pages to maintain the original document structure. The output file is a standard Office Open XML format (.docx) compatible with Microsoft Word 2007 and later.</p>
       <h3>Editing Before Download</h3>
-      <p>One advantage over traditional converters is the ability to edit the extracted text before saving. You can fix any extraction artifacts, adjust paragraph breaks, remove unwanted content, or add new text. Once satisfied, download the final Word document. Note that editing the text will remove the detected formatting â€” bold and italic styles are only preserved when you download without modifications.</p>
+      <p>One advantage over traditional converters is the ability to edit the extracted text before saving. You can fix any extraction artifacts, adjust paragraph breaks, remove unwanted content, or add new text. Once satisfied, download the final Word document. Note that editing the text will remove the detected formatting — bold and italic styles are only preserved when you download without modifications.</p>
     </div>
     <div class="content-section">
       <h2>Output Format Comparison</h2>
@@ -74,7 +74,7 @@
       </tbody></table>
     </div>
     <div class="content-section">
-      <h2>PDF to Word â€” Pros and Cons</h2>
+      <h2>PDF to Word — Pros and Cons</h2>
       <h3>PDF vs Word Documents</h3>
       <p><strong>Pros of Word:</strong> Editable content, track changes, collaborative editing, style and formatting control, comments and annotations, mail merge support.</p>
       <p><strong>Cons of Word:</strong> Inconsistent layout across devices, larger file sizes, less reliable for printing, formatting can break when sharing.</p>
@@ -88,12 +88,12 @@
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">Can I edit the text before downloading? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. After extraction, the text appears in an editable textarea. You can make any changes before downloading the Word document.</div></div>
-        <div class="faq-item"><button class="faq-question">What Word format is used? <span class="arrow">â–¼</span></button><div class="faq-answer">The tool creates a .docx file (Office Open XML format) compatible with Microsoft Word 2007 and later, Google Docs, LibreOffice, and other word processors.</div></div>
-        <div class="faq-item"><button class="faq-question">Does it preserve formatting and images? <span class="arrow">â–¼</span></button><div class="faq-answer">The tool extracts the text content along with <strong>bold and italic formatting</strong> detected from the PDF fonts. Images, tables, colors, and complex layouts are not preserved. The output Word document contains the extracted text with basic formatting as paragraphs.</div></div>
-        <div class="faq-item"><button class="faq-question">Are my PDFs uploaded to a server? <span class="arrow">â–¼</span></button><div class="faq-answer">No. All conversion happens entirely in your browser using PDF.js and JSZip. Your files never leave your device.</div></div>
-        <div class="faq-item"><button class="faq-question">What about scanned PDFs? <span class="arrow">â–¼</span></button><div class="faq-answer">Scanned (image-based) PDFs have no selectable text layer, so text cannot be extracted. Optical Character Recognition (OCR) would be needed first.</div></div>
-        <div class="faq-item"><button class="faq-question">Is there a file size limit? <span class="arrow">â–¼</span></button><div class="faq-answer">Since processing is done in your browser, very large PDFs may be limited by available memory. For best results, keep files under 50MB.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I edit the text before downloading? <span class="arrow">▼</span></button><div class="faq-answer">Yes. After extraction, the text appears in an editable textarea. You can make any changes before downloading the Word document.</div></div>
+        <div class="faq-item"><button class="faq-question">What Word format is used? <span class="arrow">▼</span></button><div class="faq-answer">The tool creates a .docx file (Office Open XML format) compatible with Microsoft Word 2007 and later, Google Docs, LibreOffice, and other word processors.</div></div>
+        <div class="faq-item"><button class="faq-question">Does it preserve formatting and images? <span class="arrow">▼</span></button><div class="faq-answer">The tool extracts the text content along with <strong>bold and italic formatting</strong> detected from the PDF fonts. Images, tables, colors, and complex layouts are not preserved. The output Word document contains the extracted text with basic formatting as paragraphs.</div></div>
+        <div class="faq-item"><button class="faq-question">Are my PDFs uploaded to a server? <span class="arrow">▼</span></button><div class="faq-answer">No. All conversion happens entirely in your browser using PDF.js and JSZip. Your files never leave your device.</div></div>
+        <div class="faq-item"><button class="faq-question">What about scanned PDFs? <span class="arrow">▼</span></button><div class="faq-answer">Scanned (image-based) PDFs have no selectable text layer, so text cannot be extracted. Optical Character Recognition (OCR) would be needed first.</div></div>
+        <div class="faq-item"><button class="faq-question">Is there a file size limit? <span class="arrow">▼</span></button><div class="faq-answer">Since processing is done in your browser, very large PDFs may be limited by available memory. For best results, keep files under 50MB.</div></div>
       </div>
     </div>
     <div class="content-section">
@@ -162,10 +162,10 @@
       }
       var html = '<div class="file-list-header">Selected file</div>';
       html += '<div class="file-list-item">';
-      html += '<span class="file-list-icon" style="font-size:1.5rem;margin-right:8px;">ðŸ“„</span>';
+      html += '<span class="file-list-icon" style="font-size:1.5rem;margin-right:8px;">📄</span>';
       html += '<span class="file-list-name">' + currentFile.name + '</span>';
       html += '<span class="file-list-size">' + ConvertPivot.formatFileSize(currentFile.size) + '</span>';
-      html += '<button class="file-list-remove" id="pdfToWordRemoveBtn">âœ•</button>';
+      html += '<button class="file-list-remove" id="pdfToWordRemoveBtn">✕</button>';
       html += '</div>';
       fileListEl.innerHTML = html;
       document.getElementById('pdfToWordRemoveBtn').addEventListener('click', function() {
