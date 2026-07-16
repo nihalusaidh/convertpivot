@@ -260,7 +260,7 @@
           if (f.note) html += '<span style="font-size:0.75rem;color:var(--text-secondary);max-width:50%;text-align:right;">' + f.note + '</span>';
           html += '</div>';
           html += '<code style="font-size:0.85rem;word-break:break-all;background:var(--color-smoke);padding:6px 10px;border-radius:4px;display:block;">' + f.css + '</code>';
-          html += '<button class="btn btn-secondary" style="padding:4px 12px;font-size:0.8rem;align-self:flex-end;" onclick="var t=this;navigator.clipboard.writeText(\'' + f.css.replace(/'/g,"\\'") + '\').then(function(){t.textContent=\'Copied!\';setTimeout(function(){t.textContent=\'Copy\';},1500);}).catch(function(){prompt(\'Copy:\',\'' + f.css.replace(/'/g,"\\'") + '\');})">Copy</button>';
+          html += '<button class="btn btn-secondary btn-copy-color" style="padding:4px 12px;font-size:0.8rem;align-self:flex-end;" data-css="' + f.css.replace(/"/g, '&quot;') + '">Copy</button>';
           html += '</div>';
         }
         resultsDiv.innerHTML = html;
@@ -272,6 +272,18 @@
 
       document.querySelectorAll('[data-example]').forEach(function(btn) {
         btn.addEventListener('click', function() { colorInput.value = this.getAttribute('data-example'); update(); });
+      });
+
+      resultsDiv.addEventListener('click', function(e) {
+        var btn = e.target.closest('.btn-copy-color');
+        if (!btn) return;
+        var css = btn.getAttribute('data-css');
+        navigator.clipboard.writeText(css).then(function() {
+          btn.textContent = 'Copied!';
+          setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+        }).catch(function() {
+          prompt('Copy:', css);
+        });
       });
 
       update();

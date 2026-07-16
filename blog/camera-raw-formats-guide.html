@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding RAW Camera Formats — CR2, NEF, ARW, DNG Explained</title>
+  <meta name="description" content="Guide to RAW camera formats from different manufacturers. Learn about CR2 (Canon), NEF (Nikon), ARW (Sony), DNG (Adobe), and how to convert them to JPG.">
+    <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/blog/camera-raw-formats-guide">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://convertpivot.com/blog/camera-raw-formats-guide">
+  <meta property="og:title" content="Understanding RAW Camera Formats — CR2, NEF, ARW, DNG Explained">
+  <meta property="og:description" content="Guide to RAW camera formats from different manufacturers. Learn about CR2 (Canon), NEF (Nikon), ARW (Sony), DNG (Adobe), and how to convert them to JPG.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="../css/style.css?v=2">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Understanding RAW Camera Formats — CR2, NEF, ARW, DNG Explained","description":"Guide to RAW camera formats from different manufacturers. Learn about CR2 (Canon), NEF (Nikon), ARW (Sony), DNG (Adobe), and how to convert them to JPG.","datePublished":"2026-07-16","dateModified":"2026-07-16","author":{"@type":"Person","name":"ConvertPivot"},"publisher":{"@type":"Organization","name":"ConvertPivot","url":"https://convertpivot.com"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://convertpivot.com/blog/camera-raw-formats-guide"},"image":"https://convertpivot.com/og-image.png"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which RAW format is best?","acceptedAnswer":{"@type":"Answer","text":"There is no single best RAW format. The best format is the one your camera natively supports. Canon's CR2 and CR3, Nikon's NEF, and Sony's ARW all capture the maximum sensor data from their respective cameras. DNG is the best archival format because it is open and standardized. For everyday work, stick with your camera's native RAW format and convert to DNG for long-term storage."}},{"@type":"Question","name":"Can I convert RAW without special software?","acceptedAnswer":{"@type":"Answer","text":"Yes, you can convert RAW files to JPG using free online converters that run in your browser. These tools use the embedded JPEG preview inside the RAW file or decode the raw sensor data using client-side JavaScript. ConvertPivot's RAW to JPG tool, for example, works entirely in your browser with no upload required."}},{"@type":"Question","name":"Is DNG better than proprietary RAW?","acceptedAnswer":{"@type":"Answer","text":"DNG has advantages in portability and long-term archival. It is an open standard maintained by Adobe, meaning it is less likely to become obsolete if a camera manufacturer goes out of business. DNG files are sometimes smaller than proprietary RAW files because Adobe's compression is efficient. However, proprietary RAW formats like CR2 and NEF store camera-specific metadata that DNG may not fully preserve."}}]}</script>
+
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="../" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="../">Home</a><span class="sep">›</span><a href="/blog">Blog</a><span class="sep">›</span><span class="current">Understanding RAW Camera Formats — CR2, NEF, ARW, DNG Explained</span></nav>
+    <article class="blog-content">
+      <span style="display:inline-block;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;padding:2px 10px;border-radius:3px;background:var(--color-red);color:#fff;margin-bottom:12px;">Images</span>
+      <h1>Understanding RAW Camera Formats — CR2, NEF, ARW, DNG Explained</h1>
+      <p style="font-size:0.85rem;color:var(--color-graphite);margin-bottom:24px;">July 16, 2026</p>
+
+      <p>If you shoot with a DSLR or mirrorless camera, you have seen RAW as an option in the quality settings menu. Camera manuals do a terrible job explaining what RAW actually is or why you would want to use it. The short answer is that RAW files contain every bit of data your camera sensor captured, with no processing applied. This gives you maximum flexibility when editing, but it also means you cannot share RAW files directly. They need to be converted first.</p>
+
+      <h2>What Is a RAW File?</h2>
+      <p>A RAW file is not an image in the traditional sense. It is a container that holds the raw sensor data from your camera's image sensor, along with metadata about the camera settings, lens, white balance, and more. Unlike JPEG, which applies sharpening, noise reduction, and color correction inside the camera, a RAW file stores the unprocessed data. Every RAW file also contains an embedded JPEG preview, which is what you see on your camera's LCD screen.</p>
+      <p>The downside is that RAW files are large. A 24-megapixel camera produces RAW files around 25 to 35 MB each. The upside is the editing headroom. You can adjust exposure by several stops without introducing artifacts, fix white balance after the fact, and recover highlight and shadow detail that would be lost in a JPEG.</p>
+
+      <h2>Manufacturer RAW Formats</h2>
+      <p>Every camera manufacturer has its own RAW format. They all serve the same purpose, but they are not interchangeable. Here are the most common ones:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Manufacturer</th>
+            <th>RAW Extension</th>
+            <th>Bit Depth</th>
+            <th>Compression</th>
+            <th>Embedded Preview</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Canon</td>
+            <td>.CR2, .CR3</td>
+            <td>14-bit</td>
+            <td>Lossless</td>
+            <td>JPEG</td>
+            <td>CR3 is the newer format with better compression</td>
+          </tr>
+          <tr>
+            <td>Nikon</td>
+            <td>.NEF</td>
+            <td>12 or 14-bit</td>
+            <td>Lossless or compressed</td>
+            <td>JPEG</td>
+            <td>Also uses .NRW for some compact cameras</td>
+          </tr>
+          <tr>
+            <td>Sony</td>
+            <td>.ARW</td>
+            <td>14-bit</td>
+            <td>Lossless or uncompressed</td>
+            <td>JPEG</td>
+            <td>Uncompressed ARW files are significantly larger</td>
+          </tr>
+          <tr>
+            <td>Fujifilm</td>
+            <td>.RAF</td>
+            <td>14-bit</td>
+            <td>Lossless</td>
+            <td>JPEG</td>
+            <td>Uses unique X-Trans sensor array</td>
+          </tr>
+          <tr>
+            <td>Panasonic</td>
+            <td>.RW2</td>
+            <td>12 or 14-bit</td>
+            <td>Lossless</td>
+            <td>JPEG</td>
+            <td>Used by Lumix cameras</td>
+          </tr>
+          <tr>
+            <td>Olympus</td>
+            <td>.ORF</td>
+            <td>12-bit</td>
+            <td>Lossless</td>
+            <td>JPEG</td>
+            <td>Some models also support 14-bit</td>
+          </tr>
+          <tr>
+            <td>Leica</td>
+            <td>.DNG</td>
+            <td>14-bit</td>
+            <td>Lossless</td>
+            <td>JPEG</td>
+            <td>Leica uses Adobe's open DNG format natively</td>
+          </tr>
+          <tr>
+            <td>Adobe (Universal)</td>
+            <td>.DNG</td>
+            <td>Variable</td>
+            <td>Lossless</td>
+            <td>JPEG</td>
+            <td>Open standard, can convert from any RAW</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Embedded JPEG Previews</h2>
+      <p>Every RAW file includes a JPEG preview image embedded in its metadata. This preview is what allows you to view RAW files on your camera screen and in file explorers without decoding the full raw data. The preview is typically 1600 x 1200 pixels for standard cameras, though newer models include full-resolution previews. When you use a browser-based RAW to JPG converter that claims to work without decoding the sensor data, it is often extracting this embedded preview and saving it as a standalone JPEG.</p>
+      <p>The embedded preview is not the same as a properly converted RAW file. The preview has already been processed by the camera with its default settings applied. If you want true control over the white balance, sharpening, and tone curve, you need software that decodes the actual sensor data, not just the preview thumbnail.</p>
+
+      <h2>Why Convert RAW to JPG?</h2>
+      <p>RAW files are not meant for sharing. You cannot email a 30 MB NEF file to a client, and Instagram does not accept CR2 uploads. JPG is the universal sharing format. Converting to JPG reduces the file size dramatically. A 30 MB RAW file might become a 3 MB JPG at high quality. The trade-off is that JPG uses lossy compression and discards data that cannot be recovered.</p>
+      <p>There are two approaches to RAW to JPG conversion. The first is to use a desktop editor like Lightroom or Capture One, which gives you full control over the conversion process. The second is to use a quick online tool that extracts the embedded JPEG or does a basic decode. The online approach is faster and works without installing anything, but you sacrifice fine control over the output.</p>
+
+      <h2>Converting RAW to JPG in the Browser</h2>
+      <p>Browser-based RAW conversion works by reading the RAW file's structure using JavaScript libraries. The file is loaded via a file input element, and the browser reads its contents into memory as an ArrayBuffer. A JavaScript decoder then parses the RAW format's binary structure, identifies the sensor data and the embedded preview, and decodes the pixels. The resulting image data is drawn onto a canvas element, which can then export a JPEG blob.</p>
+      <p>The challenge is that each RAW format has a different binary layout. CR2 files use a TIFF-based container with Canon-specific tags. NEF files follow a similar structure but with Nikon's own tag definitions. ARW files changed their internal structure between Sony's older and newer cameras. A complete decoder needs to handle all these variations. Tools like ConvertPivot's RAW to JPG converter handle the most common formats by extracting the embedded full-size JPEG preview, which works across almost all cameras without needing to decode the raw sensor data itself.</p>
+
+      <h2>DNG: The Universal RAW Alternative</h2>
+      <p>Adobe developed the DNG (Digital Negative) format as an open alternative to proprietary RAW formats. Any manufacturer can use DNG without paying licensing fees. Leica uses DNG natively. Many other cameras can output DNG with a firmware update. Adobe offers a free DNG Converter that turns proprietary RAW files into DNG.</p>
+      <p>The advantage of DNG is long-term compatibility. A proprietary RAW format might become unreadable if the manufacturer stops supporting it. DNG is an open standard documented by Adobe, so any software developer can implement it. The downside is that DNG files are not universally supported by cameras themselves. Most cameras still write their own proprietary format. You have to convert to DNG on your computer.</p>
+
+      <h2>Final Thoughts</h2>
+      <p>RAW formats exist to preserve every bit of data your camera sensor can capture. They are not image files you can share directly. Each manufacturer has its own flavor with different compression, bit depth, and metadata structures. DNG sits in the middle as an open alternative that prioritizes long-term accessibility. For quick sharing, converting RAW to JPG is the pragmatic choice. For serious editing, keep the RAW originals and process them in dedicated software.</p>
+
+      <div class="related-tools">
+        <h3>Related Tools</h3>
+        <ul>
+          <li><a href="../raw-to-jpg.html">RAW to JPG Converter</a></li>
+          <li><a href="../heic-to-jpg.html">HEIC to JPG Converter</a></li>
+          <li><a href="../image-compressor.html">Image Compressor</a></li>
+        </ul>
+      </div>
+    </article>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="../">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="../js/shared.js?v=2"></script>
+</body>
+</html>

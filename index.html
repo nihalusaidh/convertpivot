@@ -5,18 +5,18 @@
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Free Online Converter Tools — 100% Browser-Based | ConvertPivot</title>
-  <meta name="description" content="90+ free online converter tools. Convert colors, CSS properties, binary, VCF contacts, bank statements, GPX, IPYNB, HEIC, and more. Zero uploads — your files never leave your device.">
+  <meta name="description" content="110+ free online converter tools. Convert colors, CSS properties, binary, VCF contacts, bank statements, GPX, IPYNB, HEIC, and more. Zero uploads — your files never leave your device.">
     <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/">
-  <meta property="og:title" content="Free Online Converter Tools — 100% Browser-Based">
-  <meta property="og:description" content="88+ free online converter tools. Zero uploads — your files never leave your device.">
+  <meta property="og:title" content="Free Online Converter Tools â€” 100% Browser-Based">
+  <meta property="og:description" content="110+ free online converter tools. Zero uploads — your files never leave your device.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Free Online Converter Tools — 100% Browser-Based">
-  <meta name="twitter:description" content="88+ free online converter tools. Zero uploads — your files never leave your device.">
+  <meta name="twitter:title" content="Free Online Converter Tools â€” 100% Browser-Based">
+  <meta name="twitter:description" content="110+ free online converter tools. Zero uploads — your files never leave your device.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -31,7 +31,7 @@
     "applicationCategory": "Multimedia",
     "operatingSystem": "All",
     "browserRequirements": "JavaScript",
-    "description": "90+ free online converter tools that run entirely in your browser. Convert files privately — no upload, no signup."
+    "description": "110+ free online converter tools that run entirely in your browser. Convert files privately — no upload, no signup."
   }
   </script>
   <script type="application/ld+json">
@@ -52,7 +52,7 @@
         "name": "Do you upload my files to a server?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Every conversion runs locally in your browser using WebAssembly and JavaScript. Your files are never uploaded to any server. You can verify this by opening your browser's Network tab during a conversion — zero file data is transmitted."
+          "text": "No. Every conversion runs locally in your browser using WebAssembly and JavaScript. Your files are never uploaded to any server. You can verify this by opening your browser's Network tab during a conversion â€” zero file data is transmitted."
         }
       },
       {
@@ -111,15 +111,15 @@
 
   <!-- HEADER -->
   <header class="site-header">
-    <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
+    <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button>
     <a href="/" class="site-logo">
       <span class="logo-mark">P</span>
       <span>ConvertPivot</span>
-    </a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
+    </a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
 
   <!-- SIDEBAR -->
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation">
-    <div class="sidebar-search"><span class="search-icon">🔍</span><input type="text" id="sidebarSearchInput" placeholder="Search tools..." oninput="filterSidebar(this.value)"></div>
+    <div class="sidebar-search"><span class="search-icon">ðŸ"</span><input type="text" id="sidebarSearchInput" placeholder="Search tools..."></div>
     <div id="sidebarSections">
     <div class="sidebar-section">
       <div class="sidebar-heading">Converter Categories</div>
@@ -130,170 +130,182 @@
       <a href="/convert/ebook" class="sidebar-link"><span class="icon">📖</span>E-book Converters</a>
     </div>
     <div class="sidebar-section">
+      <div class="sidebar-heading">Tool Categories</div>
+      <a href="/finance-converters" class="sidebar-link"><span class="icon">🏦</span>Finance Converters</a>
+      <a href="/gps-converters" class="sidebar-link"><span class="icon">🗺</span>GPS Converters</a>
+      <a href="/contacts-converters" class="sidebar-link"><span class="icon">📇</span>Contacts Converters</a>
+      <a href="/ipynb-converters" class="sidebar-link"><span class="icon">📓</span>Notebook Converters</a>
+      <a href="/ebook-converters" class="sidebar-link"><span class="icon">📖</span>E-book Converters</a>
+    </div>
+    <div class="sidebar-section">
       <div class="sidebar-heading">Developer Tools</div>
-      <a href="/binary-converter" class="sidebar-link"><span class="icon">⬡</span>Binary Converter</a>
-      <a href="/hex-to-rgb" class="sidebar-link"><span class="icon">🎨</span>Hex to RGB</a>
-      <a href="/timestamp-converter" class="sidebar-link"><span class="icon">⏱</span>Timestamp Converter</a>
-      <a href="/json-formatter" class="sidebar-link"><span class="icon">🔧</span>JSON Formatter</a>
-      <a href="/base64-encoder" class="sidebar-link"><span class="icon">🔐</span>Base64 Encoder</a>
-      <a href="/base64-decoder" class="sidebar-link"><span class="icon">🔓</span>Base64 Decoder</a>
-      <a href="/password-generator" class="sidebar-link"><span class="icon">🔑</span>Password Generator</a>
-      <a href="/word-counter" class="sidebar-link"><span class="icon">📝</span>Word Counter</a>
-      <a href="/url-encoder-decoder" class="sidebar-link"><span class="icon">🔗</span>URL Encoder/Decoder</a>
-      <a href="/html-entity-encoder-decoder" class="sidebar-link"><span class="icon">🔠</span>HTML Entity Encoder</a>
-      <a href="/uuid-generator" class="sidebar-link"><span class="icon">🔑</span>UUID Generator</a>
-      <a href="/case-converter" class="sidebar-link"><span class="icon">🔠</span>Case Converter</a>
-      <a href="/markdown-to-html" class="sidebar-link"><span class="icon">📝</span>Markdown to HTML</a>
-      <a href="/html-to-markdown" class="sidebar-link"><span class="icon">📝</span>HTML to Markdown</a>
-      <a href="/json-to-yaml" class="sidebar-link"><span class="icon">🔄</span>JSON to YAML</a>
-      <a href="/xml-to-json" class="sidebar-link"><span class="icon">🔄</span>XML to JSON</a>
-      <a href="/csv-to-json" class="sidebar-link"><span class="icon">📊</span>CSV to JSON</a>
-      <a href="/image-to-base64" class="sidebar-link"><span class="icon">🖼</span>Image to Base64</a>
-      <a href="/color-converter" class="sidebar-link"><span class="icon">🎨</span>Color Converter</a>
-      <a href="/text-diff" class="sidebar-link"><span class="icon">🔍</span>Text Diff Checker</a>
-      <a href="/percentage-calculator" class="sidebar-link"><span class="icon">📈</span>Percentage Calculator</a>
-      <a href="/temperature-converter" class="sidebar-link"><span class="icon">🌡</span>Temperature Converter</a>
-      <a href="/all-unit-converters" class="sidebar-link"><span class="icon">📏</span>All Unit Converters</a>
-      <a href="/hash-generator" class="sidebar-link"><span class="icon">🔒</span>Hash Generator</a>
-      <a href="/slug-generator" class="sidebar-link"><span class="icon">🔗</span>Slug Generator</a>
-      <a href="/lorem-ipsum-generator" class="sidebar-link"><span class="icon">📝</span>Lorem Ipsum Generator</a>
-      <a href="/morse-code-translator" class="sidebar-link"><span class="icon">🔄</span>Morse Code Translator</a>
-      <a href="/roman-numeral-converter" class="sidebar-link"><span class="icon">🏛</span>Roman Numeral Converter</a>
-      <a href="/palindrome-checker" class="sidebar-link"><span class="icon">🔍</span>Palindrome Checker</a>
-      <a href="/prime-number-checker" class="sidebar-link"><span class="icon">🔢</span>Prime Number Checker</a>
-      <a href="/reading-time-calculator" class="sidebar-link"><span class="icon">⏱</span>Reading Time Calculator</a>
-      <a href="/number-system-converter" class="sidebar-link"><span class="icon">🔢</span>Number System Converter</a>
-      <a href="/nato-phonetic-alphabet" class="sidebar-link"><span class="icon">🔤</span>NATO Phonetic Alphabet</a>
-      <a href="/cron-expression-generator" class="sidebar-link"><span class="icon">⏰</span>Cron Expression Generator</a>
-      <a href="/anagram-solver" class="sidebar-link"><span class="icon">🔤</span>Anagram Solver</a>
-      <a href="/regex-tester" class="sidebar-link"><span class="icon">🔍</span>Regex Tester</a>
-      <a href="/duplicate-line-remover" class="sidebar-link"><span class="icon">🗑</span>Duplicate Line Remover</a>
-      <a href="/reverse-text-generator" class="sidebar-link"><span class="icon">🔄</span>Reverse Text Generator</a>
-      <a href="/data-storage-converter" class="sidebar-link"><span class="icon">💾</span>Data Storage Converter</a>
-      <a href="/color-palette-generator" class="sidebar-link"><span class="icon">🎨</span>Color Palette Generator</a>
-      <a href="/password-strength-checker" class="sidebar-link"><span class="icon">🔒</span>Password Strength Checker</a>
-      <a href="/timezone-converter" class="sidebar-link"><span class="icon">🌍</span>Timezone Converter</a>
-      <a href="/random-number-generator" class="sidebar-link"><span class="icon">🎲</span>Random Number Generator</a>
-      <a href="/number-to-words-converter" class="sidebar-link"><span class="icon">🔢</span>Number to Words Converter</a>
-      <a href="/text-repeater" class="sidebar-link"><span class="icon">🔁</span>Text Repeater</a>
-      <a href="/css-minifier" class="sidebar-link"><span class="icon">📐</span>CSS Minifier</a>
-      <a href="/list-randomizer" class="sidebar-link"><span class="icon">🎲</span>List Randomizer</a>
-      <a href="/css-gradient-generator" class="sidebar-link"><span class="icon">🎨</span>CSS Gradient Generator</a>
-      <a href="/readability-checker" class="sidebar-link"><span class="icon">📖</span>Readability Checker</a>
-      <a href="/age-calculator" class="sidebar-link"><span class="icon">🏃</span>Age Calculator</a>
-      <a href="/html-previewer" class="sidebar-link"><span class="icon">🖼</span>HTML Previewer</a>
-      <a href="/contrast-checker" class="sidebar-link"><span class="icon">🔍</span>Contrast Checker</a>
-      <a href="/text-cleaner" class="sidebar-link"><span class="icon">🧹</span>Text Cleaner</a>
-      <a href="/scientific-notation-converter" class="sidebar-link"><span class="icon">🔢</span>Scientific Notation Converter</a>
-      <a href="/username-generator" class="sidebar-link"><span class="icon">👤</span>Username Generator</a>
-      <a href="/jwt-decoder" class="sidebar-link"><span class="icon">🔐</span>JWT Decoder</a>
-      <a href="/yaml-to-json" class="sidebar-link"><span class="icon">🔄</span>YAML to JSON</a>
-      <a href="/json-to-csv" class="sidebar-link"><span class="icon">📊</span>JSON to CSV</a>
+      <a href="/binary-converter" class="sidebar-link"><span class="icon">â¬¡</span>Binary Converter</a>
+      <a href="/hex-to-rgb" class="sidebar-link"><span class="icon">ðŸŽ¨</span>Hex to RGB</a>
+      <a href="/timestamp-converter" class="sidebar-link"><span class="icon">â±</span>Timestamp Converter</a>
+      <a href="/json-formatter" class="sidebar-link"><span class="icon">ðŸ”§</span>JSON Formatter</a>
+      <a href="/base64-encoder" class="sidebar-link"><span class="icon">ðŸ”</span>Base64 Encoder</a>
+      <a href="/base64-decoder" class="sidebar-link"><span class="icon">ðŸ”“</span>Base64 Decoder</a>
+      <a href="/password-generator" class="sidebar-link"><span class="icon">ðŸ”‘</span>Password Generator</a>
+      <a href="/word-counter" class="sidebar-link"><span class="icon">ðŸ“</span>Word Counter</a>
+      <a href="/url-encoder-decoder" class="sidebar-link"><span class="icon">ðŸ”—</span>URL Encoder/Decoder</a>
+      <a href="/html-entity-encoder-decoder" class="sidebar-link"><span class="icon">ðŸ” </span>HTML Entity Encoder</a>
+      <a href="/uuid-generator" class="sidebar-link"><span class="icon">ðŸ”‘</span>UUID Generator</a>
+      <a href="/case-converter" class="sidebar-link"><span class="icon">ðŸ” </span>Case Converter</a>
+      <a href="/markdown-to-html" class="sidebar-link"><span class="icon">ðŸ“</span>Markdown to HTML</a>
+      <a href="/html-to-markdown" class="sidebar-link"><span class="icon">ðŸ“</span>HTML to Markdown</a>
+      <a href="/json-to-yaml" class="sidebar-link"><span class="icon">ðŸ”„</span>JSON to YAML</a>
+      <a href="/xml-to-json" class="sidebar-link"><span class="icon">ðŸ”„</span>XML to JSON</a>
+      <a href="/csv-to-json" class="sidebar-link"><span class="icon">ðŸ“Š</span>CSV to JSON</a>
+      <a href="/image-to-base64" class="sidebar-link"><span class="icon">ðŸ–¼</span>Image to Base64</a>
+      <a href="/color-converter" class="sidebar-link"><span class="icon">ðŸŽ¨</span>Color Converter</a>
+      <a href="/text-diff" class="sidebar-link"><span class="icon">ðŸ”</span>Text Diff Checker</a>
+      <a href="/percentage-calculator" class="sidebar-link"><span class="icon">ðŸ“ˆ</span>Percentage Calculator</a>
+      <a href="/temperature-converter" class="sidebar-link"><span class="icon">ðŸŒ¡</span>Temperature Converter</a>
+      <a href="/all-unit-converters" class="sidebar-link"><span class="icon">ðŸ“</span>All Unit Converters</a>
+      <a href="/hash-generator" class="sidebar-link"><span class="icon">ðŸ”’</span>Hash Generator</a>
+      <a href="/slug-generator" class="sidebar-link"><span class="icon">ðŸ”—</span>Slug Generator</a>
+      <a href="/lorem-ipsum-generator" class="sidebar-link"><span class="icon">ðŸ“</span>Lorem Ipsum Generator</a>
+      <a href="/morse-code-translator" class="sidebar-link"><span class="icon">ðŸ”„</span>Morse Code Translator</a>
+      <a href="/roman-numeral-converter" class="sidebar-link"><span class="icon">ðŸ›</span>Roman Numeral Converter</a>
+      <a href="/palindrome-checker" class="sidebar-link"><span class="icon">ðŸ”</span>Palindrome Checker</a>
+      <a href="/prime-number-checker" class="sidebar-link"><span class="icon">ðŸ”¢</span>Prime Number Checker</a>
+      <a href="/reading-time-calculator" class="sidebar-link"><span class="icon">â±</span>Reading Time Calculator</a>
+      <a href="/number-system-converter" class="sidebar-link"><span class="icon">ðŸ”¢</span>Number System Converter</a>
+      <a href="/nato-phonetic-alphabet" class="sidebar-link"><span class="icon">ðŸ”¤</span>NATO Phonetic Alphabet</a>
+      <a href="/cron-expression-generator" class="sidebar-link"><span class="icon">â°</span>Cron Expression Generator</a>
+      <a href="/anagram-solver" class="sidebar-link"><span class="icon">ðŸ”¤</span>Anagram Solver</a>
+      <a href="/regex-tester" class="sidebar-link"><span class="icon">ðŸ”</span>Regex Tester</a>
+      <a href="/duplicate-line-remover" class="sidebar-link"><span class="icon">ðŸ—‘</span>Duplicate Line Remover</a>
+      <a href="/reverse-text-generator" class="sidebar-link"><span class="icon">ðŸ”„</span>Reverse Text Generator</a>
+      <a href="/data-storage-converter" class="sidebar-link"><span class="icon">ðŸ’¾</span>Data Storage Converter</a>
+      <a href="/color-palette-generator" class="sidebar-link"><span class="icon">ðŸŽ¨</span>Color Palette Generator</a>
+      <a href="/password-strength-checker" class="sidebar-link"><span class="icon">ðŸ”’</span>Password Strength Checker</a>
+      <a href="/timezone-converter" class="sidebar-link"><span class="icon">ðŸŒ</span>Timezone Converter</a>
+      <a href="/random-number-generator" class="sidebar-link"><span class="icon">ðŸŽ²</span>Random Number Generator</a>
+      <a href="/number-to-words-converter" class="sidebar-link"><span class="icon">ðŸ”¢</span>Number to Words Converter</a>
+      <a href="/text-repeater" class="sidebar-link"><span class="icon">ðŸ”</span>Text Repeater</a>
+      <a href="/css-minifier" class="sidebar-link"><span class="icon">ðŸ“</span>CSS Minifier</a>
+      <a href="/list-randomizer" class="sidebar-link"><span class="icon">ðŸŽ²</span>List Randomizer</a>
+      <a href="/css-gradient-generator" class="sidebar-link"><span class="icon">ðŸŽ¨</span>CSS Gradient Generator</a>
+      <a href="/readability-checker" class="sidebar-link"><span class="icon">ðŸ“–</span>Readability Checker</a>
+      <a href="/age-calculator" class="sidebar-link"><span class="icon">ðŸƒ</span>Age Calculator</a>
+      <a href="/html-previewer" class="sidebar-link"><span class="icon">ðŸ–¼</span>HTML Previewer</a>
+      <a href="/contrast-checker" class="sidebar-link"><span class="icon">ðŸ”</span>Contrast Checker</a>
+      <a href="/text-cleaner" class="sidebar-link"><span class="icon">ðŸ§¹</span>Text Cleaner</a>
+      <a href="/scientific-notation-converter" class="sidebar-link"><span class="icon">ðŸ”¢</span>Scientific Notation Converter</a>
+      <a href="/username-generator" class="sidebar-link"><span class="icon">ðŸ‘¤</span>Username Generator</a>
+      <a href="/jwt-decoder" class="sidebar-link"><span class="icon">ðŸ”</span>JWT Decoder</a>
+      <a href="/yaml-to-json" class="sidebar-link"><span class="icon">ðŸ”„</span>YAML to JSON</a>
+      <a href="/json-to-csv" class="sidebar-link"><span class="icon">ðŸ“Š</span>JSON to CSV</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-heading">CSS Tools</div>
-      <a href="/color-space-converter" class="sidebar-link"><span class="icon">🎨</span>Color Space Converter</a>
-      <a href="/css-logical-properties" class="sidebar-link"><span class="icon">📐</span>CSS Logical Properties Converter</a>
-      <a href="/css-property-generator" class="sidebar-link"><span class="icon">📋</span>CSS @property Generator</a>
-      <a href="/css-text-wrap-visualizer" class="sidebar-link"><span class="icon">↔️</span>CSS Text Wrap Visualizer</a>
-      <a href="/css-view-transitions-generator" class="sidebar-link"><span class="icon">✨</span>CSS View Transitions Generator</a>
-      <a href="/css-box-shadow-generator" class="sidebar-link"><span class="icon">🎨</span>CSS Box Shadow Generator</a>
-      <a href="/css-animation-generator" class="sidebar-link"><span class="icon">✨</span>CSS Animation Generator</a>
-      <a href="/css-anchor-positioning-generator" class="sidebar-link"><span class="icon">⚓</span>CSS Anchor Positioning Generator</a>
+      <a href="/color-space-converter" class="sidebar-link"><span class="icon">ðŸŽ¨</span>Color Space Converter</a>
+      <a href="/css-logical-properties" class="sidebar-link"><span class="icon">ðŸ“</span>CSS Logical Properties Converter</a>
+      <a href="/css-property-generator" class="sidebar-link"><span class="icon">ðŸ“‹</span>CSS @property Generator</a>
+      <a href="/css-text-wrap-visualizer" class="sidebar-link"><span class="icon">â†”ï¸</span>CSS Text Wrap Visualizer</a>
+      <a href="/css-view-transitions-generator" class="sidebar-link"><span class="icon">âœ¨</span>CSS View Transitions Generator</a>
+      <a href="/css-box-shadow-generator" class="sidebar-link"><span class="icon">ðŸŽ¨</span>CSS Box Shadow Generator</a>
+      <a href="/css-animation-generator" class="sidebar-link"><span class="icon">âœ¨</span>CSS Animation Generator</a>
+      <a href="/css-anchor-positioning-generator" class="sidebar-link"><span class="icon">âš“</span>CSS Anchor Positioning Generator</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-heading">Contacts & CRM</div>
-      <a href="/vcf-to-csv" class="sidebar-link"><span class="icon">📇</span>VCF to CSV</a>
-      <a href="/csv-to-vcf" class="sidebar-link"><span class="icon">📋</span>CSV to VCF</a>
-      <a href="/vcf-to-xlsx" class="sidebar-link"><span class="icon">📊</span>VCF to XLSX</a>
+      <a href="/vcf-to-csv" class="sidebar-link"><span class="icon">ðŸ“‡</span>VCF to CSV</a>
+      <a href="/csv-to-vcf" class="sidebar-link"><span class="icon">ðŸ“‹</span>CSV to VCF</a>
+      <a href="/vcf-to-xlsx" class="sidebar-link"><span class="icon">ðŸ“Š</span>VCF to XLSX</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-heading">Financial</div>
-      <a href="/ofx-to-csv" class="sidebar-link"><span class="icon">🏦</span>OFX to CSV</a>
-      <a href="/qfx-to-csv" class="sidebar-link"><span class="icon">💰</span>QFX to CSV</a>
-      <a href="/qbo-to-csv" class="sidebar-link"><span class="icon">📒</span>QBO to CSV</a>
-      <a href="/csv-to-qbo" class="sidebar-link"><span class="icon">🔄</span>CSV to QBO</a>
-      <a href="/csv-to-ofx" class="sidebar-link"><span class="icon">🏛</span>CSV to OFX</a>
-      <a href="/csv-to-qfx" class="sidebar-link"><span class="icon">📁</span>CSV to QFX</a>
-      <a href="/pdf-bank-statement-to-csv" class="sidebar-link"><span class="icon">📄</span>PDF Bank Stmt to CSV</a>
-      <a href="/bank-statement-converter" class="sidebar-link"><span class="icon">🏛</span>Bank Stmt Converter</a>
-      <a href="/chase-bank-statement-to-csv" class="sidebar-link"><span class="icon">🏦</span>Chase to CSV</a>
-      <a href="/wells-fargo-statement-to-csv" class="sidebar-link"><span class="icon">💰</span>Wells Fargo to CSV</a>
-      <a href="/bank-of-america-statement-to-csv" class="sidebar-link"><span class="icon">🏛</span>BofA to CSV</a>
+      <a href="/ofx-to-csv" class="sidebar-link"><span class="icon">ðŸ¦</span>OFX to CSV</a>
+      <a href="/qfx-to-csv" class="sidebar-link"><span class="icon">ðŸ’°</span>QFX to CSV</a>
+      <a href="/qbo-to-csv" class="sidebar-link"><span class="icon">ðŸ“’</span>QBO to CSV</a>
+      <a href="/csv-to-qbo" class="sidebar-link"><span class="icon">ðŸ”„</span>CSV to QBO</a>
+      <a href="/csv-to-ofx" class="sidebar-link"><span class="icon">ðŸ›</span>CSV to OFX</a>
+      <a href="/csv-to-qfx" class="sidebar-link"><span class="icon">ðŸ“</span>CSV to QFX</a>
+      <a href="/pdf-bank-statement-to-csv" class="sidebar-link"><span class="icon">ðŸ“„</span>PDF Bank Stmt to CSV</a>
+      <a href="/bank-statement-converter" class="sidebar-link"><span class="icon">ðŸ›</span>Bank Stmt Converter</a>
+      <a href="/chase-bank-statement-to-csv" class="sidebar-link"><span class="icon">ðŸ¦</span>Chase to CSV</a>
+      <a href="/wells-fargo-statement-to-csv" class="sidebar-link"><span class="icon">ðŸ’°</span>Wells Fargo to CSV</a>
+      <a href="/bank-of-america-statement-to-csv" class="sidebar-link"><span class="icon">ðŸ›</span>BofA to CSV</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-heading">Calendar</div>
-      <a href="/ics-to-csv" class="sidebar-link"><span class="icon">📅</span>ICS to CSV</a>
-      <a href="/csv-to-ics" class="sidebar-link"><span class="icon">📊</span>CSV to ICS</a>
+      <a href="/ics-to-csv" class="sidebar-link"><span class="icon">ðŸ“…</span>ICS to CSV</a>
+      <a href="/csv-to-ics" class="sidebar-link"><span class="icon">ðŸ“Š</span>CSV to ICS</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-heading">Notebooks</div>
-      <a href="/ipynb-to-pdf" class="sidebar-link"><span class="icon">📓</span>IPYNB to PDF</a>
-      <a href="/ipynb-to-docx" class="sidebar-link"><span class="icon">📝</span>IPYNB to DOCX</a>
-      <a href="/ipynb-to-html" class="sidebar-link"><span class="icon">🌐</span>IPYNB to HTML</a>
-      <a href="/ipynb-to-py" class="sidebar-link"><span class="icon">🐍</span>IPYNB to PY</a>
+      <a href="/ipynb-to-pdf" class="sidebar-link"><span class="icon">ðŸ““</span>IPYNB to PDF</a>
+      <a href="/ipynb-to-docx" class="sidebar-link"><span class="icon">ðŸ“</span>IPYNB to DOCX</a>
+      <a href="/ipynb-to-html" class="sidebar-link"><span class="icon">ðŸŒ</span>IPYNB to HTML</a>
+      <a href="/ipynb-to-py" class="sidebar-link"><span class="icon">ðŸ</span>IPYNB to PY</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-heading">Media</div>
-      <a href="/heic-to-jpg" class="sidebar-link"><span class="icon">📸</span>HEIC to JPG</a>
-      <a href="/heic-to-pdf" class="sidebar-link"><span class="icon">🖼</span>HEIC to PDF</a>
-      <a href="/avif-to-jpg" class="sidebar-link"><span class="icon">✨</span>AVIF to JPG</a>
-      <a href="/webp-to-jpg" class="sidebar-link"><span class="icon">🖼</span>WebP to JPG</a>
-      <a href="/svg-to-png" class="sidebar-link"><span class="icon">📐</span>SVG to PNG</a>
-      <a href="/jpg-to-avif" class="sidebar-link"><span class="icon">🖼</span>JPG to AVIF</a>
-      <a href="/png-to-svg" class="sidebar-link"><span class="icon">📐</span>PNG to SVG</a>
-      <a href="/image-compressor" class="sidebar-link"><span class="icon">💧</span>Image Compressor</a>
-      <a href="/qr-code-generator" class="sidebar-link"><span class="icon">📱</span>QR Code Generator</a>
+      <a href="/heic-to-jpg" class="sidebar-link"><span class="icon">ðŸ“¸</span>HEIC to JPG</a>
+      <a href="/heic-to-pdf" class="sidebar-link"><span class="icon">ðŸ–¼</span>HEIC to PDF</a>
+      <a href="/avif-to-jpg" class="sidebar-link"><span class="icon">âœ¨</span>AVIF to JPG</a>
+      <a href="/webp-to-jpg" class="sidebar-link"><span class="icon">ðŸ–¼</span>WebP to JPG</a>
+      <a href="/svg-to-png" class="sidebar-link"><span class="icon">ðŸ“</span>SVG to PNG</a>
+      <a href="/jpg-to-avif" class="sidebar-link"><span class="icon">ðŸ–¼</span>JPG to AVIF</a>
+      <a href="/png-to-svg" class="sidebar-link"><span class="icon">ðŸ“</span>PNG to SVG</a>
+      <a href="/image-compressor" class="sidebar-link"><span class="icon">ðŸ’§</span>Image Compressor</a>
+      <a href="/qr-code-generator" class="sidebar-link"><span class="icon">ðŸ“±</span>QR Code Generator</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-heading">Audio</div>
-      <a href="/mp3-to-wav" class="sidebar-link"><span class="icon">🎧</span>MP3 to WAV</a>
-      <a href="/wav-to-mp3" class="sidebar-link"><span class="icon">🎵</span>WAV to MP3</a>
-      <a href="/mp3-to-flac" class="sidebar-link"><span class="icon">🔊</span>MP3 to FLAC</a>
-      <a href="/flac-to-mp3" class="sidebar-link"><span class="icon">🎶</span>FLAC to MP3</a>
-      <a href="/wav-to-flac" class="sidebar-link"><span class="icon">🎤</span>WAV to FLAC</a>
-      <a href="/ogg-to-mp3" class="sidebar-link"><span class="icon">🎹</span>OGG to MP3</a>
+      <a href="/mp3-to-wav" class="sidebar-link"><span class="icon">ðŸŽ§</span>MP3 to WAV</a>
+      <a href="/wav-to-mp3" class="sidebar-link"><span class="icon">ðŸŽµ</span>WAV to MP3</a>
+      <a href="/mp3-to-flac" class="sidebar-link"><span class="icon">ðŸ”Š</span>MP3 to FLAC</a>
+      <a href="/flac-to-mp3" class="sidebar-link"><span class="icon">ðŸŽ¶</span>FLAC to MP3</a>
+      <a href="/wav-to-flac" class="sidebar-link"><span class="icon">ðŸŽ¤</span>WAV to FLAC</a>
+      <a href="/ogg-to-mp3" class="sidebar-link"><span class="icon">ðŸŽ¹</span>OGG to MP3</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-heading">E-books</div>
-      <a href="/epub-to-pdf" class="sidebar-link"><span class="icon">📖</span>EPUB to PDF</a>
-      <a href="/epub-to-txt" class="sidebar-link"><span class="icon">📝</span>EPUB to TXT</a>
-      <a href="/pdf-to-epub" class="sidebar-link"><span class="icon">🔄</span>PDF to EPUB</a>
-      <a href="/cbz-to-pdf" class="sidebar-link"><span class="icon">📚</span>CBZ to PDF</a>
+      <a href="/epub-to-pdf" class="sidebar-link"><span class="icon">ðŸ“–</span>EPUB to PDF</a>
+      <a href="/epub-to-txt" class="sidebar-link"><span class="icon">ðŸ“</span>EPUB to TXT</a>
+      <a href="/pdf-to-epub" class="sidebar-link"><span class="icon">ðŸ”„</span>PDF to EPUB</a>
+      <a href="/cbz-to-pdf" class="sidebar-link"><span class="icon">ðŸ“š</span>CBZ to PDF</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-heading">PDF</div>
       <a href="/jpg-to-pdf" class="sidebar-link"><span class="icon">🖼</span>JPG to PDF</a>
       <a href="/pdf-to-jpg" class="sidebar-link"><span class="icon">📷</span>PDF to JPG</a>
+      <a href="/pdf-rotate" class="sidebar-link"><span class="icon">🔄</span>Rotate PDF</a>
       <a href="/pdf-split" class="sidebar-link"><span class="icon">✂️</span>Split PDF</a>
       <a href="/pdf-merge" class="sidebar-link"><span class="icon">📋</span>Merge PDF</a>
       <a href="/pdf-to-word" class="sidebar-link"><span class="icon">📄</span>PDF to Word</a>
       <a href="/word-to-pdf" class="sidebar-link"><span class="icon">📃</span>Word to PDF</a>
       <a href="/pdf-to-text" class="sidebar-link"><span class="icon">📝</span>PDF to Text</a>
+      <a href="/pdf-to-excel" class="sidebar-link"><span class="icon">📊</span>PDF to Excel</a>
+      <a href="/eml-to-pdf" class="sidebar-link"><span class="icon">✉️</span>EML to PDF</a>
+      <a href="/raw-to-jpg" class="sidebar-link"><span class="icon">📷</span>RAW to JPG</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-heading">Blog</div>
-      <a href="/blog" class="sidebar-link"><span class="icon">📰</span>All Articles</a>
+      <a href="/blog" class="sidebar-link"><span class="icon">ðŸ“°</span>All Articles</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-heading">Latest Posts</div>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-heading">Guides</div>
-      <a href="/guides" class="sidebar-link"><span class="icon">📖</span>All Guides</a>
-      <a href="/guides/bank-statement-formats" class="sidebar-link"><span class="icon">📘</span>Bank Statement Formats</a>
-      <a href="/guides/vcard-formats" class="sidebar-link"><span class="icon">📇</span>vCard Formats</a>
-      <a href="/guides/gps-formats" class="sidebar-link"><span class="icon">🗺</span>GPS Formats</a>
-      <a href="/guides/image-formats" class="sidebar-link"><span class="icon">🖼</span>Image Formats</a>
+      <a href="/guides" class="sidebar-link"><span class="icon">ðŸ“–</span>All Guides</a>
+      <a href="/guides/bank-statement-formats" class="sidebar-link"><span class="icon">ðŸ“˜</span>Bank Statement Formats</a>
+      <a href="/guides/vcard-formats" class="sidebar-link"><span class="icon">ðŸ“‡</span>vCard Formats</a>
+      <a href="/guides/gps-formats" class="sidebar-link"><span class="icon">ðŸ—º</span>GPS Formats</a>
+      <a href="/guides/image-formats" class="sidebar-link"><span class="icon">ðŸ–¼</span>Image Formats</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-heading">GPS & Fitness</div>
-      <a href="/gpx-to-kml" class="sidebar-link"><span class="icon">🗺</span>GPX to KML</a>
-      <a href="/gpx-to-csv" class="sidebar-link"><span class="icon">📈</span>GPX to CSV</a>
-      <a href="/fit-to-gpx" class="sidebar-link"><span class="icon">🏃</span>FIT to GPX</a>
-      <a href="/fit-to-csv" class="sidebar-link"><span class="icon">📊</span>FIT to CSV</a>
-      <a href="/csv-to-gpx" class="sidebar-link"><span class="icon">🔄</span>CSV to GPX</a>
-      <a href="/kml-to-gpx" class="sidebar-link"><span class="icon">🗺</span>KML to GPX</a>
+      <a href="/gpx-to-kml" class="sidebar-link"><span class="icon">ðŸ—º</span>GPX to KML</a>
+      <a href="/gpx-to-csv" class="sidebar-link"><span class="icon">ðŸ“ˆ</span>GPX to CSV</a>
+      <a href="/fit-to-gpx" class="sidebar-link"><span class="icon">ðŸƒ</span>FIT to GPX</a>
+      <a href="/fit-to-csv" class="sidebar-link"><span class="icon">ðŸ“Š</span>FIT to CSV</a>
+      <a href="/csv-to-gpx" class="sidebar-link"><span class="icon">ðŸ”„</span>CSV to GPX</a>
+      <a href="/kml-to-gpx" class="sidebar-link"><span class="icon">ðŸ—º</span>KML to GPX</a>
     </div>
     </div>
     <div class="ad-container-sidebar">Ad</div>
@@ -308,7 +320,7 @@
     <!-- HERO -->
     <section class="hero">
       <h1>Free Online Converter Tools.<br><span class="highlight">100% Browser-Based. Zero Uploads.</span></h1>
-      <p>Convert files, data, colors, and CSS privately — right in your browser. No signup, no server uploads, no limits. 90+ tools for financial data, contacts, notebooks, GPS, images, CSS, and developer formats.</p>
+      <p>Convert files, data, colors, and CSS privately — right in your browser. No signup, no server uploads, no limits. 110+ tools for financial data, contacts, notebooks, GPS, images, CSS, and developer formats.</p>
       <div class="hero-stats">
         <div class="hero-stat">
           <div class="hero-stat-value" id="conversionCounter">149,287</div>
@@ -331,7 +343,7 @@
 
     <!-- PRIVACY BANNER -->
     <div class="privacy-banner" style="max-width:720px;margin:0 auto 28px;">
-      <span class="icon">🔒</span>
+      <span class="icon">ðŸ”’</span>
       <span><strong>Privacy first:</strong> Every conversion runs locally in your browser. Your files never touch a server. You can verify this in your browser's Network tab.</span>
     </div>
 
@@ -340,52 +352,52 @@
       <h2 class="section-heading">Text &amp; Utilities</h2>
       <div class="tool-grid">
         <a href="/slug-generator" class="tool-card">
-          <div class="tool-card-icon">🔗</div>
+          <div class="tool-card-icon">ðŸ”—</div>
           <div class="tool-card-title">Slug Generator</div>
           <div class="tool-card-desc">Convert any text to SEO-friendly URL slugs with custom separators.</div>
         </a>
         <a href="/lorem-ipsum-generator" class="tool-card">
-          <div class="tool-card-icon">📝</div>
+          <div class="tool-card-icon">ðŸ“</div>
           <div class="tool-card-title">Lorem Ipsum Generator</div>
           <div class="tool-card-desc">Generate placeholder text in paragraphs, sentences, or words for your projects.</div>
         </a>
         <a href="/morse-code-translator" class="tool-card">
-          <div class="tool-card-icon">📡</div>
+          <div class="tool-card-icon">ðŸ“¡</div>
           <div class="tool-card-title">Morse Code Translator</div>
           <div class="tool-card-desc">Convert text to Morse code and play the audio or decode Morse back to text.</div>
         </a>
         <a href="/palindrome-checker" class="tool-card">
-          <div class="tool-card-icon">🔄</div>
+          <div class="tool-card-icon">ðŸ”„</div>
           <div class="tool-card-title">Palindrome Checker</div>
           <div class="tool-card-desc">Check if any word, phrase, or number reads the same forwards and backwards.</div>
         </a>
         <a href="/reading-time-calculator" class="tool-card">
-          <div class="tool-card-icon">⏱</div>
+          <div class="tool-card-icon">â±</div>
           <div class="tool-card-title">Reading Time Calculator</div>
           <div class="tool-card-desc">Calculate reading time for any text at different reading speeds.</div>
         </a>
         <a href="/nato-phonetic-alphabet" class="tool-card">
-          <div class="tool-card-icon">🔤</div>
+          <div class="tool-card-icon">ðŸ”¤</div>
           <div class="tool-card-title">NATO Phonetic Alphabet</div>
           <div class="tool-card-desc">Convert text to NATO phonetic alphabet and spell words using standard code words.</div>
         </a>
         <a href="/text-repeater" class="tool-card">
-          <div class="tool-card-icon">🔁</div>
+          <div class="tool-card-icon">ðŸ”</div>
           <div class="tool-card-title">Text Repeater</div>
           <div class="tool-card-desc">Repeat any text multiple times with custom separators for testing and data generation.</div>
         </a>
         <a href="/text-cleaner" class="tool-card">
-          <div class="tool-card-icon">🧹</div>
+          <div class="tool-card-icon">ðŸ§¹</div>
           <div class="tool-card-title">Text Cleaner</div>
           <div class="tool-card-desc">Remove extra whitespace, invisible Unicode, special characters, and non-ASCII text.</div>
         </a>
         <a href="/reverse-text-generator" class="tool-card">
-          <div class="tool-card-icon">🔄</div>
+          <div class="tool-card-icon">ðŸ”„</div>
           <div class="tool-card-title">Reverse Text Generator</div>
           <div class="tool-card-desc">Flip text upside down, reverse it backwards, mirror it, or reverse word order.</div>
         </a>
         <a href="/username-generator" class="tool-card">
-          <div class="tool-card-icon">👤</div>
+          <div class="tool-card-icon">ðŸ‘¤</div>
           <div class="tool-card-title">Username Generator</div>
           <div class="tool-card-desc">Create unique usernames with themed word lists, prefixes, suffixes, and numbers.</div>
         </a>
@@ -395,207 +407,207 @@
       <h2 class="section-heading">Developer Tools</h2>
       <div class="tool-grid">
         <a href="/binary-converter" class="tool-card">
-          <div class="tool-card-icon">⬡</div>
+          <div class="tool-card-icon">â¬¡</div>
           <div class="tool-card-title">Binary Converter</div>
           <div class="tool-card-desc">Convert between decimal, binary, octal, and hexadecimal number systems.</div>
         </a>
         <a href="/hex-to-rgb" class="tool-card">
-          <div class="tool-card-icon">🎨</div>
+          <div class="tool-card-icon">ðŸŽ¨</div>
           <div class="tool-card-title">Hex to RGB Converter</div>
           <div class="tool-card-desc">Convert hex color codes to RGB, HSL, and color name values.</div>
         </a>
         <a href="/timestamp-converter" class="tool-card">
-          <div class="tool-card-icon">⏱</div>
+          <div class="tool-card-icon">â±</div>
           <div class="tool-card-title">Timestamp Converter</div>
           <div class="tool-card-desc">Convert Unix epoch timestamps to human-readable dates and vice versa.</div>
         </a>
         <a href="/json-formatter" class="tool-card">
-          <div class="tool-card-icon">🔧</div>
+          <div class="tool-card-icon">ðŸ”§</div>
           <div class="tool-card-title">JSON Formatter</div>
           <div class="tool-card-desc">Beautify, validate, and minify JSON data instantly.</div>
         </a>
         <a href="/base64-encoder" class="tool-card">
-          <div class="tool-card-icon">🔐</div>
+          <div class="tool-card-icon">ðŸ”</div>
           <div class="tool-card-title">Base64 Encoder</div>
           <div class="tool-card-desc">Encode text and strings to Base64 format instantly.</div>
         </a>
         <a href="/base64-decoder" class="tool-card">
-          <div class="tool-card-icon">🔓</div>
+          <div class="tool-card-icon">ðŸ”“</div>
           <div class="tool-card-title">Base64 Decoder</div>
           <div class="tool-card-desc">Decode Base64-encoded text back to readable strings.</div>
         </a>
         <a href="/password-generator" class="tool-card">
-          <div class="tool-card-icon">🔑</div>
+          <div class="tool-card-icon">ðŸ”‘</div>
           <div class="tool-card-title">Password Generator</div>
           <div class="tool-card-desc">Generate strong, random passwords with custom options.</div>
         </a>
         <a href="/word-counter" class="tool-card">
-          <div class="tool-card-icon">📝</div>
+          <div class="tool-card-icon">ðŸ“</div>
           <div class="tool-card-title">Word Counter</div>
           <div class="tool-card-desc">Count words, characters, sentences, and paragraphs in any text.</div>
         </a>
         <a href="/url-encoder-decoder" class="tool-card">
-          <div class="tool-card-icon">🔗</div>
+          <div class="tool-card-icon">ðŸ”—</div>
           <div class="tool-card-title">URL Encoder/Decoder</div>
           <div class="tool-card-desc">Encode and decode URLs and percent-encoded strings instantly.</div>
         </a>
         <a href="/html-entity-encoder-decoder" class="tool-card">
-          <div class="tool-card-icon">🔠</div>
+          <div class="tool-card-icon">ðŸ” </div>
           <div class="tool-card-title">HTML Entity Encoder</div>
           <div class="tool-card-desc">Escape and unescape HTML special characters.</div>
         </a>
         <a href="/uuid-generator" class="tool-card">
-          <div class="tool-card-icon">🔑</div>
+          <div class="tool-card-icon">ðŸ”‘</div>
           <div class="tool-card-title">UUID Generator</div>
           <div class="tool-card-desc">Generate random UUID v4 identifiers in bulk.</div>
         </a>
         <a href="/case-converter" class="tool-card">
-          <div class="tool-card-icon">🔤</div>
+          <div class="tool-card-icon">ðŸ”¤</div>
           <div class="tool-card-title">Case Converter</div>
           <div class="tool-card-desc">Convert text to uppercase, lowercase, title case, camelCase, and more.</div>
         </a>
         <a href="/image-to-base64" class="tool-card">
-          <div class="tool-card-icon">🖼</div>
+          <div class="tool-card-icon">ðŸ–¼</div>
           <div class="tool-card-title">Image to Base64</div>
           <div class="tool-card-desc">Convert images to Base64 data URIs for embedding in HTML and CSS.</div>
         </a>
         <a href="/color-converter" class="tool-card">
-          <div class="tool-card-icon">🎨</div>
+          <div class="tool-card-icon">ðŸŽ¨</div>
           <div class="tool-card-title">Color Converter</div>
           <div class="tool-card-desc">Convert between Hex, RGB, HSL, HSV, CMYK with real-time preview.</div>
         </a>
         <a href="/text-diff" class="tool-card">
-          <div class="tool-card-icon">🔍</div>
+          <div class="tool-card-icon">ðŸ”</div>
           <div class="tool-card-title">Text Diff Checker</div>
           <div class="tool-card-desc">Compare text side-by-side with color-coded additions and deletions.</div>
         </a>
         <a href="/percentage-calculator" class="tool-card">
-          <div class="tool-card-icon">📊</div>
+          <div class="tool-card-icon">ðŸ“Š</div>
           <div class="tool-card-title">Percentage Calculator</div>
           <div class="tool-card-desc">Calculate percentages, percentage change, increase, and decrease.</div>
         </a>
         <a href="/temperature-converter" class="tool-card">
-          <div class="tool-card-icon">🌡</div>
+          <div class="tool-card-icon">ðŸŒ¡</div>
           <div class="tool-card-title">Temperature Converter</div>
           <div class="tool-card-desc">Convert between Celsius, Fahrenheit, and Kelvin instantly.</div>
         </a>
         <a href="/qr-code-generator" class="tool-card">
-          <div class="tool-card-icon">📱</div>
+          <div class="tool-card-icon">ðŸ“±</div>
           <div class="tool-card-title">QR Code Generator</div>
           <div class="tool-card-desc">Generate QR codes from text, URLs, and phone numbers.</div>
         </a>
         <a href="/hash-generator" class="tool-card">
-          <div class="tool-card-icon">🔒</div>
+          <div class="tool-card-icon">ðŸ”’</div>
           <div class="tool-card-title">Hash Generator</div>
           <div class="tool-card-desc">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes for text and files.</div>
         </a>
         <a href="/number-system-converter" class="tool-card">
-          <div class="tool-card-icon">🔢</div>
+          <div class="tool-card-icon">ðŸ”¢</div>
           <div class="tool-card-title">Number System Converter</div>
           <div class="tool-card-desc">Convert between binary, octal, decimal, and hexadecimal in real-time.</div>
         </a>
         <a href="/roman-numeral-converter" class="tool-card">
-          <div class="tool-card-icon">🏛</div>
+          <div class="tool-card-icon">ðŸ›</div>
           <div class="tool-card-title">Roman Numeral Converter</div>
           <div class="tool-card-desc">Convert numbers to Roman numerals and decode Roman numerals to numbers.</div>
         </a>
         <a href="/prime-number-checker" class="tool-card">
-          <div class="tool-card-icon">🔢</div>
+          <div class="tool-card-icon">ðŸ”¢</div>
           <div class="tool-card-title">Prime Number Checker</div>
           <div class="tool-card-desc">Check if any number is prime, find factors, and find the next prime.</div>
         </a>
         <a href="/cron-expression-generator" class="tool-card">
-          <div class="tool-card-icon">⏰</div>
+          <div class="tool-card-icon">â°</div>
           <div class="tool-card-title">Cron Expression Generator</div>
           <div class="tool-card-desc">Build cron expressions visually with human-readable descriptions and run time previews.</div>
         </a>
         <a href="/anagram-solver" class="tool-card">
-          <div class="tool-card-icon">🔤</div>
+          <div class="tool-card-icon">ðŸ”¤</div>
           <div class="tool-card-title">Anagram Solver</div>
           <div class="tool-card-desc">Find every possible word from any set of letters. Filter by word length for Scrabble.</div>
         </a>
         <a href="/data-storage-converter" class="tool-card">
-          <div class="tool-card-icon">💾</div>
+          <div class="tool-card-icon">ðŸ’¾</div>
           <div class="tool-card-title">Data Storage Converter</div>
           <div class="tool-card-desc">Convert between bits, bytes, KB, MB, GB, TB, PB with SI and Binary modes.</div>
         </a>
         <a href="/color-palette-generator" class="tool-card">
-          <div class="tool-card-icon">🎨</div>
+          <div class="tool-card-icon">ðŸŽ¨</div>
           <div class="tool-card-title">Color Palette Generator</div>
           <div class="tool-card-desc">Generate harmonious color schemes using monochromatic, complementary, triadic rules.</div>
         </a>
         <a href="/password-strength-checker" class="tool-card">
-          <div class="tool-card-icon">🔒</div>
+          <div class="tool-card-icon">ðŸ”’</div>
           <div class="tool-card-title">Password Strength Checker</div>
           <div class="tool-card-desc">Test password strength with real-time scoring, crack time estimates, and improvement tips.</div>
         </a>
         <a href="/timezone-converter" class="tool-card">
-          <div class="tool-card-icon">🌍</div>
+          <div class="tool-card-icon">ðŸŒ</div>
           <div class="tool-card-title">Timezone Converter</div>
           <div class="tool-card-desc">Convert time between any two timezones worldwide with automatic DST handling.</div>
         </a>
         <a href="/random-number-generator" class="tool-card">
-          <div class="tool-card-icon">🎲</div>
+          <div class="tool-card-icon">ðŸŽ²</div>
           <div class="tool-card-title">Random Number Generator</div>
           <div class="tool-card-desc">Generate cryptographically secure random numbers with coin flip, dice, and lottery modes.</div>
         </a>
         <a href="/number-to-words-converter" class="tool-card">
-          <div class="tool-card-icon">🔢</div>
+          <div class="tool-card-icon">ðŸ”¢</div>
           <div class="tool-card-title">Number to Words Converter</div>
           <div class="tool-card-desc">Convert numbers to English words. Supports currency mode for check writing.</div>
         </a>
         <a href="/css-minifier" class="tool-card">
-          <div class="tool-card-icon">📐</div>
+          <div class="tool-card-icon">ðŸ“</div>
           <div class="tool-card-title">CSS Minifier</div>
           <div class="tool-card-desc">Minify or beautify CSS code. Remove comments and whitespace to reduce file size.</div>
         </a>
         <a href="/regex-tester" class="tool-card">
-          <div class="tool-card-icon">🔍</div>
+          <div class="tool-card-icon">ðŸ”</div>
           <div class="tool-card-title">Regex Tester</div>
           <div class="tool-card-desc">Test regular expressions in real-time with match highlighting and replacement preview.</div>
         </a>
         <a href="/duplicate-line-remover" class="tool-card">
-          <div class="tool-card-icon">🗑</div>
+          <div class="tool-card-icon">ðŸ—‘</div>
           <div class="tool-card-title">Duplicate Line Remover</div>
           <div class="tool-card-desc">Remove duplicate lines from text. Sort, count frequency, and clean up data.</div>
         </a>
         <a href="/list-randomizer" class="tool-card">
-          <div class="tool-card-icon">🎲</div>
+          <div class="tool-card-icon">ðŸŽ²</div>
           <div class="tool-card-title">List Randomizer</div>
           <div class="tool-card-desc">Shuffle lists, pick random winners, flip coins, and roll dice.</div>
         </a>
         <a href="/css-gradient-generator" class="tool-card">
-          <div class="tool-card-icon">🎨</div>
+          <div class="tool-card-icon">ðŸŽ¨</div>
           <div class="tool-card-title">CSS Gradient Generator</div>
           <div class="tool-card-desc">Create linear, radial, and conic gradients with a visual editor.</div>
         </a>
         <a href="/readability-checker" class="tool-card">
-          <div class="tool-card-icon">📖</div>
+          <div class="tool-card-icon">ðŸ“–</div>
           <div class="tool-card-title">Readability Checker</div>
           <div class="tool-card-desc">Analyze text with Flesch-Kincaid, Gunning Fog, and readability formulas.</div>
         </a>
         <a href="/age-calculator" class="tool-card">
-          <div class="tool-card-icon">🏃</div>
+          <div class="tool-card-icon">ðŸƒ</div>
           <div class="tool-card-title">Age Calculator</div>
           <div class="tool-card-desc">Calculate exact age in years, months, days, hours. Live birthday countdown.</div>
         </a>
         <a href="/html-previewer" class="tool-card">
-          <div class="tool-card-icon">🖼</div>
+          <div class="tool-card-icon">ðŸ–¼</div>
           <div class="tool-card-title">HTML Previewer</div>
           <div class="tool-card-desc">Write or paste HTML and see the live rendered preview instantly.</div>
         </a>
         <a href="/contrast-checker" class="tool-card">
-          <div class="tool-card-icon">🔍</div>
+          <div class="tool-card-icon">ðŸ”</div>
           <div class="tool-card-title">Contrast Checker</div>
           <div class="tool-card-desc">Check WCAG AA/AAA compliance for any text and background color combination.</div>
         </a>
         <a href="/scientific-notation-converter" class="tool-card">
-          <div class="tool-card-icon">🔢</div>
+          <div class="tool-card-icon">ðŸ”¢</div>
           <div class="tool-card-title">Scientific Notation Converter</div>
           <div class="tool-card-desc">Convert numbers to and from scientific, engineering, and E notation.</div>
         </a>
         <a href="/jwt-decoder" class="tool-card">
-          <div class="tool-card-icon">🔐</div>
+          <div class="tool-card-icon">ðŸ”</div>
           <div class="tool-card-title">JWT Decoder</div>
           <div class="tool-card-desc">Decode JSON Web Tokens in your browser. No server upload needed.</div>
         </a>
@@ -604,42 +616,42 @@
       <h2 class="section-heading">CSS Tools</h2>
       <div class="tool-grid">
         <a href="/color-space-converter" class="tool-card">
-          <div class="tool-card-icon">🎨</div>
+          <div class="tool-card-icon">ðŸŽ¨</div>
           <div class="tool-card-title">Color Space Converter</div>
           <div class="tool-card-desc">Convert between HEX, sRGB, HSL, OKLCH, OKLAB, LCH, LAB, and Display P3 with gamut warnings.</div>
         </a>
         <a href="/css-logical-properties" class="tool-card">
-          <div class="tool-card-icon">📐</div>
+          <div class="tool-card-icon">ðŸ“</div>
           <div class="tool-card-title">CSS Logical Properties</div>
           <div class="tool-card-desc">Convert physical CSS properties to writing-mode-aware logical equivalents and back.</div>
         </a>
         <a href="/css-property-generator" class="tool-card">
-          <div class="tool-card-icon">📋</div>
+          <div class="tool-card-icon">ðŸ“‹</div>
           <div class="tool-card-title">CSS @property Generator</div>
           <div class="tool-card-desc">Register custom properties with syntax, initial value, and inherits for type-safe CSS variables.</div>
         </a>
         <a href="/css-text-wrap-visualizer" class="tool-card">
-          <div class="tool-card-icon">↔️</div>
+          <div class="tool-card-icon">â†”ï¸</div>
           <div class="tool-card-title">CSS Text Wrap Visualizer</div>
           <div class="tool-card-desc">Compare wrap, nowrap, balance, pretty, and stable with line-clamp in live preview.</div>
         </a>
         <a href="/css-view-transitions-generator" class="tool-card">
-          <div class="tool-card-icon">✨</div>
+          <div class="tool-card-icon">âœ¨</div>
           <div class="tool-card-title">CSS View Transitions</div>
           <div class="tool-card-desc">Generate @view-transition rules with custom crossfade timing and named element animations.</div>
         </a>
         <a href="/css-anchor-positioning-generator" class="tool-card">
-          <div class="tool-card-icon">⚓</div>
+          <div class="tool-card-icon">âš“</div>
           <div class="tool-card-title">CSS Anchor Positioning</div>
           <div class="tool-card-desc">Generate anchor-name, position-area, and position-fallback rules for tooltips and dropdowns.</div>
         </a>
         <a href="/css-box-shadow-generator" class="tool-card">
-          <div class="tool-card-icon">🎨</div>
+          <div class="tool-card-icon">ðŸŽ¨</div>
           <div class="tool-card-title">CSS Box Shadow Generator</div>
           <div class="tool-card-desc">Create and customize box shadows with sliders, color picker, and live preview.</div>
         </a>
         <a href="/css-animation-generator" class="tool-card">
-          <div class="tool-card-icon">✨</div>
+          <div class="tool-card-icon">âœ¨</div>
           <div class="tool-card-title">CSS Animation Generator</div>
           <div class="tool-card-desc">Generate @keyframes animations with presets, custom editors, and live preview.</div>
         </a>
@@ -648,37 +660,37 @@
       <h2 class="section-heading">Text & Data Converters</h2>
       <div class="tool-grid">
         <a href="/markdown-to-html" class="tool-card">
-          <div class="tool-card-icon">📝</div>
+          <div class="tool-card-icon">ðŸ“</div>
           <div class="tool-card-title">Markdown to HTML</div>
           <div class="tool-card-desc">Convert Markdown documents to clean HTML with formatting.</div>
         </a>
         <a href="/html-to-markdown" class="tool-card">
-          <div class="tool-card-icon">📄</div>
+          <div class="tool-card-icon">ðŸ“„</div>
           <div class="tool-card-title">HTML to Markdown</div>
           <div class="tool-card-desc">Convert HTML pages and snippets to Markdown format.</div>
         </a>
         <a href="/csv-to-json" class="tool-card">
-          <div class="tool-card-icon">📊</div>
+          <div class="tool-card-icon">ðŸ“Š</div>
           <div class="tool-card-title">CSV to JSON</div>
           <div class="tool-card-desc">Convert comma-separated values to JSON arrays and objects.</div>
         </a>
         <a href="/json-to-yaml" class="tool-card">
-          <div class="tool-card-icon">🔄</div>
+          <div class="tool-card-icon">ðŸ”„</div>
           <div class="tool-card-title">JSON to YAML</div>
           <div class="tool-card-desc">Convert JSON data to YAML format for configuration files.</div>
         </a>
         <a href="/xml-to-json" class="tool-card">
-          <div class="tool-card-icon">🔀</div>
+          <div class="tool-card-icon">ðŸ”€</div>
           <div class="tool-card-title">XML to JSON</div>
           <div class="tool-card-desc">Convert XML documents to structured JSON format.</div>
         </a>
         <a href="/yaml-to-json" class="tool-card">
-          <div class="tool-card-icon">🔄</div>
+          <div class="tool-card-icon">ðŸ”„</div>
           <div class="tool-card-title">YAML to JSON</div>
           <div class="tool-card-desc">Convert YAML configuration files to JSON format.</div>
         </a>
         <a href="/json-to-csv" class="tool-card">
-          <div class="tool-card-icon">📊</div>
+          <div class="tool-card-icon">ðŸ“Š</div>
           <div class="tool-card-title">JSON to CSV</div>
           <div class="tool-card-desc">Convert JSON data to CSV spreadsheets with nested flattening.</div>
         </a>
@@ -687,7 +699,7 @@
       <h2 class="section-heading">Unit Converters</h2>
       <div class="tool-grid">
         <a href="/all-unit-converters" class="tool-card">
-          <div class="tool-card-icon">📏</div>
+          <div class="tool-card-icon">ðŸ“</div>
           <div class="tool-card-title">All Unit Converters</div>
           <div class="tool-card-desc">Convert 200+ units across length, weight, temperature, volume, speed, and more.</div>
         </a>
@@ -696,17 +708,17 @@
       <h2 class="section-heading">Contacts & CRM</h2>
       <div class="tool-grid">
         <a href="/vcf-to-csv" class="tool-card">
-          <div class="tool-card-icon">📇</div>
+          <div class="tool-card-icon">ðŸ“‡</div>
           <div class="tool-card-title">VCF to CSV</div>
           <div class="tool-card-desc">Convert vCard contact files to CSV for Excel, Google Sheets, and CRM import.</div>
         </a>
         <a href="/csv-to-vcf" class="tool-card">
-          <div class="tool-card-icon">📋</div>
+          <div class="tool-card-icon">ðŸ“‹</div>
           <div class="tool-card-title">CSV to VCF</div>
           <div class="tool-card-desc">Convert CSV spreadsheets back to vCard format for phone import.</div>
         </a>
         <a href="/vcf-to-xlsx" class="tool-card">
-          <div class="tool-card-icon">📊</div>
+          <div class="tool-card-icon">ðŸ“Š</div>
           <div class="tool-card-title">VCF to XLSX</div>
           <div class="tool-card-desc">Export vCard contacts directly to Excel XLSX format.</div>
         </a>
@@ -715,12 +727,12 @@
       <h2 class="section-heading">Calendar Tools</h2>
       <div class="tool-grid">
         <a href="/ics-to-csv" class="tool-card">
-          <div class="tool-card-icon">📅</div>
+          <div class="tool-card-icon">ðŸ“…</div>
           <div class="tool-card-title">ICS to CSV</div>
           <div class="tool-card-desc">Convert iCalendar files to CSV for Excel and calendar imports.</div>
         </a>
         <a href="/csv-to-ics" class="tool-card">
-          <div class="tool-card-icon">📊</div>
+          <div class="tool-card-icon">ðŸ“Š</div>
           <div class="tool-card-title">CSV to ICS</div>
           <div class="tool-card-desc">Convert CSV spreadsheets to iCalendar format for Google Calendar and Outlook.</div>
         </a>
@@ -729,57 +741,57 @@
       <h2 class="section-heading">Financial Tools</h2>
       <div class="tool-grid">
         <a href="/ofx-to-csv" class="tool-card">
-          <div class="tool-card-icon">🏦</div>
+          <div class="tool-card-icon">ðŸ¦</div>
           <div class="tool-card-title">OFX to CSV</div>
           <div class="tool-card-desc">Convert Open Financial Exchange bank statements to CSV spreadsheets.</div>
         </a>
         <a href="/qfx-to-csv" class="tool-card">
-          <div class="tool-card-icon">💰</div>
+          <div class="tool-card-icon">ðŸ’°</div>
           <div class="tool-card-title">QFX to CSV</div>
           <div class="tool-card-desc">Convert Quicken QFX files to CSV for accounting and analysis.</div>
         </a>
         <a href="/qbo-to-csv" class="tool-card">
-          <div class="tool-card-icon">📒</div>
+          <div class="tool-card-icon">ðŸ“’</div>
           <div class="tool-card-title">QBO to CSV</div>
           <div class="tool-card-desc">Convert QuickBooks Web Connect files to CSV format.</div>
         </a>
         <a href="/csv-to-qbo" class="tool-card">
-          <div class="tool-card-icon">🔄</div>
+          <div class="tool-card-icon">ðŸ”„</div>
           <div class="tool-card-title">CSV to QBO</div>
           <div class="tool-card-desc">Convert CSV bank exports to QuickBooks QBO format.</div>
         </a>
         <a href="/csv-to-ofx" class="tool-card">
-          <div class="tool-card-icon">🏛</div>
+          <div class="tool-card-icon">ðŸ›</div>
           <div class="tool-card-title">CSV to OFX</div>
           <div class="tool-card-desc">Convert CSV bank data to Open Financial Exchange format.</div>
         </a>
         <a href="/csv-to-qfx" class="tool-card">
-          <div class="tool-card-icon">📑</div>
+          <div class="tool-card-icon">ðŸ“‘</div>
           <div class="tool-card-title">CSV to QFX</div>
           <div class="tool-card-desc">Convert CSV exports to Quicken QFX format.</div>
         </a>
         <a href="/pdf-bank-statement-to-csv" class="tool-card">
-          <div class="tool-card-icon">📄</div>
+          <div class="tool-card-icon">ðŸ“„</div>
           <div class="tool-card-title">PDF Bank Statement to CSV</div>
           <div class="tool-card-desc">Extract transactions from PDF bank statements into structured CSV.</div>
         </a>
         <a href="/bank-statement-converter" class="tool-card">
-          <div class="tool-card-icon">🏛</div>
+          <div class="tool-card-icon">ðŸ›</div>
           <div class="tool-card-title">Bank Statement Converter</div>
           <div class="tool-card-desc">Multi-format converter for PDF, OFX, QFX, QBO, and CSV bank files.</div>
         </a>
         <a href="/chase-bank-statement-to-csv" class="tool-card">
-          <div class="tool-card-icon">🏦</div>
+          <div class="tool-card-icon">ðŸ¦</div>
           <div class="tool-card-title">Chase to CSV</div>
           <div class="tool-card-desc">Convert Chase bank statement PDFs to CSV for accounting.</div>
         </a>
         <a href="/wells-fargo-statement-to-csv" class="tool-card">
-          <div class="tool-card-icon">💰</div>
+          <div class="tool-card-icon">ðŸ’°</div>
           <div class="tool-card-title">Wells Fargo to CSV</div>
           <div class="tool-card-desc">Convert Wells Fargo statement PDFs to CSV spreadsheets.</div>
         </a>
         <a href="/bank-of-america-statement-to-csv" class="tool-card">
-          <div class="tool-card-icon">🏛</div>
+          <div class="tool-card-icon">ðŸ›</div>
           <div class="tool-card-title">BofA to CSV</div>
           <div class="tool-card-desc">Convert Bank of America statement PDFs to CSV format.</div>
         </a>
@@ -788,22 +800,22 @@
       <h2 class="section-heading">Jupyter Notebook Tools</h2>
       <div class="tool-grid">
         <a href="/ipynb-to-pdf" class="tool-card">
-          <div class="tool-card-icon">📓</div>
+          <div class="tool-card-icon">ðŸ““</div>
           <div class="tool-card-title">IPYNB to PDF</div>
           <div class="tool-card-desc">Convert Jupyter notebooks to clean, print-ready PDFs with syntax highlighting.</div>
         </a>
         <a href="/ipynb-to-docx" class="tool-card">
-          <div class="tool-card-icon">📝</div>
+          <div class="tool-card-icon">ðŸ“</div>
           <div class="tool-card-title">IPYNB to DOCX</div>
           <div class="tool-card-desc">Convert notebooks to editable Word documents.</div>
         </a>
         <a href="/ipynb-to-html" class="tool-card">
-          <div class="tool-card-icon">🌐</div>
+          <div class="tool-card-icon">ðŸŒ</div>
           <div class="tool-card-title">IPYNB to HTML</div>
           <div class="tool-card-desc">Export notebooks to standalone HTML pages.</div>
         </a>
         <a href="/ipynb-to-py" class="tool-card">
-          <div class="tool-card-icon">🐍</div>
+          <div class="tool-card-icon">ðŸ</div>
           <div class="tool-card-title">IPYNB to PY</div>
           <div class="tool-card-desc">Extract Python code from Jupyter notebook files.</div>
         </a>
@@ -812,42 +824,42 @@
       <h2 class="section-heading">Image Converters</h2>
       <div class="tool-grid">
         <a href="/heic-to-jpg" class="tool-card">
-          <div class="tool-card-icon">📸</div>
+          <div class="tool-card-icon">ðŸ“¸</div>
           <div class="tool-card-title">HEIC to JPG</div>
           <div class="tool-card-desc">Convert iPhone HEIC photos to universally compatible JPG format.</div>
         </a>
         <a href="/heic-to-pdf" class="tool-card">
-          <div class="tool-card-icon">🖼</div>
+          <div class="tool-card-icon">ðŸ–¼</div>
           <div class="tool-card-title">HEIC to PDF</div>
           <div class="tool-card-desc">Convert HEIC images to PDF documents.</div>
         </a>
         <a href="/avif-to-jpg" class="tool-card">
-          <div class="tool-card-icon">✨</div>
+          <div class="tool-card-icon">âœ¨</div>
           <div class="tool-card-title">AVIF to JPG</div>
           <div class="tool-card-desc">Convert next-gen AVIF images to widely supported JPG.</div>
         </a>
         <a href="/webp-to-jpg" class="tool-card">
-          <div class="tool-card-icon">🖼</div>
+          <div class="tool-card-icon">ðŸ–¼</div>
           <div class="tool-card-title">WebP to JPG</div>
           <div class="tool-card-desc">Convert WebP images to JPG for universal compatibility.</div>
         </a>
         <a href="/svg-to-png" class="tool-card">
-          <div class="tool-card-icon">📐</div>
+          <div class="tool-card-icon">ðŸ“</div>
           <div class="tool-card-title">SVG to PNG</div>
           <div class="tool-card-desc">Convert SVG vector graphics to PNG raster images.</div>
         </a>
         <a href="/jpg-to-avif" class="tool-card">
-          <div class="tool-card-icon">🖼</div>
+          <div class="tool-card-icon">ðŸ–¼</div>
           <div class="tool-card-title">JPG to AVIF</div>
           <div class="tool-card-desc">Convert JPG images to next-gen AVIF image format.</div>
         </a>
         <a href="/png-to-svg" class="tool-card">
-          <div class="tool-card-icon">📐</div>
+          <div class="tool-card-icon">ðŸ“</div>
           <div class="tool-card-title">PNG to SVG</div>
           <div class="tool-card-desc">Convert PNG images to SVG vector format.</div>
         </a>
         <a href="/image-compressor" class="tool-card">
-          <div class="tool-card-icon">💧</div>
+          <div class="tool-card-icon">ðŸ’§</div>
           <div class="tool-card-title">Image Compressor</div>
           <div class="tool-card-desc">Compress JPG, PNG, and WebP images with quality control and preview.</div>
         </a>
@@ -856,22 +868,22 @@
       <h2 class="section-heading">E-book Converters</h2>
       <div class="tool-grid">
         <a href="/epub-to-pdf" class="tool-card">
-          <div class="tool-card-icon">📖</div>
+          <div class="tool-card-icon">ðŸ“–</div>
           <div class="tool-card-title">EPUB to PDF</div>
           <div class="tool-card-desc">Convert EPUB e-books to PDF with chapter selection and page options.</div>
         </a>
         <a href="/epub-to-txt" class="tool-card">
-          <div class="tool-card-icon">📝</div>
+          <div class="tool-card-icon">ðŸ“</div>
           <div class="tool-card-title">EPUB to TXT</div>
           <div class="tool-card-desc">Extract plain text from EPUB e-book files by chapter.</div>
         </a>
         <a href="/pdf-to-epub" class="tool-card">
-          <div class="tool-card-icon">🔄</div>
+          <div class="tool-card-icon">ðŸ”„</div>
           <div class="tool-card-title">PDF to EPUB</div>
           <div class="tool-card-desc">Convert PDF documents to EPUB e-book format for readers.</div>
         </a>
         <a href="/cbz-to-pdf" class="tool-card">
-          <div class="tool-card-icon">📚</div>
+          <div class="tool-card-icon">ðŸ“š</div>
           <div class="tool-card-title">CBZ to PDF</div>
           <div class="tool-card-desc">Convert CBZ comic archives to PDF with multi-page support.</div>
         </a>
@@ -880,38 +892,38 @@
       <h2 class="section-heading">PDF Tools</h2>
       <div class="tool-grid">
         <a href="/jpg-to-pdf" class="tool-card">
-          <div class="tool-card-icon">🖼</div>
+          <div class="tool-card-icon">ðŸ–¼</div>
           <div class="tool-card-title">JPG to PDF</div>
           <div class="tool-card-desc">Convert JPG, PNG, and WebP images to PDF with page options.</div>
         </a>
         <a href="/pdf-to-jpg" class="tool-card">
-          <div class="tool-card-icon">📷</div>
+          <div class="tool-card-icon">ðŸ“·</div>
           <div class="tool-card-title">PDF to JPG</div>
           <div class="tool-card-desc">Convert PDF pages into JPG images with quality control.</div>
         </a>
 
         <a href="/pdf-split" class="tool-card">
-          <div class="tool-card-icon">✂️</div>
+          <div class="tool-card-icon">âœ‚ï¸</div>
           <div class="tool-card-title">Split PDF</div>
           <div class="tool-card-desc">Split PDF files into separate pages or custom page ranges.</div>
         </a>
         <a href="/pdf-merge" class="tool-card">
-          <div class="tool-card-icon">📋</div>
+          <div class="tool-card-icon">ðŸ“‹</div>
           <div class="tool-card-title">Merge PDF</div>
           <div class="tool-card-desc">Combine multiple PDF files into a single document.</div>
         </a>
         <a href="/pdf-to-word" class="tool-card">
-          <div class="tool-card-icon">📄</div>
+          <div class="tool-card-icon">ðŸ“„</div>
           <div class="tool-card-title">PDF to Word</div>
           <div class="tool-card-desc">Extract text from PDF and save as an editable Word document.</div>
         </a>
         <a href="/word-to-pdf" class="tool-card">
-          <div class="tool-card-icon">📃</div>
+          <div class="tool-card-icon">ðŸ“ƒ</div>
           <div class="tool-card-title">Word to PDF</div>
           <div class="tool-card-desc">Convert Word documents to PDF format in your browser.</div>
         </a>
         <a href="/pdf-to-text" class="tool-card">
-          <div class="tool-card-icon">📝</div>
+          <div class="tool-card-icon">ðŸ“</div>
           <div class="tool-card-title">PDF to Text</div>
           <div class="tool-card-desc">Extract all text content from PDF documents.</div>
         </a>
@@ -920,32 +932,32 @@
       <h2 class="section-heading">Audio Converters</h2>
       <div class="tool-grid">
         <a href="/mp3-to-wav" class="tool-card">
-          <div class="tool-card-icon">🎧</div>
+          <div class="tool-card-icon">ðŸŽ§</div>
           <div class="tool-card-title">MP3 to WAV</div>
           <div class="tool-card-desc">Convert compressed MP3 audio to uncompressed WAV format.</div>
         </a>
         <a href="/wav-to-mp3" class="tool-card">
-          <div class="tool-card-icon">🎵</div>
+          <div class="tool-card-icon">ðŸŽµ</div>
           <div class="tool-card-title">WAV to MP3</div>
           <div class="tool-card-desc">Convert WAV audio to space-saving MP3 with bitrate control.</div>
         </a>
         <a href="/mp3-to-flac" class="tool-card">
-          <div class="tool-card-icon">🔊</div>
+          <div class="tool-card-icon">ðŸ”Š</div>
           <div class="tool-card-title">MP3 to FLAC</div>
           <div class="tool-card-desc">Convert MP3 to lossless FLAC for archival quality.</div>
         </a>
         <a href="/flac-to-mp3" class="tool-card">
-          <div class="tool-card-icon">🎶</div>
+          <div class="tool-card-icon">ðŸŽ¶</div>
           <div class="tool-card-title">FLAC to MP3</div>
           <div class="tool-card-desc">Convert FLAC files to MP3 for portable devices.</div>
         </a>
         <a href="/wav-to-flac" class="tool-card">
-          <div class="tool-card-icon">🎙️</div>
+          <div class="tool-card-icon">ðŸŽ™ï¸</div>
           <div class="tool-card-title">WAV to FLAC</div>
           <div class="tool-card-desc">Convert WAV to FLAC with lossless compression.</div>
         </a>
         <a href="/ogg-to-mp3" class="tool-card">
-          <div class="tool-card-icon">🔉</div>
+          <div class="tool-card-icon">ðŸ”‰</div>
           <div class="tool-card-title">OGG to MP3</div>
           <div class="tool-card-desc">Convert OGG Vorbis audio to widely supported MP3.</div>
         </a>
@@ -954,32 +966,32 @@
       <h2 class="section-heading">GPS & Fitness Data</h2>
       <div class="tool-grid">
         <a href="/gpx-to-kml" class="tool-card">
-          <div class="tool-card-icon">🗺</div>
+          <div class="tool-card-icon">ðŸ—º</div>
           <div class="tool-card-title">GPX to KML</div>
           <div class="tool-card-desc">Convert GPS tracks to Google Earth KML format.</div>
         </a>
         <a href="/gpx-to-csv" class="tool-card">
-          <div class="tool-card-icon">📈</div>
+          <div class="tool-card-icon">ðŸ“ˆ</div>
           <div class="tool-card-title">GPX to CSV</div>
           <div class="tool-card-desc">Extract GPS waypoint data to CSV spreadsheets.</div>
         </a>
         <a href="/fit-to-gpx" class="tool-card">
-          <div class="tool-card-icon">🏃</div>
+          <div class="tool-card-icon">ðŸƒ</div>
           <div class="tool-card-title">FIT to GPX</div>
           <div class="tool-card-desc">Convert Garmin FIT activity files to universal GPX format.</div>
         </a>
         <a href="/fit-to-csv" class="tool-card">
-          <div class="tool-card-icon">📊</div>
+          <div class="tool-card-icon">ðŸ“Š</div>
           <div class="tool-card-title">FIT to CSV</div>
           <div class="tool-card-desc">Extract FIT workout data to CSV for detailed analysis.</div>
         </a>
         <a href="/csv-to-gpx" class="tool-card">
-          <div class="tool-card-icon">🔄</div>
+          <div class="tool-card-icon">ðŸ”„</div>
           <div class="tool-card-title">CSV to GPX</div>
           <div class="tool-card-desc">Create GPX GPS tracks from CSV waypoint data.</div>
         </a>
         <a href="/kml-to-gpx" class="tool-card">
-          <div class="tool-card-icon">🗺</div>
+          <div class="tool-card-icon">ðŸ—º</div>
           <div class="tool-card-title">KML to GPX</div>
           <div class="tool-card-desc">Convert Google Earth KML files to GPX for GPS devices.</div>
         </a>
@@ -988,24 +1000,24 @@
       <h2 class="section-heading">Guides & References</h2>
       <div class="tool-grid">
         <a href="/guides/bank-statement-formats" class="tool-card">
-          <div class="tool-card-icon">📘</div>
+          <div class="tool-card-icon">ðŸ“˜</div>
           <div class="tool-card-title">Bank Statement Formats</div>
           <div class="tool-card-desc">Complete guide to OFX, QFX, QBO, CSV, and PDF bank statement formats.</div>
         </a>
         <a href="/guides/vcard-formats" class="tool-card">
-          <div class="tool-card-icon">📖</div>
+          <div class="tool-card-icon">ðŸ“–</div>
           <div class="tool-card-title">vCard Formats</div>
-          <div class="tool-card-desc">vCard 2.1 vs 3.0 vs 4.0 — differences, compatibility, and conversion.</div>
+          <div class="tool-card-desc">vCard 2.1 vs 3.0 vs 4.0 â€” differences, compatibility, and conversion.</div>
         </a>
         <a href="/guides/gps-formats" class="tool-card">
-          <div class="tool-card-icon">🗺</div>
+          <div class="tool-card-icon">ðŸ—º</div>
           <div class="tool-card-title">GPS Formats</div>
-          <div class="tool-card-desc">GPX vs KML vs FIT — choosing the right GPS file format.</div>
+          <div class="tool-card-desc">GPX vs KML vs FIT â€” choosing the right GPS file format.</div>
         </a>
         <a href="/guides/image-formats" class="tool-card">
-          <div class="tool-card-icon">🖼</div>
+          <div class="tool-card-icon">ðŸ–¼</div>
           <div class="tool-card-title">Image Formats</div>
-          <div class="tool-card-desc">HEIC vs AVIF vs WebP vs JPEG vs PNG — web image format guide.</div>
+          <div class="tool-card-desc">HEIC vs AVIF vs WebP vs JPEG vs PNG â€” web image format guide.</div>
         </a>
       </div>
     </section>
@@ -1014,17 +1026,17 @@
     <section class="content-section" style="margin:48px auto 0;">
       <h2>Why ConvertPivot?</h2>
       <p>Most online file converters work the same way: you upload your file to their server, they convert it, you download the result. The trade-off most users don't think about: your file lives on their server, even if briefly.</p>
-      <p>ConvertPivot takes a fundamentally different approach. Every conversion runs locally in your browser using WebAssembly — the same technology that gives desktop-class performance on the web. Your files never leave your device. There is no server, no cloud storage, no account, and no data collection.</p>
-      <p>This architecture is verifiable: open your browser's Developer Tools → Network tab during any conversion and confirm that zero file data is transmitted. Your sensitive bank statements, contact databases, and private notebooks stay private.</p>
+      <p>ConvertPivot takes a fundamentally different approach. Every conversion runs locally in your browser using WebAssembly â€” the same technology that gives desktop-class performance on the web. Your files never leave your device. There is no server, no cloud storage, no account, and no data collection.</p>
+      <p>This architecture is verifiable: open your browser's Developer Tools â†’ Network tab during any conversion and confirm that zero file data is transmitted. Your sensitive bank statements, contact databases, and private notebooks stay private.</p>
 
       <h3>Complete Privacy</h3>
-      <p>Because everything runs client-side, your files never cross a network boundary. Financial documents, medical records, and legal files stay on your machine — through every step, until you download the result. No third party ever sees your data.</p>
+      <p>Because everything runs client-side, your files never cross a network boundary. Financial documents, medical records, and legal files stay on your machine â€” through every step, until you download the result. No third party ever sees your data.</p>
 
       <h3>No Limits, No Gates</h3>
-      <p>There are no daily conversion caps, no file size limits, no watermarks, and no "upgrade to unlock" dialogs. The free tier handles files as large as your browser memory permits. Premium tiers exist only to support optional cloud restore features — never to degrade the free experience.</p>
+      <p>There are no daily conversion caps, no file size limits, no watermarks, and no "upgrade to unlock" dialogs. The free tier handles files as large as your browser memory permits. Premium tiers exist only to support optional cloud restore features â€” never to degrade the free experience.</p>
 
       <h3>Works Everywhere</h3>
-      <p>All 90+ tools work on desktop and mobile browsers. You can convert files on a Chromebook, a locked-down work laptop, an iPad, or an Android phone — no installation required.</p>
+      <p>All 90+ tools work on desktop and mobile browsers. You can convert files on a Chromebook, a locked-down work laptop, an iPad, or an Android phone â€” no installation required.</p>
     </section>
 
     <!-- HOW IT WORKS -->
@@ -1054,35 +1066,35 @@
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqLanding">
         <div class="faq-item">
-          <button class="faq-question">Are ConvertPivot tools really free? <span class="arrow">▼</span></button>
+          <button class="faq-question">Are ConvertPivot tools really free? <span class="arrow">â–¼</span></button>
           <div class="faq-answer">Yes, all tools are completely free with no usage limits, no watermarks, and no signup required. We use display ads to keep the service running.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">Do you upload my files to a server? <span class="arrow">▼</span></button>
-          <div class="faq-answer">No. Every conversion runs locally in your browser using WebAssembly and JavaScript. Your files are never uploaded to any server. You can verify this by opening your browser's Network tab during a conversion — zero file data is transmitted.</div>
+          <button class="faq-question">Do you upload my files to a server? <span class="arrow">â–¼</span></button>
+          <div class="faq-answer">No. Every conversion runs locally in your browser using WebAssembly and JavaScript. Your files are never uploaded to any server. You can verify this by opening your browser's Network tab during a conversion â€” zero file data is transmitted.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">What file formats are supported? <span class="arrow">▼</span></button>
+          <button class="faq-question">What file formats are supported? <span class="arrow">â–¼</span></button>
            <div class="faq-answer">ConvertPivot supports 90+ conversion types across financial files (OFX, QFX, QBO), contacts (VCF, CSV, XLSX), notebooks (IPYNB), GPS data (GPX, KML, FIT), images (HEIC, AVIF, WebP, SVG), CSS tools (color spaces, logical properties, view transitions), and developer tools (binary, hex, timestamp).</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">Is there a file size limit? <span class="arrow">▼</span></button>
+          <button class="faq-question">Is there a file size limit? <span class="arrow">â–¼</span></button>
           <div class="faq-answer">Your practical limit is your browser's available memory, typically 1-4 GB. Since files never leave your device, there are no server-imposed caps.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">Can I use ConvertPivot on my phone? <span class="arrow">▼</span></button>
+          <button class="faq-question">Can I use ConvertPivot on my phone? <span class="arrow">â–¼</span></button>
           <div class="faq-answer">Yes. All tools work on mobile browsers including Chrome, Safari, and Firefox on both Android and iOS. Tap the drop zone to select files from your device.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">Do I need to create an account? <span class="arrow">▼</span></button>
+          <button class="faq-question">Do I need to create an account? <span class="arrow">â–¼</span></button>
           <div class="faq-answer">No account, email, or signup is required. Just open any tool, drop your file, and convert. No tracking, no data collection.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">How is this different from other online converters? <span class="arrow">▼</span></button>
+          <button class="faq-question">How is this different from other online converters? <span class="arrow">â–¼</span></button>
           <div class="faq-answer">Most online converters upload your files to a server for processing. ConvertPivot runs every conversion locally in your browser using WebAssembly. Your files never leave your device, ensuring complete privacy. There are also no daily limits, no queues, and no upgrade gates.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">What happens to my files after conversion? <span class="arrow">▼</span></button>
+          <button class="faq-question">What happens to my files after conversion? <span class="arrow">â–¼</span></button>
           <div class="faq-answer">Files are processed entirely in your browser's memory. Once you close the tab or download the result, everything is discarded. No copy exists on any server because your data never left your device.</div>
         </div>
       </div>
@@ -1096,7 +1108,7 @@
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-content">
-      <div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div>
+      <div class="footer-copy">Â© 2026 ConvertPivot. Free online converter tools.</div>
       <div class="footer-links">
         <a href="/">Home</a>
         <a href="/about">About</a>
@@ -1110,6 +1122,7 @@
 
   <script src="js/shared.js?v=2"></script>
   <script>
+  document.getElementById('sidebarSearchInput').addEventListener('input', function(){filterSidebar(this.value)});
   (function() {
     var el = document.getElementById('conversionCounter');
     if (!el) return;

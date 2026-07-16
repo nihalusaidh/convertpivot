@@ -38,7 +38,7 @@
     <div class="converter-widget" id="toolWidget">
       <div class="converter-form">
         <label for="textInput">Enter your text:</label>
-        <textarea id="textInput" class="converter-input" rows="4" placeholder="Type or paste your text here..." style="width:100%;resize:vertical;padding:12px;font-size:1rem;border:1px solid var(--color-mist);border-radius:var(--radius-card);background:var(--color-canvas);color:var(--color-ink);font-family:inherit;outline:none;" onfocus="this.style.borderColor='var(--color-red)'" onblur="this.style.borderColor='var(--color-mist)'"></textarea>
+        <textarea id="textInput" class="converter-input" rows="4" placeholder="Type or paste your text here..." style="width:100%;resize:vertical;padding:12px;font-size:1rem;border:1px solid var(--color-mist);border-radius:var(--radius-card);background:var(--color-canvas);color:var(--color-ink);font-family:inherit;outline:none;"></textarea>
         <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;">
           <button id="clearTextBtn" class="btn btn-ghost" style="margin-left:auto;">Clear</button>
         </div>
@@ -193,6 +193,8 @@
       }
 
       input.addEventListener('input', render);
+      input.addEventListener('focus', function() { this.style.borderColor = 'var(--color-red)'; });
+      input.addEventListener('blur', function() { this.style.borderColor = 'var(--color-mist)'; });
       document.getElementById('clearTextBtn').addEventListener('click', function() {
         input.value = '';
         render();

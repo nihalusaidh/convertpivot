@@ -59,7 +59,7 @@
 }</textarea>
         <div class="converter-controls" style="margin-top:8px;">
           <button id="convertBtn" class="btn btn-primary">Convert</button>
-          <button class="btn btn-secondary" onclick="document.getElementById('cssInput').value='.sidebar {\n  margin-left: 24px;\n  padding-right: 16px;\n  border-left: 2px solid blue;\n  width: 300px;\n  float: left;\n  top: 10px;\n  overflow-x: auto;\n}';document.getElementById('convertBtn').click();">Reset</button>
+          <button class="btn btn-secondary" id="resetCssBtn">Reset</button>
         </div>
         <div id="resultArea" style="margin-top:12px;display:none;">
           <label style="font-weight:600;">Converted CSS:</label>
@@ -338,6 +338,10 @@
       dirToLogical.addEventListener('click', function() { setDirection('toLogical'); });
       dirToPhysical.addEventListener('click', function() { setDirection('toPhysical'); });
       convertBtn.addEventListener('click', convert);
+      document.getElementById('resetCssBtn').addEventListener('click', function() {
+        cssInput.value = '.sidebar {\n  margin-left: 24px;\n  padding-right: 16px;\n  border-left: 2px solid blue;\n  width: 300px;\n  float: left;\n  top: 10px;\n  overflow-x: auto;\n}';
+        convertBtn.click();
+      });
       writingMode.addEventListener('change', function() { if (cssInput.value.trim()) convert(); });
       cssInput.addEventListener('keydown', function(e) { if (e.key === 'Enter' && e.ctrlKey) convert(); });
 

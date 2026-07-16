@@ -51,15 +51,15 @@
     <div class="converter-widget">
       <div style="margin-bottom:16px">
         <label class="converter-label">Unix Timestamp (seconds)</label>
-        <input type="text" id="tsSeconds" value="1818086400" class="converter-input" oninput="ConvertPivotTS.updateFromSeconds(this.value)">
+        <input type="text" id="tsSeconds" value="1818086400" class="converter-input">
       </div>
       <div style="margin-bottom:16px">
         <label class="converter-label">Milliseconds</label>
-        <input type="text" id="tsMs" value="1818086400000" class="converter-input" oninput="ConvertPivotTS.updateFromMs(this.value)">
+        <input type="text" id="tsMs" value="1818086400000" class="converter-input">
       </div>
       <div style="margin-bottom:16px">
         <label class="converter-label">Human Date (YYYY-MM-DD HH:MM:SS)</label>
-        <input type="text" id="tsDate" value="2027-08-12 00:00:00" class="converter-input" oninput="ConvertPivotTS.updateFromDate(this.value)">
+        <input type="text" id="tsDate" value="2027-08-12 00:00:00" class="converter-input">
       </div>
       <div class="converter-result">
         <div style="font-size:0.85rem;color:var(--color-graphite);margin-bottom:4px;">ISO 8601</div>
@@ -70,8 +70,8 @@
         <div id="tsUtc" style="font-family:monospace;font-size:0.95rem;">Thu, 12 Aug 2027 00:00:00 GMT</div>
       </div>
       <div style="margin-top:16px;">
-        <button class="btn btn-secondary" onclick="ConvertPivotTS.now()">📌 Now</button>
-        <button class="btn btn-secondary" onclick="ConvertPivotTS.today()">🌅 Today at Midnight</button>
+        <button class="btn btn-secondary" id="tsNowBtn">📌 Now</button>
+        <button class="btn btn-secondary" id="tsTodayBtn">🌅 Today at Midnight</button>
       </div>
     </div>
 
@@ -131,6 +131,11 @@
 
   <script src="js/shared.js?v=2"></script>
   <script>
+  document.getElementById('tsSeconds').addEventListener('input', function(){ConvertPivotTS.updateFromSeconds(this.value)});
+  document.getElementById('tsMs').addEventListener('input', function(){ConvertPivotTS.updateFromMs(this.value)});
+  document.getElementById('tsDate').addEventListener('input', function(){ConvertPivotTS.updateFromDate(this.value)});
+  document.getElementById('tsNowBtn').addEventListener('click', function(){ConvertPivotTS.now()});
+  document.getElementById('tsTodayBtn').addEventListener('click', function(){ConvertPivotTS.today()});
   var ConvertPivotTS = {
     _updating: false,
     updateDisplay: function(d) {

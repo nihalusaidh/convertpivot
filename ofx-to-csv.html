@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OFX to CSV — Bank Statement to Excel | ConvertPivot</title>
+  <title>OFX to CSV â€” Bank Statement to Excel | ConvertPivot</title>
   <meta name="description" content="Free online OFX to CSV converter. Convert bank statement files (.ofx, .qfx, .qbo) to CSV for Excel. No upload, private.">
     <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/ofx-to-csv">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/ofx-to-csv">
-  <meta property="og:title" content="OFX to CSV — Bank Statement to Excel | ConvertPivot">
+  <meta property="og:title" content="OFX to CSV â€” Bank Statement to Excel | ConvertPivot">
   <meta property="og:description" content="Free online OFX to CSV converter. Convert bank statement files (.ofx, .qfx, .qbo) to CSV for Excel.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="OFX to CSV — Bank Statement to Excel | ConvertPivot">
+  <meta name="twitter:title" content="OFX to CSV â€” Bank Statement to Excel | ConvertPivot">
   <meta name="twitter:description" content="Free online OFX to CSV converter. Convert bank statement files (.ofx, .qfx, .qbo) to CSV for Excel.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -26,26 +26,26 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an OFX file?","acceptedAnswer":{"@type":"Answer","text":"OFX (Open Financial Exchange) is a standardized format for exchanging financial data between banks and accounting software. It is used by Quicken, QuickBooks, GnuCash, and most major banks."}},{"@type":"Question","name":"How do I convert OFX to CSV?","acceptedAnswer":{"@type":"Answer","text":"Drop your .ofx, .qfx, or .qbo file onto the converter above, click Convert and download the CSV. All transactions are extracted automatically."}},{"@type":"Question","name":"What is the difference between OFX, QFX, and QBO?","acceptedAnswer":{"@type":"Answer","text":"OFX is the general standard. QFX is the same format with a .qfx extension (used by Quicken). QBO is QuickBooks Web Connect format. All three use the same internal structure."}},{"@type":"Question","name":"Is my financial data private?","acceptedAnswer":{"@type":"Answer","text":"Yes. The conversion runs entirely in your browser. Your bank statements never leave your device. No upload, no server, no data collection."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
 
   <nav id="sidebar" class="sidebar"></nav>
 
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">OFX to CSV</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">OFX to CSV</span></nav>
     <div class="tool-header">
-      <h1>OFX to CSV Converter — Bank Statements to Spreadsheets</h1>
+      <h1>OFX to CSV Converter â€” Bank Statements to Spreadsheets</h1>
       <p>Convert OFX, QFX, and QBO bank statement files to CSV format. Open in Excel, Google Sheets, or import into any accounting software. 100% private.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your financial data never leaves your device. No upload, no server.</span></div>
+    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span>100% browser-based. Your financial data never leaves your device. No upload, no server.</span></div>
 
     <div class="converter-widget" id="ofxWidget">
       <div class="drop-zone" id="ofxDropZone">
-        <div class="drop-zone-icon">🏦</div>
+        <div class="drop-zone-icon">ðŸ¦</div>
         <div class="drop-zone-text">Drop a <strong>.ofx</strong>, <strong>.qfx</strong>, or <strong>.qbo</strong> file here, or click to browse</div>
         <div class="drop-zone-hint">All files use the same OFX format internally</div>
         <input type="file" accept=".ofx,.qfx,.qbo" aria-label="Choose OFX file">
       </div>
-      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">✕</button></div>
+      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">âœ•</button></div>
       <div class="converter-controls"><button class="btn btn-primary" id="ofxConvertBtn">Convert to CSV</button></div>
       <div class="progress-bar" id="ofxProgress"><div class="progress-bar-fill"></div></div>
       <div class="converter-result" id="ofxResult"><div class="converter-result-message"></div></div>
@@ -73,10 +73,10 @@
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">What is an OFX file? <span class="arrow">▼</span></button><div class="faq-answer">OFX (Open Financial Exchange) is a standardized format for exchanging financial data between banks and accounting software. It is used by Quicken, QuickBooks, GnuCash, and most major banks.</div></div>
-        <div class="faq-item"><button class="faq-question">How do I convert OFX to CSV? <span class="arrow">▼</span></button><div class="faq-answer">Drop your .ofx, .qfx, or .qbo file onto the converter above, click Convert and download the CSV. All transactions are extracted automatically.</div></div>
-        <div class="faq-item"><button class="faq-question">What is the difference between OFX, QFX, and QBO? <span class="arrow">▼</span></button><div class="faq-answer">OFX is the general standard. QFX is the same format with a .qfx extension (used by Quicken). QBO is QuickBooks Web Connect format. All three use the same internal structure.</div></div>
-        <div class="faq-item"><button class="faq-question">Is my financial data private? <span class="arrow">▼</span></button><div class="faq-answer">Yes. The conversion runs entirely in your browser. Your bank statements never leave your device. No upload, no server, no data collection.</div></div>
+        <div class="faq-item"><button class="faq-question">What is an OFX file? <span class="arrow">â–¼</span></button><div class="faq-answer">OFX (Open Financial Exchange) is a standardized format for exchanging financial data between banks and accounting software. It is used by Quicken, QuickBooks, GnuCash, and most major banks.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I convert OFX to CSV? <span class="arrow">â–¼</span></button><div class="faq-answer">Drop your .ofx, .qfx, or .qbo file onto the converter above, click Convert and download the CSV. All transactions are extracted automatically.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the difference between OFX, QFX, and QBO? <span class="arrow">â–¼</span></button><div class="faq-answer">OFX is the general standard. QFX is the same format with a .qfx extension (used by Quicken). QBO is QuickBooks Web Connect format. All three use the same internal structure.</div></div>
+        <div class="faq-item"><button class="faq-question">Is my financial data private? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. The conversion runs entirely in your browser. Your bank statements never leave your device. No upload, no server, no data collection.</div></div>
       </div>
     </div>
 

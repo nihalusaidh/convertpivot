@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF to Excel â€” Convert PDF Tables to Excel Free | ConvertPivot</title>
+  <meta name="description" content="Free online PDF to Excel converter. Extract tables from PDF files and convert them to XLSX or CSV spreadsheets. 100% browser-based, no upload required.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/pdf-to-excel">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/pdf-to-excel">
+  <meta property="og:title" content="PDF to Excel â€” Convert PDF Tables to Excel Free | ConvertPivot">
+  <meta property="og:description" content="Free online PDF to Excel converter. Extract tables from PDF files and convert them to XLSX or CSV spreadsheets. No upload required.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PDF to Excel â€” Convert PDF Tables to Excel Free | ConvertPivot">
+  <meta name="twitter:description" content="Free online PDF to Excel converter. Extract tables from PDF files and convert them to XLSX or CSV spreadsheets. No upload required.">
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"PDF to Excel Converter","url":"https://convertpivot.com/pdf-to-excel","applicationCategory":"Spreadsheet","operatingSystem":"All","description":"Free online PDF to Excel converter. Extract tables from PDF and convert to XLSX or CSV. 100% browser-based, no upload."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I extract tables from scanned PDFs?","acceptedAnswer":{"@type":"Answer","text":"This tool extracts text from PDFs. Scanned documents (image-based PDFs) do not contain extractable text. For scanned PDFs, you need OCR software first to convert the images to text."}},{"@type":"Question","name":"What output formats are available?","acceptedAnswer":{"@type":"Answer","text":"You can download the extracted data as XLSX (Excel format) or CSV (comma-separated values). XLSX preserves multiple sheets, while CSV is simpler and universally compatible."}},{"@type":"Question","name":"How accurate is the table extraction?","acceptedAnswer":{"@type":"Answer","text":"Table extraction accuracy depends on the PDF structure. Simple, well-formatted tables with clear column separators extract very well. Complex layouts, merged cells, and nested tables may require manual adjustment."}},{"@type":"Question","name":"Are my PDFs uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All processing happens entirely in your browser using PDF.js and SheetJS (xlsx). Your documents never leave your device."}},{"@type":"Question","name":"Is there a file size limit?","acceptedAnswer":{"@type":"Answer","text":"The limit depends on your browser's available memory. For best results, use PDFs under 50 MB. Close other tabs to free memory for larger files."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><a href="/">PDF Tools</a><span class="sep">â€º</span><span class="current">PDF to Excel</span></nav>
+    <div class="tool-header">
+      <h1>ðŸ“Š PDF to Excel â€” Extract Tables from PDF</h1>
+      <p>Convert tables from PDF files into editable Excel spreadsheets. Extract data from invoices, financial statements, reports, and more. Download as XLSX or CSV. All processing happens in your browser.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span>100% browser-based. Your documents never leave your device.</span></div>
+    <div class="converter-widget" id="pdfToExcelWidget">
+      <div class="drop-zone" id="pdfExcelDropZone">
+        <div class="drop-zone-icon">ðŸ“„</div>
+        <div class="drop-zone-text">Drop a <strong>PDF file</strong> here, or click to browse</div>
+        <div class="drop-zone-hint">Supports text-based PDFs (not scanned documents)</div>
+        <input type="file" accept=".pdf,application/pdf" aria-label="Choose PDF file">
+      </div>
+      <div class="file-info" id="pdfExcelFileInfo">
+        <span class="file-info-name"></span>
+        <span class="file-info-size"></span>
+        <button class="file-info-remove" aria-label="Remove file">&times;</button>
+      </div>
+      <div id="pdfExcelPreview" style="display:none;margin-top:16px;max-height:400px;overflow:auto;border:1px solid var(--color-mist);border-radius:8px;padding:12px;font-size:0.85rem"></div>
+      <div class="converter-controls" id="pdfExcelControls" style="display:none">
+        <label for="pdfExcelFormat">Output Format:</label>
+        <select id="pdfExcelFormat">
+          <option value="xlsx">XLSX (Excel)</option>
+          <option value="csv">CSV (Comma Separated)</option>
+        </select>
+        <button class="btn btn-primary" id="pdfExcelBtn">Download as Excel</button>
+      </div>
+      <div class="progress-bar" id="pdfExcelProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="pdfExcelResult"><div class="converter-result-message"></div></div>
+    </div>
+    <div class="content-section">
+      <h2>How to Convert PDF to Excel</h2>
+      <p>Drop a PDF file onto the converter above. The tool extracts text from each page using PDF.js, then analyzes the text layout to identify table structures. Rows and columns are detected based on text position and spacing.</p>
+      <p>Preview the extracted data before downloading. You can choose between XLSX (Excel format with sheets) and CSV (universal plain-text format). The preview shows how your data will appear in the spreadsheet, letting you verify accuracy before committing to the download.</p>
+      <h3>Tips for Best Results</h3>
+      <p>Table extraction works best on text-based PDFs with clear column structures. Scanned documents (image-only PDFs) cannot be processed â€” they require OCR first. Financial statements, invoices, and data reports with regular table layouts produce the most accurate results. After conversion, you may need to adjust column widths and formatting in Excel.</p>
+    </div>
+    <div class="content-section">
+      <h2>PDF to Excel â€” Data Extraction Overview</h2>
+      <table class="format-table"><thead><tr><th>PDF Type</th><th>Extraction Quality</th><th>Best For</th></tr></thead><tbody>
+        <tr><td>Text-based with tables</td><td>Excellent</td><td>Financial statements, invoices, reports</td></tr>
+        <tr><td>Text-based plain</td><td>Good</td><td>Simple lists and paragraphs</td></tr>
+        <tr><td>Formatted (multi-column)</td><td>Fair</td><td>Newsletters, brochures</td></tr>
+        <tr><td>Scanned / Image-based</td><td>Not supported</td><td>Requires OCR preprocessing</td></tr>
+      </tbody></table>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">Does this work with scanned PDFs? <span class="arrow">â–¼</span></button><div class="faq-answer">No. Scanned PDFs are image-based and contain no extractable text. Use OCR software first to convert the images to text.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the difference between XLSX and CSV? <span class="arrow">â–¼</span></button><div class="faq-answer">XLSX is the native Excel format that supports multiple sheets, formatting, and formulas. CSV is a plain-text format that any spreadsheet program can open.</div></div>
+        <div class="faq-item"><button class="faq-question">How accurate is the table detection? <span class="arrow">â–¼</span></button><div class="faq-answer">Simple tables with consistent spacing extract very accurately. Complex layouts or merged cells may need manual cleanup after download.</div></div>
+        <div class="faq-item"><button class="faq-question">Are my files uploaded? <span class="arrow">â–¼</span></button><div class="faq-answer">No. Everything runs in your browser using PDF.js and SheetJS. Your files never leave your device.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the maximum file size? <span class="arrow">â–¼</span></button><div class="faq-answer">The limit depends on your browser memory. Files under 50 MB work best. Close other tabs for larger files.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/pdf-to-word" class="related-tool-card">PDF to Word <span class="desc">Convert PDF to DOCX</span></a>
+        <a href="/csv-to-json" class="related-tool-card">CSV to JSON <span class="desc">Convert CSV to JSON</span></a>
+        <a href="/json-to-csv" class="related-tool-card">JSON to CSV <span class="desc">Convert JSON to CSV</span></a>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="js/shared.js?v=2"></script>
+  <script>
+  (function () {
+    'use strict';
+    var dropZone = document.getElementById('pdfExcelDropZone');
+    var fileInput = dropZone.querySelector('input[type="file"]');
+    var fileInfo = document.getElementById('pdfExcelFileInfo');
+    var infoName = fileInfo.querySelector('.file-info-name');
+    var infoSize = fileInfo.querySelector('.file-info-size');
+    var removeBtn = fileInfo.querySelector('.file-info-remove');
+    var preview = document.getElementById('pdfExcelPreview');
+    var controls = document.getElementById('pdfExcelControls');
+    var convertBtn = document.getElementById('pdfExcelBtn');
+    var formatSelect = document.getElementById('pdfExcelFormat');
+    var progress = document.getElementById('pdfExcelProgress');
+    var result = document.getElementById('pdfExcelResult');
+    var currentFile = null;
+    var extractedRows = [];
+
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    dropZone.addEventListener('dragover', function (e) { e.preventDefault(); dropZone.classList.add('drag-over'); });
+    dropZone.addEventListener('dragleave', function () { dropZone.classList.remove('drag-over'); });
+    dropZone.addEventListener('drop', function (e) { e.preventDefault(); dropZone.classList.remove('drag-over'); if (e.dataTransfer.files.length > 0) handleFile(e.dataTransfer.files[0]); });
+    fileInput.addEventListener('change', function () { if (fileInput.files.length > 0) handleFile(fileInput.files[0]); });
+
+    function handleFile(file) {
+      if (!file || file.type !== 'application/pdf') { showToast('Please select a PDF file', 'error'); return; }
+      currentFile = file;
+      infoName.textContent = file.name;
+      infoSize.textContent = formatFileSize(file.size);
+      fileInfo.classList.add('show');
+      dropZone.style.display = 'none';
+      extractTables(file);
+    }
+
+    removeBtn.addEventListener('click', function () {
+      currentFile = null;
+      extractedRows = [];
+      fileInfo.classList.remove('show');
+      dropZone.style.display = '';
+      preview.style.display = 'none';
+      controls.style.display = 'none';
+      fileInput.value = '';
+    });
+
+    function extractTables(file) {
+      var prog = showProgress('pdfExcelProgress');
+      var reader = new FileReader();
+      reader.onload = function () {
+        var data = new Uint8Array(reader.result);
+        pdfjsLib.getDocument({ data: data }).promise.then(function (pdf) {
+          var pagePromises = [];
+          for (var i = 1; i <= pdf.numPages; i++) {
+            pagePromises.push(pdf.getPage(i).then(function (page) {
+              return page.getTextContent();
+            }));
+          }
+          return Promise.all(pagePromises);
+        }).then(function (pages) {
+          extractedRows = [];
+          var previewHtml = '<table style="width:100%;border-collapse:collapse;font-size:0.85rem">';
+          var rowCount = 0;
+          pages.forEach(function (pageText, pageIdx) {
+            var items = pageText.items;
+            var currentRow = [];
+            var lastY = null;
+            items.forEach(function (item) {
+              var y = Math.round(item.transform[5]);
+              if (lastY !== null && Math.abs(y - lastY) > 5) {
+                if (currentRow.length > 0) { extractedRows.push(currentRow); rowCount++; }
+                currentRow = [];
+              }
+              currentRow.push(item.str);
+              lastY = y;
+            });
+            if (currentRow.length > 0) { extractedRows.push(currentRow); rowCount++; }
+          });
+          if (rowCount === 0) { showToast('No table data found in PDF', 'error'); prog.done(); return; }
+          var maxCols = 0;
+          extractedRows.forEach(function (r) { if (r.length > maxCols) maxCols = r.length; });
+          previewHtml += '<thead><tr>';
+          for (var c = 0; c < maxCols; c++) {
+            previewHtml += '<th style="border:1px solid var(--color-mist);padding:6px 10px;background:var(--color-smoke);text-align:left;font-weight:600">' + escapeHtml(extractedRows[0][c] || '') + '</th>';
+          }
+          previewHtml += '</tr></thead><tbody>';
+          for (var r = 1; r < Math.min(extractedRows.length, 51); r++) {
+            previewHtml += '<tr>';
+            for (var c2 = 0; c2 < maxCols; c2++) {
+              previewHtml += '<td style="border:1px solid var(--color-mist);padding:4px 10px">' + escapeHtml(extractedRows[r][c2] || '') + '</td>';
+            }
+            previewHtml += '</tr>';
+          }
+          previewHtml += '</tbody></table>';
+          if (extractedRows.length > 51) previewHtml += '<p style="margin-top:8px;color:var(--color-graphite);font-size:0.85rem">... and ' + (extractedRows.length - 51) + ' more rows</p>';
+          preview.innerHTML = previewHtml;
+          preview.style.display = 'block';
+          controls.style.display = 'flex';
+          prog.done();
+          showToast('Extracted ' + extractedRows.length + ' rows from PDF', 'success');
+        }).catch(function () { showToast('Could not read PDF. It may be corrupted or password-protected.', 'error'); prog.done(); });
+      };
+      reader.readAsArrayBuffer(file);
+    }
+
+    convertBtn.addEventListener('click', function () {
+      if (extractedRows.length === 0) { showToast('No data extracted', 'error'); return; }
+      var prog = showProgress('pdfExcelProgress');
+      convertBtn.disabled = true;
+      setTimeout(function () {
+        try {
+          var maxCols = 0;
+          extractedRows.forEach(function (r) { if (r.length > maxCols) maxCols = r.length; });
+          var aoa = extractedRows.map(function (r) {
+            var row = [];
+            for (var i = 0; i < maxCols; i++) row.push(r[i] || '');
+            return row;
+          });
+          var ws = XLSX.utils.aoa_to_sheet(aoa);
+          var wb = XLSX.utils.book_new();
+          XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+          var fmt = formatSelect.value;
+          if (fmt === 'xlsx') {
+            var wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+            downloadFile(wbout, changeExtension(currentFile.name, 'xlsx'), 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+          } else {
+            var csvout = XLSX.utils.sheet_to_csv(ws);
+            downloadFile(csvout, changeExtension(currentFile.name, 'csv'), 'text/csv');
+          }
+          prog.done();
+          convertBtn.disabled = false;
+          showToast('Downloaded as ' + fmt.toUpperCase(), 'success');
+        } catch (e) { showToast('Error: ' + e.message, 'error'); convertBtn.disabled = false; prog.done(); }
+      }, 300);
+    });
+  })();
+  </script>
+</body>
+</html>

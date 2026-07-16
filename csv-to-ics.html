@@ -101,7 +101,7 @@
           ics+='END:VCALENDAR';
           ConvertPivot.showResult('result','<strong>'+(lines.length-1)+'</strong> event(s) created.','success');
           downloadBtn.style.display='inline-block';
-          downloadBtn.onclick=function(){ConvertPivot.downloadFile(ics,currentFile.name.replace('.csv','.ics'),'text/calendar;charset=utf-8')};
+          downloadBtn.addEventListener('click',function(){ConvertPivot.downloadFile(ics,currentFile.name.replace('.csv','.ics'),'text/calendar;charset=utf-8')});
         }catch(err){ConvertPivot.showResult('result','Error: '+err.message,'error')}
       };
       reader.readAsText(currentFile);

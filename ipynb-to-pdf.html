@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IPYNB to PDF — Jupyter Notebook to PDF | ConvertPivot</title>
+  <title>IPYNB to PDF â€” Jupyter Notebook to PDF | ConvertPivot</title>
   <meta name="description" content="Free online IPYNB to PDF converter. Convert Jupyter notebooks to PDF with markdown, code highlighting, and outputs. No upload, private.">
     <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/ipynb-to-pdf">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/ipynb-to-pdf">
-  <meta property="og:title" content="IPYNB to PDF — Jupyter Notebook to PDF | ConvertPivot">
+  <meta property="og:title" content="IPYNB to PDF â€” Jupyter Notebook to PDF | ConvertPivot">
   <meta property="og:description" content="Free online IPYNB to PDF converter. Convert Jupyter notebooks to PDF with rendered markdown and syntax-highlighted code.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="IPYNB to PDF — Jupyter Notebook to PDF | ConvertPivot">
+  <meta name="twitter:title" content="IPYNB to PDF â€” Jupyter Notebook to PDF | ConvertPivot">
   <meta name="twitter:description" content="Free online IPYNB to PDF converter. Convert Jupyter notebooks to PDF with rendered markdown and syntax-highlighted code.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -26,26 +26,26 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an IPYNB file?","acceptedAnswer":{"@type":"Answer","text":"IPYNB (IPython Notebook) is the file format for Jupyter notebooks. It contains JSON with code cells, markdown documentation, and execution outputs including images and charts."}},{"@type":"Question","name":"How does IPYNB to PDF conversion work?","acceptedAnswer":{"@type":"Answer","text":"The notebook JSON is parsed, markdown cells are rendered to HTML, code cells get syntax highlighting, and outputs are embedded. The result opens in a new window for browser print-to-PDF."}},{"@type":"Question","name":"Can I convert notebooks without installing Python?","acceptedAnswer":{"@type":"Answer","text":"Yes. The conversion happens entirely in your browser. No Python, no Jupyter, no server-side processing needed."}},{"@type":"Question","name":"Is my notebook data private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Everything runs in your browser. Your code and data never leave your device."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
   <nav id="sidebar" class="sidebar"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">IPYNB to PDF</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">IPYNB to PDF</span></nav>
     <div class="tool-header">
-      <h1>IPYNB to PDF Converter — Jupyter Notebook to Document</h1>
+      <h1>IPYNB to PDF Converter â€” Jupyter Notebook to Document</h1>
       <p>Convert Jupyter notebooks (.ipynb) to PDF with full rendering. Markdown, code, outputs, and images are all preserved. No Python needed.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your code and data never leave your device.</span></div>
+    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span>100% browser-based. Your code and data never leave your device.</span></div>
     <div class="converter-widget" id="ipynbToPdfWidget">
       <div class="drop-zone" id="ipynbToPdfDropZone">
-        <div class="drop-zone-icon">📓</div>
+        <div class="drop-zone-icon">ðŸ““</div>
         <div class="drop-zone-text">Drop a <strong>.ipynb</strong> file here, or click to browse</div>
         <div class="drop-zone-hint">Supports Jupyter notebooks with markdown, code, and outputs</div>
         <input type="file" accept=".ipynb" aria-label="Choose IPYNB file">
       </div>
-      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">✕</button></div>
+      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">âœ•</button></div>
       <div class="converter-controls">
         <button class="btn btn-primary" id="ipynbToPdfConvertBtn">Open for PDF Print</button>
-        <span style="font-size:12px;color:#666;">Opens in new tab — use Ctrl+P to save as PDF</span>
+        <span style="font-size:12px;color:#666;">Opens in new tab â€” use Ctrl+P to save as PDF</span>
       </div>
       <div class="progress-bar" id="ipynbToPdfProgress"><div class="progress-bar-fill"></div></div>
       <div class="converter-result" id="ipynbToPdfResult"><div class="converter-result-message"></div></div>
@@ -54,15 +54,15 @@
       <h2>How to Convert IPYNB to PDF</h2>
       <p>Jupyter notebooks are JSON files containing code cells, markdown documentation, and execution outputs including plots, tables, and images. Our converter parses the notebook, renders markdown using the marked library, applies syntax highlighting via highlight.js, and displays all outputs including error messages and inline images.</p>
       <p>The rendered notebook opens in a new browser window with a clean print-optimized stylesheet. Use your browser's Print dialog (Ctrl+P or Cmd+P) and select "Save as PDF" to create a professional PDF document of your notebook.</p>
-      <p>This approach gives you full control over the output format, page sizing, and margins — unlike automated server-side converters that may not handle complex outputs correctly.</p>
+      <p>This approach gives you full control over the output format, page sizing, and margins â€” unlike automated server-side converters that may not handle complex outputs correctly.</p>
     </div>
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">What is an IPYNB file? <span class="arrow">▼</span></button><div class="faq-answer">IPYNB (IPython Notebook) is the file format for Jupyter notebooks. It contains JSON with code cells, markdown documentation, and execution outputs.</div></div>
-        <div class="faq-item"><button class="faq-question">How does IPYNB to PDF conversion work? <span class="arrow">▼</span></button><div class="faq-answer">The notebook JSON is parsed, markdown cells are rendered to HTML, code cells get syntax highlighting, and outputs are embedded. The result opens for browser print-to-PDF.</div></div>
-        <div class="faq-item"><button class="faq-question">Can I convert notebooks without installing Python? <span class="arrow">▼</span></button><div class="faq-answer">Yes. The conversion happens entirely in your browser. No Python, no Jupyter, no server-side processing needed.</div></div>
-        <div class="faq-item"><button class="faq-question">Is my notebook data private? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Everything runs in your browser. Your code and data never leave your device.</div></div>
+        <div class="faq-item"><button class="faq-question">What is an IPYNB file? <span class="arrow">â–¼</span></button><div class="faq-answer">IPYNB (IPython Notebook) is the file format for Jupyter notebooks. It contains JSON with code cells, markdown documentation, and execution outputs.</div></div>
+        <div class="faq-item"><button class="faq-question">How does IPYNB to PDF conversion work? <span class="arrow">â–¼</span></button><div class="faq-answer">The notebook JSON is parsed, markdown cells are rendered to HTML, code cells get syntax highlighting, and outputs are embedded. The result opens for browser print-to-PDF.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I convert notebooks without installing Python? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. The conversion happens entirely in your browser. No Python, no Jupyter, no server-side processing needed.</div></div>
+        <div class="faq-item"><button class="faq-question">Is my notebook data private? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. Everything runs in your browser. Your code and data never leave your device.</div></div>
       </div>
     </div>
     <div class="content-section">

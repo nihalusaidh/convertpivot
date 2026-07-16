@@ -40,34 +40,34 @@
       <div id="colorPreview" style="height:60px;border-radius:8px;margin-bottom:20px;background:#FF0000"></div>
       <div style="margin-bottom:16px">
         <label class="converter-label" for="colHex">Hex</label>
-        <input type="text" id="colHex" class="converter-input" value="#FF0000" oninput="ConvertPivotColor.updateFrom('hex', this.value)">
+        <input type="text" id="colHex" class="converter-input" value="#FF0000">
       </div>
       <div class="how-it-works" style="grid-template-columns:1fr 1fr 1fr;margin-top:0">
         <div>
           <label class="converter-label" for="colR">R</label>
-          <input type="number" id="colR" class="converter-input" value="255" min="0" max="255" oninput="ConvertPivotColor.updateFrom('rgb', this.value, 'r')">
+          <input type="number" id="colR" class="converter-input" value="255" min="0" max="255">
         </div>
         <div>
           <label class="converter-label" for="colG">G</label>
-          <input type="number" id="colG" class="converter-input" value="0" min="0" max="255" oninput="ConvertPivotColor.updateFrom('rgb', this.value, 'g')">
+          <input type="number" id="colG" class="converter-input" value="0" min="0" max="255">
         </div>
         <div>
           <label class="converter-label" for="colB">B</label>
-          <input type="number" id="colB" class="converter-input" value="0" min="0" max="255" oninput="ConvertPivotColor.updateFrom('rgb', this.value, 'b')">
+          <input type="number" id="colB" class="converter-input" value="0" min="0" max="255">
         </div>
       </div>
       <div class="how-it-works" style="grid-template-columns:1fr 1fr 1fr;margin-top:12px">
         <div>
           <label class="converter-label" for="colH">H</label>
-          <input type="number" id="colH" class="converter-input" value="0" min="0" max="360" oninput="ConvertPivotColor.updateFrom('hsl', this.value, 'h')">
+          <input type="number" id="colH" class="converter-input" value="0" min="0" max="360">
         </div>
         <div>
           <label class="converter-label" for="colS">S%</label>
-          <input type="number" id="colS" class="converter-input" value="100" min="0" max="100" oninput="ConvertPivotColor.updateFrom('hsl', this.value, 's')">
+          <input type="number" id="colS" class="converter-input" value="100" min="0" max="100">
         </div>
         <div>
           <label class="converter-label" for="colL">L%</label>
-          <input type="number" id="colL" class="converter-input" value="50" min="0" max="100" oninput="ConvertPivotColor.updateFrom('hsl', this.value, 'l')">
+          <input type="number" id="colL" class="converter-input" value="50" min="0" max="100">
         </div>
       </div>
       <div class="converter-result" style="margin-top:16px">
@@ -106,6 +106,13 @@
   </footer>
   <script src="js/shared.js?v=2"></script>
   <script>
+  document.getElementById('colHex').addEventListener('input', function(){ConvertPivotColor.updateFrom('hex', this.value)});
+  document.getElementById('colR').addEventListener('input', function(){ConvertPivotColor.updateFrom('rgb', this.value, 'r')});
+  document.getElementById('colG').addEventListener('input', function(){ConvertPivotColor.updateFrom('rgb', this.value, 'g')});
+  document.getElementById('colB').addEventListener('input', function(){ConvertPivotColor.updateFrom('rgb', this.value, 'b')});
+  document.getElementById('colH').addEventListener('input', function(){ConvertPivotColor.updateFrom('hsl', this.value, 'h')});
+  document.getElementById('colS').addEventListener('input', function(){ConvertPivotColor.updateFrom('hsl', this.value, 's')});
+  document.getElementById('colL').addEventListener('input', function(){ConvertPivotColor.updateFrom('hsl', this.value, 'l')});
   var ConvertPivotColor = {
     _updating: false,
     rgbToHsl: function(r, g, b) {

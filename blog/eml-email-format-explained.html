@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EML Email Format Explained — Structure, Compatibility, and Conversion</title>
+  <meta name="description" content="Complete guide to the EML email file format. Learn about MIME structure, headers, body encoding, attachments, and how to convert EML files to PDF.">
+    <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/blog/eml-email-format-explained">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://convertpivot.com/blog/eml-email-format-explained">
+  <meta property="og:title" content="EML Email Format Explained — Structure, Compatibility, and Conversion">
+  <meta property="og:description" content="Complete guide to the EML email file format. Learn about MIME structure, headers, body encoding, attachments, and how to convert EML files to PDF.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="../css/style.css?v=2">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"EML Email Format Explained — Structure, Compatibility, and Conversion","description":"Complete guide to the EML email file format. Learn about MIME structure, headers, body encoding, attachments, and how to convert EML files to PDF.","datePublished":"2026-07-16","dateModified":"2026-07-16","author":{"@type":"Person","name":"ConvertPivot"},"publisher":{"@type":"Organization","name":"ConvertPivot","url":"https://convertpivot.com"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://convertpivot.com/blog/eml-email-format-explained"},"image":"https://convertpivot.com/og-image.png"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an EML file extension?","acceptedAnswer":{"@type":"Answer","text":"An EML file is a file format used to store individual email messages. It is the standard format used by Microsoft Outlook Express, Windows Live Mail, Mozilla Thunderbird, and many other email clients. Each EML file contains the email headers, body text, and attachments encoded using the MIME (Multipurpose Internet Mail Extensions) standard."}},{"@type":"Question","name":"Can I open EML on iPhone?","acceptedAnswer":{"@type":"Answer","text":"Yes, you can open EML files on an iPhone, but not natively. iOS Mail does not directly support EML files. You need a third-party app like Outlook for iOS, K-9 Mail, or a dedicated EML viewer. Alternatively, you can convert the EML file to PDF and open it on any iPhone without additional software."}},{"@type":"Question","name":"EML vs MSG which is better?","acceptedAnswer":{"@type":"Answer","text":"EML and MSG serve the same purpose but differ in format and compatibility. EML uses the open MIME standard and works across many email clients including Thunderbird, Outlook Express, and Windows Mail. MSG is a proprietary Microsoft format used by Outlook and Exchange. MSG preserves more Outlook-specific metadata like meeting requests and custom flags. For cross-platform compatibility, EML is better. For Microsoft ecosystem users, MSG may be more convenient."}}]}</script>
+
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="../" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="../">Home</a><span class="sep">›</span><a href="/blog">Blog</a><span class="sep">›</span><span class="current">EML Email Format Explained — Structure, Compatibility, and Conversion</span></nav>
+    <article class="blog-content">
+      <span style="display:inline-block;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;padding:2px 10px;border-radius:3px;background:var(--color-red);color:#fff;margin-bottom:12px;">Data</span>
+      <h1>EML Email Format Explained — Structure, Compatibility, and Conversion</h1>
+      <p style="font-size:0.85rem;color:var(--color-graphite);margin-bottom:24px;">July 16, 2026</p>
+
+      <p>If you have ever tried opening an email file outside your mail client, you have probably run into EML files. They look like simple text files if you peek inside, but they carry everything from headers and HTML to attachments encoded as walls of gibberish. Understanding the EML format helps you troubleshoot email issues, migrate between email clients, and convert emails to other formats like PDF without losing data.</p>
+
+      <h2>What Is the EML Format?</h2>
+      <p>EML is a file extension used by several email clients to store individual email messages as plain text files. The format follows the MIME (Multipurpose Internet Mail Extensions) standard, which means the file contains the email headers followed by the body content, all in human-readable text. Despite being plain text, EML files can carry HTML content, inline images, and file attachments because MIME defines how to encode binary data into ASCII.</p>
+      <p>Microsoft Outlook Express and Windows Live Mail popularized the .eml extension, but Mozilla Thunderbird, Apple Mail, and many other clients use the same underlying format internally. Thunderbird uses the .eml extension for saved messages; Apple Mail uses .emlx, which is a slight variant. The core structure is the same across all of them.</p>
+
+      <h2>EML File Structure and MIME Headers</h2>
+      <p>Every EML file starts with a block of headers. These headers tell your email client where the message came from, when it was sent, what the subject is, and how the body is formatted. After the headers comes a blank line, then the message body. If attachments are present, the body is split into sections using boundary markers.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Header Field</th>
+            <th>Example Value</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>From</td>
+            <td>alice@example.com</td>
+            <td>Sender's email address and optional display name</td>
+          </tr>
+          <tr>
+            <td>To</td>
+            <td>bob@example.com</td>
+            <td>Primary recipient email address(es)</td>
+          </tr>
+          <tr>
+            <td>Subject</td>
+            <td>Meeting Agenda</td>
+            <td>Subject line of the message</td>
+          </tr>
+          <tr>
+            <td>Date</td>
+            <td>Thu, 16 Jul 2026 09:30:00 +0000</td>
+            <td>Date and time the message was sent (RFC 2822 format)</td>
+          </tr>
+          <tr>
+            <td>Message-ID</td>
+            <td>&lt;abc123@mail.example.com&gt;</td>
+            <td>Unique identifier for the message</td>
+          </tr>
+          <tr>
+            <td>Content-Type</td>
+            <td>multipart/mixed; boundary="--boundary123"</td>
+            <td>MIME type of the content and boundary separator</td>
+          </tr>
+          <tr>
+            <td>MIME-Version</td>
+            <td>1.0</td>
+            <td>MIME protocol version (always 1.0)</td>
+          </tr>
+          <tr>
+            <td>Content-Transfer-Encoding</td>
+            <td>base64</td>
+            <td>Encoding method used for the body or attachment</td>
+          </tr>
+          <tr>
+            <td>CC</td>
+            <td>manager@example.com</td>
+            <td>Carbon-copy recipients</td>
+          </tr>
+          <tr>
+            <td>BCC</td>
+            <td>(not usually stored in sent EML)</td>
+            <td>Blind carbon-copy recipients</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>How Attachments Are Encoded</h2>
+      <p>Email was originally designed for plain text. Files and images are binary, so the MIME standard had to figure out a way to shove binary data through a text-only pipe. The answer is Base64 encoding. Base64 turns every three bytes of binary data into four ASCII characters. This increases file size by about 33%, but it guarantees the attachment survives email transport without corruption.</p>
+      <p>Inside an EML file, an attachment looks like a long block of seemingly random letters and numbers. The Content-Type header for each attachment part tells the email client what kind of file it is (for example, application/pdf or image/jpeg), and the Content-Disposition header gives the filename. When you open the EML file in an email client, it decodes the Base64 block back into the original binary and presents it as a downloadable attachment.</p>
+
+      <h2>EML vs MSG: Key Differences</h2>
+      <p>MSG files serve the same purpose as EML files, but they come from a different world. EML is an open standard based on MIME. MSG is a proprietary Microsoft format used by Outlook and Exchange Server. Here is how they stack up:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>EML</th>
+            <th>MSG</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Standard</td>
+            <td>Open MIME standard (RFC 2822)</td>
+            <td>Proprietary Microsoft format</td>
+          </tr>
+          <tr>
+            <td>File Structure</td>
+            <td>Plain text, readable in Notepad</td>
+            <td>Binary OLE compound document</td>
+          </tr>
+          <tr>
+            <td>Client Support</td>
+            <td>Thunderbird, Apple Mail, Outlook Express, Gmail</td>
+            <td>Microsoft Outlook, Exchange</td>
+          </tr>
+          <tr>
+            <td>Metadata</td>
+            <td>Standard email headers only</td>
+            <td>Outlook-specific flags, categories, meeting requests</td>
+          </tr>
+          <tr>
+            <td>Attachment Handling</td>
+            <td>MIME-encoded inline</td>
+            <td>Embedded as OLE storage streams</td>
+          </tr>
+          <tr>
+            <td>Cross-Platform</td>
+            <td>Works on Windows, Mac, Linux</td>
+            <td>Primarily Windows, limited Mac support</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>If you work exclusively inside Microsoft Outlook and need to preserve meeting requests, task flags, or custom properties, MSG is the way to go. For everything else, especially cross-platform sharing and archival, EML is the better choice because any text editor can at least show you the headers and raw content.</p>
+
+      <h2>Compatibility Across Email Clients</h2>
+      <p>EML files open natively in several applications, but not all of them handle the format the same way. Microsoft Outlook supports EML files but treats them as read-only by default. You have to drag them into a folder to make them editable. Thunderbird opens EML files out of the box with no fuss. Windows 10 and 11 have built-in support through the Mail app. On macOS, Apple Mail uses a slightly different .emlx format internally, but it can import standard .eml files. Gmail does not open EML files directly, but you can import them through the Gmail settings or simply forward them to your inbox as attachments.</p>
+      <p>One common problem is that some email clients render EML attachments inside other emails as plain text instead of showing the original email properly. This happens because the client sees the .eml file as an unknown MIME type and falls back to displaying the raw source. If you run into this, the simplest fix is to convert the EML file to PDF, which every device can open.</p>
+
+      <h2>Converting EML to PDF</h2>
+      <p>Converting EML to PDF is useful when you need to share an email with someone who does not have an email client set up, or when you want to archive messages in a universally readable format. PDF preserves the layout, headers, and any inline images from the original email. Attachments are usually not embedded in the PDF output, so you will want to handle those separately.</p>
+      <p>ConvertPivot offers a free EML to PDF converter that runs entirely in your browser. Your file never leaves your device because all processing happens client-side using JavaScript. You drag your EML file onto the page, the tool parses the MIME structure, extracts the body content, and generates a PDF using the browser's built-in PDF rendering capabilities. There is no upload, no server processing, and no waiting.</p>
+
+      <h2>Final Thoughts</h2>
+      <p>EML files are the closest thing email has to a universal file format. The MIME standard behind them has been rock solid since the early 1990s, and it is not going away anytime soon. Understanding how EML files work gives you the power to troubleshoot delivery issues, migrate between email platforms without losing data, and convert your messages to other formats with confidence. The next time someone sends you a .eml file and you double-click it to find a wall of text, you will know exactly what you are looking at.</p>
+
+      <div class="related-tools">
+        <h3>Related Tools</h3>
+        <ul>
+          <li><a href="../eml-to-pdf.html">EML to PDF Converter</a></li>
+          <li><a href="../pdf-to-text.html">PDF to Text Extractor</a></li>
+          <li><a href="../csv-to-vcf.html">CSV to VCF Converter</a></li>
+        </ul>
+      </div>
+    </article>
+    <div class="ad-container">Ad</div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="../">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="../js/shared.js?v=2"></script>
+</body>
+</html>

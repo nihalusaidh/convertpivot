@@ -18,18 +18,8 @@
   <meta name="twitter:title" content="ConvertPivot Blog">
   <meta name="twitter:description" content="File format guides, tutorials, and privacy tips.">
   <link rel="stylesheet" href="../css/style.css?v=2">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="icon" href="/favicon.png" sizes="32x32">
   <link rel="icon" href="/favicon-16.png" sizes="16x16">
-  <style>
-    .blog-card { border:1px solid var(--color-mist); border-radius:8px; padding:24px; transition:border-color 0.15s; }
-    .blog-card:hover { border-color:var(--color-red); }
-    .blog-card .cat { display:inline-block; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; padding:2px 10px; border-radius:3px; background:var(--color-red); color:#fff; margin-bottom:8px; }
-    .blog-card h2 { font-size:1.15rem; margin-bottom:8px; }
-    .blog-card h2 a { color:var(--color-ink); }
-    .blog-card .meta { font-size:0.8rem; color:var(--color-graphite); margin-bottom:8px; }
-    .blog-card .excerpt { font-size:0.9rem; color:var(--color-graphite); line-height:1.6; }
-  </style>
 </head>
 <body>
   <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="../" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
@@ -41,336 +31,13 @@
       <p>I've spent way too many hours wrestling with file formats that just won't cooperate — a photo that won't open, a bank statement I can't edit, a video that plays on everything except my TV. This blog is where I write down what I've learned so you don't have to make the same mistakes. Pull up a chair.</p>
     </div>
 
-    <div id="blog-list" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin:32px 0;">
-      <article class="blog-card">
-        <span class="cat">Finance</span>
-        <h2><a href="/blog/bank-statement-formats">Bank Statement Formats Explained — OFX, QFX, QBO, CSV</a></h2>
-        <div class="meta">July 14, 2026</div>
-        <p class="excerpt">Bank statement formats explained simply. Learn the difference between OFX, QFX, QBO, CSV and PDF statements. Find out which format your bank uses and how to convert them.</p>
-      </article>
+    <div id="blogFeatured"></div>
 
-      <article class="blog-card">
-        <span class="cat">Developer Tools</span>
-        <h2><a href="/blog/base64-encoding-guide">Base64 Encoding Explained — When and Why to Use It</a></h2>
-        <div class="meta">July 14, 2026</div>
-        <p class="excerpt">Base64 encoding explained in plain English. Learn why email attachments, data URIs, and APIs use Base64. Free online encoder and decoder included.</p>
-      </article>
+    <div class="blog-category-filter" id="blogCategoryFilter"></div>
 
-      <article class="blog-card">
-        <span class="cat">Images</span>
-        <h2><a href="/blog/compress-images-guide">How to Compress Images Without Losing Quality</a></h2>
-        <div class="meta">July 14, 2026</div>
-        <p class="excerpt">Image compression guide that actually works. Learn lossless vs lossy compression, optimal settings for web vs print, and how to shrink image file sizes by up to 80%.</p>
-      </article>
+    <div id="blogList" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin:24px 0;"></div>
 
-      <article class="blog-card">
-        <span class="cat">Audio</span>
-        <h2><a href="/blog/convert-audio-without-quality-loss">How to Convert Audio Files Without Losing Quality</a></h2>
-        <div class="meta">July 14, 2026</div>
-        <p class="excerpt">Audio conversion quality guide. Learn which formats preserve audio fidelity, when to use lossless vs lossy, and how to convert between MP3, WAV, FLAC, and OGG safely.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">PDF</span>
-        <h2><a href="/blog/extract-text-from-pdf">How to Extract Text from PDF Files</a></h2>
-        <div class="meta">July 14, 2026</div>
-        <p class="excerpt">Learn how to extract text from PDF files without losing formatting. Free online tool extracts plain text from any PDF. Works with scanned documents and digital PDFs.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Audio</span>
-        <h2><a href="/blog/flac-vs-mp3">FLAC vs MP3 — Can You Actually Hear the Difference?</a></h2>
-        <div class="meta">July 14, 2026</div>
-        <p class="excerpt">FLAC vs MP3 blind listening test results. Learn whether lossless audio is worth the file size, what audiophiles get wrong, and which format fits your needs.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Developer Tools</span>
-        <h2><a href="/blog/how-to-read-binary">How to Read Binary Code Like a Pro</a></h2>
-        <div class="meta">July 14, 2026</div>
-        <p class="excerpt">Learn how to read binary code step by step. Convert binary to decimal, understand bits and bytes, and read binary numbers like a programmer. No math degree required.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Developer Tools</span>
-        <h2><a href="/blog/html-entity-encoding">HTML Entity Encoding — When You Actually Need It</a></h2>
-        <div class="meta">July 14, 2026</div>
-        <p class="excerpt">HTML entities explained. Learn when to use &amp;amp; &amp;lt; &amp;gt; &amp;quot; &amp;apos; entities to prevent XSS, display reserved characters, and write valid HTML. Free encoder included.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Developer Tools</span>
-        <h2><a href="/blog/json-vs-yaml">JSON vs YAML — Which One Should You Use?</a></h2>
-        <div class="meta">July 14, 2026</div>
-        <p class="excerpt">JSON vs YAML comparison for developers. Learn the key differences in syntax, use cases, and when to choose each format for configuration, APIs, and data storage.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Developer Tools</span>
-        <h2><a href="/blog/password-strength-guide">The Ultimate Password Strength Guide</a></h2>
-        <div class="meta">July 14, 2026</div>
-        <p class="excerpt">Password strength guide with real math. Learn how password length, character variety, and randomness affect security. Generate uncrackable passwords instantly.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">PDF</span>
-        <h2><a href="/blog/pdf-compression-guide">PDF Compression — How Small Can You Go Without Losing Quality?</a></h2>
-        <div class="meta">July 14, 2026</div>
-        <p class="excerpt">PDF compression explained. Learn how to reduce PDF file size without noticeable quality loss. Compare compression levels and find the sweet spot for your documents.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">PDF</span>
-        <h2><a href="/blog/split-merge-pdf-guide">How to Split and Merge PDF Files Like a Pro</a></h2>
-        <div class="meta">July 14, 2026</div>
-        <p class="excerpt">Learn how to split large PDFs into smaller files and merge multiple PDFs into one document. Free online PDF splitter and merger. No upload required.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Images</span>
-        <h2><a href="/blog/svg-vs-png">SVG vs PNG — When to Use Vector vs Raster Graphics</a></h2>
-        <div class="meta">July 14, 2026</div>
-        <p class="excerpt">SVG vs PNG comparison for designers and developers. Learn when to use vector graphics, when raster is better, and how to convert between formats without quality loss.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Developer Tools</span>
-        <h2><a href="/blog/text-case-guide">Case Converter Guide — When to Use Each Text Case</a></h2>
-        <div class="meta">July 14, 2026</div>
-        <p class="excerpt">Complete guide to text case styles: camelCase, snake_case, PascalCase, kebab-case, and more. Learn when programmers use each naming convention and convert between them.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Developer Tools</span>
-        <h2><a href="/blog/url-encoding-guide">URL Encoding Guide — What Every Developer Should Know</a></h2>
-        <div class="meta">July 14, 2026</div>
-        <p class="excerpt">Complete URL encoding guide. Learn percent-encoding rules, why spaces become %20, and how to encode/decode URLs safely. Free online URL encoder included.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Audio</span>
-        <h2><a href="/blog/wav-vs-flac">WAV vs FLAC — Which Lossless Format Should You Use?</a></h2>
-        <div class="meta">July 14, 2026</div>
-        <p class="excerpt">WAV vs FLAC comparison for music production and archiving. Learn the real-world differences in file size, metadata support, and compatibility between these lossless formats.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Developer Tools</span>
-        <h2><a href="/blog/what-is-uuid">What Is a UUID and Why Do You Need One?</a></h2>
-        <div class="meta">July 14, 2026</div>
-        <p class="excerpt">UUID explained simply. Learn what UUIDs are, how version 4 UUIDs work, when to use them in databases and APIs, and generate RFC-compliant UUIDs instantly.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">General</span>
-        <h2><a href="/blog/why-browser-based-converters">Why Browser-Based Converters Are Safer Than Desktop Software</a></h2>
-        <div class="meta">July 14, 2026</div>
-        <p class="excerpt">Browser-based converters vs desktop software — which is safer? Learn why client-side file conversion protects your privacy and why your files should never leave your device.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">PDF</span>
-        <h2><a href="/blog/word-to-pdf-guide">Convert Word to PDF Without Losing Formatting</a></h2>
-        <div class="meta">July 14, 2026</div>
-        <p class="excerpt">Stop sending Word docs that look different on every computer. Learn how to convert Word to PDF with perfect formatting preservation. Free browser-based converter.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Design</span>
-        <h2><a href="/blog/ai-vs-svg-vs-eps">AI vs SVG vs EPS — Vector Format Comparison</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Vector format comparison: AI (Adobe Illustrator) vs SVG vs EPS across editability, web compatibility, print readiness, and feature support. Find the right vector format for design, web, and print.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Audio</span>
-        <h2><a href="/blog/best-audio-formats-music-production">Best Audio Formats for Music Production — MP3 vs FLAC vs WAV vs AAC</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Compare MP3, FLAC, WAV, and AAC audio formats for music production. Learn about sample rates, bit depths, compression trade-offs, and which format to use for recording, mixing, mastering, and distribution.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Finance</span>
-        <h2><a href="/blog/complete-guide-bank-statement-conversion">A Complete Guide to Bank Statement Conversion</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Complete guide to bank statement conversion. Learn how to convert PDF bank statements to CSV, Excel, OFX, QFX, and QBO format for QuickBooks, Quicken, and financial analysis.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Tutorial</span>
-        <h2><a href="/blog/convert-bank-statement-pdf-to-excel">How to Convert Bank Statement PDF to Excel</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Learn how to convert bank statement PDF to Excel or CSV. Step-by-step guide using free online converter, manual copy-paste, and bank export formats. No upload required.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Tutorial</span>
-        <h2><a href="/blog/convert-heic-to-jpg">How to Convert HEIC to JPG on Windows, Mac, and Online</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Learn how to convert HEIC to JPG on Windows, Mac, or online for free. Step-by-step guide using built-in tools and a private browser-based converter with no upload.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Data</span>
-        <h2><a href="/blog/csv-vs-json-vs-xml-vs-yaml">CSV vs JSON vs XML vs YAML — Data Format Guide</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Compare CSV vs JSON vs XML vs YAML data formats. Learn the differences in structure, readability, type support, parsing speed, and when to use each format in this complete developer guide.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">E-books</span>
-        <h2><a href="/blog/ebook-formats-explained">E-book Formats Explained — EPUB, MOBI, AZW3, PDF, and More</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">A beginner-friendly guide to e-book formats: EPUB, MOBI, AZW3, KFX, PDF, CBZ, and CBR. Learn what each format does, which devices support them, and when to use each one.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">E-books</span>
-        <h2><a href="/blog/epub-vs-mobi-vs-pdf">EPUB vs MOBI vs PDF — Which E-book Format Should You Use?</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">EPUB vs MOBI vs PDF: Compare e-book formats across device compatibility, reflowable text, DRM support, and file size. Learn which format works best for Kindle, iPad, and publishing.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">GPS</span>
-        <h2><a href="/blog/gpx-vs-kml-vs-fit">GPX vs KML vs FIT — GPS File Formats Compared</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Compare GPX vs KML vs FIT GPS file formats. Learn the differences in data structure, device support, mapping use cases, and how to convert between formats for Garmin, Google Earth, and fitness tracking.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Images</span>
-        <h2><a href="/blog/heic-vs-jpeg-vs-webp-vs-avif">HEIC vs JPEG vs WebP vs AVIF — Image Format Comparison</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Image format comparison: HEIC vs JPEG vs WebP vs AVIF across compression ratio, browser support, transparency, and animation. Find the best format for web, photography, and storage.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Tutorial</span>
-        <h2><a href="/blog/how-to-convert-epub-to-pdf">How to Convert EPUB to PDF</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Learn how to convert EPUB e-books to PDF format online for free. Step-by-step guide to converting digital books to PDF for printing, sharing, and universal compatibility.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Tutorial</span>
-        <h2><a href="/blog/how-to-convert-jpg-to-pdf">How to Convert JPG to PDF in Browser</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Learn how to convert JPG images to PDF documents directly in your browser for free. Step-by-step guide to creating PDFs from images online without installing software.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Tutorial</span>
-        <h2><a href="/blog/how-to-convert-mp4-to-mp3">How to Convert MP4 to MP3 Online</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Learn how to convert MP4 video files to MP3 audio online for free. Step-by-step guide to extracting audio from video files using browser-based tools. No software installation required.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Tutorial</span>
-        <h2><a href="/blog/how-to-convert-pdf-to-excel">How to Convert PDF to Excel for Free</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Learn how to convert PDF to Excel for free using online tools and desktop software. Step-by-step guide to extracting tables from PDF documents into editable spreadsheets.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Tutorial</span>
-        <h2><a href="/blog/how-to-convert-vcf-to-excel">How to Convert VCF to Excel (vCard to Spreadsheet)</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Learn how to convert VCF (vCard) contact files to Excel spreadsheets. Step-by-step guide to converting vCard contacts to XLSX or CSV format for easy editing and organization.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Tutorial</span>
-        <h2><a href="/blog/how-to-create-ebook-from-pdf">How to Create an E-book from PDF Files</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Learn how to turn PDF documents into proper e-books. Step-by-step guide to creating EPUB e-books from PDF files using online tools, Calibre, and more.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Guides</span>
-        <h2><a href="/blog/how-to-reduce-pdf-file-size">How to Reduce PDF File Size Without Losing Quality</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Learn how to reduce PDF file size without losing quality. Step-by-step guide to compressing PDFs using online tools, Adobe Acrobat, and advanced optimization techniques.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Data</span>
-        <h2><a href="/blog/json-vs-xml-vs-yaml-vs-toml">JSON vs XML vs YAML vs TOML — Config Format Comparison</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Configuration format comparison: JSON vs XML vs YAML vs TOML across readability, type safety, parsing speed, and ecosystem support. Find the best format for config files, APIs, and data serialization.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">E-readers</span>
-        <h2><a href="/blog/kindle-vs-kobo-vs-ipad-2026">Kindle vs Kobo vs iPad — Which E-reader Should You Buy in 2026?</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Kindle vs Kobo vs iPad: I've used all three for years. Here is my honest comparison of screen tech, format support, ecosystem lock-in, and which one I actually recommend in 2026.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Audio</span>
-        <h2><a href="/blog/mp3-vs-flac-vs-wav-vs-ogg">MP3 vs FLAC vs WAV vs OGG — Audio Format Comparison</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Compare MP3 vs FLAC vs WAV vs OGG audio formats. Learn the differences in compression, sound quality, file size, metadata support, and device compatibility in this complete audio format comparison guide.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Video</span>
-        <h2><a href="/blog/mp4-vs-mkv-vs-avi-vs-mov">MP4 vs MKV vs AVI vs MOV — Video Format Comparison</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Video format comparison: MP4 vs MKV vs AVI vs MOV across codec support, compatibility, quality, and file size. Find the best container format for streaming, editing, and archiving.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Finance</span>
-        <h2><a href="/blog/ofx-vs-qfx-vs-qbo">OFX vs QFX vs QBO — Bank Statement Formats for Accounting</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">OFX QFX QBO difference explained: Compare bank statement formats used by Quicken, QuickBooks, and GnuCash. Learn which format works for your accounting software and how to convert.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Tutorial</span>
-        <h2><a href="/blog/open-vcf-files-in-excel">How to Open VCF Files in Excel</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Step-by-step tutorial on how to open VCF files in Excel. Convert vCard contacts to CSV or XLSX using free online tools, Google Contacts, or Outlook. No upload needed.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Documents</span>
-        <h2><a href="/blog/pdf-vs-word-vs-excel">PDF vs Word vs Excel — Document Format Comparison</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Document format comparison: PDF vs Word (DOCX) vs Excel (XLSX) across editing, formatting, data analysis, portability, and collaboration. Find the right format for reports, spreadsheets, and documents.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Images</span>
-        <h2><a href="/blog/png-vs-jpeg-vs-gif-vs-bmp">PNG vs JPEG vs GIF vs BMP — Image Format Basics</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Image format basics: PNG vs JPEG vs GIF vs BMP across lossless compression, transparency, animation, color depth, and file size. Learn which format works best for web, print, and design.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Guides</span>
-        <h2><a href="/blog/top-10-free-online-file-converters">Top 10 Free Online File Converters in 2026</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Discover the top 10 free online file converters in 2026. Compare features, privacy, file size limits, and supported formats for image, video, audio, document, and data conversion tools.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Guides</span>
-        <h2><a href="/blog/ultimate-guide-image-optimization">The Ultimate Guide to Image Optimization for Web</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">Ultimate guide to image optimization for the web. Learn about modern formats (WebP, AVIF, HEIC), responsive images, lazy loading, compression techniques, and Core Web Vitals best practices.</p>
-      </article>
-
-      <article class="blog-card">
-        <span class="cat">Contacts</span>
-        <h2><a href="/blog/vcard-21-vs-30-vs-40">vCard 2.1 vs 3.0 vs 4.0 — Which Version to Use</a></h2>
-        <div class="meta">July 13, 2026</div>
-        <p class="excerpt">vCard version comparison: Compare vCard 2.1, 3.0, and 4.0 formats for contact management. Learn about encoding differences, device compatibility, and how to choose the right version.</p>
-      </article>
-    </div>
+    <div class="blog-pagination" id="blogPagination"></div>
 
     <div class="ad-container">Ad</div>
   </main>
@@ -378,5 +45,117 @@
     <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="../">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
   </footer>
   <script src="../js/shared.js?v=2"></script>
+  <script>
+  (function () {
+    'use strict';
+    var allPosts = [];
+    var filteredPosts = [];
+    var currentPage = 1;
+    var currentCategory = 'All';
+    var perPage = 12;
+    var postsJsonLoaded = false;
+
+    function loadPosts() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '/blog/posts.json', true);
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          try {
+            allPosts = JSON.parse(xhr.responseText);
+            allPosts.sort(function (a, b) { return new Date(b.date) - new Date(a.date); });
+            postsJsonLoaded = true;
+            renderBlog();
+          } catch (e) {}
+        }
+      };
+      xhr.send();
+    }
+
+    function getCategories() {
+      var cats = ['All'];
+      allPosts.forEach(function (p) {
+        if (cats.indexOf(p.category) === -1) cats.push(p.category);
+      });
+      return cats;
+    }
+
+    function getReadingTime(text) {
+      var words = text.split(/\s+/).length;
+      var min = Math.max(1, Math.round(words / 200));
+      return min + ' min read';
+    }
+
+    function truncateExcerpt(text, maxLen) {
+      if (text.length <= maxLen) return text;
+      return text.substring(0, maxLen).replace(/\s+\S*$/, '') + '...';
+    }
+
+    function renderBlog() {
+      if (!postsJsonLoaded) return;
+      var cat = currentCategory;
+      filteredPosts = cat === 'All' ? allPosts.slice() : allPosts.filter(function (p) { return p.category === cat; });
+
+      var categories = getCategories();
+      var filterHtml = '';
+      categories.forEach(function (c) {
+        filterHtml += '<button class="' + (c === currentCategory ? 'active' : '') + '" data-cat="' + c + '">' + c + '</button>';
+      });
+      document.getElementById('blogCategoryFilter').innerHTML = filterHtml;
+
+      document.getElementById('blogCategoryFilter').addEventListener('click', function (e) {
+        if (e.target.tagName === 'BUTTON') {
+          currentCategory = e.target.getAttribute('data-cat');
+          currentPage = 1;
+          renderBlog();
+        }
+      });
+
+      var featured = filteredPosts[0];
+      var featuredHtml = '';
+      if (featured && currentCategory === 'All' && currentPage === 1) {
+        featuredHtml = '<div class="blog-featured"><span class="featured-badge">Featured</span><h2><a href="/blog/' + featured.slug + '">' + featured.title + '</a></h2><p>' + truncateExcerpt(featured.description, 200) + '</p><div style="margin-top:10px;font-size:0.8rem;color:var(--color-graphite)">' + featured.date + ' &middot; ' + getReadingTime(featured.description) + '</div></div>';
+      }
+      document.getElementById('blogFeatured').innerHTML = featuredHtml;
+
+      var startIdx = currentPage === 1 && currentCategory === 'All' ? 1 : 0;
+      var totalPages = Math.ceil((filteredPosts.length - startIdx) / perPage);
+      var pageStart = startIdx + (currentPage - 1) * perPage;
+      var pageEnd = Math.min(pageStart + perPage, filteredPosts.length);
+      var pagePosts = filteredPosts.slice(pageStart, pageEnd);
+
+      var listHtml = '';
+      pagePosts.forEach(function (p) {
+        listHtml += '<article class="blog-card" style="border:1px solid var(--color-mist);border-radius:8px;padding:24px;transition:border-color 0.15s">' +
+          '<span class="cat" style="display:inline-block;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;padding:2px 10px;border-radius:3px;background:var(--color-red);color:#fff;margin-bottom:8px">' + p.category + '</span>' +
+          '<h2 style="font-size:1.15rem;margin-bottom:8px"><a href="/blog/' + p.slug + '" style="color:var(--color-ink)">' + p.title + '</a></h2>' +
+          '<div class="meta" style="font-size:0.8rem;color:var(--color-graphite);margin-bottom:8px">' + p.date + ' &middot; ' + getReadingTime(p.description) + '</div>' +
+          '<p class="excerpt" style="font-size:0.9rem;color:var(--color-graphite);line-height:1.6">' + truncateExcerpt(p.description, 150) + '</p>' +
+          '<div style="margin-top:12px"><a href="/blog/' + p.slug + '" class="btn btn-secondary" style="padding:6px 16px;font-size:0.8rem">Read More</a></div>' +
+          '</article>';
+      });
+      document.getElementById('blogList').innerHTML = listHtml;
+
+      var pagHtml = '';
+      if (currentPage > 1) pagHtml += '<button data-page="' + (currentPage - 1) + '" class="prev">&larr; Previous</button>';
+      for (var i = 1; i <= totalPages; i++) {
+        if (i === currentPage) pagHtml += '<button class="active" disabled>' + i + '</button>';
+        else if (i === 1 || i === totalPages || Math.abs(i - currentPage) <= 2) pagHtml += '<button data-page="' + i + '">' + i + '</button>';
+        else if (i === currentPage - 3 || i === currentPage + 3) pagHtml += '<button disabled>...</button>';
+      }
+      if (currentPage < totalPages) pagHtml += '<button data-page="' + (currentPage + 1) + '" class="next">Next &rarr;</button>';
+      var pagContainer = document.getElementById('blogPagination');
+      pagContainer.innerHTML = pagHtml;
+
+      pagContainer.addEventListener('click', function (e) {
+        if (e.target.tagName === 'BUTTON' && !e.target.disabled) {
+          var p = parseInt(e.target.getAttribute('data-page'), 10);
+          if (p) { currentPage = p; renderBlog(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', loadPosts);
+  })();
+  </script>
 </body>
 </html>

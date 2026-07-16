@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FIT to GPX — Garmin Activity to GPS | ConvertPivot</title>
+  <title>FIT to GPX â€” Garmin Activity to GPS | ConvertPivot</title>
   <meta name="description" content="Free online FIT to GPX converter. Convert Garmin FIT fitness files to standard GPS format for mapping. No upload, private.">
     <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/fit-to-gpx">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/fit-to-gpx">
-  <meta property="og:title" content="FIT to GPX — Garmin Activity to GPS | ConvertPivot">
+  <meta property="og:title" content="FIT to GPX â€” Garmin Activity to GPS | ConvertPivot">
   <meta property="og:description" content="Free online FIT to GPX converter. Convert Garmin FIT fitness files to standard GPS format for mapping and analysis.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="FIT to GPX — Garmin Activity to GPS | ConvertPivot">
+  <meta name="twitter:title" content="FIT to GPX â€” Garmin Activity to GPS | ConvertPivot">
   <meta name="twitter:description" content="Free online FIT to GPX converter. Convert Garmin FIT fitness files to standard GPS format for mapping and analysis.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -26,23 +26,23 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a FIT file?","acceptedAnswer":{"@type":"Answer","text":"FIT (Flexible and Interoperable Data Transfer) is Garmin's binary format for fitness data. It stores GPS tracks, heart rate, cadence, power, and other performance metrics from sports watches and bike computers."}},{"@type":"Question","name":"Why convert FIT to GPX?","acceptedAnswer":{"@type":"Answer","text":"GPX is a universal XML format supported by all GPS software, mapping tools, and web platforms. Converting from FIT makes your fitness data compatible with Google Earth, Strava uploads, and GIS tools."}},{"@type":"Question","name":"What data is preserved in the conversion?","acceptedAnswer":{"@type":"Answer","text":"GPS coordinates (lat/lon), elevation, and timestamps are converted. Heart rate data is included as GPX extensions where available."}},{"@type":"Question","name":"Is my fitness data private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Everything runs in your browser. Your data never leaves your device."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
   <nav id="sidebar" class="sidebar"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">FIT to GPX</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">FIT to GPX</span></nav>
     <div class="tool-header">
-      <h1>FIT to GPX Converter — Garmin Fitness Data to GPS</h1>
+      <h1>FIT to GPX Converter â€” Garmin Fitness Data to GPS</h1>
       <p>Convert FIT files from Garmin watches and bike computers to standard GPX format. View your runs, rides, and workouts on any map.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your fitness data never leaves your device.</span></div>
+    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span>100% browser-based. Your fitness data never leaves your device.</span></div>
     <div class="converter-widget" id="fitToGpxWidget">
       <div class="drop-zone" id="fitToGpxDropZone">
-        <div class="drop-zone-icon">🏃</div>
+        <div class="drop-zone-icon">ðŸƒ</div>
         <div class="drop-zone-text">Drop a <strong>.fit</strong> file here, or click to browse</div>
         <div class="drop-zone-hint">Supports Garmin FIT files with GPS track data</div>
         <input type="file" accept=".fit" aria-label="Choose FIT file">
       </div>
-      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">✕</button></div>
+      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">âœ•</button></div>
       <div class="converter-controls"><button class="btn btn-primary" id="fitToGpxConvertBtn">Convert to GPX</button></div>
       <div class="progress-bar" id="fitToGpxProgress"><div class="progress-bar-fill"></div></div>
       <div class="converter-result" id="fitToGpxResult"><div class="converter-result-message"></div></div>
@@ -50,16 +50,16 @@
     <div class="content-section">
       <h2>How to Convert FIT to GPX</h2>
       <p>FIT files are the native binary format used by Garmin sports watches (Forerunner, Fenix, Vivoactive) and bike computers (Edge series). They contain precise GPS track data along with performance metrics like heart rate, cadence, and power output.</p>
-      <p>Our converter parses the binary FIT structure and extracts GPS records — converting them to the standard GPX XML format. The output preserves latitude, longitude, elevation, and timestamps, with heart rate data included as GPX extensions.</p>
+      <p>Our converter parses the binary FIT structure and extracts GPS records â€” converting them to the standard GPX XML format. The output preserves latitude, longitude, elevation, and timestamps, with heart rate data included as GPX extensions.</p>
       <p>The resulting GPX file can be opened in Google Earth, uploaded to Strava, imported into mapping software, or further converted to KML or CSV using our other tools.</p>
     </div>
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">What is a FIT file? <span class="arrow">▼</span></button><div class="faq-answer">FIT is Garmin's binary format for fitness data. It stores GPS tracks, heart rate, cadence, power, and other metrics from sports watches and bike computers.</div></div>
-        <div class="faq-item"><button class="faq-question">Why convert FIT to GPX? <span class="arrow">▼</span></button><div class="faq-answer">GPX is a universal format supported by all GPS software, mapping tools, and web platforms. Converting from FIT makes your fitness data compatible anywhere.</div></div>
-        <div class="faq-item"><button class="faq-question">What data is preserved in the conversion? <span class="arrow">▼</span></button><div class="faq-answer">GPS coordinates, elevation, and timestamps are converted. Heart rate data is included as GPX extensions where available.</div></div>
-        <div class="faq-item"><button class="faq-question">Is my fitness data private? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Everything runs in your browser. Your data never leaves your device.</div></div>
+        <div class="faq-item"><button class="faq-question">What is a FIT file? <span class="arrow">â–¼</span></button><div class="faq-answer">FIT is Garmin's binary format for fitness data. It stores GPS tracks, heart rate, cadence, power, and other metrics from sports watches and bike computers.</div></div>
+        <div class="faq-item"><button class="faq-question">Why convert FIT to GPX? <span class="arrow">â–¼</span></button><div class="faq-answer">GPX is a universal format supported by all GPS software, mapping tools, and web platforms. Converting from FIT makes your fitness data compatible anywhere.</div></div>
+        <div class="faq-item"><button class="faq-question">What data is preserved in the conversion? <span class="arrow">â–¼</span></button><div class="faq-answer">GPS coordinates, elevation, and timestamps are converted. Heart rate data is included as GPX extensions where available.</div></div>
+        <div class="faq-item"><button class="faq-question">Is my fitness data private? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. Everything runs in your browser. Your data never leaves your device.</div></div>
       </div>
     </div>
     <div class="content-section">

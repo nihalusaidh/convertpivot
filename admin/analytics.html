@@ -43,7 +43,7 @@
       <div class="icon">⚠️</div>
       <h3>Failed to load analytics</h3>
       <p class="error-message"></p>
-      <button class="btn btn-primary" onclick="fetchData()">Retry</button>
+      <button class="btn btn-primary" id="retryBtn">Retry</button>
     </div>
 
     <div id="content" style="display:none;">
@@ -524,6 +524,8 @@
     document.querySelectorAll('.chart-wrapper').forEach(function(w) {
       ro.observe(w);
     });
+
+    document.getElementById('retryBtn').addEventListener('click', fetchData);
 
     // Initial fetch
     document.addEventListener('DOMContentLoaded', fetchData);

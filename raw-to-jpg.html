@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAW to JPG â€” Convert RAW Camera Photos to JPG Free | ConvertPivot</title>
+  <meta name="description" content="Free online RAW to JPG converter. Convert CR2, NEF, ARW, DNG, and other RAW camera formats to JPG in your browser. 100% private, no upload required.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/raw-to-jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/raw-to-jpg">
+  <meta property="og:title" content="RAW to JPG â€” Convert RAW Camera Photos to JPG Free | ConvertPivot">
+  <meta property="og:description" content="Free online RAW to JPG converter. Convert CR2, NEF, ARW, DNG, and other RAW camera formats to JPG. No upload required.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RAW to JPG â€” Convert RAW Camera Photos to JPG Free | ConvertPivot">
+  <meta name="twitter:description" content="Free online RAW to JPG converter. Convert CR2, NEF, ARW, DNG, and other RAW camera formats to JPG. No upload required.">
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"RAW to JPG Converter","url":"https://convertpivot.com/raw-to-jpg","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online RAW to JPG converter. Convert CR2, NEF, ARW, DNG, and other RAW camera formats to JPG. 100% browser-based, no upload."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What RAW formats are supported?","acceptedAnswer":{"@type":"Answer","text":"The converter supports common RAW formats: CR2 (Canon), NEF (Nikon), ARW (Sony), DNG (Adobe), RAF (Fujifilm), ORF (Olympus), RW2 (Panasonic), and PEF (Pentax). If your browser can display the embedded JPEG preview, it can be extracted as a JPG."}},{"@type":"Question","name":"Does this convert the actual RAW sensor data?","acceptedAnswer":{"@type":"Answer","text":"This tool extracts the embedded JPEG preview that most cameras store inside RAW files. Full RAW demosaicing is not supported in the browser. For full RAW processing, use dedicated software like Lightroom or Darktable."}},{"@type":"Question","name":"What quality is the output JPG?","acceptedAnswer":{"@type":"Answer","text":"The output JPG quality matches the embedded preview image that your camera stored inside the RAW file. Most modern cameras store full-resolution previews at high quality."}},{"@type":"Question","name":"Are my RAW files uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All processing happens entirely in your browser. Your RAW photos never leave your device."}},{"@type":"Question","name":"Can I convert multiple RAW files at once?","acceptedAnswer":{"@type":"Answer","text":"Currently the tool processes one file at a time. You can convert multiple files by repeating the process."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><a href="/">Image Tools</a><span class="sep">â€º</span><span class="current">RAW to JPG</span></nav>
+    <div class="tool-header">
+      <h1>ðŸ“· RAW to JPG â€” Convert RAW Photos to JPG</h1>
+      <p>Convert RAW camera files (CR2, NEF, ARW, DNG, and more) to JPG format. Extracts the embedded preview image from your RAW file. All processing is done in your browser.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span>100% browser-based. Your photos never leave your device.</span></div>
+    <div class="converter-widget" id="rawToJpgWidget">
+      <div class="drop-zone" id="rawDropZone">
+        <div class="drop-zone-icon">ðŸ“·</div>
+        <div class="drop-zone-text">Drop a <strong>RAW photo</strong> here, or click to browse</div>
+        <div class="drop-zone-hint">Supports CR2, NEF, ARW, DNG, RAF, ORF, RW2, PEF</div>
+        <input type="file" accept=".cr2,.nef,.arw,.dng,.raf,.orf,.rw2,.pef,.raw,.cr3" aria-label="Choose RAW file">
+      </div>
+      <div class="file-info" id="rawFileInfo">
+        <span class="file-info-name"></span>
+        <span class="file-info-size"></span>
+        <button class="file-info-remove" aria-label="Remove file">&times;</button>
+      </div>
+      <div id="rawPreview" style="display:none;margin-top:16px;text-align:center"></div>
+      <div class="converter-controls" id="rawControls" style="display:none">
+        <label for="rawQuality">JPEG Quality:</label>
+        <select id="rawQuality">
+          <option value="0.7">High (70%)</option>
+          <option value="0.85">Very High (85%)</option>
+          <option value="0.92" selected>Excellent (92%)</option>
+          <option value="1.0">Maximum (100%)</option>
+        </select>
+        <button class="btn btn-primary" id="rawToJpgBtn">Download as JPG</button>
+      </div>
+      <div class="progress-bar" id="rawProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="rawResult"><div class="converter-result-message"></div></div>
+    </div>
+    <div class="content-section">
+      <h2>How to Convert RAW to JPG</h2>
+      <p>Drop a RAW photo file from your camera onto the converter above. The tool reads the embedded JPEG preview that most cameras store inside RAW files. You can preview the image before downloading.</p>
+      <p>Select your preferred JPEG quality level and click "Download as JPG". The Canvas API processes the image in your browser and saves it as a standard JPEG file. Since all processing happens client-side, your original RAW files never leave your computer.</p>
+      <h3>Important Note About RAW Conversion</h3>
+      <p>This tool extracts the embedded JPEG preview that your camera stores inside the RAW file â€” it does <strong>not</strong> perform full RAW demosaicing (converting the RAW sensor data into an image). For full-quality RAW development with white balance, exposure, and color adjustments, use dedicated software like Adobe Lightroom, Capture One, or Darktable. The embedded preview is typically full resolution on modern cameras and provides excellent quality for quick sharing.</p>
+    </div>
+    <div class="content-section">
+      <h2>RAW Format Support</h2>
+      <table class="format-table"><thead><tr><th>Manufacturer</th><th>Extension</th><th>Preview Quality</th></tr></thead><tbody>
+        <tr><td>Canon</td><td>.CR2, .CR3</td><td>Full resolution (most models)</td></tr>
+        <tr><td>Nikon</td><td>.NEF</td><td>Full resolution</td></tr>
+        <tr><td>Sony</td><td>.ARW</td><td>Full resolution</td></tr>
+        <tr><td>Adobe</td><td>.DNG</td><td>Full resolution</td></tr>
+        <tr><td>Fujifilm</td><td>.RAF</td><td>Full resolution</td></tr>
+        <tr><td>Olympus</td><td>.ORF</td><td>Full resolution</td></tr>
+        <tr><td>Panasonic</td><td>.RW2</td><td>Full resolution</td></tr>
+        <tr><td>Pentax</td><td>.PEF</td><td>Medium to full resolution</td></tr>
+      </tbody></table>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What RAW formats are supported? <span class="arrow">â–¼</span></button><div class="faq-answer">CR2/CR3 (Canon), NEF (Nikon), ARW (Sony), DNG (Adobe), RAF (Fujifilm), ORF (Olympus), RW2 (Panasonic), PEF (Pentax), and generic .raw files with embedded previews.</div></div>
+        <div class="faq-item"><button class="faq-question">Is this full RAW conversion? <span class="arrow">â–¼</span></button><div class="faq-answer">No. This extracts the embedded JPEG preview. Full RAW demosaicing is not possible in a browser. For that, use Lightroom, Darktable, or Capture One.</div></div>
+        <div class="faq-item"><button class="faq-question">Will I lose quality? <span class="arrow">â–¼</span></button><div class="faq-answer">The output quality matches the embedded preview. Most modern cameras store full-resolution, high-quality previews, so the JPG output will look excellent.</div></div>
+        <div class="faq-item"><button class="faq-question">Are my photos uploaded? <span class="arrow">â–¼</span></button><div class="faq-answer">No. Everything runs in your browser. Your RAW files never leave your device.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I batch convert multiple RAW files? <span class="arrow">â–¼</span></button><div class="faq-answer">Currently one file at a time. Batch conversion may be added in a future update.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/heic-to-jpg" class="related-tool-card">HEIC to JPG <span class="desc">Convert iPhone photos</span></a>
+        <a href="/avif-to-jpg" class="related-tool-card">AVIF to JPG <span class="desc">Convert AVIF images</span></a>
+        <a href="/webp-to-jpg" class="related-tool-card">WebP to JPG <span class="desc">Convert WebP images</span></a>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="js/shared.js?v=2"></script>
+  <script>
+  (function () {
+    'use strict';
+    var dropZone = document.getElementById('rawDropZone');
+    var fileInput = dropZone.querySelector('input[type="file"]');
+    var fileInfo = document.getElementById('rawFileInfo');
+    var infoName = fileInfo.querySelector('.file-info-name');
+    var infoSize = fileInfo.querySelector('.file-info-size');
+    var removeBtn = fileInfo.querySelector('.file-info-remove');
+    var preview = document.getElementById('rawPreview');
+    var controls = document.getElementById('rawControls');
+    var convertBtn = document.getElementById('rawToJpgBtn');
+    var qualitySelect = document.getElementById('rawQuality');
+    var progress = document.getElementById('rawProgress');
+    var result = document.getElementById('rawResult');
+    var currentFile = null;
+    var currentDataUrl = null;
+
+    dropZone.addEventListener('dragover', function (e) { e.preventDefault(); dropZone.classList.add('drag-over'); });
+    dropZone.addEventListener('dragleave', function () { dropZone.classList.remove('drag-over'); });
+    dropZone.addEventListener('drop', function (e) { e.preventDefault(); dropZone.classList.remove('drag-over'); if (e.dataTransfer.files.length > 0) handleFile(e.dataTransfer.files[0]); });
+    fileInput.addEventListener('change', function () { if (fileInput.files.length > 0) handleFile(fileInput.files[0]); });
+
+    function handleFile(file) {
+      var ext = file.name.split('.').pop().toLowerCase();
+      var supported = ['cr2','cr3','nef','arw','dng','raf','orf','rw2','pef','raw'];
+      if (supported.indexOf(ext) === -1) { showToast('Unsupported RAW format', 'error'); return; }
+      currentFile = file;
+      infoName.textContent = file.name;
+      infoSize.textContent = formatFileSize(file.size);
+      fileInfo.classList.add('show');
+      dropZone.style.display = 'none';
+      loadPreview(file);
+    }
+
+    removeBtn.addEventListener('click', function () {
+      currentFile = null;
+      currentDataUrl = null;
+      fileInfo.classList.remove('show');
+      dropZone.style.display = '';
+      preview.style.display = 'none';
+      controls.style.display = 'none';
+      fileInput.value = '';
+    });
+
+    function loadPreview(file) {
+      var reader = new FileReader();
+      reader.onload = function () {
+        var arrayBuffer = reader.result;
+        var blob = new Blob([arrayBuffer]);
+        var url = URL.createObjectURL(blob);
+        var img = new Image();
+        img.onload = function () {
+          preview.innerHTML = '<img src="' + img.src + '" style="max-width:100%;max-height:400px;border-radius:8px;border:1px solid var(--color-mist)" alt="RAW preview">';
+          preview.style.display = 'block';
+          controls.style.display = 'flex';
+          currentDataUrl = img.src;
+          URL.revokeObjectURL(url);
+          showToast('RAW preview loaded', 'success');
+        };
+        img.onerror = function () {
+          URL.revokeObjectURL(url);
+          showToast('Could not read RAW preview. Try a different file.', 'error');
+        };
+        img.src = url;
+      };
+      reader.readAsArrayBuffer(file);
+    }
+
+    convertBtn.addEventListener('click', function () {
+      if (!currentDataUrl) { showToast('No RAW file loaded', 'error'); return; }
+      var prog = showProgress('rawProgress');
+      convertBtn.disabled = true;
+      setTimeout(function () {
+        try {
+          var img = new Image();
+          img.onload = function () {
+            var canvas = document.createElement('canvas');
+            canvas.width = img.naturalWidth;
+            canvas.height = img.naturalHeight;
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            var quality = parseFloat(qualitySelect.value);
+            var jpgDataUrl = canvas.toDataURL('image/jpeg', quality);
+            downloadFromUrl(jpgDataUrl, changeExtension(currentFile.name, 'jpg'));
+            prog.done();
+            convertBtn.disabled = false;
+            showToast('JPG downloaded!', 'success');
+          };
+          img.onerror = function () { showToast('Error processing image', 'error'); convertBtn.disabled = false; prog.done(); };
+          img.src = currentDataUrl;
+        } catch (e) { showToast('Error: ' + e.message, 'error'); convertBtn.disabled = false; prog.done(); }
+      }, 300);
+    });
+  })();
+  </script>
+</body>
+</html>

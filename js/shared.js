@@ -33,6 +33,13 @@
       { href: '/convert/finance', icon: '\uD83C\uDFE6', label: 'Finance Converters' },
       { href: '/convert/ebook', icon: '\uD83D\uDCD6', label: 'E-book Converters' }
     ]},
+    { heading: 'Tool Categories', links: [
+      { href: '/finance-converters', icon: '\uD83C\uDFE6', label: 'Finance Converters' },
+      { href: '/gps-converters', icon: '\uD83D\uDDFA', label: 'GPS Converters' },
+      { href: '/contacts-converters', icon: '\uD83D\uDCC7', label: 'Contacts Converters' },
+      { href: '/ipynb-converters', icon: '\uD83D\uDCD3', label: 'Notebook Converters' },
+      { href: '/ebook-converters', icon: '\uD83D\uDCD6', label: 'E-book Converters' }
+    ]},
     { heading: 'Developer Tools', links: [
       { href: '/binary-converter', icon: '\u2B21', label: 'Binary Converter' },
       { href: '/hex-to-rgb', icon: '\uD83C\uDFA8', label: 'Hex to RGB' },
@@ -159,12 +166,15 @@
     { heading: 'PDF', links: [
       { href: '/jpg-to-pdf', icon: '\uD83D\uDDBC', label: 'JPG to PDF' },
       { href: '/pdf-to-jpg', icon: '\uD83D\uDCF7', label: 'PDF to JPG' },
-
+      { href: '/pdf-rotate', icon: '\uD83D\uDD04', label: 'Rotate PDF' },
       { href: '/pdf-split', icon: '\u2702', label: 'Split PDF' },
       { href: '/pdf-merge', icon: '\uD83D\uDCCB', label: 'Merge PDF' },
       { href: '/pdf-to-word', icon: '\uD83D\uDCC4', label: 'PDF to Word' },
       { href: '/word-to-pdf', icon: '\uD83D\uDCC3', label: 'Word to PDF' },
-      { href: '/pdf-to-text', icon: '\uD83D\uDCDD', label: 'PDF to Text' }
+      { href: '/pdf-to-text', icon: '\uD83D\uDCDD', label: 'PDF to Text' },
+      { href: '/pdf-to-excel', icon: '\uD83D\uDCCA', label: 'PDF to Excel' },
+      { href: '/eml-to-pdf', icon: '\u2709', label: 'EML to PDF' },
+      { href: '/raw-to-jpg', icon: '\uD83D\uDCF7', label: 'RAW to JPG' }
     ]},
     { heading: 'Blog', links: [
       { href: '/blog', icon: '\uD83D\uDCF0', label: 'All Articles' }
@@ -900,7 +910,11 @@
     'css-animation-generator': ['css-box-shadow-generator', 'color-converter', 'css-gradient-generator', 'hex-to-rgb'],
     'yaml-to-json': ['json-to-yaml', 'json-formatter', 'xml-to-json', 'json-to-csv'],
     'json-to-csv': ['csv-to-json', 'json-formatter', 'yaml-to-json', 'xml-to-json'],
-    'cbz-to-pdf': ['epub-to-pdf', 'epub-to-txt', 'pdf-to-epub', 'jpg-to-pdf']
+    'cbz-to-pdf': ['epub-to-pdf', 'epub-to-txt', 'pdf-to-epub', 'jpg-to-pdf'],
+    'pdf-rotate': ['pdf-merge', 'pdf-split', 'jpg-to-pdf', 'pdf-to-jpg'],
+    'eml-to-pdf': ['pdf-to-word', 'word-to-pdf', 'pdf-to-text', 'pdf-to-jpg'],
+    'raw-to-jpg': ['heic-to-jpg', 'avif-to-jpg', 'webp-to-jpg', 'image-to-base64'],
+    'pdf-to-excel': ['pdf-to-word', 'csv-to-json', 'json-to-csv', 'word-to-pdf']
   };
 
   function injectRelatedTools() {
@@ -915,7 +929,7 @@
     div.style.marginTop = '20px';
     var links = related.map(function(slug) {
       var label = slug.replace(/-/g, ' ');
-      return '<a href="/' + slug + '" style="display:inline-block;margin:4px 6px 4px 0;padding:6px 14px;border:1px solid var(--color-mist);border-radius:20px;font-size:0.85rem;color:var(--color-graphite);text-decoration:none;transition:all 0.15s;" onmouseover="this.style.borderColor=\'var(--color-red)\';this.style.color=\'var(--color-ink)\'" onmouseout="this.style.borderColor=\'var(--color-mist)\';this.style.color=\'var(--color-graphite)\'">' + label + '</a>';
+      return '<a href="/' + slug + '" class="related-tag">' + label + '</a>';
     }).join('');
     div.innerHTML = '<h3 style="font-size:1rem;margin-bottom:10px;">\uD83D\uDD17 Related Converters</h3><div>' + links + '</div>';
     container.parentNode.insertBefore(div, container.nextSibling);
@@ -1030,7 +1044,11 @@
     'text-cleaner': ['/blog/text-case-guide'],
     'scientific-notation-converter': ['/blog/how-to-read-binary', '/blog/what-is-uuid'],
     'username-generator': ['/blog/password-strength-guide'],
-    'jwt-decoder': ['/blog/password-strength-guide', '/blog/url-encoding-guide']
+    'jwt-decoder': ['/blog/password-strength-guide', '/blog/url-encoding-guide'],
+    'pdf-rotate': ['/blog/pdf-page-rotation-guide', '/blog/pdf-page-management-complete-guide', '/blog/split-merge-pdf-guide'],
+    'eml-to-pdf': ['/blog/open-eml-files-without-outlook', '/blog/eml-email-format-explained'],
+    'raw-to-jpg': ['/blog/raw-vs-jpeg-photography-guide', '/blog/camera-raw-formats-guide', '/blog/heic-vs-jpeg-vs-webp-vs-avif'],
+    'pdf-to-excel': ['/blog/convert-pdf-to-excel-guide', '/blog/pdf-data-extraction-guide', '/blog/how-to-convert-pdf-to-excel']
   };
 
   function injectBlogLinks() {
@@ -1045,7 +1063,7 @@
     div.style.marginTop = '20px';
     var links = slugs.map(function(s) {
       var label = s.split('/').pop().replace(/-/g, ' ');
-      return '<a href="' + s + '" style="display:inline-block;margin:4px 6px 4px 0;padding:6px 14px;border:1px solid var(--color-mist);border-radius:20px;font-size:0.85rem;color:var(--color-graphite);text-decoration:none;transition:all 0.15s;" onmouseover="this.style.borderColor=\'var(--color-red)\';this.style.color=\'var(--color-ink)\'" onmouseout="this.style.borderColor=\'var(--color-mist)\';this.style.color=\'var(--color-graphite)\'">' + label + '</a>';
+      return '<a href="' + s + '" class="related-tag">' + label + '</a>';
     }).join('');
     div.innerHTML = '<h3 style="font-size:1rem;margin-bottom:10px;">\uD83D\uDCF0 Related Articles</h3><div>' + links + '</div>';
     if (container.nextSibling) {
@@ -1391,7 +1409,15 @@
     'css-view-transitions-generator': '<h2>View Transition Lifecycle Reference</h2><table class="format-table"><thead><tr><th>Phase</th><th>Pseudo-Element</th><th>Description</th></tr></thead><tbody>' +
       '<tr><td>Capture</td><td>&mdash;</td><td>Browser captures screenshot of old state</td></tr><tr><td>Animate old</td><td>::view-transition-old()</td><td>Old state fades out (default crossfade)</td></tr><tr><td>Render new</td><td>&mdash;</td><td>Browser renders new DOM state</td></tr><tr><td>Animate new</td><td>::view-transition-new()</td><td>New state fades in (default crossfade)</td></tr><tr><td>Complete</td><td>&mdash;</td><td>Transition ends, pseudo-elements removed</td></tr></tbody></table>',
     'css-anchor-positioning-generator': '<h2>Position Area Values Reference</h2><table class="format-table"><thead><tr><th>position-area</th><th>Placement</th><th>Example Use</th></tr></thead><tbody>' +
-      '<tr><td>top center</td><td>Centered above anchor</td><td>Tooltip above button</td></tr><tr><td>bottom center</td><td>Centered below anchor</td><td>Dropdown menu below trigger</td></tr><tr><td>left center</td><td>Centered to the left</td><td>Side panel label</td></tr><tr><td>right center</td><td>Centered to the right</td><td>Context menu</td></tr><tr><td>top left</td><td>Above, left-aligned</td><td>Notification badge</td></tr><tr><td>bottom right</td><td>Below, right-aligned</td><td>Popover with alignment</td></tr></tbody></table>'
+      '<tr><td>top center</td><td>Centered above anchor</td><td>Tooltip above button</td></tr><tr><td>bottom center</td><td>Centered below anchor</td><td>Dropdown menu below trigger</td></tr><tr><td>left center</td><td>Centered to the left</td><td>Side panel label</td></tr><tr><td>right center</td><td>Centered to the right</td><td>Context menu</td></tr><tr><td>top left</td><td>Above, left-aligned</td><td>Notification badge</td></tr><tr><td>bottom right</td><td>Below, right-aligned</td><td>Popover with alignment</td></tr></tbody></table>',
+    'pdf-rotate': '<h2>PDF Page Rotation Reference</h2><table class="format-table"><thead><tr><th>Rotation</th><th>Angle</th><th>Use Case</th></tr></thead><tbody>' +
+      '<tr><td>90\u00B0 CW</td><td>90 degrees clockwise</td><td>Fix sideways scans (right side up)</td></tr><tr><td>180\u00B0</td><td>180 degrees</td><td>Fix upside-down documents</td></tr><tr><td>270\u00B0 CW</td><td>270 degrees clockwise</td><td>Fix sideways scans (tilted right)</td></tr><tr><td>Custom</td><td>Any multiple of 90\u00B0</td><td>Batch rotation of selected pages</td></tr></tbody></table>',
+    'eml-to-pdf': '<h2>EML Email File Structure</h2><table class="format-table"><thead><tr><th>Header</th><th>Description</th><th>Example</th></tr></thead><tbody>' +
+      '<tr><td>From</td><td>Sender email address</td><td>sender@example.com</td></tr><tr><td>To</td><td>Recipient email address</td><td>recipient@example.com</td></tr><tr><td>Subject</td><td>Email subject line</td><td>Monthly Report</td></tr><tr><td>Date</td><td>Date and time sent</td><td>Thu, 16 Jul 2026</td></tr><tr><td>Content-Type</td><td>MIME type of body</td><td>text/plain or text/html</td></tr></tbody></table>',
+    'raw-to-jpg': '<h2>Common RAW Camera Formats</h2><table class="format-table"><thead><tr><th>Manufacturer</th><th>Extension</th><th>Preview Quality</th></tr></thead><tbody>' +
+      '<tr><td>Canon</td><td>.CR2 / .CR3</td><td>Full resolution</td></tr><tr><td>Nikon</td><td>.NEF</td><td>Full resolution</td></tr><tr><td>Sony</td><td>.ARW</td><td>Full resolution</td></tr><tr><td>Adobe</td><td>.DNG</td><td>Full resolution</td></tr><tr><td>Fujifilm</td><td>.RAF</td><td>Full resolution</td></tr></tbody></table>',
+    'pdf-to-excel': '<h2>PDF to Excel Extraction Quality</h2><table class="format-table"><thead><tr><th>PDF Type</th><th>Quality</th><th>Best For</th></tr></thead><tbody>' +
+      '<tr><td>Text-based with tables</td><td>Excellent</td><td>Financial statements, invoices</td></tr><tr><td>Text-based plain</td><td>Good</td><td>Simple lists, paragraphs</td></tr><tr><td>Multi-column layouts</td><td>Fair</td><td>Newsletters, brochures</td></tr><tr><td>Scanned / Image-only</td><td>Not supported</td><td>Requires OCR first</td></tr></tbody></table>'
   };
 
   function injectReferenceTable() {
@@ -1434,7 +1460,7 @@
       name: 'ConvertPivot',
       url: 'https://convertpivot.com',
       logo: 'https://convertpivot.com/og-image.png',
-      description: '88+ free online converter tools. 100% browser-based. Your files never leave your device.'
+      description: '110+ free online converter tools. 100% browser-based. Your files never leave your device.'
     });
     document.head.appendChild(orgScript);
 
@@ -1527,7 +1553,11 @@
       'css-animation-generator': { ratingValue: 4.6, reviewCount: 15 },
       'yaml-to-json': { ratingValue: 4.5, reviewCount: 18 },
       'json-to-csv': { ratingValue: 4.6, reviewCount: 22 },
-      'cbz-to-pdf': { ratingValue: 4.5, reviewCount: 28 }
+      'cbz-to-pdf': { ratingValue: 4.5, reviewCount: 28 },
+      'pdf-rotate': { ratingValue: 4.6, reviewCount: 34 },
+      'eml-to-pdf': { ratingValue: 4.5, reviewCount: 22 },
+      'raw-to-jpg': { ratingValue: 4.4, reviewCount: 18 },
+      'pdf-to-excel': { ratingValue: 4.7, reviewCount: 45 }
     };
     var path = window.location.pathname.split('/').pop().replace(/\.html$/, '');
     var r = ratings[path];
@@ -1627,6 +1657,68 @@
   }
 
   // ============================================================
+  // MODAL
+  // ============================================================
+  function openModal(html) {
+    var overlay = document.getElementById('globalModal');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.id = 'globalModal';
+      overlay.className = 'modal-overlay';
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeModal();
+      });
+      document.body.appendChild(overlay);
+    }
+    var box = document.createElement('div');
+    box.className = 'modal-box';
+    box.innerHTML = '<button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>' + html;
+    overlay.innerHTML = '';
+    overlay.appendChild(box);
+    overlay.classList.add('open');
+    document.addEventListener('keydown', modalEsc);
+  }
+  function closeModal() {
+    var overlay = document.getElementById('globalModal');
+    if (overlay) overlay.classList.remove('open');
+    document.removeEventListener('keydown', modalEsc);
+  }
+  function modalEsc(e) { if (e.key === 'Escape') closeModal(); }
+
+  // ============================================================
+  // SMOOTH SCROLL TO RESULT
+  // ============================================================
+  function scrollToResult(resultId) {
+    var el = document.getElementById(resultId);
+    if (!el) return;
+    el.classList.add('result-highlight');
+    setTimeout(function () { el.classList.remove('result-highlight'); }, 800);
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // ============================================================
+  // COPY TO CLIPBOARD
+  // ============================================================
+  function copyToClipboard(text, btn) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        if (btn) { btn.textContent = 'Copied!'; btn.classList.add('copied'); setTimeout(function () { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000); }
+        showToast('Copied to clipboard', 'success');
+      }).catch(function () { fallbackCopy(text, btn); });
+    } else { fallbackCopy(text, btn); }
+  }
+  function fallbackCopy(text, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); if (btn) { btn.textContent = 'Copied!'; btn.classList.add('copied'); setTimeout(function () { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000); } showToast('Copied to clipboard', 'success'); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  // ============================================================
   // EXPOSE GLOBALLY
   // ============================================================
   window.ConvertPivot = {
@@ -1646,7 +1738,11 @@
     escapeHtml: escapeHtml,
     debounce: debounce,
     detectFormatFromHeader: detectFormatFromHeader,
-    showToast: showToast
+    showToast: showToast,
+    openModal: openModal,
+    closeModal: closeModal,
+    scrollToResult: scrollToResult,
+    copyToClipboard: copyToClipboard
   };
 
   // ============================================================

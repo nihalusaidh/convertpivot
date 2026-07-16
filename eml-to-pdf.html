@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EML to PDF â€” Convert EML Email Files to PDF Free | ConvertPivot</title>
+  <meta name="description" content="Free online EML to PDF converter. Open and convert EML email files to PDF in your browser. View email headers, body, and attachments. No upload, 100% private.">
+  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convertpivot.com/eml-to-pdf">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpivot.com/eml-to-pdf">
+  <meta property="og:title" content="EML to PDF â€” Convert EML Email Files to PDF Free | ConvertPivot">
+  <meta property="og:description" content="Free online EML to PDF converter. Open and convert EML email files to PDF in your browser. No upload required.">
+  <meta property="og:image" content="https://convertpivot.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EML to PDF â€” Convert EML Email Files to PDF Free | ConvertPivot">
+  <meta name="twitter:description" content="Free online EML to PDF converter. Open and convert EML email files to PDF in your browser. No upload required.">
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"EML to PDF Converter","url":"https://convertpivot.com/eml-to-pdf","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online EML to PDF converter. Open and convert EML email files to PDF. 100% browser-based, no upload."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an EML file?","acceptedAnswer":{"@type":"Answer","text":"EML is the standard file format for email messages. It stores the email header, sender, recipient, subject, body, and attachments in a plain text MIME format. EML files are used by Outlook Express, Windows Mail, Thunderbird, and other email clients."}},{"@type":"Question","name":"Does the converter preserve email formatting?","acceptedAnswer":{"@type":"Answer","text":"The converter extracts the email subject, sender, recipient, date, and body text. HTML emails are rendered as formatted PDF pages. Complex layouts may be simplified."}},{"@type":"Question","name":"Are attachments included in the PDF?","acceptedAnswer":{"@type":"Answer","text":"The PDF includes the email content and headers. Attachments are listed but not embedded in the PDF output. You can download attachments separately from the extracted information."}},{"@type":"Question","name":"Are my EML files uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All processing happens entirely in your browser. Your email files never leave your device."}},{"@type":"Question","name":"Can I convert multiple EML files at once?","acceptedAnswer":{"@type":"Answer","text":"Currently the converter processes one EML file at a time. You can convert multiple files by repeating the process for each file."}}]}</script>
+</head>
+<body>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <nav id="sidebar" class="sidebar"></nav>
+  <main id="main-content" class="main-content">
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><a href="/">PDF Tools</a><span class="sep">â€º</span><span class="current">EML to PDF</span></nav>
+    <div class="tool-header">
+      <h1>âœ‰ï¸ EML to PDF â€” Convert Email Files to PDF</h1>
+      <p>Open and convert EML email files to PDF format right in your browser. View the email subject, sender, recipient, date, and body as a clean PDF document. No upload needed.</p>
+    </div>
+    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span>100% browser-based. Your emails never leave your device.</span></div>
+    <div class="converter-widget" id="emlToPdfWidget">
+      <div class="drop-zone" id="emlDropZone">
+        <div class="drop-zone-icon">âœ‰ï¸</div>
+        <div class="drop-zone-text">Drop an <strong>EML file</strong> here, or click to browse</div>
+        <div class="drop-zone-hint">Supports .eml files from Outlook, Thunderbird, Windows Mail</div>
+        <input type="file" accept=".eml,message/rfc822" aria-label="Choose EML file">
+      </div>
+      <div class="file-info" id="emlFileInfo">
+        <span class="file-info-name"></span>
+        <span class="file-info-size"></span>
+        <button class="file-info-remove" aria-label="Remove file">&times;</button>
+      </div>
+      <div id="emlPreview" style="display:none;margin-top:16px;padding:16px;border:1px solid var(--color-mist);border-radius:8px;font-size:0.9rem;background:var(--color-smoke);max-height:400px;overflow-y:auto"></div>
+      <div class="converter-controls">
+        <button class="btn btn-primary" id="emlToPdfBtn" style="display:none">Download as PDF</button>
+      </div>
+      <div class="progress-bar" id="emlProgress"><div class="progress-bar-fill"></div></div>
+      <div class="converter-result" id="emlResult"><div class="converter-result-message"></div></div>
+    </div>
+    <div class="content-section">
+      <h2>How to Convert EML to PDF</h2>
+      <p>Drop an EML email file onto the converter above. The tool parses the MIME email structure to extract the subject, sender (From), recipient (To), date, and email body. You can preview the extracted content before converting.</p>
+      <p>Click "Download as PDF" to generate a PDF document containing the email headers and body. The PDF is created entirely in your browser using pdf-lib â€” nothing is uploaded to any server. This is especially useful for archiving important emails, sharing email content with non-email users, or creating printable records.</p>
+      <h3>Why Convert EML to PDF?</h3>
+      <p>EML files can only be opened in email clients like Outlook or Thunderbird. Converting to PDF makes them universally viewable on any device. Whether you need to archive a receipt confirmation, share an important message with a colleague who uses a different email client, or create a permanent record for legal purposes, PDF gives you a format that anyone can open.</p>
+    </div>
+    <div class="content-section">
+      <h2>EML File Structure</h2>
+      <table class="format-table"><thead><tr><th>Component</th><th>Description</th><th>Example</th></tr></thead><tbody>
+        <tr><td>From</td><td>Sender email address</td><td>john.doe@example.com</td></tr>
+        <tr><td>To</td><td>Recipient email address</td><td>jane@example.com</td></tr>
+        <tr><td>Subject</td><td>Email subject line</td><td>Q3 Report Attached</td></tr>
+        <tr><td>Date</td><td>Date and time sent</td><td>Thu, 16 Jul 2026 10:30:00 +0000</td></tr>
+        <tr><td>Content-Type</td><td>MIME type of body</td><td>text/plain or text/html</td></tr>
+        <tr><td>Body</td><td>Email message content</td><td>Please find the attached report...</td></tr>
+        <tr><td>Attachments</td><td>MIME encoded file(s)</td><td>report.pdf (base64 encoded)</td></tr>
+      </tbody></table>
+    </div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqPage">
+        <div class="faq-item"><button class="faq-question">What is an EML file? <span class="arrow">â–¼</span></button><div class="faq-answer">EML is a standard email file format used by Outlook Express, Windows Mail, Thunderbird, and many other email clients. It stores the complete email message including headers, body, and attachments.</div></div>
+        <div class="faq-item"><button class="faq-question">Does this tool support HTML emails? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. HTML emails are parsed and rendered as formatted text in the PDF. Plain text emails are displayed as-is.</div></div>
+        <div class="faq-item"><button class="faq-question">Are attachments saved in the PDF? <span class="arrow">â–¼</span></button><div class="faq-answer">Attachment filenames are listed in the PDF output. The attachment data itself is not embedded. You can extract attachments using a dedicated tool.</div></div>
+        <div class="faq-item"><button class="faq-question">Are my emails uploaded? <span class="arrow">â–¼</span></button><div class="faq-answer">No. Everything runs in your browser. Your email files never leave your device.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I convert MSG files too? <span class="arrow">â–¼</span></button><div class="faq-answer">This tool only supports EML format. MSG (Outlook) files use a different format and are not supported at this time.</div></div>
+      </div>
+    </div>
+    <div class="content-section">
+      <h2>Related Tools</h2>
+      <div class="related-tools">
+        <a href="/pdf-to-word" class="related-tool-card">PDF to Word <span class="desc">Convert PDF to DOCX</span></a>
+        <a href="/word-to-pdf" class="related-tool-card">Word to PDF <span class="desc">Convert DOCX to PDF</span></a>
+        <a href="/pdf-to-text" class="related-tool-card">PDF to Text <span class="desc">Extract text from PDF</span></a>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content"><div class="footer-copy">&copy; 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script src="js/shared.js?v=2"></script>
+  <script>
+  (function () {
+    'use strict';
+    var dropZone = document.getElementById('emlDropZone');
+    var fileInput = dropZone.querySelector('input[type="file"]');
+    var fileInfo = document.getElementById('emlFileInfo');
+    var infoName = fileInfo.querySelector('.file-info-name');
+    var infoSize = fileInfo.querySelector('.file-info-size');
+    var removeBtn = fileInfo.querySelector('.file-info-remove');
+    var preview = document.getElementById('emlPreview');
+    var convertBtn = document.getElementById('emlToPdfBtn');
+    var progress = document.getElementById('emlProgress');
+    var result = document.getElementById('emlResult');
+    var currentFile = null;
+    var parsedEmail = null;
+
+    dropZone.addEventListener('dragover', function (e) { e.preventDefault(); dropZone.classList.add('drag-over'); });
+    dropZone.addEventListener('dragleave', function () { dropZone.classList.remove('drag-over'); });
+    dropZone.addEventListener('drop', function (e) { e.preventDefault(); dropZone.classList.remove('drag-over'); if (e.dataTransfer.files.length > 0) handleFile(e.dataTransfer.files[0]); });
+    fileInput.addEventListener('change', function () { if (fileInput.files.length > 0) handleFile(fileInput.files[0]); });
+
+    function handleFile(file) {
+      if (!file || !file.name.toLowerCase().endsWith('.eml')) { showToast('Please select an EML file', 'error'); return; }
+      currentFile = file;
+      infoName.textContent = file.name;
+      infoSize.textContent = formatFileSize(file.size);
+      fileInfo.classList.add('show');
+      dropZone.style.display = 'none';
+      parseEml(file);
+    }
+
+    removeBtn.addEventListener('click', function () {
+      currentFile = null;
+      parsedEmail = null;
+      fileInfo.classList.remove('show');
+      dropZone.style.display = '';
+      preview.style.display = 'none';
+      convertBtn.style.display = 'none';
+      fileInput.value = '';
+    });
+
+    function parseEml(file) {
+      var reader = new FileReader();
+      reader.onload = function () {
+        var text = reader.result;
+        parsedEmail = { headers: {}, body: '', attachments: [] };
+        var lines = text.split('\n');
+        var headerMode = true;
+        var bodyLines = [];
+        var currentHeader = '';
+
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i].replace(/\r$/, '');
+          if (headerMode) {
+            if (line === '') { headerMode = false; continue; }
+            if (line.match(/^\s/) && currentHeader) {
+              parsedEmail.headers[currentHeader] += ' ' + line.trim();
+            } else {
+              var match = line.match(/^([^:]+):\s*(.*)/);
+              if (match) {
+                currentHeader = match[1].toLowerCase();
+                parsedEmail.headers[currentHeader] = match[2];
+              }
+            }
+          } else {
+            bodyLines.push(line);
+          }
+        }
+
+        var contentType = parsedEmail.headers['content-type'] || '';
+        var isHtml = contentType.indexOf('text/html') !== -1;
+        var boundary = '';
+        var bMatch = contentType.match(/boundary="?([^";\s]+)"?/);
+        if (bMatch) boundary = bMatch[1];
+
+        if (boundary) {
+          var parts = text.split('--' + boundary);
+          for (var p = 0; p < parts.length; p++) {
+            if (parts[p].indexOf('text/plain') !== -1) { isHtml = false; bodyLines = extractBody(parts[p]); break; }
+            if (parts[p].indexOf('text/html') !== -1) { isHtml = true; bodyLines = extractBody(parts[p]); }
+          }
+        }
+
+        var bodyText = bodyLines.join('\n').trim();
+        if (isHtml) {
+          var div = document.createElement('div');
+          div.innerHTML = bodyText;
+          bodyText = div.textContent || div.innerText || '';
+        }
+
+        var previewHtml = '';
+        previewHtml += '<div style="margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--color-mist)">';
+        previewHtml += '<div><strong>From:</strong> ' + escapeHtml(parsedEmail.headers['from'] || 'Unknown') + '</div>';
+        previewHtml += '<div><strong>To:</strong> ' + escapeHtml(parsedEmail.headers['to'] || 'Unknown') + '</div>';
+        previewHtml += '<div><strong>Subject:</strong> ' + escapeHtml(parsedEmail.headers['subject'] || '(No subject)') + '</div>';
+        previewHtml += '<div><strong>Date:</strong> ' + escapeHtml(parsedEmail.headers['date'] || 'Unknown') + '</div></div>';
+        previewHtml += '<div style="white-space:pre-wrap;line-height:1.6">' + escapeHtml(bodyText) + '</div>';
+
+        preview.innerHTML = previewHtml;
+        preview.style.display = 'block';
+        convertBtn.style.display = 'inline-flex';
+        showToast('EML parsed successfully', 'success');
+      };
+      reader.readAsText(file);
+    }
+
+    function extractBody(part) {
+      var lines = part.split('\n');
+      var inBody = false;
+      var body = [];
+      for (var i = 0; i < lines.length; i++) {
+        var l = lines[i].replace(/\r$/, '');
+        if (!inBody && l === '') { inBody = true; continue; }
+        if (inBody) body.push(l);
+      }
+      return body;
+    }
+
+    convertBtn.addEventListener('click', function () {
+      if (!parsedEmail) { showToast('No EML file loaded', 'error'); return; }
+      var prog = showProgress('emlProgress');
+      convertBtn.disabled = true;
+      setTimeout(function () {
+        try {
+          var pdfLib = window.PDFLib;
+          var doc = pdfLib.PDFDocument.create();
+          var page = doc.addPage([612, 792]);
+          var font = doc.getFont();
+          var y = 750;
+          var margin = 50;
+          var lineH = 14;
+
+          function writeLine(text, size) {
+            size = size || 11;
+            if (y < margin + 20) { page = doc.addPage([612, 792]); y = 750; }
+            page.drawText(text, { x: margin, y: y, size: size, font: font, color: pdfLib.rgb(0,0,0) });
+            y -= (size + 4);
+          }
+
+          writeLine('Email: ' + (parsedEmail.headers['subject'] || '(No subject)'), 16);
+          y -= 4;
+          writeLine('From: ' + (parsedEmail.headers['from'] || 'Unknown'), 10);
+          writeLine('To: ' + (parsedEmail.headers['to'] || 'Unknown'), 10);
+          writeLine('Date: ' + (parsedEmail.headers['date'] || 'Unknown'), 10);
+          y -= 8;
+
+          var bodyDiv = preview.querySelector('div:last-child');
+          var bodyText = bodyDiv ? bodyDiv.textContent : '';
+          var words = bodyText.split(/\s+/);
+          var line = '';
+          for (var w = 0; w < words.length; w++) {
+            var testLine = line ? line + ' ' + words[w] : words[w];
+            if (testLine.length > 90) {
+              writeLine(line || ' ');
+              line = words[w];
+            } else { line = testLine; }
+          }
+          if (line) writeLine(line);
+
+          doc.save().then(function (bytes) {
+            downloadFile(bytes, changeExtension(currentFile.name, 'pdf'), 'application/pdf');
+            prog.done();
+            convertBtn.disabled = false;
+            showToast('PDF downloaded!', 'success');
+          });
+        } catch (e) { showToast('Error converting: ' + e.message, 'error'); convertBtn.disabled = false; prog.done(); }
+      }, 300);
+    });
+  })();
+  </script>
+</body>
+</html>

@@ -67,7 +67,7 @@
           <div id="wrapPreview" style="border:1px solid var(--color-mist);border-radius:8px;padding:16px;min-height:80px;background:var(--color-canvas);font-size:1rem;line-height:1.5;max-width:500px;margin:8px 0;"></div>
           <div class="converter-controls">
             <button id="copyCssBtn" class="btn btn-primary">Copy CSS</button>
-            <button class="btn btn-secondary" onclick="document.getElementById('wrapText').value='CSS text-wrap properties give you fine-grained control over how text breaks across lines. The balance value creates evenly distributed lines for headings, while pretty avoids orphans and widows in paragraphs. Line-clamp truncates text after a set number of lines.';updatePreview();">Reset Text</button>
+            <button class="btn btn-secondary" id="resetTextBtn">Reset Text</button>
           </div>
           <div id="cssOutputWrap" style="margin-top:4px;">
             <pre id="cssOutputCode" class="converter-input" style="font-family:Consolas,monospace;font-size:0.85rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all;margin-top:4px;"></pre>
@@ -166,6 +166,11 @@
       wrapValue.addEventListener('change', updatePreview);
       clampValue.addEventListener('change', updatePreview);
       wrapText.addEventListener('input', updatePreview);
+
+      document.getElementById('resetTextBtn').addEventListener('click', function() {
+        wrapText.value = 'CSS text-wrap properties give you fine-grained control over how text breaks across lines. The balance value creates evenly distributed lines for headings, while pretty avoids orphans and widows in paragraphs. Line-clamp truncates text after a set number of lines.';
+        updatePreview();
+      });
 
       copyCssBtn.addEventListener('click', function() {
         navigator.clipboard.writeText(cssOutputCode.textContent).then(function() {

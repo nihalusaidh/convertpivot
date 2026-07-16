@@ -217,7 +217,7 @@
       }
 
       function buildCopyBtn(text) {
-        return '<button class="btn btn-secondary" onclick="var t=this;navigator.clipboard.writeText(' + JSON.stringify(text) + ').then(function(){t.textContent=\'Copied!\';setTimeout(function(){t.textContent=\'Copy Results\';},2000);}).catch(function(){prompt(\'Press Ctrl+C to copy:\', ' + JSON.stringify(text) + ');})">Copy Results</button>';
+        return '<button class="btn btn-secondary btn-copy-result" data-copy-text="' + encodeURIComponent(text) + '">Copy Results</button>';
       }
 
       function escapeHtml(s) {
@@ -331,7 +331,7 @@
         resultEl.innerHTML = '<div class="lr-coin">' +
           '<div class="lr-coin-face flipping" id="lrCoinFace" style="background:' + (result === 'Heads' ? 'var(--color-red);color:#fff' : 'var(--color-smoke);color:var(--color-ink)') + '">' + result + '</div>' +
           '<div class="lr-coin-result">' + result + '</div>' +
-          '<button class="btn btn-primary" onclick="document.querySelector(\'[data-action=coin]\').click()">Flip Again</button>' +
+          '<button class="btn btn-primary flip-again-btn">Flip Again</button>' +
           '</div>';
       }
 
@@ -355,9 +355,27 @@
         resultEl.innerHTML = '<div class="lr-dice">' +
           '<div class="lr-dice-face rolling" id="lrDiceFace">' + diceChars[0] + '</div>' +
           '<div class="lr-dice-result">' + result + '</div>' +
-          '<button class="btn btn-primary" onclick="document.querySelector(\'[data-action=dice]\').click()">Roll Again</button>' +
+          '<button class="btn btn-primary roll-again-btn">Roll Again</button>' +
           '</div>';
       }
+
+      resultEl.addEventListener('click', function(e) {
+        var btn = e.target.closest('.btn-copy-result');
+        if (btn) {
+          var text = decodeURIComponent(btn.getAttribute('data-copy-text'));
+          navigator.clipboard.writeText(text).then(function() {
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy Results'; }, 2000);
+          }).catch(function() {
+            prompt('Press Ctrl+C to copy:', text);
+          });
+          return;
+        }
+        btn = e.target.closest('.flip-again-btn');
+        if (btn) { doCoinFlip(); return; }
+        btn = e.target.closest('.roll-again-btn');
+        if (btn) { doDiceRoll(); return; }
+      });
 
       setActiveAction('shuffle');
     })();

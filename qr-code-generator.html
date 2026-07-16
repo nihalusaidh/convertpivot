@@ -40,7 +40,7 @@
       <div class="converter-form">
         <div style="background:var(--color-smoke);border-radius:var(--radius-card);padding:20px;margin-bottom:16px;">
           <label for="qrInput" style="font-weight:600;font-size:0.95rem;display:block;margin-bottom:8px;color:var(--color-ink);">Enter text or URL</label>
-          <input type="text" id="qrInput" placeholder="https://example.com" value="https://convertpivot.com" style="width:100%;padding:12px 16px;font-size:1rem;border:2px solid var(--color-mist);border-radius:var(--radius-card);background:var(--color-bg);color:var(--color-ink);transition:border-color 0.15s;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='var(--color-red)'" onblur="this.style.borderColor='var(--color-mist)'">
+          <input type="text" id="qrInput" placeholder="https://example.com" value="https://convertpivot.com" style="width:100%;padding:12px 16px;font-size:1rem;border:2px solid var(--color-mist);border-radius:var(--radius-card);background:var(--color-bg);color:var(--color-ink);transition:border-color 0.15s;outline:none;box-sizing:border-box;">
           <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px">
             <button class="btn btn-sm btn-ghost qr-preset" data-value="https://convertpivot.com">Website</button>
             <button class="btn btn-sm btn-ghost qr-preset" data-value="Hello, world!">Text</button>
@@ -190,6 +190,8 @@ END:VCARD">vCard</button>
         clearTimeout(debounceTimer);
         debounceTimer = setTimeout(generateQR, 300);
       });
+      input.addEventListener('focus', function() { this.style.borderColor = 'var(--color-red)'; });
+      input.addEventListener('blur', function() { this.style.borderColor = 'var(--color-mist)'; });
       input.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') { clearTimeout(debounceTimer); generateQR(); }
       });

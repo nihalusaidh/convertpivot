@@ -37,48 +37,18 @@
 
     <div class="ad-container" style="margin-bottom:32px;">Ad</div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin:32px 0;">
-      <div style="border:1px solid var(--color-mist);border-radius:8px;padding:24px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--color-red)'" onmouseout="this.style.borderColor='var(--color-mist)'">
-        <div style="font-size:2rem;margin-bottom:8px;">🎧</div>
-        <h2 style="font-size:1.1rem;margin-bottom:8px;"><a href="/mp3-to-wav" style="color:var(--color-ink);">MP3 to WAV</a></h2>
-        <p style="color:var(--color-graphite);font-size:0.9rem;line-height:1.6;margin-bottom:12px;">Convert MP3 audio files to WAV format (uncompressed PCM). WAV offers perfect quality for audio editing, music production, and professional applications where compression artifacts are unacceptable.</p>
-        <a href="/mp3-to-wav" class="btn btn-primary" style="font-size:0.85rem;">Convert MP3 to WAV →</a>
-      </div>
+    <div class="tool-grid">
+      <a href="/mp3-to-wav" class="tool-card"><div class="tool-card-icon">🎧</div><div class="tool-card-title">MP3 to WAV</div><div class="tool-card-desc">Convert MP3 audio files to WAV format (uncompressed PCM). WAV offers perfect quality for audio editing, music production, and professional applications where compression artifacts are unacceptable.</div></a>
 
-      <div style="border:1px solid var(--color-mist);border-radius:8px;padding:24px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--color-red)'" onmouseout="this.style.borderColor='var(--color-mist)'">
-        <div style="font-size:2rem;margin-bottom:8px;">🎵</div>
-        <h2 style="font-size:1.1rem;margin-bottom:8px;"><a href="/wav-to-mp3" style="color:var(--color-ink);">WAV to MP3</a></h2>
-        <p style="color:var(--color-graphite);font-size:0.9rem;line-height:1.6;margin-bottom:12px;">Convert WAV audio files to compressed MP3 format. Drastically reduce file size while maintaining good audio quality for portable players, streaming, and sharing.</p>
-        <a href="/wav-to-mp3" class="btn btn-primary" style="font-size:0.85rem;">Convert WAV to MP3 →</a>
-      </div>
+      <a href="/wav-to-mp3" class="tool-card"><div class="tool-card-icon">🎵</div><div class="tool-card-title">WAV to MP3</div><div class="tool-card-desc">Convert WAV audio files to compressed MP3 format. Drastically reduce file size while maintaining good audio quality for portable players, streaming, and sharing.</div></a>
 
-      <div style="border:1px solid var(--color-mist);border-radius:8px;padding:24px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--color-red)'" onmouseout="this.style.borderColor='var(--color-mist)'">
-        <div style="font-size:2rem;margin-bottom:8px;">🔊</div>
-        <h2 style="font-size:1.1rem;margin-bottom:8px;"><a href="/mp3-to-flac" style="color:var(--color-ink);">MP3 to FLAC</a></h2>
-        <p style="color:var(--color-graphite);font-size:0.9rem;line-height:1.6;margin-bottom:12px;">Convert MP3 files to lossless FLAC format for archival purposes. FLAC preserves perfect audio quality while reducing file size compared to WAV.</p>
-        <a href="/mp3-to-flac" class="btn btn-primary" style="font-size:0.85rem;">Convert MP3 to FLAC →</a>
-      </div>
+      <a href="/mp3-to-flac" class="tool-card"><div class="tool-card-icon">🔊</div><div class="tool-card-title">MP3 to FLAC</div><div class="tool-card-desc">Convert MP3 files to lossless FLAC format for archival purposes. FLAC preserves perfect audio quality while reducing file size compared to WAV.</div></a>
 
-      <div style="border:1px solid var(--color-mist);border-radius:8px;padding:24px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--color-red)'" onmouseout="this.style.borderColor='var(--color-mist)'">
-        <div style="font-size:2rem;margin-bottom:8px;">🎶</div>
-        <h2 style="font-size:1.1rem;margin-bottom:8px;"><a href="/flac-to-mp3" style="color:var(--color-ink);">FLAC to MP3</a></h2>
-        <p style="color:var(--color-graphite);font-size:0.9rem;line-height:1.6;margin-bottom:12px;">Convert lossless FLAC audio to space-saving MP3 format. Create compatible music files for portable players, car stereos, and devices that don't support FLAC.</p>
-        <a href="/flac-to-mp3" class="btn btn-primary" style="font-size:0.85rem;">Convert FLAC to MP3 →</a>
-      </div>
+      <a href="/flac-to-mp3" class="tool-card"><div class="tool-card-icon">🎶</div><div class="tool-card-title">FLAC to MP3</div><div class="tool-card-desc">Convert lossless FLAC audio to space-saving MP3 format. Create compatible music files for portable players, car stereos, and devices that don't support FLAC.</div></a>
 
-      <div style="border:1px solid var(--color-mist);border-radius:8px;padding:24px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--color-red)'" onmouseout="this.style.borderColor='var(--color-mist)'">
-        <div style="font-size:2rem;margin-bottom:8px;">🎤</div>
-        <h2 style="font-size:1.1rem;margin-bottom:8px;"><a href="/wav-to-flac" style="color:var(--color-ink);">WAV to FLAC</a></h2>
-        <p style="color:var(--color-graphite);font-size:0.9rem;line-height:1.6;margin-bottom:12px;">Convert uncompressed WAV files to lossless FLAC format. Reduce storage space by 40-60% while maintaining identical audio quality for archiving.</p>
-        <a href="/wav-to-flac" class="btn btn-primary" style="font-size:0.85rem;">Convert WAV to FLAC →</a>
-      </div>
+      <a href="/wav-to-flac" class="tool-card"><div class="tool-card-icon">🎤</div><div class="tool-card-title">WAV to FLAC</div><div class="tool-card-desc">Convert uncompressed WAV files to lossless FLAC format. Reduce storage space by 40-60% while maintaining identical audio quality for archiving.</div></a>
 
-      <div style="border:1px solid var(--color-mist);border-radius:8px;padding:24px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--color-red)'" onmouseout="this.style.borderColor='var(--color-mist)'">
-        <div style="font-size:2rem;margin-bottom:8px;">🎹</div>
-        <h2 style="font-size:1.1rem;margin-bottom:8px;"><a href="/ogg-to-mp3" style="color:var(--color-ink);">OGG to MP3</a></h2>
-        <p style="color:var(--color-graphite);font-size:0.9rem;line-height:1.6;margin-bottom:12px;">Convert OGG Vorbis audio files to universally compatible MP3 format. Make OGG files playable on any device, including older music players and car audio systems.</p>
-        <a href="/ogg-to-mp3" class="btn btn-primary" style="font-size:0.85rem;">Convert OGG to MP3 →</a>
-      </div>
+      <a href="/ogg-to-mp3" class="tool-card"><div class="tool-card-icon">🎹</div><div class="tool-card-title">OGG to MP3</div><div class="tool-card-desc">Convert OGG Vorbis audio files to universally compatible MP3 format. Make OGG files playable on any device, including older music players and car audio systems.</div></a>
     </div>
 
     <div style="margin:32px 0;">

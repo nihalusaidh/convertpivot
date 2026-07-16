@@ -327,5 +327,75 @@
     "description": "Stop sending Word docs that look different on every computer. Learn how to convert Word to PDF with perfect formatting preservation. Free browser-based converter.",
     "date": "July 14, 2026",
     "category": "PDF"
+  },
+  {
+    "title": "How to Open EML Files Without Outlook — 5 Easy Methods",
+    "slug": "open-eml-files-without-outlook",
+    "description": "Learn how to open EML email files without Microsoft Outlook. 5 easy methods including free online tools, Thunderbird, Windows Mail, and browser-based converters.",
+    "date": "July 16, 2026",
+    "category": "Tutorial"
+  },
+  {
+    "title": "PDF Page Rotation — Complete Guide to Fixing Document Orientation",
+    "slug": "pdf-page-rotation-guide",
+    "description": "Complete guide to rotating PDF pages. Fix upside-down or sideways scanned documents, change page orientation, and rotate individual or all pages in a PDF.",
+    "date": "July 16, 2026",
+    "category": "PDF"
+  },
+  {
+    "title": "RAW vs JPEG — Which Format Should You Shoot In?",
+    "slug": "raw-vs-jpeg-photography-guide",
+    "description": "RAW vs JPEG comparison for photographers. Learn the differences in file size, editing flexibility, dynamic range, and when to use each format.",
+    "date": "July 16, 2026",
+    "category": "Images"
+  },
+  {
+    "title": "How to Convert PDF to Excel — Extract Tables from PDF Documents",
+    "slug": "convert-pdf-to-excel-guide",
+    "description": "Step-by-step guide to converting PDF tables to Excel spreadsheets. Free online method, no upload required. Extract data from invoices, statements, and reports.",
+    "date": "July 16, 2026",
+    "category": "Tutorial"
+  },
+  {
+    "title": "Browser-Based File Conversion — The Privacy Advantage",
+    "slug": "browser-based-file-privacy-guide",
+    "description": "Why browser-based file converters are safer than desktop software or upload-based services. Complete privacy guide to client-side file processing.",
+    "date": "July 16, 2026",
+    "category": "Guides"
+  },
+  {
+    "title": "EML Email Format Explained — Structure, Compatibility, and Conversion",
+    "slug": "eml-email-format-explained",
+    "description": "Complete guide to the EML email file format. Learn about MIME structure, headers, body encoding, attachments, and how to convert EML files to PDF.",
+    "date": "July 16, 2026",
+    "category": "Data"
+  },
+  {
+    "title": "PDF Page Management — Merge, Split, Rotate, and Organize PDFs",
+    "slug": "pdf-page-management-complete-guide",
+    "description": "Complete guide to managing PDF pages — merge multiple PDFs, split large documents, rotate individual pages, and organize your PDFs efficiently.",
+    "date": "July 16, 2026",
+    "category": "PDF"
+  },
+  {
+    "title": "Understanding RAW Camera Formats — CR2, NEF, ARW, DNG Explained",
+    "slug": "camera-raw-formats-guide",
+    "description": "Guide to RAW camera formats from different manufacturers. Learn about CR2 (Canon), NEF (Nikon), ARW (Sony), DNG (Adobe), and how to convert them to JPG.",
+    "date": "July 16, 2026",
+    "category": "Images"
+  },
+  {
+    "title": "PDF Data Extraction — How to Extract Text and Tables from PDF Files",
+    "slug": "pdf-data-extraction-guide",
+    "description": "Complete guide to extracting data from PDF files. Learn how to extract text, tables, and structured data from PDF documents using free online tools.",
+    "date": "July 16, 2026",
+    "category": "Tutorial"
+  },
+  {
+    "title": "Top 10 Free Online File Converters in 2026 — Compared and Reviewed",
+    "slug": "free-online-converters-2026",
+    "description": "Honest review of the top 10 free online file converters in 2026. Compare features, privacy, file size limits, and supported formats for image, video, audio, document, and data conversion.",
+    "date": "July 16, 2026",
+    "category": "Guides"
   }
 ]
