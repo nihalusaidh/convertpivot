@@ -1,27 +1,33 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Unit Converters — Length, Weight, Temperature & More | ConvertPivot</title>
+  <title>All Unit Converters â€” Length, Weight, Temperature & More | ConvertPivot</title>
   <meta name="description" content="Free online unit converter with 200+ units across 10 categories: length, mass, volume, temperature, area, speed, time, pressure, energy, and data storage.">
     <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/all-unit-converters">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/all-unit-converters">
-  <meta property="og:title" content="All Unit Converters — 200+ Units Across 10 Categories">
+  <meta property="og:title" content="All Unit Converters â€” 200+ Units Across 10 Categories">
   <meta property="og:description" content="Free online unit converter. Convert between 200+ units across 10 categories. Zero uploads, private, instant.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="All Unit Converters — 200+ Units Across 10 Categories">
+  <meta name="twitter:title" content="All Unit Converters â€” 200+ Units Across 10 Categories">
   <meta name="twitter:description" content="Free online unit converter. Convert between 200+ units across 10 categories. Zero uploads, private, instant.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="icon" href="/favicon.png" sizes="32x32">
-  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-96.png" sizes="96x96" type="image/png">
+  <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#FF0000">
+  <meta name="msapplication-TileColor" content="#FF0000">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"All Unit Converters","url":"https://convertpivot.com/all-unit-converters","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online unit converter covering length, weight, temperature, volume, area, speed, time, data, pressure, and energy.","browserRequirements":"JavaScript"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What unit categories are supported?","acceptedAnswer":{"@type":"Answer","text":"All Unit Converters supports 10 categories: length, weight/mass, temperature, volume, area, speed, time, data storage, pressure, and energy. Each category includes common and specialized units."}},{"@type":"Question","name":"Are the conversions accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes. All conversions use internationally recognized standard formulas and conversion factors. Results are displayed with up to 10 decimal places for precision."}},{"@type":"Question","name":"Is my data uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. Every conversion runs locally in your browser using JavaScript. Your numbers never leave your device. You can verify this in your browser's Network tab."}},{"@type":"Question","name":"Is this unit converter free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no limits, no signup, and no ads beyond standard display ads. All 200+ units across all categories are available without restrictions."}}]}</script>
   <style>
@@ -43,15 +49,15 @@
   </style>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">ðŸŒ™</button></header>
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">All Unit Converters</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">All Unit Converters</span></nav>
     <div class="tool-header">
-      <h1>All Unit Converters — 200+ Units</h1>
+      <h1>All Unit Converters â€” 200+ Units</h1>
       <p>Convert between units across 10 categories: length, weight, temperature, volume, area, speed, time, data storage, pressure, and energy. Instant, private, browser-based.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All conversions happen locally. Your numbers never leave your device.</span></div>
+    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span><strong>Privacy first:</strong> All conversions happen locally. Your numbers never leave your device.</span></div>
     <div class="converter-widget" id="ucWidget" style="max-width:100%;">
       <div class="uc-categories" id="ucCategories"></div>
       <div class="uc-row">
@@ -61,7 +67,7 @@
       <div class="uc-row">
         <label>From</label>
         <select id="ucFrom"></select>
-        <button class="uc-swap" id="ucSwap" aria-label="Swap units">⇄</button>
+        <button class="uc-swap" id="ucSwap" aria-label="Swap units">â‡„</button>
         <label>To</label>
         <select id="ucTo"></select>
       </div>
@@ -72,7 +78,7 @@
     <div class="content-section">
       <h2>How to Use the Unit Converter</h2>
       <div class="how-it-works">
-        <div class="how-step"><div class="how-step-num">1</div><h3>Select a Category</h3><p>Click on a category tab — Length, Weight, Temperature, or any of the 10 supported types.</p></div>
+        <div class="how-step"><div class="how-step-num">1</div><h3>Select a Category</h3><p>Click on a category tab â€” Length, Weight, Temperature, or any of the 10 supported types.</p></div>
         <div class="how-step"><div class="how-step-num">2</div><h3>Enter Your Value</h3><p>Type the number you want to convert. The result updates in real time as you type.</p></div>
         <div class="how-step"><div class="how-step-num">3</div><h3>Choose Units</h3><p>Select the source and target units from the dropdowns. Use the swap button to reverse.</p></div>
       </div>
@@ -80,16 +86,16 @@
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">What unit categories are supported? <span class="arrow">▼</span></button><div class="faq-answer">All Unit Converters supports 10 categories: length, weight/mass, temperature, volume, area, speed, time, data storage, pressure, and energy. Each category includes common and specialized units.</div></div>
-        <div class="faq-item"><button class="faq-question">Are the conversions accurate? <span class="arrow">▼</span></button><div class="faq-answer">Yes. All conversions use internationally recognized standard formulas and conversion factors. Results are displayed with up to 10 decimal places for precision.</div></div>
-        <div class="faq-item"><button class="faq-question">Is my data uploaded to a server? <span class="arrow">▼</span></button><div class="faq-answer">No. Every conversion runs locally in your browser using JavaScript. Your numbers never leave your device. You can verify this in your browser's Network tab.</div></div>
-        <div class="faq-item"><button class="faq-question">Is this unit converter free? <span class="arrow">▼</span></button><div class="faq-answer">Yes, completely free with no limits, no signup, and no restrictions. All 200+ units across all categories are available without any gates.</div></div>
+        <div class="faq-item"><button class="faq-question">What unit categories are supported? <span class="arrow">â–¼</span></button><div class="faq-answer">All Unit Converters supports 10 categories: length, weight/mass, temperature, volume, area, speed, time, data storage, pressure, and energy. Each category includes common and specialized units.</div></div>
+        <div class="faq-item"><button class="faq-question">Are the conversions accurate? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. All conversions use internationally recognized standard formulas and conversion factors. Results are displayed with up to 10 decimal places for precision.</div></div>
+        <div class="faq-item"><button class="faq-question">Is my data uploaded to a server? <span class="arrow">â–¼</span></button><div class="faq-answer">No. Every conversion runs locally in your browser using JavaScript. Your numbers never leave your device. You can verify this in your browser's Network tab.</div></div>
+        <div class="faq-item"><button class="faq-question">Is this unit converter free? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes, completely free with no limits, no signup, and no restrictions. All 200+ units across all categories are available without any gates.</div></div>
       </div>
     </div>
     <div class="ad-container">Ad</div>
   </main>
   <footer class="site-footer">
-    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+    <div class="footer-content"><div class="footer-copy">Â© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
   </footer>
   <script src="js/shared.js?v=2"></script>
   <script>
@@ -102,32 +108,32 @@
           meter: 1, kilometer: 1000, centimeter: 0.01, millimeter: 0.001, micrometer: 1e-6, nanometer: 1e-9,
           mile: 1609.344, yard: 0.9144, foot: 0.3048, inch: 0.0254, nautical_mile: 1852
         },
-        labels: { meter:'Meter (m)', kilometer:'Kilometer (km)', centimeter:'Centimeter (cm)', millimeter:'Millimeter (mm)', micrometer:'Micrometer (µm)', nanometer:'Nanometer (nm)', mile:'Mile (mi)', yard:'Yard (yd)', foot:'Foot (ft)', inch:'Inch (in)', nautical_mile:'Nautical Mile (nmi)' }
+        labels: { meter:'Meter (m)', kilometer:'Kilometer (km)', centimeter:'Centimeter (cm)', millimeter:'Millimeter (mm)', micrometer:'Micrometer (Âµm)', nanometer:'Nanometer (nm)', mile:'Mile (mi)', yard:'Yard (yd)', foot:'Foot (ft)', inch:'Inch (in)', nautical_mile:'Nautical Mile (nmi)' }
       },
       weight: {
         name: 'Weight / Mass',
         base: 'kilogram',
         units: { kilogram: 1, gram: 0.001, milligram: 1e-6, microgram: 1e-9, 'metric_ton': 1000, pound: 0.453592, ounce: 0.0283495, stone: 6.35029, 'us_ton': 907.185 },
-        labels: { kilogram:'Kilogram (kg)', gram:'Gram (g)', milligram:'Milligram (mg)', microgram:'Microgram (µg)', metric_ton:'Metric Ton (t)', pound:'Pound (lb)', ounce:'Ounce (oz)', stone:'Stone (st)', us_ton:'US Ton' }
+        labels: { kilogram:'Kilogram (kg)', gram:'Gram (g)', milligram:'Milligram (mg)', microgram:'Microgram (Âµg)', metric_ton:'Metric Ton (t)', pound:'Pound (lb)', ounce:'Ounce (oz)', stone:'Stone (st)', us_ton:'US Ton' }
       },
       temperature: {
         name: 'Temperature',
         base: 'celsius',
         units: { celsius: 'base', fahrenheit: 'f', kelvin: 'k' },
-        labels: { celsius:'Celsius (°C)', fahrenheit:'Fahrenheit (°F)', kelvin:'Kelvin (K)' },
+        labels: { celsius:'Celsius (Â°C)', fahrenheit:'Fahrenheit (Â°F)', kelvin:'Kelvin (K)' },
         special: true
       },
       volume: {
         name: 'Volume',
         base: 'liter',
         units: { liter: 1, milliliter: 0.001, 'cubic_meter': 1000, gallon: 3.78541, quart: 0.946353, pint: 0.473176, cup: 0.236588, 'fluid_ounce': 0.0295735, tablespoon: 0.0147868, teaspoon: 0.00492892 },
-        labels: { liter:'Liter (L)', milliliter:'Milliliter (mL)', cubic_meter:'Cubic Meter (m³)', gallon:'Gallon (gal)', quart:'Quart (qt)', pint:'Pint (pt)', cup:'Cup', fluid_ounce:'Fluid Ounce (fl oz)', tablespoon:'Tablespoon (tbsp)', teaspoon:'Teaspoon (tsp)' }
+        labels: { liter:'Liter (L)', milliliter:'Milliliter (mL)', cubic_meter:'Cubic Meter (mÂ³)', gallon:'Gallon (gal)', quart:'Quart (qt)', pint:'Pint (pt)', cup:'Cup', fluid_ounce:'Fluid Ounce (fl oz)', tablespoon:'Tablespoon (tbsp)', teaspoon:'Teaspoon (tsp)' }
       },
       area: {
         name: 'Area',
         base: 'sq_meter',
         units: { sq_meter: 1, sq_kilometer: 1e6, sq_mile: 2589988, acre: 4046.86, hectare: 10000, sq_yard: 0.836127, sq_foot: 0.092903, sq_inch: 0.00064516 },
-        labels: { sq_meter:'Square Meter (m²)', sq_kilometer:'Square Kilometer (km²)', sq_mile:'Square Mile (mi²)', acre:'Acre', hectare:'Hectare (ha)', sq_yard:'Square Yard (yd²)', sq_foot:'Square Foot (ft²)', sq_inch:'Square Inch (in²)' }
+        labels: { sq_meter:'Square Meter (mÂ²)', sq_kilometer:'Square Kilometer (kmÂ²)', sq_mile:'Square Mile (miÂ²)', acre:'Acre', hectare:'Hectare (ha)', sq_yard:'Square Yard (ydÂ²)', sq_foot:'Square Foot (ftÂ²)', sq_inch:'Square Inch (inÂ²)' }
       },
       speed: {
         name: 'Speed',
@@ -151,7 +157,7 @@
         name: 'Pressure',
         base: 'pascal',
         units: { pascal: 1, kilopascal: 1000, bar: 100000, psi: 6894.76, atm: 101325, mmHg: 133.322, torr: 133.322 },
-        labels: { pascal:'Pascal (Pa)', kilopascal:'Kilopascal (kPa)', bar:'Bar', psi:'PSI (lb/in²)', atm:'Atmosphere (atm)', mmHg:'mmHg (torr)', torr:'Torr' }
+        labels: { pascal:'Pascal (Pa)', kilopascal:'Kilopascal (kPa)', bar:'Bar', psi:'PSI (lb/inÂ²)', atm:'Atmosphere (atm)', mmHg:'mmHg (torr)', torr:'Torr' }
       },
       energy: {
         name: 'Energy',
@@ -221,7 +227,7 @@
     }
 
     function formatResult(v) {
-      if (v === Infinity || isNaN(v)) return '—';
+      if (v === Infinity || isNaN(v)) return 'â€”';
       if (Math.abs(v) >= 1e12 || (Math.abs(v) < 1e-10 && v !== 0)) return v.toExponential(6);
       return parseFloat(v.toFixed(10)).toString();
     }

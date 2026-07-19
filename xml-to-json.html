@@ -1,40 +1,46 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XML to JSON Converter — Convert XML to JSON Online | ConvertPivot</title>
+  <title>XML to JSON Converter â€” Convert XML to JSON Online | ConvertPivot</title>
   <meta name="description" content="Free online XML to JSON converter. Convert XML documents to JSON format for easier data handling. 100% browser-based, no upload required.">
     <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/xml-to-json">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/xml-to-json">
-  <meta property="og:title" content="XML to JSON Converter — Free Online Tool | ConvertPivot">
+  <meta property="og:title" content="XML to JSON Converter â€” Free Online Tool | ConvertPivot">
   <meta property="og:description" content="Free online XML to JSON converter. Convert XML documents to JSON format for easier data handling. 100% browser-based, no upload required.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="XML to JSON Converter — Free Online Tool | ConvertPivot">
+  <meta name="twitter:title" content="XML to JSON Converter â€” Free Online Tool | ConvertPivot">
   <meta name="twitter:description" content="Free online XML to JSON converter. Convert XML documents to JSON format for easier data handling. 100% browser-based, no upload required.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="icon" href="/favicon.png" sizes="32x32">
-  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-96.png" sizes="96x96" type="image/png">
+  <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#FF0000">
+  <meta name="msapplication-TileColor" content="#FF0000">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"XML to JSON Converter","url":"https://convertpivot.com/xml-to-json","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online XML to JSON converter. Convert XML documents to JSON format for easier data handling. 100% browser-based, no upload required.","browserRequirements":"JavaScript"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is XML to JSON conversion lossy?","acceptedAnswer":{"@type":"Answer","text":"XML to JSON conversion can be somewhat lossy because XML has features like attributes, namespaces, and processing instructions that don't have direct JSON equivalents. Our converter preserves attributes with @ prefix to minimize data loss."}},{"@type":"Question","name":"How are XML attributes handled?","acceptedAnswer":{"@type":"Answer","text":"XML attributes are converted to JSON properties prefixed with @ (e.g., @id, @class). This ensures attributes are distinguishable from child elements in the resulting JSON structure."}},{"@type":"Question","name":"What about XML namespaces?","acceptedAnswer":{"@type":"Answer","text":"XML namespace declarations and prefixes are preserved as part of element and attribute names. For example, &lt;ns:element&gt; becomes a property named \"ns:element\" in the JSON output."}},{"@type":"Question","name":"Is this tool free?","acceptedAnswer":{"@type":"Answer","text":"Yes, this XML to JSON converter is completely free with no usage limits, no registration, and no hidden charges. All processing happens client-side in your browser."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">ðŸŒ™</button></header>
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">XML to JSON Converter</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">XML to JSON Converter</span></nav>
     <div class="tool-header">
       <h1>XML to JSON Converter</h1>
       <p>Convert XML documents to JSON format instantly in your browser. Handles attributes, nested elements, and multiple children with complete privacy.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
+    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
     <div class="converter-widget" id="toolWidget">
       <div class="converter-container">
         <div class="converter-input">
@@ -63,10 +69,10 @@
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">Is XML to JSON conversion lossy? <span class="arrow">▼</span></button><div class="faq-answer">XML to JSON conversion can be somewhat lossy because XML has features like attributes, namespaces, and processing instructions that don't have direct JSON equivalents. Our converter preserves attributes with @ prefix to minimize data loss.</div></div>
-        <div class="faq-item"><button class="faq-question">How are XML attributes handled? <span class="arrow">▼</span></button><div class="faq-answer">XML attributes are converted to JSON properties prefixed with @ (e.g., @id, @class). This ensures attributes are distinguishable from child elements in the resulting JSON structure.</div></div>
-        <div class="faq-item"><button class="faq-question">What about XML namespaces? <span class="arrow">▼</span></button><div class="faq-answer">XML namespace declarations and prefixes are preserved as part of element and attribute names. For example, &lt;ns:element&gt; becomes a property named "ns:element" in the JSON output.</div></div>
-        <div class="faq-item"><button class="faq-question">Is this tool free? <span class="arrow">▼</span></button><div class="faq-answer">Yes, this XML to JSON converter is completely free with no usage limits, no registration, and no hidden charges. All processing happens client-side in your browser.</div></div>
+        <div class="faq-item"><button class="faq-question">Is XML to JSON conversion lossy? <span class="arrow">â–¼</span></button><div class="faq-answer">XML to JSON conversion can be somewhat lossy because XML has features like attributes, namespaces, and processing instructions that don't have direct JSON equivalents. Our converter preserves attributes with @ prefix to minimize data loss.</div></div>
+        <div class="faq-item"><button class="faq-question">How are XML attributes handled? <span class="arrow">â–¼</span></button><div class="faq-answer">XML attributes are converted to JSON properties prefixed with @ (e.g., @id, @class). This ensures attributes are distinguishable from child elements in the resulting JSON structure.</div></div>
+        <div class="faq-item"><button class="faq-question">What about XML namespaces? <span class="arrow">â–¼</span></button><div class="faq-answer">XML namespace declarations and prefixes are preserved as part of element and attribute names. For example, &lt;ns:element&gt; becomes a property named "ns:element" in the JSON output.</div></div>
+        <div class="faq-item"><button class="faq-question">Is this tool free? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes, this XML to JSON converter is completely free with no usage limits, no registration, and no hidden charges. All processing happens client-side in your browser.</div></div>
       </div>
     </div>
     <div class="content-section">
@@ -80,7 +86,7 @@
     <div class="ad-container">Ad</div>
   </main>
   <footer class="site-footer">
-    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+    <div class="footer-content"><div class="footer-copy">Â© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
   </footer>
   <script src="js/shared.js?v=2"></script>
   <script>
@@ -151,7 +157,7 @@
 
           const parseError = doc.querySelector('parsererror');
           if (parseError) {
-            jsonOutput.value = 'Error: Invalid XML — ' + parseError.textContent;
+            jsonOutput.value = 'Error: Invalid XML â€” ' + parseError.textContent;
             return;
           }
 

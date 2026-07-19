@@ -1,48 +1,54 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CBZ to PDF Converter — Comic Book Archive to PDF | ConvertPivot</title>
+  <title>CBZ to PDF Converter â€” Comic Book Archive to PDF | ConvertPivot</title>
   <meta name="description" content="Free online CBZ to PDF converter. Convert comic book archive files (CBZ) to PDF documents. Browser-based, no uploads, no server.">
   <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/cbz-to-pdf">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/cbz-to-pdf">
-  <meta property="og:title" content="CBZ to PDF Converter — Free Online Tool | ConvertPivot">
+  <meta property="og:title" content="CBZ to PDF Converter â€” Free Online Tool | ConvertPivot">
   <meta property="og:description" content="Free online CBZ to PDF converter. Convert comic book archive files (CBZ) to PDF documents. Browser-based, no uploads, no server.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="CBZ to PDF Converter — Free Online Tool | ConvertPivot">
+  <meta name="twitter:title" content="CBZ to PDF Converter â€” Free Online Tool | ConvertPivot">
   <meta name="twitter:description" content="Free online CBZ to PDF converter. Convert comic book archive files (CBZ) to PDF documents. Browser-based, no uploads, no server.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="icon" href="/favicon.png" sizes="32x32">
-  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-96.png" sizes="96x96" type="image/png">
+  <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#FF0000">
+  <meta name="msapplication-TileColor" content="#FF0000">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CBZ to PDF Converter","url":"https://convertpivot.com/cbz-to-pdf","applicationCategory":"Multimedia","operatingSystem":"All","description":"Free online CBZ to PDF converter. Convert comic book archive files (CBZ) to PDF documents. Browser-based, no uploads, no server.","browserRequirements":"JavaScript"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a CBZ file?","acceptedAnswer":{"@type":"Answer","text":"CBZ (Comic Book ZIP) is a compressed archive format for comic books and manga. It is essentially a ZIP file containing sequentially numbered images (usually JPEG or PNG) that represent each page of the comic."}},{"@type":"Question","name":"Will the PDF look like the original comic?","acceptedAnswer":{"@type":"Answer","text":"Yes. Each page image from the CBZ is placed on its own PDF page and scaled to fit the page dimensions while maintaining the original aspect ratio. Image quality is preserved."}},{"@type":"Question","name":"What image formats are supported inside CBZ?","acceptedAnswer":{"@type":"Answer","text":"Our converter supports JPEG, PNG, WebP, GIF, and BMP images commonly found in CBZ archives. All images are sorted by filename before being added to the PDF to ensure correct page order."}},{"@type":"Question","name":"Are my files uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All processing happens entirely in your browser. Your CBZ file is extracted locally with JSZip and the PDF is generated client-side with jsPDF. Your files never leave your device."}},{"@type":"Question","name":"Is this tool free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no usage limits, no registration, and no hidden charges. All processing runs in your browser using open-source libraries."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">ðŸŒ™</button></header>
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">CBZ to PDF Converter</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">CBZ to PDF Converter</span></nav>
     <div class="tool-header">
       <h1>CBZ to PDF Converter</h1>
       <p>Convert comic book archive files (CBZ) to PDF documents. Each page image is placed on its own PDF page with full quality preserved.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your files never leave your device.</span></div>
+    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span>100% browser-based. Your files never leave your device.</span></div>
     <div class="converter-widget" id="cbzToPdfWidget">
       <div class="drop-zone" id="cbzDropZone">
-        <div class="drop-zone-icon">📚</div>
+        <div class="drop-zone-icon">ðŸ“š</div>
         <div class="drop-zone-text">Drop <strong>CBZ file</strong> here, or click to browse</div>
         <div class="drop-zone-hint">Supports .cbz comic book archives</div>
         <input type="file" accept=".cbz" aria-label="Choose CBZ file">
       </div>
-      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">✕</button></div>
+      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">âœ•</button></div>
       <div class="converter-controls"><button class="btn btn-primary" id="convertBtn">Convert to PDF</button></div>
       <div class="progress-bar" id="progressBar"><div class="progress-bar-fill"></div></div>
       <div class="converter-actions" id="downloadSection" style="display:none;">
@@ -57,11 +63,11 @@
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">What is a CBZ file? <span class="arrow">▼</span></button><div class="faq-answer">CBZ (Comic Book ZIP) is a compressed archive format for comic books and manga. It is essentially a ZIP file containing sequentially numbered images (usually JPEG or PNG) that represent each page of the comic.</div></div>
-        <div class="faq-item"><button class="faq-question">Will the PDF look like the original comic? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Each page image from the CBZ is placed on its own PDF page and scaled to fit the page dimensions while maintaining the original aspect ratio. Image quality is preserved.</div></div>
-        <div class="faq-item"><button class="faq-question">What image formats are supported inside CBZ? <span class="arrow">▼</span></button><div class="faq-answer">Our converter supports JPEG, PNG, WebP, GIF, and BMP images commonly found in CBZ archives. All images are sorted by filename before being added to the PDF to ensure correct page order.</div></div>
-        <div class="faq-item"><button class="faq-question">Are my files uploaded to a server? <span class="arrow">▼</span></button><div class="faq-answer">No. All processing happens entirely in your browser. Your CBZ file is extracted locally with JSZip and the PDF is generated client-side with jsPDF. Your files never leave your device.</div></div>
-        <div class="faq-item"><button class="faq-question">Is this tool free? <span class="arrow">▼</span></button><div class="faq-answer">Yes, completely free with no usage limits, no registration, and no hidden charges. All processing runs in your browser using open-source libraries.</div></div>
+        <div class="faq-item"><button class="faq-question">What is a CBZ file? <span class="arrow">â–¼</span></button><div class="faq-answer">CBZ (Comic Book ZIP) is a compressed archive format for comic books and manga. It is essentially a ZIP file containing sequentially numbered images (usually JPEG or PNG) that represent each page of the comic.</div></div>
+        <div class="faq-item"><button class="faq-question">Will the PDF look like the original comic? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. Each page image from the CBZ is placed on its own PDF page and scaled to fit the page dimensions while maintaining the original aspect ratio. Image quality is preserved.</div></div>
+        <div class="faq-item"><button class="faq-question">What image formats are supported inside CBZ? <span class="arrow">â–¼</span></button><div class="faq-answer">Our converter supports JPEG, PNG, WebP, GIF, and BMP images commonly found in CBZ archives. All images are sorted by filename before being added to the PDF to ensure correct page order.</div></div>
+        <div class="faq-item"><button class="faq-question">Are my files uploaded to a server? <span class="arrow">â–¼</span></button><div class="faq-answer">No. All processing happens entirely in your browser. Your CBZ file is extracted locally with JSZip and the PDF is generated client-side with jsPDF. Your files never leave your device.</div></div>
+        <div class="faq-item"><button class="faq-question">Is this tool free? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes, completely free with no usage limits, no registration, and no hidden charges. All processing runs in your browser using open-source libraries.</div></div>
       </div>
     </div>
     <div class="content-section">

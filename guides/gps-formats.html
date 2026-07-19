@@ -1,51 +1,57 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GPS File Formats — GPX vs KML vs FIT Guide | ConvertPivot</title>
+  <title>GPS File Formats â€” GPX vs KML vs FIT Guide | ConvertPivot</title>
   <meta name="description" content="Complete guide to GPS and fitness file formats. Compare GPX, KML, and FIT formats for Garmin, Google Earth, Strava, and GPS devices.">
     <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/guides/gps-formats">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/guides/gps-formats">
-  <meta property="og:title" content="GPS File Formats — GPX vs KML vs FIT Guide | ConvertPivot">
+  <meta property="og:title" content="GPS File Formats â€” GPX vs KML vs FIT Guide | ConvertPivot">
   <meta property="og:description" content="Complete guide to GPS and fitness file formats. Compare GPX, KML, and FIT formats for Garmin, Google Earth, Strava, and GPS devices.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="GPS File Formats — GPX vs KML vs FIT Guide | ConvertPivot">
+  <meta name="twitter:title" content="GPS File Formats â€” GPX vs KML vs FIT Guide | ConvertPivot">
   <meta name="twitter:description" content="Complete guide to GPS and fitness file formats. Compare GPX, KML, and FIT formats for Garmin, Google Earth, Strava, and GPS devices.">
   <link rel="stylesheet" href="../css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="icon" href="/favicon.png" sizes="32x32">
-  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-96.png" sizes="96x96" type="image/png">
+  <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#FF0000">
+  <meta name="msapplication-TileColor" content="#FF0000">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"GPS File Formats Guide","url":"https://convertpivot.com/guides/gps-formats","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Complete guide to GPS and fitness file formats. Compare GPX, KML, and FIT formats for Garmin, Google Earth, Strava, and GPS devices.","browserRequirements":"JavaScript"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between GPX and KML?","acceptedAnswer":{"@type":"Answer","text":"GPX (GPS Exchange Format) is an XML format designed for GPS data like waypoints, tracks, and routes from GPS devices. KML (Keyhole Markup Language) is a Google Earth format focused on geographic visualization with placemarks, polygons, and styles. GPX is better for GPS device data, while KML is better for map visualization."}},{"@type":"Question","name":"Can I convert FIT files to GPX?","acceptedAnswer":{"@type":"Answer","text":"Yes, FIT files can be converted to GPX using ConvertPivot's FIT to GPX converter. The tool extracts GPS track data, timestamps, heart rate, and other sensor data from the binary FIT file and writes it to the standard GPX XML format compatible with most GPS applications."}},{"@type":"Question","name":"Which GPS format is best for Google Earth?","acceptedAnswer":{"@type":"Answer","text":"KML is the native format for Google Earth and offers the best visualization features including placemark icons, colored tracks, polygons, and 3D terrain overlay. GPX files can be opened in Google Earth too, but KML provides richer styling and annotation options."}},{"@type":"Question","name":"What is a FIT file and how is it different from GPX?","acceptedAnswer":{"@type":"Answer","text":"FIT (Flexible and Interchangeable Data Transfer) is Garmin's binary format for fitness data. Unlike GPX, which stores only GPS coordinates and basic metadata, FIT stores detailed sensor data including heart rate, cadence, power, temperature, elevation, and lap information. FIT files are smaller because they use binary encoding."}},{"@type":"Question","name":"How do I convert GPS data to CSV for analysis?","acceptedAnswer":{"@type":"Answer","text":"Use ConvertPivot's GPX to CSV or FIT to CSV tools to convert GPS data to tabular format. The CSV output includes columns for latitude, longitude, elevation, timestamp, and optionally heart rate and cadence for FIT files. This makes the data easy to analyze in Excel, Python, or data visualization tools."}}]}</script>
 </head>
 <body>
   <header class="site-header">
-    <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
-    <a href="../" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+    <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button>
+    <a href="../" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">ðŸŒ™</button></header>
 
   <nav id="sidebar" class="sidebar"></nav>
 
   <main id="main-content" class="main-content">
     <nav class="breadcrumb">
-      <a href="../">Home</a><span class="sep">›</span>
-      <a href="../guides">Guides</a><span class="sep">›</span>
+      <a href="../">Home</a><span class="sep">â€º</span>
+      <a href="../guides">Guides</a><span class="sep">â€º</span>
       <span class="current">GPS Formats</span>
     </nav>
 
     <div class="tool-header">
-      <h1>GPS File Formats Guide — GPX vs KML vs FIT</h1>
+      <h1>GPS File Formats Guide â€” GPX vs KML vs FIT</h1>
       <p>A comprehensive guide to GPS and fitness tracking file formats, their structures, use cases, and how to convert between them.</p>
     </div>
 
     <div class="privacy-banner">
-      <span class="icon">🔒</span>
+      <span class="icon">ðŸ”’</span>
       <span>100% browser-based guides and tools. No data leaves your device.</span>
     </div>
 
@@ -54,21 +60,21 @@
       <p>Global Positioning System (GPS) devices and fitness trackers generate data in several file formats designed for different purposes. GPX is the standard interchange format for GPS devices, used by handheld GPS units from Garmin, Magellan, and others. KML is Google Earth's format for geographic visualization and annotation. FIT is Garmin's binary format for fitness and health data, storing not just position but also heart rate, cadence, power, and other biometric metrics. Understanding these formats is essential for anyone who works with GPS data, whether for outdoor recreation, fitness tracking, geographical analysis, or data visualization.</p>
       <p>Each format has its strengths. GPX excels at representing routes, tracks, and waypoints in a clean XML structure. KML provides rich visualization capabilities with custom styles, placemark icons, and 3D features. FIT offers compact binary storage of high-resolution sensor data from fitness devices. Choosing the right format depends on your device, your analysis goals, and the software you plan to use.</p>
 
-      <h2>GPX — GPS Exchange Format</h2>
+      <h2>GPX â€” GPS Exchange Format</h2>
       <p>GPX (GPS Exchange Format) is an XML-based open standard for sharing GPS data between different software applications and devices. It was developed by Garmin and is now maintained by Topografix. GPX files store three primary types of GPS data: waypoints (single geographic points), tracks (ordered sequences of points recorded by a moving GPS receiver), and routes (planned sequences of points for navigation). The GPX schema uses XML namespaces and includes optional extensions for altitude, time, satellite information, and sensor data.</p>
       <h3>GPX Structure</h3>
       <p>A GPX file begins with a <code>&lt;gpx&gt;</code> root element that specifies the version, creator application, and XML namespace. Waypoints are stored in <code>&lt;wpt&gt;</code> elements with latitude and longitude attributes. Tracks are stored in <code>&lt;trk&gt;</code> elements containing one or more <code>&lt;trkseg&gt;</code> (track segments), each containing <code>&lt;trkpt&gt;</code> (track points). Routes are stored in <code>&lt;rte&gt;</code> elements with <code>&lt;rtept&gt;</code> route points. Each point can include optional child elements for elevation (<code>&lt;ele&gt;</code>), timestamp (<code>&lt;time&gt;</code>), and name (<code>&lt;name&gt;</code>). GPX extensions allow adding heart rate, cadence, temperature, and other sensor data.</p>
       <h3>Common Uses of GPX</h3>
       <p>GPX is used extensively by outdoor enthusiasts to record hiking, cycling, and running routes. Garmin handheld GPS devices export tracks in GPX format. OpenStreetMap contributors use GPX to upload GPS traces. Navigation apps like Komoot, AllTrails, and Gaia GPS support GPX import and export. GPX is also the standard format for sharing geocaching locations and motorcycle tour routes.</p>
 
-      <h2>KML — Keyhole Markup Language</h2>
+      <h2>KML â€” Keyhole Markup Language</h2>
       <p>KML (Keyhole Markup Language) is an XML-based format developed by Keyhole Inc. (later acquired by Google) for displaying geographic data in Google Earth and other Earth browsers. KML was adopted as an OGC (Open Geospatial Consortium) standard in 2008. Unlike GPX, which is focused on GPS position data, KML is designed for geographic visualization. It supports placemarks with custom icons, paths, polygons, ground overlays, 3D models, and time-based animations.</p>
       <h3>KML Features</h3>
       <p>KML placemarks (<code>&lt;Placemark&gt;</code>) can contain a name, description, icon style, and geometry (point, line string, polygon). Styles (<code>&lt;Style&gt;</code>) define the visual appearance of features including color, line width, icon scaling, and label placement. Folders (<code>&lt;Folder&gt;</code>) organize features hierarchically. Network links (<code>&lt;NetworkLink&gt;</code>) load remote KML content dynamically. The <code>&lt;gx:Track&gt;</code> extension supports GPS track data with timestamps for time-based animation. KML also supports extended data (<code>&lt;ExtendedData&gt;</code>) for attaching custom attributes to features.</p>
       <h3>When to Use KML</h3>
       <p>KML is the best choice when your goal is geographic visualization and map sharing. If you want to show a hiking route on Google Earth with colored trail segments, waypoint markers, and informational popups, KML is the ideal format. KML is also used for sharing geographic data in academic research, environmental monitoring, urban planning, and tourism. Google My Maps exports to KML, making it easy to share custom maps.</p>
 
-      <h2>FIT — Flexible and Interchangeable Data Transfer</h2>
+      <h2>FIT â€” Flexible and Interchangeable Data Transfer</h2>
       <p>FIT (Flexible and Interchangeable Data Transfer) is Garmin's proprietary binary format for fitness and health data. Unlike GPX and KML, which are XML-based and human-readable, FIT files are compact binary files designed for efficient storage of high-resolution sensor data. FIT files are generated by Garmin fitness devices, including Forerunner watches, Edge cycling computers, Fenix multisport watches, and Vivo fitness trackers. The FIT protocol defines a flexible data structure where messages contain fields with defined types and units.</p>
       <h3>FIT Structure</h3>
       <p>A FIT file begins with a 12-byte file header containing the protocol version, profile version, and data size. The body consists of a sequence of records, each containing a message type and its fields. Common message types include File ID (device identification), Session (activity summary), Lap (segment information), Record (individual sensor data points), and Event (laps, pauses, and markers). Each record message contains fields for timestamp, position (latitude/longitude), altitude, heart rate, speed, cadence, power, temperature, and more. The binary encoding makes FIT files significantly smaller than equivalent GPX files with the same data.</p>
@@ -103,23 +109,23 @@
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
         <div class="faq-item">
-          <button class="faq-question">What is the difference between GPX and KML? <span class="arrow">▼</span></button>
+          <button class="faq-question">What is the difference between GPX and KML? <span class="arrow">â–¼</span></button>
           <div class="faq-answer">GPX (GPS Exchange Format) is an XML format designed for GPS data like waypoints, tracks, and routes from GPS devices. KML (Keyhole Markup Language) is a Google Earth format focused on geographic visualization with placemarks, polygons, and styles. GPX is better for GPS device data, while KML is better for map visualization.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">Can I convert FIT files to GPX? <span class="arrow">▼</span></button>
+          <button class="faq-question">Can I convert FIT files to GPX? <span class="arrow">â–¼</span></button>
           <div class="faq-answer">Yes, FIT files can be converted to GPX using ConvertPivot's FIT to GPX converter. The tool extracts GPS track data, timestamps, heart rate, and other sensor data from the binary FIT file and writes it to the standard GPX XML format compatible with most GPS applications.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">Which GPS format is best for Google Earth? <span class="arrow">▼</span></button>
+          <button class="faq-question">Which GPS format is best for Google Earth? <span class="arrow">â–¼</span></button>
           <div class="faq-answer">KML is the native format for Google Earth and offers the best visualization features including placemark icons, colored tracks, polygons, and 3D terrain overlay. GPX files can be opened in Google Earth too, but KML provides richer styling and annotation options.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">What is a FIT file and how is it different from GPX? <span class="arrow">▼</span></button>
+          <button class="faq-question">What is a FIT file and how is it different from GPX? <span class="arrow">â–¼</span></button>
           <div class="faq-answer">FIT (Flexible and Interchangeable Data Transfer) is Garmin's binary format for fitness data. Unlike GPX, which stores only GPS coordinates and basic metadata, FIT stores detailed sensor data including heart rate, cadence, power, temperature, elevation, and lap information. FIT files are smaller because they use binary encoding.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">How do I convert GPS data to CSV for analysis? <span class="arrow">▼</span></button>
+          <button class="faq-question">How do I convert GPS data to CSV for analysis? <span class="arrow">â–¼</span></button>
           <div class="faq-answer">Use ConvertPivot's GPX to CSV or FIT to CSV tools to convert GPS data to tabular format. The CSV output includes columns for latitude, longitude, elevation, timestamp, and optionally heart rate and cadence for FIT files. This makes the data easy to analyze in Excel, Python, or data visualization tools.</div>
         </div>
       </div>
@@ -142,7 +148,7 @@
 
   <footer class="site-footer">
     <div class="footer-content">
-      <div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div>
+      <div class="footer-copy">Â© 2026 ConvertPivot. Free online converter tools.</div>
       <div class="footer-links">
         <a href="../">Home</a>
         <a href="../about">About</a>

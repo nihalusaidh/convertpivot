@@ -1,40 +1,46 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JSON to YAML Converter — Convert JSON to YAML Online | ConvertPivot</title>
+  <title>JSON to YAML Converter â€” Convert JSON to YAML Online | ConvertPivot</title>
   <meta name="description" content="Free online JSON to YAML converter. Convert JSON data to YAML format for configuration files. 100% browser-based, no upload.">
     <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/json-to-yaml">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/json-to-yaml">
-  <meta property="og:title" content="JSON to YAML Converter — Free Online Tool | ConvertPivot">
+  <meta property="og:title" content="JSON to YAML Converter â€” Free Online Tool | ConvertPivot">
   <meta property="og:description" content="Free online JSON to YAML converter. Convert JSON data to YAML format for configuration files. 100% browser-based, no upload.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="JSON to YAML Converter — Free Online Tool | ConvertPivot">
+  <meta name="twitter:title" content="JSON to YAML Converter â€” Free Online Tool | ConvertPivot">
   <meta name="twitter:description" content="Free online JSON to YAML converter. Convert JSON data to YAML format for configuration files. 100% browser-based, no upload.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="icon" href="/favicon.png" sizes="32x32">
-  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-96.png" sizes="96x96" type="image/png">
+  <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#FF0000">
+  <meta name="msapplication-TileColor" content="#FF0000">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"JSON to YAML Converter","url":"https://convertpivot.com/json-to-yaml","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online JSON to YAML converter. Convert JSON data to YAML format for configuration files. 100% browser-based, no upload.","browserRequirements":"JavaScript"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is YAML used for?","acceptedAnswer":{"@type":"Answer","text":"YAML is commonly used for configuration files (Docker Compose, Kubernetes, CI/CD pipelines, Ansible), data serialization, and as a human-readable alternative to JSON. It relies on indentation for structure."}},{"@type":"Question","name":"Does this support nested JSON?","acceptedAnswer":{"@type":"Answer","text":"Yes. Our converter handles nested objects and arrays at any depth. The indentation level increases with each nesting level to produce valid, readable YAML."}},{"@type":"Question","name":"Can I convert YAML back to JSON?","acceptedAnswer":{"@type":"Answer","text":"Not on this page, but we provide a YAML to JSON tool that handles the reverse conversion. Visit our related tools section to find it."}},{"@type":"Question","name":"Is this free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no limits or sign-ups. All processing is done client-side in your browser, so your data stays private."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">ðŸŒ™</button></header>
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">JSON to YAML Converter</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">JSON to YAML Converter</span></nav>
     <div class="tool-header">
       <h1>JSON to YAML Converter</h1>
       <p>Convert JSON objects to clean YAML format for configuration files, Docker Compose, and more. Fast, private, and free.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
+    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
     <div class="converter-widget" id="toolWidget">
       <div class="converter-container">
         <div class="converter-input">
@@ -63,10 +69,10 @@
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">What is YAML used for? <span class="arrow">▼</span></button><div class="faq-answer">YAML is commonly used for configuration files (Docker Compose, Kubernetes, CI/CD pipelines, Ansible), data serialization, and as a human-readable alternative to JSON. It relies on indentation for structure.</div></div>
-        <div class="faq-item"><button class="faq-question">Does this support nested JSON? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Our converter handles nested objects and arrays at any depth. The indentation level increases with each nesting level to produce valid, readable YAML.</div></div>
-        <div class="faq-item"><button class="faq-question">Can I convert YAML back to JSON? <span class="arrow">▼</span></button><div class="faq-answer">Not on this page, but we provide a YAML to JSON tool that handles the reverse conversion. Visit our related tools section to find it.</div></div>
-        <div class="faq-item"><button class="faq-question">Is this free? <span class="arrow">▼</span></button><div class="faq-answer">Yes, completely free with no limits or sign-ups. All processing is done client-side in your browser, so your data stays private.</div></div>
+        <div class="faq-item"><button class="faq-question">What is YAML used for? <span class="arrow">â–¼</span></button><div class="faq-answer">YAML is commonly used for configuration files (Docker Compose, Kubernetes, CI/CD pipelines, Ansible), data serialization, and as a human-readable alternative to JSON. It relies on indentation for structure.</div></div>
+        <div class="faq-item"><button class="faq-question">Does this support nested JSON? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. Our converter handles nested objects and arrays at any depth. The indentation level increases with each nesting level to produce valid, readable YAML.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I convert YAML back to JSON? <span class="arrow">â–¼</span></button><div class="faq-answer">Not on this page, but we provide a YAML to JSON tool that handles the reverse conversion. Visit our related tools section to find it.</div></div>
+        <div class="faq-item"><button class="faq-question">Is this free? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes, completely free with no limits or sign-ups. All processing is done client-side in your browser, so your data stays private.</div></div>
       </div>
     </div>
     <div class="content-section">
@@ -80,7 +86,7 @@
     <div class="ad-container">Ad</div>
   </main>
   <footer class="site-footer">
-    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+    <div class="footer-content"><div class="footer-copy">Â© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
   </footer>
   <script src="js/shared.js?v=2"></script>
   <script>
@@ -177,7 +183,7 @@
           const yaml = jsonToYaml(obj);
           yamlOutput.value = yaml;
         } catch (e) {
-          yamlOutput.value = 'Error: Invalid JSON — ' + e.message;
+          yamlOutput.value = 'Error: Invalid JSON â€” ' + e.message;
         }
       }
 

@@ -1459,7 +1459,7 @@
       '@type': 'Organization',
       name: 'ConvertPivot',
       url: 'https://convertpivot.com',
-      logo: 'https://convertpivot.com/og-image.png',
+      logo: 'https://convertpivot.com/favicon.svg',
       description: '110+ free online converter tools. 100% browser-based. Your files never leave your device.'
     });
     document.head.appendChild(orgScript);

@@ -1,40 +1,46 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Number System Converter — Binary Octal Decimal Hex | ConvertPivot</title>
+  <title>Number System Converter â€” Binary Octal Decimal Hex | ConvertPivot</title>
   <meta name="description" content="Free online number system converter. Convert between binary, octal, decimal, and hexadecimal instantly. 100% browser-based. No upload required.">
   <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/number-system-converter">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/number-system-converter">
-  <meta property="og:title" content="Number System Converter — Binary Octal Decimal Hex | ConvertPivot">
+  <meta property="og:title" content="Number System Converter â€” Binary Octal Decimal Hex | ConvertPivot">
   <meta property="og:description" content="Free online number system converter. Convert between binary, octal, decimal, and hexadecimal instantly. 100% browser-based.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Number System Converter — Binary Octal Decimal Hex | ConvertPivot">
+  <meta name="twitter:title" content="Number System Converter â€” Binary Octal Decimal Hex | ConvertPivot">
   <meta name="twitter:description" content="Free online number system converter. Convert between binary, octal, decimal, and hexadecimal instantly. 100% browser-based.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="icon" href="/favicon.png" sizes="32x32">
-  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-96.png" sizes="96x96" type="image/png">
+  <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#FF0000">
+  <meta name="msapplication-TileColor" content="#FF0000">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Number System Converter","url":"https://convertpivot.com/number-system-converter","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online number system converter. Convert between binary, octal, decimal, and hexadecimal. 100% browser-based.","browserRequirements":"JavaScript"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are binary, octal, decimal, and hexadecimal?","acceptedAnswer":{"@type":"Answer","text":"Binary (base-2) uses digits 0-1. Octal (base-8) uses digits 0-7. Decimal (base-10) uses digits 0-9. Hexadecimal (base-16) uses digits 0-9 and letters A-F. Each system represents numbers using a different base."}},{"@type":"Question","name":"How do you convert between number systems?","acceptedAnswer":{"@type":"Answer","text":"To convert to decimal, multiply each digit by its place value (base^position). To convert from decimal to another base, repeatedly divide by the base and read remainders in reverse. This tool does it automatically."}},{"@type":"Question","name":"Why are different number systems used in computing?","acceptedAnswer":{"@type":"Answer","text":"Binary is the native language of computers. Octal and hexadecimal are used as human-friendly representations because they're more compact than binary while preserving the bit pattern. Hexadecimal maps each nibble (4 bits) to one character."}},{"@type":"Question","name":"Is this tool free?","acceptedAnswer":{"@type":"Answer","text":"Yes, this number system converter is completely free. All conversion is done locally in your browser with no server uploads."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">ðŸŒ™</button></header>
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Number System Converter</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">Number System Converter</span></nav>
     <div class="tool-header">
       <h1>Number System Converter</h1>
       <p>Convert numbers between binary, octal, decimal, and hexadecimal instantly.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
+    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
     <div class="converter-widget" id="toolWidget">
       <div class="converter-form">
         <label for="nsInput">Enter Number:</label>
@@ -69,10 +75,10 @@
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">What are binary, octal, decimal, and hexadecimal? <span class="arrow">▼</span></button><div class="faq-answer">Binary (base-2) uses digits 0-1. Octal (base-8) uses digits 0-7. Decimal (base-10) uses digits 0-9. Hexadecimal (base-16) uses digits 0-9 and letters A-F. Each system represents numbers using a different base.</div></div>
-        <div class="faq-item"><button class="faq-question">How do you convert between number systems? <span class="arrow">▼</span></button><div class="faq-answer">To convert to decimal, multiply each digit by its place value (base^position). To convert from decimal to another base, repeatedly divide by the base and read remainders in reverse. This tool does it automatically.</div></div>
-        <div class="faq-item"><button class="faq-question">Why are different number systems used in computing? <span class="arrow">▼</span></button><div class="faq-answer">Binary is the native language of computers. Octal and hexadecimal are used as human-friendly representations because they're more compact than binary while preserving the bit pattern. Hexadecimal maps each nibble (4 bits) to one character.</div></div>
-        <div class="faq-item"><button class="faq-question">Is this tool free? <span class="arrow">▼</span></button><div class="faq-answer">Yes, this number system converter is completely free. All conversion is done locally in your browser with no server uploads.</div></div>
+        <div class="faq-item"><button class="faq-question">What are binary, octal, decimal, and hexadecimal? <span class="arrow">â–¼</span></button><div class="faq-answer">Binary (base-2) uses digits 0-1. Octal (base-8) uses digits 0-7. Decimal (base-10) uses digits 0-9. Hexadecimal (base-16) uses digits 0-9 and letters A-F. Each system represents numbers using a different base.</div></div>
+        <div class="faq-item"><button class="faq-question">How do you convert between number systems? <span class="arrow">â–¼</span></button><div class="faq-answer">To convert to decimal, multiply each digit by its place value (base^position). To convert from decimal to another base, repeatedly divide by the base and read remainders in reverse. This tool does it automatically.</div></div>
+        <div class="faq-item"><button class="faq-question">Why are different number systems used in computing? <span class="arrow">â–¼</span></button><div class="faq-answer">Binary is the native language of computers. Octal and hexadecimal are used as human-friendly representations because they're more compact than binary while preserving the bit pattern. Hexadecimal maps each nibble (4 bits) to one character.</div></div>
+        <div class="faq-item"><button class="faq-question">Is this tool free? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes, this number system converter is completely free. All conversion is done locally in your browser with no server uploads.</div></div>
       </div>
     </div>
     <div class="content-section" id="relatedTools">
@@ -82,7 +88,7 @@
     <div class="ad-container">Ad</div>
   </main>
   <footer class="site-footer">
-    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+    <div class="footer-content"><div class="footer-copy">Â© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
   </footer>
   <script src="js/shared.js?v=2"></script>
   <script>

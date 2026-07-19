@@ -1,50 +1,56 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unix Timestamp Converter — Epoch to Human Date | ConvertPivot</title>
+  <title>Unix Timestamp Converter â€” Epoch to Human Date | ConvertPivot</title>
   <meta name="description" content="Free online Unix timestamp converter. Convert between epoch seconds/milliseconds and human-readable dates instantly. No upload.">
     <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/timestamp-converter">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/timestamp-converter">
-  <meta property="og:title" content="Unix Timestamp Converter — Epoch to Human Date | ConvertPivot">
+  <meta property="og:title" content="Unix Timestamp Converter â€” Epoch to Human Date | ConvertPivot">
   <meta property="og:description" content="Free online Unix timestamp converter. Convert between epoch seconds/milliseconds and human-readable dates instantly.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Unix Timestamp Converter — Epoch to Human Date | ConvertPivot">
+  <meta name="twitter:title" content="Unix Timestamp Converter â€” Epoch to Human Date | ConvertPivot">
   <meta name="twitter:description" content="Free online Unix timestamp converter. Convert between epoch seconds/milliseconds and human-readable dates instantly.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="icon" href="/favicon.png" sizes="32x32">
-  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-96.png" sizes="96x96" type="image/png">
+  <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#FF0000">
+  <meta name="msapplication-TileColor" content="#FF0000">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Timestamp Converter","url":"https://convertpivot.com/timestamp-converter","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online Unix timestamp converter. Convert between epoch seconds/milliseconds and human-readable dates instantly. No upload."}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a Unix timestamp?","acceptedAnswer":{"@type":"Answer","text":"A Unix timestamp (or epoch time) is the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT), not counting leap seconds. It is widely used in programming and databases to represent points in time."}},{"@type":"Question","name":"How do you convert a timestamp to a date?","acceptedAnswer":{"@type":"Answer","text":"To convert a Unix timestamp to a date, multiply the timestamp by 1000 (to convert seconds to milliseconds) and pass it to JavaScript's Date() constructor. Our tool does this instantly as you type."}},{"@type":"Question","name":"What is the year 2038 problem?","acceptedAnswer":{"@type":"Answer","text":"The Year 2038 problem is that many systems store timestamps as a signed 32-bit integer, which can only represent dates up to January 19, 2038. After that, timestamps will overflow and wrap around to negative numbers, causing date calculation errors."}},{"@type":"Question","name":"Is this converter free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no limits, no signup, and no uploads. Everything runs in your browser."}}]}</script>
 </head>
 <body>
   <header class="site-header">
-    <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
-    <a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+    <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button>
+    <a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">ðŸŒ™</button></header>
 
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
 
   <main id="main-content" class="main-content">
     <nav class="breadcrumb">
-      <a href="/">Home</a><span class="sep">›</span>
+      <a href="/">Home</a><span class="sep">â€º</span>
       <span class="current">Timestamp Converter</span>
     </nav>
 
     <div class="tool-header">
-      <h1>Unix Timestamp Converter — Epoch to Human Date</h1>
+      <h1>Unix Timestamp Converter â€” Epoch to Human Date</h1>
       <p>Convert between Unix epoch timestamps and human-readable dates. Supports both seconds and milliseconds. Type in either field and the other updates instantly.</p>
     </div>
 
     <div class="privacy-banner">
-      <span class="icon">🔒</span>
+      <span class="icon">ðŸ”’</span>
       <span>100% browser-based. Your data never leaves your device. No server, no upload.</span>
     </div>
 
@@ -70,8 +76,8 @@
         <div id="tsUtc" style="font-family:monospace;font-size:0.95rem;">Thu, 12 Aug 2027 00:00:00 GMT</div>
       </div>
       <div style="margin-top:16px;">
-        <button class="btn btn-secondary" id="tsNowBtn">📌 Now</button>
-        <button class="btn btn-secondary" id="tsTodayBtn">🌅 Today at Midnight</button>
+        <button class="btn btn-secondary" id="tsNowBtn">ðŸ“Œ Now</button>
+        <button class="btn btn-secondary" id="tsTodayBtn">ðŸŒ… Today at Midnight</button>
       </div>
     </div>
 
@@ -85,20 +91,20 @@
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
         <div class="faq-item">
-          <button class="faq-question">What is a Unix timestamp? <span class="arrow">▼</span></button>
+          <button class="faq-question">What is a Unix timestamp? <span class="arrow">â–¼</span></button>
           <div class="faq-answer">A Unix timestamp (or epoch time) is the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT), not counting leap seconds. It is widely used in programming and databases.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">How do you convert a timestamp to a date? <span class="arrow">▼</span></button>
+          <button class="faq-question">How do you convert a timestamp to a date? <span class="arrow">â–¼</span></button>
           <div class="faq-answer">To convert a Unix timestamp to a date, multiply the timestamp by 1000 (to convert seconds to milliseconds) and pass it to JavaScript's Date() constructor. Our tool does this instantly as you type.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">What is the year 2038 problem? <span class="arrow">▼</span></button>
+          <button class="faq-question">What is the year 2038 problem? <span class="arrow">â–¼</span></button>
           <div class="faq-answer">The Year 2038 problem is that many systems store timestamps as a signed 32-bit integer, which can only represent dates up to January 19, 2038. After that, timestamps will overflow and wrap around to negative numbers.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">What is the difference between seconds and milliseconds? <span class="arrow">▼</span></button>
-          <div class="faq-answer">Unix timestamps are typically measured in seconds since epoch. JavaScript uses milliseconds (1000x seconds). Our converter handles both — just paste your value and it auto-detects. A millisecond timestamp has 13 digits vs 10 digits for seconds.</div>
+          <button class="faq-question">What is the difference between seconds and milliseconds? <span class="arrow">â–¼</span></button>
+          <div class="faq-answer">Unix timestamps are typically measured in seconds since epoch. JavaScript uses milliseconds (1000x seconds). Our converter handles both â€” just paste your value and it auto-detects. A millisecond timestamp has 13 digits vs 10 digits for seconds.</div>
         </div>
       </div>
     </div>
@@ -117,7 +123,7 @@
 
   <footer class="site-footer">
     <div class="footer-content">
-      <div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div>
+      <div class="footer-copy">Â© 2026 ConvertPivot. Free online converter tools.</div>
       <div class="footer-links">
         <a href="/">Home</a>
         <a href="/about">About</a>

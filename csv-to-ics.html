@@ -1,39 +1,45 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSV to ICS — Spreadsheet to iCalendar Converter | ConvertPivot</title>
+  <title>CSV to ICS â€” Spreadsheet to iCalendar Converter | ConvertPivot</title>
   <meta name="description" content="Convert CSV spreadsheets to ICS iCalendar files. Create calendar events from Excel or Google Sheets data. 100% browser-based, no upload required.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/csv-to-ics">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/csv-to-ics">
-  <meta property="og:title" content="CSV to ICS — Spreadsheet to iCalendar Converter">
+  <meta property="og:title" content="CSV to ICS â€” Spreadsheet to iCalendar Converter">
   <meta property="og:description" content="Convert CSV to ICS calendar files. Create events from Excel or Google Sheets. 100% browser-based, zero uploads.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="icon" href="/favicon.png" sizes="32x32">
-  <link rel="icon" href="/favicon-16.png" sizes="16x16">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-96.png" sizes="96x96" type="image/png">
+  <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#FF0000">
+  <meta name="msapplication-TileColor" content="#FF0000">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CSV to ICS Converter","url":"https://convertpivot.com/csv-to-ics","description":"Convert CSV spreadsheets to ICS iCalendar files in your browser.","operatingSystem":"All","applicationCategory":"Utility"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I create calendar events from CSV?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upload a CSV with columns for title, start date, end date, and location. This converter creates a valid ICS file that you can import into Google Calendar, Apple Calendar, or Outlook."}},{"@type":"Question","name":"What format should dates be in?","acceptedAnswer":{"@type":"Answer","text":"Use YYYY-MM-DD for dates (e.g. 2026-07-13) and HH:MM for times. The converter automatically formats them for the ICS standard."}},{"@type":"Question","name":"Is this converter free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no limits, no watermarks, and no signup required."}},{"@type":"Question","name":"Is my data private?","acceptedAnswer":{"@type":"Answer","text":"Yes. All processing happens in your browser. Your CSV data never leaves your device."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">ðŸŒ™</button></header>
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">CSV to ICS</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">CSV to ICS</span></nav>
     <div class="tool-header">
-      <h1>CSV to ICS Converter — Spreadsheet to iCalendar</h1>
+      <h1>CSV to ICS Converter â€” Spreadsheet to iCalendar</h1>
       <p>Convert CSV spreadsheets to iCalendar (.ics) files for Google Calendar, Apple Calendar, and Outlook. Create events from your data instantly. 100% browser-based.</p>
     </div>
-    <div class="alert alert-info" style="margin-bottom:20px;">🔒 100% browser-based. Your data never leaves your device.</div>
+    <div class="alert alert-info" style="margin-bottom:20px;">ðŸ”’ 100% browser-based. Your data never leaves your device.</div>
     <div class="converter-card">
       <div id="dropZone" class="drop-zone">
-        <div class="drop-content"><span class="drop-icon">📊</span><p>Drop a .csv file here, or click to browse</p><span class="drop-hint">CSV with columns: Title, Start Date, Start Time (optional)</span></div>
+        <div class="drop-content"><span class="drop-icon">ðŸ“Š</span><p>Drop a .csv file here, or click to browse</p><span class="drop-hint">CSV with columns: Title, Start Date, Start Time (optional)</span></div>
         <input type="file" id="fileInput" accept=".csv,.tsv,.txt" hidden>
       </div>
       <div id="result" class="result-area" style="display:none;"></div>
@@ -56,15 +62,15 @@
     </section>
     <section><h2>Frequently Asked Questions</h2>
       <div class="faq-list">
-        <div class="faq-item"><button class="faq-question">What date formats are supported? <span class="arrow">▼</span></button><div class="faq-answer">Use YYYY-MM-DD (e.g. 2026-07-13). Times should be in 24-hour format HH:MM (e.g. 14:00 for 2 PM).</div></div>
-        <div class="faq-item"><button class="faq-question">Can I import the ICS file into Google Calendar? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Go to Google Calendar → Settings → Import & Export → Select the ICS file → Choose calendar → Import.</div></div>
-        <div class="faq-item"><button class="faq-question">Is my data private? <span class="arrow">▼</span></button><div class="faq-answer">Yes. All processing runs in your browser. Your data never leaves your device.</div></div>
+        <div class="faq-item"><button class="faq-question">What date formats are supported? <span class="arrow">â–¼</span></button><div class="faq-answer">Use YYYY-MM-DD (e.g. 2026-07-13). Times should be in 24-hour format HH:MM (e.g. 14:00 for 2 PM).</div></div>
+        <div class="faq-item"><button class="faq-question">Can I import the ICS file into Google Calendar? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. Go to Google Calendar â†’ Settings â†’ Import & Export â†’ Select the ICS file â†’ Choose calendar â†’ Import.</div></div>
+        <div class="faq-item"><button class="faq-question">Is my data private? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. All processing runs in your browser. Your data never leaves your device.</div></div>
       </div>
     </section>
     <div class="ad-container">Ad</div>
   </main>
   <footer class="site-footer">
-    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+    <div class="footer-content"><div class="footer-copy">Â© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
   </footer>
   <script src="js/shared.js?v=2"></script>
   <script>
@@ -75,7 +81,7 @@
     dropZone.addEventListener('dragleave',function(){dropZone.classList.remove('drag-over')});
     dropZone.addEventListener('drop',function(e){e.preventDefault();dropZone.classList.remove('drag-over');if(e.dataTransfer.files.length)handleFile(e.dataTransfer.files[0])});
     fileInput.addEventListener('change',function(){if(fileInput.files.length)handleFile(fileInput.files[0])});
-    function handleFile(f){currentFile=f;dropZone.querySelector('.drop-content').innerHTML='<span class="drop-icon">📊</span><p>'+f.name+' ('+(f.size/1024).toFixed(1)+' KB)</p>';actions.style.display='flex';resultDiv.style.display='none';downloadBtn.style.display='none'}
+    function handleFile(f){currentFile=f;dropZone.querySelector('.drop-content').innerHTML='<span class="drop-icon">ðŸ“Š</span><p>'+f.name+' ('+(f.size/1024).toFixed(1)+' KB)</p>';actions.style.display='flex';resultDiv.style.display='none';downloadBtn.style.display='none'}
     convertBtn.addEventListener('click',function(){
       if(!currentFile){ConvertPivot.showResult('result','Select a file first.','error');return}
       var reader=new FileReader();

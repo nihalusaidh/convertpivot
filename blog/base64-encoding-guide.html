@@ -18,9 +18,15 @@
   <meta name="author" content="ConvertPivot">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="../css/style.css?v=2">
-  <link rel="icon" href="/favicon.png" sizes="32x32">
-  <link rel="icon" href="/favicon-16.png" sizes="16x16">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Base64 Encoding Explained â€” When and Why to Use It","description":"Base64 encoding explained in plain English. Learn why email attachments, data URIs, and APIs use Base64. Free online encoder and decoder included.","datePublished":"July 14, 2026","dateModified":"2026-07-14","author":{"@type":"Person","name":"ConvertPivot"},"publisher":{"@type":"Organization","name":"ConvertPivot","url":"https://convertpivot.com"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://convertpivot.com/blog/base64-encoding-guide"},"image":"https://convertpivot.com/og-image.png"}</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-96.png" sizes="96x96" type="image/png">
+  <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#FF0000">
+  <meta name="msapplication-TileColor" content="#FF0000">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Base64 Encoding Explained â€” When and Why to Use It","description":"Base64 encoding explained in plain English. Learn why email attachments, data URIs, and APIs use Base64. Free online encoder and decoder included.","datePublished":"July 14, 2026","dateModified":"2026-07-14","author":{"@type":"Person","name":"ConvertPivot"},"publisher":{"@type":"Organization","name":"ConvertPivot","url":"https://convertpivot.com","logo":"https://convertpivot.com/favicon.svg"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://convertpivot.com/blog/base64-encoding-guide"},"image":"https://convertpivot.com/og-image.png"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Base64 encoding used for?","acceptedAnswer":{"@type":"Answer","text":"Base64 encoding is used to convert binary data into a text format that can be safely transmitted over media designed to handle textual data. Common uses include embedding images in HTML or CSS as data URIs, encoding email attachments in MIME, storing binary data in JSON or XML, and transmitting data in HTTP headers or URL parameters."}},{"@type":"Question","name":"Does Base64 encrypt data?","acceptedAnswer":{"@type":"Answer","text":"No, Base64 is not encryption. It's an encoding scheme that transforms binary data into a text representation, but it uses a publicly known algorithm and contains no key or secret. Anyone who receives Base64-encoded data can decode it instantly. If you need to protect sensitive data, you must use proper encryption before encoding it with Base64."}},{"@type":"Question","name":"Why is Base64 33% larger?","acceptedAnswer":{"@type":"Answer","text":"Base64 encoding increases data size by approximately 33% because it converts every 3 bytes of binary data into 4 ASCII characters. Each output character represents only 6 bits of data (since 2â¶ = 64 possible characters), compared to the 8 bits per byte of the original data. The 3-to-4 ratio means (4/3) times the original size, hence the 33% overhead."}}]}</script>
 
 </head>
