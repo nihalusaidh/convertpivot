@@ -762,6 +762,22 @@ pre.converter-input {
   border-bottom: 2px solid var(--color-smoke);
 }
 
+.blog-content h1 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--color-red);
+}
+
+.blog-content h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 28px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--color-smoke);
+  color: var(--color-red);
+}
+
 .content-section h3 {
   font-size: 1.05rem;
   font-weight: 600;
