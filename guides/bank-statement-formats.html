@@ -1,21 +1,21 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bank Statement Formats â€” OFX, QFX, QBO vs CSV & PDF | ConvertPivot</title>
+  <title>Bank Statement Formats — OFX, QFX, QBO vs CSV & PDF | ConvertPivot</title>
   <meta name="description" content="Complete guide to bank statement file formats. Compare OFX, QFX, QBO, CSV, and PDF formats for accounting, Quicken, QuickBooks, and personal finance.">
     <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/guides/bank-statement-formats">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/guides/bank-statement-formats">
-  <meta property="og:title" content="Bank Statement Formats â€” OFX, QFX, QBO vs CSV & PDF | ConvertPivot">
+  <meta property="og:title" content="Bank Statement Formats — OFX, QFX, QBO vs CSV & PDF | ConvertPivot">
   <meta property="og:description" content="Complete guide to bank statement file formats. Compare OFX, QFX, QBO, CSV, and PDF formats for accounting, Quicken, QuickBooks, and personal finance.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Bank Statement Formats â€” OFX, QFX, QBO vs CSV & PDF | ConvertPivot">
+  <meta name="twitter:title" content="Bank Statement Formats — OFX, QFX, QBO vs CSV & PDF | ConvertPivot">
   <meta name="twitter:description" content="Complete guide to bank statement file formats. Compare OFX, QFX, QBO, CSV, and PDF formats for accounting, Quicken, QuickBooks, and personal finance.">
   <link rel="stylesheet" href="../css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -33,25 +33,25 @@
 </head>
 <body>
   <header class="site-header">
-    <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button>
-    <a href="../" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">ðŸŒ™</button></header>
+    <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">?</button>
+    <a href="../" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
 
   <nav id="sidebar" class="sidebar"></nav>
 
   <main id="main-content" class="main-content">
     <nav class="breadcrumb">
-      <a href="../">Home</a><span class="sep">â€º</span>
-      <a href="../guides">Guides</a><span class="sep">â€º</span>
+      <a href="../">Home</a><span class="sep">›</span>
+      <a href="../guides">Guides</a><span class="sep">›</span>
       <span class="current">Bank Statement Formats</span>
     </nav>
 
     <div class="tool-header">
-      <h1>Bank Statement Formats Guide â€” OFX vs QFX vs QBO vs CSV vs PDF</h1>
+      <h1>Bank Statement Formats Guide — OFX vs QFX vs QBO vs CSV vs PDF</h1>
       <p>A comprehensive reference for understanding bank statement file formats, their structures, and how to convert between them for accounting and personal finance.</p>
     </div>
 
     <div class="privacy-banner">
-      <span class="icon">ðŸ”’</span>
+      <span class="icon">??</span>
       <span>100% browser-based guides and tools. No data leaves your device.</span>
     </div>
 
@@ -68,24 +68,24 @@
       <h3>Challenges Parsing PDF Statements</h3>
       <p>Parsing PDF bank statements programmatically is notoriously difficult. PDF is a presentation format, not a data format. The same transaction data can be rendered in countless visual layouts. Different banks use different table structures, date formats, and column ordering. Some PDFs have merged cells, multi-line entries, or missing borders. Extracting data reliably requires sophisticated layout analysis, OCR for scanned statements, and bank-specific parsing rules. This is why dedicated tools like ConvertPivot's PDF Bank Statement to CSV converter use multiple strategies to handle diverse statement layouts.</p>
 
-      <h2>OFX â€” Open Financial Exchange</h2>
+      <h2>OFX — Open Financial Exchange</h2>
       <p>OFX (Open Financial Exchange) is an open standard for exchanging financial data between financial institutions, accounting software, and consumers. It was introduced in 1997 by a consortium including Intuit, Microsoft, and CheckFree. OFX is based on SGML (Standard Generalized Markup Language) and uses a tag-based structure similar to XML. The format defines standard tags for transactions, account information, balances, and investment data.</p>
       <h3>OFX Structure</h3>
       <p>An OFX file begins with a header block that specifies the OFX version, security settings, encoding, and application information. The body contains SGML-style tags organized into aggregates. Key aggregates include <code>SIGNONMSGSRSV1</code> for session authentication, <code>BANKMSGSRSV1</code> for bank statement data, and <code>CREDITCARDMSGSRSV1</code> for credit card transactions. Each transaction is wrapped in a <code>STMTTRN</code> aggregate with tags for type, date, amount, name, memo, and reference number.</p>
       <h3>How Banks Use OFX</h3>
       <p>Many banks provide OFX downloads through their online banking portals, though the option is often hidden behind "Download" or "Export" buttons. OFX is the preferred format for accounting software because it includes structured data that software can parse automatically. The format supports checking, savings, credit card, investment, and loan accounts. OFX files can be imported directly into Quicken, QuickBooks, Microsoft Money, GnuCash, and other financial software.</p>
 
-      <h2>QFX â€” Quicken's OFX Variant</h2>
+      <h2>QFX — Quicken's OFX Variant</h2>
       <p>QFX is Quicken's proprietary extension of the OFX format. While it shares the same SGML-based structure as OFX, QFX adds Quicken-specific tags and metadata. The most visible difference is in the header: QFX files use a <code>OFXHEADER:100</code> header with additional security and application identifiers. QFX also includes tags for Quicken categories, tags, splits, memorized payees, and account type mappings.</p>
       <h3>Key Differences Between OFX and QFX</h3>
       <p>The primary difference is that QFX includes Quicken-specific data extensions. Standard OFX parsers may not recognize these extensions, so QFX files are best handled by Quicken or specialized QFX converters. Conversely, Quicken can import standard OFX files, but some Quicken-specific features like investment lot tracking may not transfer. When converting QFX to CSV, the extra metadata is either preserved in additional columns or discarded depending on the converter.</p>
 
-      <h2>QBO â€” QuickBooks Web Connect</h2>
+      <h2>QBO — QuickBooks Web Connect</h2>
       <p>QBO (QuickBooks Web Connect) is a file format used by QuickBooks for importing bank transactions directly from financial institutions. Despite the similar name, QBO is not related to QuickBooks Online (also called QBO). The QBO file format is essentially a modified OFX file with QuickBooks-specific tags and headers. Most US banks support QBO downloads, making it the standard format for QuickBooks reconciliation.</p>
       <h3>QBO Structure</h3>
       <p>A QBO file begins with a header similar to OFX but includes QuickBooks-specific version information. The body contains the same OFX aggregates with additional QuickBooks tags such as <code>INTBIRATE</code> for interest rate data and <code>LEDGERBAL</code> for ledger balances. QuickBooks uses these extra tags to match downloaded transactions against existing entries and to detect duplicate imports.</p>
 
-      <h2>CSV â€” Comma-Separated Values</h2>
+      <h2>CSV — Comma-Separated Values</h2>
       <p>CSV is the simplest and most universal format for tabular data. A CSV bank statement is a plain text file where each line represents a transaction and fields are separated by commas. CSV files can be opened in any text editor, spreadsheet application, or accounting program. The downside is that CSV has no standard schema for bank data, so column headers vary between banks. Common columns include Date, Description, Amount, Type, and Balance. Some banks include check numbers, payee names, categories, and memo fields.</p>
       <h3>Pros and Cons of CSV</h3>
       <p>CSV's greatest strength is universality: every data processing tool supports CSV. Its greatest weakness is lack of standardization: importing CSV into accounting software often requires mapping columns manually. CSV also lacks the structured metadata of OFX, such as transaction IDs and account type indicators, which can lead to duplicate imports or incorrect categorization.</p>
@@ -113,23 +113,23 @@
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
         <div class="faq-item">
-          <button class="faq-question">What is the difference between OFX and QFX? <span class="arrow">â–¼</span></button>
+          <button class="faq-question">What is the difference between OFX and QFX? <span class="arrow">?</span></button>
           <div class="faq-answer">OFX (Open Financial Exchange) is the open standard format for financial data exchange. QFX is Quicken's proprietary variant of OFX that adds Quicken-specific tags and uses a different header. QFX files include extra metadata for Quicken categories, tags, and account types not found in standard OFX files.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">Can I convert a PDF bank statement to CSV? <span class="arrow">â–¼</span></button>
+          <button class="faq-question">Can I convert a PDF bank statement to CSV? <span class="arrow">?</span></button>
           <div class="faq-answer">Yes, PDF bank statements can be converted to CSV, but it is challenging because PDFs store visual layout rather than structured data. ConvertPivot's PDF Bank Statement to CSV tool uses OCR and layout analysis to extract transaction data. Results depend on the PDF quality and formatting consistency.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">What is a QBO file used for? <span class="arrow">â–¼</span></button>
+          <button class="faq-question">What is a QBO file used for? <span class="arrow">?</span></button>
           <div class="faq-answer">A QBO file is QuickBooks Web Connect format used to import bank transactions directly into QuickBooks. It is a modified OFX file with additional QuickBooks-specific tags. Most US banks offer QBO downloads in their online banking portals for easy QuickBooks reconciliation.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">Which bank statement format is best for accounting software? <span class="arrow">â–¼</span></button>
+          <button class="faq-question">Which bank statement format is best for accounting software? <span class="arrow">?</span></button>
           <div class="faq-answer">OFX and QBO are best for accounting software like QuickBooks because they include structured transaction metadata. CSV is the most universal format and works with virtually every accounting platform, but may require manual mapping of columns. PDF is the least suitable format for accounting import.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">How do I convert my bank statement to a different format? <span class="arrow">â–¼</span></button>
+          <button class="faq-question">How do I convert my bank statement to a different format? <span class="arrow">?</span></button>
           <div class="faq-answer">Use ConvertPivot's Bank Statement Converter tool. Upload your file (OFX, QFX, QBO, CSV, or PDF), select the output format, and download. For PDF statements, the converter extracts transaction data using OCR. Always review the output for accuracy before importing into accounting software.</div>
         </div>
       </div>
@@ -154,7 +154,7 @@
 
   <footer class="site-footer">
     <div class="footer-content">
-      <div class="footer-copy">Â© 2026 ConvertPivot. Free online converter tools.</div>
+      <div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div>
       <div class="footer-links">
         <a href="../">Home</a>
         <a href="../about">About</a>

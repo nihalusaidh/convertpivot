@@ -1,21 +1,21 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GPX to KML — GPS Data to Google Earth | ConvertPivot</title>
+  <title>GPX to KML � GPS Data to Google Earth | ConvertPivot</title>
   <meta name="description" content="Free online GPX to KML converter. Convert GPS tracks, routes, and waypoints to Google Earth KML format. No upload, private.">
     <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/gpx-to-kml">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/gpx-to-kml">
-  <meta property="og:title" content="GPX to KML — GPS Data to Google Earth | ConvertPivot">
+  <meta property="og:title" content="GPX to KML � GPS Data to Google Earth | ConvertPivot">
   <meta property="og:description" content="Free online GPX to KML converter. Convert GPS tracks, routes, and waypoints to Google Earth KML format.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="GPX to KML — GPS Data to Google Earth | ConvertPivot">
+  <meta name="twitter:title" content="GPX to KML � GPS Data to Google Earth | ConvertPivot">
   <meta name="twitter:description" content="Free online GPX to KML converter. Convert GPS tracks, routes, and waypoints to Google Earth KML format.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -32,23 +32,23 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a GPX file?","acceptedAnswer":{"@type":"Answer","text":"GPX (GPS Exchange Format) is the standard XML format for GPS data. It stores waypoints, tracks, and routes with latitude, longitude, elevation, and timestamps."}},{"@type":"Question","name":"What is a KML file?","acceptedAnswer":{"@type":"Answer","text":"KML (Keyhole Markup Language) is the format used by Google Earth and Google Maps for displaying geographic data. It supports points, lines, and polygons."}},{"@type":"Question","name":"Why convert GPX to KML?","acceptedAnswer":{"@type":"Answer","text":"KML opens natively in Google Earth, Google Maps, and many GIS applications. Converting from GPX lets you visualize hiking routes, biking tracks, and GPS data on maps."}},{"@type":"Question","name":"Is my GPS data private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Everything runs in your browser. Your GPS data never leaves your device."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">?</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">?</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
   <nav id="sidebar" class="sidebar"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">GPX to KML</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">�</span><span class="current">GPX to KML</span></nav>
     <div class="tool-header">
-      <h1>GPX to KML Converter — GPS Tracks to Google Earth</h1>
+      <h1>GPX to KML Converter � GPS Tracks to Google Earth</h1>
       <p>Convert GPX files from GPS devices to KML format for Google Earth. Visualize hiking trails, cycling routes, and waypoints on any map.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your GPS data never leaves your device.</span></div>
+    <div class="privacy-banner"><span class="icon">??</span><span>100% browser-based. Your GPS data never leaves your device.</span></div>
     <div class="converter-widget" id="gpxToKmlWidget">
       <div class="drop-zone" id="gpxToKmlDropZone">
-        <div class="drop-zone-icon">🗺</div>
+        <div class="drop-zone-icon">??</div>
         <div class="drop-zone-text">Drop a <strong>.gpx</strong> file here, or click to browse</div>
         <div class="drop-zone-hint">Converts waypoints, tracks, and routes to KML Placemarks</div>
         <input type="file" accept=".gpx" aria-label="Choose GPX file">
       </div>
-      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">✕</button></div>
+      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">?</button></div>
       <div class="converter-controls"><button class="btn btn-primary" id="gpxToKmlConvertBtn">Convert to KML</button></div>
       <div class="progress-bar" id="gpxToKmlProgress"><div class="progress-bar-fill"></div></div>
       <div class="converter-result" id="gpxToKmlResult"><div class="converter-result-message"></div></div>
@@ -56,16 +56,16 @@
     <div class="content-section">
       <h2>How to Convert GPX to KML</h2>
       <p>GPX is the universal format for GPS data, used by Garmin, Suunto, and most GPS devices. KML is Google Earth's native format. Converting GPX to KML lets you view your tracks, waypoints, and routes on Google Earth's 3D globe or in Google Maps.</p>
-      <p>Our converter parses all elements of your GPX file — waypoints become Placemarks, tracks become LineStrings (with multiple segments preserved as separate lines), and routes also become LineStrings with their name and description preserved.</p>
+      <p>Our converter parses all elements of your GPX file � waypoints become Placemarks, tracks become LineStrings (with multiple segments preserved as separate lines), and routes also become LineStrings with their name and description preserved.</p>
       <p>Open the resulting KML file in Google Earth, upload it to Google My Maps, or use it in any GIS application that supports the KML standard.</p>
     </div>
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">What is a GPX file? <span class="arrow">▼</span></button><div class="faq-answer">GPX (GPS Exchange Format) is the standard XML format for GPS data. It stores waypoints, tracks, and routes with latitude, longitude, elevation, and timestamps.</div></div>
-        <div class="faq-item"><button class="faq-question">What is a KML file? <span class="arrow">▼</span></button><div class="faq-answer">KML (Keyhole Markup Language) is the format used by Google Earth and Google Maps for displaying geographic data.</div></div>
-        <div class="faq-item"><button class="faq-question">Why convert GPX to KML? <span class="arrow">▼</span></button><div class="faq-answer">KML opens natively in Google Earth, Google Maps, and many GIS applications. Convert GPX tracks to visualize them on maps.</div></div>
-        <div class="faq-item"><button class="faq-question">Is my GPS data private? <span class="arrow">▼</span></button><div class="faq-answer">Yes. Everything runs in your browser. Your GPS data never leaves your device.</div></div>
+        <div class="faq-item"><button class="faq-question">What is a GPX file? <span class="arrow">?</span></button><div class="faq-answer">GPX (GPS Exchange Format) is the standard XML format for GPS data. It stores waypoints, tracks, and routes with latitude, longitude, elevation, and timestamps.</div></div>
+        <div class="faq-item"><button class="faq-question">What is a KML file? <span class="arrow">?</span></button><div class="faq-answer">KML (Keyhole Markup Language) is the format used by Google Earth and Google Maps for displaying geographic data.</div></div>
+        <div class="faq-item"><button class="faq-question">Why convert GPX to KML? <span class="arrow">?</span></button><div class="faq-answer">KML opens natively in Google Earth, Google Maps, and many GIS applications. Convert GPX tracks to visualize them on maps.</div></div>
+        <div class="faq-item"><button class="faq-question">Is my GPS data private? <span class="arrow">?</span></button><div class="faq-answer">Yes. Everything runs in your browser. Your GPS data never leaves your device.</div></div>
       </div>
     </div>
     <div class="content-section">

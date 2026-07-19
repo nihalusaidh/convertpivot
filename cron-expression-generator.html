@@ -1,21 +1,21 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cron Expression Generator â€” Free Online Cron Builder | ConvertPivot</title>
+  <title>Cron Expression Generator — Free Online Cron Builder | ConvertPivot</title>
   <meta name="description" content="Free online cron expression generator. Build cron jobs for Linux, Kubernetes, and AWS. Visual builder with presets and validation. No upload required.">
   <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/cron-expression-generator">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/cron-expression-generator">
-  <meta property="og:title" content="Cron Expression Generator â€” Free Online Cron Builder | ConvertPivot">
+  <meta property="og:title" content="Cron Expression Generator — Free Online Cron Builder | ConvertPivot">
   <meta property="og:description" content="Free online cron expression generator with visual builder, human-readable descriptions, and next 5 run time preview. Build cron jobs for Linux, Kubernetes, and AWS.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Cron Expression Generator â€” Free Online Cron Builder | ConvertPivot">
+  <meta name="twitter:title" content="Cron Expression Generator — Free Online Cron Builder | ConvertPivot">
   <meta name="twitter:description" content="Free online cron expression generator with visual builder, human-readable descriptions, and next 5 run time preview. Build cron jobs for Linux, Kubernetes, and AWS.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -29,18 +29,18 @@
   <meta name="theme-color" content="#FF0000">
   <meta name="msapplication-TileColor" content="#FF0000">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Cron Expression Generator","url":"https://convertpivot.com/cron-expression-generator","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online cron expression generator with visual builder, human-readable descriptions, and next 5 run time preview. Build cron jobs for Linux, Kubernetes, and AWS.","browserRequirements":"JavaScript"}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a cron expression?","acceptedAnswer":{"@type":"Answer","text":"A cron expression is a string consisting of five fields separated by spaces that define a schedule for recurring tasks. Each field represents a time unit: minute, hour, day of month, month, and day of week. Cron expressions are used in Unix-like operating systems, Kubernetes CronJobs, AWS EventBridge, and many other scheduling systems to automate recurring jobs."}},{"@type":"Question","name":"How do I read a cron expression?","acceptedAnswer":{"@type":"Answer","text":"A cron expression has five fields: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-7, where 0 and 7 are Sunday). Each field can contain a specific value, a range (e.g. 1-5), a step (e.g. */15), a list (e.g. 1,3,5), or an asterisk (*) meaning 'every'. For example, '0 9 * * 1-5' means 'At 9:00 AM, Monday through Friday'."}},{"@type":"Question","name":"What are the 5 fields in a cron expression?","acceptedAnswer":{"@type":"Answer","text":"The five fields in a standard cron expression are: 1) Minute (0-59) â€” when the job runs within the hour, 2) Hour (0-23) â€” the hour of day, 3) Day of Month (1-31) â€” the day of the month, 4) Month (1-12) â€” the month of the year, and 5) Day of Week (0-7) â€” the day of the week (0 and 7 both represent Sunday). All fields support wildcards (*), ranges (-), steps (*/), and lists (,)."}},{"@type":"Question","name":"Can I test my cron expression before deploying?","acceptedAnswer":{"@type":"Answer","text":"Yes. This cron expression generator provides a next-5-run-times preview that calculates the next execution times based on your current local time. You can visually build your expression using the dropdown controls and immediately see the human-readable description and upcoming schedule. This helps catch scheduling errors before deploying to production."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a cron expression?","acceptedAnswer":{"@type":"Answer","text":"A cron expression is a string consisting of five fields separated by spaces that define a schedule for recurring tasks. Each field represents a time unit: minute, hour, day of month, month, and day of week. Cron expressions are used in Unix-like operating systems, Kubernetes CronJobs, AWS EventBridge, and many other scheduling systems to automate recurring jobs."}},{"@type":"Question","name":"How do I read a cron expression?","acceptedAnswer":{"@type":"Answer","text":"A cron expression has five fields: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-7, where 0 and 7 are Sunday). Each field can contain a specific value, a range (e.g. 1-5), a step (e.g. */15), a list (e.g. 1,3,5), or an asterisk (*) meaning 'every'. For example, '0 9 * * 1-5' means 'At 9:00 AM, Monday through Friday'."}},{"@type":"Question","name":"What are the 5 fields in a cron expression?","acceptedAnswer":{"@type":"Answer","text":"The five fields in a standard cron expression are: 1) Minute (0-59) — when the job runs within the hour, 2) Hour (0-23) — the hour of day, 3) Day of Month (1-31) — the day of the month, 4) Month (1-12) — the month of the year, and 5) Day of Week (0-7) — the day of the week (0 and 7 both represent Sunday). All fields support wildcards (*), ranges (-), steps (*/), and lists (,)."}},{"@type":"Question","name":"Can I test my cron expression before deploying?","acceptedAnswer":{"@type":"Answer","text":"Yes. This cron expression generator provides a next-5-run-times preview that calculates the next execution times based on your current local time. You can visually build your expression using the dropdown controls and immediately see the human-readable description and upcoming schedule. This helps catch scheduling errors before deploying to production."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">ðŸŒ™</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">?</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">Cron Expression Generator</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Cron Expression Generator</span></nav>
     <div class="tool-header">
       <h1>Cron Expression Generator</h1>
       <p>Visually build cron expressions with dropdown controls. See human-readable descriptions and preview the next 5 execution times instantly.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span><strong>Privacy first:</strong> All processing happens in your browser. No data is sent to any server.</span></div>
+    <div class="privacy-banner"><span class="icon">??</span><span><strong>Privacy first:</strong> All processing happens in your browser. No data is sent to any server.</span></div>
     <div class="converter-widget" id="toolWidget">
       <div class="converter-form">
         <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
@@ -70,7 +70,7 @@
       <h2>How to Use the Cron Expression Generator</h2>
       <div class="how-it-works">
         <div class="how-step"><div class="how-step-num">1</div><h3>Select Preset or Build Manually</h3><p>Click a common preset button like "Every 5 min" or use the dropdowns to fine-tune each cron field.</p></div>
-        <div class="how-step"><div class="how-step-num">2</div><h3>Read the Description</h3><p>The human-readable description explains exactly when your cron job will run â€” e.g. "At minute 0, every hour, every day."</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Read the Description</h3><p>The human-readable description explains exactly when your cron job will run — e.g. "At minute 0, every hour, every day."</p></div>
         <div class="how-step"><div class="how-step-num">3</div><h3>Preview Run Times</h3><p>Check the next 5 execution times calculated from the current moment to verify your schedule is correct.</p></div>
       </div>
     </div>
@@ -92,10 +92,10 @@
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">What is a cron expression? <span class="arrow">â–¼</span></button><div class="faq-answer">A cron expression is a string consisting of five fields separated by spaces that define a schedule for recurring tasks. Each field represents a time unit: minute, hour, day of month, month, and day of week. Cron expressions are used in Unix-like operating systems, Kubernetes CronJobs, AWS EventBridge, and many other scheduling systems to automate recurring jobs.</div></div>
-        <div class="faq-item"><button class="faq-question">How do I read a cron expression? <span class="arrow">â–¼</span></button><div class="faq-answer">A cron expression has five fields: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-7, where 0 and 7 are Sunday). Each field can contain a specific value, a range (e.g. 1-5), a step (e.g. */15), a list (e.g. 1,3,5), or an asterisk (*) meaning 'every'. For example, '0 9 * * 1-5' means 'At 9:00 AM, Monday through Friday'.</div></div>
-        <div class="faq-item"><button class="faq-question">What are the 5 fields in a cron expression? <span class="arrow">â–¼</span></button><div class="faq-answer">The five fields in a standard cron expression are: 1) Minute (0-59) â€” when the job runs within the hour, 2) Hour (0-23) â€” the hour of day, 3) Day of Month (1-31) â€” the day of the month, 4) Month (1-12) â€” the month of the year, and 5) Day of Week (0-7) â€” the day of the week (0 and 7 both represent Sunday). All fields support wildcards (*), ranges (-), steps (*/), and lists (,).</div></div>
-        <div class="faq-item"><button class="faq-question">Can I test my cron expression before deploying? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. This cron expression generator provides a next-5-run-times preview that calculates the next execution times based on your current local time. You can visually build your expression using the dropdown controls and immediately see the human-readable description and upcoming schedule. This helps catch scheduling errors before deploying to production.</div></div>
+        <div class="faq-item"><button class="faq-question">What is a cron expression? <span class="arrow">?</span></button><div class="faq-answer">A cron expression is a string consisting of five fields separated by spaces that define a schedule for recurring tasks. Each field represents a time unit: minute, hour, day of month, month, and day of week. Cron expressions are used in Unix-like operating systems, Kubernetes CronJobs, AWS EventBridge, and many other scheduling systems to automate recurring jobs.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I read a cron expression? <span class="arrow">?</span></button><div class="faq-answer">A cron expression has five fields: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-7, where 0 and 7 are Sunday). Each field can contain a specific value, a range (e.g. 1-5), a step (e.g. */15), a list (e.g. 1,3,5), or an asterisk (*) meaning 'every'. For example, '0 9 * * 1-5' means 'At 9:00 AM, Monday through Friday'.</div></div>
+        <div class="faq-item"><button class="faq-question">What are the 5 fields in a cron expression? <span class="arrow">?</span></button><div class="faq-answer">The five fields in a standard cron expression are: 1) Minute (0-59) — when the job runs within the hour, 2) Hour (0-23) — the hour of day, 3) Day of Month (1-31) — the day of the month, 4) Month (1-12) — the month of the year, and 5) Day of Week (0-7) — the day of the week (0 and 7 both represent Sunday). All fields support wildcards (*), ranges (-), steps (*/), and lists (,).</div></div>
+        <div class="faq-item"><button class="faq-question">Can I test my cron expression before deploying? <span class="arrow">?</span></button><div class="faq-answer">Yes. This cron expression generator provides a next-5-run-times preview that calculates the next execution times based on your current local time. You can visually build your expression using the dropdown controls and immediately see the human-readable description and upcoming schedule. This helps catch scheduling errors before deploying to production.</div></div>
       </div>
     </div>
     <div class="content-section" id="relatedTools">
@@ -105,7 +105,7 @@
     <div class="ad-container">Ad</div>
   </main>
   <footer class="site-footer">
-    <div class="footer-content"><div class="footer-copy">Â© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
   </footer>
   <script src="js/shared.js?v=2"></script>
   <script>

@@ -297,41 +297,6 @@
   })();
 
   // ============================================================
-  // DARK MODE
-  // ============================================================
-  function initDarkMode() {
-    var toggle = document.getElementById('darkModeToggle');
-    if (!toggle) return;
-
-    var isDark = localStorage.getItem('cp_dark_mode');
-    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (isDark === 'true' || (isDark === null && prefersDark)) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      toggle.textContent = '\u2600\uFE0F';
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-      toggle.textContent = '\uD83C\uDF19';
-    }
-
-    toggle.addEventListener('click', function () {
-      var isDarkNow = document.documentElement.getAttribute('data-theme') === 'dark';
-      if (isDarkNow) {
-        document.documentElement.removeAttribute('data-theme');
-        toggle.textContent = '\uD83C\uDF19';
-      } else {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        toggle.textContent = '\u2600\uFE0F';
-      }
-      var dark = !isDarkNow;
-      var themeMeta = document.querySelector('meta[name="theme-color"]');
-      if (themeMeta) {
-        themeMeta.content = dark ? '#121212' : '#FF0000';
-      }
-      try { localStorage.setItem('cp_dark_mode', dark); } catch (e) {}
-    });
-  }
-
   // ============================================================
   // TOAST NOTIFICATION
   // ============================================================
@@ -1444,7 +1409,7 @@
       meta.name = 'theme-color';
       document.head.appendChild(meta);
     }
-    meta.content = document.documentElement.getAttribute('data-theme') === 'dark' ? '#121212' : '#FF0000';
+    meta.content = '#FF0000';
   }
 
   // ============================================================
@@ -1766,7 +1731,6 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     trackPageview();
-    initDarkMode();
     injectThemeColor();
     injectOrgSchema();
     injectRatingSchema();

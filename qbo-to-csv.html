@@ -1,21 +1,21 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QBO to CSV — QuickBooks to Excel Converter | ConvertPivot</title>
+  <title>QBO to CSV � QuickBooks to Excel Converter | ConvertPivot</title>
   <meta name="description" content="Free online QBO to CSV converter. Convert QuickBooks Web Connect files to CSV for Excel and accounting. 100% browser-based, no upload.">
     <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/qbo-to-csv">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/qbo-to-csv">
-  <meta property="og:title" content="QBO to CSV — QuickBooks to Excel Converter | ConvertPivot">
+  <meta property="og:title" content="QBO to CSV � QuickBooks to Excel Converter | ConvertPivot">
   <meta property="og:description" content="Free online QBO to CSV converter. Convert QuickBooks Web Connect files to CSV for Excel and accounting.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="QBO to CSV — QuickBooks to Excel Converter | ConvertPivot">
+  <meta name="twitter:title" content="QBO to CSV � QuickBooks to Excel Converter | ConvertPivot">
   <meta name="twitter:description" content="Free online QBO to CSV converter. Convert QuickBooks Web Connect files to CSV for Excel and accounting.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -32,23 +32,23 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a QBO file?","acceptedAnswer":{"@type":"Answer","text":"QBO (QuickBooks Web Connect) is a file format used by QuickBooks for downloading bank transactions. It uses the OFX specification with QuickBooks-specific tags."}},{"@type":"Question","name":"How do I convert QBO to CSV?","acceptedAnswer":{"@type":"Answer","text":"Drop your .qbo file onto the converter, click Convert, and download the CSV file. Every transaction including date, payee, amount, and memo is extracted."}},{"@type":"Question","name":"Can I convert QBO to Excel directly?","acceptedAnswer":{"@type":"Answer","text":"Yes. The CSV output opens directly in Excel and Google Sheets. You can also import it into accounting software like Xero, FreshBooks, and Wave."}},{"@type":"Question","name":"Is QBO different from OFX?","acceptedAnswer":{"@type":"Answer","text":"QBO uses the same underlying OFX specification but is QuickBooks-specific. The internal structure is identical to OFX and QFX files."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">?</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">?</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
   <nav id="sidebar" class="sidebar"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">QBO to CSV</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">�</span><span class="current">QBO to CSV</span></nav>
     <div class="tool-header">
-      <h1>QBO to CSV Converter — QuickBooks to Spreadsheet</h1>
+      <h1>QBO to CSV Converter � QuickBooks to Spreadsheet</h1>
       <p>Convert QuickBooks Web Connect (.qbo) files to CSV for Excel, Google Sheets, and accounting analysis.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">🔒</span><span>100% browser-based. Your financial data never leaves your device.</span></div>
+    <div class="privacy-banner"><span class="icon">??</span><span>100% browser-based. Your financial data never leaves your device.</span></div>
     <div class="converter-widget" id="qboWidget">
       <div class="drop-zone" id="qboDropZone">
-        <div class="drop-zone-icon">📒</div>
+        <div class="drop-zone-icon">??</div>
         <div class="drop-zone-text">Drop a <strong>.qbo</strong> file here, or click to browse</div>
         <div class="drop-zone-hint">Also accepts .ofx and .qfx files</div>
         <input type="file" accept=".qbo,.ofx,.qfx" aria-label="Choose QBO file">
       </div>
-      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">✕</button></div>
+      <div class="file-info"><span class="file-info-name"></span><span class="file-info-size"></span><button class="file-info-remove">?</button></div>
       <div class="converter-controls"><button class="btn btn-primary" id="qboConvertBtn">Convert to CSV</button></div>
       <div class="progress-bar" id="qboProgress"><div class="progress-bar-fill"></div></div>
       <div class="converter-result" id="qboResult"><div class="converter-result-message"></div></div>
@@ -61,10 +61,10 @@
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">What is a QBO file? <span class="arrow">▼</span></button><div class="faq-answer">QBO (QuickBooks Web Connect) is a file format used by QuickBooks for downloading bank transactions. It uses the OFX specification with QuickBooks-specific tags.</div></div>
-        <div class="faq-item"><button class="faq-question">How do I convert QBO to CSV? <span class="arrow">▼</span></button><div class="faq-answer">Drop your .qbo file onto the converter, click Convert, and download the CSV file. Every transaction including date, payee, amount, and memo is extracted.</div></div>
-        <div class="faq-item"><button class="faq-question">Can I convert QBO to Excel directly? <span class="arrow">▼</span></button><div class="faq-answer">Yes. The CSV output opens directly in Excel and Google Sheets. You can also import it into accounting software like Xero, FreshBooks, and Wave.</div></div>
-        <div class="faq-item"><button class="faq-question">Is QBO different from OFX? <span class="arrow">▼</span></button><div class="faq-answer">QBO uses the same underlying OFX specification but is QuickBooks-specific. The internal structure is identical to OFX and QFX files.</div></div>
+        <div class="faq-item"><button class="faq-question">What is a QBO file? <span class="arrow">?</span></button><div class="faq-answer">QBO (QuickBooks Web Connect) is a file format used by QuickBooks for downloading bank transactions. It uses the OFX specification with QuickBooks-specific tags.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I convert QBO to CSV? <span class="arrow">?</span></button><div class="faq-answer">Drop your .qbo file onto the converter, click Convert, and download the CSV file. Every transaction including date, payee, amount, and memo is extracted.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I convert QBO to Excel directly? <span class="arrow">?</span></button><div class="faq-answer">Yes. The CSV output opens directly in Excel and Google Sheets. You can also import it into accounting software like Xero, FreshBooks, and Wave.</div></div>
+        <div class="faq-item"><button class="faq-question">Is QBO different from OFX? <span class="arrow">?</span></button><div class="faq-answer">QBO uses the same underlying OFX specification but is QuickBooks-specific. The internal structure is identical to OFX and QFX files.</div></div>
       </div>
     </div>
     <div class="content-section">

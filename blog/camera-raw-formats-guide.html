@@ -1,17 +1,17 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Understanding RAW Camera Formats â€” CR2, NEF, ARW, DNG Explained</title>
+  <title>Understanding RAW Camera Formats — CR2, NEF, ARW, DNG Explained</title>
   <meta name="description" content="Guide to RAW camera formats from different manufacturers. Learn about CR2 (Canon), NEF (Nikon), ARW (Sony), DNG (Adobe), and how to convert them to JPG.">
     <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/blog/camera-raw-formats-guide">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://convertpivot.com/blog/camera-raw-formats-guide">
-  <meta property="og:title" content="Understanding RAW Camera Formats â€” CR2, NEF, ARW, DNG Explained">
+  <meta property="og:title" content="Understanding RAW Camera Formats — CR2, NEF, ARW, DNG Explained">
   <meta property="og:description" content="Guide to RAW camera formats from different manufacturers. Learn about CR2 (Canon), NEF (Nikon), ARW (Sony), DNG (Adobe), and how to convert them to JPG.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta property="article:published_time" content="2026-07-16">
@@ -26,24 +26,24 @@
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#FF0000">
   <meta name="msapplication-TileColor" content="#FF0000">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Understanding RAW Camera Formats â€” CR2, NEF, ARW, DNG Explained","description":"Guide to RAW camera formats from different manufacturers. Learn about CR2 (Canon), NEF (Nikon), ARW (Sony), DNG (Adobe), and how to convert them to JPG.","datePublished":"2026-07-16","dateModified":"2026-07-16","author":{"@type":"Person","name":"ConvertPivot"},"publisher":{"@type":"Organization","name":"ConvertPivot","url":"https://convertpivot.com","logo":"https://convertpivot.com/favicon.svg"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://convertpivot.com/blog/camera-raw-formats-guide"},"image":"https://convertpivot.com/og-image.png"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Understanding RAW Camera Formats — CR2, NEF, ARW, DNG Explained","description":"Guide to RAW camera formats from different manufacturers. Learn about CR2 (Canon), NEF (Nikon), ARW (Sony), DNG (Adobe), and how to convert them to JPG.","datePublished":"2026-07-16","dateModified":"2026-07-16","author":{"@type":"Person","name":"ConvertPivot"},"publisher":{"@type":"Organization","name":"ConvertPivot","url":"https://convertpivot.com","logo":"https://convertpivot.com/favicon.svg"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://convertpivot.com/blog/camera-raw-formats-guide"},"image":"https://convertpivot.com/og-image.png"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which RAW format is best?","acceptedAnswer":{"@type":"Answer","text":"There is no single best RAW format. The best format is the one your camera natively supports. Canon's CR2 and CR3, Nikon's NEF, and Sony's ARW all capture the maximum sensor data from their respective cameras. DNG is the best archival format because it is open and standardized. For everyday work, stick with your camera's native RAW format and convert to DNG for long-term storage."}},{"@type":"Question","name":"Can I convert RAW without special software?","acceptedAnswer":{"@type":"Answer","text":"Yes, you can convert RAW files to JPG using free online converters that run in your browser. These tools use the embedded JPEG preview inside the RAW file or decode the raw sensor data using client-side JavaScript. ConvertPivot's RAW to JPG tool, for example, works entirely in your browser with no upload required."}},{"@type":"Question","name":"Is DNG better than proprietary RAW?","acceptedAnswer":{"@type":"Answer","text":"DNG has advantages in portability and long-term archival. It is an open standard maintained by Adobe, meaning it is less likely to become obsolete if a camera manufacturer goes out of business. DNG files are sometimes smaller than proprietary RAW files because Adobe's compression is efficient. However, proprietary RAW formats like CR2 and NEF store camera-specific metadata that DNG may not fully preserve."}}]}</script>
 
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="../" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">ðŸŒ™</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">?</button><a href="../" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="../">Home</a><span class="sep">â€º</span><a href="/blog">Blog</a><span class="sep">â€º</span><span class="current">Understanding RAW Camera Formats â€” CR2, NEF, ARW, DNG Explained</span></nav>
+    <nav class="breadcrumb"><a href="../">Home</a><span class="sep">›</span><a href="/blog">Blog</a><span class="sep">›</span><span class="current">Understanding RAW Camera Formats — CR2, NEF, ARW, DNG Explained</span></nav>
     <article class="blog-content">
       <span style="display:inline-block;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;padding:2px 10px;border-radius:3px;background:var(--color-red);color:#fff;margin-bottom:12px;">Images</span>
-      <h1>Understanding RAW Camera Formats â€” CR2, NEF, ARW, DNG Explained</h1>
+      <h1>Understanding RAW Camera Formats — CR2, NEF, ARW, DNG Explained</h1>
       <p style="font-size:0.85rem;color:var(--color-graphite);margin-bottom:24px;">July 16, 2026</p>
 
 <p>If you shoot with a DSLR or mirrorless camera, you've definitely seen RAW as an option in the quality settings menu. Camera manuals do a terrible job explaining what RAW actually is or why you'd want to use it. The short answer is that RAW files contain every bit of data your camera sensor captured, with no processing applied. That gives you maximum flexibility when editing, but it also means you can't share RAW files directly. They need to be converted first.</p>
 
       <h2>What Is a RAW File?</h2>
-      <p>A RAW file isn't an image in the traditional sense. It's a container that holds the raw sensor data from your camera's image sensor, along with metadata about camera settings, lens, white balance, and more. Unlike JPEG, which applies sharpening, noise reduction, and color correction inside the camera, a RAW file stores the unprocessed data. Every RAW file also contains an embedded JPEG preview â€” that's what you see on your camera's LCD screen.</p>
+      <p>A RAW file isn't an image in the traditional sense. It's a container that holds the raw sensor data from your camera's image sensor, along with metadata about camera settings, lens, white balance, and more. Unlike JPEG, which applies sharpening, noise reduction, and color correction inside the camera, a RAW file stores the unprocessed data. Every RAW file also contains an embedded JPEG preview — that's what you see on your camera's LCD screen.</p>
       <p>The downside is that RAW files are massive. A 24-megapixel camera produces RAW files around 25 to 35 MB each. The upside is the editing headroom. You can adjust exposure by several stops without introducing artifacts, fix white balance after the fact, and recover highlight and shadow detail that would be completely lost in a JPEG.</p>
 
       <h2>Manufacturer RAW Formats</h2>
@@ -130,7 +130,7 @@
 
 <h2>Embedded JPEG Previews</h2>
       <p>Every RAW file includes a JPEG preview image embedded in its metadata. This preview lets you view RAW files on your camera screen and in file explorers without decoding the full raw data. The preview is typically 1600 x 1200 pixels for standard cameras, though newer models include full-resolution previews. When you use a browser-based RAW to JPG converter that claims to work without decoding the sensor data, it's often just extracting this embedded preview and saving it as a standalone JPEG.</p>
-      <p>The embedded preview isn't the same as a properly converted RAW file. The preview has already been processed by the camera with its default settings applied. If you want true control over white balance, sharpening, and tone curve, you need software that decodes the actual sensor data â€” not just pulls the thumbnail.</p>
+      <p>The embedded preview isn't the same as a properly converted RAW file. The preview has already been processed by the camera with its default settings applied. If you want true control over white balance, sharpening, and tone curve, you need software that decodes the actual sensor data — not just pulls the thumbnail.</p>
 
       <h2>Why Convert RAW to JPG?</h2>
       <p>RAW files aren't meant for sharing. You can't email a 30 MB NEF file to a client, and Instagram won't accept CR2 uploads. JPG is the universal sharing format. Converting to JPG shrinks the file size dramatically. A 30 MB RAW file might become a 3 MB JPG at high quality. The trade-off is that JPG uses lossy compression and discards data that can't be recovered.</p>
@@ -159,7 +159,7 @@
     <div class="ad-container">Ad</div>
   </main>
   <footer class="site-footer">
-    <div class="footer-content"><div class="footer-copy">Â© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="../">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="../">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
   </footer>
   <script src="../js/shared.js?v=2"></script>
 </body>

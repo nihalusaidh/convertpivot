@@ -1,21 +1,21 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reading Time Calculator â€” Estimate Reading Time Online | ConvertPivot</title>
+  <title>Reading Time Calculator — Estimate Reading Time Online | ConvertPivot</title>
   <meta name="description" content="Free online reading time calculator. Estimate how long it takes to read any text. Supports slow, average, and fast reading speeds. 100% browser-based.">
   <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/reading-time-calculator">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/reading-time-calculator">
-  <meta property="og:title" content="Reading Time Calculator â€” Estimate Reading Time Online | ConvertPivot">
+  <meta property="og:title" content="Reading Time Calculator — Estimate Reading Time Online | ConvertPivot">
   <meta property="og:description" content="Free online reading time calculator. Estimate how long it takes to read any text. 100% browser-based.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Reading Time Calculator â€” Estimate Reading Time Online | ConvertPivot">
+  <meta name="twitter:title" content="Reading Time Calculator — Estimate Reading Time Online | ConvertPivot">
   <meta name="twitter:description" content="Free online reading time calculator. Estimate how long it takes to read any text. 100% browser-based.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -32,26 +32,26 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the average reading speed?","acceptedAnswer":{"@type":"Answer","text":"The average adult reads at about 200-250 words per minute (WPM) for comprehension. Skilled readers can reach 400-500 WPM. This calculator uses 238 WPM as the default, which is the average reading speed for English text."}},{"@type":"Question","name":"How do you calculate reading time?","acceptedAnswer":{"@type":"Answer","text":"Reading time is calculated by dividing the total word count by the reading speed in words per minute (WPM). For example, a 500-word article at 238 WPM takes approximately 2 minutes and 6 seconds to read."}},{"@type":"Question","name":"Why is reading time important for content?","acceptedAnswer":{"@type":"Answer","text":"Reading time helps readers decide if they have time to consume your content. Bloggers and content creators use estimated reading time to set expectations, improve user experience, and increase engagement. Most readers prefer articles under 7 minutes."}},{"@type":"Question","name":"Is this tool free?","acceptedAnswer":{"@type":"Answer","text":"Yes, this reading time calculator is completely free. All calculation is done locally in your browser with no server uploads."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">ðŸŒ™</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">?</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">Reading Time Calculator</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">Reading Time Calculator</span></nav>
     <div class="tool-header">
       <h1>Reading Time Calculator</h1>
       <p>Estimate how long it takes to read any text at your preferred reading speed.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
+    <div class="privacy-banner"><span class="icon">??</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your data never leaves your device. Verify in Network tab.</span></div>
     <div class="converter-widget" id="toolWidget">
       <div class="converter-form">
         <label for="readingInput">Paste Your Text:</label>
         <textarea id="readingInput" class="converter-textarea" rows="6" placeholder="Paste or type the text you want to calculate reading time for..."></textarea>
         <label for="readingSpeed">Reading Speed (words per minute):</label>
         <select id="readingSpeed" class="converter-input" style="width:auto;min-width:250px;margin-bottom:12px;">
-          <option value="130">Slow (130 WPM) â€” Children or non-native</option>
-          <option value="200">Average (200 WPM) â€” Casual reading</option>
-          <option value="238" selected>Average (238 WPM) â€” Standard comprehension</option>
-          <option value="300">Fast (300 WPM) â€” Skilled reader</option>
-          <option value="450">Very Fast (450 WPM) â€” Speed reader</option>
+          <option value="130">Slow (130 WPM) — Children or non-native</option>
+          <option value="200">Average (200 WPM) — Casual reading</option>
+          <option value="238" selected>Average (238 WPM) — Standard comprehension</option>
+          <option value="300">Fast (300 WPM) — Skilled reader</option>
+          <option value="450">Very Fast (450 WPM) — Speed reader</option>
         </select>
         <div class="converter-inline">
           <button id="calculateReadingBtn" class="btn btn-primary">Calculate Reading Time</button>
@@ -78,10 +78,10 @@
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">What is the average reading speed? <span class="arrow">â–¼</span></button><div class="faq-answer">The average adult reads at about 200-250 words per minute (WPM) for comprehension. Skilled readers can reach 400-500 WPM. This calculator uses 238 WPM as the default, which is the average reading speed for English text.</div></div>
-        <div class="faq-item"><button class="faq-question">How do you calculate reading time? <span class="arrow">â–¼</span></button><div class="faq-answer">Reading time is calculated by dividing the total word count by the reading speed in words per minute (WPM). For example, a 500-word article at 238 WPM takes approximately 2 minutes and 6 seconds to read.</div></div>
-        <div class="faq-item"><button class="faq-question">Why is reading time important for content? <span class="arrow">â–¼</span></button><div class="faq-answer">Reading time helps readers decide if they have time to consume your content. Bloggers and content creators use estimated reading time to set expectations, improve user experience, and increase engagement. Most readers prefer articles under 7 minutes.</div></div>
-        <div class="faq-item"><button class="faq-question">Is this tool free? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes, this reading time calculator is completely free. All calculation is done locally in your browser with no server uploads.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the average reading speed? <span class="arrow">?</span></button><div class="faq-answer">The average adult reads at about 200-250 words per minute (WPM) for comprehension. Skilled readers can reach 400-500 WPM. This calculator uses 238 WPM as the default, which is the average reading speed for English text.</div></div>
+        <div class="faq-item"><button class="faq-question">How do you calculate reading time? <span class="arrow">?</span></button><div class="faq-answer">Reading time is calculated by dividing the total word count by the reading speed in words per minute (WPM). For example, a 500-word article at 238 WPM takes approximately 2 minutes and 6 seconds to read.</div></div>
+        <div class="faq-item"><button class="faq-question">Why is reading time important for content? <span class="arrow">?</span></button><div class="faq-answer">Reading time helps readers decide if they have time to consume your content. Bloggers and content creators use estimated reading time to set expectations, improve user experience, and increase engagement. Most readers prefer articles under 7 minutes.</div></div>
+        <div class="faq-item"><button class="faq-question">Is this tool free? <span class="arrow">?</span></button><div class="faq-answer">Yes, this reading time calculator is completely free. All calculation is done locally in your browser with no server uploads.</div></div>
       </div>
     </div>
     <div class="content-section" id="relatedTools">
@@ -91,7 +91,7 @@
     <div class="ad-container">Ad</div>
   </main>
   <footer class="site-footer">
-    <div class="footer-content"><div class="footer-copy">Â© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
   </footer>
   <script src="js/shared.js?v=2"></script>
   <script>

@@ -172,10 +172,9 @@ function build() {
   const indexHtml = '<!DOCTYPE html>\n' +
 '<html lang="en">\n' +
 '<head>\n' +
-'  <meta charset="UTF-8">\n' +
-'  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>\n' +
-'  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n' +
-'  <title>Blog \u2014 File Format Guides, Tutorials & Tips | ConvertPivot</title>\n' +
+  '  <meta charset="UTF-8">\n' +
+  '  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n' +
+  '  <title>Blog \u2014 File Format Guides, Tutorials & Tips | ConvertPivot</title>\n' +
 '  <meta name="description" content="Learn about file formats, conversion best practices, and privacy tips. Expert guides on vCard, bank statements, images, GPS, e-books, audio, and more.">\n' +
 '  <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">\n' +
 '  <meta name="robots" content="index, follow">\n' +
@@ -203,7 +202,7 @@ function build() {
 '  </style>\n' +
 '</head>\n' +
 '<body>\n' +
-'  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">\u2630</button><a href="../" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">\ud83c\udf19</button></header>\n' +
+'  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">\u2630</button><a href="../" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>\n' +
 '  <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>\n' +
 '  <main id="main-content" class="main-content">\n' +
 '    <nav class="breadcrumb"><a href="../">Home</a><span class="sep">\u203a</span><span class="current">Blog</span></nav>\n' +

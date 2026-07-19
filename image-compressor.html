@@ -1,21 +1,21 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Compressor â€” Compress JPG, PNG, WebP Online | ConvertPivot</title>
+  <title>Image Compressor — Compress JPG, PNG, WebP Online | ConvertPivot</title>
   <meta name="description" content="Free online image compressor. Compress JPG, PNG, and WebP images with quality control, resize options, and batch ZIP download. 100% browser-based Canvas API.">
   <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/image-compressor">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/image-compressor">
-  <meta property="og:title" content="Image Compressor â€” Compress JPG, PNG, WebP Online | ConvertPivot">
+  <meta property="og:title" content="Image Compressor — Compress JPG, PNG, WebP Online | ConvertPivot">
   <meta property="og:description" content="Free online image compressor. Compress JPG, PNG, and WebP images with quality control, resize options, and batch ZIP download. 100% browser-based.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Image Compressor â€” Compress JPG, PNG, WebP Online | ConvertPivot">
+  <meta name="twitter:title" content="Image Compressor — Compress JPG, PNG, WebP Online | ConvertPivot">
   <meta name="twitter:description" content="Free online image compressor. Compress JPG, PNG, and WebP images with quality control, resize options, and batch ZIP download. 100% browser-based.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -32,20 +32,20 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What image formats can I compress?","acceptedAnswer":{"@type":"Answer","text":"You can compress JPG/JPEG, PNG, and WebP images. The tool uses the browser Canvas API to process all formats."}},{"@type":"Question","name":"How much can I reduce file size?","acceptedAnswer":{"@type":"Answer","text":"JPEG images typically achieve 40-80% size reduction at quality 60-80%. PNG lossless compression saves 10-30%. WebP offers 25-35% better compression than JPEG at similar quality."}},{"@type":"Question","name":"Can I resize images during compression?","acceptedAnswer":{"@type":"Answer","text":"Yes. Set a maximum width and height to resize images proportionally. Leave both at 0 to keep original dimensions."}},{"@type":"Question","name":"Are my images uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All compression happens entirely in your browser using the Canvas API. Your images never leave your device."}},{"@type":"Question","name":"Can I compress multiple images at once?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upload multiple images, set your compression options, and compress all at once. You can download individual images or all images as a ZIP file."}},{"@type":"Question","name":"What is the best quality setting for web use?","acceptedAnswer":{"@type":"Answer","text":"For web images, quality 70-80% offers an excellent balance of file size and visual quality. Use 50-60% for thumbnails and 85-95% for high-quality photos."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">?</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">??</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">?</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a></header>
   <nav id="sidebar" class="sidebar"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><a href="/">Media Tools</a><span class="sep">â€º</span><span class="current">Image Compressor</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/">Media Tools</a><span class="sep">›</span><span class="current">Image Compressor</span></nav>
     <div class="tool-header">
-      <h1>ðŸ–¼ Image Compressor â€” Reduce Image File Size</h1>
-      <p>Compress JPG, PNG, and WebP images with full control over quality, dimensions, and output format. Batch process multiple images and download as ZIP â€” all in your browser.</p>
+      <h1>?? Image Compressor — Reduce Image File Size</h1>
+      <p>Compress JPG, PNG, and WebP images with full control over quality, dimensions, and output format. Batch process multiple images and download as ZIP — all in your browser.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span>100% browser-based. Your images never leave your device.</span></div>
+    <div class="privacy-banner"><span class="icon">??</span><span>100% browser-based. Your images never leave your device.</span></div>
     <div class="converter-widget" id="imageCompressorWidget">
       <div class="drop-zone" id="icDropZone">
-        <div class="drop-zone-icon">ðŸ–¼</div>
+        <div class="drop-zone-icon">??</div>
         <div class="drop-zone-text">Drop <strong>images</strong> here, or click to browse</div>
-        <div class="drop-zone-hint">Supports JPG, PNG, WebP â€” multiple files allowed</div>
+        <div class="drop-zone-hint">Supports JPG, PNG, WebP — multiple files allowed</div>
         <input type="file" accept="image/jpeg,image/png,image/webp" multiple aria-label="Choose image files">
       </div>
       <div class="file-list" id="icFileList"></div>
@@ -75,15 +75,15 @@
     </div>
     <div class="content-section">
       <h2>How to Compress Images Online</h2>
-      <p>Upload one or more images using the drop zone above. You can drag and drop JPG, PNG, and WebP files directly from your computer, or click to select them. Adjust the quality slider to control the compression level â€” lower values produce smaller files but reduce image quality. Set maximum width and height to resize images during compression, or leave them at 0 to keep original dimensions.</p>
+      <p>Upload one or more images using the drop zone above. You can drag and drop JPG, PNG, and WebP files directly from your computer, or click to select them. Adjust the quality slider to control the compression level — lower values produce smaller files but reduce image quality. Set maximum width and height to resize images during compression, or leave them at 0 to keep original dimensions.</p>
       <p>Choose your desired output format from the dropdown. JPEG is best for photos, PNG for graphics with text or transparency, and WebP for modern web optimization. Click "Compress All" to process all images. Once compression is complete, you can download individual images or use "Download All as ZIP" to get a single archive.</p>
       <h3>Quality Settings Explained</h3>
-      <p>The quality slider ranges from 10% to 100%. For JPEG and WebP formats, lower quality values apply more aggressive compression, resulting in smaller files but potential visual artifacts. A quality setting of 70-80% typically offers an excellent balance between file size and visual quality for web use. PNG compression is lossless, so the quality slider has a minimal effect â€” PNG files are compressed as much as possible regardless of the quality setting.</p>
+      <p>The quality slider ranges from 10% to 100%. For JPEG and WebP formats, lower quality values apply more aggressive compression, resulting in smaller files but potential visual artifacts. A quality setting of 70-80% typically offers an excellent balance between file size and visual quality for web use. PNG compression is lossless, so the quality slider has a minimal effect — PNG files are compressed as much as possible regardless of the quality setting.</p>
       <h3>Resizing During Compression</h3>
       <p>Setting a maximum width and height allows you to downscale large images before compression. This is extremely effective for reducing file size because fewer pixels means less data to encode. The tool maintains the original aspect ratio automatically. For example, setting max width to 1920 pixels will shrink a 4000px-wide photo to 1920px wide, with height scaled proportionally.</p>
     </div>
     <div class="content-section">
-      <h2>JPEG vs PNG vs WebP â€” Compression Comparison</h2>
+      <h2>JPEG vs PNG vs WebP — Compression Comparison</h2>
       <h3>JPEG Compression</h3>
       <p><strong>Pros:</strong> Universal browser support, excellent compression for photographs, adjustable quality, small file sizes at medium quality. Most widely supported image format on the web.</p>
       <p><strong>Cons:</strong> Lossy compression introduces artifacts at low quality, no transparency support, no animation support, generational quality loss on re-saving.</p>
@@ -96,17 +96,17 @@
     </div>
     <div class="content-section">
       <h2>Image Compression Best Practices</h2>
-      <p>For web images, always resize to the display dimensions before uploading â€” serving a 4000px image in a 300px thumbnail wastes bandwidth. Use JPEG for photographic content with quality 70-85%, and PNG for screenshots, logos, and graphics needing transparency. Consider WebP for modern websites as it offers superior compression. Always preview compressed images at full size to verify quality is acceptable before publishing. Batch compression with ZIP download is ideal for preparing multiple images for a website gallery or email attachment.</p>
+      <p>For web images, always resize to the display dimensions before uploading — serving a 4000px image in a 300px thumbnail wastes bandwidth. Use JPEG for photographic content with quality 70-85%, and PNG for screenshots, logos, and graphics needing transparency. Consider WebP for modern websites as it offers superior compression. Always preview compressed images at full size to verify quality is acceptable before publishing. Batch compression with ZIP download is ideal for preparing multiple images for a website gallery or email attachment.</p>
     </div>
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">What image formats can I compress? <span class="arrow">â–¼</span></button><div class="faq-answer">You can compress JPG, JPEG, PNG, and WebP images. The tool uses the Canvas API to decode and re-encode images in your browser.</div></div>
-        <div class="faq-item"><button class="faq-question">How much can I reduce file size? <span class="arrow">â–¼</span></button><div class="faq-answer">JPEG images typically achieve 40-80% size reduction at quality 60-80% with minimal visible quality loss. PNG lossless compression saves 10-30%. WebP offers 25-35% better compression than JPEG at similar quality levels.</div></div>
-        <div class="faq-item"><button class="faq-question">Is PNG compression lossy or lossless? <span class="arrow">â–¼</span></button><div class="faq-answer">PNG compression is fully lossless â€” no image data is discarded. The quality slider does not affect PNG output quality. For PNG, compression simply optimizes the encoding without reducing visual fidelity.</div></div>
-        <div class="faq-item"><button class="faq-question">Can I resize images during compression? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. Set a maximum width and height to proportionally resize images. Leave both at 0 to keep original dimensions. Resizing before compression significantly reduces final file size.</div></div>
-        <div class="faq-item"><button class="faq-question">Are my images uploaded to a server? <span class="arrow">â–¼</span></button><div class="faq-answer">No. All processing happens entirely in your browser using the Canvas API. Your files never leave your device, ensuring complete privacy.</div></div>
-        <div class="faq-item"><button class="faq-question">Can I download all compressed images at once? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. After compression, click "Download All as ZIP" to download a single ZIP archive containing all compressed images. Individual download buttons are also available for each image.</div></div>
+        <div class="faq-item"><button class="faq-question">What image formats can I compress? <span class="arrow">?</span></button><div class="faq-answer">You can compress JPG, JPEG, PNG, and WebP images. The tool uses the Canvas API to decode and re-encode images in your browser.</div></div>
+        <div class="faq-item"><button class="faq-question">How much can I reduce file size? <span class="arrow">?</span></button><div class="faq-answer">JPEG images typically achieve 40-80% size reduction at quality 60-80% with minimal visible quality loss. PNG lossless compression saves 10-30%. WebP offers 25-35% better compression than JPEG at similar quality levels.</div></div>
+        <div class="faq-item"><button class="faq-question">Is PNG compression lossy or lossless? <span class="arrow">?</span></button><div class="faq-answer">PNG compression is fully lossless — no image data is discarded. The quality slider does not affect PNG output quality. For PNG, compression simply optimizes the encoding without reducing visual fidelity.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I resize images during compression? <span class="arrow">?</span></button><div class="faq-answer">Yes. Set a maximum width and height to proportionally resize images. Leave both at 0 to keep original dimensions. Resizing before compression significantly reduces final file size.</div></div>
+        <div class="faq-item"><button class="faq-question">Are my images uploaded to a server? <span class="arrow">?</span></button><div class="faq-answer">No. All processing happens entirely in your browser using the Canvas API. Your files never leave your device, ensuring complete privacy.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I download all compressed images at once? <span class="arrow">?</span></button><div class="faq-answer">Yes. After compression, click "Download All as ZIP" to download a single ZIP archive containing all compressed images. Individual download buttons are also available for each image.</div></div>
       </div>
     </div>
     <div class="content-section">
@@ -150,7 +150,7 @@
       var html = '<div class="file-list-header">' + items.length + ' image(s)</div>';
       items.forEach(function(item, idx) {
         var savings = item.origSize > 0 ? Math.round((1 - item.compSize / item.origSize) * 100) : 0;
-        var compLabel = item.compSize > 0 ? ConvertPivot.formatFileSize(item.compSize) : 'â€”';
+        var compLabel = item.compSize > 0 ? ConvertPivot.formatFileSize(item.compSize) : '—';
         var savingsClass = savings > 0 ? 'ic-savings-positive' : (savings < 0 ? 'ic-savings-negative' : 'ic-savings-neutral');
         html += '<div class="ic-item" data-index="' + idx + '">';
         html += '<div class="ic-item-preview"><img src="' + item.dataUrl + '" class="ic-thumb" alt="Preview"></div>';
@@ -161,7 +161,7 @@
         html += '</div>';
         html += '<div class="ic-item-actions">';
         html += '<button class="btn btn-success ic-download-btn" data-index="' + idx + '" ' + (item.compBlob ? '' : 'disabled') + '>Download</button>';
-        html += '<button class="ic-item-remove" data-index="' + idx + '">âœ•</button>';
+        html += '<button class="ic-item-remove" data-index="' + idx + '">?</button>';
         html += '</div></div>';
       });
       fileListEl.innerHTML = html;
