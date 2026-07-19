@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JWT Decoder â€” Decode JSON Web Tokens Online | ConvertPivot</title>
+  <title>JWT Decoder — Decode JSON Web Tokens Online | ConvertPivot</title>
   <meta name="description" content="Free online JWT decoder. Decode JSON Web Tokens to view header, payload, signature, and expiration status. Browser-based, no upload, inspect JWTs instantly.">
   <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/jwt-decoder">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/jwt-decoder">
-  <meta property="og:title" content="JWT Decoder â€” Decode JSON Web Tokens Online | ConvertPivot">
-  <meta property="og:description" content="Free online JWT decoder. Decode JSON Web Tokens directly in your browser. No server upload â€” your tokens stay on your device. View header, payload, expiration status.">
+  <meta property="og:title" content="JWT Decoder — Decode JSON Web Tokens Online | ConvertPivot">
+  <meta property="og:description" content="Free online JWT decoder. Decode JSON Web Tokens directly in your browser. No server upload — your tokens stay on your device. View header, payload, expiration status.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="JWT Decoder â€” Decode JSON Web Tokens Online | ConvertPivot">
-  <meta name="twitter:description" content="Free online JWT decoder. Decode JSON Web Tokens directly in your browser. No server upload â€” your tokens stay on your device. View header, payload, expiration status.">
+  <meta name="twitter:title" content="JWT Decoder — Decode JSON Web Tokens Online | ConvertPivot">
+  <meta name="twitter:description" content="Free online JWT decoder. Decode JSON Web Tokens directly in your browser. No server upload — your tokens stay on your device. View header, payload, expiration status.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -28,17 +28,17 @@
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#FF0000">
   <meta name="msapplication-TileColor" content="#FF0000">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"JWT Decoder","url":"https://convertpivot.com/jwt-decoder","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online JWT decoder. Decode JSON Web Tokens directly in your browser. No server upload â€” your tokens stay on your device. View header, payload, expiration status.","browserRequirements":"JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"JWT Decoder","url":"https://convertpivot.com/jwt-decoder","applicationCategory":"DeveloperApplication","operatingSystem":"All","description":"Free online JWT decoder. Decode JSON Web Tokens directly in your browser. No server upload — your tokens stay on your device. View header, payload, expiration status.","browserRequirements":"JavaScript"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it safe to decode JWTs here?","acceptedAnswer":{"@type":"Answer","text":"Yes. All decoding happens locally in your browser. The JWT is never sent to any server. The signature is not verified (that requires the secret key), but the header and payload are safely decoded client-side."}},{"@type":"Question","name":"Can I verify the JWT signature?","acceptedAnswer":{"@type":"Answer","text":"This tool decodes JWT data but cannot verify the signature without the secret key. Signature verification requires the HMAC secret or RSA public key that only the issuing server knows."}},{"@type":"Question","name":"What information is in a JWT?","acceptedAnswer":{"@type":"Answer","text":"The header contains the algorithm (typ and alg). The payload contains claims like sub (user ID), iat (issued at), exp (expiration), iss (issuer), and custom data. The signature is a cryptographic hash of the header and payload."}},{"@type":"Question","name":"How do I know if my JWT is expired?","acceptedAnswer":{"@type":"Answer","text":"The tool automatically checks the exp (expiration) claim against the current time and shows whether the token is expired, valid, or will expire soon. It also shows the exact expiration date/time."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">JWT Decoder</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">JWT Decoder</span></nav>
     <div class="tool-header">
       <h1>JWT Decoder</h1>
-      <p>Decode JSON Web Tokens directly in your browser. No data is sent to any server â€” your tokens stay on your device.</p>
+      <p>Decode JSON Web Tokens directly in your browser. No data is sent to any server — your tokens stay on your device.</p>
     </div>
     <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All decoding happens in your browser. Your JWT is never uploaded anywhere.</span></div>
     <div class="converter-widget" id="toolWidget">
@@ -102,10 +102,10 @@
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">Is it safe to decode JWTs here? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. All decoding happens locally in your browser. The JWT is never sent to any server. The signature is not verified (that requires the secret key), but the header and payload are safely decoded client-side.</div></div>
-        <div class="faq-item"><button class="faq-question">Can I verify the JWT signature? <span class="arrow">â–¼</span></button><div class="faq-answer">This tool decodes JWT data but cannot verify the signature without the secret key. Signature verification requires the HMAC secret or RSA public key that only the issuing server knows.</div></div>
-        <div class="faq-item"><button class="faq-question">What information is in a JWT? <span class="arrow">â–¼</span></button><div class="faq-answer">The header contains the algorithm (typ and alg). The payload contains claims like sub (user ID), iat (issued at), exp (expiration), iss (issuer), and custom data. The signature is a cryptographic hash of the header and payload.</div></div>
-        <div class="faq-item"><button class="faq-question">How do I know if my JWT is expired? <span class="arrow">â–¼</span></button><div class="faq-answer">The tool automatically checks the "exp" (expiration) claim against the current time and shows whether the token is expired, valid, or will expire soon. It also shows the exact expiration date/time.</div></div>
+        <div class="faq-item"><button class="faq-question">Is it safe to decode JWTs here? <span class="arrow">▼</span></button><div class="faq-answer">Yes. All decoding happens locally in your browser. The JWT is never sent to any server. The signature is not verified (that requires the secret key), but the header and payload are safely decoded client-side.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I verify the JWT signature? <span class="arrow">▼</span></button><div class="faq-answer">This tool decodes JWT data but cannot verify the signature without the secret key. Signature verification requires the HMAC secret or RSA public key that only the issuing server knows.</div></div>
+        <div class="faq-item"><button class="faq-question">What information is in a JWT? <span class="arrow">▼</span></button><div class="faq-answer">The header contains the algorithm (typ and alg). The payload contains claims like sub (user ID), iat (issued at), exp (expiration), iss (issuer), and custom data. The signature is a cryptographic hash of the header and payload.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I know if my JWT is expired? <span class="arrow">▼</span></button><div class="faq-answer">The tool automatically checks the "exp" (expiration) claim against the current time and shows whether the token is expired, valid, or will expire soon. It also shows the exact expiration date/time.</div></div>
       </div>
     </div>
     <div class="content-section" id="relatedTools">
@@ -115,7 +115,7 @@
     <div class="ad-container">Ad</div>
   </main>
   <footer class="site-footer">
-    <div class="footer-content"><div class="footer-copy">Â© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
   </footer>
   <script src="js/shared.js?v=2"></script>
   <script>
@@ -211,7 +211,7 @@
           return;
         }
 
-        validationDiv.innerHTML = '<strong style="color:var(--color-success);">âœ“ Valid JWT format.</strong> Header and payload decoded successfully.';
+        validationDiv.innerHTML = '<strong style="color:var(--color-success);">✓ Valid JWT format.</strong> Header and payload decoded successfully.';
 
         var highlightedClaims = ['sub', 'iat', 'exp', 'iss'];
         var headerHighlighted = highlightClaims(headerFormatted, highlightedClaims);
@@ -229,14 +229,14 @@
           var expTime = parseInt(payloadObj.exp);
           var expDate = formatDate(expTime);
           if (expTime < now) {
-            expiryHtml = '<div style="background:rgba(220,38,38,0.1);border-left:4px solid var(--color-error);padding:10px 14px;border-radius:4px;"><strong style="color:var(--color-error);">âœ— Expired</strong> â€” Token expired ' + formatDate(expTime) + ' (' + timeAgo(expTime) + ').</div>';
+            expiryHtml = '<div style="background:rgba(220,38,38,0.1);border-left:4px solid var(--color-error);padding:10px 14px;border-radius:4px;"><strong style="color:var(--color-error);">✗ Expired</strong> — Token expired ' + formatDate(expTime) + ' (' + timeAgo(expTime) + ').</div>';
           } else if (expTime - now < 3600) {
-            expiryHtml = '<div style="background:rgba(234,179,8,0.1);border-left:4px solid #eab308;padding:10px 14px;border-radius:4px;"><strong style="color:#eab308;">âš¡ Expiring Soon</strong> â€” Token expires ' + formatDate(expTime) + ' (' + timeAgo(expTime) + ').</div>';
+            expiryHtml = '<div style="background:rgba(234,179,8,0.1);border-left:4px solid #eab308;padding:10px 14px;border-radius:4px;"><strong style="color:#eab308;">⚡ Expiring Soon</strong> — Token expires ' + formatDate(expTime) + ' (' + timeAgo(expTime) + ').</div>';
           } else {
-            expiryHtml = '<div style="background:rgba(34,197,94,0.1);border-left:4px solid var(--color-success);padding:10px 14px;border-radius:4px;"><strong style="color:var(--color-success);">âœ“ Valid</strong> â€” Token expires ' + formatDate(expTime) + ' (' + timeAgo(expTime) + ').</div>';
+            expiryHtml = '<div style="background:rgba(34,197,94,0.1);border-left:4px solid var(--color-success);padding:10px 14px;border-radius:4px;"><strong style="color:var(--color-success);">✓ Valid</strong> — Token expires ' + formatDate(expTime) + ' (' + timeAgo(expTime) + ').</div>';
           }
         } else {
-          expiryHtml = '<div style="background:var(--color-cream);border-left:4px solid var(--text-secondary);padding:10px 14px;border-radius:4px;"><strong>No expiration</strong> â€” This token does not contain an "exp" claim.</div>';
+          expiryHtml = '<div style="background:var(--color-cream);border-left:4px solid var(--text-secondary);padding:10px 14px;border-radius:4px;"><strong>No expiration</strong> — This token does not contain an "exp" claim.</div>';
         }
 
         if (payloadObj.iat) {

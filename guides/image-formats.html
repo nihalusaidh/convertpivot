@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Formats â€” HEIC, AVIF, WebP, JPEG & PNG Guide | ConvertPivot</title>
+  <title>Image Formats — HEIC, AVIF, WebP, JPEG & PNG Guide | ConvertPivot</title>
   <meta name="description" content="Complete guide to modern image formats. Compare HEIC, AVIF, WebP, JPEG, and PNG for web performance, compatibility, and quality.">
     <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/guides/image-formats">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/guides/image-formats">
-  <meta property="og:title" content="Image Formats â€” HEIC, AVIF, WebP, JPEG & PNG Guide | ConvertPivot">
+  <meta property="og:title" content="Image Formats — HEIC, AVIF, WebP, JPEG & PNG Guide | ConvertPivot">
   <meta property="og:description" content="Complete guide to modern image formats. Compare HEIC, AVIF, WebP, JPEG, and PNG for web performance, compatibility, and quality.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Image Formats â€” HEIC, AVIF, WebP, JPEG & PNG Guide | ConvertPivot">
+  <meta name="twitter:title" content="Image Formats — HEIC, AVIF, WebP, JPEG & PNG Guide | ConvertPivot">
   <meta name="twitter:description" content="Complete guide to modern image formats. Compare HEIC, AVIF, WebP, JPEG, and PNG for web performance, compatibility, and quality.">
   <link rel="stylesheet" href="../css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -33,20 +33,20 @@
 </head>
 <body>
   <header class="site-header">
-    <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button>
+    <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
     <a href="../" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
 
   <nav id="sidebar" class="sidebar"></nav>
 
   <main id="main-content" class="main-content">
     <nav class="breadcrumb">
-      <a href="../">Home</a><span class="sep">â€º</span>
-      <a href="../guides">Guides</a><span class="sep">â€º</span>
+      <a href="../">Home</a><span class="sep">›</span>
+      <a href="../guides">Guides</a><span class="sep">›</span>
       <span class="current">Image Formats</span>
     </nav>
 
     <div class="tool-header">
-      <h1>Image Formats for the Web â€” HEIC vs AVIF vs WebP vs JPEG vs PNG</h1>
+      <h1>Image Formats for the Web — HEIC vs AVIF vs WebP vs JPEG vs PNG</h1>
       <p>A complete reference to modern image formats, their compression technologies, browser support, and practical advice for choosing the right format.</p>
     </div>
 
@@ -60,27 +60,27 @@
       <p>Image formats have evolved dramatically over the past decade. While JPEG and PNG served the web faithfully for years, new formats like WebP, AVIF, and HEIC offer dramatically better compression, saving bandwidth and improving page load times. Choosing the right image format for your use case involves balancing file size, image quality, browser compatibility, and feature requirements like transparency or animation. This guide provides an in-depth comparison of the five major image formats and practical guidance for format selection and conversion.</p>
       <p>The modern image format landscape is shaped by competing priorities. JPEG remains the universal standard for photographs due to its unparalleled compatibility. PNG is the go-to for graphics with transparency. WebP offers an excellent balance of compression and browser support. AVIF pushes compression efficiency further using the AV1 video codec. HEIC, Apple's preferred format, delivers similar benefits to AVIF but with different licensing and ecosystem considerations. Understanding these trade-offs is essential for web developers, content creators, and anyone optimizing digital images.</p>
 
-      <h2>JPEG â€” The Universal Standard</h2>
+      <h2>JPEG — The Universal Standard</h2>
       <p>JPEG (Joint Photographic Experts Group) is the most widely used image format in the world. First released in 1992, JPEG uses lossy compression based on the discrete cosine transform (DCT). It achieves significant file size reduction by discarding high-frequency visual information that the human eye is less sensitive to. JPEG supports millions of colors (24-bit true color) but does not support transparency or animation. JPEG is supported by every web browser, image editor, and device ever made, making it the safest choice for universal compatibility.</p>
       <h3>When to Use JPEG</h3>
       <p>JPEG is best for photographs and complex images with smooth color gradients where some quality loss is acceptable. It is not suitable for graphics with sharp edges, text, or transparency, where artifacts become noticeable. JPEG's variable quality setting (typically 0-100) allows trading file size for quality. For web use, quality settings between 70 and 85 offer a good balance. Despite its age, JPEG remains relevant because of its universal support and mature ecosystem of optimization tools.</p>
 
-      <h2>PNG â€” Lossless and Transparent</h2>
+      <h2>PNG — Lossless and Transparent</h2>
       <p>PNG (Portable Network Graphics) was developed in the mid-1990s as a patent-free replacement for GIF. Unlike JPEG, PNG uses lossless compression based on the DEFLATE algorithm, preserving every pixel of the original image. PNG supports 24-bit true color and an 8-bit alpha channel for smooth transparency. It is the standard format for screenshots, logos, line art, and any image requiring sharp edges or transparency. PNG files are typically larger than JPEG files for photographic content because lossless compression cannot discard visual information.</p>
       <h3>PNG-8 vs PNG-24</h3>
       <p>PNG-8 uses an 8-bit palette (256 colors) and is suitable for simple graphics with limited color ranges, producing much smaller files than PNG-24. PNG-24 stores full 24-bit color with optional alpha transparency, making it ideal for high-quality graphics with transparency requirements. For web use, PNG-8 is often sufficient for icons, logos, and UI elements, while PNG-24 is used for detailed images requiring transparency.</p>
 
-      <h2>WebP â€” Google's Web-Optimized Format</h2>
+      <h2>WebP — Google's Web-Optimized Format</h2>
       <p>WebP is a modern image format developed by Google as part of the WebM multimedia project. First released in 2010, WebP supports both lossy and lossless compression, transparency (alpha channel), and animation (as an alternative to GIF). Lossy WebP uses block-based prediction coding similar to VP8 video compression. Lossless WebP uses advanced spatial prediction and entropy coding to achieve smaller file sizes than PNG. WebP can reduce file sizes by 25-35% compared to JPEG at equivalent quality, and lossless WebP files are typically 26% smaller than PNG.</p>
       <h3>Browser Support for WebP</h3>
       <p>WebP is supported by all modern browsers including Google Chrome, Firefox, Safari (14+), Edge, and Opera. Safari's late adoption (2020) was the final barrier to widespread WebP use. Today, WebP can be used safely for most web audiences, with JPEG fallback for legacy browsers. Content delivery networks like Cloudflare, Akamai, and Fastly support automatic WebP conversion and delivery, making it easy to serve WebP without changing your existing workflow.</p>
 
-      <h2>AVIF â€” Next-Generation Compression</h2>
+      <h2>AVIF — Next-Generation Compression</h2>
       <p>AVIF (AV1 Image File Format) is a cutting-edge image format based on the AV1 video codec, developed by the Alliance for Open Media (AOMedia). AVIF offers the best compression efficiency of any widely available image format, producing files 50% smaller than JPEG and 20-30% smaller than WebP at equivalent visual quality. AVIF supports lossy and lossless compression, transparency, HDR (high dynamic range) with wide color gamut, and 10-bit and 12-bit color depth. It is royalty-free, making it attractive for open web standards.</p>
       <h3>AVIF Features and Limitations</h3>
       <p>AVIF's compression efficiency comes from the AV1 codec's advanced coding tools, including compound prediction, warped motion compensation, and adaptive transform selection. AVIF supports still images and image sequences. Browser support includes Chrome (85+), Firefox (93+), and Safari (16.1+). The main limitation of AVIF is encoding speed: creating AVIF images is significantly slower than encoding JPEG or WebP, though decoding speed is competitive. For static images that are encoded once and served many times, the encoding cost is negligible.</p>
 
-      <h2>HEIC â€” Apple's HEVC-Based Format</h2>
+      <h2>HEIC — Apple's HEVC-Based Format</h2>
       <p>HEIC (High Efficiency Image Container) is Apple's preferred image format, introduced with iOS 11 and macOS High Sierra in 2017. HEIC uses HEVC (High Efficiency Video Coding, also known as H.265) for compression, achieving approximately 50% file size reduction compared to JPEG at the same quality. HEIC supports image sequences (Live Photos), transparency, 10-bit color depth, and multiple images in a single container file. It is the default capture format on iPhones and iPads, saving significant storage space.</p>
       <h3>HEIC Compatibility</h3>
       <p>HEIC has limited support outside the Apple ecosystem. While HEIC can be viewed on Windows 10+ with the HEIF Image Extension (available in the Microsoft Store) and recent Android versions (10+), many web platforms, social media sites, and legacy software do not support it. This makes HEIC conversion to JPEG or PNG necessary for sharing photos across platforms. ConvertPivot's HEIC to JPG and HEIC to PDF tools handle this conversion while preserving metadata.</p>
@@ -111,23 +111,23 @@
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
         <div class="faq-item">
-          <button class="faq-question">What is the best image format for web performance? <span class="arrow">â–¼</span></button>
+          <button class="faq-question">What is the best image format for web performance? <span class="arrow">▼</span></button>
           <div class="faq-answer">AVIF offers the best compression-to-quality ratio, reducing file sizes by up to 50% compared to JPEG at equivalent quality. WebP is a close second with broader browser support. For maximum compatibility, use JPEG with a content delivery network that automatically serves WebP or AVIF to supporting browsers.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">Can I convert HEIC to JPEG? <span class="arrow">â–¼</span></button>
+          <button class="faq-question">Can I convert HEIC to JPEG? <span class="arrow">▼</span></button>
           <div class="faq-answer">Yes, you can convert HEIC to JPEG using ConvertPivot's HEIC to JPG converter. The tool extracts each image from the HEIC container and converts it to a standard JPEG file while preserving metadata like orientation and timestamp.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">What is the difference between AVIF and WebP? <span class="arrow">â–¼</span></button>
+          <button class="faq-question">What is the difference between AVIF and WebP? <span class="arrow">▼</span></button>
           <div class="faq-answer">AVIF uses the AV1 video codec for image compression and offers better compression efficiency than WebP, typically 20-30% smaller files at the same quality. WebP has broader browser support (works in all modern browsers) and supports both lossy and lossless compression. AVIF also supports HDR and wider color gamuts.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">Which image format supports transparency? <span class="arrow">â–¼</span></button>
+          <button class="faq-question">Which image format supports transparency? <span class="arrow">▼</span></button>
           <div class="faq-answer">PNG, WebP (lossless), AVIF, and GIF support transparency. JPEG does not support transparency. PNG is the most widely supported format for transparent images on the web. WebP lossless with transparency offers smaller file sizes than PNG, and AVIF provides the best compression for images with transparency.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-question">Is HEIC or JPEG better for iPhone photos? <span class="arrow">â–¼</span></button>
+          <button class="faq-question">Is HEIC or JPEG better for iPhone photos? <span class="arrow">▼</span></button>
           <div class="faq-answer">HEIC is better for iPhone photos because it produces files roughly half the size of JPEG at the same quality, saving significant storage space. However, HEIC has limited compatibility with non-Apple devices and older software. If you need to share photos with Windows or Android users, convert HEIC to JPEG for maximum compatibility.</div>
         </div>
       </div>
@@ -152,7 +152,7 @@
 
   <footer class="site-footer">
     <div class="footer-content">
-      <div class="footer-copy">Â© 2026 ConvertPivot. Free online converter tools.</div>
+      <div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div>
       <div class="footer-links">
         <a href="../">Home</a>
         <a href="../about">About</a>

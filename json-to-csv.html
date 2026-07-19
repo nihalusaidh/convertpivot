@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JSON to CSV Converter â€” JSON Array to Spreadsheet | ConvertPivot</title>
+  <title>JSON to CSV Converter — JSON Array to Spreadsheet | ConvertPivot</title>
   <meta name="description" content="Free online JSON to CSV converter. Convert JSON arrays and objects to CSV format for Excel and Google Sheets. Browser-based, no uploads.">
   <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://convertpivot.com/json-to-csv">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://convertpivot.com/json-to-csv">
-  <meta property="og:title" content="JSON to CSV Converter â€” Free Online Tool | ConvertPivot">
+  <meta property="og:title" content="JSON to CSV Converter — Free Online Tool | ConvertPivot">
   <meta property="og:description" content="Free online JSON to CSV converter. Convert JSON arrays and objects to CSV format for Excel and Google Sheets. Browser-based, no uploads.">
   <meta property="og:image" content="https://convertpivot.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="JSON to CSV Converter â€” Free Online Tool | ConvertPivot">
+  <meta name="twitter:title" content="JSON to CSV Converter — Free Online Tool | ConvertPivot">
   <meta name="twitter:description" content="Free online JSON to CSV converter. Convert JSON arrays and objects to CSV format for Excel and Google Sheets. Browser-based, no uploads.">
   <link rel="stylesheet" href="css/style.css?v=2">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -32,10 +32,10 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I convert any JSON to CSV?","acceptedAnswer":{"@type":"Answer","text":"The JSON must be an array of objects. Each object becomes a row and its keys become column headers. Single objects or nested structures are flattened with dot notation for the headers."}},{"@type":"Question","name":"How are nested objects handled?","acceptedAnswer":{"@type":"Answer","text":"Nested objects are flattened using dot notation. For example, {\"address\":{\"city\":\"NYC\"}} becomes a column named \"address.city\". This ensures nested data is preserved in a flat CSV structure."}},{"@type":"Question","name":"What if JSON fields vary between objects?","acceptedAnswer":{"@type":"Answer","text":"Our converter collects all unique keys across every object in the array. Objects missing certain fields will have empty cells in those columns, ensuring no data is lost."}},{"@type":"Question","name":"Can I convert CSV back to JSON?","acceptedAnswer":{"@type":"Answer","text":"Not on this page, but we provide a CSV to JSON tool that handles the reverse conversion. Check our related tools section below."}},{"@type":"Question","name":"Is my data secure?","acceptedAnswer":{"@type":"Answer","text":"Yes. All JSON parsing and CSV generation happens entirely in your browser. Your data never leaves your device. Verify by checking the Network tab."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">JSON to CSV Converter</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">JSON to CSV Converter</span></nav>
     <div class="tool-header">
       <h1>JSON to CSV Converter</h1>
       <p>Convert JSON arrays to CSV format for Excel, Google Sheets, and other spreadsheet tools. Handles nested objects and varying fields.</p>
@@ -73,11 +73,11 @@
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">Can I convert any JSON to CSV? <span class="arrow">â–¼</span></button><div class="faq-answer">The JSON must be an array of objects. Each object becomes a row and its keys become column headers. Single objects or nested structures are flattened with dot notation for the headers.</div></div>
-        <div class="faq-item"><button class="faq-question">How are nested objects handled? <span class="arrow">â–¼</span></button><div class="faq-answer">Nested objects are flattened using dot notation. For example, {"address":{"city":"NYC"}} becomes a column named "address.city". This ensures nested data is preserved in a flat CSV structure.</div></div>
-        <div class="faq-item"><button class="faq-question">What if JSON fields vary between objects? <span class="arrow">â–¼</span></button><div class="faq-answer">Our converter collects all unique keys across every object in the array. Objects missing certain fields will have empty cells in those columns, ensuring no data is lost.</div></div>
-        <div class="faq-item"><button class="faq-question">Can I convert CSV back to JSON? <span class="arrow">â–¼</span></button><div class="faq-answer">Not on this page, but we provide a CSV to JSON tool that handles the reverse conversion. Check our related tools section below.</div></div>
-        <div class="faq-item"><button class="faq-question">Is my data secure? <span class="arrow">â–¼</span></button><div class="faq-answer">Yes. All JSON parsing and CSV generation happens entirely in your browser. Your data never leaves your device. Verify by checking the Network tab.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I convert any JSON to CSV? <span class="arrow">▼</span></button><div class="faq-answer">The JSON must be an array of objects. Each object becomes a row and its keys become column headers. Single objects or nested structures are flattened with dot notation for the headers.</div></div>
+        <div class="faq-item"><button class="faq-question">How are nested objects handled? <span class="arrow">▼</span></button><div class="faq-answer">Nested objects are flattened using dot notation. For example, {"address":{"city":"NYC"}} becomes a column named "address.city". This ensures nested data is preserved in a flat CSV structure.</div></div>
+        <div class="faq-item"><button class="faq-question">What if JSON fields vary between objects? <span class="arrow">▼</span></button><div class="faq-answer">Our converter collects all unique keys across every object in the array. Objects missing certain fields will have empty cells in those columns, ensuring no data is lost.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I convert CSV back to JSON? <span class="arrow">▼</span></button><div class="faq-answer">Not on this page, but we provide a CSV to JSON tool that handles the reverse conversion. Check our related tools section below.</div></div>
+        <div class="faq-item"><button class="faq-question">Is my data secure? <span class="arrow">▼</span></button><div class="faq-answer">Yes. All JSON parsing and CSV generation happens entirely in your browser. Your data never leaves your device. Verify by checking the Network tab.</div></div>
       </div>
     </div>
     <div class="content-section">

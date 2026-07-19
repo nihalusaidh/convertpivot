@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <script>if(localStorage.getItem("cp_dark_mode")==="true"||(localStorage.getItem("cp_dark_mode")===null&&matchMedia("(prefers-color-scheme:dark)").matches)){document.documentElement.setAttribute("data-theme","dark")}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSS Anchor Positioning Generator â€” anchor-name, position-area | ConvertPivot</title>
+  <title>CSS Anchor Positioning Generator — anchor-name, position-area | ConvertPivot</title>
   <meta name="description" content="Free online CSS anchor positioning generator. Create tooltips, popovers, and dropdowns with anchor-name and position-area. Generate cross-browser CSS.">
   <meta name="google-site-verification" content="BCAnzOhSYWrocRxfrohA25jkkYyjE7DdgaFchJkSGAo">
   <meta name="robots" content="index, follow">
@@ -32,13 +32,13 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is CSS Anchor Positioning?","acceptedAnswer":{"@type":"Answer","text":"CSS Anchor Positioning is a specification that lets you position elements relative to other elements (anchors) on the page. Instead of using JavaScript to calculate position on scroll/resize, you use CSS properties like anchor-name, position-anchor, and position-area to declare the relationship."}},{"@type":"Question","name":"How do I use anchor positioning?","acceptedAnswer":{"@type":"Answer","text":"First, give the anchor element an anchor-name (e.g., anchor-name: --tooltip-trigger). Then, on the positioned element, set position-anchor: --tooltip-trigger and position-area: top center to place it above the anchor. The browser automatically handles scrolling and resizing."}},{"@type":"Question","name":"What is position-area?","acceptedAnswer":{"@type":"Answer","text":"position-area is a shorthand that specifies where the positioned element should appear relative to its anchor. It takes two keywords: the block direction (top, bottom, start, end, center, y-start, y-end) and the inline direction (left, right, start, end, center, x-start, x-end). For example, position-area: top center places the element centered above the anchor."}},{"@type":"Question","name":"What is position-fallback?","acceptedAnswer":{"@type":"Answer","text":"position-fallback lets you define alternative positions that the browser will try if the preferred position doesn't fit in the viewport. You define a @position-fallback at-rule listing multiple position-area values. The browser tries each in order and uses the first one that fits."}},{"@type":"Question","name":"What browser support does Anchor Positioning have?","acceptedAnswer":{"@type":"Answer","text":"CSS Anchor Positioning is supported in Chrome 125+, Edge 125+, and Chromium-based browsers. Safari and Firefox have the feature in development. For production use, pair with a JavaScript polyfill or use feature detection with @supports (anchor-name: --x)."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">☰</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
   <main id="main-content" class="main-content">
-    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">CSS Anchor Positioning Generator</span></nav>
+    <nav class="breadcrumb"><a href="/">Home</a><span class="sep">›</span><span class="current">CSS Anchor Positioning Generator</span></nav>
     <div class="tool-header">
       <h1>CSS Anchor Positioning Generator</h1>
-      <p>Generate CSS anchor positioning rules to place tooltips, popovers, and dropdowns relative to anchor elements â€” no JavaScript required.</p>
+      <p>Generate CSS anchor positioning rules to place tooltips, popovers, and dropdowns relative to anchor elements — no JavaScript required.</p>
     </div>
     <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All generation happens in your browser. No data is sent anywhere.</span></div>
     <div class="converter-widget" id="toolWidget">
@@ -102,7 +102,7 @@
                   <option value="start">start</option>
                   <option value="end">end</option>
                 </select>
-                <button class="removeFb" style="background:none;border:none;cursor:pointer;color:#999;font-size:1.1rem;">âœ•</button>
+                <button class="removeFb" style="background:none;border:none;cursor:pointer;color:#999;font-size:1.1rem;">✕</button>
               </div>
               <div style="display:flex;gap:6px;margin-bottom:4px;">
                 <select class="fbBlock converter-input" style="flex:1;">
@@ -119,7 +119,7 @@
                   <option value="start">start</option>
                   <option value="end">end</option>
                 </select>
-                <button class="removeFb" style="background:none;border:none;cursor:pointer;color:#999;font-size:1.1rem;">âœ•</button>
+                <button class="removeFb" style="background:none;border:none;cursor:pointer;color:#999;font-size:1.1rem;">✕</button>
               </div>
             </div>
             <button id="addFbBtn" style="background:none;border:1px dashed var(--color-mist);border-radius:18px;padding:6px 16px;cursor:pointer;font-size:0.85rem;color:var(--text-secondary);">+ Add Fallback</button>
@@ -141,7 +141,7 @@
       <h2>How to Use the CSS Anchor Positioning Generator</h2>
       <div class="how-it-works">
         <div class="how-step"><div class="how-step-num">1</div><h3>Define the Anchor</h3><p>Choose an anchor name (a dashed ident like --my-anchor) and set the block/inline position where the target should appear relative to the anchor.</p></div>
-        <div class="how-step"><div class="how-step-num">2</div><h3>Add Fallbacks</h3><p>Enable position-fallback to define alternative positions. The browser tries each fallback in order and uses the first one that fits in the viewport â€” essential for responsive tooltips.</p></div>
+        <div class="how-step"><div class="how-step-num">2</div><h3>Add Fallbacks</h3><p>Enable position-fallback to define alternative positions. The browser tries each fallback in order and uses the first one that fits in the viewport — essential for responsive tooltips.</p></div>
         <div class="how-step"><div class="how-step-num">3</div><h3>Copy & Apply</h3><p>Copy the generated CSS. Add anchor-name to your anchor element and the positioned class to the target. The browser handles all scroll, resize, and viewport boundary logic automatically.</p></div>
       </div>
     </div>
@@ -163,11 +163,11 @@
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
-        <div class="faq-item"><button class="faq-question">What is CSS Anchor Positioning? <span class="arrow">â–¼</span></button><div class="faq-answer">CSS Anchor Positioning is a specification that lets you position elements relative to other elements (anchors) on the page. Instead of using JavaScript to calculate position on scroll/resize, you use CSS properties like anchor-name, position-anchor, and position-area to declare the relationship.</div></div>
-        <div class="faq-item"><button class="faq-question">How do I use anchor positioning? <span class="arrow">â–¼</span></button><div class="faq-answer">First, give the anchor element an anchor-name (e.g., anchor-name: --tooltip-trigger). Then, on the positioned element, set position-anchor: --tooltip-trigger and position-area: top center to place it above the anchor. The browser automatically handles scrolling and resizing.</div></div>
-        <div class="faq-item"><button class="faq-question">What is position-area? <span class="arrow">â–¼</span></button><div class="faq-answer">position-area is a shorthand that specifies where the positioned element should appear relative to its anchor. It takes two keywords: the block direction (top, bottom, start, end, center, y-start, y-end) and the inline direction (left, right, start, end, center, x-start, x-end).</div></div>
-        <div class="faq-item"><button class="faq-question">What is position-fallback? <span class="arrow">â–¼</span></button><div class="faq-answer">position-fallback lets you define alternative positions that the browser will try if the preferred position doesn't fit in the viewport. You define a @position-fallback at-rule listing multiple position-area values. The browser tries each in order and uses the first one that fits.</div></div>
-        <div class="faq-item"><button class="faq-question">What browser support does Anchor Positioning have? <span class="arrow">â–¼</span></button><div class="faq-answer">CSS Anchor Positioning is supported in Chrome 125+, Edge 125+, and Chromium-based browsers. Safari and Firefox have the feature in development. For production, pair with a JavaScript polyfill or use feature detection with @supports (anchor-name: --x).</div></div>
+        <div class="faq-item"><button class="faq-question">What is CSS Anchor Positioning? <span class="arrow">▼</span></button><div class="faq-answer">CSS Anchor Positioning is a specification that lets you position elements relative to other elements (anchors) on the page. Instead of using JavaScript to calculate position on scroll/resize, you use CSS properties like anchor-name, position-anchor, and position-area to declare the relationship.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I use anchor positioning? <span class="arrow">▼</span></button><div class="faq-answer">First, give the anchor element an anchor-name (e.g., anchor-name: --tooltip-trigger). Then, on the positioned element, set position-anchor: --tooltip-trigger and position-area: top center to place it above the anchor. The browser automatically handles scrolling and resizing.</div></div>
+        <div class="faq-item"><button class="faq-question">What is position-area? <span class="arrow">▼</span></button><div class="faq-answer">position-area is a shorthand that specifies where the positioned element should appear relative to its anchor. It takes two keywords: the block direction (top, bottom, start, end, center, y-start, y-end) and the inline direction (left, right, start, end, center, x-start, x-end).</div></div>
+        <div class="faq-item"><button class="faq-question">What is position-fallback? <span class="arrow">▼</span></button><div class="faq-answer">position-fallback lets you define alternative positions that the browser will try if the preferred position doesn't fit in the viewport. You define a @position-fallback at-rule listing multiple position-area values. The browser tries each in order and uses the first one that fits.</div></div>
+        <div class="faq-item"><button class="faq-question">What browser support does Anchor Positioning have? <span class="arrow">▼</span></button><div class="faq-answer">CSS Anchor Positioning is supported in Chrome 125+, Edge 125+, and Chromium-based browsers. Safari and Firefox have the feature in development. For production, pair with a JavaScript polyfill or use feature detection with @supports (anchor-name: --x).</div></div>
       </div>
     </div>
     <div class="content-section" id="relatedTools">
@@ -177,7 +177,7 @@
     <div class="ad-container">Ad</div>
   </main>
   <footer class="site-footer">
-    <div class="footer-content"><div class="footer-copy">Â© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
+    <div class="footer-content"><div class="footer-copy">© 2026 ConvertPivot. Free online converter tools.</div><div class="footer-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div>
   </footer>
   <script src="js/shared.js?v=2"></script>
   <script>
@@ -286,7 +286,7 @@
         div.style.display = 'flex';
         div.style.gap = '6px';
         div.style.marginBottom = '4px';
-        div.innerHTML = '<select class="fbBlock converter-input" style="flex:1;"><option value="top">top</option><option value="bottom">bottom</option><option value="center">center</option><option value="start">start</option><option value="end">end</option></select><select class="fbInline converter-input" style="flex:1;"><option value="center">center</option><option value="left">left</option><option value="right">right</option><option value="start">start</option><option value="end">end</option></select><button class="removeFb" style="background:none;border:none;cursor:pointer;color:#999;font-size:1.1rem;">âœ•</button>';
+        div.innerHTML = '<select class="fbBlock converter-input" style="flex:1;"><option value="top">top</option><option value="bottom">bottom</option><option value="center">center</option><option value="start">start</option><option value="end">end</option></select><select class="fbInline converter-input" style="flex:1;"><option value="center">center</option><option value="left">left</option><option value="right">right</option><option value="start">start</option><option value="end">end</option></select><button class="removeFb" style="background:none;border:none;cursor:pointer;color:#999;font-size:1.1rem;">✕</button>';
         fbContainer.appendChild(div);
         div.querySelector('.removeFb').addEventListener('click', function() { div.remove(); if (optFallback.checked) generate(); });
         div.querySelector('.fbBlock').addEventListener('change', function() { if (optFallback.checked) generate(); });
