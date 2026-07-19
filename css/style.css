@@ -256,6 +256,7 @@ a:hover { color: var(--color-red); }
   text-align: center;
   font-size: 1rem;
   flex-shrink: 0;
+  font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
 }
 
 .sidebar-coming {
@@ -940,7 +941,7 @@ pre.converter-input {
   color: var(--color-graphite);
 }
 
-.privacy-banner .icon { font-size: 1.3rem; flex-shrink: 0; }
+.privacy-banner .icon { font-size: 1.3rem; flex-shrink: 0; font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif; }
 
 /* === TOOL GRID (landing page) === */
 .tool-grid {
@@ -1294,7 +1295,7 @@ pre.converter-input {
   padding: 40px 20px;
   color: var(--color-graphite);
 }
-.empty-state .icon { font-size: 2.5rem; margin-bottom: 12px; }
+.empty-state .icon { font-size: 2.5rem; margin-bottom: 12px; font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif; }
 .empty-state h3 { font-size: 1.1rem; margin-bottom: 6px; color: var(--color-ink); }
 .empty-state p { font-size: 0.9rem; }
 

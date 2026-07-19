@@ -28,7 +28,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I create calendar events from CSV?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upload a CSV with columns for title, start date, end date, and location. This converter creates a valid ICS file that you can import into Google Calendar, Apple Calendar, or Outlook."}},{"@type":"Question","name":"What format should dates be in?","acceptedAnswer":{"@type":"Answer","text":"Use YYYY-MM-DD for dates (e.g. 2026-07-13) and HH:MM for times. The converter automatically formats them for the ICS standard."}},{"@type":"Question","name":"Is this converter free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no limits, no watermarks, and no signup required."}},{"@type":"Question","name":"Is my data private?","acceptedAnswer":{"@type":"Answer","text":"Yes. All processing happens in your browser. Your CSV data never leaves your device."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">ðŸŒ™</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
   <main id="main-content" class="main-content">
     <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">CSV to ICS</span></nav>
@@ -36,10 +36,10 @@
       <h1>CSV to ICS Converter â€” Spreadsheet to iCalendar</h1>
       <p>Convert CSV spreadsheets to iCalendar (.ics) files for Google Calendar, Apple Calendar, and Outlook. Create events from your data instantly. 100% browser-based.</p>
     </div>
-    <div class="alert alert-info" style="margin-bottom:20px;">ðŸ”’ 100% browser-based. Your data never leaves your device.</div>
+    <div class="alert alert-info" style="margin-bottom:20px;">🔒 100% browser-based. Your data never leaves your device.</div>
     <div class="converter-card">
       <div id="dropZone" class="drop-zone">
-        <div class="drop-content"><span class="drop-icon">ðŸ“Š</span><p>Drop a .csv file here, or click to browse</p><span class="drop-hint">CSV with columns: Title, Start Date, Start Time (optional)</span></div>
+        <div class="drop-content"><span class="drop-icon">📊</span><p>Drop a .csv file here, or click to browse</p><span class="drop-hint">CSV with columns: Title, Start Date, Start Time (optional)</span></div>
         <input type="file" id="fileInput" accept=".csv,.tsv,.txt" hidden>
       </div>
       <div id="result" class="result-area" style="display:none;"></div>
@@ -81,7 +81,7 @@
     dropZone.addEventListener('dragleave',function(){dropZone.classList.remove('drag-over')});
     dropZone.addEventListener('drop',function(e){e.preventDefault();dropZone.classList.remove('drag-over');if(e.dataTransfer.files.length)handleFile(e.dataTransfer.files[0])});
     fileInput.addEventListener('change',function(){if(fileInput.files.length)handleFile(fileInput.files[0])});
-    function handleFile(f){currentFile=f;dropZone.querySelector('.drop-content').innerHTML='<span class="drop-icon">ðŸ“Š</span><p>'+f.name+' ('+(f.size/1024).toFixed(1)+' KB)</p>';actions.style.display='flex';resultDiv.style.display='none';downloadBtn.style.display='none'}
+    function handleFile(f){currentFile=f;dropZone.querySelector('.drop-content').innerHTML='<span class="drop-icon">📊</span><p>'+f.name+' ('+(f.size/1024).toFixed(1)+' KB)</p>';actions.style.display='flex';resultDiv.style.display='none';downloadBtn.style.display='none'}
     convertBtn.addEventListener('click',function(){
       if(!currentFile){ConvertPivot.showResult('result','Select a file first.','error');return}
       var reader=new FileReader();

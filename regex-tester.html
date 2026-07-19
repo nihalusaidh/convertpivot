@@ -32,7 +32,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What regex engine does this use?","acceptedAnswer":{"@type":"Answer","text":"This tester uses JavaScript's built-in RegExp engine. It supports all standard JavaScript regex features including lookaheads, lookbehinds, named capture groups, and the 's' (dotall) flag."}},{"@type":"Question","name":"How do regex flags work?","acceptedAnswer":{"@type":"Answer","text":"g (global): find all matches. i (case-insensitive). m (multiline): ^ and $ match line boundaries. s (dotall): . matches newlines. u (unicode): enable Unicode features. y (sticky): match from lastIndex."}},{"@type":"Question","name":"What are capture groups?","acceptedAnswer":{"@type":"Answer","text":"Capture groups are parts of a pattern enclosed in parentheses (). They capture the matched text for use in replacements or for extraction. Named groups use (?<name>...) syntax."}},{"@type":"Question","name":"Can I test regex replacements?","acceptedAnswer":{"@type":"Answer","text":"Yes. Enter a replacement string in the Replacement field. Use $1, $2, etc. for captured groups, $& for the full match, or named groups with $<name>."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">ðŸŒ™</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
   <main id="main-content" class="main-content">
     <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">Regex Tester</span></nav>
@@ -40,13 +40,13 @@
       <h1>Regex Tester</h1>
       <p>Test regular expressions against any text in real-time. View match details, capture groups, and preview replacements.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your text and patterns never leave your device.</span></div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your text and patterns never leave your device.</span></div>
     <div class="converter-widget" id="toolWidget" style="max-width:800px;">
       <div class="converter-form">
         <label for="regexPattern">Regular Expression:</label>
         <div style="display:flex;gap:8px;">
           <input type="text" id="regexPattern" class="converter-input" placeholder="e.g. \d{3}-\d{2}-\d{4}" style="flex:1;padding:10px 14px;border:1px solid var(--color-mist);border-radius:var(--radius-pill);font-family:Consolas,monospace;font-size:0.9rem;background:var(--color-canvas);color:var(--color-ink);outline:none;">
-          <button id="copyPatternBtn" class="btn btn-secondary" title="Copy regex pattern" style="padding:10px 14px;">ðŸ“‹</button>
+          <button id="copyPatternBtn" class="btn btn-secondary" title="Copy regex pattern" style="padding:10px 14px;">📋</button>
         </div>
         <div style="display:flex;gap:12px;margin-top:10px;flex-wrap:wrap;align-items:center;">
           <span style="font-size:0.85rem;font-weight:500;color:var(--color-graphite);">Flags:</span>

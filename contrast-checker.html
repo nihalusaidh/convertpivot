@@ -32,7 +32,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is WCAG color contrast ratio?","acceptedAnswer":{"@type":"Answer","text":"WCAG (Web Content Accessibility Guidelines) defines contrast ratio requirements for text and background colors. The ratio ranges from 1:1 (same color) to 21:1 (black on white). Normal text requires 4.5:1 (AA) or 7:1 (AAA). Large text (18px+ bold or 24px+ regular) requires 3:1 (AA) or 4.5:1 (AAA)."}},{"@type":"Question","name":"How is the contrast ratio calculated?","acceptedAnswer":{"@type":"Answer","text":"The contrast ratio is calculated using the relative luminance of both colors. Luminance is a weighted sum of RGB values: L = 0.2126R + 0.7152G + 0.0722B (after linearization). The contrast ratio is (L1 + 0.05) / (L2 + 0.05) where L1 is the lighter color and L2 is the darker color."}},{"@type":"Question","name":"What does AA vs AAA compliance mean?","acceptedAnswer":{"@type":"Answer","text":"WCAG AA is the minimum compliance level required by most government and enterprise accessibility standards. AA requires 4.5:1 for normal text and 3:1 for large text. AAA is a higher standard requiring 7:1 for normal text and 4.5:1 for large text. AAA is not required for full compliance but represents best practice."}},{"@type":"Question","name":"How do I choose accessible color combinations?","acceptedAnswer":{"@type":"Answer","text":"Start by choosing a background color, then adjust the text color until you reach at least AA compliance. Dark text on light backgrounds generally works best. Avoid low-contrast combinations like light gray on white, or dark blue on black. Use the color pickers to experiment with different combinations."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">ðŸŒ™</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
   <main id="main-content" class="main-content">
     <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">Contrast Checker</span></nav>
@@ -40,7 +40,7 @@
       <h1>Color Contrast Checker</h1>
       <p>Check WCAG AA and AAA accessibility compliance for any text and background color combination. Preview the result in real-time.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span><strong>Privacy first:</strong> All color calculations happen in your browser. No data is sent anywhere.</span></div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All color calculations happen in your browser. No data is sent anywhere.</span></div>
     <div class="converter-widget" id="toolWidget">
       <div class="converter-form">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">

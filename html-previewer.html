@@ -32,7 +32,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this HTML previewer safe to use with unknown code?","acceptedAnswer":{"@type":"Answer","text":"Yes. The preview is rendered inside a sandboxed iframe with the 'sandbox' attribute. This prevents any JavaScript from accessing your browser's session, cookies, or other tabs. Malicious scripts are contained within the preview. All processing is local."}},{"@type":"Question","name":"Can I use this instead of CodePen or JSFiddle?","acceptedAnswer":{"@type":"Answer","text":"This tool is ideal for quick HTML previews without signing up for an account. Unlike CodePen or JSFiddle which require accounts and have server-side features, ConvertPivot's HTML previewer is entirely local, instant, and requires no account. It's perfect for testing email templates, landing page snippets, or learning HTML."}},{"@type":"Question","name":"Does the HTML previewer support CSS and JavaScript?","acceptedAnswer":{"@type":"Answer","text":"Yes, the preview renders full HTML documents including embedded CSS in style tags and JavaScript in script tags. You can include external CDN links for libraries like Tailwind CSS, Bootstrap, or Alpine.js. The preview updates instantly as you type."}},{"@type":"Question","name":"What happens to my HTML code after I close the page?","acceptedAnswer":{"@type":"Answer","text":"Your HTML code is stored in your browser's localStorage and can be restored on your next visit. You can also download your HTML as a file or copy it to your clipboard. No data is ever sent to any server."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">ðŸŒ™</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
   <main id="main-content" class="main-content">
     <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">HTML Previewer</span></nav>
@@ -40,7 +40,7 @@
       <h1>HTML Previewer</h1>
       <p>Write or paste HTML code and see the live rendered result instantly. Full CSS and JavaScript support in a sandboxed preview.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span><strong>Privacy first:</strong> All code stays in your browser. The preview runs in a sandboxed iframe for safety.</span></div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All code stays in your browser. The preview runs in a sandboxed iframe for safety.</span></div>
     <div class="converter-widget" id="toolWidget">
       <div class="converter-form">
         <div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;">

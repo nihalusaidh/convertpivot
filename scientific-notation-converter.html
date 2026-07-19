@@ -32,7 +32,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is scientific notation?","acceptedAnswer":{"@type":"Answer","text":"Scientific notation expresses numbers as a \u00d7 10^b where a is between 1 and 10. It is used for very large or very small numbers."}},{"@type":"Question","name":"What is engineering notation?","acceptedAnswer":{"@type":"Answer","text":"Engineering notation is like scientific notation but exponents are always multiples of 3 (kilo, mega, giga, milli, micro, nano)."}},{"@type":"Question","name":"How do I convert a number to scientific notation?","acceptedAnswer":{"@type":"Answer","text":"Move the decimal point until only one non-zero digit remains to its left. Count the moves \u2014 that is the exponent (positive for left, negative for right)."}},{"@type":"Question","name":"What is E notation?","acceptedAnswer":{"@type":"Answer","text":"E notation (e.g., 1.23e4) is a compact way to write scientific notation used in programming and calculators. 'e' stands for exponent."}}]}</script>
 </head>
 <body>
-  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">ðŸŒ™</button></header>
+  <header class="site-header"><button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle navigation">â˜°</button><a href="/" class="site-logo"><span class="logo-mark">P</span><span>ConvertPivot</span></a><button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></header>
   <nav id="sidebar" class="sidebar" aria-label="Tool navigation"></nav>
   <main id="main-content" class="main-content">
     <nav class="breadcrumb"><a href="/">Home</a><span class="sep">â€º</span><span class="current">Scientific Notation Converter</span></nav>
@@ -40,7 +40,7 @@
       <h1>Scientific Notation Converter</h1>
       <p>Convert between decimal numbers, scientific notation, and engineering notation instantly. Auto-detects input format.</p>
     </div>
-    <div class="privacy-banner"><span class="icon">ðŸ”’</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your numbers stay on your device.</span></div>
+    <div class="privacy-banner"><span class="icon">🔒</span><span><strong>Privacy first:</strong> All processing happens in your browser. Your numbers stay on your device.</span></div>
     <div class="converter-widget" id="toolWidget">
       <div class="converter-form">
         <label for="sciInput" style="font-weight:600;font-size:0.95rem;">Enter a number:</label>
@@ -84,9 +84,9 @@
       <h2>Frequently Asked Questions</h2>
       <div class="faq-list" id="faqPage">
         <div class="faq-item"><button class="faq-question">What is scientific notation? <span class="arrow">â–¼</span></button><div class="faq-answer">Scientific notation expresses numbers as <strong>a Ã— 10<sup>b</sup></strong> where <em>a</em> (the mantissa or coefficient) is between 1 and 10. The exponent <em>b</em> indicates how many places the decimal point was moved. It is commonly used in science, engineering, and mathematics to represent very large or very small numbers concisely. For example, the speed of light (299,792,458 m/s) is written as 2.99792458 Ã— 10<sup>8</sup> m/s.</div></div>
-        <div class="faq-item"><button class="faq-question">What is engineering notation? <span class="arrow">â–¼</span></button><div class="faq-answer">Engineering notation is a variation of scientific notation where the exponent is always a multiple of 3. This aligns with common SI prefixes like kilo (10Â³), mega (10â¶), giga (10â¹), milli (10â»Â³), micro (10â»â¶), and nano (10â»â¹). For example, 0.000047 is written as 47 Ã— 10â»â¶ (47 micro) rather than 4.7 Ã— 10â»âµ in standard scientific notation. This makes it easier to relate to real-world units.</div></div>
-        <div class="faq-item"><button class="faq-question">How do I convert a number to scientific notation? <span class="arrow">â–¼</span></button><div class="faq-answer">To convert a decimal number to scientific notation: <strong>1)</strong> Move the decimal point left or right until only one non-zero digit remains to its left. <strong>2)</strong> Count how many places you moved the decimal â€” that becomes the exponent. Moving left gives a positive exponent (large numbers); moving right gives a negative exponent (small numbers). <strong>3)</strong> Remove trailing zeros from the mantissa. For example, 4,500,000 becomes 4.5 Ã— 10â¶ (decimal moved 6 places left).</div></div>
-        <div class="faq-item"><button class="faq-question">What is E notation? <span class="arrow">â–¼</span></button><div class="faq-answer">E notation (also called scientific E notation) is a compact way to write scientific notation where the "Ã— 10<sup>n</sup>" part is replaced with "e" followed by the exponent. For example, 1.23 Ã— 10â´ is written as 1.23e4 (or 1.23E4). It is widely used in programming languages (Python, JavaScript, Java), calculators, spreadsheets, and data formats to represent large and small numbers in a text-friendly format that does not require superscripts or special characters.</div></div>
+        <div class="faq-item"><button class="faq-question">What is engineering notation? <span class="arrow">â–¼</span></button><div class="faq-answer">Engineering notation is a variation of scientific notation where the exponent is always a multiple of 3. This aligns with common SI prefixes like kilo (10Â³), mega (10⁶), giga (10⁹), milli (10⁻³), micro (10⁻⁶), and nano (10⁻⁹). For example, 0.000047 is written as 47 Ã— 10⁻⁶ (47 micro) rather than 4.7 Ã— 10⁻⁵ in standard scientific notation. This makes it easier to relate to real-world units.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I convert a number to scientific notation? <span class="arrow">â–¼</span></button><div class="faq-answer">To convert a decimal number to scientific notation: <strong>1)</strong> Move the decimal point left or right until only one non-zero digit remains to its left. <strong>2)</strong> Count how many places you moved the decimal â€” that becomes the exponent. Moving left gives a positive exponent (large numbers); moving right gives a negative exponent (small numbers). <strong>3)</strong> Remove trailing zeros from the mantissa. For example, 4,500,000 becomes 4.5 Ã— 10⁶ (decimal moved 6 places left).</div></div>
+        <div class="faq-item"><button class="faq-question">What is E notation? <span class="arrow">â–¼</span></button><div class="faq-answer">E notation (also called scientific E notation) is a compact way to write scientific notation where the "Ã— 10<sup>n</sup>" part is replaced with "e" followed by the exponent. For example, 1.23 Ã— 10⁴ is written as 1.23e4 (or 1.23E4). It is widely used in programming languages (Python, JavaScript, Java), calculators, spreadsheets, and data formats to represent large and small numbers in a text-friendly format that does not require superscripts or special characters.</div></div>
       </div>
     </div>
     <div class="content-section" id="relatedTools">
@@ -104,15 +104,15 @@
       var input = document.getElementById('sciInput');
       var resultsDiv = document.getElementById('sciResults');
 
-      var supMap = {'0':'â°','1':'Â¹','2':'Â²','3':'Â³','4':'â´','5':'âµ','6':'â¶','7':'â·','8':'â¸','9':'â¹'};
+      var supMap = {'0':'⁰','1':'Â¹','2':'Â²','3':'Â³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
 
       function toSup(n) {
-        if (n === 0) return 'â°';
+        if (n === 0) return '⁰';
         var s = '', neg = n < 0;
         if (neg) n = -n;
         var d = n.toString();
         for (var i = 0; i < d.length; i++) s += supMap[d[i]] || d[i];
-        return (neg ? 'â»' : '') + s;
+        return (neg ? '⁻' : '') + s;
       }
 
       var ones = ['','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
@@ -210,7 +210,7 @@
         var expStr = Math.abs(exponent).toString();
         var expSup = '';
         for (var i = 0; i < expStr.length; i++) expSup += supMap[expStr[i]];
-        return mStr + ' \u00d7 10' + (neg ? 'â»' : '') + expSup;
+        return mStr + ' \u00d7 10' + (neg ? '⁻' : '') + expSup;
       }
 
       function formatESci(mantissa, exponent) {
@@ -267,11 +267,11 @@
         var html = '';
         html += '<div style="margin-bottom:6px;font-size:0.8rem;color:var(--color-graphite);">' + (isSciInput ? 'Input detected as <strong>scientific notation</strong>' : 'Input detected as <strong>decimal number</strong>') + '</div>';
         html += '<div class="result-card" style="border:1px solid var(--color-mist);border-radius:8px;overflow:hidden;margin-bottom:8px;">';
-        html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--color-smoke);border-bottom:1px solid var(--color-mist);"><span style="font-weight:600;font-size:0.9rem;">ðŸ”¬ Decimal</span><button class="copy-btn" data-copy="' + decStr.replace(/"/g, '&quot;') + '" style="background:none;border:1px solid var(--color-mist);border-radius:18px;padding:4px 14px;font-size:0.8rem;cursor:pointer;color:var(--color-graphite);font-family:inherit;">Copy</button></div>';
+        html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--color-smoke);border-bottom:1px solid var(--color-mist);"><span style="font-weight:600;font-size:0.9rem;">🔬 Decimal</span><button class="copy-btn" data-copy="' + decStr.replace(/"/g, '&quot;') + '" style="background:none;border:1px solid var(--color-mist);border-radius:18px;padding:4px 14px;font-size:0.8rem;cursor:pointer;color:var(--color-graphite);font-family:inherit;">Copy</button></div>';
         html += '<div style="padding:12px 16px;font-size:1.1rem;font-weight:600;font-family:monospace;">' + decStr + '</div></div>';
 
         html += '<div class="result-card" style="border:1px solid var(--color-mist);border-radius:8px;overflow:hidden;margin-bottom:8px;">';
-        html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--color-smoke);border-bottom:1px solid var(--color-mist);"><span style="font-weight:600;font-size:0.9rem;">ðŸ§ª Scientific Notation</span><button class="copy-btn" data-copy="' + sciFormatted.replace(/"/g, '&quot;') + '" style="background:none;border:1px solid var(--color-mist);border-radius:18px;padding:4px 14px;font-size:0.8rem;cursor:pointer;color:var(--color-graphite);font-family:inherit;">Copy</button></div>';
+        html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--color-smoke);border-bottom:1px solid var(--color-mist);"><span style="font-weight:600;font-size:0.9rem;">🧪 Scientific Notation</span><button class="copy-btn" data-copy="' + sciFormatted.replace(/"/g, '&quot;') + '" style="background:none;border:1px solid var(--color-mist);border-radius:18px;padding:4px 14px;font-size:0.8rem;cursor:pointer;color:var(--color-graphite);font-family:inherit;">Copy</button></div>';
         html += '<div style="padding:12px 16px;font-size:1.1rem;font-weight:600;font-family:monospace;">' + sciFormatted + '</div></div>';
 
         html += '<div class="result-card" style="border:1px solid var(--color-mist);border-radius:8px;overflow:hidden;margin-bottom:8px;">';
@@ -279,15 +279,15 @@
         html += '<div style="padding:12px 16px;font-size:1.1rem;font-weight:600;font-family:monospace;">' + engFormatted + '</div></div>';
 
         html += '<div class="result-card" style="border:1px solid var(--color-mist);border-radius:8px;overflow:hidden;margin-bottom:8px;">';
-        html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--color-smoke);border-bottom:1px solid var(--color-mist);"><span style="font-weight:600;font-size:0.9rem;">ðŸ’» E Notation</span><button class="copy-btn" data-copy="' + eNotation.replace(/"/g, '&quot;') + '" style="background:none;border:1px solid var(--color-mist);border-radius:18px;padding:4px 14px;font-size:0.8rem;cursor:pointer;color:var(--color-graphite);font-family:inherit;">Copy</button></div>';
+        html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--color-smoke);border-bottom:1px solid var(--color-mist);"><span style="font-weight:600;font-size:0.9rem;">💻 E Notation</span><button class="copy-btn" data-copy="' + eNotation.replace(/"/g, '&quot;') + '" style="background:none;border:1px solid var(--color-mist);border-radius:18px;padding:4px 14px;font-size:0.8rem;cursor:pointer;color:var(--color-graphite);font-family:inherit;">Copy</button></div>';
         html += '<div style="padding:12px 16px;font-size:1.1rem;font-weight:600;font-family:monospace;">' + eNotation + '</div></div>';
 
         html += '<div class="result-card" style="border:1px solid var(--color-mist);border-radius:8px;overflow:hidden;margin-bottom:8px;">';
-        html += '<div style="padding:12px 16px;background:var(--color-smoke);border-bottom:1px solid var(--color-mist);font-weight:600;font-size:0.9rem;">ðŸ”¢ Number in Words</div>';
+        html += '<div style="padding:12px 16px;background:var(--color-smoke);border-bottom:1px solid var(--color-mist);font-weight:600;font-size:0.9rem;">🔢 Number in Words</div>';
         html += '<div style="padding:12px 16px;font-size:0.95rem;">' + (inWords || 'â€”') + '</div></div>';
 
         html += '<div class="result-card" style="border:1px solid var(--color-mist);border-radius:8px;overflow:hidden;">';
-        html += '<div style="padding:12px 16px;background:var(--color-smoke);border-bottom:1px solid var(--color-mist);font-weight:600;font-size:0.9rem;">ðŸ”¬ Significant Figures</div>';
+        html += '<div style="padding:12px 16px;background:var(--color-smoke);border-bottom:1px solid var(--color-mist);font-weight:600;font-size:0.9rem;">🔬 Significant Figures</div>';
         html += '<div style="padding:12px 16px;font-size:0.95rem;"><strong>' + sigFigs + '</strong> significant figure' + (sigFigs !== 1 ? 's' : '') + '</div></div>';
 
         resultsDiv.innerHTML = html;
